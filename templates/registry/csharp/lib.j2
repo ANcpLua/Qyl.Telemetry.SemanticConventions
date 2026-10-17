@@ -467,7 +467,7 @@ global::Qyl.Telemetry.SemanticConventions.RequirementLevel.{{ requirement_level_
 {%- set suffix = lower[(root | length) + 1:] -%}
 {%- set s.exempt = true -%}
 {%- if suffix | length == 0 -%}{%- set s.denied = true -%}{%- endif -%}
-{%- set allowed = "abcdefghijklmnopqrstuvwxyz0123456789_-." ~ ("!#$%&'*+^`|~" if root in policy.captured_fields.http_roots else "") -%}
+{%- set allowed = policy.captured_fields.http_name_characters if root in policy.captured_fields.http_roots else policy.captured_fields.rpc_name_characters -%}
 {%- for c in suffix -%}{%- if c not in allowed -%}{%- set s.denied = true -%}{%- endif -%}{%- endfor -%}
 {%- endif -%}
 {%- endfor -%}

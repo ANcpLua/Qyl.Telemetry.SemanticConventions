@@ -215,7 +215,7 @@ rm -rf src/Qyl.Telemetry.SemanticConventions/Generated src/Qyl.Telemetry.Semanti
   csharp \
   .
 
-python3 scripts/generate-typescript.py .build/typescript-registry.json
+python3 scripts/generate-typescript.py .build/typescript-registry.json "${policy_json}"
 
 echo "Regenerated from registry/ with Weaver ${actual_weaver_version}"
 echo "  core:  ${core_ref} (${core_commit})"

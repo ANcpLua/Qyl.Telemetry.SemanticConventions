@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import * as stable from '@ancplua/qyl-semantic-conventions';
 import * as all from '@ancplua/qyl-semantic-conventions/incubating';
 import { findAttribute, findMetric } from '@ancplua/qyl-semantic-conventions/catalog';
+import { getCapturedFieldPersistence } from '@ancplua/qyl-semantic-conventions/policy';
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 const pkg = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.resolve('@ancplua/qyl-semantic-conventions'))), '../package.json')));
@@ -34,6 +35,11 @@ assert.equal(findAttribute('db.system').deprecated.renamed_to, 'db.system.name')
 assert.equal(findMetric('http.server.request.duration').instrument, 'histogram');
 assert.equal(findMetric('http.server.request.duration').unit, 's');
 assert.equal(findMetric('shop.custom.duration'), undefined);
+assert.equal(getCapturedFieldPersistence('HTTP.REQUEST.HEADER.AUTHORIZATION'), true);
+assert.equal(getCapturedFieldPersistence('rpc.response.metadata.trace-bin'), true);
+assert.equal(getCapturedFieldPersistence('rpc.request.metadata.x+feature'), false);
+assert.equal(getCapturedFieldPersistence('http.request.header'), false);
+assert.equal(getCapturedFieldPersistence('http.request.headers.authorization'), undefined);
 console.log(`TypeScript release consumer passed: ${pkg.version}; registry ${stable.REGISTRY_SNAPSHOT_SHA256}`);
 JS
 node "$temp/verify.mjs" "$version" "$expected_digest"

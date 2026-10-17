@@ -82,10 +82,10 @@ public static class RegistryPolicy
 {{ pad }}    // RFC 9110 section 5.6.2 tchar; gRPC custom metadata uses the narrower ASCII set.
 {{ pad }}    // https://www.rfc-editor.org/rfc/rfc9110.html#section-5.6.2
 {{ pad }}    // https://grpc.github.io/grpc/core/md_doc__p_r_o_t_o_c_o_l-_h_t_t_p2.html
+{{ pad }}    var allowed = http ? {{ lib.cs_string(policy.captured_fields.http_name_characters) }} : {{ lib.cs_string(policy.captured_fields.rpc_name_characters) }};
 {{ pad }}    foreach (var c in suffix)
 {{ pad }}    {
-{{ pad }}        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9' ||
-{{ pad }}            c == '_' || c == '-' || c == '.' || http && "!#$%&'*+^`|~".IndexOf(c) >= 0) continue;
+{{ pad }}        if (allowed.IndexOf(c >= 'A' && c <= 'Z' ? (char)(c + ('a' - 'A')) : c) >= 0) continue;
 {{ pad }}        return true;
 {{ pad }}    }
 {{ pad }}    persisted = true;

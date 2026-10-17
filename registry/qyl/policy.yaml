@@ -23,6 +23,9 @@ groups:
         captured_fields:
           http_roots: [http.request.header, http.response.header]
           rpc_roots: [rpc.request.metadata, rpc.response.metadata]
+          # RFC 9110 tchar and gRPC custom metadata names, normalized to ASCII lowercase.
+          http_name_characters: "abcdefghijklmnopqrstuvwxyz0123456789_-.!#$%&'*+^`|~"
+          rpc_name_characters: "abcdefghijklmnopqrstuvwxyz0123456789_-."
         denied_key_tokens:
           - access_token
           - api-key

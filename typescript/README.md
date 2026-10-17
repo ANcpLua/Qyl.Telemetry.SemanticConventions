@@ -22,4 +22,10 @@ An unknown custom name returns undefined and remains valid OpenTelemetry. Requir
 belong to the selected signal definition; registry membership does not establish scope ownership.
 The separate export keeps the complete catalog out of constant-only imports.
 
+Import `getCapturedFieldPersistence` from `@ancplua/qyl-semantic-conventions/policy`
+to classify captured HTTP header and RPC metadata names using the same registry policy as
+C# `RegistryPolicy.TryGetCapturedFieldPersistence`. It returns `true` for valid names,
+`false` for bare roots or invalid names in those families, and `undefined` for unrelated keys.
+Matching is case-insensitive for ASCII. Callers still own capture selection and value-shape checks.
+
 Generation runs through `scripts/generate.sh` at the repository root, using pinned official language-independent OpenTelemetry registries and qyl/vendor definitions. These bindings can release independently of OpenTelemetry SDK versions. SDKs/exporters and official OTLP wire definitions remain separate dependencies. The registry schema URL alone does not transform attributes.

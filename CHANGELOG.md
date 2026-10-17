@@ -1,5 +1,10 @@
 # Changelog
 
+## [14.1.0] - 2026-10-18
+
+- Export `getCapturedFieldPersistence` from the TypeScript package's `policy` entry point, generated from the same registry-owned captured-field roots and character sets as C#.
+- Preserve valid, invalid and unrelated field classifications across both languages, including case handling and protocol-specific field-name validation.
+
 ## [14.0.0] - 2026-10-17
 
 - Preserve every valid explicitly captured HTTP-header and RPC-metadata name, including credential-like names and binary metadata names. Capture selection controls exposure; unrelated persistence rules remain unchanged.
