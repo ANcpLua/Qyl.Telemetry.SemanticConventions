@@ -35,6 +35,18 @@ public sealed class OpenAiRegistryTests
     }
 
     [TestMethod]
+    public void Dotted_and_underscore_exit_code_keys_both_have_constants()
+    {
+        var type = typeof(Incubating.Attributes.Process.ProcessAttributes);
+        var canonical = type.GetField("ExitCode");
+        var native = type.GetField("ExitCodeNative");
+        Assert.IsNotNull(canonical);
+        Assert.IsNotNull(native);
+        Assert.AreEqual("process.exit.code", canonical.GetRawConstantValue());
+        Assert.AreEqual("process.exit_code", native.GetRawConstantValue());
+    }
+
+    [TestMethod]
     public void A_shared_native_span_name_keeps_client_and_server_contracts()
     {
         Assert.AreEqual("client", OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexCodexExecServerRequestClient.SpanKind);

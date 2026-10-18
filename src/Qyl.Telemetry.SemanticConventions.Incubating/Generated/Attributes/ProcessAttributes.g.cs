@@ -171,6 +171,24 @@ public static class ProcessAttributes
     public const string ExitTime = "process.exit.time";
 
     /// <summary>
+    /// Exited process status code.
+    /// </summary>
+    /// <remarks>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L34
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L36
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L39
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L48
+    /// <para/>
+    /// The source union does not establish a single primitive wire type. Preserve the received type; do not convert numeric text, booleans or structured values by guessing.
+    /// <para/>
+    /// Event-specific meaning and capture conditions are documented on each signal reference.
+    /// </remarks>
+    public const string ExitCodeNative = "process.exit_code";
+
+    /// <summary>
     /// The PID of the process's group leader. This is also the process group ID (PGID) of the process.
     /// </summary>
     public const string GroupLeaderPid = "process.group_leader.pid";

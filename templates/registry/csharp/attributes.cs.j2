@@ -8,7 +8,7 @@
       dot-less key is rooted in its own namespace with the constant named after the root
     * PascalCase treats `.` and `_` identically, so distinct keys or enum ids can collapse to
       one identifier; prefer the non-deprecated one, then the ordinally-first key or value.
-      A colliding bare vendor key also gets a Native-suffixed constant so its wire name remains available.
+      A colliding emitted key also gets a Native-suffixed constant so its wire name remains available.
     * stable tier: stable rows plus deprecated migration symbols; incubating tier: every row.
       Enum members follow their own stability and deprecation.
 -#}
@@ -51,7 +51,8 @@ public static class {{ ctx.pascal_root }}Attributes
 {
 {% set out = namespace(first = true) %}
 {% for a in ctx.attributes %}
-{% if a.key in c.keys or "." not in a.key %}
+{% set excluded = a.annotations is defined and a.annotations.code_generation is defined and a.annotations.code_generation.exclude | default(false) %}
+{% if a.key in c.keys or not excluded %}
 {% set rel = a.key[(root | length) + 1:] if a.key[0:(root | length) + 1] == root ~ "." else a.key %}
 {% set member = lib.pascal(rel) ~ ("Native" if a.key not in c.keys else "") %}
 {% if not out.first %}
