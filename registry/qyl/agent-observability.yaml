@@ -1,0 +1,242 @@
+# qyl's cross-producer contract. Native vendor records retain their original names.
+# These development definitions describe adapter obligations, not deployed adapters.
+groups:
+  - id: registry.qyl.agent_observability
+    type: attribute_group
+    brief: Cross-producer agent identity, lifecycle and source attribution.
+    attributes:
+      - id: qyl.agent.operation.id
+        type: string
+        stability: development
+        brief: Stable identifier for one observed logical operation.
+        note: |
+          An adapter MUST reuse this identifier across the operation's lifecycle and retries of record delivery.
+          Use a source-provided invocation ID scoped by product, workspace and session, with one documented
+          mapping shared by observers. A per-event record ID, fresh random value or timestamp is not an operation
+          identity. When the source does not establish an operation identity, retain the source record without
+          inventing an operation entity or lifecycle. This high-cardinality identifier belongs on events and spans,
+          not metrics. Reconcile equivalent observations across sources before counting the same operation twice.
+        examples: ["openai:workspace-7:thread-42:call-9"]
+      - id: qyl.agent.parent.operation.id
+        type: string
+        stability: development
+        brief: Identifier of the directly enclosing observed operation.
+        note: Record only when the source establishes the parent. Temporal proximity or matching model names do not establish ancestry.
+        examples: ["openai:workspace-7:thread-42:turn-3"]
+      - id: qyl.agent.turn.id
+        type: string
+        stability: development
+        brief: Native turn or prompt identifier scoped to its provider and conversation.
+        note: |
+          Codex turn.id and Claude prompt.id can populate this field when their source contracts identify the
+          request being observed. Do not equate a conversation, a model request and a turn. Turn IDs can be absent.
+        examples: ["turn-3"]
+      - id: qyl.agent.product
+        type:
+          members:
+            - {id: codex, value: codex, stability: development, brief: Codex execution.}
+            - {id: chatgpt, value: chatgpt, stability: development, brief: ChatGPT activity.}
+            - {id: claude_code, value: claude_code, stability: development, brief: Claude Code execution.}
+            - {id: cowork, value: cowork, stability: development, brief: Cowork execution.}
+            - {id: claude, value: claude, stability: development, brief: Other documented Claude activity.}
+        stability: development
+        brief: Product responsible for the observed activity.
+        note: This is product attribution, not the underlying model provider. For example, Codex may use a configured non-OpenAI model provider.
+      - id: qyl.agent.source
+        type:
+          members:
+            - {id: otlp, value: otlp, stability: development, brief: Native OTLP observation.}
+            - {id: compliance, value: compliance, stability: development, brief: Published compliance record.}
+            - {id: analytics, value: analytics, stability: development, brief: Published aggregate analytics record.}
+            - {id: local_diagnostic, value: local_diagnostic, stability: development, brief: Explicitly collected local diagnostic.}
+        stability: development
+        brief: Collection boundary from which an observation was obtained.
+        note: Private product analytics declarations are evidence about a product, not authorization or a supported ingestion route.
+      - id: qyl.agent.operation.name
+        type:
+          members:
+            - {id: turn, value: turn, stability: development, brief: One agent turn.}
+            - {id: model_request, value: model_request, stability: development, brief: One model request attempt.}
+            - {id: tool, value: tool, stability: development, brief: One tool invocation.}
+            - {id: approval, value: approval, stability: development, brief: One approval decision cycle.}
+            - {id: task, value: task, stability: development, brief: One explicitly identified background or cloud task.}
+        stability: development
+        brief: Bounded operation category used for cross-producer comparisons.
+        note: A model retry remains a separate request attempt within its enclosing turn. Record daily aggregates as aggregates, not fabricated operations.
+      - id: qyl.agent.operation.state
+        type:
+          members:
+            - {id: queued, value: queued, stability: development, brief: Accepted and waiting to start.}
+            - {id: running, value: running, stability: development, brief: Execution has started.}
+            - {id: waiting, value: waiting, stability: development, brief: Explicitly waiting for an external decision or dependency.}
+            - {id: completed, value: completed, stability: development, brief: Completed successfully according to the source.}
+            - {id: failed, value: failed, stability: development, brief: Failed according to the source.}
+            - {id: cancelled, value: cancelled, stability: development, brief: Explicitly cancelled or interrupted.}
+            - {id: unknown, value: unknown, stability: development, brief: Current state cannot be established from available observations.}
+        stability: development
+        brief: Last established lifecycle state of an operation.
+        note: |
+          Missing telemetry does not imply completion or failure. Approval denial, process exit, tool completion
+          and turn completion are different facts. Map a source outcome only within the operation it describes.
+          This is descriptive entity state and MUST NOT be part of entity identity.
+      - id: qyl.agent.record.id
+        type: string
+        stability: development
+        brief: Stable identity of the original source record within its source stream.
+        note: Deduplicate at-least-once delivery using source stream/workspace plus this value. OpenAI compliance event_id is suitable in its documented stream scope; a timestamp alone is not.
+        examples: ["event-123"]
+      - id: qyl.agent.record.observed_at
+        type: string
+        stability: development
+        brief: UTC ISO 8601 time at which the adapter observed the source record.
+        note: Keep the original event time on the event timestamp. This field measures collection delay and does not replace source time.
+        examples: ["2026-10-18T06:00:00.000Z"]
+      - id: qyl.agent.record.payload
+        type: any
+        stability: development
+        brief: Optional original source record retained for explicitly enabled diagnostics.
+        note: |
+          May contain conversation content, commands, personal identifiers and secrets. Omit by default. Apply
+          redaction, access controls and a configured byte limit before export. Preserve a separate external
+          reference when truncation would make the record unusable. Never place this value on a metric.
+        annotations:
+          value: {unbounded_size: true}
+          type: {json_schema: {type: object}}
+
+  - id: entity.qyl.agent.session
+    type: entity
+    name: qyl.agent.session
+    stability: development
+    brief: A conversation within the namespace of its originating product.
+    note: |
+      Product plus conversation ID identify this entity. Adapters MUST additionally scope tenant-local IDs
+      before assigning gen_ai.conversation.id. Model provider is descriptive and may change during a session.
+      These are identity fields; Weaver 0.28.0 does not attach requirement_level to materialized identity.
+    attributes:
+      - {ref: qyl.agent.product, role: identifying}
+      - {ref: gen_ai.conversation.id, role: identifying}
+      - {ref: gen_ai.provider.name, role: descriptive}
+      - {ref: service.name, role: descriptive}
+
+  - id: entity.qyl.agent.turn
+    type: entity
+    name: qyl.agent.turn
+    stability: development
+    brief: One identified turn within a conversation.
+    note: The identifying tuple is immutable. Do not create this entity when a source has no turn identifier; retain the available session association instead.
+    attributes:
+      - {ref: qyl.agent.product, role: identifying}
+      - {ref: gen_ai.conversation.id, role: identifying}
+      - {ref: qyl.agent.turn.id, role: identifying}
+      - {ref: gen_ai.request.model, role: descriptive}
+
+  - id: entity.qyl.agent.operation
+    type: entity
+    name: qyl.agent.operation
+    stability: development
+    brief: One logical operation tracked across its observed lifecycle.
+    note: |
+      The operation identifier is stable across delivery retries. Parent and turn attributes describe relationships;
+      they are not unsupported entity-relationship declarations. State changes never alter identity.
+    attributes:
+      - {ref: qyl.agent.operation.id, role: identifying}
+      - {ref: qyl.agent.parent.operation.id, role: descriptive}
+      - {ref: qyl.agent.operation.name, role: descriptive}
+      - {ref: qyl.agent.operation.state, role: descriptive}
+      - {ref: qyl.agent.turn.id, role: descriptive}
+      - {ref: gen_ai.tool.call.id, role: descriptive}
+
+  - id: span.qyl.agent.operation.internal
+    type: span
+    span_kind: internal
+    stability: development
+    brief: One observed agent operation, with explicitly established start and end boundaries.
+    note: |
+      Start when the source establishes that this operation begins; end on its matching terminal observation.
+      A retry of a model request is a child attempt, not a new whole turn. Do not synthesize a span from a daily
+      analytics row or a lone completion record with unknown start time. Preserve native spans when available
+      instead of creating duplicate wrapper spans. The low-cardinality span name is `agent {qyl.agent.operation.name}`.
+      Set Error status only for an established operation failure, with error.type. Expected cancellation or denied
+      approval is not automatically an error. Leave successful status Unset. Do not put identifiers in span names.
+      Product, operation category and established identity are available at start; state, duration and error facts
+      become available at completion and cannot be assumed present for head sampling.
+    entity_associations: [qyl.agent.operation]
+    attributes:
+      - {ref: qyl.agent.operation.id, requirement_level: required}
+      - {ref: qyl.agent.operation.name, requirement_level: required}
+      - {ref: qyl.agent.product, requirement_level: required}
+      - {ref: qyl.agent.source, requirement_level: required}
+      - ref: qyl.agent.operation.state
+        requirement_level: recommended
+        annotations:
+          qyl: {phase: end}
+      - {ref: qyl.agent.parent.operation.id, requirement_level: recommended}
+      - {ref: gen_ai.conversation.id, requirement_level: recommended}
+      - {ref: qyl.agent.turn.id, requirement_level: recommended}
+      - {ref: gen_ai.tool.call.id, requirement_level: recommended}
+      - ref: error.type
+        requirement_level: {conditionally_required: If the observed operation failed.}
+
+  - id: event.qyl.agent.operation.state_changed
+    type: event
+    name: qyl.agent.operation.state_changed
+    stability: development
+    brief: A source-established change in one operation's lifecycle state.
+    note: |
+      Emit after deduplication. Preserve source time and original record identity when available. Correlate by
+      explicit operation, turn, tool-call or trace identities; never by proximity alone. Late and out-of-order
+      observations must not silently rewind a terminal operation. Record uncertainty instead of guessing.
+      This development adapter contract does not claim that OpenAI or Anthropic emits this qyl event natively.
+    entity_associations: [qyl.agent.operation]
+    attributes:
+      - {ref: qyl.agent.operation.id, requirement_level: required}
+      - {ref: qyl.agent.operation.name, requirement_level: required}
+      - {ref: qyl.agent.operation.state, requirement_level: required}
+      - {ref: qyl.agent.product, requirement_level: required}
+      - {ref: qyl.agent.source, requirement_level: required}
+      - {ref: qyl.agent.record.id, requirement_level: recommended}
+      - {ref: qyl.agent.record.observed_at, requirement_level: recommended}
+      - {ref: qyl.agent.record.payload, requirement_level: opt_in}
+
+  - id: metric.qyl.agent.operation.duration
+    type: metric
+    metric_name: qyl.agent.operation.duration
+    instrument: histogram
+    unit: s
+    stability: development
+    brief: Duration of completed observed agent operations.
+    note: |
+      Record once per deduplicated completed operation with a known duration. Convert native milliseconds to
+      seconds explicitly. A source duration with a different boundary is a different measurement and must not
+      be merged. Dimensions are bounded categories; exclude conversation, operation, turn, tool-call and user IDs.
+    attributes: &metric_dimensions
+      - {ref: qyl.agent.product, requirement_level: required}
+      - {ref: qyl.agent.operation.name, requirement_level: required}
+      - {ref: qyl.agent.operation.state, requirement_level: required}
+      - {ref: qyl.agent.source, requirement_level: required}
+
+  - id: metric.qyl.agent.operation.completed
+    type: metric
+    metric_name: qyl.agent.operation.completed
+    instrument: counter
+    unit: "{operation}"
+    stability: development
+    brief: Operations with a deduplicated terminal observation.
+    note: Increment once for completed, failed or cancelled operations. Separate terminal outcomes using state; this counter is not a count of successful operations alone. Never increment again for redelivery.
+    attributes: *metric_dimensions
+
+  - id: metric.qyl.agent.operation.status
+    type: metric
+    metric_name: qyl.agent.operation.status
+    instrument: updowncounter
+    unit: "1"
+    stability: development
+    brief: Number of currently tracked operations in each lifecycle state.
+    note: |
+      Each tracked operation contributes 1 to its current state and 0 to every other member of the closed state
+      set. Transition by subtracting 1 from the previous state and adding 1 to the next. Aggregate by bounded
+      dimensions, without operation IDs. Publish zero for empty states. The observer must document its tracked
+      population and terminal-record retention, remove contributions when records expire, and rebuild the current
+      population after restart before reporting it. This is current state, not a cumulative transition count.
+      A historical event stream without sufficient state reconstruction cannot honestly emit this metric.
+    attributes: *metric_dimensions

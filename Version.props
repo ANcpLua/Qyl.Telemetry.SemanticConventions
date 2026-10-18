@@ -5,7 +5,7 @@
          scripts/generate.sh refuses a Weaver binary of any other version, and
          scripts/check-pin-freshness.py and Renovate read it. The binary itself comes from
          mise.toml, which `mise install` installs, so a Weaver bump moves both. -->
-    <WeaverVersion>0.27.0</WeaverVersion>
+    <WeaverVersion>0.28.0</WeaverVersion>
 
     <!-- renovate: datasource=nuget depName=ANcpLua.Roslyn.Utilities -->
     <ANcpLuaRoslynUtilitiesVersion>3.0.0</ANcpLuaRoslynUtilitiesVersion>

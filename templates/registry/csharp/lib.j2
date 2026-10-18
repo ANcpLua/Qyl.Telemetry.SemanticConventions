@@ -502,9 +502,29 @@ global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRe
 {%- for a in attributes -%}
 {%- if not loop.first -%}{%- set s.out = s.out ~ ", " -%}{%- endif -%}
 {%- set condition = requirement_level_condition(a.requirement_level) -%}
-{%- set s.out = s.out ~ 'new("' ~ escape_attribute(a.key) ~ '", "' ~ attribute_type_name(a.type) ~ '", ' ~ requirement_level_expr(a.requirement_level) ~ ", " ~ ("true" if a.deprecated else "false") ~ ", " ~ (('"' ~ escape_attribute(condition) ~ '"') if (condition | length) > 0 else "null") ~ ", " ~ phase_expr(a.key, policy) ~ ", " ~ persisted(a.key, policy) ~ ")" -%}
+{%- set s.out = s.out ~ 'new("' ~ escape_attribute(a.key) ~ '", "' ~ attribute_type_name(a.type) ~ '", ' ~ requirement_level_expr(a.requirement_level) ~ ", " ~ ("true" if a.deprecated else "false") ~ ", " ~ (('"' ~ escape_attribute(condition) ~ '"') if (condition | length) > 0 else "null") ~ ", " ~ reference_phase_expr(a, policy) ~ ", " ~ persisted(a.key, policy) ~ ")" -%}
 {%- endfor -%}
 {{ s.out ~ " }" }}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro value_member_name(type_name, member) -%}
+{{ member ~ "Member" if member in ["Key", "Value", "Custom", "Equals", "GetHashCode", "GetType", "ToString"] or member == type_name else member }}
+{%- endmacro -%}
+
+{%- macro reference_phase_expr(attribute, policy) -%}
+{%- if attribute.annotations is defined and attribute.annotations.qyl is defined and attribute.annotations.qyl.phase is defined -%}
+global::Qyl.Telemetry.SemanticConventions.AttributePhase.{{ "End" if attribute.annotations.qyl.phase == "end" else "Start" }}
+{%- else -%}
+{{ phase_expr(attribute.key, policy) }}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro entity_identity_array_expr(attributes) -%}
+{%- if (attributes | length) == 0 -%}
+global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>()
+{%- else -%}
+new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { {% for a in attributes %}{% if not loop.first %}, {% endif %}new("{{ escape_attribute(a.key) }}", "{{ attribute_type_name(a.type) }}", {{ "true" if a.deprecated else "false" }}){% endfor %} }
 {%- endif -%}
 {%- endmacro -%}
 
@@ -515,7 +535,7 @@ global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(
 {%- set s = namespace(out = "new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { ") -%}
 {%- for e in entities -%}
 {%- if not loop.first -%}{%- set s.out = s.out ~ ", " -%}{%- endif -%}
-{%- set s.out = s.out ~ 'new("' ~ escape_attribute(e) ~ '")' -%}
+{%- set s.out = s.out ~ 'new("' ~ escape_attribute(e.type if e is mapping else e) ~ '")' -%}
 {%- endfor -%}
 {{ s.out ~ " }" }}
 {%- endif -%}

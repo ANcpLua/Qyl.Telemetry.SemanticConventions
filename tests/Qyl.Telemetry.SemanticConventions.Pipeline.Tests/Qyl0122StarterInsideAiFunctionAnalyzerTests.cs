@@ -26,7 +26,7 @@ public sealed class Qyl0122StarterInsideAiFunctionAnalyzerTests(TestContext test
             {
                 public static object LookupStock() => AIFunctionFactory.Create((string sku) =>
                 {
-                    using var span = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null);
+                    using var span = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null, toolCallId: null);
                     using var work = Spans.Work("lookup stock");
                     return 3;
                 }, "lookup_stock");

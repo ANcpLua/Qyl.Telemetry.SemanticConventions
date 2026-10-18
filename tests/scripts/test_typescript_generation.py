@@ -13,9 +13,13 @@ class SnapshotTests(unittest.TestCase):
     def test_native_spelling_collisions_keep_both_wire_keys(self):
         names = generator.attribute_symbols([
             {'key': 'session_id'}, {'key': 'session.id'}, {'key': 'model'},
+            {'key': 'mcp.server.name'}, {'key': 'mcp_server.name'},
+            {'key': 'executor.registration_id'}, {'key': 'executor_registration_id'},
         ])
         self.assertEqual(names, {
             'session.id': 'SESSION_ID', 'session_id': 'SESSION_ID_NATIVE', 'model': 'MODEL',
+            'mcp.server.name': 'MCP_SERVER_NAME', 'mcp_server.name': 'MCP_SERVER_NAME_NATIVE',
+            'executor.registration_id': 'EXECUTOR_REGISTRATION_ID', 'executor_registration_id': 'EXECUTOR_REGISTRATION_ID_NATIVE',
         })
 
     def test_native_alias_cannot_overwrite_another_attribute(self):

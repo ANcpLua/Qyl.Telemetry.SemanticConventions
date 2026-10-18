@@ -17,18 +17,20 @@ def symbol(value):
     return re.sub(r'[^A-Z0-9]+', '_', value.upper()).strip('_')
 
 def attribute_symbols(attributes):
-    """Keep dotted convention names; expose colliding bare producer keys as NATIVE."""
+    """Keep canonical dotted names; expose a colliding underscore spelling as NATIVE."""
     groups = {}
     for attribute in attributes:
         groups.setdefault(symbol(attribute['key']), []).append(attribute['key'])
     result = {}
     occupied = set()
     for name, keys in sorted(groups.items()):
-        dotted = [key for key in keys if '.' in key]
+        most_segments = max(key.count('.') for key in keys)
+        dotted = [key for key in keys if key.count('.') == most_segments]
         for key in keys:
             projected = name
             if len(keys) > 1:
-                if len(keys) != 2 or len(dotted) != 1:
+                if (len(keys) != 2 or len(dotted) != 1
+                        or any(re.sub(r'[_-]', '.', item) != re.sub(r'[_-]', '.', dotted[0]) for item in keys)):
                     raise ValueError(f'attribute identifier collision: {keys}')
                 if key != dotted[0]:
                     projected += '_NATIVE'

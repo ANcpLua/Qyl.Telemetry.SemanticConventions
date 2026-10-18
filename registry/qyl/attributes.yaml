@@ -8168,6 +8168,958 @@ groups:
               value: "zos"
               stability: development
               brief: "The `zos` attribute namespace."
+            - id: "active"
+              value: "active"
+              stability: development
+              brief: "The `active` attribute namespace."
+            - id: "actual_store"
+              value: "actual_store"
+              stability: development
+              brief: "The `actual_store` attribute namespace."
+            - id: "after_prewarm"
+              value: "after_prewarm"
+              stability: development
+              brief: "The `after_prewarm` attribute namespace."
+            - id: "agent_name"
+              value: "agent_name"
+              stability: development
+              brief: "The `agent_name` attribute namespace."
+            - id: "allow_provider_model_fallback"
+              value: "allow_provider_model_fallback"
+              stability: development
+              brief: "The `allow_provider_model_fallback` attribute namespace."
+            - id: "api"
+              value: "api"
+              stability: development
+              brief: "The `api` attribute namespace."
+            - id: "app_server"
+              value: "app_server"
+              stability: development
+              brief: "The `app_server` attribute namespace."
+            - id: "app_server_test_client"
+              value: "app_server_test_client"
+              stability: development
+              brief: "The `app_server_test_client` attribute namespace."
+            - id: "approval_id"
+              value: "approval_id"
+              stability: development
+              brief: "The `approval_id` attribute namespace."
+            - id: "approval_policy"
+              value: "approval_policy"
+              stability: development
+              brief: "The `approval_policy` attribute namespace."
+            - id: "approved"
+              value: "approved"
+              stability: development
+              brief: "The `approved` attribute namespace."
+            - id: "apps_enabled"
+              value: "apps_enabled"
+              stability: development
+              brief: "The `apps_enabled` attribute namespace."
+            - id: "arguments"
+              value: "arguments"
+              stability: development
+              brief: "The `arguments` attribute namespace."
+            - id: "arguments_length"
+              value: "arguments_length"
+              stability: development
+              brief: "The `arguments_length` attribute namespace."
+            - id: "artifact_type"
+              value: "artifact_type"
+              stability: development
+              brief: "The `artifact_type` attribute namespace."
+            - id: "attempt_count"
+              value: "attempt_count"
+              stability: development
+              brief: "The `attempt_count` attribute namespace."
+            - id: "auth"
+              value: "auth"
+              stability: development
+              brief: "The `auth` attribute namespace."
+            - id: "auth_mode"
+              value: "auth_mode"
+              stability: development
+              brief: "The `auth_mode` attribute namespace."
+            - id: "auto_compact_token_limit"
+              value: "auto_compact_token_limit"
+              stability: development
+              brief: "The `auto_compact_token_limit` attribute namespace."
+            - id: "available"
+              value: "available"
+              stability: development
+              brief: "The `available` attribute namespace."
+            - id: "azure_client_request_id"
+              value: "azure_client_request_id"
+              stability: development
+              brief: "The `azure_client_request_id` attribute namespace."
+            - id: "azure_error_code"
+              value: "azure_error_code"
+              stability: development
+              brief: "The `azure_error_code` attribute namespace."
+            - id: "azure_request_id"
+              value: "azure_request_id"
+              stability: development
+              brief: "The `azure_request_id` attribute namespace."
+            - id: "build_mode"
+              value: "build_mode"
+              stability: development
+              brief: "The `build_mode` attribute namespace."
+            - id: "bundle_shape"
+              value: "bundle_shape"
+              stability: development
+              brief: "The `bundle_shape` attribute namespace."
+            - id: "byte_length"
+              value: "byte_length"
+              stability: development
+              brief: "The `byte_length` attribute namespace."
+            - id: "cache"
+              value: "cache"
+              stability: development
+              brief: "The `cache` attribute namespace."
+            - id: "cache_eligible"
+              value: "cache_eligible"
+              stability: development
+              brief: "The `cache_eligible` attribute namespace."
+            - id: "cache_write_token_count"
+              value: "cache_write_token_count"
+              stability: development
+              brief: "The `cache_write_token_count` attribute namespace."
+            - id: "cached_token_count"
+              value: "cached_token_count"
+              stability: development
+              brief: "The `cached_token_count` attribute namespace."
+            - id: "call_id"
+              value: "call_id"
+              stability: development
+              brief: "The `call_id` attribute namespace."
+            - id: "candidate_set_truncated"
+              value: "candidate_set_truncated"
+              stability: development
+              brief: "The `candidate_set_truncated` attribute namespace."
+            - id: "catalog_entries"
+              value: "catalog_entries"
+              stability: development
+              brief: "The `catalog_entries` attribute namespace."
+            - id: "catalog_entry_count"
+              value: "catalog_entry_count"
+              stability: development
+              brief: "The `catalog_entry_count` attribute namespace."
+            - id: "catalog_source"
+              value: "catalog_source"
+              stability: development
+              brief: "The `catalog_source` attribute namespace."
+            - id: "catalog_surface"
+              value: "catalog_surface"
+              stability: development
+              brief: "The `catalog_surface` attribute namespace."
+            - id: "cell"
+              value: "cell"
+              stability: development
+              brief: "The `cell` attribute namespace."
+            - id: "cell_id"
+              value: "cell_id"
+              stability: development
+              brief: "The `cell_id` attribute namespace."
+            - id: "checker"
+              value: "checker"
+              stability: development
+              brief: "The `checker` attribute namespace."
+            - id: "cleanup_errors"
+              value: "cleanup_errors"
+              stability: development
+              brief: "The `cleanup_errors` attribute namespace."
+            - id: "cloudflare_ray_id"
+              value: "cloudflare_ray_id"
+              stability: development
+              brief: "The `cloudflare_ray_id` attribute namespace."
+            - id: "code_mode_host_duration_ns"
+              value: "code_mode_host_duration_ns"
+              stability: development
+              brief: "The `code_mode_host_duration_ns` attribute namespace."
+            - id: "codex"
+              value: "codex"
+              stability: development
+              brief: "The `codex` attribute namespace."
+            - id: "communication_id"
+              value: "communication_id"
+              stability: development
+              brief: "The `communication_id` attribute namespace."
+            - id: "comparison"
+              value: "comparison"
+              stability: development
+              brief: "The `comparison` attribute namespace."
+            - id: "completed_at_ms"
+              value: "completed_at_ms"
+              stability: development
+              brief: "The `completed_at_ms` attribute namespace."
+            - id: "completion_reason"
+              value: "completion_reason"
+              stability: development
+              brief: "The `completion_reason` attribute namespace."
+            - id: "component"
+              value: "component"
+              stability: development
+              brief: "The `component` attribute namespace."
+            - id: "compression_enabled"
+              value: "compression_enabled"
+              stability: development
+              brief: "The `compression_enabled` attribute namespace."
+            - id: "config_use_memories"
+              value: "config_use_memories"
+              stability: development
+              brief: "The `config_use_memories` attribute namespace."
+            - id: "configuration_pending"
+              value: "configuration_pending"
+              stability: development
+              brief: "The `configuration_pending` attribute namespace."
+            - id: "connector_count"
+              value: "connector_count"
+              stability: development
+              brief: "The `connector_count` attribute namespace."
+            - id: "context_mode"
+              value: "context_mode"
+              stability: development
+              brief: "The `context_mode` attribute namespace."
+            - id: "context_window"
+              value: "context_window"
+              stability: development
+              brief: "The `context_window` attribute namespace."
+            - id: "conversation"
+              value: "conversation"
+              stability: development
+              brief: "The `conversation` attribute namespace."
+            - id: "conversation_id"
+              value: "conversation_id"
+              stability: development
+              brief: "The `conversation_id` attribute namespace."
+            - id: "credential_kind"
+              value: "credential_kind"
+              stability: development
+              brief: "The `credential_kind` attribute namespace."
+            - id: "current_item_type"
+              value: "current_item_type"
+              stability: development
+              brief: "The `current_item_type` attribute namespace."
+            - id: "decisions"
+              value: "decisions"
+              stability: development
+              brief: "The `decisions` attribute namespace."
+            - id: "delay_ms"
+              value: "delay_ms"
+              stability: development
+              brief: "The `delay_ms` attribute namespace."
+            - id: "dependency"
+              value: "dependency"
+              stability: development
+              brief: "The `dependency` attribute namespace."
+            - id: "directory"
+              value: "directory"
+              stability: development
+              brief: "The `directory` attribute namespace."
+            - id: "dispatch_duration_ms"
+              value: "dispatch_duration_ms"
+              stability: development
+              brief: "The `dispatch_duration_ms` attribute namespace."
+            - id: "dynamic_tool_count"
+              value: "dynamic_tool_count"
+              stability: development
+              brief: "The `dynamic_tool_count` attribute namespace."
+            - id: "encoding"
+              value: "encoding"
+              stability: development
+              brief: "The `encoding` attribute namespace."
+            - id: "endpoint"
+              value: "endpoint"
+              stability: development
+              brief: "The `endpoint` attribute namespace."
+            - id: "env"
+              value: "env"
+              stability: development
+              brief: "The `env` attribute namespace."
+            - id: "environment_count"
+              value: "environment_count"
+              stability: development
+              brief: "The `environment_count` attribute namespace."
+            - id: "escalated_duration_ms"
+              value: "escalated_duration_ms"
+              stability: development
+              brief: "The `escalated_duration_ms` attribute namespace."
+            - id: "exe"
+              value: "exe"
+              stability: development
+              brief: "The `exe` attribute namespace."
+            - id: "execution_backend"
+              value: "execution_backend"
+              stability: development
+              brief: "The `execution_backend` attribute namespace."
+            - id: "execution_started"
+              value: "execution_started"
+              stability: development
+              brief: "The `execution_started` attribute namespace."
+            - id: "executor_registration_id"
+              value: "executor_registration_id"
+              stability: development
+              brief: "The `executor_registration_id` attribute namespace."
+            - id: "exit_signaled"
+              value: "exit_signaled"
+              stability: development
+              brief: "The `exit_signaled` attribute namespace."
+            - id: "explicitly_required"
+              value: "explicitly_required"
+              stability: development
+              brief: "The `explicitly_required` attribute namespace."
+            - id: "exposure"
+              value: "exposure"
+              stability: development
+              brief: "The `exposure` attribute namespace."
+            - id: "fallback_reason"
+              value: "fallback_reason"
+              stability: development
+              brief: "The `fallback_reason` attribute namespace."
+            - id: "feature_enabled"
+              value: "feature_enabled"
+              stability: development
+              brief: "The `feature_enabled` attribute namespace."
+            - id: "file_errors"
+              value: "file_errors"
+              stability: development
+              brief: "The `file_errors` attribute namespace."
+            - id: "file_id"
+              value: "file_id"
+              stability: development
+              brief: "The `file_id` attribute namespace."
+            - id: "file_size_bytes"
+              value: "file_size_bytes"
+              stability: development
+              brief: "The `file_size_bytes` attribute namespace."
+            - id: "filename"
+              value: "filename"
+              stability: development
+              brief: "The `filename` attribute namespace."
+            - id: "force_refresh"
+              value: "force_refresh"
+              stability: development
+              brief: "The `force_refresh` attribute namespace."
+            - id: "fork_mode"
+              value: "fork_mode"
+              stability: development
+              brief: "The `fork_mode` attribute namespace."
+            - id: "format"
+              value: "format"
+              stability: development
+              brief: "The `format` attribute namespace."
+            - id: "from"
+              value: "from"
+              stability: development
+              brief: "The `from` attribute namespace."
+            - id: "from_wire_api"
+              value: "from_wire_api"
+              stability: development
+              brief: "The `from_wire_api` attribute namespace."
+            - id: "handler_duration_ms"
+              value: "handler_duration_ms"
+              stability: development
+              brief: "The `handler_duration_ms` attribute namespace."
+            - id: "has_cached_tools"
+              value: "has_cached_tools"
+              stability: development
+              brief: "The `has_cached_tools` attribute namespace."
+            - id: "has_citations"
+              value: "has_citations"
+              stability: development
+              brief: "The `has_citations` attribute namespace."
+            - id: "history_mode"
+              value: "history_mode"
+              stability: development
+              brief: "The `history_mode` attribute namespace."
+            - id: "hook"
+              value: "hook"
+              stability: development
+              brief: "The `hook` attribute namespace."
+            - id: "image_input_count"
+              value: "image_input_count"
+              stability: development
+              brief: "The `image_input_count` attribute namespace."
+            - id: "include_tools"
+              value: "include_tools"
+              stability: development
+              brief: "The `include_tools` attribute namespace."
+            - id: "initial_duration_ms"
+              value: "initial_duration_ms"
+              stability: development
+              brief: "The `initial_duration_ms` attribute namespace."
+            - id: "initiating"
+              value: "initiating"
+              stability: development
+              brief: "The `initiating` attribute namespace."
+            - id: "initiation_source"
+              value: "initiation_source"
+              stability: development
+              brief: "The `initiation_source` attribute namespace."
+            - id: "input"
+              value: "input"
+              stability: development
+              brief: "The `input` attribute namespace."
+            - id: "input_count"
+              value: "input_count"
+              stability: development
+              brief: "The `input_count` attribute namespace."
+            - id: "input_kind"
+              value: "input_kind"
+              stability: development
+              brief: "The `input_kind` attribute namespace."
+            - id: "input_token_count"
+              value: "input_token_count"
+              stability: development
+              brief: "The `input_token_count` attribute namespace."
+            - id: "installed_filter_count"
+              value: "installed_filter_count"
+              stability: development
+              brief: "The `installed_filter_count` attribute namespace."
+            - id: "invocation"
+              value: "invocation"
+              stability: development
+              brief: "The `invocation` attribute namespace."
+            - id: "invoke_type"
+              value: "invoke_type"
+              stability: development
+              brief: "The `invoke_type` attribute namespace."
+            - id: "is_git"
+              value: "is_git"
+              stability: development
+              brief: "The `is_git` attribute namespace."
+            - id: "item"
+              value: "item"
+              stability: development
+              brief: "The `item` attribute namespace."
+            - id: "item_count"
+              value: "item_count"
+              stability: development
+              brief: "The `item_count` attribute namespace."
+            - id: "last_reported_hresult"
+              value: "last_reported_hresult"
+              stability: development
+              brief: "The `last_reported_hresult` attribute namespace."
+            - id: "last_reported_reason"
+              value: "last_reported_reason"
+              stability: development
+              brief: "The `last_reported_reason` attribute namespace."
+            - id: "launch"
+              value: "launch"
+              stability: development
+              brief: "The `launch` attribute namespace."
+            - id: "local_image_input_count"
+              value: "local_image_input_count"
+              stability: development
+              brief: "The `local_image_input_count` attribute namespace."
+            - id: "manual"
+              value: "manual"
+              stability: development
+              brief: "The `manual` attribute namespace."
+            - id: "max_total"
+              value: "max_total"
+              stability: development
+              brief: "The `max_total` attribute namespace."
+            - id: "mcp_server_origin"
+              value: "mcp_server_origin"
+              stability: development
+              brief: "The `mcp_server_origin` attribute namespace."
+            - id: "mcp_servers"
+              value: "mcp_servers"
+              stability: development
+              brief: "The `mcp_servers` attribute namespace."
+            - id: "measurement"
+              value: "measurement"
+              stability: development
+              brief: "The `measurement` attribute namespace."
+            - id: "memory_version"
+              value: "memory_version"
+              stability: development
+              brief: "The `memory_version` attribute namespace."
+            - id: "migration_type"
+              value: "migration_type"
+              stability: development
+              brief: "The `migration_type` attribute namespace."
+            - id: "model_reasoning_effort"
+              value: "model_reasoning_effort"
+              stability: development
+              brief: "The `model_reasoning_effort` attribute namespace."
+            - id: "model_slug"
+              value: "model_slug"
+              stability: development
+              brief: "The `model_slug` attribute namespace."
+            - id: "multi_agent_version"
+              value: "multi_agent_version"
+              stability: development
+              brief: "The `multi_agent_version` attribute namespace."
+            - id: "multiple_hard_links"
+              value: "multiple_hard_links"
+              stability: development
+              brief: "The `multiple_hard_links` attribute namespace."
+            - id: "multiple_write_roots"
+              value: "multiple_write_roots"
+              stability: development
+              brief: "The `multiple_write_roots` attribute namespace."
+            - id: "noise_side"
+              value: "noise_side"
+              stability: development
+              brief: "The `noise_side` attribute namespace."
+            - id: "non_blocking"
+              value: "non_blocking"
+              stability: development
+              brief: "The `non_blocking` attribute namespace."
+            - id: "observation"
+              value: "observation"
+              stability: development
+              brief: "The `observation` attribute namespace."
+            - id: "operation_kind"
+              value: "operation_kind"
+              stability: development
+              brief: "The `operation_kind` attribute namespace."
+            - id: "original_exec_call_id"
+              value: "original_exec_call_id"
+              stability: development
+              brief: "The `original_exec_call_id` attribute namespace."
+            - id: "originator"
+              value: "originator"
+              stability: development
+              brief: "The `originator` attribute namespace."
+            - id: "os_version"
+              value: "os_version"
+              stability: development
+              brief: "The `os_version` attribute namespace."
+            - id: "output_closed"
+              value: "output_closed"
+              stability: development
+              brief: "The `output_closed` attribute namespace."
+            - id: "output_format"
+              value: "output_format"
+              stability: development
+              brief: "The `output_format` attribute namespace."
+            - id: "output_length"
+              value: "output_length"
+              stability: development
+              brief: "The `output_length` attribute namespace."
+            - id: "output_line_count"
+              value: "output_line_count"
+              stability: development
+              brief: "The `output_line_count` attribute namespace."
+            - id: "output_token_count"
+              value: "output_token_count"
+              stability: development
+              brief: "The `output_token_count` attribute namespace."
+            - id: "path_kind"
+              value: "path_kind"
+              stability: development
+              brief: "The `path_kind` attribute namespace."
+            - id: "permission_entries"
+              value: "permission_entries"
+              stability: development
+              brief: "The `permission_entries` attribute namespace."
+            - id: "plugin_install"
+              value: "plugin_install"
+              stability: development
+              brief: "The `plugin_install` attribute namespace."
+            - id: "plugins_enabled"
+              value: "plugins_enabled"
+              stability: development
+              brief: "The `plugins_enabled` attribute namespace."
+            - id: "previous_item_type"
+              value: "previous_item_type"
+              stability: development
+              brief: "The `previous_item_type` attribute namespace."
+            - id: "product_sku"
+              value: "product_sku"
+              stability: development
+              brief: "The `product_sku` attribute namespace."
+            - id: "provider_name"
+              value: "provider_name"
+              stability: development
+              brief: "The `provider_name` attribute namespace."
+            - id: "query_script"
+              value: "query_script"
+              stability: development
+              brief: "The `query_script` attribute namespace."
+            - id: "query_truncated"
+              value: "query_truncated"
+              stability: development
+              brief: "The `query_truncated` attribute namespace."
+            - id: "rank"
+              value: "rank"
+              stability: development
+              brief: "The `rank` attribute namespace."
+            - id: "rationale"
+              value: "rationale"
+              stability: development
+              brief: "The `rationale` attribute namespace."
+            - id: "rationale_length"
+              value: "rationale_length"
+              stability: development
+              brief: "The `rationale_length` attribute namespace."
+            - id: "rationale_truncated"
+              value: "rationale_truncated"
+              stability: development
+              brief: "The `rationale_truncated` attribute namespace."
+            - id: "read_allowed"
+              value: "read_allowed"
+              stability: development
+              brief: "The `read_allowed` attribute namespace."
+            - id: "read_progress"
+              value: "read_progress"
+              stability: development
+              brief: "The `read_progress` attribute namespace."
+            - id: "reader_to_caller_ns"
+              value: "reader_to_caller_ns"
+              stability: development
+              brief: "The `reader_to_caller_ns` attribute namespace."
+            - id: "reasoning_effort"
+              value: "reasoning_effort"
+              stability: development
+              brief: "The `reasoning_effort` attribute namespace."
+            - id: "reasoning_summary"
+              value: "reasoning_summary"
+              stability: development
+              brief: "The `reasoning_summary` attribute namespace."
+            - id: "reasoning_token_count"
+              value: "reasoning_token_count"
+              stability: development
+              brief: "The `reasoning_token_count` attribute namespace."
+            - id: "receiver_thread_id"
+              value: "receiver_thread_id"
+              stability: development
+              brief: "The `receiver_thread_id` attribute namespace."
+            - id: "refresh"
+              value: "refresh"
+              stability: development
+              brief: "The `refresh` attribute namespace."
+            - id: "refresh_reason"
+              value: "refresh_reason"
+              stability: development
+              brief: "The `refresh_reason` attribute namespace."
+            - id: "refresh_strategy"
+              value: "refresh_strategy"
+              stability: development
+              brief: "The `refresh_strategy` attribute namespace."
+            - id: "reload"
+              value: "reload"
+              stability: development
+              brief: "The `reload` attribute namespace."
+            - id: "remote_plugin_enabled"
+              value: "remote_plugin_enabled"
+              stability: development
+              brief: "The `remote_plugin_enabled` attribute namespace."
+            - id: "request"
+              value: "request"
+              stability: development
+              brief: "The `request` attribute namespace."
+            - id: "required"
+              value: "required"
+              stability: development
+              brief: "The `required` attribute namespace."
+            - id: "response_action"
+              value: "response_action"
+              stability: development
+              brief: "The `response_action` attribute namespace."
+            - id: "response_truncated"
+              value: "response_truncated"
+              stability: development
+              brief: "The `response_truncated` attribute namespace."
+            - id: "responses"
+              value: "responses"
+              stability: development
+              brief: "The `responses` attribute namespace."
+            - id: "retained_conversation"
+              value: "retained_conversation"
+              stability: development
+              brief: "The `retained_conversation` attribute namespace."
+            - id: "retained_previous_snapshot"
+              value: "retained_previous_snapshot"
+              stability: development
+              brief: "The `retained_previous_snapshot` attribute namespace."
+            - id: "retry"
+              value: "retry"
+              stability: development
+              brief: "The `retry` attribute namespace."
+            - id: "review"
+              value: "review"
+              stability: development
+              brief: "The `review` attribute namespace."
+            - id: "review_id"
+              value: "review_id"
+              stability: development
+              brief: "The `review_id` attribute namespace."
+            - id: "risk_level"
+              value: "risk_level"
+              stability: development
+              brief: "The `risk_level` attribute namespace."
+            - id: "role"
+              value: "role"
+              stability: development
+              brief: "The `role` attribute namespace."
+            - id: "rollout_item_count"
+              value: "rollout_item_count"
+              stability: development
+              brief: "The `rollout_item_count` attribute namespace."
+            - id: "rollout_item_type"
+              value: "rollout_item_type"
+              stability: development
+              brief: "The `rollout_item_type` attribute namespace."
+            - id: "root"
+              value: "root"
+              stability: development
+              brief: "The `root` attribute namespace."
+            - id: "root_count"
+              value: "root_count"
+              stability: development
+              brief: "The `root_count` attribute namespace."
+            - id: "runtime"
+              value: "runtime"
+              stability: development
+              brief: "The `runtime` attribute namespace."
+            - id: "runtime_tool_call_id"
+              value: "runtime_tool_call_id"
+              stability: development
+              brief: "The `runtime_tool_call_id` attribute namespace."
+            - id: "sample_rate"
+              value: "sample_rate"
+              stability: development
+              brief: "The `sample_rate` attribute namespace."
+            - id: "sandbox"
+              value: "sandbox"
+              stability: development
+              brief: "The `sandbox` attribute namespace."
+            - id: "sandbox_policy"
+              value: "sandbox_policy"
+              stability: development
+              brief: "The `sandbox_policy` attribute namespace."
+            - id: "sandboxed"
+              value: "sandboxed"
+              stability: development
+              brief: "The `sandboxed` attribute namespace."
+            - id: "scan_errors"
+              value: "scan_errors"
+              stability: development
+              brief: "The `scan_errors` attribute namespace."
+            - id: "scope"
+              value: "scope"
+              stability: development
+              brief: "The `scope` attribute namespace."
+            - id: "search_info_count"
+              value: "search_info_count"
+              stability: development
+              brief: "The `search_info_count` attribute namespace."
+            - id: "section"
+              value: "section"
+              stability: development
+              brief: "The `section` attribute namespace."
+            - id: "secure_error"
+              value: "secure_error"
+              stability: development
+              brief: "The `secure_error` attribute namespace."
+            - id: "secure_outcome"
+              value: "secure_outcome"
+              stability: development
+              brief: "The `secure_outcome` attribute namespace."
+            - id: "selected_skill_count"
+              value: "selected_skill_count"
+              stability: development
+              brief: "The `selected_skill_count` attribute namespace."
+            - id: "selected_store"
+              value: "selected_store"
+              stability: development
+              brief: "The `selected_store` attribute namespace."
+            - id: "sender_thread_id"
+              value: "sender_thread_id"
+              stability: development
+              brief: "The `sender_thread_id` attribute namespace."
+            - id: "server_kind"
+              value: "server_kind"
+              stability: development
+              brief: "The `server_kind` attribute namespace."
+            - id: "service_exit_code"
+              value: "service_exit_code"
+              stability: development
+              brief: "The `service_exit_code` attribute namespace."
+            - id: "service_tier"
+              value: "service_tier"
+              stability: development
+              brief: "The `service_tier` attribute namespace."
+            - id: "session_init"
+              value: "session_init"
+              stability: development
+              brief: "The `session_init` attribute namespace."
+            - id: "skill_count"
+              value: "skill_count"
+              stability: development
+              brief: "The `skill_count` attribute namespace."
+            - id: "skills_count"
+              value: "skills_count"
+              stability: development
+              brief: "The `skills_count` attribute namespace."
+            - id: "slug"
+              value: "slug"
+              stability: development
+              brief: "The `slug` attribute namespace."
+            - id: "snapshot_requested"
+              value: "snapshot_requested"
+              stability: development
+              brief: "The `snapshot_requested` attribute namespace."
+            - id: "started_at_ms"
+              value: "started_at_ms"
+              stability: development
+              brief: "The `started_at_ms` attribute namespace."
+            - id: "startup"
+              value: "startup"
+              stability: development
+              brief: "The `startup` attribute namespace."
+            - id: "startup_complete"
+              value: "startup_complete"
+              stability: development
+              brief: "The `startup_complete` attribute namespace."
+            - id: "startup_pending"
+              value: "startup_pending"
+              stability: development
+              brief: "The `startup_pending` attribute namespace."
+            - id: "startup_readiness"
+              value: "startup_readiness"
+              stability: development
+              brief: "The `startup_readiness` attribute namespace."
+            - id: "storage_phase"
+              value: "storage_phase"
+              stability: development
+              brief: "The `storage_phase` attribute namespace."
+            - id: "store_mode"
+              value: "store_mode"
+              stability: development
+              brief: "The `store_mode` attribute namespace."
+            - id: "submission"
+              value: "submission"
+              stability: development
+              brief: "The `submission` attribute namespace."
+            - id: "target_account"
+              value: "target_account"
+              stability: development
+              brief: "The `target_account` attribute namespace."
+            - id: "target_resolution_changed"
+              value: "target_resolution_changed"
+              stability: development
+              brief: "The `target_resolution_changed` attribute namespace."
+            - id: "text_input_count"
+              value: "text_input_count"
+              stability: development
+              brief: "The `text_input_count` attribute namespace."
+            - id: "thread_id"
+              value: "thread_id"
+              stability: development
+              brief: "The `thread_id` attribute namespace."
+            - id: "thread_start"
+              value: "thread_start"
+              stability: development
+              brief: "The `thread_start` attribute namespace."
+            - id: "token_type"
+              value: "token_type"
+              stability: development
+              brief: "The `token_type` attribute namespace."
+            - id: "tool_call_id"
+              value: "tool_call_id"
+              stability: development
+              brief: "The `tool_call_id` attribute namespace."
+            - id: "tool_call_index"
+              value: "tool_call_index"
+              stability: development
+              brief: "The `tool_call_index` attribute namespace."
+            - id: "tool_count"
+              value: "tool_count"
+              stability: development
+              brief: "The `tool_count` attribute namespace."
+            - id: "tool_definition_json_bytes"
+              value: "tool_definition_json_bytes"
+              stability: development
+              brief: "The `tool_definition_json_bytes` attribute namespace."
+            - id: "tool_mode"
+              value: "tool_mode"
+              stability: development
+              brief: "The `tool_mode` attribute namespace."
+            - id: "tool_namespace"
+              value: "tool_namespace"
+              stability: development
+              brief: "The `tool_namespace` attribute namespace."
+            - id: "tool_origin"
+              value: "tool_origin"
+              stability: development
+              brief: "The `tool_origin` attribute namespace."
+            - id: "tool_result_seq"
+              value: "tool_result_seq"
+              stability: development
+              brief: "The `tool_result_seq` attribute namespace."
+            - id: "tool_spec_count"
+              value: "tool_spec_count"
+              stability: development
+              brief: "The `tool_spec_count` attribute namespace."
+            - id: "tool_token_count"
+              value: "tool_token_count"
+              stability: development
+              brief: "The `tool_token_count` attribute namespace."
+            - id: "tool_type"
+              value: "tool_type"
+              stability: development
+              brief: "The `tool_type` attribute namespace."
+            - id: "trace_id"
+              value: "trace_id"
+              stability: development
+              brief: "The `trace_id` attribute namespace."
+            - id: "tty"
+              value: "tty"
+              stability: development
+              brief: "The `tty` attribute namespace."
+            - id: "turn"
+              value: "turn"
+              stability: development
+              brief: "The `turn` attribute namespace."
+            - id: "turn_id"
+              value: "turn_id"
+              stability: development
+              brief: "The `turn_id` attribute namespace."
+            - id: "unified_exec_process_id"
+              value: "unified_exec_process_id"
+              stability: development
+              brief: "The `unified_exec_process_id` attribute namespace."
+            - id: "update_target"
+              value: "update_target"
+              stability: development
+              brief: "The `update_target` attribute namespace."
+            - id: "usage"
+              value: "usage"
+              stability: development
+              brief: "The `usage` attribute namespace."
+            - id: "user_authorization"
+              value: "user_authorization"
+              stability: development
+              brief: "The `user_authorization` attribute namespace."
+            - id: "user_input_count"
+              value: "user_input_count"
+              stability: development
+              brief: "The `user_input_count` attribute namespace."
+            - id: "value"
+              value: "value"
+              stability: development
+              brief: "The `value` attribute namespace."
+            - id: "wait"
+              value: "wait"
+              stability: development
+              brief: "The `wait` attribute namespace."
+            - id: "websocket"
+              value: "websocket"
+              stability: development
+              brief: "The `websocket` attribute namespace."
+            - id: "win32_exit_code"
+              value: "win32_exit_code"
+              stability: development
+              brief: "The `win32_exit_code` attribute namespace."
+            - id: "wire_api"
+              value: "wire_api"
+              stability: development
+              brief: "The `wire_api` attribute namespace."
         stability: development
         brief: "First dot-segment of the attribute key a collector measurement is about."
         note: "The value set is closed and is exactly the attribute namespaces present in the resolved registry plus `other`: the collector clamps every value it records to this set, so an inbound payload carrying an unknown key cannot fork the series. `registry/policies-v2/qyl_attribute_namespace.rego` recomputes the set from the resolved catalog on every `weaver registry check` and fails it when the two disagree, so a registry that gains a namespace cannot silently leave it unlisted."

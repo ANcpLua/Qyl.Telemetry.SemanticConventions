@@ -26,6 +26,7 @@ generated_paths=(
   "typescript/dist"
   "typescript/package.json"
   "typescript/LICENSE"
+  "docs/reference"
 )
 
 if ! git diff HEAD --exit-code -- "${generated_paths[@]}"; then

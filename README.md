@@ -106,9 +106,9 @@ pinned third-party library: the keys that library puts on its own `ActivitySourc
 and that upstream semantic conventions do not define. Weaver resolves all three layers
 itself; there is no merge step.
 
-Vendor keys are tags. The application never renames one and the collector passes it through
-— the alternative, a key nothing declares, is dropped at ingest and counted by
-`qyl.collector.attributes.dropped`. This registry carries telemetry vocabulary only; qyl's
+Vendor keys retain their native spelling. Registry membership is not an allowlist for application
+attributes; persistence follows the generated policy's explicit exclusions and capture rules.
+This registry carries telemetry vocabulary only; qyl's
 client-visible product requests, responses, stream events and errors are owned by
 [`qyl-api-schema`](https://github.com/ANcpLua/qyl-api-schema).
 
@@ -116,8 +116,13 @@ The [Anthropic coverage notes](docs/anthropic-telemetry.md) distinguish Claude C
 Desktop, the Claude API/SDK and Chrome instrumentation, including beta and dynamic paths.
 The [browser extension audit](docs/browser-extension-telemetry.md) also covers ChatGPT
 1.26.1005.11759, separating its inactive tracing hooks from its Statsig product analytics.
-To export the local and vendor definitions at every stability, run
-`uv run --no-project --with pyyaml python3 scripts/export-registry-reference.py --output reference.md`.
+The [OpenAI reference](docs/reference/OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md)
+covers the pinned Codex runtime, ChatGPT desktop, public cloud schemas and Chrome audit.
+The [complete registry reference](docs/reference/qyl-semantic-conventions.md) includes qyl,
+vendor and resolved upstream definitions at every stability. Both are rendered directly by
+Weaver 0.28.0 from `templates/registry/markdown/*.j2`; run
+`mise exec -- scripts/generate-reference.sh` to regenerate them. The qyl agent-observability
+profile defines development adapter obligations; the catalog does not assert deployed ingestion.
 
 ### Policies
 
@@ -371,7 +376,7 @@ weaver registry live-check \
   --input-source ../spans.json --fail-on violation
 ```
 
-Weaver 0.27.0 answers that `--include-unreferenced` with `⚠ The flag include_unreferenced is
+Weaver 0.28.0 answers that `--include-unreferenced` with `⚠ The flag include_unreferenced is
 deprecated. Please prefer manually adding the required imports`; the warning is expected and the
 flag stays, because a registry's `imports` block declares metrics, events and entities only and
 this registry generates every attribute key its dependencies carry.

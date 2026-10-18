@@ -60,7 +60,7 @@ public sealed class TypedCodeVisibilityTests(TestContext testContext)
             {
                 public static void Run()
                 {
-                    using var span = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null);
+                    using var span = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null, toolCallId: null);
                 }
             }
             """, cancellationToken: testContext.CancellationToken);

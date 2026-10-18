@@ -52,9 +52,19 @@
   ],
   "packageRules": [
     {
-      "description": "Review and regenerate the semantic-conventions release and Weaver pin updates together. The genai branch commit is moved by hand after the pin-freshness report: a digest bump without regeneration cannot pass check-generated, so Renovate does not track it.",
+      "description": "Update the core registry independently of Weaver. The genai branch commit is moved by hand after the pin-freshness report: a digest bump without regeneration cannot pass check-generated, so Renovate does not track it.",
       "matchFileNames": [
-        "registry/manifest.yaml",
+        "registry/manifest.yaml"
+      ],
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "groupName": "semantic-conventions registry",
+      "automerge": false
+    },
+    {
+      "description": "Keep the Weaver version guard and installed binary in sync, independently of registry updates.",
+      "matchFileNames": [
         "Version.props",
         "mise.toml"
       ],
@@ -64,7 +74,7 @@
       "matchDatasources": [
         "github-releases"
       ],
-      "groupName": "semantic-conventions toolchain",
+      "groupName": "Weaver toolchain",
       "automerge": false
     },
     {

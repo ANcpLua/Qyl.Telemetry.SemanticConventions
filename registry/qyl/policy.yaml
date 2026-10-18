@@ -1241,5 +1241,923 @@ groups:
               templates: ["claude_code.tool"]
           # END Anthropic native span names
 
+          openai_codex.add_collaboration_tools.internal:
+            span_name:
+              templates:
+                - "add_collaboration_tools"
+          openai_codex.add_core_tool_sources.internal:
+            span_name:
+              templates:
+                - "add_core_tool_sources"
+          openai_codex.add_core_utility_tools.internal:
+            span_name:
+              templates:
+                - "add_core_utility_tools"
+          openai_codex.add_mcp_resource_tools.internal:
+            span_name:
+              templates:
+                - "add_mcp_resource_tools"
+          openai_codex.add_shell_tools.internal:
+            span_name:
+              templates:
+                - "add_shell_tools"
+          openai_codex.agents_md.discover.internal:
+            span_name:
+              templates:
+                - "agents_md.discover"
+          openai_codex.agents_md.load.internal:
+            span_name:
+              templates:
+                - "agents_md.load"
+          openai_codex.agents_md.refresh.internal:
+            span_name:
+              templates:
+                - "agents_md.refresh"
+          openai_codex.app_server.serialized_request_queue.internal:
+            span_name:
+              templates:
+                - "app_server.serialized_request_queue"
+          openai_codex.app_server.thread_start.attach_listener.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.attach_listener"
+          openai_codex.app_server.thread_start.config_snapshot.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.config_snapshot"
+          openai_codex.app_server.thread_start.create_thread.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.create_thread"
+          openai_codex.app_server.thread_start.notify_started.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.notify_started"
+          openai_codex.app_server.thread_start.resolve_status.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.resolve_status"
+          openai_codex.app_server.thread_start.send_response.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.send_response"
+          openai_codex.app_server.thread_start.upsert_thread.internal:
+            span_name:
+              templates:
+                - "app_server.thread_start.upsert_thread"
+          openai_codex.append_dynamic_tool_runtimes.internal:
+            span_name:
+              templates:
+                - "append_dynamic_tool_runtimes"
+          openai_codex.append_items.internal:
+            span_name:
+              templates:
+                - "append_items"
+          openai_codex.append_mcp_tools.internal:
+            span_name:
+              templates:
+                - "append_mcp_tools"
+          openai_codex.append_source_tools.internal:
+            span_name:
+              templates:
+                - "append_source_tools"
+          openai_codex.append_tool_search_executor.internal:
+            span_name:
+              templates:
+                - "append_tool_search_executor"
+          openai_codex.apply_rollout_reconstruction.internal:
+            span_name:
+              templates:
+                - "apply_rollout_reconstruction"
+          openai_codex.auth.internal:
+            span_name:
+              templates:
+                - "auth"
+          openai_codex.build_core_tool_registry.internal:
+            span_name:
+              templates:
+                - "build_core_tool_registry"
+          openai_codex.build_extension_turn_input_items.internal:
+            span_name:
+              templates:
+                - "build_extension_turn_input_items"
+          openai_codex.build_model_visible_specs.internal:
+            span_name:
+              templates:
+                - "build_model_visible_specs"
+          openai_codex.build_prompt.internal:
+            span_name:
+              templates:
+                - "build_prompt"
+          openai_codex.build_skill_outcome.internal:
+            span_name:
+              templates:
+                - "build_skill_outcome"
+          openai_codex.build_skills_and_plugins.internal:
+            span_name:
+              templates:
+                - "build_skills_and_plugins"
+          openai_codex.build_tool_call.internal:
+            span_name:
+              templates:
+                - "build_tool_call"
+          openai_codex.build_tool_router.internal:
+            span_name:
+              templates:
+                - "build_tool_router"
+          openai_codex.built_tools.internal:
+            span_name:
+              templates:
+                - "built_tools"
+          openai_codex.built_tools.load_discoverable_tools.internal:
+            span_name:
+              templates:
+                - "built_tools.load_discoverable_tools"
+          openai_codex.cached_directory_connectors_for_tool_suggest_with_auth.internal:
+            span_name:
+              templates:
+                - "cached_directory_connectors_for_tool_suggest_with_auth"
+          openai_codex.capability_roots.discover_v1.internal:
+            span_name:
+              templates:
+                - "capability_roots.discover_v1"
+          openai_codex.capability_roots.discovery_cache.resolve.internal:
+            span_name:
+              templates:
+                - "capability_roots.discovery_cache.resolve"
+          openai_codex.capability_roots.resolve.internal:
+            span_name:
+              templates:
+                - "capability_roots.resolve"
+          openai_codex.capability_roots.snapshot_for_step.internal:
+            span_name:
+              templates:
+                - "capability_roots.snapshot_for_step"
+          openai_codex.capture_binding_with_metadata.internal:
+            span_name:
+              templates:
+                - "capture_binding_with_metadata"
+          openai_codex.code_mode.broker.invoke_tool.internal:
+            span_name:
+              templates:
+                - "code_mode.broker.invoke_tool"
+          openai_codex.code_mode.grpc.callback.internal:
+            span_name:
+              templates:
+                - "code_mode.grpc.callback"
+          openai_codex.code_mode.grpc.execute.internal:
+            span_name:
+              templates:
+                - "code_mode.grpc.execute"
+          openai_codex.code_mode.grpc.open_binding.internal:
+            span_name:
+              templates:
+                - "code_mode.grpc.open_binding"
+          openai_codex.code_mode.grpc.open_session.internal:
+            span_name:
+              templates:
+                - "code_mode.grpc.open_session"
+          openai_codex.code_mode.grpc.subscribe_to_tool_calls.internal:
+            span_name:
+              templates:
+                - "code_mode.grpc.subscribe_to_tool_calls"
+          openai_codex.code_mode.handler.execute.internal:
+            span_name:
+              templates:
+                - "code_mode.handler.execute"
+          openai_codex.code_mode.handler.wait.internal:
+            span_name:
+              templates:
+                - "code_mode.handler.wait"
+          openai_codex.code_mode.runtime.invoke_tool.internal:
+            span_name:
+              templates:
+                - "code_mode.runtime.invoke_tool"
+          openai_codex.code_mode_host.grpc.close_session.internal:
+            span_name:
+              templates:
+                - "code_mode_host.grpc.close_session"
+          openai_codex.code_mode_host.grpc.execute.internal:
+            span_name:
+              templates:
+                - "code_mode_host.grpc.execute"
+          openai_codex.code_mode_host.grpc.open_session.internal:
+            span_name:
+              templates:
+                - "code_mode_host.grpc.open_session"
+          openai_codex.code_mode_host.grpc.wait.internal:
+            span_name:
+              templates:
+                - "code_mode_host.grpc.wait"
+          openai_codex.code_mode_host.request.internal:
+            span_name:
+              templates:
+                - "code_mode_host.request"
+          openai_codex.code_mode_host.run_main.internal:
+            span_name:
+              templates:
+                - "code_mode_host.run_main"
+          openai_codex.code_mode_host.startup.internal:
+            span_name:
+              templates:
+                - "code_mode_host.startup"
+          openai_codex.codex.compaction.internal:
+            span_name:
+              templates:
+                - "codex.compaction"
+          openai_codex.codex.exec.internal:
+            span_name:
+              templates:
+                - "codex.exec"
+          openai_codex.codex.exec_server.internal:
+            span_name:
+              templates:
+                - "codex.exec_server"
+          openai_codex.codex.exec_server.http_request.client:
+            span_name:
+              templates:
+                - "codex.exec_server.http_request"
+          openai_codex.codex.exec_server.process.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.process"
+          openai_codex.codex.exec_server.process_capture_shell_snapshot.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.process_capture_shell_snapshot"
+          openai_codex.codex.exec_server.process_prepare_sandbox.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.process_prepare_sandbox"
+          openai_codex.codex.exec_server.process_prepare_shell_snapshot.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.process_prepare_shell_snapshot"
+          openai_codex.codex.exec_server.process_start.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.process_start"
+          openai_codex.codex.exec_server.remote.connect.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.connect"
+          openai_codex.codex.exec_server.remote.environment_registry.connect.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.environment_registry.connect"
+          openai_codex.codex.exec_server.remote.environment_registry.validate_harness_key.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.environment_registry.validate_harness_key"
+          openai_codex.codex.exec_server.remote.harness.connect.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.harness.connect"
+          openai_codex.codex.exec_server.remote.initialize_rpc.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.initialize_rpc"
+          openai_codex.codex.exec_server.remote.noise.connect.internal:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.noise.connect"
+          openai_codex.codex.exec_server.remote.noise.handshake.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.noise.handshake"
+          openai_codex.codex.exec_server.remote.noise.websocket_connect.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.noise.websocket_connect"
+          openai_codex.codex.exec_server.remote.register.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.register"
+          openai_codex.codex.exec_server.remote.rendezvous.connect.client:
+            span_name:
+              templates:
+                - "codex.exec_server.remote.rendezvous.connect"
+          openai_codex.codex.hooks.command.internal:
+            span_name:
+              templates:
+                - "codex.hooks.command"
+          openai_codex.codex.hooks.mcp_tool.internal:
+            span_name:
+              templates:
+                - "codex.hooks.mcp_tool"
+          openai_codex.codex.process.spawn.internal:
+            span_name:
+              templates:
+                - "codex.process.spawn"
+          openai_codex.codex.sampling.internal:
+            span_name:
+              templates:
+                - "codex.sampling"
+          openai_codex.codex.tool_blocking.internal:
+            span_name:
+              templates:
+                - "codex.tool_blocking"
+          openai_codex.codex.turn_input.internal:
+            span_name:
+              templates:
+                - "codex.turn_input"
+          openai_codex.collect_explicit_skill_mentions.internal:
+            span_name:
+              templates:
+                - "collect_explicit_skill_mentions"
+          openai_codex.connectors.plugin.declarations.load.internal:
+            span_name:
+              templates:
+                - "connectors.plugin.declarations.load"
+          openai_codex.decide_request.internal:
+            span_name:
+              templates:
+                - "decide_request"
+          openai_codex.dispatch_tool_call_with_state.internal:
+            span_name:
+              templates:
+                - "dispatch_tool_call_with_state"
+          openai_codex.drain_in_flight.internal:
+            span_name:
+              templates:
+                - "drain_in_flight"
+          openai_codex.encode_image.internal:
+            span_name:
+              templates:
+                - "encode_image"
+          openai_codex.endpoint_session.execute_with.internal:
+            span_name:
+              templates:
+                - "endpoint_session.execute_with"
+          openai_codex.endpoint_session.stream_encoded_json_with.internal:
+            span_name:
+              templates:
+                - "endpoint_session.stream_encoded_json_with"
+          openai_codex.environments.resolve.internal:
+            span_name:
+              templates:
+                - "environments.resolve"
+          openai_codex.environments.snapshot.internal:
+            span_name:
+              templates:
+                - "environments.snapshot"
+          openai_codex.environments.wait_until_ready.internal:
+            span_name:
+              templates:
+                - "environments.wait_until_ready"
+          openai_codex.exec_server.environment.force_info.internal:
+            span_name:
+              templates:
+                - "exec_server.environment.force_info"
+          openai_codex.exec_server.environment.info.internal:
+            span_name:
+              templates:
+                - "exec_server.environment.info"
+          openai_codex.exec_server.environment.refresh_connection.internal:
+            span_name:
+              templates:
+                - "exec_server.environment.refresh_connection"
+          openai_codex.exec_server.environment.wait_until_ready.internal:
+            span_name:
+              templates:
+                - "exec_server.environment.wait_until_ready"
+          openai_codex.extension_tool_executors.internal:
+            span_name:
+              templates:
+                - "extension_tool_executors"
+          openai_codex.fetch_recommended_plugin_install_metadata.internal:
+            span_name:
+              templates:
+                - "fetch_recommended_plugin_install_metadata"
+          openai_codex.fetch_recommended_plugins.internal:
+            span_name:
+              templates:
+                - "fetch_recommended_plugins"
+          openai_codex.finalize_tool_router.internal:
+            span_name:
+              templates:
+                - "finalize_tool_router"
+          openai_codex.fs.get_metadata.internal:
+            span_name:
+              templates:
+                - "fs.get_metadata"
+          openai_codex.fs.read_file.internal:
+            span_name:
+              templates:
+                - "fs.read_file"
+          openai_codex.fs.sandbox_execute.internal:
+            span_name:
+              templates:
+                - "fs.sandbox_execute"
+          openai_codex.fs.sandbox_prepare.internal:
+            span_name:
+              templates:
+                - "fs.sandbox_prepare"
+          openai_codex.fs.sandbox_request.internal:
+            span_name:
+              templates:
+                - "fs.sandbox_request"
+          openai_codex.get_default_model.internal:
+            span_name:
+              templates:
+                - "get_default_model"
+          openai_codex.get_image.internal:
+            span_name:
+              templates:
+                - "get_image"
+          openai_codex.get_model_info.internal:
+            span_name:
+              templates:
+                - "get_model_info"
+          openai_codex.get_or_build.internal:
+            span_name:
+              templates:
+                - "get_or_build"
+          openai_codex.guardian_background_scoring.internal:
+            span_name:
+              templates:
+                - "guardian_background_scoring"
+          openai_codex.guardian_review.internal:
+            span_name:
+              templates:
+                - "guardian_review"
+          openai_codex.guardian_scoring_observation.internal:
+            span_name:
+              templates:
+                - "guardian_scoring_observation"
+          openai_codex.handle_output_item_done.internal:
+            span_name:
+              templates:
+                - "handle_output_item_done"
+          openai_codex.handle_tool_call.internal:
+            span_name:
+              templates:
+                - "handle_tool_call"
+          openai_codex.handle_tool_call_with_source.internal:
+            span_name:
+              templates:
+                - "handle_tool_call_with_source"
+          openai_codex.hosted_model_tool_specs.internal:
+            span_name:
+              templates:
+                - "hosted_model_tool_specs"
+          openai_codex.initialize.internal:
+            span_name:
+              templates:
+                - "initialize"
+          openai_codex.instructions.load.internal:
+            span_name:
+              templates:
+                - "instructions.load"
+          openai_codex.list_models.internal:
+            span_name:
+              templates:
+                - "list_models"
+          openai_codex.list_skills.internal:
+            span_name:
+              templates:
+                - "list_skills"
+          openai_codex.list_tool_suggest_discoverable_plugins.internal:
+            span_name:
+              templates:
+                - "list_tool_suggest_discoverable_plugins"
+          openai_codex.list_tool_suggest_discoverable_tools_with_auth.internal:
+            span_name:
+              templates:
+                - "list_tool_suggest_discoverable_tools_with_auth"
+          openai_codex.list_tools_for_client_uncached.internal:
+            span_name:
+              templates:
+                - "list_tools_for_client_uncached"
+          openai_codex.list_tools_for_server.internal:
+            span_name:
+              templates:
+                - "list_tools_for_server"
+          openai_codex.list_tools_with_connector_ids.internal:
+            span_name:
+              templates:
+                - "list_tools_with_connector_ids"
+          openai_codex.list_tools_with_errors.internal:
+            span_name:
+              templates:
+                - "list_tools_with_errors"
+          openai_codex.load.internal:
+            span_name:
+              templates:
+                - "load"
+          openai_codex.load_cached_codex_apps_server_info.internal:
+            span_name:
+              templates:
+                - "load_cached_codex_apps_server_info"
+          openai_codex.load_cached_connector_runtime_for_identity.internal:
+            span_name:
+              templates:
+                - "load_cached_connector_runtime_for_identity"
+          openai_codex.load_plugins_from_layer_stack.internal:
+            span_name:
+              templates:
+                - "load_plugins_from_layer_stack"
+          openai_codex.load_skill_prompts.internal:
+            span_name:
+              templates:
+                - "load_skill_prompts"
+          openai_codex.load_with_cli_overrides.internal:
+            span_name:
+              templates:
+                - "load_with_cli_overrides"
+          openai_codex.make_rmcp_client.internal:
+            span_name:
+              templates:
+                - "make_rmcp_client"
+          openai_codex.mcp.http.request.internal:
+            span_name:
+              templates:
+                - "mcp.http.request"
+          openai_codex.mcp.plugin.metadata.load.internal:
+            span_name:
+              templates:
+                - "mcp.plugin.metadata.load"
+          openai_codex.mcp.plugin.servers.load.internal:
+            span_name:
+              templates:
+                - "mcp.plugin.servers.load"
+          openai_codex.mcp.runtime.refresh.internal:
+            span_name:
+              templates:
+                - "mcp.runtime.refresh"
+          openai_codex.mcp.runtime.refresh_if_dirty.internal:
+            span_name:
+              templates:
+                - "mcp.runtime.refresh_if_dirty"
+          openai_codex.mcp.runtime.refresh_wait.internal:
+            span_name:
+              templates:
+                - "mcp.runtime.refresh_wait"
+          openai_codex.mcp.runtime.resolve_for_step.internal:
+            span_name:
+              templates:
+                - "mcp.runtime.resolve_for_step"
+          openai_codex.mcp.runtime_config.project_for_step.internal:
+            span_name:
+              templates:
+                - "mcp.runtime_config.project_for_step"
+          openai_codex.mcp.tools.call.client:
+            span_name:
+              templates:
+                - "mcp.tools.call"
+          openai_codex.merge_connector_selection.internal:
+            span_name:
+              templates:
+                - "merge_connector_selection"
+          openai_codex.merge_into_namespaces.internal:
+            span_name:
+              templates:
+                - "merge_into_namespaces"
+          openai_codex.model_client.stream_responses_api.internal:
+            span_name:
+              templates:
+                - "model_client.stream_responses_api"
+          openai_codex.model_client.stream_responses_websocket.internal:
+            span_name:
+              templates:
+                - "model_client.stream_responses_websocket"
+          openai_codex.model_client.websocket_connection.internal:
+            span_name:
+              templates:
+                - "model_client.websocket_connection"
+          openai_codex.new.internal:
+            span_name:
+              templates:
+                - "new"
+          openai_codex.noise_relay.stream.internal:
+            span_name:
+              templates:
+                - "noise_relay.stream"
+          openai_codex.paste_image_as_png.internal:
+            span_name:
+              templates:
+                - "paste_image_as_png"
+          openai_codex.persist_rollout_items.internal:
+            span_name:
+              templates:
+                - "persist_rollout_items"
+          openai_codex.plugin_reconcile.internal:
+            span_name:
+              templates:
+                - "plugin_reconcile"
+          openai_codex.plugins.executor.package.resolve.internal:
+            span_name:
+              templates:
+                - "plugins.executor.package.resolve"
+          openai_codex.plugins_for_config.internal:
+            span_name:
+              templates:
+                - "plugins_for_config"
+          openai_codex.prepare_call_for_tool.internal:
+            span_name:
+              templates:
+                - "prepare_call_for_tool"
+          openai_codex.prepare_tool_recommendations.internal:
+            span_name:
+              templates:
+                - "prepare_tool_recommendations"
+          openai_codex.read_main_prompt.internal:
+            span_name:
+              templates:
+                - "read_main_prompt"
+          openai_codex.read_plugin_detail_for_marketplace_plugin.internal:
+            span_name:
+              templates:
+                - "read_plugin_detail_for_marketplace_plugin"
+          openai_codex.realtime_call.create.internal:
+            span_name:
+              templates:
+                - "realtime_call.create"
+          openai_codex.realtime_conversation.running_state.internal:
+            span_name:
+              templates:
+                - "realtime_conversation.running_state"
+          openai_codex.receiving.internal:
+            span_name:
+              templates:
+                - "receiving"
+          openai_codex.receiving_stream.internal:
+            span_name:
+              templates:
+                - "receiving_stream"
+          openai_codex.recommended_plugin_candidates_for_config.internal:
+            span_name:
+              templates:
+                - "recommended_plugin_candidates_for_config"
+          openai_codex.recommended_plugins_mode_for_config.internal:
+            span_name:
+              templates:
+                - "recommended_plugins_mode_for_config"
+          openai_codex.record_context_updates_and_set_reference_context_item.internal:
+            span_name:
+              templates:
+                - "record_context_updates_and_set_reference_context_item"
+          openai_codex.record_conversation_items.internal:
+            span_name:
+              templates:
+                - "record_conversation_items"
+          openai_codex.refresh_transaction.internal:
+            span_name:
+              templates:
+                - "refresh_transaction"
+          openai_codex.regular_task.prepare_run_turn.internal:
+            span_name:
+              templates:
+                - "regular_task.prepare_run_turn"
+          openai_codex.render_available_skills.internal:
+            span_name:
+              templates:
+                - "render_available_skills"
+          openai_codex.resolve.internal:
+            span_name:
+              templates:
+                - "resolve"
+          openai_codex.responses.stream.internal:
+            span_name:
+              templates:
+                - "responses.stream"
+          openai_codex.responses.stream_request.internal:
+            span_name:
+              templates:
+                - "responses.stream_request"
+          openai_codex.responses_websocket.connect.internal:
+            span_name:
+              templates:
+                - "responses_websocket.connect"
+          openai_codex.responses_websocket.stream_request.internal:
+            span_name:
+              templates:
+                - "responses_websocket.stream_request"
+          openai_codex.resume_running_thread.internal:
+            span_name:
+              templates:
+                - "resume_running_thread"
+          openai_codex.resume_thread_from_history.internal:
+            span_name:
+              templates:
+                - "resume_thread_from_history"
+          openai_codex.resume_thread_with_history.internal:
+            span_name:
+              templates:
+                - "resume_thread_with_history"
+          openai_codex.run_auto_compact.internal:
+            span_name:
+              templates:
+                - "run_auto_compact"
+          openai_codex.run_hooks_and_record_inputs.internal:
+            span_name:
+              templates:
+                - "run_hooks_and_record_inputs"
+          openai_codex.run_legacy_after_agent_hook.internal:
+            span_name:
+              templates:
+                - "run_legacy_after_agent_hook"
+          openai_codex.run_multiplexed_environment.internal:
+            span_name:
+              templates:
+                - "run_multiplexed_environment"
+          openai_codex.run_pending_session_start_hooks.internal:
+            span_name:
+              templates:
+                - "run_pending_session_start_hooks"
+          openai_codex.run_pre_sampling_compact.internal:
+            span_name:
+              templates:
+                - "run_pre_sampling_compact"
+          openai_codex.run_sampling_request.internal:
+            span_name:
+              templates:
+                - "run_sampling_request"
+          openai_codex.run_session_end_hooks.internal:
+            span_name:
+              templates:
+                - "run_session_end_hooks"
+          openai_codex.run_turn.internal:
+            span_name:
+              templates:
+                - "run_turn"
+          openai_codex.run_turn.collect_post_sampling_state.internal:
+            span_name:
+              templates:
+                - "run_turn.collect_post_sampling_state"
+          openai_codex.run_turn.prepare_sampling_request_input.internal:
+            span_name:
+              templates:
+                - "run_turn.prepare_sampling_request_input"
+          openai_codex.run_turn_stop_hooks.internal:
+            span_name:
+              templates:
+                - "run_turn_stop_hooks"
+          openai_codex.search_remote_plugins.internal:
+            span_name:
+              templates:
+                - "search_remote_plugins"
+          openai_codex.send_raw_response_items.internal:
+            span_name:
+              templates:
+                - "send_raw_response_items"
+          openai_codex.session.flush_rollout.internal:
+            span_name:
+              templates:
+                - "session.flush_rollout"
+          openai_codex.session_init.internal:
+            span_name:
+              templates:
+                - "session_init"
+          openai_codex.session_init.auth_mcp.internal:
+            span_name:
+              templates:
+                - "session_init.auth_mcp"
+          openai_codex.session_init.mcp_manager_init.internal:
+            span_name:
+              templates:
+                - "session_init.mcp_manager_init"
+          openai_codex.session_init.network_proxy.internal:
+            span_name:
+              templates:
+                - "session_init.network_proxy"
+          openai_codex.session_init.plugin_skill_warmup.internal:
+            span_name:
+              templates:
+                - "session_init.plugin_skill_warmup"
+          openai_codex.session_init.required_mcp_wait.internal:
+            span_name:
+              templates:
+                - "session_init.required_mcp_wait"
+          openai_codex.session_init.state_db.internal:
+            span_name:
+              templates:
+                - "session_init.state_db"
+          openai_codex.session_init.thread_name_lookup.internal:
+            span_name:
+              templates:
+                - "session_init.thread_name_lookup"
+          openai_codex.session_init.thread_persistence.internal:
+            span_name:
+              templates:
+                - "session_init.thread_persistence"
+          openai_codex.session_loop.internal:
+            span_name:
+              templates:
+                - "session_loop"
+          openai_codex.session_task.run.internal:
+            span_name:
+              templates:
+                - "session_task.run"
+          openai_codex.set_previous_turn_settings.internal:
+            span_name:
+              templates:
+                - "set_previous_turn_settings"
+          openai_codex.shell_snapshot.internal:
+            span_name:
+              templates:
+                - "shell_snapshot"
+          openai_codex.skills.cloud.refresh_cloud_catalog.internal:
+            span_name:
+              templates:
+                - "skills.cloud.refresh_cloud_catalog"
+          openai_codex.skills.environment.load.internal:
+            span_name:
+              templates:
+                - "skills.environment.load"
+          openai_codex.skills.executor.catalog_root.internal:
+            span_name:
+              templates:
+                - "skills.executor.catalog_root"
+          openai_codex.skills.executor.refresh_executor_catalog.internal:
+            span_name:
+              templates:
+                - "skills.executor.refresh_executor_catalog"
+          openai_codex.skills.shadow_selection.rank.internal:
+            span_name:
+              templates:
+                - "skills.shadow_selection.rank"
+          openai_codex.skills_for_config.internal:
+            span_name:
+              templates:
+                - "skills_for_config"
+          openai_codex.start_server_task.internal:
+            span_name:
+              templates:
+                - "start_server_task"
+          openai_codex.startup_prewarm.internal:
+            span_name:
+              templates:
+                - "startup_prewarm"
+          openai_codex.startup_prewarm.resolve.internal:
+            span_name:
+              templates:
+                - "startup_prewarm.resolve"
+          openai_codex.step_context.capture.internal:
+            span_name:
+              templates:
+                - "step_context.capture"
+          openai_codex.stored_thread_to_initial_history.internal:
+            span_name:
+              templates:
+                - "stored_thread_to_initial_history"
+          openai_codex.stream_request.internal:
+            span_name:
+              templates:
+                - "stream_request"
+          openai_codex.thread_spawn.internal:
+            span_name:
+              templates:
+                - "thread_spawn"
+          openai_codex.track_turn_resolved_config_analytics.internal:
+            span_name:
+              templates:
+                - "track_turn_resolved_config_analytics"
+          openai_codex.try_run_sampling_request.internal:
+            span_name:
+              templates:
+                - "try_run_sampling_request"
+          openai_codex.turn_context.build.internal:
+            span_name:
+              templates:
+                - "turn_context.build"
+          openai_codex.turn_context.make.internal:
+            span_name:
+              templates:
+                - "turn_context.make"
+          openai_codex.turn_diff_display_roots.internal:
+            span_name:
+              templates:
+                - "turn_diff_display_roots"
+          openai_codex.unified_exec.collect_output.internal:
+            span_name:
+              templates:
+                - "unified_exec.collect_output"
+          openai_codex.unified_exec.exec_command.internal:
+            span_name:
+              templates:
+                - "unified_exec.exec_command"
+          openai_codex.unified_exec.open_session.internal:
+            span_name:
+              templates:
+                - "unified_exec.open_session"
+          openai_codex.unified_exec.write_stdin.internal:
+            span_name:
+              templates:
+                - "unified_exec.write_stdin"
+          openai_codex.upload.internal:
+            span_name:
+              templates:
+                - "upload"
+          openai_codex.world_state.build.internal:
+            span_name:
+              templates:
+                - "world_state.build"
+
+          qyl.agent.operation.internal:
+            span_name:
+              templates:
+                - "agent {qyl.agent.operation.name}"
+
     attributes:
       - ref: qyl.instrumentation.domain

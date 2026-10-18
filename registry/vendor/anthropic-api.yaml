@@ -11,6 +11,8 @@ groups:
     stability: development
     brief: Anthropic beta features enabled on the API request.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:152.
+    examples:
+    - - example
   - id: anthropic.content.truncated
     type: boolean
     stability: development
@@ -20,49 +22,68 @@ groups:
     type: string
     stability: development
     brief: Anthropic deployment id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployments.ts#L86 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployments.ts#L120
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployments.ts#L86
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployments.ts#L120
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployments.ts#L194
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.deployment_run.id
     type: string
     stability: development
     brief: Anthropic deployment run id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/deployment-runs.ts#L40
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.dream.id
     type: string
     stability: development
     brief: Anthropic dream id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/dreams.ts#L84 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/dreams.ts#L164
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/dreams.ts#L84
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/dreams.ts#L164
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/dreams.ts#L205
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.environment.id
     type: string
     stability: development
     brief: Anthropic environment id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:423. https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/lib/internal/tracing/environments.ts#L22
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/environments/environments.ts#L91
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.environment.work.id
     type: string
     stability: development
     brief: Anthropic environment work id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:424. https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/lib/internal/tracing/environments.ts#L23
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/environments/work.ts#L53
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.file.id
     type: string
     stability: development
     brief: Anthropic file id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/files.ts#L65 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/files.ts#L99
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/files.ts#L65
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/files.ts#L99
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/files.ts#L128
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.memory_store.memory_version.id
     type: string
     stability: development
     brief: Anthropic memory store memory version id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/memory-stores/memory-versions.ts#L47
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/memory-stores/memory-versions.ts#L139
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.message.batch.id
     type: string
     stability: development
     brief: Anthropic message batch id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:368. https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/messages/batches.ts#L92
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/messages/batches.ts#L160
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.message.batch.request_count
     type: int
     stability: development
@@ -79,11 +100,16 @@ groups:
     stability: development
     brief: Native reason the Messages API response stopped.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:135.
+    examples:
+    - timeout
   - id: anthropic.model.id
     type: string
     stability: development
     brief: Anthropic model id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/models.ts#L39 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/models.ts#L41
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/models.ts#L39
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/models.ts#L41
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.api_key.id
     type: string
     stability: development
@@ -91,6 +117,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/api-keys.ts#L24
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/api-keys.ts#L45
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/api-keys.ts#L25
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.external_key.id
     type: string
     stability: development
@@ -98,6 +126,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/external-keys.ts#L51
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/external-keys.ts#L81
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/external-keys.ts#L132
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.federation_issuer.id
     type: string
     stability: development
@@ -105,6 +135,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/issuers.ts#L84
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/issuers.ts#L126
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/issuers.ts#L209
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.federation_rule.id
     type: string
     stability: development
@@ -112,23 +144,32 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/rules/workspaces.ts#L60
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/rules/workspaces.ts#L113
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/rules/workspaces.ts#L164
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.federation_rule.workspace.id
     type: string
     stability: development
     brief: Anthropic organization federation rule workspace id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/federation/rules/workspaces.ts#L165
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/federation/rules/workspaces.ts#L146
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.id
     type: string
     stability: development
     brief: Anthropic organization id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:48.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.invite.id
     type: string
     stability: development
     brief: Anthropic organization invite id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/invites.ts#L52
-      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/invites.ts#L97 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/invites.ts#L54
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/invites.ts#L97
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/invites.ts#L54
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.plugin.id
     type: string
     stability: development
@@ -136,24 +177,32 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/shares.ts#L61
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/versions.ts#L73
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/versions.ts#L122
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.plugin.installation_setting.id
     type: string
     stability: development
     brief: Anthropic organization plugin installation setting id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/installation-settings.ts#L131
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/installation-settings.ts#L198
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.plugin.version.id
     type: string
     stability: development
     brief: Anthropic organization plugin version id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/versions.ts#L123
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugins/versions.ts#L243
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.plugin_marketplace.id
     type: string
     stability: development
     brief: Anthropic organization plugin marketplace id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugin-marketplaces.ts#L52
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/plugin-marketplaces.ts#L98
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.rbac_group.id
     type: string
     stability: development
@@ -161,17 +210,23 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-groups/members.ts#L38
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-groups/members.ts#L66
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-groups/members.ts#L102
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.rbac_group.member.id
     type: string
     stability: development
     brief: Anthropic organization rbac group member id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-groups/members.ts#L103
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.rbac_role.id
     type: string
     stability: development
     brief: Anthropic organization rbac role id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-roles/rbac-roles.ts#L41
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/rbac-roles/permissions.ts#L41
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.service_account.id
     type: string
     stability: development
@@ -179,25 +234,34 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/service-accounts/workspaces.ts#L70
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/service-accounts/workspaces.ts#L124
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/service-accounts/workspaces.ts#L179
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.service_account.workspace.id
     type: string
     stability: development
     brief: Anthropic organization service account workspace id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/service-accounts/workspaces.ts#L180
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/service-accounts/workspaces.ts#L158
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.spend_limit.id
     type: string
     stability: development
     brief: Anthropic organization spend limit id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/spend-limits/spend-limits.ts#L45
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/spend-limits/spend-limits.ts#L108
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.spend_limit_increase_request.id
     type: string
     stability: development
-    brief: Anthropic organization spend limit increase request id used for producer correlation.
+    brief: Anthropic organization spend limit increase request id used for producer
+      correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/spend-limits/increase-requests.ts#L39
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/spend-limits/increase-requests.ts#L118
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/spend-limits/increase-requests.ts#L157
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.telemetry_destination.id
     type: string
     stability: development
@@ -205,18 +269,26 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/telemetry-destinations/workspaces.ts#L54
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/telemetry-destinations/workspaces.ts#L107
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/telemetry-destinations/workspaces.ts#L159
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.telemetry_destination.workspace.id
     type: string
     stability: development
-    brief: Anthropic organization telemetry destination workspace id used for producer correlation.
+    brief: Anthropic organization telemetry destination workspace id used for producer
+      correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/telemetry-destinations/workspaces.ts#L108
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/telemetry-destinations/workspaces.ts#L160
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.user.id
     type: string
     stability: development
     brief: Anthropic organization user id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/users.ts#L24
-      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/users.ts#L46 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/users.ts#L91
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/users.ts#L46
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/organization/users.ts#L91
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.workspace.id
     type: string
     stability: development
@@ -224,6 +296,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/workspaces.ts#L88
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/workspaces.ts#L114
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/workspaces.ts#L160
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.workspace.member.id
     type: string
     stability: development
@@ -231,6 +305,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/members.ts#L35
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/members.ts#L69
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/members.ts#L166
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.organization.workspace.service_account.id
     type: string
     stability: development
@@ -238,42 +314,58 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/service-accounts.ts#L59
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/service-accounts.ts#L116
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/organization/workspaces/service-accounts.ts#L281
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.request.id
     type: string
     stability: development
     brief: Anthropic request id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:50.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.request.service_tier
     type: string
     stability: development
     brief: Service tier requested for the operation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:149.
+    examples:
+    - example
   - id: anthropic.response.service_tier
     type: string
     stability: development
     brief: Service tier that served the response.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:136.
+    examples:
+    - example
   - id: anthropic.session.environment.id
     type: string
     stability: development
     brief: Anthropic session environment id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:184. https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/sessions/sessions.ts#L209
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.session.id
     type: string
     stability: development
     brief: Anthropic session id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:69. https://platform.claude.com/docs/en/api/opentelemetry/spans:300.
       https://platform.claude.com/docs/en/api/opentelemetry/spans:425.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.session.outcome.id
     type: string
     stability: development
     brief: Anthropic session outcome id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:335.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.session.outcome_evaluation.explanation
     type: string
     stability: development
     brief: Explanation returned by the outcome evaluation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:338.
+    examples:
+    - example
   - id: anthropic.session.outcome_evaluation.iteration
     type: int
     stability: development
@@ -284,6 +376,8 @@ groups:
     stability: development
     brief: Result classification of the outcome evaluation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:336.
+    examples:
+    - completed
   - id: anthropic.session.resource.id
     type: string
     stability: development
@@ -291,29 +385,41 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/sessions/resources.ts#L41
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/sessions/resources.ts#L79
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/sessions/resources.ts#L154
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.session.thread.id
     type: string
     stability: development
     brief: Anthropic session thread id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:301. https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/lib/internal/tracing/tools.ts#L112
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/sessions/threads/threads.ts#L47
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.session.turn.stop_reason
     type: string
     stability: development
     brief: Native reason the Managed Agents turn stopped.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:229.
+    examples:
+    - timeout
   - id: anthropic.skill.id
     type: string
     stability: development
     brief: Anthropic skill id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L37 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L72
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L37
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L72
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L106
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.skill.version.id
     type: string
     stability: development
     brief: Anthropic skill version id used for producer correlation.
-    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L72 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L136
+    note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L72
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/skills/versions.ts#L136
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/skills/versions.ts#L83
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.thinking.budget_tokens
     type: int
     stability: development
@@ -324,27 +430,37 @@ groups:
     stability: development
     brief: Thinking configuration mode sent with the request.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:150.
+    examples:
+    - example
   - id: anthropic.tool.evaluated_permission
     type: string
     stability: development
     brief: Permission decision evaluated for the tool operation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:302.
+    examples:
+    - example
   - id: anthropic.tool_result.content
     type: string
     stability: development
     brief: Tool result content serialized for the Anthropic tracing contract.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:307.
+    examples:
+    - example
   - id: anthropic.toolset.name
     type: string
     stability: development
     brief: Name of the toolset associated with the tool call.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans#attributes.
+    examples:
+    - example
   - id: anthropic.tunnel.certificate.id
     type: string
     stability: development
     brief: Anthropic tunnel certificate id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/tunnels/certificates.ts#L88
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/tunnels/certificates.ts#L177
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.tunnel.id
     type: string
     stability: development
@@ -352,6 +468,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/tunnels/certificates.ts#L48
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/tunnels/certificates.ts#L88
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/tunnels/certificates.ts#L134
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.usage.cache_creation.ephemeral_1h_input_tokens
     type: int
     stability: development
@@ -379,7 +497,10 @@ groups:
     stability: development
     brief: Anthropic user profile id used for producer correlation.
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/user-profiles.ts#L67
-      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/user-profiles.ts#L101 https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/user-profiles.ts#L167
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/user-profiles.ts#L101
+      https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/user-profiles.ts#L167
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.vault.credential.id
     type: string
     stability: development
@@ -387,6 +508,8 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L83
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L118
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L193
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.vault.id
     type: string
     stability: development
@@ -394,11 +517,15 @@ groups:
     note: https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L48
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L83
       https://github.com/anthropics/anthropic-sdk-typescript/blob/sdk-v0.135.0/src/resources/beta/vaults/credentials.ts#L118
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: anthropic.workspace.id
     type: string
     stability: development
     brief: Anthropic workspace id used for producer correlation.
     note: https://platform.claude.com/docs/en/api/opentelemetry/spans:49.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
 - id: vendor.anthropic_api
   type: attribute_group
   brief: Pinned source and instrumentation-scope evidence.

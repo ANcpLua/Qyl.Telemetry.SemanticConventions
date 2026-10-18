@@ -18,11 +18,13 @@ public sealed class Qyl0121CustomValueEqualsMemberAnalyzerTests(TestContext test
             {
                 public static readonly DbSystemName Postgres = DbSystemName.Custom("postgresql");
                 public static readonly MessagingSystem Kafka = MessagingSystem.Custom("kafka");
+                public static readonly QylAttributeNamespace NativeValue = QylAttributeNamespace.Custom("value");
             }
             """, cancellationToken: testContext.CancellationToken);
-        Assert.HasCount(2, diagnostics);
+        Assert.HasCount(3, diagnostics);
         Assert.IsTrue(diagnostics.Select(static d => d.GetMessage(CultureInfo.InvariantCulture)).Any(static m => m.Contains("DbSystemName.Postgresql", StringComparison.Ordinal)));
         Assert.IsTrue(diagnostics.Select(static d => d.GetMessage(CultureInfo.InvariantCulture)).Any(static m => m.Contains("MessagingSystem.Kafka", StringComparison.Ordinal)));
+        Assert.IsTrue(diagnostics.Select(static d => d.GetMessage(CultureInfo.InvariantCulture)).Any(static m => m.Contains("QylAttributeNamespace.ValueMember", StringComparison.Ordinal)));
     }
 
     [TestMethod]

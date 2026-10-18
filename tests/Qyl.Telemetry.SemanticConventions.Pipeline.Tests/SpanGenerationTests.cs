@@ -65,12 +65,12 @@ public sealed class SpanGenerationTests
     public void The_skill_spans_have_starters_that_specialize_the_execute_tool_starter()
     {
         using var listener = new ApplicationSourceListener();
-        using var generic = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null);
-        using var load = IncubatingSpans.GenAiExecuteToolLoadSkill("load_skill", agentName: null, conversationId: null, skillName: "pdf");
-        using var loadUnnamed = IncubatingSpans.GenAiExecuteToolLoadSkill("load_skill", agentName: null, conversationId: null, skillName: null);
-        using var read = IncubatingSpans.GenAiExecuteToolReadSkillResource("read_skill_resource", agentName: null, conversationId: null, skillName: "pdf", skillResourceName: "forms.md");
-        using var readResourceOnly = IncubatingSpans.GenAiExecuteToolReadSkillResource("read_skill_resource", agentName: null, conversationId: null, skillName: "pdf", skillResourceName: null);
-        using var command = IncubatingSpans.GenAiExecuteToolCommand("bash", agentName: null, conversationId: null, processExecutableName: "git", skillName: null, skillResourceName: null);
+        using var generic = IncubatingSpans.GenAiExecuteTool("lookup_stock", agentName: null, conversationId: null, toolCallId: "provider-call-123");
+        using var load = IncubatingSpans.GenAiExecuteToolLoadSkill("load_skill", agentName: null, conversationId: null, skillName: "pdf", toolCallId: null);
+        using var loadUnnamed = IncubatingSpans.GenAiExecuteToolLoadSkill("load_skill", agentName: null, conversationId: null, skillName: null, toolCallId: null);
+        using var read = IncubatingSpans.GenAiExecuteToolReadSkillResource("read_skill_resource", agentName: null, conversationId: null, skillName: "pdf", skillResourceName: "forms.md", toolCallId: null);
+        using var readResourceOnly = IncubatingSpans.GenAiExecuteToolReadSkillResource("read_skill_resource", agentName: null, conversationId: null, skillName: "pdf", skillResourceName: null, toolCallId: null);
+        using var command = IncubatingSpans.GenAiExecuteToolCommand("bash", agentName: null, conversationId: null, processExecutableName: "git", skillName: null, skillResourceName: null, toolCallId: null);
         Assert.AreSequenceEqual(["execute_tool lookup_stock", "execute_tool load_skill pdf", "execute_tool load_skill", "execute_tool read_skill_resource pdf forms.md", "execute_tool read_skill_resource", "execute_tool bash git"], new[] { generic, load, loadUnnamed, read, readResourceOnly, command }.Select(static s => s!.DisplayName));
         foreach (var activity in new[] { generic, load, loadUnnamed, read, readResourceOnly, command })
         {
@@ -84,6 +84,11 @@ public sealed class SpanGenerationTests
             Assert.AreEqual(SchemaUrl.Qyl, activity.Source.TelemetrySchemaUrl);
             Assert.AreEqual("execute_tool", activity.GetTagItem("gen_ai.operation.name"));
             Assert.AreEqual("gen_ai.execute_tool", activity.GetTagItem("qyl.instrumentation.domain"));
+        }
+        Assert.AreEqual("provider-call-123", generic!.GetTagItem("gen_ai.tool.call.id"));
+        foreach (var activity in new[] { load, loadUnnamed, read, readResourceOnly, command })
+        {
+            Assert.IsFalse(activity!.TagObjects.Any(static tag => tag.Key == "gen_ai.tool.call.id"));
         }
         Assert.AreEqual("pdf", load!.GetTagItem("gen_ai.skill.name"));
         Assert.AreEqual("forms.md", read!.GetTagItem("gen_ai.skill.resource.name"));

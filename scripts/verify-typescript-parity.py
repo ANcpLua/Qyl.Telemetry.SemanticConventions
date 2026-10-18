@@ -27,13 +27,17 @@ for kind in ('Attributes', 'Metrics', 'Events'):
 
 for tier in ('stable', 'incubating'):
     expected = {'SCHEMA_URL': snapshot['schema_url'], 'REGISTRY_SNAPSHOT_SHA256': actual[tier]['REGISTRY_SNAPSHOT_SHA256']}
-    dotted_symbols = {symbol(r['key']) for r in rows('attributes', 'key') if included(r, tier) and '.' in r['key']}
+    projections = {}
+    for row in rows('attributes', 'key'):
+        if included(row, tier):
+            projections.setdefault(symbol(row['key']), []).append(row['key'])
     for row in rows('attributes', 'key'):
         if not included(row, tier):
             continue
         key = row['key']
         constant = 'ATTR_' + symbol(key)
-        if '.' not in key and symbol(key) in dotted_symbols:
+        siblings = projections[symbol(key)]
+        if any(sibling.count('.') > key.count('.') for sibling in siblings):
             constant += '_NATIVE'
         assert constant not in expected, f'duplicate projected attribute constant: {constant}'
         expected[constant] = key

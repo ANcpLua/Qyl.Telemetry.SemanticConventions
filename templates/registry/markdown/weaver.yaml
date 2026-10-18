@@ -1,0 +1,42 @@
+whitespace_control:
+  trim_blocks: true
+  lstrip_blocks: true
+  keep_trailing_newline: true
+
+templates:
+  - template: reference.md.j2
+    filter: >
+      (.groups | map(select(.id | startswith("registry."))) | map(.attributes[]?)
+       | map({key: .name, value: .}) | from_entries) as $definitions
+      | .groups
+      | map(. as $group | .attributes = ((.attributes // []) | map(. as $attribute
+          | $definitions[.name] as $definition
+          | . + {doc_details: (($group.id | startswith("registry."))
+             or $definition == null or .type != $definition.type
+             or .examples != $definition.examples or .annotations != $definition.annotations
+             or .deprecated != $definition.deprecated)})))
+      | sort_by([.lineage.provenance.schema_url, .lineage.provenance.path, .id])
+    application_mode: single
+    file_name: qyl-semantic-conventions.md
+  - template: openai.md.j2
+    filter: .groups | map(select(.lineage.provenance.path == "registry/vendor/openai-codex.yaml" or .lineage.provenance.path == "registry/qyl/agent-observability.yaml")) | sort_by(.id)
+    application_mode: single
+    file_name: OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md
+  - template: coverage.json.j2
+    filter: >
+      .groups as $groups
+      | {events: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_event") | .name] | unique,
+         metrics: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_metric") | .metric_name] | unique,
+         spans: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span") | .annotations.qyl.openai.literal_name] | unique,
+         span_definitions: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span") | .id] | unique,
+         groups: [$groups[].id] | unique,
+         attributes: [$groups[].attributes[]?.name] | unique,
+         event_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_event")
+           | {key: .name, value: [.attributes[]?.name] | unique}] | from_entries,
+         metric_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_metric")
+           | {key: .metric_name, value: [.attributes[]?.name] | unique}] | from_entries,
+         span_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span")]
+           | group_by(.annotations.qyl.openai.literal_name)
+           | map({key: .[0].annotations.qyl.openai.literal_name, value: [.[].attributes[]?.name] | unique}) | from_entries}
+    application_mode: single
+    file_name: coverage.json

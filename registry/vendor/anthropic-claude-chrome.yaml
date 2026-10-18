@@ -10,20 +10,31 @@ groups:
     type: string
     stability: development
     brief: Anthropic account UUID in the browser extension spelling.
-    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733635. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
-      JavaScript UTF-16 offset 1747515. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1747562.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset
+      1733635. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16
+      offset 1747515. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript
+      UTF-16 offset 1747562.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: permissions
     type: string
     stability: development
     brief: Browser extension permission mode recorded on its operation span.
-    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733704. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
-      JavaScript UTF-16 offset 1734694. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1746406.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset
+      1733704. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16
+      offset 1734694. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript
+      UTF-16 offset 1746406.
+    examples:
+    - example
   - id: sampling_trace_id
     type: string
     stability: development
     brief: Trace identifier used by the browser extension request-sampling helper.
-    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733795. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
-      JavaScript UTF-16 offset 1747091.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset
+      1733795. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16
+      offset 1747091.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
 - id: vendor.claude_chrome
   type: attribute_group
   brief: Pinned source and instrumentation-scope evidence.

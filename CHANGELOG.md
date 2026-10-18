@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- Add the pinned OpenAI Codex runtime registry, complete OpenAI evidence catalogs and a development qyl agent lifecycle profile. Preserve native keys, units, log routes, dynamic span names and distinct client/server contracts.
+- Generate both detailed Markdown references directly with Weaver 0.28.0 `.j2` templates, including resolved upstream core and GenAI definitions. Remove the Python Markdown exporter and check source-census coverage in the normal gate.
+- Preserve entity identity without requirement levels, entity associations on spans and events, and reference-specific attribute phases in generated C# contracts. Retain both native spellings when TypeScript identifiers collide.
+- Upgrade Weaver to 0.28.0 and the GenAI registry to commit `547934a`, retaining core 1.44.0. Keep automated Weaver and registry updates independent and regenerate the bindings.
+- Follow the upstream GenAI contract changes: rename the Mistral provider value from `mistral_ai` to `mistral` (including generated members), require an explicit nullable tool-call ID argument on execute-tool starters, and refresh token-usage and MCP session-duration attribute requirements.
 - Add native Anthropic telemetry coverage for Claude Code 2.1.302, Cowork and Claude Desktop 2.42304.0, the Claude API and TypeScript SDK 0.135.0, and Claude for Chrome 1.0.101. Include beta spans, log and span events, metrics, native attributes and documented dynamic naming paths.
 - Preserve native keys and mixed wire representations, referencing shared upstream definitions.
 - Preserve generated enum output while replacing repeated member scans with sorted grouping.

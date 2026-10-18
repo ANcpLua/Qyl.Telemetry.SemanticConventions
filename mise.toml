@@ -3,7 +3,7 @@
 [tools]
 "node" = "24.21.0"
 "dotnet" = "10.0.401"
-"github:open-telemetry/weaver" = "0.27.0"
+"github:open-telemetry/weaver" = "0.28.0"
 # uv runs the Python helpers of scripts/generate.sh, the gate's unittest and scripts/check-pin-freshness.py.
 "uv" = "0.13.0"
 
@@ -14,6 +14,7 @@ run = '''
 scripts/quiet.sh check \
   "uv run --no-project --with pyyaml python3 -m unittest discover --start-directory tests/scripts --pattern 'test_*.py'" \
   './scripts/check-generated.sh' \
+  'node scripts/check-reference.mjs' \
   'npm test --prefix typescript' \
   './scripts/check-live-check-policies.sh' \
   'dotnet restore Qyl.Telemetry.SemanticConventions.slnx' \

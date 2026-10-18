@@ -15,6 +15,13 @@ namespace Qyl.Telemetry.SemanticConventions;
 public sealed class SpanDefinition<TKind>
     where TKind : struct, ISpanKind
 {
+    /// <summary>Initializes a span using the original attribute and naming constructor.</summary>
+    public SpanDefinition(string id, string type, string brief, Stability stability, Deprecation deprecation,
+        IReadOnlyList<AttributeRef> attributes, IReadOnlyList<string> spanName)
+        : this(id, type, brief, stability, deprecation, attributes, spanName, null)
+    {
+    }
+
     /// <summary>Initializes a new span definition.</summary>
     /// <param name="id">The span refinement id (e.g. <c>http.client</c>, <c>db.postgresql.client</c>).</param>
     /// <param name="type">The span type the row belongs to; equals <paramref name="id"/> for a base group.</param>
@@ -23,6 +30,7 @@ public sealed class SpanDefinition<TKind>
     /// <param name="deprecation">Structured deprecation; <see cref="Deprecation.None"/> when current.</param>
     /// <param name="attributes">Attributes this span carries, with requirement levels.</param>
     /// <param name="spanName">The span-name chain (registry annotation <c>qyl.span_name</c>); empty when the registry states no rule qyl encodes.</param>
+    /// <param name="entities">Entities this span is associated with.</param>
     public SpanDefinition(
         string id,
         string type,
@@ -30,7 +38,8 @@ public sealed class SpanDefinition<TKind>
         Stability stability,
         Deprecation deprecation,
         IReadOnlyList<AttributeRef> attributes,
-        IReadOnlyList<string> spanName)
+        IReadOnlyList<string> spanName,
+        IReadOnlyList<EntityRef>? entities)
     {
         Id = id ?? throw new ArgumentNullException(nameof(id));
         Type = type ?? throw new ArgumentNullException(nameof(type));
@@ -39,6 +48,7 @@ public sealed class SpanDefinition<TKind>
         Stability = stability;
         Deprecation = deprecation ?? throw new ArgumentNullException(nameof(deprecation));
         Attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
+        Entities = entities ?? Array.Empty<EntityRef>();
     }
 
     /// <summary>The span refinement id (e.g. <c>http.client</c>, <c>db.postgresql.client</c>).</summary>
@@ -70,6 +80,9 @@ public sealed class SpanDefinition<TKind>
 
     /// <summary>Attributes this span carries, with requirement levels.</summary>
     public IReadOnlyList<AttributeRef> Attributes { get; }
+
+    /// <summary>Entities this span is associated with.</summary>
+    public IReadOnlyList<EntityRef> Entities { get; }
 
     /// <inheritdoc/>
     public override string ToString() => Id;

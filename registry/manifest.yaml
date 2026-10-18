@@ -20,4 +20,4 @@ dependencies:
   # renovate: datasource=git-refs depName=open-telemetry/semantic-conventions-genai
   - name: genai
     schema_url: https://opentelemetry.io/schemas/gen-ai-dev/1.42.0-dev
-    registry_path: https://github.com/open-telemetry/semantic-conventions-genai.git@6fd0d763a092db245a54104fc1124031eb3c51d2[model]
+    registry_path: https://github.com/open-telemetry/semantic-conventions-genai.git@547934afa90a34298441caf80c43b27255c3a292[model]

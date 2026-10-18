@@ -128,7 +128,8 @@ public readonly struct {{ name }} : global::System.IEquatable<{{ name }}>
 {% if m.dep %}
 {{ lib.obsolete_line(pad, m.dep) }}
 {% endif %}
-{{ pad }}public static {{ name }} {{ m.id }} { get; } = new({% if m.value is string %}{{ lib.cs_string(m.value) }}{% else %}{{ m.value }}{% endif %});
+{% set member_name = lib.value_member_name(name, m.id) %}
+{{ pad }}public static {{ name }} {{ member_name }} { get; } = new({% if m.value is string %}{{ lib.cs_string(m.value) }}{% else %}{{ m.value }}{% endif %});
 {% endfor %}
 
 {{ lib.doc_block(pad, "summary", "A value the registry does not list. A value a member carries is that member (QYL0121).") }}

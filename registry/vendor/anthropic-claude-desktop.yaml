@@ -278,7 +278,10 @@ groups:
     type: string
     stability: development
     brief: Added dirs recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4345471.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4345471.
+    examples:
+    - example
   - id: admin_removed
     type: any
     stability: development
@@ -464,7 +467,10 @@ groups:
     type: string
     stability: development
     brief: Always scope recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 167248.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 167248.
+    examples:
+    - example
   - id: anchor_source
     type: any
     stability: development
@@ -1074,9 +1080,13 @@ groups:
   - id: auth_auto_retry
     type: string
     stability: development
-    brief: Auth auto retry recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DK8QSLgC.js; JavaScript UTF-16 offset 163079. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-DK8QSLgC.js; JavaScript UTF-16 offset 171616.
+    brief: Auth auto retry recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DK8QSLgC.js; JavaScript
+      UTF-16 offset 163079. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DK8QSLgC.js;
+      JavaScript UTF-16 offset 171616.
+    examples:
+    - example
   - id: authorization
     type: any
     stability: development
@@ -1280,8 +1290,12 @@ groups:
   - id: awaited_outcome
     type: string
     stability: development
-    brief: Awaited outcome recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 561407.
+    brief: Awaited outcome recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 561407.
+    examples:
+    - completed
   - id: awaited_reason
     type: any
     stability: development
@@ -1580,8 +1594,10 @@ groups:
     type: any
     stability: development
     brief: Blocked cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5738936. Native
-      wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5738936. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
     annotations:
       type:
         json_schema:
@@ -2318,8 +2334,11 @@ groups:
     type: string
     stability: development
     brief: Carrier recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript UTF-16 offset 45593. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-mUVxzIdB.js; JavaScript UTF-16 offset 14578.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript
+      UTF-16 offset 45593. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-mUVxzIdB.js;
+      JavaScript UTF-16 offset 14578.
+    examples:
+    - example
   - id: carry_row
     type: any
     stability: development
@@ -2579,7 +2598,10 @@ groups:
     type: string
     stability: development
     brief: Choice recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 2245339.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 2245339.
+    examples:
+    - example
   - id: chunk_count
     type: any
     stability: development
@@ -2628,8 +2650,12 @@ groups:
   - id: claude.deployment_mode
     type: string
     stability: development
-    brief: Claude deployment mode recorded by the native producer; see the versioned source evidence.
-    note: 'Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js:1, l$r(): fixed resource attributes.'
+    brief: Claude deployment mode recorded by the native producer; see the versioned
+      source evidence.
+    note: 'Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js:1,
+      l$r(): fixed resource attributes.'
+    examples:
+    - example
   - id: claude_settings
     type: any
     stability: development
@@ -3714,8 +3740,12 @@ groups:
   - id: crashed_app_version
     type: string
     stability: development
-    brief: Crashed app version recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 6388298.
+    brief: Crashed app version recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 6388298.
+    examples:
+    - 1.0.0
   - id: created
     type: any
     stability: development
@@ -3813,9 +3843,12 @@ groups:
     type: string
     stability: development
     brief: Cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1760787. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1762384. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1848605.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1760787. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1762384. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1848605.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
+    examples:
+    - "/workspace/project"
   - id: cycle_health
     type: any
     stability: development
@@ -4295,8 +4328,12 @@ groups:
   - id: deployment_kind
     type: string
     stability: development
-    brief: Deployment kind recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-BOs9JkhI.js; JavaScript UTF-16 offset 6788.
+    brief: Deployment kind recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-BOs9JkhI.js; JavaScript
+      UTF-16 offset 6788.
+    examples:
+    - example
   - id: destination
     type: any
     stability: development
@@ -4584,9 +4621,12 @@ groups:
   - id: dispatch_origin_blocked_cwd
     type: any
     stability: development
-    brief: Dispatch origin blocked cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5739625. Native
-      wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    brief: Dispatch origin blocked cwd recorded by the native producer; see the versioned
+      source evidence.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5739625. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
     annotations:
       type:
         json_schema:
@@ -5233,9 +5273,12 @@ groups:
     type: string
     stability: development
     brief: Entry recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 3277218. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 3277939. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 3278560.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 3277218. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 3277939. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 3278560.
+    examples:
+    - example
   - id: entry_point
     type: any
     stability: development
@@ -5435,10 +5478,10 @@ groups:
     type: any
     stability: development
     brief: Error message recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 43413. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 816073. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
-      JavaScript UTF-16 offset 819719. Native wire representations vary or are supplied dynamically; preserve the received
-      value rather than inventing a conversion.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 43413. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 816073. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819719. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -5448,6 +5491,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: errors
     type: any
     stability: development
@@ -5970,9 +6015,12 @@ groups:
     type: string
     stability: development
     brief: Fallback cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1286122. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1297321. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1318197.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1286122. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1297321. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1318197.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
+    examples:
+    - "/workspace/project"
   - id: fast_folders
     type: int
     stability: development
@@ -6019,7 +6067,10 @@ groups:
     type: string
     stability: development
     brief: Feature recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 3827866.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 3827866.
+    examples:
+    - example
   - id: feature_hash
     type: any
     stability: development
@@ -6054,7 +6105,10 @@ groups:
     type: string
     stability: development
     brief: Feed arch recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4409043.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4409043.
+    examples:
+    - example
   - id: fence_detail
     type: any
     stability: development
@@ -6349,7 +6403,10 @@ groups:
     type: string
     stability: development
     brief: Focus state recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5274457.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 5274457.
+    examples:
+    - completed
   - id: focused
     type: any
     stability: development
@@ -6738,9 +6795,12 @@ groups:
     type: string
     stability: development
     brief: From level recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819216. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819664. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 819216. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 819664. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
       JavaScript UTF-16 offset 2081542.
+    examples:
+    - example
   - id: from_preset
     type: boolean
     stability: development
@@ -6880,7 +6940,10 @@ groups:
     type: string
     stability: development
     brief: Gate recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript UTF-16 offset 8079.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript
+      UTF-16 offset 8079.
+    examples:
+    - example
   - id: gate_blocked_built_in_browser_count
     type: any
     stability: development
@@ -7250,7 +7313,10 @@ groups:
     type: string
     stability: development
     brief: Gesture recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CWxJpTAF.js; JavaScript UTF-16 offset 5625.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CWxJpTAF.js; JavaScript
+      UTF-16 offset 5625.
+    examples:
+    - example
   - id: gesture_type
     type: any
     stability: development
@@ -7770,8 +7836,12 @@ groups:
   - id: has_target_cwd
     type: boolean
     stability: development
-    brief: Has target cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 784823.
+    brief: Has target cwd recorded by the native producer; see the versioned source
+      evidence.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 784823.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
   - id: has_thread
     type: boolean
     stability: development
@@ -9606,7 +9676,10 @@ groups:
     type: string
     stability: development
     brief: Keys set recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4003888.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4003888.
+    examples:
+    - example
   - id: kicked
     type: any
     stability: development
@@ -10058,7 +10131,10 @@ groups:
     type: string
     stability: development
     brief: Level recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1525333.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1525333.
+    examples:
+    - example
   - id: lifetime_ms
     type: double
     stability: development
@@ -10183,8 +10259,11 @@ groups:
     type: string
     stability: development
     brief: List source recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 52225. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 53267.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 52225. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 53267.
+    examples:
+    - cli
   - id: live_bindings
     type: int
     stability: development
@@ -10703,8 +10782,11 @@ groups:
     type: string
     stability: development
     brief: Mark recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4373446. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4373672.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4373446. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 4373672.
+    examples:
+    - example
   - id: marked_count
     type: int
     stability: development
@@ -11176,7 +11258,10 @@ groups:
     type: string
     stability: development
     brief: Missing kind recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1817529.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1817529.
+    examples:
+    - example
   - id: mode
     type: any
     stability: development
@@ -11432,8 +11517,12 @@ groups:
     type: string
     stability: development
     brief: New cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1257268. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1259185.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1257268. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1259185.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
+    examples:
+    - "/workspace/project"
   - id: new_failure_count
     type: int
     stability: development
@@ -12313,9 +12402,12 @@ groups:
     type: string
     stability: development
     brief: Pass recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript UTF-16 offset 8055. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-DX8d9Lyh.js; JavaScript UTF-16 offset 16647. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DX8d9Lyh.js;
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript
+      UTF-16 offset 8055. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DX8d9Lyh.js;
+      JavaScript UTF-16 offset 16647. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DX8d9Lyh.js;
       JavaScript UTF-16 offset 16863.
+    examples:
+    - example
   - id: pass_trigger
     type: any
     stability: development
@@ -12635,7 +12727,10 @@ groups:
     type: string
     stability: development
     brief: Plane recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript UTF-16 offset 8108.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-Clx_nmAs.js; JavaScript
+      UTF-16 offset 8108.
+    examples:
+    - example
   - id: planned_count
     type: int
     stability: development
@@ -13066,7 +13161,10 @@ groups:
     type: string
     stability: development
     brief: Pr state recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-8MUr88A-.js; JavaScript UTF-16 offset 12364.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-8MUr88A-.js; JavaScript
+      UTF-16 offset 12364.
+    examples:
+    - completed
   - id: pr_state_fail_auth_count
     type: any
     stability: development
@@ -13221,7 +13319,10 @@ groups:
     type: string
     stability: development
     brief: Prefix parity recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1827917.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1827917.
+    examples:
+    - example
   - id: preflight_ms
     type: any
     stability: development
@@ -13362,8 +13463,12 @@ groups:
     type: string
     stability: development
     brief: Previous cwd recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1257240. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1259157.
+    note: |-
+      Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1257240. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1259157.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
+    examples:
+    - "/workspace/project"
   - id: previous_quit_clean
     type: any
     stability: development
@@ -13863,7 +13968,10 @@ groups:
     type: string
     stability: development
     brief: Proof kind recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5228009.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 5228009.
+    examples:
+    - example
   - id: proposal
     type: boolean
     stability: development
@@ -15199,8 +15307,12 @@ groups:
   - id: requested_level
     type: string
     stability: development
-    brief: Requested level recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819689.
+    brief: Requested level recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 819689.
+    examples:
+    - example
   - id: requested_mode
     type: any
     stability: development
@@ -15992,7 +16104,10 @@ groups:
     type: string
     stability: development
     brief: Route recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 885352.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 885352.
+    examples:
+    - example
   - id: route_ms
     type: int
     stability: development
@@ -16647,7 +16762,10 @@ groups:
     type: string
     stability: development
     brief: Server type recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CCw6oLL3.js; JavaScript UTF-16 offset 28683.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CCw6oLL3.js; JavaScript
+      UTF-16 offset 28683.
+    examples:
+    - example
   - id: server_uuid
     type: any
     stability: development
@@ -16682,7 +16800,10 @@ groups:
     type: string
     stability: development
     brief: Service recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript UTF-16 offset 127374.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript
+      UTF-16 offset 127374.
+    examples:
+    - example
   - id: sessionId
     type: any
     stability: development
@@ -17034,9 +17155,12 @@ groups:
     type: string
     stability: development
     brief: Set origin recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1115360. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1115436. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1115500.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1115360. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 1115436. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 1115500.
+    examples:
+    - example
   - id: setting_key
     type: any
     stability: development
@@ -17072,8 +17196,11 @@ groups:
     type: string
     stability: development
     brief: Settings tool recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-B5tintml.js; JavaScript UTF-16 offset 275522. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-B5tintml.js; JavaScript UTF-16 offset 276418.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-B5tintml.js; JavaScript
+      UTF-16 offset 275522. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-B5tintml.js;
+      JavaScript UTF-16 offset 276418.
+    examples:
+    - example
   - id: settle_ms
     type: any
     stability: development
@@ -17580,7 +17707,10 @@ groups:
     type: string
     stability: development
     brief: Sleep signal recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5274442.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 5274442.
+    examples:
+    - example
   - id: slept
     type: any
     stability: development
@@ -18270,7 +18400,10 @@ groups:
     type: string
     stability: development
     brief: Start gate recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 212752.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 212752.
+    examples:
+    - example
   - id: start_in_flight
     type: boolean
     stability: development
@@ -18958,9 +19091,12 @@ groups:
     type: string
     stability: development
     brief: Tab recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4800262. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4879800. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5537438.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4800262. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 4879800. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 5537438.
+    examples:
+    - example
   - id: tabs
     type: any
     stability: development
@@ -19624,12 +19760,19 @@ groups:
     type: string
     stability: development
     brief: Timing ms recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4405615.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 4405615.
+    examples:
+    - '1'
   - id: title_check_outcome
     type: string
     stability: development
-    brief: Title check outcome recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1096286.
+    brief: Title check outcome recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1096286.
+    examples:
+    - completed
   - id: title_overlap_pct
     type: int
     stability: development
@@ -19660,8 +19803,12 @@ groups:
   - id: title_via_cli_outcome
     type: string
     stability: development
-    brief: Title via cli outcome recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1099224.
+    brief: Title via cli outcome recorded by the native producer; see the versioned
+      source evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1099224.
+    examples:
+    - completed
   - id: to_display
     type: any
     stability: development
@@ -19681,8 +19828,11 @@ groups:
     type: string
     stability: development
     brief: To level recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819241. Claude Desktop
-      2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 2081573.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 819241. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 2081573.
+    examples:
+    - example
   - id: to_version
     type: any
     stability: development
@@ -20104,7 +20254,10 @@ groups:
     type: string
     stability: development
     brief: Transport recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 3923858.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 3923858.
+    examples:
+    - http
   - id: trigger_id
     type: any
     stability: development
@@ -20289,7 +20442,10 @@ groups:
     type: string
     stability: development
     brief: Unarchive recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript UTF-16 offset 97524.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript
+      UTF-16 offset 97524.
+    examples:
+    - example
   - id: unattended
     type: any
     stability: development
@@ -20778,8 +20934,11 @@ groups:
     type: string
     stability: development
     brief: Variant recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5161698. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 5162620.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 5161698. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js;
+      JavaScript UTF-16 offset 5162620.
+    examples:
+    - example
   - id: vars_adopted
     type: any
     stability: development
@@ -20942,8 +21101,12 @@ groups:
   - id: vm_network_mode
     type: string
     stability: development
-    brief: Vm network mode recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 2976105.
+    brief: Vm network mode recorded by the native producer; see the versioned source
+      evidence.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript
+      UTF-16 offset 2976105.
+    examples:
+    - example
   - id: wait_ms
     type: any
     stability: development
@@ -21543,8 +21706,11 @@ groups:
     type: string
     stability: development
     brief: Worktree mode recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1929474. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1940738.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1929474. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 1940738.
+    examples:
+    - example
   - id: worktree_ms
     type: any
     stability: development
@@ -21565,9 +21731,12 @@ groups:
     type: string
     stability: development
     brief: Worktree path recorded by the native producer; see the versioned source evidence.
-    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1286093. Claude
-      Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1297253. Claude Desktop 2.42304.0
-      app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1318168.
+    note: Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript
+      UTF-16 offset 1286093. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 1297253. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js;
+      JavaScript UTF-16 offset 1318168.
+    examples:
+    - "/workspace/project"
   - id: worktree_pool_enabled
     type: any
     stability: development

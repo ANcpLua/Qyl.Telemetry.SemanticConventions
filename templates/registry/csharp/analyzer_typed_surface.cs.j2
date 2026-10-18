@@ -42,7 +42,7 @@ internal static class SemconvTypedSurface
         {
 {% set seen = namespace(ids = []) %}
 {% for m in a.type.members %}
-{% set id = lib.pascal(m.id) %}
+{% set id = lib.value_member_name(lib.pascal(a.key), lib.pascal(m.id)) %}
 {% if ((not stable_tier) or m.stability == "stable" or m.deprecated or a.deprecated) and id not in seen.ids %}
 {% set seen.ids = seen.ids + [id] %}
             [{{ lib.cs_string(id) }}] = {{ lib.cs_string(m.value | string) }},

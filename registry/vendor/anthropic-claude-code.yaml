@@ -26,14 +26,19 @@ groups:
   - id: additional_context_chars
     type: string
     stability: development
-    brief: Additional context chars recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1224. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675773.
+    brief: Additional context chars recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1224. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675773.
+    examples:
+    - '1'
   - id: agent.name
     type: string
     stability: development
     brief: Agent name recorded by the native producer; see the versioned source evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: agent.source
     type: any
     stability: development
@@ -93,11 +98,15 @@ groups:
     stability: development
     brief: Entry point that launched the Claude Code session.
     note: https://code.claude.com/docs/en/monitoring-usage:584.
+    examples:
+    - example
   - id: app.version
     type: string
     stability: development
     brief: Version of the runtime that emitted the record.
     note: https://code.claude.com/docs/en/monitoring-usage:583.
+    examples:
+    - 1.0.0
   - id: appearance_id
     type: any
     stability: development
@@ -118,9 +127,12 @@ groups:
   - id: artifacts_deleted
     type: string
     stability: development
-    brief: Artifacts deleted recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1337. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17277.
+    brief: Artifacts deleted recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1337. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17277.
+    examples:
+    - example
   - id: attempt
     type: any
     stability: development
@@ -231,8 +243,11 @@ groups:
     type: string
     stability: development
     brief: Body length recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:928. https://code.claude.com/docs/en/monitoring-usage:950. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3266206.
+    note: https://code.claude.com/docs/en/monitoring-usage:928. https://code.claude.com/docs/en/monitoring-usage:950.
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
+      offset 3266206.
+    examples:
+    - example
   - id: body_ref
     type: any
     stability: development
@@ -253,8 +268,11 @@ groups:
     type: string
     stability: development
     brief: Whether the producer shortened body.
-    note: https://code.claude.com/docs/en/monitoring-usage:929. https://code.claude.com/docs/en/monitoring-usage:951. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3266348.
+    note: https://code.claude.com/docs/en/monitoring-usage:929. https://code.claude.com/docs/en/monitoring-usage:951.
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
+      offset 3266348.
+    examples:
+    - 'true'
   - id: body_withheld
     type: any
     stability: development
@@ -354,18 +372,25 @@ groups:
     stability: development
     brief: Remote cloud-session identifier.
     note: https://code.claude.com/docs/en/monitoring-usage:582.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: client_request_id
     type: string
     stability: development
     brief: Client-assigned request identifier, when the transport supplies it.
-    note: https://code.claude.com/docs/en/monitoring-usage:860. https://code.claude.com/docs/en/monitoring-usage:884. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3285101.
+    note: https://code.claude.com/docs/en/monitoring-usage:860. https://code.claude.com/docs/en/monitoring-usage:884.
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
+      offset 3285101.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: command
     type: any
     stability: development
     brief: Command recorded by the native producer; see the versioned source evidence.
-    note: Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3886389. Native wire representations
-      vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    note: |-
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3886389. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -375,6 +400,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: command_length
     type: int
     stability: development
@@ -420,8 +447,10 @@ groups:
     type: any
     stability: development
     brief: Content recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage#span-attributes. Native wire representations vary or are supplied
-      dynamically; preserve the received value rather than inventing a conversion.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage#span-attributes. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -431,6 +460,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: content_original_length
     type: int
     stability: development
@@ -658,8 +689,10 @@ groups:
     type: string
     stability: development
     brief: Error count recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1340. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17513.
+    note: https://code.claude.com/docs/en/monitoring-usage:1340. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17513.
+    examples:
+    - '1'
   - id: error_name
     type: any
     stability: development
@@ -705,12 +738,17 @@ groups:
     brief: Time at which the producer recorded the event.
     note: https://code.claude.com/docs/en/monitoring-usage#standard-attributes. https://code.claude.com/docs/en/monitoring-usage:779.
       https://code.claude.com/docs/en/monitoring-usage:798.
+    examples:
+    - example
   - id: event_origin
     type: string
     stability: development
     brief: Source classification of an event forwarded through the host telemetry bridge.
-    note: Claude Code 2.1.302 embedded module at binary offset 248350269; JavaScript UTF-16 offset 446567. Claude Code 2.1.302
-      embedded tracing and host telemetry emitters.
+    note: Claude Code 2.1.302 embedded module at binary offset 248350269; JavaScript
+      UTF-16 offset 446567. Claude Code 2.1.302 embedded tracing and host telemetry
+      emitters.
+    examples:
+    - example
   - id: event_origin_server
     type: any
     stability: development
@@ -774,15 +812,21 @@ groups:
   - id: files_past_cutoff
     type: string
     stability: development
-    brief: Files past cutoff recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1339. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17441.
+    brief: Files past cutoff recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1339. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17441.
+    examples:
+    - example
   - id: files_retained_fresh
     type: string
     stability: development
-    brief: Files retained fresh recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1338. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17358.
+    brief: Files retained fresh recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1338. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17358.
+    examples:
+    - example
   - id: final_model
     type: any
     stability: development
@@ -850,8 +894,10 @@ groups:
     type: string
     stability: development
     brief: Legacy GenAI provider key still emitted by the pinned Claude Code runtime.
-    note: https://code.claude.com/docs/en/monitoring-usage:228. Claude Code 2.1.302 embedded module at binary offset 218829013;
-      JavaScript UTF-16 offset 18522.
+    note: https://code.claude.com/docs/en/monitoring-usage:228. Claude Code 2.1.302
+      embedded module at binary offset 218829013; JavaScript UTF-16 offset 18522.
+    examples:
+    - example
   - id: has_category
     type: boolean
     stability: development
@@ -879,8 +925,12 @@ groups:
   - id: history_entries_pruned
     type: string
     stability: development
-    brief: History entries pruned recorded by the native producer; see the versioned source evidence.
-    note: Claude Code 2.1.302 embedded module at binary offset 216796100; JavaScript UTF-16 offset 17584.
+    brief: History entries pruned recorded by the native producer; see the versioned
+      source evidence.
+    note: Claude Code 2.1.302 embedded module at binary offset 216796100; JavaScript
+      UTF-16 offset 17584.
+    examples:
+    - example
   - id: hook_definitions
     type: any
     stability: development
@@ -988,12 +1038,17 @@ groups:
     stability: development
     brief: Origin of the authenticated identity attribution.
     note: https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
+    examples:
+    - cli
   - id: initial_user_message_chars
     type: string
     stability: development
-    brief: Initial user message chars recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1226. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675883.
+    brief: Initial user message chars recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1226. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675883.
+    examples:
+    - '1'
   - id: input_tokens
     type: any
     stability: development
@@ -1014,8 +1069,12 @@ groups:
   - id: install.disabled_by_default
     type: string
     stability: development
-    brief: Install disabled by default recorded by the native producer; see the versioned source evidence.
-    note: Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 4435856.
+    brief: Install disabled by default recorded by the native producer; see the versioned
+      source evidence.
+    note: Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript
+      UTF-16 offset 4435856.
+    examples:
+    - example
   - id: install.trigger
     type: any
     stability: development
@@ -1124,23 +1183,34 @@ groups:
     stability: development
     brief: Language recorded by the native producer; see the versioned source evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: link.type
     type: string
     stability: development
     brief: Link type recorded by the native producer; see the versioned source evidence.
-    note: 'Claude Code 2.1.302 embedded tracing module at binary offset 218829013, te()/ee(): queued-send span links and count.'
+    note: 'Claude Code 2.1.302 embedded tracing module at binary offset 218829013, te()/ee():
+      queued-send span links and count.'
+    examples:
+    - example
   - id: llm_request.context
     type: string
     stability: development
-    brief: Llm request context recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:238. Claude Code 2.1.302 embedded module at binary offset 218829013;
-      JavaScript UTF-16 offset 18575.
+    brief: Llm request context recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:238. Claude Code 2.1.302
+      embedded module at binary offset 218829013; JavaScript UTF-16 offset 18575.
+    examples:
+    - example
   - id: managed_only
     type: string
     stability: development
     brief: Managed only recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1198. https://code.claude.com/docs/en/monitoring-usage:1228. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3646399.
+    note: https://code.claude.com/docs/en/monitoring-usage:1198. https://code.claude.com/docs/en/monitoring-usage:1228.
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
+      offset 3646399.
+    examples:
+    - example
   - id: managed_settings.helper.applied
     type: any
     stability: development
@@ -1294,9 +1364,12 @@ groups:
   - id: marketplace.is_official
     type: string
     stability: development
-    brief: Marketplace is official recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1076. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 4435771.
+    brief: Marketplace is official recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1076. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 4435771.
+    examples:
+    - example
   - id: marketplace.name
     type: any
     stability: development
@@ -1315,8 +1388,11 @@ groups:
   - id: mcp_server.name
     type: string
     stability: development
-    brief: Mcp server name recorded by the native producer; see the versioned source evidence.
+    brief: Mcp server name recorded by the native producer; see the versioned source
+      evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: mcp_server_scope
     type: any
     stability: development
@@ -1339,6 +1415,8 @@ groups:
     stability: development
     brief: Mcp tool name recorded by the native producer; see the versioned source evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: mention_type
     type: any
     stability: development
@@ -1359,7 +1437,10 @@ groups:
     type: string
     stability: development
     brief: Identifier joining a telemetry event to a persisted transcript message.
-    note: https://code.claude.com/docs/en/monitoring-usage:784. https://code.claude.com/docs/en/monitoring-usage:804. https://code.claude.com/docs/en/monitoring-usage:957.
+    note: https://code.claude.com/docs/en/monitoring-usage:784. https://code.claude.com/docs/en/monitoring-usage:804.
+      https://code.claude.com/docs/en/monitoring-usage:957.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: model
     type: any
     stability: development
@@ -1420,14 +1501,20 @@ groups:
     type: string
     stability: development
     brief: Num blocking recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1219. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675576. https://code.claude.com/docs/en/monitoring-usage:339.
+    note: https://code.claude.com/docs/en/monitoring-usage:1219. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675576.
+      https://code.claude.com/docs/en/monitoring-usage:339.
+    examples:
+    - example
   - id: num_cancelled
     type: string
     stability: development
     brief: Num cancelled recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1221. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675662. https://code.claude.com/docs/en/monitoring-usage:341.
+    note: https://code.claude.com/docs/en/monitoring-usage:1221. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675662.
+      https://code.claude.com/docs/en/monitoring-usage:341.
+    examples:
+    - example
   - id: num_hooks
     type: any
     stability: development
@@ -1447,32 +1534,46 @@ groups:
   - id: num_non_blocking_error
     type: string
     stability: development
-    brief: Num non blocking error recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1220. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675609. https://code.claude.com/docs/en/monitoring-usage:340.
+    brief: Num non blocking error recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1220. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675609.
+      https://code.claude.com/docs/en/monitoring-usage:340.
+    examples:
+    - timeout
   - id: num_outputs_persisted
     type: string
     stability: development
-    brief: Num outputs persisted recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1227. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675945.
+    brief: Num outputs persisted recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1227. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675945.
+    examples:
+    - example
   - id: num_success
     type: string
     stability: development
     brief: Num success recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1218. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675545. https://code.claude.com/docs/en/monitoring-usage:338.
+    note: https://code.claude.com/docs/en/monitoring-usage:1218. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675545.
+      https://code.claude.com/docs/en/monitoring-usage:338.
+    examples:
+    - 'true'
   - id: organization.id
     type: string
     stability: development
     brief: Authenticated Anthropic organization identifier, when available.
     note: https://code.claude.com/docs/en/monitoring-usage:585. https://claude.com/docs/cowork/monitoring:78.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: output
     type: any
     stability: development
     brief: Output recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage#span-attributes. Native wire representations vary or are supplied
-      dynamically; preserve the received value rather than inventing a conversion.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage#span-attributes. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -1482,6 +1583,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: output_original_length
     type: int
     stability: development
@@ -1546,8 +1649,10 @@ groups:
     type: string
     stability: development
     brief: Period days recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1328. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 16848.
+    note: https://code.claude.com/docs/en/monitoring-usage:1328. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 16848.
+    examples:
+    - example
   - id: permission_mode
     type: any
     stability: development
@@ -1648,14 +1753,18 @@ groups:
     type: string
     stability: development
     brief: Post tokens recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1265. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 16671.
+    note: https://code.claude.com/docs/en/monitoring-usage:1265. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 16671.
+    examples:
+    - '1'
   - id: pre_tokens
     type: string
     stability: development
     brief: Pre tokens recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1264. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 16612.
+    note: https://code.claude.com/docs/en/monitoring-usage:1264. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 16612.
+    examples:
+    - '1'
   - id: precompute_reuse
     type: any
     stability: development
@@ -1676,24 +1785,45 @@ groups:
     type: string
     stability: development
     brief: User prompt text or the producer redaction marker.
-    note: https://code.claude.com/docs/en/monitoring-usage:782. https://claude.com/docs/cowork/monitoring:105.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:782. https://claude.com/docs/cowork/monitoring:105.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
+    examples:
+    - example
+    annotations:
+      value:
+        unbounded_size: true
   - id: prompt.id
     type: string
     stability: development
     brief: Identifier joining a prompt to the work triggered by that prompt.
     note: https://code.claude.com/docs/en/monitoring-usage:604. https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
       https://claude.com/docs/cowork/monitoring:65.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: prompt_length
     type: string
     stability: development
     brief: Length of the submitted prompt before content redaction.
-    note: https://code.claude.com/docs/en/monitoring-usage:781. Claude Code 2.1.302 embedded module at binary offset 229896014;
-      JavaScript UTF-16 offset 798. https://claude.com/docs/cowork/monitoring:104.
+    note: https://code.claude.com/docs/en/monitoring-usage:781. Claude Code 2.1.302
+      embedded module at binary offset 229896014; JavaScript UTF-16 offset 798. https://claude.com/docs/cowork/monitoring:104.
+    examples:
+    - example
   - id: prompt_text
     type: string
     stability: development
-    brief: Prompt text alias for backends where the prompt scalar collides with the prompt.id object.
-    note: https://code.claude.com/docs/en/monitoring-usage:783.
+    brief: Prompt text alias for backends where the prompt scalar collides with the
+      prompt.id object.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:783.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
+    examples:
+    - example
+    annotations:
+      value:
+        unbounded_size: true
   - id: query_source
     type: any
     stability: development
@@ -1749,14 +1879,19 @@ groups:
     type: string
     stability: development
     brief: Server-assigned request identifier.
-    note: https://code.claude.com/docs/en/monitoring-usage:803. https://code.claude.com/docs/en/monitoring-usage:859. https://code.claude.com/docs/en/monitoring-usage:883.
+    note: https://code.claude.com/docs/en/monitoring-usage:803. https://code.claude.com/docs/en/monitoring-usage:859.
+      https://code.claude.com/docs/en/monitoring-usage:883.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: response
     type: any
     stability: development
-    brief: Assistant text output, subject to redaction and truncation; excludes thinking blocks.
-    note: https://code.claude.com/docs/en/monitoring-usage:801. https://code.claude.com/docs/en/monitoring-usage:1308. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3296986. Native wire representations
-      vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    brief: Assistant text output, subject to redaction and truncation; excludes thinking
+      blocks.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:801. https://code.claude.com/docs/en/monitoring-usage:1308. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 3296986. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -1766,6 +1901,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: response.has_tool_call
     type: any
     stability: development
@@ -1784,8 +1921,11 @@ groups:
   - id: response.model_output
     type: string
     stability: development
-    brief: Response model output recorded by the native producer; see the versioned source evidence.
+    brief: Response model output recorded by the native producer; see the versioned
+      source evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#new-context-gates.
+    examples:
+    - configured-model
   - id: response.model_output_original_length
     type: int
     stability: development
@@ -1838,7 +1978,10 @@ groups:
     type: string
     stability: development
     brief: Safe mode recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1106. https://code.claude.com/docs/en/monitoring-usage:1178. https://code.claude.com/docs/en/monitoring-usage:1200.
+    note: https://code.claude.com/docs/en/monitoring-usage:1106. https://code.claude.com/docs/en/monitoring-usage:1178.
+      https://code.claude.com/docs/en/monitoring-usage:1200.
+    examples:
+    - example
   - id: sdk_host
     type: template[string]
     stability: development
@@ -1897,9 +2040,12 @@ groups:
   - id: session_files_deleted
     type: string
     stability: development
-    brief: Session files deleted recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1336. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17191.
+    brief: Session files deleted recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1336. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17191.
+    examples:
+    - example
   - id: shell.type
     type: any
     stability: development
@@ -2022,17 +2168,24 @@ groups:
     stability: development
     brief: Producer span-category label; distinct from the OpenTelemetry span kind.
     note: https://code.claude.com/docs/en/monitoring-usage#span-attributes.
+    examples:
+    - example
   - id: speed
     type: string
     stability: development
     brief: Speed recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:861. https://code.claude.com/docs/en/monitoring-usage:885. https://code.claude.com/docs/en/monitoring-usage:905.
+    note: https://code.claude.com/docs/en/monitoring-usage:861. https://code.claude.com/docs/en/monitoring-usage:885.
+      https://code.claude.com/docs/en/monitoring-usage:905.
+    examples:
+    - example
   - id: start_type
     type: string
     stability: development
-    brief: 'Session launch mode: fresh, resume, continue, or agents_view. The agents_view value denotes the local dashboard
-      process rather than a conversational session.'
+    brief: 'Session launch mode: fresh, resume, continue, or agents_view. The agents_view
+      value denotes the local dashboard process rather than a conversational session.'
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: status
     type: any
     stability: development
@@ -2069,8 +2222,10 @@ groups:
     type: string
     stability: development
     brief: Stdout chars recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1223. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675726.
+    note: https://code.claude.com/docs/en/monitoring-usage:1223. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675726.
+    examples:
+    - '1'
   - id: stop_reason
     type: any
     stability: development
@@ -2137,16 +2292,20 @@ groups:
   - id: system_message_chars
     type: string
     stability: development
-    brief: System message chars recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1225. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675832.
+    brief: System message chars recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1225. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675832.
+    examples:
+    - '1'
   - id: system_prompt
     type: any
     stability: development
     brief: System prompt recorded by the native producer; see the versioned source evidence.
-    note: Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 9183. Claude Code 2.1.302
-      embedded tracing and host telemetry emitters. Native wire representations vary or are supplied dynamically; preserve
-      the received value rather than inventing a conversion.
+    note: |-
+      Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 9183. Claude Code 2.1.302 embedded tracing and host telemetry emitters. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -2156,6 +2315,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: system_prompt_hash
     type: any
     stability: development
@@ -2209,8 +2370,10 @@ groups:
     type: string
     stability: development
     brief: Whether the producer shortened system prompt.
-    note: Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 9257. Claude Code 2.1.302
-      embedded tracing and host telemetry emitters.
+    note: Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript
+      UTF-16 offset 9257. Claude Code 2.1.302 embedded tracing and host telemetry emitters.
+    examples:
+    - 'true'
   - id: system_reminders
     type: any
     stability: development
@@ -2248,6 +2411,8 @@ groups:
     stability: development
     brief: Terminal or non-interactive host classification.
     note: https://code.claude.com/docs/en/monitoring-usage:590. https://claude.com/docs/cowork/monitoring:84.
+    examples:
+    - example
   - id: to_mode
     type: any
     stability: development
@@ -2302,10 +2467,10 @@ groups:
     type: any
     stability: development
     brief: Serialized tool arguments, subject to the producer content policy.
-    note: https://code.claude.com/docs/en/monitoring-usage:837. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 2885153. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
-      offset 2893075. Native wire representations vary or are supplied dynamically; preserve the received value rather than
-      inventing a conversion.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:837. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2885153. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2893075. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -2315,6 +2480,8 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: tool_input_original_length
     type: int
     stability: development
@@ -2325,9 +2492,12 @@ groups:
     type: string
     stability: development
     brief: Size of the serialized tool arguments in bytes.
-    note: https://code.claude.com/docs/en/monitoring-usage:827. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 2885168. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
+    note: https://code.claude.com/docs/en/monitoring-usage:827. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 2885168.
+      Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16
       offset 2893090.
+    examples:
+    - '1'
   - id: tool_input_truncated
     type: boolean
     stability: development
@@ -2370,9 +2540,10 @@ groups:
     type: any
     stability: development
     brief: JSON text containing tool-specific metadata and parameters.
-    note: https://code.claude.com/docs/en/monitoring-usage:831. https://code.claude.com/docs/en/monitoring-usage:985. Claude
-      Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2452704. Native wire representations
-      vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:831. https://code.claude.com/docs/en/monitoring-usage:985. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2452704. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+
+      May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     annotations:
       type:
         json_schema:
@@ -2382,12 +2553,17 @@ groups:
           - boolean
           - array
           - object
+      value:
+        unbounded_size: true
   - id: tool_result_size_bytes
     type: string
     stability: development
     brief: Size of the tool result in bytes.
-    note: https://code.claude.com/docs/en/monitoring-usage:828. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 2885201. https://claude.com/docs/cowork/monitoring:148.
+    note: https://code.claude.com/docs/en/monitoring-usage:828. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 2885201.
+      https://claude.com/docs/cowork/monitoring:148.
+    examples:
+    - '1'
   - id: tool_source
     type: any
     stability: development
@@ -2407,8 +2583,10 @@ groups:
     type: string
     stability: development
     brief: Whether the producer shortened tool.
-    note: Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 10027. Claude Code 2.1.302
-      embedded tracing and host telemetry emitters.
+    note: Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript
+      UTF-16 offset 10027. Claude Code 2.1.302 embedded tracing and host telemetry emitters.
+    examples:
+    - 'true'
   - id: tool_use_id
     type: any
     stability: development
@@ -2469,9 +2647,12 @@ groups:
   - id: total_duration_ms
     type: string
     stability: development
-    brief: Total duration ms recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1222. Claude Code 2.1.302 embedded module at binary offset 220845554;
-      JavaScript UTF-16 offset 3675697.
+    brief: Total duration ms recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1222. Claude Code 2.1.302
+      embedded module at binary offset 220845554; JavaScript UTF-16 offset 3675697.
+    examples:
+    - '1'
   - id: total_retry_duration_ms
     type: any
     stability: development
@@ -2523,15 +2704,21 @@ groups:
   - id: transcripts_deleted
     type: string
     stability: development
-    brief: Transcripts deleted recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1334. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 16995.
+    brief: Transcripts deleted recorded by the native producer; see the versioned source
+      evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1334. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 16995.
+    examples:
+    - example
   - id: transcripts_exempted_desktop
     type: string
     stability: development
-    brief: Transcripts exempted desktop recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1335. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 17088.
+    brief: Transcripts exempted desktop recorded by the native producer; see the versioned
+      source evidence.
+    note: https://code.claude.com/docs/en/monitoring-usage:1335. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 17088.
+    examples:
+    - example
   - id: transport_type
     type: any
     stability: development
@@ -2600,27 +2787,41 @@ groups:
     stability: development
     brief: Type recorded by the native producer; see the versioned source evidence.
     note: https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    examples:
+    - example
   - id: used_default
     type: string
     stability: development
     brief: Used default recorded by the native producer; see the versioned source evidence.
-    note: https://code.claude.com/docs/en/monitoring-usage:1329. Claude Code 2.1.302 embedded module at binary offset 216796100;
-      JavaScript UTF-16 offset 16881.
+    note: https://code.claude.com/docs/en/monitoring-usage:1329. Claude Code 2.1.302
+      embedded module at binary offset 216796100; JavaScript UTF-16 offset 16881.
+    examples:
+    - example
   - id: user.account_id
     type: string
     stability: development
     brief: Tagged Anthropic account identifier, when available.
-    note: https://code.claude.com/docs/en/monitoring-usage:587. https://claude.com/docs/cowork/monitoring:80.
+    note: |-
+      https://code.claude.com/docs/en/monitoring-usage:587. https://claude.com/docs/cowork/monitoring:80.
+
+      May contain personal identifiers or local workspace information. Apply the configured access and retention controls; do not add it as an aggregate metric dimension.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: user.account_uuid
     type: string
     stability: development
     brief: Authenticated Anthropic account UUID, when available.
     note: https://code.claude.com/docs/en/monitoring-usage:586. https://claude.com/docs/cowork/monitoring:79.
+    examples:
+    - 00000000-0000-4000-8000-000000000001
   - id: user.groups
     type: string
     stability: development
-    brief: Gateway identity-provider group membership serialized as comma-separated text.
+    brief: Gateway identity-provider group membership serialized as comma-separated
+      text.
     note: https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
+    examples:
+    - example
   - id: user_prompt
     type: any
     stability: development
@@ -2703,11 +2904,16 @@ groups:
     brief: Host folders connected to the session, as an array of paths.
     note: https://code.claude.com/docs/en/monitoring-usage:605. https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
       https://claude.com/docs/cowork/monitoring:83.
+    examples:
+    - - "/workspace/project"
   - id: wsl.version
     type: string
     stability: development
     brief: Windows Subsystem for Linux version, emitted only on WSL hosts.
-    note: Claude Code 2.1.302 platform module at binary offset 212188750, getWslVersion(); https://code.claude.com/docs/en/monitoring-usage#service-information.
+    note: Claude Code 2.1.302 platform module at binary offset 212188750, getWslVersion();
+      https://code.claude.com/docs/en/monitoring-usage#service-information.
+    examples:
+    - 1.0.0
 - id: vendor.claude_code
   type: attribute_group
   brief: Pinned source and instrumentation-scope evidence.

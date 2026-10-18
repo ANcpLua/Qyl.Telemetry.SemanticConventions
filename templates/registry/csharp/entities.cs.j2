@@ -35,6 +35,7 @@ public static class {{ ctx.type_root }}EntityDefinitions
 {{ pad }}        brief: "{{ lib.escape_attribute(brief) }}",
 {{ pad }}        stability: {{ lib.stability_expr(e.stability | default("development", true)) }},
 {{ pad }}        deprecation: {{ lib.deprecation_expr(e.deprecated) }},
-{{ pad }}        attributes: {{ lib.attribute_array_expr(e.description | default([], true), params.policy) }});
+{{ pad }}        attributes: {{ lib.attribute_array_expr(e.description | default([], true), params.policy) }},
+{{ pad }}        identity: {{ lib.entity_identity_array_expr(e.identity | default([], true)) }});
 {% endfor %}
 }

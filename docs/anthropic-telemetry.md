@@ -64,8 +64,9 @@ Sources:
 - [TypeScript SDK 0.135.0](https://github.com/anthropics/anthropic-sdk-typescript/tree/sdk-v0.135.0)
 - [Claude Chrome extension](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)
 
-Regenerate the local/vendor reference with:
+Regenerate the complete reference, including resolved upstream definitions, with Weaver 0.28.0
+and the `.j2` templates:
 
 ```bash
-uv run --no-project --with pyyaml python3 scripts/export-registry-reference.py --output reference.md
+mise exec -- scripts/generate-reference.sh
 ```
