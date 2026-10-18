@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Pool;
 public static class PoolAttributes
 {
     /// <summary>
+    /// Pool recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript UTF-16 offset 24492. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript UTF-16 offset 45838. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript UTF-16 offset 75987. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string Pool = "pool";
+
+    /// <summary>
     /// Deprecated, use <c>db.client.connection.pool.name</c> instead.
     /// </summary>
     [global::System.Obsolete("Replaced by db.client.connection.pool.name.", false)]

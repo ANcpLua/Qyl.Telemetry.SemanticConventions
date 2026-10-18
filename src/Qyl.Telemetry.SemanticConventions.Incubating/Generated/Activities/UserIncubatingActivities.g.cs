@@ -18,6 +18,28 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 public static class UserIncubatingActivityExtensions
 {
     /// <summary>
+    /// Tagged Anthropic account identifier, when available.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:587. https://claude.com/docs/cowork/monitoring:80.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetUserAccountId(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("user.account_id", value);
+
+    /// <summary>
+    /// Authenticated Anthropic account UUID, when available.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:586. https://claude.com/docs/cowork/monitoring:79.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetUserAccountUuid(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("user.account_uuid", value);
+
+    /// <summary>
     /// User email address.
     /// </summary>
     public static global::System.Diagnostics.Activity SetUserEmail(
@@ -32,6 +54,17 @@ public static class UserIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("user.full_name", value);
+
+    /// <summary>
+    /// Gateway identity-provider group membership serialized as comma-separated text.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetUserGroups(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("user.groups", value);
 
     /// <summary>
     /// Unique user hash to correlate information for a user in anonymized form.

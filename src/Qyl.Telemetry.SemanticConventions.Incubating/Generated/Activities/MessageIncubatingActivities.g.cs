@@ -49,4 +49,15 @@ public static class MessageIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("message.target_id", value);
+
+    /// <summary>
+    /// Identifier joining a telemetry event to a persisted transcript message.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:784. https://code.claude.com/docs/en/monitoring-usage:804. https://code.claude.com/docs/en/monitoring-usage:957.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetMessageUuid(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("message.uuid", value);
 }

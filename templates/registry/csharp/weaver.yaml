@@ -21,7 +21,9 @@ params:
   vendor_activity_sources: ""
 
 templates:
-  # One {Root}Attributes class per registry root, per stability tier. The 25 core attributes
+  # One {Root}Attributes class per projected root name, per stability tier.
+  # Roots such as sessionId and session_id share a file; merge them before emission.
+  # The 25 core attributes
   # that are absent from the top-level `registry.attributes` but present under
   # `dependencies[...]` are folded in first (top-level wins).
   - template: attributes.cs.j2
@@ -38,7 +40,7 @@ templates:
       | ([.dependencies[].registry.attributes[]] | map(select($seen[.key] | not))) as $extra
       | (($top + $extra) | sort_by(.key)) as $all
       | [ ($all
-            | group_by(.key | split(".")[0]) | .[]
+            | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "incubating", root: $root, pascal_root: $p, attributes: .,
@@ -47,7 +49,7 @@ templates:
                out_dir: "src/Qyl.Telemetry.SemanticConventions.Incubating/Generated"}),
           ($all
             | map(select(.stability == "stable" or (.deprecated != null)))
-            | group_by(.key | split(".")[0]) | .[]
+            | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "stable", root: $root, pascal_root: $p, attributes: .,
@@ -131,6 +133,7 @@ templates:
   # stability tier. The two packages are disjoint: the stable one carries the stable and
   # deprecated rows, the incubating one carries only what is left, under {Root}Incubating*
   # type names, so a consumer may import both namespaces without an ambiguous-call error.
+  # Resolve setter-name collisions across all roots within each tier before grouping.
   # Resource-only attributes (referenced by entities and by no span, event or metric:
   # service.name, deployment.environment.name, host.*) get no Activity setter.
   - template: activities.cs.j2
@@ -160,7 +163,8 @@ templates:
       | (($top + $extra) | map(select($no_setter[.key] | not)) | sort_by(.key)) as $all
       | [ ($all
             | map(select((.stability == "stable" or (.deprecated != null)) | not))
-            | group_by(.key | split(".")[0]) | .[]
+            | dedupe(pascal(.key))
+            | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "incubating", root: $root, pascal_root: $p, type_root: ($p + "Incubating"),
@@ -169,7 +173,8 @@ templates:
                out_dir: "src/Qyl.Telemetry.SemanticConventions.Incubating/Generated"}),
           ($all
             | map(select(.stability == "stable" or (.deprecated != null)))
-            | group_by(.key | split(".")[0]) | .[]
+            | dedupe(pascal(.key))
+            | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "stable", root: $root, pascal_root: $p, type_root: $p,

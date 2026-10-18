@@ -61,9 +61,239 @@ public static class QylAttributes
     public static class AttributeNamespaceValues
     {
         /// <summary>
+        /// The <c>abandon_reason</c> attribute namespace.
+        /// </summary>
+        public const string AbandonReason = "abandon_reason";
+
+        /// <summary>
+        /// The <c>abandoned_ms_ago</c> attribute namespace.
+        /// </summary>
+        public const string AbandonedMsAgo = "abandoned_ms_ago";
+
+        /// <summary>
+        /// The <c>abandoned_processes</c> attribute namespace.
+        /// </summary>
+        public const string AbandonedProcesses = "abandoned_processes";
+
+        /// <summary>
+        /// The <c>aborted</c> attribute namespace.
+        /// </summary>
+        public const string Aborted = "aborted";
+
+        /// <summary>
+        /// The <c>accessibility_features</c> attribute namespace.
+        /// </summary>
+        public const string AccessibilityFeatures = "accessibility_features";
+
+        /// <summary>
+        /// The <c>accessibility_support_enabled</c> attribute namespace.
+        /// </summary>
+        public const string AccessibilitySupportEnabled = "accessibility_support_enabled";
+
+        /// <summary>
+        /// The <c>account_enabled_count</c> attribute namespace.
+        /// </summary>
+        public const string AccountEnabledCount = "account_enabled_count";
+
+        /// <summary>
+        /// The <c>account_uuid</c> attribute namespace.
+        /// </summary>
+        public const string AccountUuid = "account_uuid";
+
+        /// <summary>
+        /// The <c>acked</c> attribute namespace.
+        /// </summary>
+        public const string Acked = "acked";
+
+        /// <summary>
+        /// The <c>action</c> attribute namespace.
+        /// </summary>
+        public const string Action = "action";
+
+        /// <summary>
+        /// The <c>active_background_task_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveBackgroundTaskCount = "active_background_task_count";
+
+        /// <summary>
+        /// The <c>active_chain_length</c> attribute namespace.
+        /// </summary>
+        public const string ActiveChainLength = "active_chain_length";
+
+        /// <summary>
+        /// The <c>active_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveCount = "active_count";
+
+        /// <summary>
+        /// The <c>active_cron_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveCronCount = "active_cron_count";
+
+        /// <summary>
+        /// The <c>active_mcp_server_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveMcpServerCount = "active_mcp_server_count";
+
+        /// <summary>
+        /// The <c>active_phase_ms</c> attribute namespace.
+        /// </summary>
+        public const string ActivePhaseMs = "active_phase_ms";
+
+        /// <summary>
+        /// The <c>active_process_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveProcessCount = "active_process_count";
+
+        /// <summary>
+        /// The <c>active_session_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveSessionCount = "active_session_count";
+
+        /// <summary>
+        /// The <c>active_sessions</c> attribute namespace.
+        /// </summary>
+        public const string ActiveSessions = "active_sessions";
+
+        /// <summary>
+        /// The <c>active_workflow_count</c> attribute namespace.
+        /// </summary>
+        public const string ActiveWorkflowCount = "active_workflow_count";
+
+        /// <summary>
+        /// The <c>acts</c> attribute namespace.
+        /// </summary>
+        public const string Acts = "acts";
+
+        /// <summary>
+        /// The <c>actual_sha256</c> attribute namespace.
+        /// </summary>
+        public const string ActualSha256 = "actual_sha256";
+
+        /// <summary>
+        /// The <c>addedDirs</c> attribute namespace.
+        /// </summary>
+        public const string AddedDirs = "addedDirs";
+
+        /// <summary>
+        /// The <c>additional_context_chars</c> attribute namespace.
+        /// </summary>
+        public const string AdditionalContextChars = "additional_context_chars";
+
+        /// <summary>
+        /// The <c>admin_removed</c> attribute namespace.
+        /// </summary>
+        public const string AdminRemoved = "admin_removed";
+
+        /// <summary>
+        /// The <c>adoptable_sessions</c> attribute namespace.
+        /// </summary>
+        public const string AdoptableSessions = "adoptable_sessions";
+
+        /// <summary>
+        /// The <c>adopted</c> attribute namespace.
+        /// </summary>
+        public const string Adopted = "adopted";
+
+        /// <summary>
+        /// The <c>adopted_first_attempt</c> attribute namespace.
+        /// </summary>
+        public const string AdoptedFirstAttempt = "adopted_first_attempt";
+
+        /// <summary>
+        /// The <c>adopts</c> attribute namespace.
+        /// </summary>
+        public const string Adopts = "adopts";
+
+        /// <summary>
+        /// The <c>after_clear_or_rewind</c> attribute namespace.
+        /// </summary>
+        public const string AfterClearOrRewind = "after_clear_or_rewind";
+
+        /// <summary>
+        /// The <c>after_paint_ms</c> attribute namespace.
+        /// </summary>
+        public const string AfterPaintMs = "after_paint_ms";
+
+        /// <summary>
+        /// The <c>age_days</c> attribute namespace.
+        /// </summary>
+        public const string AgeDays = "age_days";
+
+        /// <summary>
+        /// The <c>age_ms</c> attribute namespace.
+        /// </summary>
+        public const string AgeMs = "age_ms";
+
+        /// <summary>
+        /// The <c>agent</c> attribute namespace.
+        /// </summary>
+        public const string Agent = "agent";
+
+        /// <summary>
+        /// The <c>agent_id</c> attribute namespace.
+        /// </summary>
+        public const string AgentId = "agent_id";
+
+        /// <summary>
+        /// The <c>agent_path_count</c> attribute namespace.
+        /// </summary>
+        public const string AgentPathCount = "agent_path_count";
+
+        /// <summary>
+        /// The <c>agent_type</c> attribute namespace.
+        /// </summary>
+        public const string AgentType = "agent_type";
+
+        /// <summary>
+        /// The <c>ahead_of_read</c> attribute namespace.
+        /// </summary>
+        public const string AheadOfRead = "ahead_of_read";
+
+        /// <summary>
+        /// The <c>airplane_mode</c> attribute namespace.
+        /// </summary>
+        public const string AirplaneMode = "airplane_mode";
+
+        /// <summary>
+        /// The <c>already_archived</c> attribute namespace.
+        /// </summary>
+        public const string AlreadyArchived = "already_archived";
+
+        /// <summary>
+        /// The <c>already_exited</c> attribute namespace.
+        /// </summary>
+        public const string AlreadyExited = "already_exited";
+
+        /// <summary>
+        /// The <c>already_there</c> attribute namespace.
+        /// </summary>
+        public const string AlreadyThere = "already_there";
+
+        /// <summary>
+        /// The <c>always_scope</c> attribute namespace.
+        /// </summary>
+        public const string AlwaysScope = "always_scope";
+
+        /// <summary>
+        /// The <c>anchor_source</c> attribute namespace.
+        /// </summary>
+        public const string AnchorSource = "anchor_source";
+
+        /// <summary>
         /// The <c>android</c> attribute namespace.
         /// </summary>
         public const string Android = "android";
+
+        /// <summary>
+        /// The <c>anthropic</c> attribute namespace.
+        /// </summary>
+        public const string Anthropic = "anthropic";
+
+        /// <summary>
+        /// The <c>any_window_visible</c> attribute namespace.
+        /// </summary>
+        public const string AnyWindowVisible = "any_window_visible";
 
         /// <summary>
         /// The <c>app</c> attribute namespace.
@@ -71,14 +301,329 @@ public static class QylAttributes
         public const string App = "app";
 
         /// <summary>
+        /// The <c>app_class</c> attribute namespace.
+        /// </summary>
+        public const string AppClass = "app_class";
+
+        /// <summary>
+        /// The <c>app_focused</c> attribute namespace.
+        /// </summary>
+        public const string AppFocused = "app_focused";
+
+        /// <summary>
+        /// The <c>app_quit_trigger</c> attribute namespace.
+        /// </summary>
+        public const string AppQuitTrigger = "app_quit_trigger";
+
+        /// <summary>
+        /// The <c>app_stall</c> attribute namespace.
+        /// </summary>
+        public const string AppStall = "app_stall";
+
+        /// <summary>
+        /// The <c>app_version</c> attribute namespace.
+        /// </summary>
+        public const string AppVersion = "app_version";
+
+        /// <summary>
+        /// The <c>appearance_id</c> attribute namespace.
+        /// </summary>
+        public const string AppearanceId = "appearance_id";
+
+        /// <summary>
+        /// The <c>archive_index_state</c> attribute namespace.
+        /// </summary>
+        public const string ArchiveIndexState = "archive_index_state";
+
+        /// <summary>
+        /// The <c>archived</c> attribute namespace.
+        /// </summary>
+        public const string Archived = "archived";
+
+        /// <summary>
+        /// The <c>archived_phase_ms</c> attribute namespace.
+        /// </summary>
+        public const string ArchivedPhaseMs = "archived_phase_ms";
+
+        /// <summary>
+        /// The <c>archived_phase_trigger</c> attribute namespace.
+        /// </summary>
+        public const string ArchivedPhaseTrigger = "archived_phase_trigger";
+
+        /// <summary>
+        /// The <c>archived_with_bridge_count</c> attribute namespace.
+        /// </summary>
+        public const string ArchivedWithBridgeCount = "archived_with_bridge_count";
+
+        /// <summary>
+        /// The <c>arm</c> attribute namespace.
+        /// </summary>
+        public const string Arm = "arm";
+
+        /// <summary>
+        /// The <c>armed_by</c> attribute namespace.
+        /// </summary>
+        public const string ArmedBy = "armed_by";
+
+        /// <summary>
+        /// The <c>armed_cron_count</c> attribute namespace.
+        /// </summary>
+        public const string ArmedCronCount = "armed_cron_count";
+
+        /// <summary>
+        /// The <c>armed_durable_cron_count</c> attribute namespace.
+        /// </summary>
+        public const string ArmedDurableCronCount = "armed_durable_cron_count";
+
+        /// <summary>
+        /// The <c>arriving_frame_ms</c> attribute namespace.
+        /// </summary>
+        public const string ArrivingFrameMs = "arriving_frame_ms";
+
+        /// <summary>
         /// The <c>artifact</c> attribute namespace.
         /// </summary>
         public const string Artifact = "artifact";
 
         /// <summary>
+        /// The <c>artifacts_deleted</c> attribute namespace.
+        /// </summary>
+        public const string ArtifactsDeleted = "artifacts_deleted";
+
+        /// <summary>
+        /// The <c>ask_took</c> attribute namespace.
+        /// </summary>
+        public const string AskTook = "ask_took";
+
+        /// <summary>
         /// The <c>aspnetcore</c> attribute namespace.
         /// </summary>
         public const string Aspnetcore = "aspnetcore";
+
+        /// <summary>
+        /// The <c>assistant_narration_block_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantNarrationBlockCount = "assistant_narration_block_count";
+
+        /// <summary>
+        /// The <c>assistant_narration_char_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantNarrationCharCount = "assistant_narration_char_count";
+
+        /// <summary>
+        /// The <c>assistant_text_block_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantTextBlockCount = "assistant_text_block_count";
+
+        /// <summary>
+        /// The <c>assistant_text_char_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantTextCharCount = "assistant_text_char_count";
+
+        /// <summary>
+        /// The <c>assistant_tool_group_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantToolGroupCount = "assistant_tool_group_count";
+
+        /// <summary>
+        /// The <c>assistant_tool_use_count</c> attribute namespace.
+        /// </summary>
+        public const string AssistantToolUseCount = "assistant_tool_use_count";
+
+        /// <summary>
+        /// The <c>at_launch</c> attribute namespace.
+        /// </summary>
+        public const string AtLaunch = "at_launch";
+
+        /// <summary>
+        /// The <c>at_turn_boundary</c> attribute namespace.
+        /// </summary>
+        public const string AtTurnBoundary = "at_turn_boundary";
+
+        /// <summary>
+        /// The <c>attach_reason</c> attribute namespace.
+        /// </summary>
+        public const string AttachReason = "attach_reason";
+
+        /// <summary>
+        /// The <c>attached_devices</c> attribute namespace.
+        /// </summary>
+        public const string AttachedDevices = "attached_devices";
+
+        /// <summary>
+        /// The <c>attached_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string AttachedDurationMs = "attached_duration_ms";
+
+        /// <summary>
+        /// The <c>attachment_bytes</c> attribute namespace.
+        /// </summary>
+        public const string AttachmentBytes = "attachment_bytes";
+
+        /// <summary>
+        /// The <c>attachment_seq</c> attribute namespace.
+        /// </summary>
+        public const string AttachmentSeq = "attachment_seq";
+
+        /// <summary>
+        /// The <c>attachments</c> attribute namespace.
+        /// </summary>
+        public const string Attachments = "attachments";
+
+        /// <summary>
+        /// The <c>attempt</c> attribute namespace.
+        /// </summary>
+        public const string Attempt = "attempt";
+
+        /// <summary>
+        /// The <c>attempt_id</c> attribute namespace.
+        /// </summary>
+        public const string AttemptId = "attempt_id";
+
+        /// <summary>
+        /// The <c>attempt_index</c> attribute namespace.
+        /// </summary>
+        public const string AttemptIndex = "attempt_index";
+
+        /// <summary>
+        /// The <c>attempt_num</c> attribute namespace.
+        /// </summary>
+        public const string AttemptNum = "attempt_num";
+
+        /// <summary>
+        /// The <c>attempt_number</c> attribute namespace.
+        /// </summary>
+        public const string AttemptNumber = "attempt_number";
+
+        /// <summary>
+        /// The <c>attempted</c> attribute namespace.
+        /// </summary>
+        public const string Attempted = "attempted";
+
+        /// <summary>
+        /// The <c>attempted_count</c> attribute namespace.
+        /// </summary>
+        public const string AttemptedCount = "attempted_count";
+
+        /// <summary>
+        /// The <c>attempts</c> attribute namespace.
+        /// </summary>
+        public const string Attempts = "attempts";
+
+        /// <summary>
+        /// The <c>attempts_before_recovery</c> attribute namespace.
+        /// </summary>
+        public const string AttemptsBeforeRecovery = "attempts_before_recovery";
+
+        /// <summary>
+        /// The <c>attestation_form</c> attribute namespace.
+        /// </summary>
+        public const string AttestationForm = "attestation_form";
+
+        /// <summary>
+        /// The <c>auth_auto_retry</c> attribute namespace.
+        /// </summary>
+        public const string AuthAutoRetry = "auth_auto_retry";
+
+        /// <summary>
+        /// The <c>auth_method</c> attribute namespace.
+        /// </summary>
+        public const string AuthMethod = "auth_method";
+
+        /// <summary>
+        /// The <c>authorization</c> attribute namespace.
+        /// </summary>
+        public const string Authorization = "authorization";
+
+        /// <summary>
+        /// The <c>auto_archive_on_close</c> attribute namespace.
+        /// </summary>
+        public const string AutoArchiveOnClose = "auto_archive_on_close";
+
+        /// <summary>
+        /// The <c>auto_compact</c> attribute namespace.
+        /// </summary>
+        public const string AutoCompact = "auto_compact";
+
+        /// <summary>
+        /// The <c>auto_compact_attempts</c> attribute namespace.
+        /// </summary>
+        public const string AutoCompactAttempts = "auto_compact_attempts";
+
+        /// <summary>
+        /// The <c>auto_compact_recovered</c> attribute namespace.
+        /// </summary>
+        public const string AutoCompactRecovered = "auto_compact_recovered";
+
+        /// <summary>
+        /// The <c>auto_enabled</c> attribute namespace.
+        /// </summary>
+        public const string AutoEnabled = "auto_enabled";
+
+        /// <summary>
+        /// The <c>auto_fix</c> attribute namespace.
+        /// </summary>
+        public const string AutoFix = "auto_fix";
+
+        /// <summary>
+        /// The <c>auto_merge</c> attribute namespace.
+        /// </summary>
+        public const string AutoMerge = "auto_merge";
+
+        /// <summary>
+        /// The <c>auto_merge_seen</c> attribute namespace.
+        /// </summary>
+        public const string AutoMergeSeen = "auto_merge_seen";
+
+        /// <summary>
+        /// The <c>auto_reason</c> attribute namespace.
+        /// </summary>
+        public const string AutoReason = "auto_reason";
+
+        /// <summary>
+        /// The <c>auto_reconnect_attempts</c> attribute namespace.
+        /// </summary>
+        public const string AutoReconnectAttempts = "auto_reconnect_attempts";
+
+        /// <summary>
+        /// The <c>auto_source</c> attribute namespace.
+        /// </summary>
+        public const string AutoSource = "auto_source";
+
+        /// <summary>
+        /// The <c>auto_updates_disabled</c> attribute namespace.
+        /// </summary>
+        public const string AutoUpdatesDisabled = "auto_updates_disabled";
+
+        /// <summary>
+        /// The <c>automatic</c> attribute namespace.
+        /// </summary>
+        public const string Automatic = "automatic";
+
+        /// <summary>
+        /// The <c>awaited_ms</c> attribute namespace.
+        /// </summary>
+        public const string AwaitedMs = "awaited_ms";
+
+        /// <summary>
+        /// The <c>awaited_outcome</c> attribute namespace.
+        /// </summary>
+        public const string AwaitedOutcome = "awaited_outcome";
+
+        /// <summary>
+        /// The <c>awaited_reason</c> attribute namespace.
+        /// </summary>
+        public const string AwaitedReason = "awaited_reason";
+
+        /// <summary>
+        /// The <c>away_at_failure</c> attribute namespace.
+        /// </summary>
+        public const string AwayAtFailure = "away_at_failure";
+
+        /// <summary>
+        /// The <c>away_ms</c> attribute namespace.
+        /// </summary>
+        public const string AwayMs = "away_ms";
 
         /// <summary>
         /// The <c>aws</c> attribute namespace.
@@ -96,9 +641,249 @@ public static class QylAttributes
         public const string Azure = "azure";
 
         /// <summary>
+        /// The <c>backend</c> attribute namespace.
+        /// </summary>
+        public const string Backend = "backend";
+
+        /// <summary>
+        /// The <c>backend_kind</c> attribute namespace.
+        /// </summary>
+        public const string BackendKind = "backend_kind";
+
+        /// <summary>
+        /// The <c>backfill_outcome</c> attribute namespace.
+        /// </summary>
+        public const string BackfillOutcome = "backfill_outcome";
+
+        /// <summary>
+        /// The <c>background</c> attribute namespace.
+        /// </summary>
+        public const string Background = "background";
+
+        /// <summary>
+        /// The <c>backgrounded</c> attribute namespace.
+        /// </summary>
+        public const string Backgrounded = "backgrounded";
+
+        /// <summary>
+        /// The <c>backoff_ms</c> attribute namespace.
+        /// </summary>
+        public const string BackoffMs = "backoff_ms";
+
+        /// <summary>
+        /// The <c>bailed</c> attribute namespace.
+        /// </summary>
+        public const string Bailed = "bailed";
+
+        /// <summary>
+        /// The <c>base_config_cache_hit</c> attribute namespace.
+        /// </summary>
+        public const string BaseConfigCacheHit = "base_config_cache_hit";
+
+        /// <summary>
+        /// The <c>bash_argv0</c> attribute namespace.
+        /// </summary>
+        public const string BashArgv0 = "bash_argv0";
+
+        /// <summary>
+        /// The <c>bash_command</c> attribute namespace.
+        /// </summary>
+        public const string BashCommand = "bash_command";
+
+        /// <summary>
+        /// The <c>bash_command_class</c> attribute namespace.
+        /// </summary>
+        public const string BashCommandClass = "bash_command_class";
+
+        /// <summary>
+        /// The <c>bash_command_original_length</c> attribute namespace.
+        /// </summary>
+        public const string BashCommandOriginalLength = "bash_command_original_length";
+
+        /// <summary>
+        /// The <c>bash_command_truncated</c> attribute namespace.
+        /// </summary>
+        public const string BashCommandTruncated = "bash_command_truncated";
+
+        /// <summary>
+        /// The <c>basis</c> attribute namespace.
+        /// </summary>
+        public const string Basis = "basis";
+
+        /// <summary>
+        /// The <c>batch_pr_count</c> attribute namespace.
+        /// </summary>
+        public const string BatchPrCount = "batch_pr_count";
+
+        /// <summary>
+        /// The <c>batch_request_count</c> attribute namespace.
+        /// </summary>
+        public const string BatchRequestCount = "batch_request_count";
+
+        /// <summary>
+        /// The <c>bearer_state</c> attribute namespace.
+        /// </summary>
+        public const string BearerState = "bearer_state";
+
+        /// <summary>
+        /// The <c>bearer_token_type</c> attribute namespace.
+        /// </summary>
+        public const string BearerTokenType = "bearer_token_type";
+
+        /// <summary>
+        /// The <c>bind_eligible_count</c> attribute namespace.
+        /// </summary>
+        public const string BindEligibleCount = "bind_eligible_count";
+
+        /// <summary>
+        /// The <c>bind_outcome</c> attribute namespace.
+        /// </summary>
+        public const string BindOutcome = "bind_outcome";
+
+        /// <summary>
+        /// The <c>bind_unsigned_keyless</c> attribute namespace.
+        /// </summary>
+        public const string BindUnsignedKeyless = "bind_unsigned_keyless";
+
+        /// <summary>
+        /// The <c>bind_web_key</c> attribute namespace.
+        /// </summary>
+        public const string BindWebKey = "bind_web_key";
+
+        /// <summary>
+        /// The <c>blocked_chrome</c> attribute namespace.
+        /// </summary>
+        public const string BlockedChrome = "blocked_chrome";
+
+        /// <summary>
+        /// The <c>blocked_count</c> attribute namespace.
+        /// </summary>
+        public const string BlockedCount = "blocked_count";
+
+        /// <summary>
+        /// The <c>blocked_custom_cron</c> attribute namespace.
+        /// </summary>
+        public const string BlockedCustomCron = "blocked_custom_cron";
+
+        /// <summary>
+        /// The <c>blocked_cwd</c> attribute namespace.
+        /// </summary>
+        public const string BlockedCwd = "blocked_cwd";
+
+        /// <summary>
+        /// The <c>blocked_dispatch_hook</c> attribute namespace.
+        /// </summary>
+        public const string BlockedDispatchHook = "blocked_dispatch_hook";
+
+        /// <summary>
+        /// The <c>blocked_local_files_only</c> attribute namespace.
+        /// </summary>
+        public const string BlockedLocalFilesOnly = "blocked_local_files_only";
+
+        /// <summary>
+        /// The <c>blocked_local_folders</c> attribute namespace.
+        /// </summary>
+        public const string BlockedLocalFolders = "blocked_local_folders";
+
+        /// <summary>
+        /// The <c>blocked_no_prompt</c> attribute namespace.
+        /// </summary>
+        public const string BlockedNoPrompt = "blocked_no_prompt";
+
+        /// <summary>
+        /// The <c>blocked_pattern_approvals</c> attribute namespace.
+        /// </summary>
+        public const string BlockedPatternApprovals = "blocked_pattern_approvals";
+
+        /// <summary>
+        /// The <c>blocked_projects</c> attribute namespace.
+        /// </summary>
+        public const string BlockedProjects = "blocked_projects";
+
+        /// <summary>
+        /// The <c>blocked_projects_multi_or_malformed</c> attribute namespace.
+        /// </summary>
+        public const string BlockedProjectsMultiOrMalformed = "blocked_projects_multi_or_malformed";
+
+        /// <summary>
+        /// The <c>blocked_space</c> attribute namespace.
+        /// </summary>
+        public const string BlockedSpace = "blocked_space";
+
+        /// <summary>
+        /// The <c>blocked_sub_hourly</c> attribute namespace.
+        /// </summary>
+        public const string BlockedSubHourly = "blocked_sub_hourly";
+
+        /// <summary>
+        /// The <c>blocking</c> attribute namespace.
+        /// </summary>
+        public const string Blocking = "blocking";
+
+        /// <summary>
+        /// The <c>blocks_committed</c> attribute namespace.
+        /// </summary>
+        public const string BlocksCommitted = "blocks_committed";
+
+        /// <summary>
+        /// The <c>body</c> attribute namespace.
+        /// </summary>
+        public const string Body = "body";
+
+        /// <summary>
+        /// The <c>body_length</c> attribute namespace.
+        /// </summary>
+        public const string BodyLength = "body_length";
+
+        /// <summary>
+        /// The <c>body_ref</c> attribute namespace.
+        /// </summary>
+        public const string BodyRef = "body_ref";
+
+        /// <summary>
+        /// The <c>body_truncated</c> attribute namespace.
+        /// </summary>
+        public const string BodyTruncated = "body_truncated";
+
+        /// <summary>
+        /// The <c>body_withheld</c> attribute namespace.
+        /// </summary>
+        public const string BodyWithheld = "body_withheld";
+
+        /// <summary>
+        /// The <c>bounce_reason</c> attribute namespace.
+        /// </summary>
+        public const string BounceReason = "bounce_reason";
+
+        /// <summary>
+        /// The <c>brake_rule</c> attribute namespace.
+        /// </summary>
+        public const string BrakeRule = "brake_rule";
+
+        /// <summary>
+        /// The <c>branch_reattached</c> attribute namespace.
+        /// </summary>
+        public const string BranchReattached = "branch_reattached";
+
+        /// <summary>
+        /// The <c>bridge_url_present</c> attribute namespace.
+        /// </summary>
+        public const string BridgeUrlPresent = "bridge_url_present";
+
+        /// <summary>
         /// The <c>browser</c> attribute namespace.
         /// </summary>
         public const string Browser = "browser";
+
+        /// <summary>
+        /// The <c>bucket_gb</c> attribute namespace.
+        /// </summary>
+        public const string BucketGb = "bucket_gb";
+
+        /// <summary>
+        /// The <c>bucket_pct_of_ram</c> attribute namespace.
+        /// </summary>
+        public const string BucketPctOfRam = "bucket_pct_of_ram";
 
         /// <summary>
         /// The <c>build</c> attribute namespace.
@@ -106,9 +891,319 @@ public static class QylAttributes
         public const string Build = "build";
 
         /// <summary>
+        /// The <c>busy</c> attribute namespace.
+        /// </summary>
+        public const string Busy = "busy";
+
+        /// <summary>
+        /// The <c>bypassed</c> attribute namespace.
+        /// </summary>
+        public const string Bypassed = "bypassed";
+
+        /// <summary>
+        /// The <c>bytes</c> attribute namespace.
+        /// </summary>
+        public const string Bytes = "bytes";
+
+        /// <summary>
+        /// The <c>bytes_at_failure</c> attribute namespace.
+        /// </summary>
+        public const string BytesAtFailure = "bytes_at_failure";
+
+        /// <summary>
+        /// The <c>bytes_downloaded</c> attribute namespace.
+        /// </summary>
+        public const string BytesDownloaded = "bytes_downloaded";
+
+        /// <summary>
+        /// The <c>bytes_dropped</c> attribute namespace.
+        /// </summary>
+        public const string BytesDropped = "bytes_dropped";
+
+        /// <summary>
+        /// The <c>bytes_missing</c> attribute namespace.
+        /// </summary>
+        public const string BytesMissing = "bytes_missing";
+
+        /// <summary>
+        /// The <c>bytes_received</c> attribute namespace.
+        /// </summary>
+        public const string BytesReceived = "bytes_received";
+
+        /// <summary>
+        /// The <c>cache_creation_1h_input_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreation1hInputTokens = "cache_creation_1h_input_tokens";
+
+        /// <summary>
+        /// The <c>cache_creation_1h_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreation1hTokens = "cache_creation_1h_tokens";
+
+        /// <summary>
+        /// The <c>cache_creation_5m_input_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreation5mInputTokens = "cache_creation_5m_input_tokens";
+
+        /// <summary>
+        /// The <c>cache_creation_5m_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreation5mTokens = "cache_creation_5m_tokens";
+
+        /// <summary>
+        /// The <c>cache_creation_input_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreationInputTokens = "cache_creation_input_tokens";
+
+        /// <summary>
+        /// The <c>cache_creation_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheCreationTokens = "cache_creation_tokens";
+
+        /// <summary>
+        /// The <c>cache_hit</c> attribute namespace.
+        /// </summary>
+        public const string CacheHit = "cache_hit";
+
+        /// <summary>
+        /// The <c>cache_read_input_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheReadInputTokens = "cache_read_input_tokens";
+
+        /// <summary>
+        /// The <c>cache_read_tokens</c> attribute namespace.
+        /// </summary>
+        public const string CacheReadTokens = "cache_read_tokens";
+
+        /// <summary>
+        /// The <c>cached</c> attribute namespace.
+        /// </summary>
+        public const string Cached = "cached";
+
+        /// <summary>
+        /// The <c>cadence_daily</c> attribute namespace.
+        /// </summary>
+        public const string CadenceDaily = "cadence_daily";
+
+        /// <summary>
+        /// The <c>cadence_hourly</c> attribute namespace.
+        /// </summary>
+        public const string CadenceHourly = "cadence_hourly";
+
+        /// <summary>
+        /// The <c>cadence_manual</c> attribute namespace.
+        /// </summary>
+        public const string CadenceManual = "cadence_manual";
+
+        /// <summary>
+        /// The <c>cadence_one_shot</c> attribute namespace.
+        /// </summary>
+        public const string CadenceOneShot = "cadence_one_shot";
+
+        /// <summary>
+        /// The <c>cadence_other</c> attribute namespace.
+        /// </summary>
+        public const string CadenceOther = "cadence_other";
+
+        /// <summary>
+        /// The <c>cadence_sub_hourly</c> attribute namespace.
+        /// </summary>
+        public const string CadenceSubHourly = "cadence_sub_hourly";
+
+        /// <summary>
+        /// The <c>cadence_weekdays</c> attribute namespace.
+        /// </summary>
+        public const string CadenceWeekdays = "cadence_weekdays";
+
+        /// <summary>
+        /// The <c>cadence_weekly</c> attribute namespace.
+        /// </summary>
+        public const string CadenceWeekly = "cadence_weekly";
+
+        /// <summary>
+        /// The <c>caller</c> attribute namespace.
+        /// </summary>
+        public const string Caller = "caller";
+
+        /// <summary>
+        /// The <c>can_recover</c> attribute namespace.
+        /// </summary>
+        public const string CanRecover = "can_recover";
+
+        /// <summary>
+        /// The <c>can_rewind</c> attribute namespace.
+        /// </summary>
+        public const string CanRewind = "can_rewind";
+
+        /// <summary>
+        /// The <c>cancel_reason</c> attribute namespace.
+        /// </summary>
+        public const string CancelReason = "cancel_reason";
+
+        /// <summary>
+        /// The <c>cancelled</c> attribute namespace.
+        /// </summary>
+        public const string Cancelled = "cancelled";
+
+        /// <summary>
+        /// The <c>candidate_count</c> attribute namespace.
+        /// </summary>
+        public const string CandidateCount = "candidate_count";
+
+        /// <summary>
+        /// The <c>candidates</c> attribute namespace.
+        /// </summary>
+        public const string Candidates = "candidates";
+
+        /// <summary>
+        /// The <c>candidates_checked</c> attribute namespace.
+        /// </summary>
+        public const string CandidatesChecked = "candidates_checked";
+
+        /// <summary>
+        /// The <c>cap_bytes</c> attribute namespace.
+        /// </summary>
+        public const string CapBytes = "cap_bytes";
+
+        /// <summary>
+        /// The <c>capacity</c> attribute namespace.
+        /// </summary>
+        public const string Capacity = "capacity";
+
+        /// <summary>
+        /// The <c>capture_kind</c> attribute namespace.
+        /// </summary>
+        public const string CaptureKind = "capture_kind";
+
+        /// <summary>
+        /// The <c>card_reason</c> attribute namespace.
+        /// </summary>
+        public const string CardReason = "card_reason";
+
+        /// <summary>
+        /// The <c>carrier</c> attribute namespace.
+        /// </summary>
+        public const string Carrier = "carrier";
+
+        /// <summary>
+        /// The <c>carry_row</c> attribute namespace.
+        /// </summary>
+        public const string CarryRow = "carry_row";
+
+        /// <summary>
         /// The <c>cassandra</c> attribute namespace.
         /// </summary>
         public const string Cassandra = "cassandra";
+
+        /// <summary>
+        /// The <c>category</c> attribute namespace.
+        /// </summary>
+        public const string Category = "category";
+
+        /// <summary>
+        /// The <c>cause</c> attribute namespace.
+        /// </summary>
+        public const string Cause = "cause";
+
+        /// <summary>
+        /// The <c>ccd_booted</c> attribute namespace.
+        /// </summary>
+        public const string CcdBooted = "ccd_booted";
+
+        /// <summary>
+        /// The <c>ccd_live_cli_count</c> attribute namespace.
+        /// </summary>
+        public const string CcdLiveCliCount = "ccd_live_cli_count";
+
+        /// <summary>
+        /// The <c>ccd_overhead_ms</c> attribute namespace.
+        /// </summary>
+        public const string CcdOverheadMs = "ccd_overhead_ms";
+
+        /// <summary>
+        /// The <c>ccd_steering</c> attribute namespace.
+        /// </summary>
+        public const string CcdSteering = "ccd_steering";
+
+        /// <summary>
+        /// The <c>ccr</c> attribute namespace.
+        /// </summary>
+        public const string Ccr = "ccr";
+
+        /// <summary>
+        /// The <c>chain_active</c> attribute namespace.
+        /// </summary>
+        public const string ChainActive = "chain_active";
+
+        /// <summary>
+        /// The <c>chain_continues</c> attribute namespace.
+        /// </summary>
+        public const string ChainContinues = "chain_continues";
+
+        /// <summary>
+        /// The <c>chain_starts</c> attribute namespace.
+        /// </summary>
+        public const string ChainStarts = "chain_starts";
+
+        /// <summary>
+        /// The <c>change_key</c> attribute namespace.
+        /// </summary>
+        public const string ChangeKey = "change_key";
+
+        /// <summary>
+        /// The <c>changed_count</c> attribute namespace.
+        /// </summary>
+        public const string ChangedCount = "changed_count";
+
+        /// <summary>
+        /// The <c>chars</c> attribute namespace.
+        /// </summary>
+        public const string Chars = "chars";
+
+        /// <summary>
+        /// The <c>check_count</c> attribute namespace.
+        /// </summary>
+        public const string CheckCount = "check_count";
+
+        /// <summary>
+        /// The <c>check_ordinal</c> attribute namespace.
+        /// </summary>
+        public const string CheckOrdinal = "check_ordinal";
+
+        /// <summary>
+        /// The <c>check_source</c> attribute namespace.
+        /// </summary>
+        public const string CheckSource = "check_source";
+
+        /// <summary>
+        /// The <c>checkout_barrier</c> attribute namespace.
+        /// </summary>
+        public const string CheckoutBarrier = "checkout_barrier";
+
+        /// <summary>
+        /// The <c>checkout_overlap_mode</c> attribute namespace.
+        /// </summary>
+        public const string CheckoutOverlapMode = "checkout_overlap_mode";
+
+        /// <summary>
+        /// The <c>child_session_id</c> attribute namespace.
+        /// </summary>
+        public const string ChildSessionId = "child_session_id";
+
+        /// <summary>
+        /// The <c>children</c> attribute namespace.
+        /// </summary>
+        public const string Children = "children";
+
+        /// <summary>
+        /// The <c>choice</c> attribute namespace.
+        /// </summary>
+        public const string Choice = "choice";
+
+        /// <summary>
+        /// The <c>chunk_count</c> attribute namespace.
+        /// </summary>
+        public const string ChunkCount = "chunk_count";
 
         /// <summary>
         /// The <c>cicd</c> attribute namespace.
@@ -116,9 +1211,224 @@ public static class QylAttributes
         public const string Cicd = "cicd";
 
         /// <summary>
+        /// The <c>claim_count</c> attribute namespace.
+        /// </summary>
+        public const string ClaimCount = "claim_count";
+
+        /// <summary>
+        /// The <c>claims</c> attribute namespace.
+        /// </summary>
+        public const string Claims = "claims";
+
+        /// <summary>
+        /// The <c>clamped</c> attribute namespace.
+        /// </summary>
+        public const string Clamped = "clamped";
+
+        /// <summary>
+        /// The <c>clash</c> attribute namespace.
+        /// </summary>
+        public const string Clash = "clash";
+
+        /// <summary>
+        /// The <c>claude</c> attribute namespace.
+        /// </summary>
+        public const string Claude = "claude";
+
+        /// <summary>
+        /// The <c>claude_settings</c> attribute namespace.
+        /// </summary>
+        public const string ClaudeSettings = "claude_settings";
+
+        /// <summary>
+        /// The <c>clean_read_banked</c> attribute namespace.
+        /// </summary>
+        public const string CleanReadBanked = "clean_read_banked";
+
+        /// <summary>
+        /// The <c>clean_shutdown</c> attribute namespace.
+        /// </summary>
+        public const string CleanShutdown = "clean_shutdown";
+
+        /// <summary>
+        /// The <c>cleared_by</c> attribute namespace.
+        /// </summary>
+        public const string ClearedBy = "cleared_by";
+
+        /// <summary>
+        /// The <c>cli_binary_choice</c> attribute namespace.
+        /// </summary>
+        public const string CliBinaryChoice = "cli_binary_choice";
+
+        /// <summary>
+        /// The <c>cli_current_version</c> attribute namespace.
+        /// </summary>
+        public const string CliCurrentVersion = "cli_current_version";
+
+        /// <summary>
+        /// The <c>cli_fetch_bytes</c> attribute namespace.
+        /// </summary>
+        public const string CliFetchBytes = "cli_fetch_bytes";
+
+        /// <summary>
+        /// The <c>cli_fetch_failure</c> attribute namespace.
+        /// </summary>
+        public const string CliFetchFailure = "cli_fetch_failure";
+
+        /// <summary>
+        /// The <c>cli_fetch_fell_back</c> attribute namespace.
+        /// </summary>
+        public const string CliFetchFellBack = "cli_fetch_fell_back";
+
+        /// <summary>
+        /// The <c>cli_fetch_longest_pause_ms</c> attribute namespace.
+        /// </summary>
+        public const string CliFetchLongestPauseMs = "cli_fetch_longest_pause_ms";
+
+        /// <summary>
+        /// The <c>cli_fetch_ms</c> attribute namespace.
+        /// </summary>
+        public const string CliFetchMs = "cli_fetch_ms";
+
+        /// <summary>
+        /// The <c>cli_informed</c> attribute namespace.
+        /// </summary>
+        public const string CliInformed = "cli_informed";
+
+        /// <summary>
+        /// The <c>cli_install_source</c> attribute namespace.
+        /// </summary>
+        public const string CliInstallSource = "cli_install_source";
+
+        /// <summary>
+        /// The <c>cli_pinned_version</c> attribute namespace.
+        /// </summary>
+        public const string CliPinnedVersion = "cli_pinned_version";
+
+        /// <summary>
+        /// The <c>cli_process_group_learned</c> attribute namespace.
+        /// </summary>
+        public const string CliProcessGroupLearned = "cli_process_group_learned";
+
+        /// <summary>
+        /// The <c>cli_provably_idle</c> attribute namespace.
+        /// </summary>
+        public const string CliProvablyIdle = "cli_provably_idle";
+
+        /// <summary>
+        /// The <c>cli_session_id</c> attribute namespace.
+        /// </summary>
+        public const string CliSessionId = "cli_session_id";
+
+        /// <summary>
+        /// The <c>cli_stderr_tail</c> attribute namespace.
+        /// </summary>
+        public const string CliStderrTail = "cli_stderr_tail";
+
+        /// <summary>
+        /// The <c>cli_upload_bytes</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadBytes = "cli_upload_bytes";
+
+        /// <summary>
+        /// The <c>cli_upload_folder_not_plain</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadFolderNotPlain = "cli_upload_folder_not_plain";
+
+        /// <summary>
+        /// The <c>cli_upload_longest_pause_ms</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadLongestPauseMs = "cli_upload_longest_pause_ms";
+
+        /// <summary>
+        /// The <c>cli_upload_ms</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadMs = "cli_upload_ms";
+
+        /// <summary>
+        /// The <c>cli_upload_pauses</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadPauses = "cli_upload_pauses";
+
+        /// <summary>
+        /// The <c>cli_upload_restarted_after_reject</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadRestartedAfterReject = "cli_upload_restarted_after_reject";
+
+        /// <summary>
+        /// The <c>cli_upload_resumed_from_bytes</c> attribute namespace.
+        /// </summary>
+        public const string CliUploadResumedFromBytes = "cli_upload_resumed_from_bytes";
+
+        /// <summary>
+        /// The <c>cli_uptime_s</c> attribute namespace.
+        /// </summary>
+        public const string CliUptimeS = "cli_uptime_s";
+
+        /// <summary>
+        /// The <c>cli_version</c> attribute namespace.
+        /// </summary>
+        public const string CliVersion = "cli_version";
+
+        /// <summary>
+        /// The <c>click_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string ClickAgeMs = "click_age_ms";
+
+        /// <summary>
+        /// The <c>clicked_in</c> attribute namespace.
+        /// </summary>
+        public const string ClickedIn = "clicked_in";
+
+        /// <summary>
         /// The <c>client</c> attribute namespace.
         /// </summary>
         public const string Client = "client";
+
+        /// <summary>
+        /// The <c>client_request_id</c> attribute namespace.
+        /// </summary>
+        public const string ClientRequestId = "client_request_id";
+
+        /// <summary>
+        /// The <c>client_run_id_source</c> attribute namespace.
+        /// </summary>
+        public const string ClientRunIdSource = "client_run_id_source";
+
+        /// <summary>
+        /// The <c>clock_offset_decision</c> attribute namespace.
+        /// </summary>
+        public const string ClockOffsetDecision = "clock_offset_decision";
+
+        /// <summary>
+        /// The <c>clock_offset_ms</c> attribute namespace.
+        /// </summary>
+        public const string ClockOffsetMs = "clock_offset_ms";
+
+        /// <summary>
+        /// The <c>close_count</c> attribute namespace.
+        /// </summary>
+        public const string CloseCount = "close_count";
+
+        /// <summary>
+        /// The <c>close_reason</c> attribute namespace.
+        /// </summary>
+        public const string CloseReason = "close_reason";
+
+        /// <summary>
+        /// The <c>close_trigger</c> attribute namespace.
+        /// </summary>
+        public const string CloseTrigger = "close_trigger";
+
+        /// <summary>
+        /// The <c>closed</c> attribute namespace.
+        /// </summary>
+        public const string Closed = "closed";
+
+        /// <summary>
+        /// The <c>closing_message_char_count</c> attribute namespace.
+        /// </summary>
+        public const string ClosingMessageCharCount = "closing_message_char_count";
 
         /// <summary>
         /// The <c>cloud</c> attribute namespace.
@@ -141,9 +1451,264 @@ public static class QylAttributes
         public const string Code = "code";
 
         /// <summary>
+        /// The <c>code_cli_running</c> attribute namespace.
+        /// </summary>
+        public const string CodeCliRunning = "code_cli_running";
+
+        /// <summary>
+        /// The <c>code_session_active</c> attribute namespace.
+        /// </summary>
+        public const string CodeSessionActive = "code_session_active";
+
+        /// <summary>
+        /// The <c>cold_boot</c> attribute namespace.
+        /// </summary>
+        public const string ColdBoot = "cold_boot";
+
+        /// <summary>
+        /// The <c>cold_start</c> attribute namespace.
+        /// </summary>
+        public const string ColdStart = "cold_start";
+
+        /// <summary>
+        /// The <c>command</c> attribute namespace.
+        /// </summary>
+        public const string Command = "command";
+
+        /// <summary>
+        /// The <c>command_length</c> attribute namespace.
+        /// </summary>
+        public const string CommandLength = "command_length";
+
+        /// <summary>
+        /// The <c>command_marks</c> attribute namespace.
+        /// </summary>
+        public const string CommandMarks = "command_marks";
+
+        /// <summary>
+        /// The <c>command_name</c> attribute namespace.
+        /// </summary>
+        public const string CommandName = "command_name";
+
+        /// <summary>
+        /// The <c>command_path_count</c> attribute namespace.
+        /// </summary>
+        public const string CommandPathCount = "command_path_count";
+
+        /// <summary>
+        /// The <c>command_source</c> attribute namespace.
+        /// </summary>
+        public const string CommandSource = "command_source";
+
+        /// <summary>
+        /// The <c>commands_run</c> attribute namespace.
+        /// </summary>
+        public const string CommandsRun = "commands_run";
+
+        /// <summary>
+        /// The <c>comment_count</c> attribute namespace.
+        /// </summary>
+        public const string CommentCount = "comment_count";
+
+        /// <summary>
+        /// The <c>comments_inlined_count</c> attribute namespace.
+        /// </summary>
+        public const string CommentsInlinedCount = "comments_inlined_count";
+
+        /// <summary>
+        /// The <c>comments_truncated_count</c> attribute namespace.
+        /// </summary>
+        public const string CommentsTruncatedCount = "comments_truncated_count";
+
+        /// <summary>
+        /// The <c>compact_error</c> attribute namespace.
+        /// </summary>
+        public const string CompactError = "compact_error";
+
+        /// <summary>
+        /// The <c>completed</c> attribute namespace.
+        /// </summary>
+        public const string Completed = "completed";
+
+        /// <summary>
+        /// The <c>completed_turns</c> attribute namespace.
+        /// </summary>
+        public const string CompletedTurns = "completed_turns";
+
+        /// <summary>
+        /// The <c>configured_root_count</c> attribute namespace.
+        /// </summary>
+        public const string ConfiguredRootCount = "configured_root_count";
+
+        /// <summary>
+        /// The <c>confined</c> attribute namespace.
+        /// </summary>
+        public const string Confined = "confined";
+
+        /// <summary>
+        /// The <c>confirm_requests</c> attribute namespace.
+        /// </summary>
+        public const string ConfirmRequests = "confirm_requests";
+
+        /// <summary>
+        /// The <c>confirmed_screens</c> attribute namespace.
+        /// </summary>
+        public const string ConfirmedScreens = "confirmed_screens";
+
+        /// <summary>
+        /// The <c>conflict_kind</c> attribute namespace.
+        /// </summary>
+        public const string ConflictKind = "conflict_kind";
+
+        /// <summary>
+        /// The <c>conflict_reminder_ordinal</c> attribute namespace.
+        /// </summary>
+        public const string ConflictReminderOrdinal = "conflict_reminder_ordinal";
+
+        /// <summary>
+        /// The <c>conflict_retries</c> attribute namespace.
+        /// </summary>
+        public const string ConflictRetries = "conflict_retries";
+
+        /// <summary>
+        /// The <c>conflicted_count</c> attribute namespace.
+        /// </summary>
+        public const string ConflictedCount = "conflicted_count";
+
+        /// <summary>
+        /// The <c>connect_attempt</c> attribute namespace.
+        /// </summary>
+        public const string ConnectAttempt = "connect_attempt";
+
+        /// <summary>
+        /// The <c>connect_error_kind</c> attribute namespace.
+        /// </summary>
+        public const string ConnectErrorKind = "connect_error_kind";
+
+        /// <summary>
+        /// The <c>connect_trigger</c> attribute namespace.
+        /// </summary>
+        public const string ConnectTrigger = "connect_trigger";
+
+        /// <summary>
+        /// The <c>connection_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string ConnectionDurationMs = "connection_duration_ms";
+
+        /// <summary>
+        /// The <c>connection_failed</c> attribute namespace.
+        /// </summary>
+        public const string ConnectionFailed = "connection_failed";
+
+        /// <summary>
+        /// The <c>connection_generation</c> attribute namespace.
+        /// </summary>
+        public const string ConnectionGeneration = "connection_generation";
+
+        /// <summary>
+        /// The <c>consecutive_failures</c> attribute namespace.
+        /// </summary>
+        public const string ConsecutiveFailures = "consecutive_failures";
+
+        /// <summary>
+        /// The <c>consecutive_ticks</c> attribute namespace.
+        /// </summary>
+        public const string ConsecutiveTicks = "consecutive_ticks";
+
+        /// <summary>
+        /// The <c>contained_by</c> attribute namespace.
+        /// </summary>
+        public const string ContainedBy = "contained_by";
+
+        /// <summary>
         /// The <c>container</c> attribute namespace.
         /// </summary>
         public const string Container = "container";
+
+        /// <summary>
+        /// The <c>content</c> attribute namespace.
+        /// </summary>
+        public const string Content = "content";
+
+        /// <summary>
+        /// The <c>content_original_length</c> attribute namespace.
+        /// </summary>
+        public const string ContentOriginalLength = "content_original_length";
+
+        /// <summary>
+        /// The <c>content_truncated</c> attribute namespace.
+        /// </summary>
+        public const string ContentTruncated = "content_truncated";
+
+        /// <summary>
+        /// The <c>context</c> attribute namespace.
+        /// </summary>
+        public const string Context = "context";
+
+        /// <summary>
+        /// The <c>context_tokens</c> attribute namespace.
+        /// </summary>
+        public const string ContextTokens = "context_tokens";
+
+        /// <summary>
+        /// The <c>contexts_destroyed</c> attribute namespace.
+        /// </summary>
+        public const string ContextsDestroyed = "contexts_destroyed";
+
+        /// <summary>
+        /// The <c>continuation</c> attribute namespace.
+        /// </summary>
+        public const string Continuation = "continuation";
+
+        /// <summary>
+        /// The <c>continue_message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string ContinueMessageUuid = "continue_message_uuid";
+
+        /// <summary>
+        /// The <c>conversations</c> attribute namespace.
+        /// </summary>
+        public const string Conversations = "conversations";
+
+        /// <summary>
+        /// The <c>cookies</c> attribute namespace.
+        /// </summary>
+        public const string Cookies = "cookies";
+
+        /// <summary>
+        /// The <c>copied</c> attribute namespace.
+        /// </summary>
+        public const string Copied = "copied";
+
+        /// <summary>
+        /// The <c>copy_ms</c> attribute namespace.
+        /// </summary>
+        public const string CopyMs = "copy_ms";
+
+        /// <summary>
+        /// The <c>cost_usd</c> attribute namespace.
+        /// </summary>
+        public const string CostUsd = "cost_usd";
+
+        /// <summary>
+        /// The <c>cost_usd_micros</c> attribute namespace.
+        /// </summary>
+        public const string CostUsdMicros = "cost_usd_micros";
+
+        /// <summary>
+        /// The <c>count</c> attribute namespace.
+        /// </summary>
+        public const string Count = "count";
+
+        /// <summary>
+        /// The <c>cowork_folder</c> attribute namespace.
+        /// </summary>
+        public const string CoworkFolder = "cowork_folder";
+
+        /// <summary>
+        /// The <c>cowork_session_active</c> attribute namespace.
+        /// </summary>
+        public const string CoworkSessionActive = "cowork_session_active";
 
         /// <summary>
         /// The <c>cpu</c> attribute namespace.
@@ -156,9 +1721,269 @@ public static class QylAttributes
         public const string Cpython = "cpython";
 
         /// <summary>
+        /// The <c>crashed_app_version</c> attribute namespace.
+        /// </summary>
+        public const string CrashedAppVersion = "crashed_app_version";
+
+        /// <summary>
+        /// The <c>created</c> attribute namespace.
+        /// </summary>
+        public const string Created = "created";
+
+        /// <summary>
+        /// The <c>creator_session_id</c> attribute namespace.
+        /// </summary>
+        public const string CreatorSessionId = "creator_session_id";
+
+        /// <summary>
+        /// The <c>creator_session_type</c> attribute namespace.
+        /// </summary>
+        public const string CreatorSessionType = "creator_session_type";
+
+        /// <summary>
+        /// The <c>cta</c> attribute namespace.
+        /// </summary>
+        public const string Cta = "cta";
+
+        /// <summary>
+        /// The <c>cumulative_stall_ms</c> attribute namespace.
+        /// </summary>
+        public const string CumulativeStallMs = "cumulative_stall_ms";
+
+        /// <summary>
+        /// The <c>current_title_chars</c> attribute namespace.
+        /// </summary>
+        public const string CurrentTitleChars = "current_title_chars";
+
+        /// <summary>
+        /// The <c>current_version</c> attribute namespace.
+        /// </summary>
+        public const string CurrentVersion = "current_version";
+
+        /// <summary>
+        /// The <c>cwd</c> attribute namespace.
+        /// </summary>
+        public const string Cwd = "cwd";
+
+        /// <summary>
+        /// The <c>cycle_health</c> attribute namespace.
+        /// </summary>
+        public const string CycleHealth = "cycle_health";
+
+        /// <summary>
+        /// The <c>daemon_instance</c> attribute namespace.
+        /// </summary>
+        public const string DaemonInstance = "daemon_instance";
+
+        /// <summary>
+        /// The <c>daemon_instance_changed</c> attribute namespace.
+        /// </summary>
+        public const string DaemonInstanceChanged = "daemon_instance_changed";
+
+        /// <summary>
+        /// The <c>daemon_instance_known</c> attribute namespace.
+        /// </summary>
+        public const string DaemonInstanceKnown = "daemon_instance_known";
+
+        /// <summary>
+        /// The <c>daemon_upgrade</c> attribute namespace.
+        /// </summary>
+        public const string DaemonUpgrade = "daemon_upgrade";
+
+        /// <summary>
+        /// The <c>daemon_version</c> attribute namespace.
+        /// </summary>
+        public const string DaemonVersion = "daemon_version";
+
+        /// <summary>
+        /// The <c>days_since_migration</c> attribute namespace.
+        /// </summary>
+        public const string DaysSinceMigration = "days_since_migration";
+
+        /// <summary>
         /// The <c>db</c> attribute namespace.
         /// </summary>
         public const string Db = "db";
+
+        /// <summary>
+        /// The <c>decide_ms</c> attribute namespace.
+        /// </summary>
+        public const string DecideMs = "decide_ms";
+
+        /// <summary>
+        /// The <c>decided_by</c> attribute namespace.
+        /// </summary>
+        public const string DecidedBy = "decided_by";
+
+        /// <summary>
+        /// The <c>decision</c> attribute namespace.
+        /// </summary>
+        public const string Decision = "decision";
+
+        /// <summary>
+        /// The <c>decision_ms</c> attribute namespace.
+        /// </summary>
+        public const string DecisionMs = "decision_ms";
+
+        /// <summary>
+        /// The <c>decision_reason</c> attribute namespace.
+        /// </summary>
+        public const string DecisionReason = "decision_reason";
+
+        /// <summary>
+        /// The <c>decision_source</c> attribute namespace.
+        /// </summary>
+        public const string DecisionSource = "decision_source";
+
+        /// <summary>
+        /// The <c>decision_type</c> attribute namespace.
+        /// </summary>
+        public const string DecisionType = "decision_type";
+
+        /// <summary>
+        /// The <c>declares_parent_tools</c> attribute namespace.
+        /// </summary>
+        public const string DeclaresParentTools = "declares_parent_tools";
+
+        /// <summary>
+        /// The <c>declined</c> attribute namespace.
+        /// </summary>
+        public const string Declined = "declined";
+
+        /// <summary>
+        /// The <c>deduplicated</c> attribute namespace.
+        /// </summary>
+        public const string Deduplicated = "deduplicated";
+
+        /// <summary>
+        /// The <c>deeplink_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string DeeplinkAgeMs = "deeplink_age_ms";
+
+        /// <summary>
+        /// The <c>defer_ms</c> attribute namespace.
+        /// </summary>
+        public const string DeferMs = "defer_ms";
+
+        /// <summary>
+        /// The <c>deferred_archived_count</c> attribute namespace.
+        /// </summary>
+        public const string DeferredArchivedCount = "deferred_archived_count";
+
+        /// <summary>
+        /// The <c>deferred_at_start</c> attribute namespace.
+        /// </summary>
+        public const string DeferredAtStart = "deferred_at_start";
+
+        /// <summary>
+        /// The <c>deferred_count</c> attribute namespace.
+        /// </summary>
+        public const string DeferredCount = "deferred_count";
+
+        /// <summary>
+        /// The <c>deferred_for_ms</c> attribute namespace.
+        /// </summary>
+        public const string DeferredForMs = "deferred_for_ms";
+
+        /// <summary>
+        /// The <c>deferred_sends</c> attribute namespace.
+        /// </summary>
+        public const string DeferredSends = "deferred_sends";
+
+        /// <summary>
+        /// The <c>deferred_startup_reads</c> attribute namespace.
+        /// </summary>
+        public const string DeferredStartupReads = "deferred_startup_reads";
+
+        /// <summary>
+        /// The <c>delayed_by_claude_work</c> attribute namespace.
+        /// </summary>
+        public const string DelayedByClaudeWork = "delayed_by_claude_work";
+
+        /// <summary>
+        /// The <c>delayed_by_user_activity</c> attribute namespace.
+        /// </summary>
+        public const string DelayedByUserActivity = "delayed_by_user_activity";
+
+        /// <summary>
+        /// The <c>delegated_tool</c> attribute namespace.
+        /// </summary>
+        public const string DelegatedTool = "delegated_tool";
+
+        /// <summary>
+        /// The <c>delete_sessions</c> attribute namespace.
+        /// </summary>
+        public const string DeleteSessions = "delete_sessions";
+
+        /// <summary>
+        /// The <c>deleted</c> attribute namespace.
+        /// </summary>
+        public const string Deleted = "deleted";
+
+        /// <summary>
+        /// The <c>deleted_count</c> attribute namespace.
+        /// </summary>
+        public const string DeletedCount = "deleted_count";
+
+        /// <summary>
+        /// The <c>delivered</c> attribute namespace.
+        /// </summary>
+        public const string Delivered = "delivered";
+
+        /// <summary>
+        /// The <c>delivered_count</c> attribute namespace.
+        /// </summary>
+        public const string DeliveredCount = "delivered_count";
+
+        /// <summary>
+        /// The <c>delta_ms</c> attribute namespace.
+        /// </summary>
+        public const string DeltaMs = "delta_ms";
+
+        /// <summary>
+        /// The <c>demand_refresh_failed_count</c> attribute namespace.
+        /// </summary>
+        public const string DemandRefreshFailedCount = "demand_refresh_failed_count";
+
+        /// <summary>
+        /// The <c>demand_refresh_floored_count</c> attribute namespace.
+        /// </summary>
+        public const string DemandRefreshFlooredCount = "demand_refresh_floored_count";
+
+        /// <summary>
+        /// The <c>demand_refresh_held_count</c> attribute namespace.
+        /// </summary>
+        public const string DemandRefreshHeldCount = "demand_refresh_held_count";
+
+        /// <summary>
+        /// The <c>demand_refresh_read_count</c> attribute namespace.
+        /// </summary>
+        public const string DemandRefreshReadCount = "demand_refresh_read_count";
+
+        /// <summary>
+        /// The <c>denied</c> attribute namespace.
+        /// </summary>
+        public const string Denied = "denied";
+
+        /// <summary>
+        /// The <c>denied_count</c> attribute namespace.
+        /// </summary>
+        public const string DeniedCount = "denied_count";
+
+        /// <summary>
+        /// The <c>dependency_folders</c> attribute namespace.
+        /// </summary>
+        public const string DependencyFolders = "dependency_folders";
+
+        /// <summary>
+        /// The <c>deploy_bytes_total</c> attribute namespace.
+        /// </summary>
+        public const string DeployBytesTotal = "deploy_bytes_total";
+
+        /// <summary>
+        /// The <c>deploy_bytes_transferred</c> attribute namespace.
+        /// </summary>
+        public const string DeployBytesTransferred = "deploy_bytes_transferred";
 
         /// <summary>
         /// The <c>deployment</c> attribute namespace.
@@ -166,9 +1991,34 @@ public static class QylAttributes
         public const string Deployment = "deployment";
 
         /// <summary>
+        /// The <c>deployment_kind</c> attribute namespace.
+        /// </summary>
+        public const string DeploymentKind = "deployment_kind";
+
+        /// <summary>
         /// The <c>destination</c> attribute namespace.
         /// </summary>
         public const string Destination = "destination";
+
+        /// <summary>
+        /// The <c>detach_ms</c> attribute namespace.
+        /// </summary>
+        public const string DetachMs = "detach_ms";
+
+        /// <summary>
+        /// The <c>detached_ms</c> attribute namespace.
+        /// </summary>
+        public const string DetachedMs = "detached_ms";
+
+        /// <summary>
+        /// The <c>detail</c> attribute namespace.
+        /// </summary>
+        public const string Detail = "detail";
+
+        /// <summary>
+        /// The <c>detected_by</c> attribute namespace.
+        /// </summary>
+        public const string DetectedBy = "detected_by";
 
         /// <summary>
         /// The <c>device</c> attribute namespace.
@@ -176,9 +2026,224 @@ public static class QylAttributes
         public const string Device = "device";
 
         /// <summary>
+        /// The <c>device_free_count</c> attribute namespace.
+        /// </summary>
+        public const string DeviceFreeCount = "device_free_count";
+
+        /// <summary>
+        /// The <c>device_id_kind</c> attribute namespace.
+        /// </summary>
+        public const string DeviceIdKind = "device_id_kind";
+
+        /// <summary>
+        /// The <c>device_platform</c> attribute namespace.
+        /// </summary>
+        public const string DevicePlatform = "device_platform";
+
+        /// <summary>
+        /// The <c>device_specified</c> attribute namespace.
+        /// </summary>
+        public const string DeviceSpecified = "device_specified";
+
+        /// <summary>
+        /// The <c>dial_context_version</c> attribute namespace.
+        /// </summary>
+        public const string DialContextVersion = "dial_context_version";
+
+        /// <summary>
+        /// The <c>dialed</c> attribute namespace.
+        /// </summary>
+        public const string Dialed = "dialed";
+
+        /// <summary>
+        /// The <c>died</c> attribute namespace.
+        /// </summary>
+        public const string Died = "died";
+
+        /// <summary>
+        /// The <c>diff</c> attribute namespace.
+        /// </summary>
+        public const string Diff = "diff";
+
+        /// <summary>
+        /// The <c>diff_original_length</c> attribute namespace.
+        /// </summary>
+        public const string DiffOriginalLength = "diff_original_length";
+
+        /// <summary>
+        /// The <c>diff_truncated</c> attribute namespace.
+        /// </summary>
+        public const string DiffTruncated = "diff_truncated";
+
+        /// <summary>
+        /// The <c>differed</c> attribute namespace.
+        /// </summary>
+        public const string Differed = "differed";
+
+        /// <summary>
+        /// The <c>direction</c> attribute namespace.
+        /// </summary>
+        public const string Direction = "direction";
+
+        /// <summary>
+        /// The <c>disable_jitter</c> attribute namespace.
+        /// </summary>
+        public const string DisableJitter = "disable_jitter";
+
+        /// <summary>
+        /// The <c>disabled</c> attribute namespace.
+        /// </summary>
+        public const string Disabled = "disabled";
+
+        /// <summary>
+        /// The <c>disabled_count</c> attribute namespace.
+        /// </summary>
+        public const string DisabledCount = "disabled_count";
+
+        /// <summary>
+        /// The <c>disabled_migratable_count</c> attribute namespace.
+        /// </summary>
+        public const string DisabledMigratableCount = "disabled_migratable_count";
+
+        /// <summary>
+        /// The <c>discarded</c> attribute namespace.
+        /// </summary>
+        public const string Discarded = "discarded";
+
+        /// <summary>
+        /// The <c>discarded_partial</c> attribute namespace.
+        /// </summary>
+        public const string DiscardedPartial = "discarded_partial";
+
+        /// <summary>
         /// The <c>disk</c> attribute namespace.
         /// </summary>
         public const string Disk = "disk";
+
+        /// <summary>
+        /// The <c>dismissed_by_model</c> attribute namespace.
+        /// </summary>
+        public const string DismissedByModel = "dismissed_by_model";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_chrome</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedChrome = "dispatch_origin_blocked_chrome";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_count</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedCount = "dispatch_origin_blocked_count";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_custom_cron</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedCustomCron = "dispatch_origin_blocked_custom_cron";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_cwd</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedCwd = "dispatch_origin_blocked_cwd";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_dispatch_hook</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedDispatchHook = "dispatch_origin_blocked_dispatch_hook";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_local_folders</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedLocalFolders = "dispatch_origin_blocked_local_folders";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_no_prompt</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedNoPrompt = "dispatch_origin_blocked_no_prompt";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_pattern_approvals</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedPatternApprovals = "dispatch_origin_blocked_pattern_approvals";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_projects</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedProjects = "dispatch_origin_blocked_projects";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_space</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedSpace = "dispatch_origin_blocked_space";
+
+        /// <summary>
+        /// The <c>dispatch_origin_blocked_sub_hourly</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginBlockedSubHourly = "dispatch_origin_blocked_sub_hourly";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_daily</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceDaily = "dispatch_origin_cadence_daily";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_hourly</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceHourly = "dispatch_origin_cadence_hourly";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_manual</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceManual = "dispatch_origin_cadence_manual";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_one_shot</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceOneShot = "dispatch_origin_cadence_one_shot";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_other</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceOther = "dispatch_origin_cadence_other";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_sub_hourly</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceSubHourly = "dispatch_origin_cadence_sub_hourly";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_weekdays</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceWeekdays = "dispatch_origin_cadence_weekdays";
+
+        /// <summary>
+        /// The <c>dispatch_origin_cadence_weekly</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCadenceWeekly = "dispatch_origin_cadence_weekly";
+
+        /// <summary>
+        /// The <c>dispatch_origin_count</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginCount = "dispatch_origin_count";
+
+        /// <summary>
+        /// The <c>dispatch_origin_last_run_age_bucket</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginLastRunAgeBucket = "dispatch_origin_last_run_age_bucket";
+
+        /// <summary>
+        /// The <c>dispatch_origin_migratable_count</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginMigratableCount = "dispatch_origin_migratable_count";
+
+        /// <summary>
+        /// The <c>dispatch_origin_unreadable_count</c> attribute namespace.
+        /// </summary>
+        public const string DispatchOriginUnreadableCount = "dispatch_origin_unreadable_count";
+
+        /// <summary>
+        /// The <c>disposition</c> attribute namespace.
+        /// </summary>
+        public const string Disposition = "disposition";
 
         /// <summary>
         /// The <c>dns</c> attribute namespace.
@@ -186,14 +2251,89 @@ public static class QylAttributes
         public const string Dns = "dns";
 
         /// <summary>
+        /// The <c>dormant_days</c> attribute namespace.
+        /// </summary>
+        public const string DormantDays = "dormant_days";
+
+        /// <summary>
         /// The <c>dotnet</c> attribute namespace.
         /// </summary>
         public const string Dotnet = "dotnet";
 
         /// <summary>
+        /// The <c>draft_len</c> attribute namespace.
+        /// </summary>
+        public const string DraftLen = "draft_len";
+
+        /// <summary>
+        /// The <c>dropped_ms_ago</c> attribute namespace.
+        /// </summary>
+        public const string DroppedMsAgo = "dropped_ms_ago";
+
+        /// <summary>
+        /// The <c>dropped_overcap</c> attribute namespace.
+        /// </summary>
+        public const string DroppedOvercap = "dropped_overcap";
+
+        /// <summary>
+        /// The <c>dropped_oversized</c> attribute namespace.
+        /// </summary>
+        public const string DroppedOversized = "dropped_oversized";
+
+        /// <summary>
+        /// The <c>dropped_since_last</c> attribute namespace.
+        /// </summary>
+        public const string DroppedSinceLast = "dropped_since_last";
+
+        /// <summary>
+        /// The <c>dropped_unreadable</c> attribute namespace.
+        /// </summary>
+        public const string DroppedUnreadable = "dropped_unreadable";
+
+        /// <summary>
+        /// The <c>dropped_untrusted</c> attribute namespace.
+        /// </summary>
+        public const string DroppedUntrusted = "dropped_untrusted";
+
+        /// <summary>
+        /// The <c>dry_run</c> attribute namespace.
+        /// </summary>
+        public const string DryRun = "dry_run";
+
+        /// <summary>
+        /// The <c>duration_bucket</c> attribute namespace.
+        /// </summary>
+        public const string DurationBucket = "duration_bucket";
+
+        /// <summary>
+        /// The <c>duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string DurationMs = "duration_ms";
+
+        /// <summary>
+        /// The <c>duration_seconds</c> attribute namespace.
+        /// </summary>
+        public const string DurationSeconds = "duration_seconds";
+
+        /// <summary>
         /// The <c>edge_group</c> attribute namespace.
         /// </summary>
         public const string EdgeGroup = "edge_group";
+
+        /// <summary>
+        /// The <c>effective_root_count</c> attribute namespace.
+        /// </summary>
+        public const string EffectiveRootCount = "effective_root_count";
+
+        /// <summary>
+        /// The <c>effort</c> attribute namespace.
+        /// </summary>
+        public const string Effort = "effort";
+
+        /// <summary>
+        /// The <c>elapsed_ms</c> attribute namespace.
+        /// </summary>
+        public const string ElapsedMs = "elapsed_ms";
 
         /// <summary>
         /// The <c>elastic</c> attribute namespace.
@@ -206,9 +2346,139 @@ public static class QylAttributes
         public const string Elasticsearch = "elasticsearch";
 
         /// <summary>
+        /// The <c>emit_delay_ms</c> attribute namespace.
+        /// </summary>
+        public const string EmitDelayMs = "emit_delay_ms";
+
+        /// <summary>
+        /// The <c>emit_reason</c> attribute namespace.
+        /// </summary>
+        public const string EmitReason = "emit_reason";
+
+        /// <summary>
+        /// The <c>enabled</c> attribute namespace.
+        /// </summary>
+        public const string Enabled = "enabled";
+
+        /// <summary>
+        /// The <c>enabled_count</c> attribute namespace.
+        /// </summary>
+        public const string EnabledCount = "enabled_count";
+
+        /// <summary>
+        /// The <c>enabled_mcp_tool_count</c> attribute namespace.
+        /// </summary>
+        public const string EnabledMcpToolCount = "enabled_mcp_tool_count";
+
+        /// <summary>
+        /// The <c>enabled_via</c> attribute namespace.
+        /// </summary>
+        public const string EnabledVia = "enabled_via";
+
+        /// <summary>
+        /// The <c>enabled_via_override</c> attribute namespace.
+        /// </summary>
+        public const string EnabledViaOverride = "enabled_via_override";
+
+        /// <summary>
+        /// The <c>end_reason</c> attribute namespace.
+        /// </summary>
+        public const string EndReason = "end_reason";
+
+        /// <summary>
+        /// The <c>ended_by</c> attribute namespace.
+        /// </summary>
+        public const string EndedBy = "ended_by";
+
+        /// <summary>
+        /// The <c>ended_by_unmount</c> attribute namespace.
+        /// </summary>
+        public const string EndedByUnmount = "ended_by_unmount";
+
+        /// <summary>
+        /// The <c>ended_turn</c> attribute namespace.
+        /// </summary>
+        public const string EndedTurn = "ended_turn";
+
+        /// <summary>
+        /// The <c>ends_mid_turn</c> attribute namespace.
+        /// </summary>
+        public const string EndsMidTurn = "ends_mid_turn";
+
+        /// <summary>
         /// The <c>enduser</c> attribute namespace.
         /// </summary>
         public const string Enduser = "enduser";
+
+        /// <summary>
+        /// The <c>enforcement_hours</c> attribute namespace.
+        /// </summary>
+        public const string EnforcementHours = "enforcement_hours";
+
+        /// <summary>
+        /// The <c>engine_version</c> attribute namespace.
+        /// </summary>
+        public const string EngineVersion = "engine_version";
+
+        /// <summary>
+        /// The <c>enqueue_ms</c> attribute namespace.
+        /// </summary>
+        public const string EnqueueMs = "enqueue_ms";
+
+        /// <summary>
+        /// The <c>entries</c> attribute namespace.
+        /// </summary>
+        public const string Entries = "entries";
+
+        /// <summary>
+        /// The <c>entry</c> attribute namespace.
+        /// </summary>
+        public const string Entry = "entry";
+
+        /// <summary>
+        /// The <c>entry_point</c> attribute namespace.
+        /// </summary>
+        public const string EntryPoint = "entry_point";
+
+        /// <summary>
+        /// The <c>env_not_sent_failed</c> attribute namespace.
+        /// </summary>
+        public const string EnvNotSentFailed = "env_not_sent_failed";
+
+        /// <summary>
+        /// The <c>env_not_sent_servers</c> attribute namespace.
+        /// </summary>
+        public const string EnvNotSentServers = "env_not_sent_servers";
+
+        /// <summary>
+        /// The <c>environment_id</c> attribute namespace.
+        /// </summary>
+        public const string EnvironmentId = "environment_id";
+
+        /// <summary>
+        /// The <c>environment_source</c> attribute namespace.
+        /// </summary>
+        public const string EnvironmentSource = "environment_source";
+
+        /// <summary>
+        /// The <c>environments</c> attribute namespace.
+        /// </summary>
+        public const string Environments = "environments";
+
+        /// <summary>
+        /// The <c>episode_index</c> attribute namespace.
+        /// </summary>
+        public const string EpisodeIndex = "episode_index";
+
+        /// <summary>
+        /// The <c>episode_ms</c> attribute namespace.
+        /// </summary>
+        public const string EpisodeMs = "episode_ms";
+
+        /// <summary>
+        /// The <c>episode_outcome</c> attribute namespace.
+        /// </summary>
+        public const string EpisodeOutcome = "episode_outcome";
 
         /// <summary>
         /// The <c>error</c> attribute namespace.
@@ -216,9 +2486,119 @@ public static class QylAttributes
         public const string Error = "error";
 
         /// <summary>
+        /// The <c>error_category</c> attribute namespace.
+        /// </summary>
+        public const string ErrorCategory = "error_category";
+
+        /// <summary>
+        /// The <c>error_class</c> attribute namespace.
+        /// </summary>
+        public const string ErrorClass = "error_class";
+
+        /// <summary>
+        /// The <c>error_code</c> attribute namespace.
+        /// </summary>
+        public const string ErrorCode = "error_code";
+
+        /// <summary>
+        /// The <c>error_count</c> attribute namespace.
+        /// </summary>
+        public const string ErrorCount = "error_count";
+
+        /// <summary>
+        /// The <c>error_description</c> attribute namespace.
+        /// </summary>
+        public const string ErrorDescription = "error_description";
+
+        /// <summary>
+        /// The <c>error_detail</c> attribute namespace.
+        /// </summary>
+        public const string ErrorDetail = "error_detail";
+
+        /// <summary>
+        /// The <c>error_domain</c> attribute namespace.
+        /// </summary>
+        public const string ErrorDomain = "error_domain";
+
+        /// <summary>
+        /// The <c>error_kind</c> attribute namespace.
+        /// </summary>
+        public const string ErrorKind = "error_kind";
+
+        /// <summary>
+        /// The <c>errorMessage</c> attribute namespace.
+        /// </summary>
+        public const string ErrorMessage = "errorMessage";
+
+        /// <summary>
+        /// The <c>error_message</c> attribute namespace.
+        /// </summary>
+        public const string ErrorMessageNamespace = "error_message";
+
+        /// <summary>
+        /// The <c>error_name</c> attribute namespace.
+        /// </summary>
+        public const string ErrorName = "error_name";
+
+        /// <summary>
+        /// The <c>error_type</c> attribute namespace.
+        /// </summary>
+        public const string ErrorType = "error_type";
+
+        /// <summary>
+        /// The <c>errors</c> attribute namespace.
+        /// </summary>
+        public const string Errors = "errors";
+
+        /// <summary>
+        /// The <c>escalated</c> attribute namespace.
+        /// </summary>
+        public const string Escalated = "escalated";
+
+        /// <summary>
+        /// The <c>estimated_cache_write_usd</c> attribute namespace.
+        /// </summary>
+        public const string EstimatedCacheWriteUsd = "estimated_cache_write_usd";
+
+        /// <summary>
+        /// The <c>evaluated_count</c> attribute namespace.
+        /// </summary>
+        public const string EvaluatedCount = "evaluated_count";
+
+        /// <summary>
         /// The <c>event</c> attribute namespace.
         /// </summary>
         public const string Event = "event";
+
+        /// <summary>
+        /// The <c>event_origin</c> attribute namespace.
+        /// </summary>
+        public const string EventOrigin = "event_origin";
+
+        /// <summary>
+        /// The <c>event_origin_server</c> attribute namespace.
+        /// </summary>
+        public const string EventOriginServer = "event_origin_server";
+
+        /// <summary>
+        /// The <c>event_type</c> attribute namespace.
+        /// </summary>
+        public const string EventType = "event_type";
+
+        /// <summary>
+        /// The <c>ever_connected</c> attribute namespace.
+        /// </summary>
+        public const string EverConnected = "ever_connected";
+
+        /// <summary>
+        /// The <c>evicted_count</c> attribute namespace.
+        /// </summary>
+        public const string EvictedCount = "evicted_count";
+
+        /// <summary>
+        /// The <c>evidence</c> attribute namespace.
+        /// </summary>
+        public const string Evidence = "evidence";
 
         /// <summary>
         /// The <c>exception</c> attribute namespace.
@@ -236,9 +2616,189 @@ public static class QylAttributes
         public const string Executor = "executor";
 
         /// <summary>
+        /// The <c>exit_code</c> attribute namespace.
+        /// </summary>
+        public const string ExitCode = "exit_code";
+
+        /// <summary>
+        /// The <c>exit_code_decoded</c> attribute namespace.
+        /// </summary>
+        public const string ExitCodeDecoded = "exit_code_decoded";
+
+        /// <summary>
+        /// The <c>exit_killed_by</c> attribute namespace.
+        /// </summary>
+        public const string ExitKilledBy = "exit_killed_by";
+
+        /// <summary>
+        /// The <c>exit_signal</c> attribute namespace.
+        /// </summary>
+        public const string ExitSignal = "exit_signal";
+
+        /// <summary>
+        /// The <c>expected_cli_version</c> attribute namespace.
+        /// </summary>
+        public const string ExpectedCliVersion = "expected_cli_version";
+
+        /// <summary>
+        /// The <c>expected_height</c> attribute namespace.
+        /// </summary>
+        public const string ExpectedHeight = "expected_height";
+
+        /// <summary>
+        /// The <c>expected_sha256</c> attribute namespace.
+        /// </summary>
+        public const string ExpectedSha256 = "expected_sha256";
+
+        /// <summary>
+        /// The <c>expected_width</c> attribute namespace.
+        /// </summary>
+        public const string ExpectedWidth = "expected_width";
+
+        /// <summary>
+        /// The <c>expired</c> attribute namespace.
+        /// </summary>
+        public const string Expired = "expired";
+
+        /// <summary>
+        /// The <c>explainer_shown</c> attribute namespace.
+        /// </summary>
+        public const string ExplainerShown = "explainer_shown";
+
+        /// <summary>
+        /// The <c>extension_author</c> attribute namespace.
+        /// </summary>
+        public const string ExtensionAuthor = "extension_author";
+
+        /// <summary>
+        /// The <c>extension_id</c> attribute namespace.
+        /// </summary>
+        public const string ExtensionId = "extension_id";
+
+        /// <summary>
+        /// The <c>extension_name</c> attribute namespace.
+        /// </summary>
+        public const string ExtensionName = "extension_name";
+
+        /// <summary>
+        /// The <c>extension_skipped</c> attribute namespace.
+        /// </summary>
+        public const string ExtensionSkipped = "extension_skipped";
+
+        /// <summary>
+        /// The <c>extension_version</c> attribute namespace.
+        /// </summary>
+        public const string ExtensionVersion = "extension_version";
+
+        /// <summary>
         /// The <c>faas</c> attribute namespace.
         /// </summary>
         public const string Faas = "faas";
+
+        /// <summary>
+        /// The <c>failed</c> attribute namespace.
+        /// </summary>
+        public const string Failed = "failed";
+
+        /// <summary>
+        /// The <c>failed_acts</c> attribute namespace.
+        /// </summary>
+        public const string FailedActs = "failed_acts";
+
+        /// <summary>
+        /// The <c>failed_count</c> attribute namespace.
+        /// </summary>
+        public const string FailedCount = "failed_count";
+
+        /// <summary>
+        /// The <c>failed_not_found</c> attribute namespace.
+        /// </summary>
+        public const string FailedNotFound = "failed_not_found";
+
+        /// <summary>
+        /// The <c>failed_other</c> attribute namespace.
+        /// </summary>
+        public const string FailedOther = "failed_other";
+
+        /// <summary>
+        /// The <c>failed_phase</c> attribute namespace.
+        /// </summary>
+        public const string FailedPhase = "failed_phase";
+
+        /// <summary>
+        /// The <c>failed_timeout</c> attribute namespace.
+        /// </summary>
+        public const string FailedTimeout = "failed_timeout";
+
+        /// <summary>
+        /// The <c>failed_writes</c> attribute namespace.
+        /// </summary>
+        public const string FailedWrites = "failed_writes";
+
+        /// <summary>
+        /// The <c>failing_count</c> attribute namespace.
+        /// </summary>
+        public const string FailingCount = "failing_count";
+
+        /// <summary>
+        /// The <c>failure</c> attribute namespace.
+        /// </summary>
+        public const string Failure = "failure";
+
+        /// <summary>
+        /// The <c>failure_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string FailureAgeMs = "failure_age_ms";
+
+        /// <summary>
+        /// The <c>failure_reason</c> attribute namespace.
+        /// </summary>
+        public const string FailureReason = "failure_reason";
+
+        /// <summary>
+        /// The <c>failure_type</c> attribute namespace.
+        /// </summary>
+        public const string FailureType = "failure_type";
+
+        /// <summary>
+        /// The <c>failures</c> attribute namespace.
+        /// </summary>
+        public const string Failures = "failures";
+
+        /// <summary>
+        /// The <c>fallback</c> attribute namespace.
+        /// </summary>
+        public const string Fallback = "fallback";
+
+        /// <summary>
+        /// The <c>fallback_cwd</c> attribute namespace.
+        /// </summary>
+        public const string FallbackCwd = "fallback_cwd";
+
+        /// <summary>
+        /// The <c>fast_folders</c> attribute namespace.
+        /// </summary>
+        public const string FastFolders = "fast_folders";
+
+        /// <summary>
+        /// The <c>fast_forward</c> attribute namespace.
+        /// </summary>
+        public const string FastForward = "fast_forward";
+
+        /// <summary>
+        /// The <c>fatal_startup_result</c> attribute namespace.
+        /// </summary>
+        public const string FatalStartupResult = "fatal_startup_result";
+
+        /// <summary>
+        /// The <c>fault_class</c> attribute namespace.
+        /// </summary>
+        public const string FaultClass = "fault_class";
+
+        /// <summary>
+        /// The <c>feature</c> attribute namespace.
+        /// </summary>
+        public const string Feature = "feature";
 
         /// <summary>
         /// The <c>feature_flag</c> attribute namespace.
@@ -246,9 +2806,519 @@ public static class QylAttributes
         public const string FeatureFlag = "feature_flag";
 
         /// <summary>
+        /// The <c>feature_hash</c> attribute namespace.
+        /// </summary>
+        public const string FeatureHash = "feature_hash";
+
+        /// <summary>
+        /// The <c>feature_source</c> attribute namespace.
+        /// </summary>
+        public const string FeatureSource = "feature_source";
+
+        /// <summary>
+        /// The <c>feed_arch</c> attribute namespace.
+        /// </summary>
+        public const string FeedArch = "feed_arch";
+
+        /// <summary>
+        /// The <c>fence_detail</c> attribute namespace.
+        /// </summary>
+        public const string FenceDetail = "fence_detail";
+
+        /// <summary>
         /// The <c>file</c> attribute namespace.
         /// </summary>
         public const string File = "file";
+
+        /// <summary>
+        /// The <c>file_count</c> attribute namespace.
+        /// </summary>
+        public const string FileCount = "file_count";
+
+        /// <summary>
+        /// The <c>file_path</c> attribute namespace.
+        /// </summary>
+        public const string FilePath = "file_path";
+
+        /// <summary>
+        /// The <c>file_path_original_length</c> attribute namespace.
+        /// </summary>
+        public const string FilePathOriginalLength = "file_path_original_length";
+
+        /// <summary>
+        /// The <c>file_path_truncated</c> attribute namespace.
+        /// </summary>
+        public const string FilePathTruncated = "file_path_truncated";
+
+        /// <summary>
+        /// The <c>filed_count</c> attribute namespace.
+        /// </summary>
+        public const string FiledCount = "filed_count";
+
+        /// <summary>
+        /// The <c>files</c> attribute namespace.
+        /// </summary>
+        public const string Files = "files";
+
+        /// <summary>
+        /// The <c>files_changed_count</c> attribute namespace.
+        /// </summary>
+        public const string FilesChangedCount = "files_changed_count";
+
+        /// <summary>
+        /// The <c>files_past_cutoff</c> attribute namespace.
+        /// </summary>
+        public const string FilesPastCutoff = "files_past_cutoff";
+
+        /// <summary>
+        /// The <c>files_removed</c> attribute namespace.
+        /// </summary>
+        public const string FilesRemoved = "files_removed";
+
+        /// <summary>
+        /// The <c>files_retained_fresh</c> attribute namespace.
+        /// </summary>
+        public const string FilesRetainedFresh = "files_retained_fresh";
+
+        /// <summary>
+        /// The <c>fill_rows</c> attribute namespace.
+        /// </summary>
+        public const string FillRows = "fill_rows";
+
+        /// <summary>
+        /// The <c>final</c> attribute namespace.
+        /// </summary>
+        public const string Final = "final";
+
+        /// <summary>
+        /// The <c>final_model</c> attribute namespace.
+        /// </summary>
+        public const string FinalModel = "final_model";
+
+        /// <summary>
+        /// The <c>fire_safety_skipped_count</c> attribute namespace.
+        /// </summary>
+        public const string FireSafetySkippedCount = "fire_safety_skipped_count";
+
+        /// <summary>
+        /// The <c>fired_by</c> attribute namespace.
+        /// </summary>
+        public const string FiredBy = "fired_by";
+
+        /// <summary>
+        /// The <c>first_assistant_ms</c> attribute namespace.
+        /// </summary>
+        public const string FirstAssistantMs = "first_assistant_ms";
+
+        /// <summary>
+        /// The <c>first_block_streaming</c> attribute namespace.
+        /// </summary>
+        public const string FirstBlockStreaming = "first_block_streaming";
+
+        /// <summary>
+        /// The <c>first_child_in_job</c> attribute namespace.
+        /// </summary>
+        public const string FirstChildInJob = "first_child_in_job";
+
+        /// <summary>
+        /// The <c>first_content_ms</c> attribute namespace.
+        /// </summary>
+        public const string FirstContentMs = "first_content_ms";
+
+        /// <summary>
+        /// The <c>first_content_source</c> attribute namespace.
+        /// </summary>
+        public const string FirstContentSource = "first_content_source";
+
+        /// <summary>
+        /// The <c>first_load</c> attribute namespace.
+        /// </summary>
+        public const string FirstLoad = "first_load";
+
+        /// <summary>
+        /// The <c>first_paint_ms</c> attribute namespace.
+        /// </summary>
+        public const string FirstPaintMs = "first_paint_ms";
+
+        /// <summary>
+        /// The <c>first_seq</c> attribute namespace.
+        /// </summary>
+        public const string FirstSeq = "first_seq";
+
+        /// <summary>
+        /// The <c>first_timeout_op</c> attribute namespace.
+        /// </summary>
+        public const string FirstTimeoutOp = "first_timeout_op";
+
+        /// <summary>
+        /// The <c>first_turn</c> attribute namespace.
+        /// </summary>
+        public const string FirstTurn = "first_turn";
+
+        /// <summary>
+        /// The <c>first_turn_since_spawn</c> attribute namespace.
+        /// </summary>
+        public const string FirstTurnSinceSpawn = "first_turn_since_spawn";
+
+        /// <summary>
+        /// The <c>first_wake_message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string FirstWakeMessageUuid = "first_wake_message_uuid";
+
+        /// <summary>
+        /// The <c>fleet_override</c> attribute namespace.
+        /// </summary>
+        public const string FleetOverride = "fleet_override";
+
+        /// <summary>
+        /// The <c>floors_unset</c> attribute namespace.
+        /// </summary>
+        public const string FloorsUnset = "floors_unset";
+
+        /// <summary>
+        /// The <c>focus_state</c> attribute namespace.
+        /// </summary>
+        public const string FocusState = "focus_state";
+
+        /// <summary>
+        /// The <c>focused</c> attribute namespace.
+        /// </summary>
+        public const string Focused = "focused";
+
+        /// <summary>
+        /// The <c>folder_count</c> attribute namespace.
+        /// </summary>
+        public const string FolderCount = "folder_count";
+
+        /// <summary>
+        /// The <c>folder_grant_outcome</c> attribute namespace.
+        /// </summary>
+        public const string FolderGrantOutcome = "folder_grant_outcome";
+
+        /// <summary>
+        /// The <c>folder_grant_recorded_count</c> attribute namespace.
+        /// </summary>
+        public const string FolderGrantRecordedCount = "folder_grant_recorded_count";
+
+        /// <summary>
+        /// The <c>folder_grant_refusal_reasons</c> attribute namespace.
+        /// </summary>
+        public const string FolderGrantRefusalReasons = "folder_grant_refusal_reasons";
+
+        /// <summary>
+        /// The <c>folder_grant_refused_count</c> attribute namespace.
+        /// </summary>
+        public const string FolderGrantRefusedCount = "folder_grant_refused_count";
+
+        /// <summary>
+        /// The <c>folder_hash</c> attribute namespace.
+        /// </summary>
+        public const string FolderHash = "folder_hash";
+
+        /// <summary>
+        /// The <c>folder_reason</c> attribute namespace.
+        /// </summary>
+        public const string FolderReason = "folder_reason";
+
+        /// <summary>
+        /// The <c>folder_tree</c> attribute namespace.
+        /// </summary>
+        public const string FolderTree = "folder_tree";
+
+        /// <summary>
+        /// The <c>folders</c> attribute namespace.
+        /// </summary>
+        public const string Folders = "folders";
+
+        /// <summary>
+        /// The <c>folders_excluded</c> attribute namespace.
+        /// </summary>
+        public const string FoldersExcluded = "folders_excluded";
+
+        /// <summary>
+        /// The <c>folders_limited</c> attribute namespace.
+        /// </summary>
+        public const string FoldersLimited = "folders_limited";
+
+        /// <summary>
+        /// The <c>folders_missing</c> attribute namespace.
+        /// </summary>
+        public const string FoldersMissing = "folders_missing";
+
+        /// <summary>
+        /// The <c>folders_served</c> attribute namespace.
+        /// </summary>
+        public const string FoldersServed = "folders_served";
+
+        /// <summary>
+        /// The <c>folders_unread</c> attribute namespace.
+        /// </summary>
+        public const string FoldersUnread = "folders_unread";
+
+        /// <summary>
+        /// The <c>followed_hinge</c> attribute namespace.
+        /// </summary>
+        public const string FollowedHinge = "followed_hinge";
+
+        /// <summary>
+        /// The <c>follows_stall_snapshot</c> attribute namespace.
+        /// </summary>
+        public const string FollowsStallSnapshot = "follows_stall_snapshot";
+
+        /// <summary>
+        /// The <c>force_ask_cause</c> attribute namespace.
+        /// </summary>
+        public const string ForceAskCause = "force_ask_cause";
+
+        /// <summary>
+        /// The <c>force_cleanup_explicit_false</c> attribute namespace.
+        /// </summary>
+        public const string ForceCleanupExplicitFalse = "force_cleanup_explicit_false";
+
+        /// <summary>
+        /// The <c>fork_ms</c> attribute namespace.
+        /// </summary>
+        public const string ForkMs = "fork_ms";
+
+        /// <summary>
+        /// The <c>found</c> attribute namespace.
+        /// </summary>
+        public const string Found = "found";
+
+        /// <summary>
+        /// The <c>fps</c> attribute namespace.
+        /// </summary>
+        public const string Fps = "fps";
+
+        /// <summary>
+        /// The <c>frame_depth</c> attribute namespace.
+        /// </summary>
+        public const string FrameDepth = "frame_depth";
+
+        /// <summary>
+        /// The <c>frames_after</c> attribute namespace.
+        /// </summary>
+        public const string FramesAfter = "frames_after";
+
+        /// <summary>
+        /// The <c>frames_before</c> attribute namespace.
+        /// </summary>
+        public const string FramesBefore = "frames_before";
+
+        /// <summary>
+        /// The <c>fresh</c> attribute namespace.
+        /// </summary>
+        public const string Fresh = "fresh";
+
+        /// <summary>
+        /// The <c>fresh_start</c> attribute namespace.
+        /// </summary>
+        public const string FreshStart = "fresh_start";
+
+        /// <summary>
+        /// The <c>fresh_worktree_created</c> attribute namespace.
+        /// </summary>
+        public const string FreshWorktreeCreated = "fresh_worktree_created";
+
+        /// <summary>
+        /// The <c>from_card</c> attribute namespace.
+        /// </summary>
+        public const string FromCard = "from_card";
+
+        /// <summary>
+        /// The <c>from_deeplink</c> attribute namespace.
+        /// </summary>
+        public const string FromDeeplink = "from_deeplink";
+
+        /// <summary>
+        /// The <c>from_level</c> attribute namespace.
+        /// </summary>
+        public const string FromLevel = "from_level";
+
+        /// <summary>
+        /// The <c>from_mode</c> attribute namespace.
+        /// </summary>
+        public const string FromMode = "from_mode";
+
+        /// <summary>
+        /// The <c>from_preset</c> attribute namespace.
+        /// </summary>
+        public const string FromPreset = "from_preset";
+
+        /// <summary>
+        /// The <c>from_project_scan</c> attribute namespace.
+        /// </summary>
+        public const string FromProjectScan = "from_project_scan";
+
+        /// <summary>
+        /// The <c>from_seq</c> attribute namespace.
+        /// </summary>
+        public const string FromSeq = "from_seq";
+
+        /// <summary>
+        /// The <c>from_version</c> attribute namespace.
+        /// </summary>
+        public const string FromVersion = "from_version";
+
+        /// <summary>
+        /// The <c>frontier_renders</c> attribute namespace.
+        /// </summary>
+        public const string FrontierRenders = "frontier_renders";
+
+        /// <summary>
+        /// The <c>frozen_ms</c> attribute namespace.
+        /// </summary>
+        public const string FrozenMs = "frozen_ms";
+
+        /// <summary>
+        /// The <c>fs_error_code</c> attribute namespace.
+        /// </summary>
+        public const string FsErrorCode = "fs_error_code";
+
+        /// <summary>
+        /// The <c>full_checkout_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string FullCheckoutWaitMs = "full_checkout_wait_ms";
+
+        /// <summary>
+        /// The <c>full_command</c> attribute namespace.
+        /// </summary>
+        public const string FullCommand = "full_command";
+
+        /// <summary>
+        /// The <c>gap</c> attribute namespace.
+        /// </summary>
+        public const string Gap = "gap";
+
+        /// <summary>
+        /// The <c>gap_ms</c> attribute namespace.
+        /// </summary>
+        public const string GapMs = "gap_ms";
+
+        /// <summary>
+        /// The <c>gate</c> attribute namespace.
+        /// </summary>
+        public const string Gate = "gate";
+
+        /// <summary>
+        /// The <c>gate_blocked_built_in_browser_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedBuiltInBrowserCount = "gate_blocked_built_in_browser_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_chrome_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedChromeCount = "gate_blocked_chrome_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_cooldown_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedCooldownCount = "gate_blocked_cooldown_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedCount = "gate_blocked_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_cron_invalid_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedCronInvalidCount = "gate_blocked_cron_invalid_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_custom_cron_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedCustomCronCount = "gate_blocked_custom_cron_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_cwd_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedCwdCount = "gate_blocked_cwd_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_dispatch_hook_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedDispatchHookCount = "gate_blocked_dispatch_hook_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_local_folders_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedLocalFoldersCount = "gate_blocked_local_folders_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_no_prompt_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedNoPromptCount = "gate_blocked_no_prompt_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_pattern_approvals_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedPatternApprovalsCount = "gate_blocked_pattern_approvals_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_placement_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedPlacementCount = "gate_blocked_placement_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_project_archived_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedProjectArchivedCount = "gate_blocked_project_archived_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_project_upgraded_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedProjectUpgradedCount = "gate_blocked_project_upgraded_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_projects_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedProjectsCount = "gate_blocked_projects_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_remote_control_disabled_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedRemoteControlDisabledCount = "gate_blocked_remote_control_disabled_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_remote_control_unknown_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedRemoteControlUnknownCount = "gate_blocked_remote_control_unknown_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_space_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedSpaceCount = "gate_blocked_space_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_sub_hourly_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedSubHourlyCount = "gate_blocked_sub_hourly_count";
+
+        /// <summary>
+        /// The <c>gate_blocked_unscheduled_count</c> attribute namespace.
+        /// </summary>
+        public const string GateBlockedUnscheduledCount = "gate_blocked_unscheduled_count";
+
+        /// <summary>
+        /// The <c>gate_reason</c> attribute namespace.
+        /// </summary>
+        public const string GateReason = "gate_reason";
+
+        /// <summary>
+        /// The <c>gc_cumulative_ms</c> attribute namespace.
+        /// </summary>
+        public const string GcCumulativeMs = "gc_cumulative_ms";
+
+        /// <summary>
+        /// The <c>gc_in_stall_max_ms</c> attribute namespace.
+        /// </summary>
+        public const string GcInStallMaxMs = "gc_in_stall_max_ms";
+
+        /// <summary>
+        /// The <c>gc_in_stall_ms</c> attribute namespace.
+        /// </summary>
+        public const string GcInStallMs = "gc_in_stall_ms";
 
         /// <summary>
         /// The <c>gcp</c> attribute namespace.
@@ -261,9 +3331,49 @@ public static class QylAttributes
         public const string GenAi = "gen_ai";
 
         /// <summary>
+        /// The <c>generation_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string GenerationAgeMs = "generation_age_ms";
+
+        /// <summary>
         /// The <c>geo</c> attribute namespace.
         /// </summary>
         public const string Geo = "geo";
+
+        /// <summary>
+        /// The <c>gesture</c> attribute namespace.
+        /// </summary>
+        public const string Gesture = "gesture";
+
+        /// <summary>
+        /// The <c>gesture_type</c> attribute namespace.
+        /// </summary>
+        public const string GestureType = "gesture_type";
+
+        /// <summary>
+        /// The <c>git</c> attribute namespace.
+        /// </summary>
+        public const string Git = "git";
+
+        /// <summary>
+        /// The <c>git_isolation_errno</c> attribute namespace.
+        /// </summary>
+        public const string GitIsolationErrno = "git_isolation_errno";
+
+        /// <summary>
+        /// The <c>git_isolation_stage</c> attribute namespace.
+        /// </summary>
+        public const string GitIsolationStage = "git_isolation_stage";
+
+        /// <summary>
+        /// The <c>git_remove_ms</c> attribute namespace.
+        /// </summary>
+        public const string GitRemoveMs = "git_remove_ms";
+
+        /// <summary>
+        /// The <c>git_settings_control</c> attribute namespace.
+        /// </summary>
+        public const string GitSettingsControl = "git_settings_control";
 
         /// <summary>
         /// The <c>go</c> attribute namespace.
@@ -271,9 +3381,54 @@ public static class QylAttributes
         public const string Go = "go";
 
         /// <summary>
+        /// The <c>gone</c> attribute namespace.
+        /// </summary>
+        public const string Gone = "gone";
+
+        /// <summary>
+        /// The <c>grant_copy_failed</c> attribute namespace.
+        /// </summary>
+        public const string GrantCopyFailed = "grant_copy_failed";
+
+        /// <summary>
         /// The <c>graphql</c> attribute namespace.
         /// </summary>
         public const string Graphql = "graphql";
+
+        /// <summary>
+        /// The <c>graphql_errors_only_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlErrorsOnlyCount = "graphql_errors_only_count";
+
+        /// <summary>
+        /// The <c>graphql_failed_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlFailedCount = "graphql_failed_count";
+
+        /// <summary>
+        /// The <c>graphql_rate_limited_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlRateLimitedCount = "graphql_rate_limited_count";
+
+        /// <summary>
+        /// The <c>graphql_read_by_caller</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlReadByCaller = "graphql_read_by_caller";
+
+        /// <summary>
+        /// The <c>graphql_request_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlRequestCount = "graphql_request_count";
+
+        /// <summary>
+        /// The <c>graphql_write_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlWriteCount = "graphql_write_count";
+
+        /// <summary>
+        /// The <c>graphql_write_failed_count</c> attribute namespace.
+        /// </summary>
+        public const string GraphqlWriteFailedCount = "graphql_write_failed_count";
 
         /// <summary>
         /// The <c>grpc</c> attribute namespace.
@@ -281,9 +3436,394 @@ public static class QylAttributes
         public const string Grpc = "grpc";
 
         /// <summary>
+        /// The <c>had_cli_session</c> attribute namespace.
+        /// </summary>
+        public const string HadCliSession = "had_cli_session";
+
+        /// <summary>
+        /// The <c>had_first_response</c> attribute namespace.
+        /// </summary>
+        public const string HadFirstResponse = "had_first_response";
+
+        /// <summary>
+        /// The <c>had_input</c> attribute namespace.
+        /// </summary>
+        public const string HadInput = "had_input";
+
+        /// <summary>
+        /// The <c>had_interrupt_carrier</c> attribute namespace.
+        /// </summary>
+        public const string HadInterruptCarrier = "had_interrupt_carrier";
+
+        /// <summary>
+        /// The <c>had_live_query</c> attribute namespace.
+        /// </summary>
+        public const string HadLiveQuery = "had_live_query";
+
+        /// <summary>
+        /// The <c>had_live_wakeup</c> attribute namespace.
+        /// </summary>
+        public const string HadLiveWakeup = "had_live_wakeup";
+
+        /// <summary>
+        /// The <c>had_node_modules</c> attribute namespace.
+        /// </summary>
+        public const string HadNodeModules = "had_node_modules";
+
+        /// <summary>
+        /// The <c>had_pending_cycle</c> attribute namespace.
+        /// </summary>
+        public const string HadPendingCycle = "had_pending_cycle";
+
+        /// <summary>
+        /// The <c>had_pending_turn</c> attribute namespace.
+        /// </summary>
+        public const string HadPendingTurn = "had_pending_turn";
+
+        /// <summary>
+        /// The <c>had_result</c> attribute namespace.
+        /// </summary>
+        public const string HadResult = "had_result";
+
+        /// <summary>
+        /// The <c>had_scheduled_task</c> attribute namespace.
+        /// </summary>
+        public const string HadScheduledTask = "had_scheduled_task";
+
+        /// <summary>
+        /// The <c>had_title</c> attribute namespace.
+        /// </summary>
+        public const string HadTitle = "had_title";
+
+        /// <summary>
+        /// The <c>handed_off</c> attribute namespace.
+        /// </summary>
+        public const string HandedOff = "handed_off";
+
+        /// <summary>
+        /// The <c>handoff_tool</c> attribute namespace.
+        /// </summary>
+        public const string HandoffTool = "handoff_tool";
+
+        /// <summary>
+        /// The <c>hard_deny_served</c> attribute namespace.
+        /// </summary>
+        public const string HardDenyServed = "hard_deny_served";
+
+        /// <summary>
+        /// The <c>has_action_buttons</c> attribute namespace.
+        /// </summary>
+        public const string HasActionButtons = "has_action_buttons";
+
+        /// <summary>
+        /// The <c>has_active_query</c> attribute namespace.
+        /// </summary>
+        public const string HasActiveQuery = "has_active_query";
+
+        /// <summary>
+        /// The <c>has_category</c> attribute namespace.
+        /// </summary>
+        public const string HasCategory = "has_category";
+
+        /// <summary>
+        /// The <c>has_cli_session_id</c> attribute namespace.
+        /// </summary>
+        public const string HasCliSessionId = "has_cli_session_id";
+
+        /// <summary>
+        /// The <c>has_config</c> attribute namespace.
+        /// </summary>
+        public const string HasConfig = "has_config";
+
+        /// <summary>
+        /// The <c>has_cron</c> attribute namespace.
+        /// </summary>
+        public const string HasCron = "has_cron";
+
+        /// <summary>
+        /// The <c>has_explanation</c> attribute namespace.
+        /// </summary>
+        public const string HasExplanation = "has_explanation";
+
+        /// <summary>
+        /// The <c>has_fire_at</c> attribute namespace.
+        /// </summary>
+        public const string HasFireAt = "has_fire_at";
+
+        /// <summary>
+        /// The <c>has_hooks</c> attribute namespace.
+        /// </summary>
+        public const string HasHooks = "has_hooks";
+
+        /// <summary>
+        /// The <c>has_input_stream</c> attribute namespace.
+        /// </summary>
+        public const string HasInputStream = "has_input_stream";
+
+        /// <summary>
+        /// The <c>has_launch_tools</c> attribute namespace.
+        /// </summary>
+        public const string HasLaunchTools = "has_launch_tools";
+
+        /// <summary>
+        /// The <c>has_live_processes</c> attribute namespace.
+        /// </summary>
+        public const string HasLiveProcesses = "has_live_processes";
+
+        /// <summary>
+        /// The <c>has_live_sibling</c> attribute namespace.
+        /// </summary>
+        public const string HasLiveSibling = "has_live_sibling";
+
+        /// <summary>
+        /// The <c>has_local_disk</c> attribute namespace.
+        /// </summary>
+        public const string HasLocalDisk = "has_local_disk";
+
+        /// <summary>
+        /// The <c>has_mcp</c> attribute namespace.
+        /// </summary>
+        public const string HasMcp = "has_mcp";
+
+        /// <summary>
+        /// The <c>has_message</c> attribute namespace.
+        /// </summary>
+        public const string HasMessage = "has_message";
+
+        /// <summary>
+        /// The <c>has_more</c> attribute namespace.
+        /// </summary>
+        public const string HasMore = "has_more";
+
+        /// <summary>
+        /// The <c>has_notify_on_completion</c> attribute namespace.
+        /// </summary>
+        public const string HasNotifyOnCompletion = "has_notify_on_completion";
+
+        /// <summary>
+        /// The <c>has_origin</c> attribute namespace.
+        /// </summary>
+        public const string HasOrigin = "has_origin";
+
+        /// <summary>
+        /// The <c>has_target_cwd</c> attribute namespace.
+        /// </summary>
+        public const string HasTargetCwd = "has_target_cwd";
+
+        /// <summary>
+        /// The <c>has_thread</c> attribute namespace.
+        /// </summary>
+        public const string HasThread = "has_thread";
+
+        /// <summary>
+        /// The <c>has_title</c> attribute namespace.
+        /// </summary>
+        public const string HasTitle = "has_title";
+
+        /// <summary>
+        /// The <c>has_usage_data</c> attribute namespace.
+        /// </summary>
+        public const string HasUsageData = "has_usage_data";
+
+        /// <summary>
+        /// The <c>has_worktree</c> attribute namespace.
+        /// </summary>
+        public const string HasWorktree = "has_worktree";
+
+        /// <summary>
+        /// The <c>head_changed</c> attribute namespace.
+        /// </summary>
+        public const string HeadChanged = "head_changed";
+
+        /// <summary>
+        /// The <c>head_changed_since_first_wake</c> attribute namespace.
+        /// </summary>
+        public const string HeadChangedSinceFirstWake = "head_changed_since_first_wake";
+
+        /// <summary>
+        /// The <c>head_ordinal</c> attribute namespace.
+        /// </summary>
+        public const string HeadOrdinal = "head_ordinal";
+
+        /// <summary>
+        /// The <c>head_unknown_count</c> attribute namespace.
+        /// </summary>
+        public const string HeadUnknownCount = "head_unknown_count";
+
+        /// <summary>
+        /// The <c>heads_in_episode</c> attribute namespace.
+        /// </summary>
+        public const string HeadsInEpisode = "heads_in_episode";
+
+        /// <summary>
+        /// The <c>healed</c> attribute namespace.
+        /// </summary>
+        public const string Healed = "healed";
+
+        /// <summary>
+        /// The <c>heartbeats</c> attribute namespace.
+        /// </summary>
+        public const string Heartbeats = "heartbeats";
+
+        /// <summary>
+        /// The <c>heavy_work_task</c> attribute namespace.
+        /// </summary>
+        public const string HeavyWorkTask = "heavy_work_task";
+
+        /// <summary>
+        /// The <c>held</c> attribute namespace.
+        /// </summary>
+        public const string Held = "held";
+
+        /// <summary>
+        /// The <c>held_back</c> attribute namespace.
+        /// </summary>
+        public const string HeldBack = "held_back";
+
+        /// <summary>
+        /// The <c>held_count</c> attribute namespace.
+        /// </summary>
+        public const string HeldCount = "held_count";
+
+        /// <summary>
+        /// The <c>held_ms</c> attribute namespace.
+        /// </summary>
+        public const string HeldMs = "held_ms";
+
+        /// <summary>
+        /// The <c>held_steers</c> attribute namespace.
+        /// </summary>
+        public const string HeldSteers = "held_steers";
+
+        /// <summary>
+        /// The <c>helper_peer_check</c> attribute namespace.
+        /// </summary>
+        public const string HelperPeerCheck = "helper_peer_check";
+
+        /// <summary>
+        /// The <c>helper_quiet_ms</c> attribute namespace.
+        /// </summary>
+        public const string HelperQuietMs = "helper_quiet_ms";
+
+        /// <summary>
+        /// The <c>helper_run</c> attribute namespace.
+        /// </summary>
+        public const string HelperRun = "helper_run";
+
+        /// <summary>
+        /// The <c>helper_uptime_ms</c> attribute namespace.
+        /// </summary>
+        public const string HelperUptimeMs = "helper_uptime_ms";
+
+        /// <summary>
         /// The <c>heroku</c> attribute namespace.
         /// </summary>
         public const string Heroku = "heroku";
+
+        /// <summary>
+        /// The <c>hidden_at_emit</c> attribute namespace.
+        /// </summary>
+        public const string HiddenAtEmit = "hidden_at_emit";
+
+        /// <summary>
+        /// The <c>hidden_count</c> attribute namespace.
+        /// </summary>
+        public const string HiddenCount = "hidden_count";
+
+        /// <summary>
+        /// The <c>history_entries_pruned</c> attribute namespace.
+        /// </summary>
+        public const string HistoryEntriesPruned = "history_entries_pruned";
+
+        /// <summary>
+        /// The <c>history_requested</c> attribute namespace.
+        /// </summary>
+        public const string HistoryRequested = "history_requested";
+
+        /// <summary>
+        /// The <c>history_shim</c> attribute namespace.
+        /// </summary>
+        public const string HistoryShim = "history_shim";
+
+        /// <summary>
+        /// The <c>hit</c> attribute namespace.
+        /// </summary>
+        public const string Hit = "hit";
+
+        /// <summary>
+        /// The <c>hit_rtt_ms</c> attribute namespace.
+        /// </summary>
+        public const string HitRttMs = "hit_rtt_ms";
+
+        /// <summary>
+        /// The <c>hold_cause</c> attribute namespace.
+        /// </summary>
+        public const string HoldCause = "hold_cause";
+
+        /// <summary>
+        /// The <c>hold_change</c> attribute namespace.
+        /// </summary>
+        public const string HoldChange = "hold_change";
+
+        /// <summary>
+        /// The <c>hold_ms</c> attribute namespace.
+        /// </summary>
+        public const string HoldMs = "hold_ms";
+
+        /// <summary>
+        /// The <c>hold_reason</c> attribute namespace.
+        /// </summary>
+        public const string HoldReason = "hold_reason";
+
+        /// <summary>
+        /// The <c>holder</c> attribute namespace.
+        /// </summary>
+        public const string Holder = "holder";
+
+        /// <summary>
+        /// The <c>hook_definitions</c> attribute namespace.
+        /// </summary>
+        public const string HookDefinitions = "hook_definitions";
+
+        /// <summary>
+        /// The <c>hook_event</c> attribute namespace.
+        /// </summary>
+        public const string HookEvent = "hook_event";
+
+        /// <summary>
+        /// The <c>hook_matcher</c> attribute namespace.
+        /// </summary>
+        public const string HookMatcher = "hook_matcher";
+
+        /// <summary>
+        /// The <c>hook_name</c> attribute namespace.
+        /// </summary>
+        public const string HookName = "hook_name";
+
+        /// <summary>
+        /// The <c>hook_sig_match</c> attribute namespace.
+        /// </summary>
+        public const string HookSigMatch = "hook_sig_match";
+
+        /// <summary>
+        /// The <c>hook_source</c> attribute namespace.
+        /// </summary>
+        public const string HookSource = "hook_source";
+
+        /// <summary>
+        /// The <c>hook_type</c> attribute namespace.
+        /// </summary>
+        public const string HookType = "hook_type";
+
+        /// <summary>
+        /// The <c>hooked</c> attribute namespace.
+        /// </summary>
+        public const string Hooked = "hooked";
+
+        /// <summary>
+        /// The <c>hooks_applied</c> attribute namespace.
+        /// </summary>
+        public const string HooksApplied = "hooks_applied";
 
         /// <summary>
         /// The <c>host</c> attribute namespace.
@@ -291,9 +3831,79 @@ public static class QylAttributes
         public const string Host = "host";
 
         /// <summary>
+        /// The <c>host_base_merge</c> attribute namespace.
+        /// </summary>
+        public const string HostBaseMerge = "host_base_merge";
+
+        /// <summary>
+        /// The <c>host_configured_skipped</c> attribute namespace.
+        /// </summary>
+        public const string HostConfiguredSkipped = "host_configured_skipped";
+
+        /// <summary>
+        /// The <c>host_count</c> attribute namespace.
+        /// </summary>
+        public const string HostCount = "host_count";
+
+        /// <summary>
+        /// The <c>host_mount_ms</c> attribute namespace.
+        /// </summary>
+        public const string HostMountMs = "host_mount_ms";
+
+        /// <summary>
+        /// The <c>host_owned_mcp</c> attribute namespace.
+        /// </summary>
+        public const string HostOwnedMcp = "host_owned_mcp";
+
+        /// <summary>
+        /// The <c>host_slot</c> attribute namespace.
+        /// </summary>
+        public const string HostSlot = "host_slot";
+
+        /// <summary>
+        /// The <c>host_window</c> attribute namespace.
+        /// </summary>
+        public const string HostWindow = "host_window";
+
+        /// <summary>
+        /// The <c>host_work</c> attribute namespace.
+        /// </summary>
+        public const string HostWork = "host_work";
+
+        /// <summary>
+        /// The <c>hosted_count</c> attribute namespace.
+        /// </summary>
+        public const string HostedCount = "hosted_count";
+
+        /// <summary>
+        /// The <c>hosts</c> attribute namespace.
+        /// </summary>
+        public const string Hosts = "hosts";
+
+        /// <summary>
+        /// The <c>how</c> attribute namespace.
+        /// </summary>
+        public const string How = "how";
+
+        /// <summary>
         /// The <c>http</c> attribute namespace.
         /// </summary>
         public const string Http = "http";
+
+        /// <summary>
+        /// The <c>http_sibling</c> attribute namespace.
+        /// </summary>
+        public const string HttpSibling = "http_sibling";
+
+        /// <summary>
+        /// The <c>http_status</c> attribute namespace.
+        /// </summary>
+        public const string HttpStatus = "http_status";
+
+        /// <summary>
+        /// The <c>http_status_text</c> attribute namespace.
+        /// </summary>
+        public const string HttpStatusText = "http_status_text";
 
         /// <summary>
         /// The <c>hw</c> attribute namespace.
@@ -301,14 +3911,489 @@ public static class QylAttributes
         public const string Hw = "hw";
 
         /// <summary>
+        /// The <c>hw_attestation</c> attribute namespace.
+        /// </summary>
+        public const string HwAttestation = "hw_attestation";
+
+        /// <summary>
+        /// The <c>hw_unavailable_reason</c> attribute namespace.
+        /// </summary>
+        public const string HwUnavailableReason = "hw_unavailable_reason";
+
+        /// <summary>
+        /// The <c>identity</c> attribute namespace.
+        /// </summary>
+        public const string Identity = "identity";
+
+        /// <summary>
+        /// The <c>idle_gated</c> attribute namespace.
+        /// </summary>
+        public const string IdleGated = "idle_gated";
+
+        /// <summary>
+        /// The <c>idle_kind</c> attribute namespace.
+        /// </summary>
+        public const string IdleKind = "idle_kind";
+
+        /// <summary>
+        /// The <c>idle_summary</c> attribute namespace.
+        /// </summary>
+        public const string IdleSummary = "idle_summary";
+
+        /// <summary>
+        /// The <c>idle_summary_delay_ms</c> attribute namespace.
+        /// </summary>
+        public const string IdleSummaryDelayMs = "idle_summary_delay_ms";
+
+        /// <summary>
+        /// The <c>idle_timeout_ms</c> attribute namespace.
+        /// </summary>
+        public const string IdleTimeoutMs = "idle_timeout_ms";
+
+        /// <summary>
+        /// The <c>image_count_in_buffer</c> attribute namespace.
+        /// </summary>
+        public const string ImageCountInBuffer = "image_count_in_buffer";
+
+        /// <summary>
+        /// The <c>implementation</c> attribute namespace.
+        /// </summary>
+        public const string Implementation = "implementation";
+
+        /// <summary>
+        /// The <c>import_source</c> attribute namespace.
+        /// </summary>
+        public const string ImportSource = "import_source";
+
+        /// <summary>
+        /// The <c>in_experiment</c> attribute namespace.
+        /// </summary>
+        public const string InExperiment = "in_experiment";
+
+        /// <summary>
+        /// The <c>in_flight</c> attribute namespace.
+        /// </summary>
+        public const string InFlight = "in_flight";
+
+        /// <summary>
+        /// The <c>in_place</c> attribute namespace.
+        /// </summary>
+        public const string InPlace = "in_place";
+
+        /// <summary>
+        /// The <c>in_popout</c> attribute namespace.
+        /// </summary>
+        public const string InPopout = "in_popout";
+
+        /// <summary>
+        /// The <c>include_overlay_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string IncludeOverlayWaitMs = "include_overlay_wait_ms";
+
+        /// <summary>
+        /// The <c>include_uncommitted</c> attribute namespace.
+        /// </summary>
+        public const string IncludeUncommitted = "include_uncommitted";
+
+        /// <summary>
+        /// The <c>index_deferred_count</c> attribute namespace.
+        /// </summary>
+        public const string IndexDeferredCount = "index_deferred_count";
+
+        /// <summary>
+        /// The <c>index_stale_active_count</c> attribute namespace.
+        /// </summary>
+        public const string IndexStaleActiveCount = "index_stale_active_count";
+
+        /// <summary>
+        /// The <c>init_arrived</c> attribute namespace.
+        /// </summary>
+        public const string InitArrived = "init_arrived";
+
+        /// <summary>
+        /// The <c>init_awake_ms</c> attribute namespace.
+        /// </summary>
+        public const string InitAwakeMs = "init_awake_ms";
+
+        /// <summary>
+        /// The <c>init_mcp_connected_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpConnectedCount = "init_mcp_connected_count";
+
+        /// <summary>
+        /// The <c>init_mcp_disabled_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpDisabledCount = "init_mcp_disabled_count";
+
+        /// <summary>
+        /// The <c>init_mcp_failed_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpFailedCount = "init_mcp_failed_count";
+
+        /// <summary>
+        /// The <c>init_mcp_needs_auth_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpNeedsAuthCount = "init_mcp_needs_auth_count";
+
+        /// <summary>
+        /// The <c>init_mcp_other_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpOtherCount = "init_mcp_other_count";
+
+        /// <summary>
+        /// The <c>init_mcp_pending_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpPendingCount = "init_mcp_pending_count";
+
+        /// <summary>
+        /// The <c>init_mcp_total_count</c> attribute namespace.
+        /// </summary>
+        public const string InitMcpTotalCount = "init_mcp_total_count";
+
+        /// <summary>
+        /// The <c>init_ms</c> attribute namespace.
+        /// </summary>
+        public const string InitMs = "init_ms";
+
+        /// <summary>
+        /// The <c>init_plugin_count</c> attribute namespace.
+        /// </summary>
+        public const string InitPluginCount = "init_plugin_count";
+
+        /// <summary>
+        /// The <c>initial_user_message_chars</c> attribute namespace.
+        /// </summary>
+        public const string InitialUserMessageChars = "initial_user_message_chars";
+
+        /// <summary>
+        /// The <c>initiator</c> attribute namespace.
+        /// </summary>
+        public const string Initiator = "initiator";
+
+        /// <summary>
+        /// The <c>inp_ms</c> attribute namespace.
+        /// </summary>
+        public const string InpMs = "inp_ms";
+
+        /// <summary>
+        /// The <c>input_delay_ms</c> attribute namespace.
+        /// </summary>
+        public const string InputDelayMs = "input_delay_ms";
+
+        /// <summary>
+        /// The <c>input_origin</c> attribute namespace.
+        /// </summary>
+        public const string InputOrigin = "input_origin";
+
+        /// <summary>
+        /// The <c>input_tokens</c> attribute namespace.
+        /// </summary>
+        public const string InputTokens = "input_tokens";
+
+        /// <summary>
+        /// The <c>insert_method</c> attribute namespace.
+        /// </summary>
+        public const string InsertMethod = "insert_method";
+
+        /// <summary>
+        /// The <c>install</c> attribute namespace.
+        /// </summary>
+        public const string Install = "install";
+
+        /// <summary>
+        /// The <c>install_state_seeded</c> attribute namespace.
+        /// </summary>
+        public const string InstallStateSeeded = "install_state_seeded";
+
+        /// <summary>
+        /// The <c>installed</c> attribute namespace.
+        /// </summary>
+        public const string Installed = "installed";
+
+        /// <summary>
+        /// The <c>insufficient_observation_count</c> attribute namespace.
+        /// </summary>
+        public const string InsufficientObservationCount = "insufficient_observation_count";
+
+        /// <summary>
+        /// The <c>intent</c> attribute namespace.
+        /// </summary>
+        public const string Intent = "intent";
+
+        /// <summary>
+        /// The <c>intent_before_initialized</c> attribute namespace.
+        /// </summary>
+        public const string IntentBeforeInitialized = "intent_before_initialized";
+
+        /// <summary>
+        /// The <c>intent_lead_ms</c> attribute namespace.
+        /// </summary>
+        public const string IntentLeadMs = "intent_lead_ms";
+
+        /// <summary>
+        /// The <c>intent_saved_at_start</c> attribute namespace.
+        /// </summary>
+        public const string IntentSavedAtStart = "intent_saved_at_start";
+
+        /// <summary>
+        /// The <c>interaction</c> attribute namespace.
+        /// </summary>
+        public const string Interaction = "interaction";
+
+        /// <summary>
+        /// The <c>interaction_type</c> attribute namespace.
+        /// </summary>
+        public const string InteractionType = "interaction_type";
+
+        /// <summary>
+        /// The <c>internal_server_name</c> attribute namespace.
+        /// </summary>
+        public const string InternalServerName = "internal_server_name";
+
+        /// <summary>
+        /// The <c>interrupt_seq</c> attribute namespace.
+        /// </summary>
+        public const string InterruptSeq = "interrupt_seq";
+
+        /// <summary>
+        /// The <c>interrupted</c> attribute namespace.
+        /// </summary>
+        public const string Interrupted = "interrupted";
+
+        /// <summary>
+        /// The <c>interrupted_age_seconds</c> attribute namespace.
+        /// </summary>
+        public const string InterruptedAgeSeconds = "interrupted_age_seconds";
+
+        /// <summary>
+        /// The <c>interrupted_overdue_ms</c> attribute namespace.
+        /// </summary>
+        public const string InterruptedOverdueMs = "interrupted_overdue_ms";
+
+        /// <summary>
+        /// The <c>interval_minutes</c> attribute namespace.
+        /// </summary>
+        public const string IntervalMinutes = "interval_minutes";
+
+        /// <summary>
+        /// The <c>into_open_tab</c> attribute namespace.
+        /// </summary>
+        public const string IntoOpenTab = "into_open_tab";
+
+        /// <summary>
+        /// The <c>invocation_trigger</c> attribute namespace.
+        /// </summary>
+        public const string InvocationTrigger = "invocation_trigger";
+
+        /// <summary>
+        /// The <c>io_return</c> attribute namespace.
+        /// </summary>
+        public const string IoReturn = "io_return";
+
+        /// <summary>
         /// The <c>ios</c> attribute namespace.
         /// </summary>
         public const string Ios = "ios";
 
         /// <summary>
+        /// The <c>ipc_bytes</c> attribute namespace.
+        /// </summary>
+        public const string IpcBytes = "ipc_bytes";
+
+        /// <summary>
+        /// The <c>ipc_ms</c> attribute namespace.
+        /// </summary>
+        public const string IpcMs = "ipc_ms";
+
+        /// <summary>
+        /// The <c>is_async</c> attribute namespace.
+        /// </summary>
+        public const string IsAsync = "is_async";
+
+        /// <summary>
+        /// The <c>is_built_in</c> attribute namespace.
+        /// </summary>
+        public const string IsBuiltIn = "is_built_in";
+
+        /// <summary>
+        /// The <c>is_claude_host</c> attribute namespace.
+        /// </summary>
+        public const string IsClaudeHost = "is_claude_host";
+
+        /// <summary>
+        /// The <c>is_downgrade</c> attribute namespace.
+        /// </summary>
+        public const string IsDowngrade = "is_downgrade";
+
+        /// <summary>
+        /// The <c>is_error</c> attribute namespace.
+        /// </summary>
+        public const string IsError = "is_error";
+
+        /// <summary>
+        /// The <c>is_financial</c> attribute namespace.
+        /// </summary>
+        public const string IsFinancial = "is_financial";
+
+        /// <summary>
+        /// The <c>is_first_turn</c> attribute namespace.
+        /// </summary>
+        public const string IsFirstTurn = "is_first_turn";
+
+        /// <summary>
+        /// The <c>is_fork</c> attribute namespace.
+        /// </summary>
+        public const string IsFork = "is_fork";
+
+        /// <summary>
+        /// The <c>is_git_repo</c> attribute namespace.
+        /// </summary>
+        public const string IsGitRepo = "is_git_repo";
+
+        /// <summary>
+        /// The <c>is_high_risk</c> attribute namespace.
+        /// </summary>
+        public const string IsHighRisk = "is_high_risk";
+
+        /// <summary>
+        /// The <c>is_internal</c> attribute namespace.
+        /// </summary>
+        public const string IsInternal = "is_internal";
+
+        /// <summary>
+        /// The <c>is_large_import</c> attribute namespace.
+        /// </summary>
+        public const string IsLargeImport = "is_large_import";
+
+        /// <summary>
+        /// The <c>is_local</c> attribute namespace.
+        /// </summary>
+        public const string IsLocal = "is_local";
+
+        /// <summary>
+        /// The <c>is_localhost</c> attribute namespace.
+        /// </summary>
+        public const string IsLocalhost = "is_localhost";
+
+        /// <summary>
+        /// The <c>is_main_frame</c> attribute namespace.
+        /// </summary>
+        public const string IsMainFrame = "is_main_frame";
+
+        /// <summary>
+        /// The <c>is_manual</c> attribute namespace.
+        /// </summary>
+        public const string IsManual = "is_manual";
+
+        /// <summary>
+        /// The <c>is_nest_build</c> attribute namespace.
+        /// </summary>
+        public const string IsNestBuild = "is_nest_build";
+
+        /// <summary>
+        /// The <c>is_new_session</c> attribute namespace.
+        /// </summary>
+        public const string IsNewSession = "is_new_session";
+
+        /// <summary>
+        /// The <c>is_plugin</c> attribute namespace.
+        /// </summary>
+        public const string IsPlugin = "is_plugin";
+
+        /// <summary>
+        /// The <c>is_remote</c> attribute namespace.
+        /// </summary>
+        public const string IsRemote = "is_remote";
+
+        /// <summary>
+        /// The <c>is_repeat</c> attribute namespace.
+        /// </summary>
+        public const string IsRepeat = "is_repeat";
+
+        /// <summary>
+        /// The <c>is_resume</c> attribute namespace.
+        /// </summary>
+        public const string IsResume = "is_resume";
+
+        /// <summary>
+        /// The <c>is_running</c> attribute namespace.
+        /// </summary>
+        public const string IsRunning = "is_running";
+
+        /// <summary>
+        /// The <c>is_scheduled_task_session</c> attribute namespace.
+        /// </summary>
+        public const string IsScheduledTaskSession = "is_scheduled_task_session";
+
+        /// <summary>
+        /// The <c>is_scratch</c> attribute namespace.
+        /// </summary>
+        public const string IsScratch = "is_scratch";
+
+        /// <summary>
+        /// The <c>is_side_session</c> attribute namespace.
+        /// </summary>
+        public const string IsSideSession = "is_side_session";
+
+        /// <summary>
+        /// The <c>is_ssh</c> attribute namespace.
+        /// </summary>
+        public const string IsSsh = "is_ssh";
+
+        /// <summary>
+        /// The <c>is_startup_error</c> attribute namespace.
+        /// </summary>
+        public const string IsStartupError = "is_startup_error";
+
+        /// <summary>
+        /// The <c>is_stopping</c> attribute namespace.
+        /// </summary>
+        public const string IsStopping = "is_stopping";
+
+        /// <summary>
+        /// The <c>is_violin_bow</c> attribute namespace.
+        /// </summary>
+        public const string IsViolinBow = "is_violin_bow";
+
+        /// <summary>
+        /// The <c>is_visible</c> attribute namespace.
+        /// </summary>
+        public const string IsVisible = "is_visible";
+
+        /// <summary>
+        /// The <c>is_warm</c> attribute namespace.
+        /// </summary>
+        public const string IsWarm = "is_warm";
+
+        /// <summary>
+        /// The <c>is_windows</c> attribute namespace.
+        /// </summary>
+        public const string IsWindows = "is_windows";
+
+        /// <summary>
+        /// The <c>is_worktree</c> attribute namespace.
+        /// </summary>
+        public const string IsWorktree = "is_worktree";
+
+        /// <summary>
+        /// The <c>jitter_seconds</c> attribute namespace.
+        /// </summary>
+        public const string JitterSeconds = "jitter_seconds";
+
+        /// <summary>
         /// The <c>jsonrpc</c> attribute namespace.
         /// </summary>
         public const string Jsonrpc = "jsonrpc";
+
+        /// <summary>
+        /// The <c>judged</c> attribute namespace.
+        /// </summary>
+        public const string Judged = "judged";
+
+        /// <summary>
+        /// The <c>jump_ms</c> attribute namespace.
+        /// </summary>
+        public const string JumpMs = "jump_ms";
 
         /// <summary>
         /// The <c>jvm</c> attribute namespace.
@@ -321,9 +4406,424 @@ public static class QylAttributes
         public const string K8s = "k8s";
 
         /// <summary>
+        /// The <c>keep_awake_release</c> attribute namespace.
+        /// </summary>
+        public const string KeepAwakeRelease = "keep_awake_release";
+
+        /// <summary>
+        /// The <c>kept</c> attribute namespace.
+        /// </summary>
+        public const string Kept = "kept";
+
+        /// <summary>
+        /// The <c>kept_claimed_elsewhere</c> attribute namespace.
+        /// </summary>
+        public const string KeptClaimedElsewhere = "kept_claimed_elsewhere";
+
+        /// <summary>
+        /// The <c>kept_earlier</c> attribute namespace.
+        /// </summary>
+        public const string KeptEarlier = "kept_earlier";
+
+        /// <summary>
+        /// The <c>kept_existing_count</c> attribute namespace.
+        /// </summary>
+        public const string KeptExistingCount = "kept_existing_count";
+
+        /// <summary>
+        /// The <c>key_class</c> attribute namespace.
+        /// </summary>
+        public const string KeyClass = "key_class";
+
+        /// <summary>
+        /// The <c>key_count</c> attribute namespace.
+        /// </summary>
+        public const string KeyCount = "key_count";
+
+        /// <summary>
+        /// The <c>key</c> attribute namespace.
+        /// </summary>
+        public const string KeyNamespace = "key";
+
+        /// <summary>
+        /// The <c>keys_set</c> attribute namespace.
+        /// </summary>
+        public const string KeysSet = "keys_set";
+
+        /// <summary>
+        /// The <c>kicked</c> attribute namespace.
+        /// </summary>
+        public const string Kicked = "kicked";
+
+        /// <summary>
+        /// The <c>kind</c> attribute namespace.
+        /// </summary>
+        public const string Kind = "kind";
+
+        /// <summary>
+        /// The <c>kinds</c> attribute namespace.
+        /// </summary>
+        public const string Kinds = "kinds";
+
+        /// <summary>
+        /// The <c>lan_name</c> attribute namespace.
+        /// </summary>
+        public const string LanName = "lan_name";
+
+        /// <summary>
+        /// The <c>lane</c> attribute namespace.
+        /// </summary>
+        public const string Lane = "lane";
+
+        /// <summary>
+        /// The <c>language</c> attribute namespace.
+        /// </summary>
+        public const string Language = "language";
+
+        /// <summary>
+        /// The <c>laptop_path_skipped</c> attribute namespace.
+        /// </summary>
+        public const string LaptopPathSkipped = "laptop_path_skipped";
+
+        /// <summary>
+        /// The <c>last_buffered_message_type</c> attribute namespace.
+        /// </summary>
+        public const string LastBufferedMessageType = "last_buffered_message_type";
+
+        /// <summary>
+        /// The <c>last_error_class</c> attribute namespace.
+        /// </summary>
+        public const string LastErrorClass = "last_error_class";
+
+        /// <summary>
+        /// The <c>last_error_code</c> attribute namespace.
+        /// </summary>
+        public const string LastErrorCode = "last_error_code";
+
+        /// <summary>
+        /// The <c>last_frame_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string LastFrameAgeMs = "last_frame_age_ms";
+
+        /// <summary>
+        /// The <c>last_message_model</c> attribute namespace.
+        /// </summary>
+        public const string LastMessageModel = "last_message_model";
+
+        /// <summary>
+        /// The <c>last_message_type</c> attribute namespace.
+        /// </summary>
+        public const string LastMessageType = "last_message_type";
+
+        /// <summary>
+        /// The <c>last_oauth_decline_reason</c> attribute namespace.
+        /// </summary>
+        public const string LastOauthDeclineReason = "last_oauth_decline_reason";
+
+        /// <summary>
+        /// The <c>last_read_verdict</c> attribute namespace.
+        /// </summary>
+        public const string LastReadVerdict = "last_read_verdict";
+
+        /// <summary>
+        /// The <c>last_task</c> attribute namespace.
+        /// </summary>
+        public const string LastTask = "last_task";
+
+        /// <summary>
+        /// The <c>last_task_sync_ms</c> attribute namespace.
+        /// </summary>
+        public const string LastTaskSyncMs = "last_task_sync_ms";
+
+        /// <summary>
+        /// The <c>last_timeout_op</c> attribute namespace.
+        /// </summary>
+        public const string LastTimeoutOp = "last_timeout_op";
+
+        /// <summary>
+        /// The <c>last_tool_name</c> attribute namespace.
+        /// </summary>
+        public const string LastToolName = "last_tool_name";
+
+        /// <summary>
+        /// The <c>late</c> attribute namespace.
+        /// </summary>
+        public const string Late = "late";
+
+        /// <summary>
+        /// The <c>latency_bucket</c> attribute namespace.
+        /// </summary>
+        public const string LatencyBucket = "latency_bucket";
+
+        /// <summary>
+        /// The <c>latency_ms</c> attribute namespace.
+        /// </summary>
+        public const string LatencyMs = "latency_ms";
+
+        /// <summary>
+        /// The <c>launch_limit</c> attribute namespace.
+        /// </summary>
+        public const string LaunchLimit = "launch_limit";
+
+        /// <summary>
+        /// The <c>launch_sample_rate</c> attribute namespace.
+        /// </summary>
+        public const string LaunchSampleRate = "launch_sample_rate";
+
+        /// <summary>
+        /// The <c>launch_timeout_stage</c> attribute namespace.
+        /// </summary>
+        public const string LaunchTimeoutStage = "launch_timeout_stage";
+
+        /// <summary>
+        /// The <c>launched</c> attribute namespace.
+        /// </summary>
+        public const string Launched = "launched";
+
+        /// <summary>
+        /// The <c>launcher_marked</c> attribute namespace.
+        /// </summary>
+        public const string LauncherMarked = "launcher_marked";
+
+        /// <summary>
+        /// The <c>launcher_status</c> attribute namespace.
+        /// </summary>
+        public const string LauncherStatus = "launcher_status";
+
+        /// <summary>
+        /// The <c>launcher_version_check</c> attribute namespace.
+        /// </summary>
+        public const string LauncherVersionCheck = "launcher_version_check";
+
+        /// <summary>
+        /// The <c>lead_time_ms</c> attribute namespace.
+        /// </summary>
+        public const string LeadTimeMs = "lead_time_ms";
+
+        /// <summary>
+        /// The <c>leases</c> attribute namespace.
+        /// </summary>
+        public const string Leases = "leases";
+
+        /// <summary>
+        /// The <c>left_awaiting_person_count</c> attribute namespace.
+        /// </summary>
+        public const string LeftAwaitingPersonCount = "left_awaiting_person_count";
+
+        /// <summary>
+        /// The <c>legacy_kill</c> attribute namespace.
+        /// </summary>
+        public const string LegacyKill = "legacy_kill";
+
+        /// <summary>
+        /// The <c>legacy_user_waiting</c> attribute namespace.
+        /// </summary>
+        public const string LegacyUserWaiting = "legacy_user_waiting";
+
+        /// <summary>
+        /// The <c>level</c> attribute namespace.
+        /// </summary>
+        public const string Level = "level";
+
+        /// <summary>
+        /// The <c>lifetime_ms</c> attribute namespace.
+        /// </summary>
+        public const string LifetimeMs = "lifetime_ms";
+
+        /// <summary>
+        /// The <c>likely_ours</c> attribute namespace.
+        /// </summary>
+        public const string LikelyOurs = "likely_ours";
+
+        /// <summary>
+        /// The <c>likely_sleep</c> attribute namespace.
+        /// </summary>
+        public const string LikelySleep = "likely_sleep";
+
+        /// <summary>
+        /// The <c>limit</c> attribute namespace.
+        /// </summary>
+        public const string Limit = "limit";
+
+        /// <summary>
+        /// The <c>lines</c> attribute namespace.
+        /// </summary>
+        public const string Lines = "lines";
+
+        /// <summary>
+        /// The <c>link</c> attribute namespace.
+        /// </summary>
+        public const string Link = "link";
+
+        /// <summary>
+        /// The <c>link_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string LinkAgeMs = "link_age_ms";
+
+        /// <summary>
+        /// The <c>link_host</c> attribute namespace.
+        /// </summary>
+        public const string LinkHost = "link_host";
+
+        /// <summary>
+        /// The <c>link_late_pongs</c> attribute namespace.
+        /// </summary>
+        public const string LinkLatePongs = "link_late_pongs";
+
+        /// <summary>
+        /// The <c>link_queued_pongs</c> attribute namespace.
+        /// </summary>
+        public const string LinkQueuedPongs = "link_queued_pongs";
+
+        /// <summary>
+        /// The <c>link_srtt_ms</c> attribute namespace.
+        /// </summary>
+        public const string LinkSrttMs = "link_srtt_ms";
+
+        /// <summary>
+        /// The <c>link_up</c> attribute namespace.
+        /// </summary>
+        public const string LinkUp = "link_up";
+
+        /// <summary>
         /// The <c>linux</c> attribute namespace.
         /// </summary>
         public const string Linux = "linux";
+
+        /// <summary>
+        /// The <c>list_source</c> attribute namespace.
+        /// </summary>
+        public const string ListSource = "list_source";
+
+        /// <summary>
+        /// The <c>live_bindings</c> attribute namespace.
+        /// </summary>
+        public const string LiveBindings = "live_bindings";
+
+        /// <summary>
+        /// The <c>live_children</c> attribute namespace.
+        /// </summary>
+        public const string LiveChildren = "live_children";
+
+        /// <summary>
+        /// The <c>live_cli_count</c> attribute namespace.
+        /// </summary>
+        public const string LiveCliCount = "live_cli_count";
+
+        /// <summary>
+        /// The <c>live_processes</c> attribute namespace.
+        /// </summary>
+        public const string LiveProcesses = "live_processes";
+
+        /// <summary>
+        /// The <c>live_scheduled_cli_count</c> attribute namespace.
+        /// </summary>
+        public const string LiveScheduledCliCount = "live_scheduled_cli_count";
+
+        /// <summary>
+        /// The <c>live_sessions</c> attribute namespace.
+        /// </summary>
+        public const string LiveSessions = "live_sessions";
+
+        /// <summary>
+        /// The <c>llm_request</c> attribute namespace.
+        /// </summary>
+        public const string LlmRequest = "llm_request";
+
+        /// <summary>
+        /// The <c>load_error_code</c> attribute namespace.
+        /// </summary>
+        public const string LoadErrorCode = "load_error_code";
+
+        /// <summary>
+        /// The <c>load_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoadMs = "load_ms";
+
+        /// <summary>
+        /// The <c>load_phase</c> attribute namespace.
+        /// </summary>
+        public const string LoadPhase = "load_phase";
+
+        /// <summary>
+        /// The <c>loaf_entry_count</c> attribute namespace.
+        /// </summary>
+        public const string LoafEntryCount = "loaf_entry_count";
+
+        /// <summary>
+        /// The <c>loaf_in_delay_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoafInDelayMs = "loaf_in_delay_ms";
+
+        /// <summary>
+        /// The <c>loaf_script_char_pos</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptCharPos = "loaf_script_char_pos";
+
+        /// <summary>
+        /// The <c>loaf_script_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptDurationMs = "loaf_script_duration_ms";
+
+        /// <summary>
+        /// The <c>loaf_script_forced_layout_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptForcedLayoutMs = "loaf_script_forced_layout_ms";
+
+        /// <summary>
+        /// The <c>loaf_script_function</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptFunction = "loaf_script_function";
+
+        /// <summary>
+        /// The <c>loaf_script_invoker</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptInvoker = "loaf_script_invoker";
+
+        /// <summary>
+        /// The <c>loaf_script_invoker_type</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptInvokerType = "loaf_script_invoker_type";
+
+        /// <summary>
+        /// The <c>loaf_script_source</c> attribute namespace.
+        /// </summary>
+        public const string LoafScriptSource = "loaf_script_source";
+
+        /// <summary>
+        /// The <c>loaf_total_blocking_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoafTotalBlockingMs = "loaf_total_blocking_ms";
+
+        /// <summary>
+        /// The <c>loaf_total_forced_layout_ms</c> attribute namespace.
+        /// </summary>
+        public const string LoafTotalForcedLayoutMs = "loaf_total_forced_layout_ms";
+
+        /// <summary>
+        /// The <c>local_enabled</c> attribute namespace.
+        /// </summary>
+        public const string LocalEnabled = "local_enabled";
+
+        /// <summary>
+        /// The <c>local_file_count</c> attribute namespace.
+        /// </summary>
+        public const string LocalFileCount = "local_file_count";
+
+        /// <summary>
+        /// The <c>local_session_id</c> attribute namespace.
+        /// </summary>
+        public const string LocalSessionId = "local_session_id";
+
+        /// <summary>
+        /// The <c>local_total_bytes</c> attribute namespace.
+        /// </summary>
+        public const string LocalTotalBytes = "local_total_bytes";
+
+        /// <summary>
+        /// The <c>lock_known_locked</c> attribute namespace.
+        /// </summary>
+        public const string LockKnownLocked = "lock_known_locked";
 
         /// <summary>
         /// The <c>log</c> attribute namespace.
@@ -331,9 +4831,134 @@ public static class QylAttributes
         public const string Log = "log";
 
         /// <summary>
+        /// The <c>log_reads</c> attribute namespace.
+        /// </summary>
+        public const string LogReads = "log_reads";
+
+        /// <summary>
+        /// The <c>long_frame_ms_max</c> attribute namespace.
+        /// </summary>
+        public const string LongFrameMsMax = "long_frame_ms_max";
+
+        /// <summary>
+        /// The <c>long_frame_ms_total</c> attribute namespace.
+        /// </summary>
+        public const string LongFrameMsTotal = "long_frame_ms_total";
+
+        /// <summary>
+        /// The <c>losable_background_task_count</c> attribute namespace.
+        /// </summary>
+        public const string LosableBackgroundTaskCount = "losable_background_task_count";
+
+        /// <summary>
+        /// The <c>losable_kind</c> attribute namespace.
+        /// </summary>
+        public const string LosableKind = "losable_kind";
+
+        /// <summary>
+        /// The <c>losses_this_round</c> attribute namespace.
+        /// </summary>
+        public const string LossesThisRound = "losses_this_round";
+
+        /// <summary>
+        /// The <c>lost_input</c> attribute namespace.
+        /// </summary>
+        public const string LostInput = "lost_input";
+
+        /// <summary>
+        /// The <c>low_memory_posture</c> attribute namespace.
+        /// </summary>
+        public const string LowMemoryPosture = "low_memory_posture";
+
+        /// <summary>
+        /// The <c>main_rss_bytes</c> attribute namespace.
+        /// </summary>
+        public const string MainRssBytes = "main_rss_bytes";
+
+        /// <summary>
+        /// The <c>main_view_footprint_bytes</c> attribute namespace.
+        /// </summary>
+        public const string MainViewFootprintBytes = "main_view_footprint_bytes";
+
+        /// <summary>
+        /// The <c>main_view_rss_bytes</c> attribute namespace.
+        /// </summary>
+        public const string MainViewRssBytes = "main_view_rss_bytes";
+
+        /// <summary>
         /// The <c>mainframe</c> attribute namespace.
         /// </summary>
         public const string Mainframe = "mainframe";
+
+        /// <summary>
+        /// The <c>managed_launcher</c> attribute namespace.
+        /// </summary>
+        public const string ManagedLauncher = "managed_launcher";
+
+        /// <summary>
+        /// The <c>managed_only</c> attribute namespace.
+        /// </summary>
+        public const string ManagedOnly = "managed_only";
+
+        /// <summary>
+        /// The <c>managed_rules_only</c> attribute namespace.
+        /// </summary>
+        public const string ManagedRulesOnly = "managed_rules_only";
+
+        /// <summary>
+        /// The <c>managed_settings</c> attribute namespace.
+        /// </summary>
+        public const string ManagedSettings = "managed_settings";
+
+        /// <summary>
+        /// The <c>mark</c> attribute namespace.
+        /// </summary>
+        public const string Mark = "mark";
+
+        /// <summary>
+        /// The <c>marked_count</c> attribute namespace.
+        /// </summary>
+        public const string MarkedCount = "marked_count";
+
+        /// <summary>
+        /// The <c>marker_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string MarkerAgeMs = "marker_age_ms";
+
+        /// <summary>
+        /// The <c>marker_offered</c> attribute namespace.
+        /// </summary>
+        public const string MarkerOffered = "marker_offered";
+
+        /// <summary>
+        /// The <c>marketplace</c> attribute namespace.
+        /// </summary>
+        public const string Marketplace = "marketplace";
+
+        /// <summary>
+        /// The <c>marketplace_uuid</c> attribute namespace.
+        /// </summary>
+        public const string MarketplaceUuid = "marketplace_uuid";
+
+        /// <summary>
+        /// The <c>matched</c> attribute namespace.
+        /// </summary>
+        public const string Matched = "matched";
+
+        /// <summary>
+        /// The <c>max_poll_gap_ms</c> attribute namespace.
+        /// </summary>
+        public const string MaxPollGapMs = "max_poll_gap_ms";
+
+        /// <summary>
+        /// The <c>max_session_count</c> attribute namespace.
+        /// </summary>
+        public const string MaxSessionCount = "max_session_count";
+
+        /// <summary>
+        /// The <c>max_system_idle_ms</c> attribute namespace.
+        /// </summary>
+        public const string MaxSystemIdleMs = "max_system_idle_ms";
 
         /// <summary>
         /// The <c>mcp</c> attribute namespace.
@@ -341,14 +4966,294 @@ public static class QylAttributes
         public const string Mcp = "mcp";
 
         /// <summary>
+        /// The <c>mcp_cmd</c> attribute namespace.
+        /// </summary>
+        public const string McpCmd = "mcp_cmd";
+
+        /// <summary>
+        /// The <c>mcp_config_http_count</c> attribute namespace.
+        /// </summary>
+        public const string McpConfigHttpCount = "mcp_config_http_count";
+
+        /// <summary>
+        /// The <c>mcp_config_sdk_count</c> attribute namespace.
+        /// </summary>
+        public const string McpConfigSdkCount = "mcp_config_sdk_count";
+
+        /// <summary>
+        /// The <c>mcp_config_stdio_count</c> attribute namespace.
+        /// </summary>
+        public const string McpConfigStdioCount = "mcp_config_stdio_count";
+
+        /// <summary>
+        /// The <c>mcp_kind_followed</c> attribute namespace.
+        /// </summary>
+        public const string McpKindFollowed = "mcp_kind_followed";
+
+        /// <summary>
+        /// The <c>mcp_ms</c> attribute namespace.
+        /// </summary>
+        public const string McpMs = "mcp_ms";
+
+        /// <summary>
+        /// The <c>mcp_server</c> attribute namespace.
+        /// </summary>
+        public const string McpServer = "mcp_server";
+
+        /// <summary>
+        /// The <c>mcp_server_count</c> attribute namespace.
+        /// </summary>
+        public const string McpServerCount = "mcp_server_count";
+
+        /// <summary>
+        /// The <c>mcp_server_scope</c> attribute namespace.
+        /// </summary>
+        public const string McpServerScope = "mcp_server_scope";
+
+        /// <summary>
+        /// The <c>mcp_tool</c> attribute namespace.
+        /// </summary>
+        public const string McpTool = "mcp_tool";
+
+        /// <summary>
+        /// The <c>memory_copy_error</c> attribute namespace.
+        /// </summary>
+        public const string MemoryCopyError = "memory_copy_error";
+
+        /// <summary>
+        /// The <c>memory_copy_keyless</c> attribute namespace.
+        /// </summary>
+        public const string MemoryCopyKeyless = "memory_copy_keyless";
+
+        /// <summary>
+        /// The <c>memory_copy_state</c> attribute namespace.
+        /// </summary>
+        public const string MemoryCopyState = "memory_copy_state";
+
+        /// <summary>
+        /// The <c>memory_files_copied</c> attribute namespace.
+        /// </summary>
+        public const string MemoryFilesCopied = "memory_files_copied";
+
+        /// <summary>
+        /// The <c>memory_files_total</c> attribute namespace.
+        /// </summary>
+        public const string MemoryFilesTotal = "memory_files_total";
+
+        /// <summary>
+        /// The <c>mention_type</c> attribute namespace.
+        /// </summary>
+        public const string MentionType = "mention_type";
+
+        /// <summary>
         /// The <c>message</c> attribute namespace.
         /// </summary>
         public const string Message = "message";
 
         /// <summary>
+        /// The <c>message_buffer_size</c> attribute namespace.
+        /// </summary>
+        public const string MessageBufferSize = "message_buffer_size";
+
+        /// <summary>
+        /// The <c>message_chars</c> attribute namespace.
+        /// </summary>
+        public const string MessageChars = "message_chars";
+
+        /// <summary>
+        /// The <c>message_count</c> attribute namespace.
+        /// </summary>
+        public const string MessageCount = "message_count";
+
+        /// <summary>
+        /// The <c>message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string MessageUuid = "message_uuid";
+
+        /// <summary>
+        /// The <c>messages_after</c> attribute namespace.
+        /// </summary>
+        public const string MessagesAfter = "messages_after";
+
+        /// <summary>
+        /// The <c>messages_before</c> attribute namespace.
+        /// </summary>
+        public const string MessagesBefore = "messages_before";
+
+        /// <summary>
         /// The <c>messaging</c> attribute namespace.
         /// </summary>
         public const string Messaging = "messaging";
+
+        /// <summary>
+        /// The <c>method</c> attribute namespace.
+        /// </summary>
+        public const string Method = "method";
+
+        /// <summary>
+        /// The <c>mid_turn</c> attribute namespace.
+        /// </summary>
+        public const string MidTurn = "mid_turn";
+
+        /// <summary>
+        /// The <c>migratable_count</c> attribute namespace.
+        /// </summary>
+        public const string MigratableCount = "migratable_count";
+
+        /// <summary>
+        /// The <c>min_observed_days</c> attribute namespace.
+        /// </summary>
+        public const string MinObservedDays = "min_observed_days";
+
+        /// <summary>
+        /// The <c>min_runs_observed</c> attribute namespace.
+        /// </summary>
+        public const string MinRunsObserved = "min_runs_observed";
+
+        /// <summary>
+        /// The <c>minutes_since_launch</c> attribute namespace.
+        /// </summary>
+        public const string MinutesSinceLaunch = "minutes_since_launch";
+
+        /// <summary>
+        /// The <c>missed_by_minutes</c> attribute namespace.
+        /// </summary>
+        public const string MissedByMinutes = "missed_by_minutes";
+
+        /// <summary>
+        /// The <c>missing</c> attribute namespace.
+        /// </summary>
+        public const string Missing = "missing";
+
+        /// <summary>
+        /// The <c>missing_kind</c> attribute namespace.
+        /// </summary>
+        public const string MissingKind = "missing_kind";
+
+        /// <summary>
+        /// The <c>mode</c> attribute namespace.
+        /// </summary>
+        public const string Mode = "mode";
+
+        /// <summary>
+        /// The <c>model</c> attribute namespace.
+        /// </summary>
+        public const string Model = "model";
+
+        /// <summary>
+        /// The <c>model_downgraded</c> attribute namespace.
+        /// </summary>
+        public const string ModelDowngraded = "model_downgraded";
+
+        /// <summary>
+        /// The <c>model_swapped</c> attribute namespace.
+        /// </summary>
+        public const string ModelSwapped = "model_swapped";
+
+        /// <summary>
+        /// The <c>mount_commit_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountCommitMs = "mount_commit_ms";
+
+        /// <summary>
+        /// The <c>mount_composer_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountComposerMs = "mount_composer_ms";
+
+        /// <summary>
+        /// The <c>mount_layout_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountLayoutMs = "mount_layout_ms";
+
+        /// <summary>
+        /// The <c>mount_list_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountListMs = "mount_list_ms";
+
+        /// <summary>
+        /// The <c>mount_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountMs = "mount_ms";
+
+        /// <summary>
+        /// The <c>mount_panel_ms</c> attribute namespace.
+        /// </summary>
+        public const string MountPanelMs = "mount_panel_ms";
+
+        /// <summary>
+        /// The <c>ms</c> attribute namespace.
+        /// </summary>
+        public const string Ms = "ms";
+
+        /// <summary>
+        /// The <c>ms_after_commit</c> attribute namespace.
+        /// </summary>
+        public const string MsAfterCommit = "ms_after_commit";
+
+        /// <summary>
+        /// The <c>ms_after_load</c> attribute namespace.
+        /// </summary>
+        public const string MsAfterLoad = "ms_after_load";
+
+        /// <summary>
+        /// The <c>ms_since_first_cut</c> attribute namespace.
+        /// </summary>
+        public const string MsSinceFirstCut = "ms_since_first_cut";
+
+        /// <summary>
+        /// The <c>ms_since_last_read</c> attribute namespace.
+        /// </summary>
+        public const string MsSinceLastRead = "ms_since_last_read";
+
+        /// <summary>
+        /// The <c>ms_since_last_wake</c> attribute namespace.
+        /// </summary>
+        public const string MsSinceLastWake = "ms_since_last_wake";
+
+        /// <summary>
+        /// The <c>ms_since_open</c> attribute namespace.
+        /// </summary>
+        public const string MsSinceOpen = "ms_since_open";
+
+        /// <summary>
+        /// The <c>ms_since_prior_loss</c> attribute namespace.
+        /// </summary>
+        public const string MsSincePriorLoss = "ms_since_prior_loss";
+
+        /// <summary>
+        /// The <c>ms_since_write</c> attribute namespace.
+        /// </summary>
+        public const string MsSinceWrite = "ms_since_write";
+
+        /// <summary>
+        /// The <c>ms_to_echo</c> attribute namespace.
+        /// </summary>
+        public const string MsToEcho = "ms_to_echo";
+
+        /// <summary>
+        /// The <c>ms_to_first_token</c> attribute namespace.
+        /// </summary>
+        public const string MsToFirstToken = "ms_to_first_token";
+
+        /// <summary>
+        /// The <c>nav_only</c> attribute namespace.
+        /// </summary>
+        public const string NavOnly = "nav_only";
+
+        /// <summary>
+        /// The <c>nav_temp</c> attribute namespace.
+        /// </summary>
+        public const string NavTemp = "nav_temp";
+
+        /// <summary>
+        /// The <c>needed_deploy</c> attribute namespace.
+        /// </summary>
+        public const string NeededDeploy = "needed_deploy";
+
+        /// <summary>
+        /// The <c>needs_tree_before_spawn_reason</c> attribute namespace.
+        /// </summary>
+        public const string NeedsTreeBeforeSpawnReason = "needs_tree_before_spawn_reason";
 
         /// <summary>
         /// The <c>net</c> attribute namespace.
@@ -361,9 +5266,114 @@ public static class QylAttributes
         public const string Network = "network";
 
         /// <summary>
+        /// The <c>new_context</c> attribute namespace.
+        /// </summary>
+        public const string NewContext = "new_context";
+
+        /// <summary>
+        /// The <c>new_context_message_count</c> attribute namespace.
+        /// </summary>
+        public const string NewContextMessageCount = "new_context_message_count";
+
+        /// <summary>
+        /// The <c>new_context_original_length</c> attribute namespace.
+        /// </summary>
+        public const string NewContextOriginalLength = "new_context_original_length";
+
+        /// <summary>
+        /// The <c>new_context_truncated</c> attribute namespace.
+        /// </summary>
+        public const string NewContextTruncated = "new_context_truncated";
+
+        /// <summary>
+        /// The <c>new_cwd</c> attribute namespace.
+        /// </summary>
+        public const string NewCwd = "new_cwd";
+
+        /// <summary>
+        /// The <c>new_failure_count</c> attribute namespace.
+        /// </summary>
+        public const string NewFailureCount = "new_failure_count";
+
+        /// <summary>
+        /// The <c>new_value</c> attribute namespace.
+        /// </summary>
+        public const string NewValue = "new_value";
+
+        /// <summary>
+        /// The <c>newer_version</c> attribute namespace.
+        /// </summary>
+        public const string NewerVersion = "newer_version";
+
+        /// <summary>
+        /// The <c>newly_unclaimed</c> attribute namespace.
+        /// </summary>
+        public const string NewlyUnclaimed = "newly_unclaimed";
+
+        /// <summary>
+        /// The <c>next_unchecked</c> attribute namespace.
+        /// </summary>
+        public const string NextUnchecked = "next_unchecked";
+
+        /// <summary>
         /// The <c>nfs</c> attribute namespace.
         /// </summary>
         public const string Nfs = "nfs";
+
+        /// <summary>
+        /// The <c>no_folder</c> attribute namespace.
+        /// </summary>
+        public const string NoFolder = "no_folder";
+
+        /// <summary>
+        /// The <c>no_fresh_record_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordCount = "no_fresh_record_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_denied_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordDeniedCount = "no_fresh_record_denied_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_no_prompt_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordNoPromptCount = "no_fresh_record_no_prompt_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_no_record_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordNoRecordCount = "no_fresh_record_no_record_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_stale_record_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordStaleRecordCount = "no_fresh_record_stale_record_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_task_missing_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordTaskMissingCount = "no_fresh_record_task_missing_count";
+
+        /// <summary>
+        /// The <c>no_fresh_record_unreadable_count</c> attribute namespace.
+        /// </summary>
+        public const string NoFreshRecordUnreadableCount = "no_fresh_record_unreadable_count";
+
+        /// <summary>
+        /// The <c>no_off_read</c> attribute namespace.
+        /// </summary>
+        public const string NoOffRead = "no_off_read";
+
+        /// <summary>
+        /// The <c>no_response_category</c> attribute namespace.
+        /// </summary>
+        public const string NoResponseCategory = "no_response_category";
+
+        /// <summary>
+        /// The <c>no_tpm_probe_code</c> attribute namespace.
+        /// </summary>
+        public const string NoTpmProbeCode = "no_tpm_probe_code";
 
         /// <summary>
         /// The <c>nodejs</c> attribute namespace.
@@ -371,9 +5381,119 @@ public static class QylAttributes
         public const string Nodejs = "nodejs";
 
         /// <summary>
+        /// The <c>not_copied</c> attribute namespace.
+        /// </summary>
+        public const string NotCopied = "not_copied";
+
+        /// <summary>
+        /// The <c>not_evaluable_reason</c> attribute namespace.
+        /// </summary>
+        public const string NotEvaluableReason = "not_evaluable_reason";
+
+        /// <summary>
+        /// The <c>notice_requested</c> attribute namespace.
+        /// </summary>
+        public const string NoticeRequested = "notice_requested";
+
+        /// <summary>
+        /// The <c>notification_type</c> attribute namespace.
+        /// </summary>
+        public const string NotificationType = "notification_type";
+
+        /// <summary>
+        /// The <c>notify_on_completion_after</c> attribute namespace.
+        /// </summary>
+        public const string NotifyOnCompletionAfter = "notify_on_completion_after";
+
+        /// <summary>
         /// The <c>nservicebus</c> attribute namespace.
         /// </summary>
         public const string Nservicebus = "nservicebus";
+
+        /// <summary>
+        /// The <c>ntstatus_name</c> attribute namespace.
+        /// </summary>
+        public const string NtstatusName = "ntstatus_name";
+
+        /// <summary>
+        /// The <c>num_blocking</c> attribute namespace.
+        /// </summary>
+        public const string NumBlocking = "num_blocking";
+
+        /// <summary>
+        /// The <c>num_cancelled</c> attribute namespace.
+        /// </summary>
+        public const string NumCancelled = "num_cancelled";
+
+        /// <summary>
+        /// The <c>num_hooks</c> attribute namespace.
+        /// </summary>
+        public const string NumHooks = "num_hooks";
+
+        /// <summary>
+        /// The <c>num_non_blocking_error</c> attribute namespace.
+        /// </summary>
+        public const string NumNonBlockingError = "num_non_blocking_error";
+
+        /// <summary>
+        /// The <c>num_outputs_persisted</c> attribute namespace.
+        /// </summary>
+        public const string NumOutputsPersisted = "num_outputs_persisted";
+
+        /// <summary>
+        /// The <c>num_success</c> attribute namespace.
+        /// </summary>
+        public const string NumSuccess = "num_success";
+
+        /// <summary>
+        /// The <c>num_turns</c> attribute namespace.
+        /// </summary>
+        public const string NumTurns = "num_turns";
+
+        /// <summary>
+        /// The <c>observed_built_in_browser</c> attribute namespace.
+        /// </summary>
+        public const string ObservedBuiltInBrowser = "observed_built_in_browser";
+
+        /// <summary>
+        /// The <c>observed_chrome</c> attribute namespace.
+        /// </summary>
+        public const string ObservedChrome = "observed_chrome";
+
+        /// <summary>
+        /// The <c>observed_computer_use</c> attribute namespace.
+        /// </summary>
+        public const string ObservedComputerUse = "observed_computer_use";
+
+        /// <summary>
+        /// The <c>observed_device_free_count</c> attribute namespace.
+        /// </summary>
+        public const string ObservedDeviceFreeCount = "observed_device_free_count";
+
+        /// <summary>
+        /// The <c>observed_local_count</c> attribute namespace.
+        /// </summary>
+        public const string ObservedLocalCount = "observed_local_count";
+
+        /// <summary>
+        /// The <c>observed_local_mcp</c> attribute namespace.
+        /// </summary>
+        public const string ObservedLocalMcp = "observed_local_mcp";
+
+        /// <summary>
+        /// The <c>observed_request_folder_access</c> attribute namespace.
+        /// </summary>
+        public const string ObservedRequestFolderAccess = "observed_request_folder_access";
+
+        /// <summary>
+        /// The <c>observed_task_count</c> attribute namespace.
+        /// </summary>
+        public const string ObservedTaskCount = "observed_task_count";
+
+        /// <summary>
+        /// The <c>occurrence</c> attribute namespace.
+        /// </summary>
+        public const string Occurrence = "occurrence";
 
         /// <summary>
         /// The <c>oci</c> attribute namespace.
@@ -381,14 +5501,79 @@ public static class QylAttributes
         public const string Oci = "oci";
 
         /// <summary>
+        /// The <c>offer</c> attribute namespace.
+        /// </summary>
+        public const string Offer = "offer";
+
+        /// <summary>
+        /// The <c>ok</c> attribute namespace.
+        /// </summary>
+        public const string Ok = "ok";
+
+        /// <summary>
+        /// The <c>older_than_days</c> attribute namespace.
+        /// </summary>
+        public const string OlderThanDays = "older_than_days";
+
+        /// <summary>
+        /// The <c>oldest_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string OldestAgeMs = "oldest_age_ms";
+
+        /// <summary>
+        /// The <c>on</c> attribute namespace.
+        /// </summary>
+        public const string On = "on";
+
+        /// <summary>
+        /// The <c>on_battery</c> attribute namespace.
+        /// </summary>
+        public const string OnBattery = "on_battery";
+
+        /// <summary>
+        /// The <c>on_ssh_host</c> attribute namespace.
+        /// </summary>
+        public const string OnSshHost = "on_ssh_host";
+
+        /// <summary>
         /// The <c>onc_rpc</c> attribute namespace.
         /// </summary>
         public const string OncRpc = "onc_rpc";
 
         /// <summary>
+        /// The <c>one_time</c> attribute namespace.
+        /// </summary>
+        public const string OneTime = "one_time";
+
+        /// <summary>
+        /// The <c>online</c> attribute namespace.
+        /// </summary>
+        public const string Online = "online";
+
+        /// <summary>
+        /// The <c>open_ms</c> attribute namespace.
+        /// </summary>
+        public const string OpenMs = "open_ms";
+
+        /// <summary>
+        /// The <c>open_seconds</c> attribute namespace.
+        /// </summary>
+        public const string OpenSeconds = "open_seconds";
+
+        /// <summary>
         /// The <c>openai</c> attribute namespace.
         /// </summary>
         public const string Openai = "openai";
+
+        /// <summary>
+        /// The <c>opened_by</c> attribute namespace.
+        /// </summary>
+        public const string OpenedBy = "opened_by";
+
+        /// <summary>
+        /// The <c>opened_via</c> attribute namespace.
+        /// </summary>
+        public const string OpenedVia = "opened_via";
 
         /// <summary>
         /// The <c>openshift</c> attribute namespace.
@@ -401,6 +5586,11 @@ public static class QylAttributes
         public const string Opentracing = "opentracing";
 
         /// <summary>
+        /// The <c>operation</c> attribute namespace.
+        /// </summary>
+        public const string Operation = "operation";
+
+        /// <summary>
         /// The <c>oracle</c> attribute namespace.
         /// </summary>
         public const string Oracle = "oracle";
@@ -411,9 +5601,59 @@ public static class QylAttributes
         public const string OracleCloud = "oracle_cloud";
 
         /// <summary>
+        /// The <c>org_browser_allowed</c> attribute namespace.
+        /// </summary>
+        public const string OrgBrowserAllowed = "org_browser_allowed";
+
+        /// <summary>
+        /// The <c>org_skills_off</c> attribute namespace.
+        /// </summary>
+        public const string OrgSkillsOff = "org_skills_off";
+
+        /// <summary>
+        /// The <c>organization</c> attribute namespace.
+        /// </summary>
+        public const string Organization = "organization";
+
+        /// <summary>
+        /// The <c>organization_id</c> attribute namespace.
+        /// </summary>
+        public const string OrganizationId = "organization_id";
+
+        /// <summary>
+        /// The <c>origin</c> attribute namespace.
+        /// </summary>
+        public const string Origin = "origin";
+
+        /// <summary>
+        /// The <c>origin_class</c> attribute namespace.
+        /// </summary>
+        public const string OriginClass = "origin_class";
+
+        /// <summary>
+        /// The <c>origin_notify_none_count</c> attribute namespace.
+        /// </summary>
+        public const string OriginNotifyNoneCount = "origin_notify_none_count";
+
+        /// <summary>
+        /// The <c>origin_unresolvable_count</c> attribute namespace.
+        /// </summary>
+        public const string OriginUnresolvableCount = "origin_unresolvable_count";
+
+        /// <summary>
+        /// The <c>orphan_process_id</c> attribute namespace.
+        /// </summary>
+        public const string OrphanProcessId = "orphan_process_id";
+
+        /// <summary>
         /// The <c>os</c> attribute namespace.
         /// </summary>
         public const string Os = "os";
+
+        /// <summary>
+        /// The <c>os_entry</c> attribute namespace.
+        /// </summary>
+        public const string OsEntry = "os_entry";
 
         /// <summary>
         /// The <c>otel</c> attribute namespace.
@@ -421,9 +5661,149 @@ public static class QylAttributes
         public const string Otel = "otel";
 
         /// <summary>
-        /// Any attribute namespace outside the pinned registry.
+        /// The <c>other</c> attribute namespace.
         /// </summary>
         public const string Other = "other";
+
+        /// <summary>
+        /// The <c>outcome</c> attribute namespace.
+        /// </summary>
+        public const string Outcome = "outcome";
+
+        /// <summary>
+        /// The <c>output</c> attribute namespace.
+        /// </summary>
+        public const string Output = "output";
+
+        /// <summary>
+        /// The <c>output_original_length</c> attribute namespace.
+        /// </summary>
+        public const string OutputOriginalLength = "output_original_length";
+
+        /// <summary>
+        /// The <c>output_tokens</c> attribute namespace.
+        /// </summary>
+        public const string OutputTokens = "output_tokens";
+
+        /// <summary>
+        /// The <c>output_truncated</c> attribute namespace.
+        /// </summary>
+        public const string OutputTruncated = "output_truncated";
+
+        /// <summary>
+        /// The <c>overdue_ms</c> attribute namespace.
+        /// </summary>
+        public const string OverdueMs = "overdue_ms";
+
+        /// <summary>
+        /// The <c>overlay_spawn_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string OverlaySpawnWaitMs = "overlay_spawn_wait_ms";
+
+        /// <summary>
+        /// The <c>overlay_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string OverlayWaitMs = "overlay_wait_ms";
+
+        /// <summary>
+        /// The <c>oversize_option</c> attribute namespace.
+        /// </summary>
+        public const string OversizeOption = "oversize_option";
+
+        /// <summary>
+        /// The <c>own_address</c> attribute namespace.
+        /// </summary>
+        public const string OwnAddress = "own_address";
+
+        /// <summary>
+        /// The <c>own_worktree_reattached</c> attribute namespace.
+        /// </summary>
+        public const string OwnWorktreeReattached = "own_worktree_reattached";
+
+        /// <summary>
+        /// The <c>owned_cycle</c> attribute namespace.
+        /// </summary>
+        public const string OwnedCycle = "owned_cycle";
+
+        /// <summary>
+        /// The <c>page_note</c> attribute namespace.
+        /// </summary>
+        public const string PageNote = "page_note";
+
+        /// <summary>
+        /// The <c>page_source</c> attribute namespace.
+        /// </summary>
+        public const string PageSource = "page_source";
+
+        /// <summary>
+        /// The <c>paired_device_count</c> attribute namespace.
+        /// </summary>
+        public const string PairedDeviceCount = "paired_device_count";
+
+        /// <summary>
+        /// The <c>pane_open</c> attribute namespace.
+        /// </summary>
+        public const string PaneOpen = "pane_open";
+
+        /// <summary>
+        /// The <c>pane_visible</c> attribute namespace.
+        /// </summary>
+        public const string PaneVisible = "pane_visible";
+
+        /// <summary>
+        /// The <c>parent</c> attribute namespace.
+        /// </summary>
+        public const string Parent = "parent";
+
+        /// <summary>
+        /// The <c>parent_agent_id</c> attribute namespace.
+        /// </summary>
+        public const string ParentAgentId = "parent_agent_id";
+
+        /// <summary>
+        /// The <c>parent_is_side_session</c> attribute namespace.
+        /// </summary>
+        public const string ParentIsSideSession = "parent_is_side_session";
+
+        /// <summary>
+        /// The <c>parent_session_id</c> attribute namespace.
+        /// </summary>
+        public const string ParentSessionId = "parent_session_id";
+
+        /// <summary>
+        /// The <c>parse_input_len</c> attribute namespace.
+        /// </summary>
+        public const string ParseInputLen = "parse_input_len";
+
+        /// <summary>
+        /// The <c>parse_ms</c> attribute namespace.
+        /// </summary>
+        public const string ParseMs = "parse_ms";
+
+        /// <summary>
+        /// The <c>pass</c> attribute namespace.
+        /// </summary>
+        public const string Pass = "pass";
+
+        /// <summary>
+        /// The <c>pass_trigger</c> attribute namespace.
+        /// </summary>
+        public const string PassTrigger = "pass_trigger";
+
+        /// <summary>
+        /// The <c>path</c> attribute namespace.
+        /// </summary>
+        public const string Path = "path";
+
+        /// <summary>
+        /// The <c>payload_arch</c> attribute namespace.
+        /// </summary>
+        public const string PayloadArch = "payload_arch";
+
+        /// <summary>
+        /// The <c>payload_kind</c> attribute namespace.
+        /// </summary>
+        public const string PayloadKind = "payload_kind";
 
         /// <summary>
         /// The <c>peer</c> attribute namespace.
@@ -431,9 +5811,294 @@ public static class QylAttributes
         public const string Peer = "peer";
 
         /// <summary>
+        /// The <c>pending_count</c> attribute namespace.
+        /// </summary>
+        public const string PendingCount = "pending_count";
+
+        /// <summary>
+        /// The <c>pending_delete</c> attribute namespace.
+        /// </summary>
+        public const string PendingDelete = "pending_delete";
+
+        /// <summary>
+        /// The <c>pending_had_first_response</c> attribute namespace.
+        /// </summary>
+        public const string PendingHadFirstResponse = "pending_had_first_response";
+
+        /// <summary>
+        /// The <c>pending_handlers</c> attribute namespace.
+        /// </summary>
+        public const string PendingHandlers = "pending_handlers";
+
+        /// <summary>
+        /// The <c>pending_hours</c> attribute namespace.
+        /// </summary>
+        public const string PendingHours = "pending_hours";
+
+        /// <summary>
+        /// The <c>pending_minutes</c> attribute namespace.
+        /// </summary>
+        public const string PendingMinutes = "pending_minutes";
+
+        /// <summary>
+        /// The <c>pending_ms</c> attribute namespace.
+        /// </summary>
+        public const string PendingMs = "pending_ms";
+
+        /// <summary>
+        /// The <c>pending_requests</c> attribute namespace.
+        /// </summary>
+        public const string PendingRequests = "pending_requests";
+
+        /// <summary>
+        /// The <c>pending_seconds</c> attribute namespace.
+        /// </summary>
+        public const string PendingSeconds = "pending_seconds";
+
+        /// <summary>
+        /// The <c>pending_unarchive</c> attribute namespace.
+        /// </summary>
+        public const string PendingUnarchive = "pending_unarchive";
+
+        /// <summary>
+        /// The <c>per_message</c> attribute namespace.
+        /// </summary>
+        public const string PerMessage = "per_message";
+
+        /// <summary>
+        /// The <c>period_days</c> attribute namespace.
+        /// </summary>
+        public const string PeriodDays = "period_days";
+
+        /// <summary>
+        /// The <c>permission_mode</c> attribute namespace.
+        /// </summary>
+        public const string PermissionMode = "permission_mode";
+
+        /// <summary>
+        /// The <c>permission_surface</c> attribute namespace.
+        /// </summary>
+        public const string PermissionSurface = "permission_surface";
+
+        /// <summary>
+        /// The <c>permissions</c> attribute namespace.
+        /// </summary>
+        public const string Permissions = "permissions";
+
+        /// <summary>
+        /// The <c>persist_enabled</c> attribute namespace.
+        /// </summary>
+        public const string PersistEnabled = "persist_enabled";
+
+        /// <summary>
+        /// The <c>phase</c> attribute namespace.
+        /// </summary>
+        public const string Phase = "phase";
+
+        /// <summary>
+        /// The <c>picked_files_carried_count</c> attribute namespace.
+        /// </summary>
+        public const string PickedFilesCarriedCount = "picked_files_carried_count";
+
+        /// <summary>
+        /// The <c>ping_ms</c> attribute namespace.
+        /// </summary>
+        public const string PingMs = "ping_ms";
+
+        /// <summary>
+        /// The <c>place</c> attribute namespace.
+        /// </summary>
+        public const string Place = "place";
+
+        /// <summary>
+        /// The <c>plan_call_count</c> attribute namespace.
+        /// </summary>
+        public const string PlanCallCount = "plan_call_count";
+
+        /// <summary>
+        /// The <c>plan_call_count_since_compaction</c> attribute namespace.
+        /// </summary>
+        public const string PlanCallCountSinceCompaction = "plan_call_count_since_compaction";
+
+        /// <summary>
+        /// The <c>plan_open_step_count</c> attribute namespace.
+        /// </summary>
+        public const string PlanOpenStepCount = "plan_open_step_count";
+
+        /// <summary>
+        /// The <c>plane</c> attribute namespace.
+        /// </summary>
+        public const string Plane = "plane";
+
+        /// <summary>
+        /// The <c>planned_count</c> attribute namespace.
+        /// </summary>
+        public const string PlannedCount = "planned_count";
+
+        /// <summary>
+        /// The <c>platform</c> attribute namespace.
+        /// </summary>
+        public const string Platform = "platform";
+
+        /// <summary>
+        /// The <c>plist_scope</c> attribute namespace.
+        /// </summary>
+        public const string PlistScope = "plist_scope";
+
+        /// <summary>
+        /// The <c>plugin</c> attribute namespace.
+        /// </summary>
+        public const string Plugin = "plugin";
+
+        /// <summary>
+        /// The <c>plugin_count</c> attribute namespace.
+        /// </summary>
+        public const string PluginCount = "plugin_count";
+
+        /// <summary>
+        /// The <c>plugin_delivery</c> attribute namespace.
+        /// </summary>
+        public const string PluginDelivery = "plugin_delivery";
+
+        /// <summary>
+        /// The <c>plugin_dir_count</c> attribute namespace.
+        /// </summary>
+        public const string PluginDirCount = "plugin_dir_count";
+
+        /// <summary>
+        /// The <c>plugin_id</c> attribute namespace.
+        /// </summary>
+        public const string PluginId = "plugin_id";
+
+        /// <summary>
+        /// The <c>plugin_id_hash</c> attribute namespace.
+        /// </summary>
+        public const string PluginIdHash = "plugin_id_hash";
+
+        /// <summary>
+        /// The <c>plugin_mcp_connector_twin_by_name_count</c> attribute namespace.
+        /// </summary>
+        public const string PluginMcpConnectorTwinByNameCount = "plugin_mcp_connector_twin_by_name_count";
+
+        /// <summary>
+        /// The <c>plugin_mcp_connector_twin_count</c> attribute namespace.
+        /// </summary>
+        public const string PluginMcpConnectorTwinCount = "plugin_mcp_connector_twin_count";
+
+        /// <summary>
+        /// The <c>plugin_uuid</c> attribute namespace.
+        /// </summary>
+        public const string PluginUuid = "plugin_uuid";
+
+        /// <summary>
+        /// The <c>point_count</c> attribute namespace.
+        /// </summary>
+        public const string PointCount = "point_count";
+
+        /// <summary>
+        /// The <c>policy_blocked</c> attribute namespace.
+        /// </summary>
+        public const string PolicyBlocked = "policy_blocked";
+
+        /// <summary>
+        /// The <c>policy_gate_passed</c> attribute namespace.
+        /// </summary>
+        public const string PolicyGatePassed = "policy_gate_passed";
+
+        /// <summary>
+        /// The <c>poll_ms_p50</c> attribute namespace.
+        /// </summary>
+        public const string PollMsP50 = "poll_ms_p50";
+
+        /// <summary>
+        /// The <c>poll_ms_p95</c> attribute namespace.
+        /// </summary>
+        public const string PollMsP95 = "poll_ms_p95";
+
+        /// <summary>
         /// The <c>pool</c> attribute namespace.
         /// </summary>
         public const string Pool = "pool";
+
+        /// <summary>
+        /// The <c>pool_busy_skips</c> attribute namespace.
+        /// </summary>
+        public const string PoolBusySkips = "pool_busy_skips";
+
+        /// <summary>
+        /// The <c>pool_cached_unclean</c> attribute namespace.
+        /// </summary>
+        public const string PoolCachedUnclean = "pool_cached_unclean";
+
+        /// <summary>
+        /// The <c>pool_candidates</c> attribute namespace.
+        /// </summary>
+        public const string PoolCandidates = "pool_candidates";
+
+        /// <summary>
+        /// The <c>pool_deferred</c> attribute namespace.
+        /// </summary>
+        public const string PoolDeferred = "pool_deferred";
+
+        /// <summary>
+        /// The <c>pool_indeterminate</c> attribute namespace.
+        /// </summary>
+        public const string PoolIndeterminate = "pool_indeterminate";
+
+        /// <summary>
+        /// The <c>pool_ms</c> attribute namespace.
+        /// </summary>
+        public const string PoolMs = "pool_ms";
+
+        /// <summary>
+        /// The <c>pool_outcome</c> attribute namespace.
+        /// </summary>
+        public const string PoolOutcome = "pool_outcome";
+
+        /// <summary>
+        /// The <c>pool_probes</c> attribute namespace.
+        /// </summary>
+        public const string PoolProbes = "pool_probes";
+
+        /// <summary>
+        /// The <c>pool_rebind_attempts</c> attribute namespace.
+        /// </summary>
+        public const string PoolRebindAttempts = "pool_rebind_attempts";
+
+        /// <summary>
+        /// The <c>pool_rebind_ms</c> attribute namespace.
+        /// </summary>
+        public const string PoolRebindMs = "pool_rebind_ms";
+
+        /// <summary>
+        /// The <c>pool_refused</c> attribute namespace.
+        /// </summary>
+        public const string PoolRefused = "pool_refused";
+
+        /// <summary>
+        /// The <c>pool_trusted</c> attribute namespace.
+        /// </summary>
+        public const string PoolTrusted = "pool_trusted";
+
+        /// <summary>
+        /// The <c>pool_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string PoolWaitMs = "pool_wait_ms";
+
+        /// <summary>
+        /// The <c>post_checkout_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string PostCheckoutWaitMs = "post_checkout_wait_ms";
+
+        /// <summary>
+        /// The <c>post_tokens</c> attribute namespace.
+        /// </summary>
+        public const string PostTokens = "post_tokens";
+
+        /// <summary>
+        /// The <c>posted_count</c> attribute namespace.
+        /// </summary>
+        public const string PostedCount = "posted_count";
 
         /// <summary>
         /// The <c>pprof</c> attribute namespace.
@@ -441,9 +6106,254 @@ public static class QylAttributes
         public const string Pprof = "pprof";
 
         /// <summary>
+        /// The <c>pr_count</c> attribute namespace.
+        /// </summary>
+        public const string PrCount = "pr_count";
+
+        /// <summary>
+        /// The <c>pr_state</c> attribute namespace.
+        /// </summary>
+        public const string PrState = "pr_state";
+
+        /// <summary>
+        /// The <c>pr_state_fail_auth_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailAuthCount = "pr_state_fail_auth_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_forbidden_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailForbiddenCount = "pr_state_fail_forbidden_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_forbidden_saml_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailForbiddenSamlCount = "pr_state_fail_forbidden_saml_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_network_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailNetworkCount = "pr_state_fail_network_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_not_found_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailNotFoundCount = "pr_state_fail_not_found_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_rate_limit_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailRateLimitCount = "pr_state_fail_rate_limit_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_rate_limit_held_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailRateLimitHeldCount = "pr_state_fail_rate_limit_held_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_unavailable_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailUnavailableCount = "pr_state_fail_unavailable_count";
+
+        /// <summary>
+        /// The <c>pr_state_fail_unknown_count</c> attribute namespace.
+        /// </summary>
+        public const string PrStateFailUnknownCount = "pr_state_fail_unknown_count";
+
+        /// <summary>
+        /// The <c>pr_tool</c> attribute namespace.
+        /// </summary>
+        public const string PrTool = "pr_tool";
+
+        /// <summary>
+        /// The <c>pre_tokens</c> attribute namespace.
+        /// </summary>
+        public const string PreTokens = "pre_tokens";
+
+        /// <summary>
+        /// The <c>precompute_reuse</c> attribute namespace.
+        /// </summary>
+        public const string PrecomputeReuse = "precompute_reuse";
+
+        /// <summary>
+        /// The <c>prefix_parity</c> attribute namespace.
+        /// </summary>
+        public const string PrefixParity = "prefix_parity";
+
+        /// <summary>
+        /// The <c>preflight_ms</c> attribute namespace.
+        /// </summary>
+        public const string PreflightMs = "preflight_ms";
+
+        /// <summary>
+        /// The <c>prep_ms</c> attribute namespace.
+        /// </summary>
+        public const string PrepMs = "prep_ms";
+
+        /// <summary>
+        /// The <c>prepare_ms</c> attribute namespace.
+        /// </summary>
+        public const string PrepareMs = "prepare_ms";
+
+        /// <summary>
+        /// The <c>preprobe_hurried</c> attribute namespace.
+        /// </summary>
+        public const string PreprobeHurried = "preprobe_hurried";
+
+        /// <summary>
+        /// The <c>preprobe_via</c> attribute namespace.
+        /// </summary>
+        public const string PreprobeVia = "preprobe_via";
+
+        /// <summary>
+        /// The <c>presence</c> attribute namespace.
+        /// </summary>
+        public const string Presence = "presence";
+
+        /// <summary>
+        /// The <c>present_failures</c> attribute namespace.
+        /// </summary>
+        public const string PresentFailures = "present_failures";
+
+        /// <summary>
+        /// The <c>presentation_delay_ms</c> attribute namespace.
+        /// </summary>
+        public const string PresentationDelayMs = "presentation_delay_ms";
+
+        /// <summary>
+        /// The <c>press_lead_ms</c> attribute namespace.
+        /// </summary>
+        public const string PressLeadMs = "press_lead_ms";
+
+        /// <summary>
+        /// The <c>prev_reason</c> attribute namespace.
+        /// </summary>
+        public const string PrevReason = "prev_reason";
+
+        /// <summary>
+        /// The <c>previous_cwd</c> attribute namespace.
+        /// </summary>
+        public const string PreviousCwd = "previous_cwd";
+
+        /// <summary>
+        /// The <c>previous_quit_clean</c> attribute namespace.
+        /// </summary>
+        public const string PreviousQuitClean = "previous_quit_clean";
+
+        /// <summary>
+        /// The <c>previous_title_source</c> attribute namespace.
+        /// </summary>
+        public const string PreviousTitleSource = "previous_title_source";
+
+        /// <summary>
+        /// The <c>previous_value</c> attribute namespace.
+        /// </summary>
+        public const string PreviousValue = "previous_value";
+
+        /// <summary>
+        /// The <c>prewarm</c> attribute namespace.
+        /// </summary>
+        public const string Prewarm = "prewarm";
+
+        /// <summary>
+        /// The <c>prewarm_kind</c> attribute namespace.
+        /// </summary>
+        public const string PrewarmKind = "prewarm_kind";
+
+        /// <summary>
+        /// The <c>prewarm_lead_ms</c> attribute namespace.
+        /// </summary>
+        public const string PrewarmLeadMs = "prewarm_lead_ms";
+
+        /// <summary>
+        /// The <c>print_call</c> attribute namespace.
+        /// </summary>
+        public const string PrintCall = "print_call";
+
+        /// <summary>
+        /// The <c>print_call_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string PrintCallAgeMs = "print_call_age_ms";
+
+        /// <summary>
+        /// The <c>prior_asides</c> attribute namespace.
+        /// </summary>
+        public const string PriorAsides = "prior_asides";
+
+        /// <summary>
+        /// The <c>prior_installation_attempts</c> attribute namespace.
+        /// </summary>
+        public const string PriorInstallationAttempts = "prior_installation_attempts";
+
+        /// <summary>
+        /// The <c>prior_loss_how</c> attribute namespace.
+        /// </summary>
+        public const string PriorLossHow = "prior_loss_how";
+
+        /// <summary>
+        /// The <c>probe</c> attribute namespace.
+        /// </summary>
+        public const string Probe = "probe";
+
+        /// <summary>
+        /// The <c>probe_answers</c> attribute namespace.
+        /// </summary>
+        public const string ProbeAnswers = "probe_answers";
+
+        /// <summary>
+        /// The <c>probe_ms</c> attribute namespace.
+        /// </summary>
+        public const string ProbeMs = "probe_ms";
+
+        /// <summary>
+        /// The <c>probe_result</c> attribute namespace.
+        /// </summary>
+        public const string ProbeResult = "probe_result";
+
+        /// <summary>
+        /// The <c>probe_trigger</c> attribute namespace.
+        /// </summary>
+        public const string ProbeTrigger = "probe_trigger";
+
+        /// <summary>
+        /// The <c>probed</c> attribute namespace.
+        /// </summary>
+        public const string Probed = "probed";
+
+        /// <summary>
+        /// The <c>probed_height</c> attribute namespace.
+        /// </summary>
+        public const string ProbedHeight = "probed_height";
+
+        /// <summary>
+        /// The <c>probed_width</c> attribute namespace.
+        /// </summary>
+        public const string ProbedWidth = "probed_width";
+
+        /// <summary>
+        /// The <c>probes</c> attribute namespace.
+        /// </summary>
+        public const string Probes = "probes";
+
+        /// <summary>
         /// The <c>process</c> attribute namespace.
         /// </summary>
         public const string Process = "process";
+
+        /// <summary>
+        /// The <c>process_instance_known</c> attribute namespace.
+        /// </summary>
+        public const string ProcessInstanceKnown = "process_instance_known";
+
+        /// <summary>
+        /// The <c>processing_ms</c> attribute namespace.
+        /// </summary>
+        public const string ProcessingMs = "processing_ms";
+
+        /// <summary>
+        /// The <c>product</c> attribute namespace.
+        /// </summary>
+        public const string Product = "product";
 
         /// <summary>
         /// The <c>profile</c> attribute namespace.
@@ -451,9 +6361,214 @@ public static class QylAttributes
         public const string Profile = "profile";
 
         /// <summary>
+        /// The <c>project_dropped</c> attribute namespace.
+        /// </summary>
+        public const string ProjectDropped = "project_dropped";
+
+        /// <summary>
+        /// The <c>projects</c> attribute namespace.
+        /// </summary>
+        public const string Projects = "projects";
+
+        /// <summary>
+        /// The <c>promoted_by_ios_intent</c> attribute namespace.
+        /// </summary>
+        public const string PromotedByIosIntent = "promoted_by_ios_intent";
+
+        /// <summary>
+        /// The <c>prompt</c> attribute namespace.
+        /// </summary>
+        public const string Prompt = "prompt";
+
+        /// <summary>
+        /// The <c>prompt_append_source</c> attribute namespace.
+        /// </summary>
+        public const string PromptAppendSource = "prompt_append_source";
+
+        /// <summary>
+        /// The <c>prompt_asker</c> attribute namespace.
+        /// </summary>
+        public const string PromptAsker = "prompt_asker";
+
+        /// <summary>
+        /// The <c>prompt_cache_likely_expired</c> attribute namespace.
+        /// </summary>
+        public const string PromptCacheLikelyExpired = "prompt_cache_likely_expired";
+
+        /// <summary>
+        /// The <c>prompt_kind</c> attribute namespace.
+        /// </summary>
+        public const string PromptKind = "prompt_kind";
+
+        /// <summary>
+        /// The <c>prompt_length</c> attribute namespace.
+        /// </summary>
+        public const string PromptLength = "prompt_length";
+
+        /// <summary>
+        /// The <c>prompt_lifecycle</c> attribute namespace.
+        /// </summary>
+        public const string PromptLifecycle = "prompt_lifecycle";
+
+        /// <summary>
+        /// The <c>prompt_origin</c> attribute namespace.
+        /// </summary>
+        public const string PromptOrigin = "prompt_origin";
+
+        /// <summary>
+        /// The <c>prompt_outcome</c> attribute namespace.
+        /// </summary>
+        public const string PromptOutcome = "prompt_outcome";
+
+        /// <summary>
+        /// The <c>prompt_rendered</c> attribute namespace.
+        /// </summary>
+        public const string PromptRendered = "prompt_rendered";
+
+        /// <summary>
+        /// The <c>prompt_suggestions_requested</c> attribute namespace.
+        /// </summary>
+        public const string PromptSuggestionsRequested = "prompt_suggestions_requested";
+
+        /// <summary>
+        /// The <c>prompt_text</c> attribute namespace.
+        /// </summary>
+        public const string PromptText = "prompt_text";
+
+        /// <summary>
+        /// The <c>proof_kind</c> attribute namespace.
+        /// </summary>
+        public const string ProofKind = "proof_kind";
+
+        /// <summary>
+        /// The <c>proposal</c> attribute namespace.
+        /// </summary>
+        public const string Proposal = "proposal";
+
+        /// <summary>
+        /// The <c>proposal_id_present</c> attribute namespace.
+        /// </summary>
+        public const string ProposalIdPresent = "proposal_id_present";
+
+        /// <summary>
+        /// The <c>proposed_context</c> attribute namespace.
+        /// </summary>
+        public const string ProposedContext = "proposed_context";
+
+        /// <summary>
+        /// The <c>proposed_title_chars</c> attribute namespace.
+        /// </summary>
+        public const string ProposedTitleChars = "proposed_title_chars";
+
+        /// <summary>
+        /// The <c>protected_taken_count</c> attribute namespace.
+        /// </summary>
+        public const string ProtectedTakenCount = "protected_taken_count";
+
+        /// <summary>
+        /// The <c>provenance</c> attribute namespace.
+        /// </summary>
+        public const string Provenance = "provenance";
+
+        /// <summary>
+        /// The <c>provider</c> attribute namespace.
+        /// </summary>
+        public const string Provider = "provider";
+
+        /// <summary>
+        /// The <c>proxy_diagnostic</c> attribute namespace.
+        /// </summary>
+        public const string ProxyDiagnostic = "proxy_diagnostic";
+
+        /// <summary>
+        /// The <c>proxy_key</c> attribute namespace.
+        /// </summary>
+        public const string ProxyKey = "proxy_key";
+
+        /// <summary>
+        /// The <c>prune_skipped_late_read_failed</c> attribute namespace.
+        /// </summary>
+        public const string PruneSkippedLateReadFailed = "prune_skipped_late_read_failed";
+
+        /// <summary>
+        /// The <c>pruned_disabled</c> attribute namespace.
+        /// </summary>
+        public const string PrunedDisabled = "pruned_disabled";
+
+        /// <summary>
         /// The <c>quartz</c> attribute namespace.
         /// </summary>
         public const string Quartz = "quartz";
+
+        /// <summary>
+        /// The <c>query_kind</c> attribute namespace.
+        /// </summary>
+        public const string QueryKind = "query_kind";
+
+        /// <summary>
+        /// The <c>query_ms</c> attribute namespace.
+        /// </summary>
+        public const string QueryMs = "query_ms";
+
+        /// <summary>
+        /// The <c>query_source</c> attribute namespace.
+        /// </summary>
+        public const string QuerySource = "query_source";
+
+        /// <summary>
+        /// The <c>query_source_safe</c> attribute namespace.
+        /// </summary>
+        public const string QuerySourceSafe = "query_source_safe";
+
+        /// <summary>
+        /// The <c>queue_length</c> attribute namespace.
+        /// </summary>
+        public const string QueueLength = "queue_length";
+
+        /// <summary>
+        /// The <c>queued_message_bar</c> attribute namespace.
+        /// </summary>
+        public const string QueuedMessageBar = "queued_message_bar";
+
+        /// <summary>
+        /// The <c>queued_sends</c> attribute namespace.
+        /// </summary>
+        public const string QueuedSends = "queued_sends";
+
+        /// <summary>
+        /// The <c>quick_entry_images</c> attribute namespace.
+        /// </summary>
+        public const string QuickEntryImages = "quick_entry_images";
+
+        /// <summary>
+        /// The <c>quick_entry_length</c> attribute namespace.
+        /// </summary>
+        public const string QuickEntryLength = "quick_entry_length";
+
+        /// <summary>
+        /// The <c>quiet_bucket</c> attribute namespace.
+        /// </summary>
+        public const string QuietBucket = "quiet_bucket";
+
+        /// <summary>
+        /// The <c>quiet_recovery</c> attribute namespace.
+        /// </summary>
+        public const string QuietRecovery = "quiet_recovery";
+
+        /// <summary>
+        /// The <c>quit_after_loss_ms</c> attribute namespace.
+        /// </summary>
+        public const string QuitAfterLossMs = "quit_after_loss_ms";
+
+        /// <summary>
+        /// The <c>quit_death_count</c> attribute namespace.
+        /// </summary>
+        public const string QuitDeathCount = "quit_death_count";
+
+        /// <summary>
+        /// The <c>quoted_chars</c> attribute namespace.
+        /// </summary>
+        public const string QuotedChars = "quoted_chars";
 
         /// <summary>
         /// The <c>qyl</c> attribute namespace.
@@ -461,9 +6576,989 @@ public static class QylAttributes
         public const string Qyl = "qyl";
 
         /// <summary>
+        /// The <c>rate_limited_count</c> attribute namespace.
+        /// </summary>
+        public const string RateLimitedCount = "rate_limited_count";
+
+        /// <summary>
+        /// The <c>rate_limited_held_count</c> attribute namespace.
+        /// </summary>
+        public const string RateLimitedHeldCount = "rate_limited_held_count";
+
+        /// <summary>
+        /// The <c>ratelimit_remaining</c> attribute namespace.
+        /// </summary>
+        public const string RatelimitRemaining = "ratelimit_remaining";
+
+        /// <summary>
+        /// The <c>ratelimit_reset_seconds</c> attribute namespace.
+        /// </summary>
+        public const string RatelimitResetSeconds = "ratelimit_reset_seconds";
+
+        /// <summary>
+        /// The <c>ratelimit_used</c> attribute namespace.
+        /// </summary>
+        public const string RatelimitUsed = "ratelimit_used";
+
+        /// <summary>
+        /// The <c>raw_output</c> attribute namespace.
+        /// </summary>
+        public const string RawOutput = "raw_output";
+
+        /// <summary>
+        /// The <c>rc_intent</c> attribute namespace.
+        /// </summary>
+        public const string RcIntent = "rc_intent";
+
+        /// <summary>
+        /// The <c>rc_policy_bridge_yielded</c> attribute namespace.
+        /// </summary>
+        public const string RcPolicyBridgeYielded = "rc_policy_bridge_yielded";
+
+        /// <summary>
+        /// The <c>rc_reconciled</c> attribute namespace.
+        /// </summary>
+        public const string RcReconciled = "rc_reconciled";
+
+        /// <summary>
+        /// The <c>rc_recorded</c> attribute namespace.
+        /// </summary>
+        public const string RcRecorded = "rc_recorded";
+
+        /// <summary>
+        /// The <c>rc_roundtrip_ms</c> attribute namespace.
+        /// </summary>
+        public const string RcRoundtripMs = "rc_roundtrip_ms";
+
+        /// <summary>
+        /// The <c>rc_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string RcWaitMs = "rc_wait_ms";
+
+        /// <summary>
+        /// The <c>re_alert</c> attribute namespace.
+        /// </summary>
+        public const string ReAlert = "re_alert";
+
+        /// <summary>
+        /// The <c>re_leased_from_pool</c> attribute namespace.
+        /// </summary>
+        public const string ReLeasedFromPool = "re_leased_from_pool";
+
+        /// <summary>
+        /// The <c>read_ms</c> attribute namespace.
+        /// </summary>
+        public const string ReadMs = "read_ms";
+
+        /// <summary>
+        /// The <c>read_only_mark_count</c> attribute namespace.
+        /// </summary>
+        public const string ReadOnlyMarkCount = "read_only_mark_count";
+
+        /// <summary>
+        /// The <c>reads</c> attribute namespace.
+        /// </summary>
+        public const string Reads = "reads";
+
+        /// <summary>
+        /// The <c>reads_cap_limited</c> attribute namespace.
+        /// </summary>
+        public const string ReadsCapLimited = "reads_cap_limited";
+
+        /// <summary>
+        /// The <c>ready</c> attribute namespace.
+        /// </summary>
+        public const string Ready = "ready";
+
+        /// <summary>
+        /// The <c>ready_ms</c> attribute namespace.
+        /// </summary>
+        public const string ReadyMs = "ready_ms";
+
+        /// <summary>
+        /// The <c>reaped_count</c> attribute namespace.
+        /// </summary>
+        public const string ReapedCount = "reaped_count";
+
+        /// <summary>
+        /// The <c>reason</c> attribute namespace.
+        /// </summary>
+        public const string Reason = "reason";
+
+        /// <summary>
+        /// The <c>reason_detail</c> attribute namespace.
+        /// </summary>
+        public const string ReasonDetail = "reason_detail";
+
+        /// <summary>
+        /// The <c>reattach_answer_ms</c> attribute namespace.
+        /// </summary>
+        public const string ReattachAnswerMs = "reattach_answer_ms";
+
+        /// <summary>
+        /// The <c>reattach_auth</c> attribute namespace.
+        /// </summary>
+        public const string ReattachAuth = "reattach_auth";
+
+        /// <summary>
+        /// The <c>reattach_failed_reason</c> attribute namespace.
+        /// </summary>
+        public const string ReattachFailedReason = "reattach_failed_reason";
+
+        /// <summary>
+        /// The <c>reattach_ms</c> attribute namespace.
+        /// </summary>
+        public const string ReattachMs = "reattach_ms";
+
+        /// <summary>
+        /// The <c>reattach_silent_retries</c> attribute namespace.
+        /// </summary>
+        public const string ReattachSilentRetries = "reattach_silent_retries";
+
+        /// <summary>
+        /// The <c>recap_chars</c> attribute namespace.
+        /// </summary>
+        public const string RecapChars = "recap_chars";
+
+        /// <summary>
+        /// The <c>recap_chars_raw</c> attribute namespace.
+        /// </summary>
+        public const string RecapCharsRaw = "recap_chars_raw";
+
+        /// <summary>
+        /// The <c>recent_artifact_click</c> attribute namespace.
+        /// </summary>
+        public const string RecentArtifactClick = "recent_artifact_click";
+
+        /// <summary>
+        /// The <c>reconnected</c> attribute namespace.
+        /// </summary>
+        public const string Reconnected = "reconnected";
+
+        /// <summary>
+        /// The <c>record_synced</c> attribute namespace.
+        /// </summary>
+        public const string RecordSynced = "record_synced";
+
+        /// <summary>
+        /// The <c>recorded</c> attribute namespace.
+        /// </summary>
+        public const string Recorded = "recorded";
+
+        /// <summary>
+        /// The <c>recovered</c> attribute namespace.
+        /// </summary>
+        public const string Recovered = "recovered";
+
+        /// <summary>
+        /// The <c>recovery_granted_ms_ago</c> attribute namespace.
+        /// </summary>
+        public const string RecoveryGrantedMsAgo = "recovery_granted_ms_ago";
+
+        /// <summary>
+        /// The <c>recreate_cause</c> attribute namespace.
+        /// </summary>
+        public const string RecreateCause = "recreate_cause";
+
+        /// <summary>
+        /// The <c>recreate_outcome</c> attribute namespace.
+        /// </summary>
+        public const string RecreateOutcome = "recreate_outcome";
+
+        /// <summary>
+        /// The <c>redial_after_sleep</c> attribute namespace.
+        /// </summary>
+        public const string RedialAfterSleep = "redial_after_sleep";
+
+        /// <summary>
+        /// The <c>redial_after_sleep_seq</c> attribute namespace.
+        /// </summary>
+        public const string RedialAfterSleepSeq = "redial_after_sleep_seq";
+
+        /// <summary>
+        /// The <c>redial_presence</c> attribute namespace.
+        /// </summary>
+        public const string RedialPresence = "redial_presence";
+
+        /// <summary>
+        /// The <c>redial_seq</c> attribute namespace.
+        /// </summary>
+        public const string RedialSeq = "redial_seq";
+
+        /// <summary>
+        /// The <c>redirect_vendor</c> attribute namespace.
+        /// </summary>
+        public const string RedirectVendor = "redirect_vendor";
+
+        /// <summary>
+        /// The <c>refusal</c> attribute namespace.
+        /// </summary>
+        public const string Refusal = "refusal";
+
+        /// <summary>
+        /// The <c>refusal_reason</c> attribute namespace.
+        /// </summary>
+        public const string RefusalReason = "refusal_reason";
+
+        /// <summary>
+        /// The <c>refused_other</c> attribute namespace.
+        /// </summary>
+        public const string RefusedOther = "refused_other";
+
+        /// <summary>
+        /// The <c>refused_route</c> attribute namespace.
+        /// </summary>
+        public const string RefusedRoute = "refused_route";
+
+        /// <summary>
+        /// The <c>registry_plugin_count</c> attribute namespace.
+        /// </summary>
+        public const string RegistryPluginCount = "registry_plugin_count";
+
+        /// <summary>
+        /// The <c>rejected_model</c> attribute namespace.
+        /// </summary>
+        public const string RejectedModel = "rejected_model";
+
+        /// <summary>
+        /// The <c>release_reason</c> attribute namespace.
+        /// </summary>
+        public const string ReleaseReason = "release_reason";
+
+        /// <summary>
+        /// The <c>released_by</c> attribute namespace.
+        /// </summary>
+        public const string ReleasedBy = "released_by";
+
+        /// <summary>
+        /// The <c>reload_attempt</c> attribute namespace.
+        /// </summary>
+        public const string ReloadAttempt = "reload_attempt";
+
+        /// <summary>
+        /// The <c>relocated_config</c> attribute namespace.
+        /// </summary>
+        public const string RelocatedConfig = "relocated_config";
+
+        /// <summary>
+        /// The <c>remaining</c> attribute namespace.
+        /// </summary>
+        public const string Remaining = "remaining";
+
+        /// <summary>
+        /// The <c>remote</c> attribute namespace.
+        /// </summary>
+        public const string Remote = "remote";
+
+        /// <summary>
+        /// The <c>remote_control_on</c> attribute namespace.
+        /// </summary>
+        public const string RemoteControlOn = "remote_control_on";
+
+        /// <summary>
+        /// The <c>remote_control_user_owned</c> attribute namespace.
+        /// </summary>
+        public const string RemoteControlUserOwned = "remote_control_user_owned";
+
+        /// <summary>
+        /// The <c>remote_control_was_on</c> attribute namespace.
+        /// </summary>
+        public const string RemoteControlWasOn = "remote_control_was_on";
+
+        /// <summary>
+        /// The <c>remote_cwd_probe_ms</c> attribute namespace.
+        /// </summary>
+        public const string RemoteCwdProbeMs = "remote_cwd_probe_ms";
+
+        /// <summary>
+        /// The <c>remote_folder</c> attribute namespace.
+        /// </summary>
+        public const string RemoteFolder = "remote_folder";
+
+        /// <summary>
+        /// The <c>remote_scheduled_tasks_enabled</c> attribute namespace.
+        /// </summary>
+        public const string RemoteScheduledTasksEnabled = "remote_scheduled_tasks_enabled";
+
+        /// <summary>
+        /// The <c>remote_session_store_load_failed</c> attribute namespace.
+        /// </summary>
+        public const string RemoteSessionStoreLoadFailed = "remote_session_store_load_failed";
+
+        /// <summary>
+        /// The <c>removed</c> attribute namespace.
+        /// </summary>
+        public const string Removed = "removed";
+
+        /// <summary>
+        /// The <c>removed_count</c> attribute namespace.
+        /// </summary>
+        public const string RemovedCount = "removed_count";
+
+        /// <summary>
+        /// The <c>removed_job</c> attribute namespace.
+        /// </summary>
+        public const string RemovedJob = "removed_job";
+
+        /// <summary>
+        /// The <c>renderer</c> attribute namespace.
+        /// </summary>
+        public const string Renderer = "renderer";
+
+        /// <summary>
+        /// The <c>renderer_build_id</c> attribute namespace.
+        /// </summary>
+        public const string RendererBuildId = "renderer_build_id";
+
+        /// <summary>
+        /// The <c>renderer_surface</c> attribute namespace.
+        /// </summary>
+        public const string RendererSurface = "renderer_surface";
+
+        /// <summary>
+        /// The <c>renewed</c> attribute namespace.
+        /// </summary>
+        public const string Renewed = "renewed";
+
+        /// <summary>
+        /// The <c>repair_shown</c> attribute namespace.
+        /// </summary>
+        public const string RepairShown = "repair_shown";
+
+        /// <summary>
+        /// The <c>replaced_by</c> attribute namespace.
+        /// </summary>
+        public const string ReplacedBy = "replaced_by";
+
+        /// <summary>
+        /// The <c>replaces_message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string ReplacesMessageUuid = "replaces_message_uuid";
+
+        /// <summary>
+        /// The <c>replay</c> attribute namespace.
+        /// </summary>
+        public const string Replay = "replay";
+
+        /// <summary>
+        /// The <c>replayed_bytes</c> attribute namespace.
+        /// </summary>
+        public const string ReplayedBytes = "replayed_bytes";
+
+        /// <summary>
+        /// The <c>replayed_frames</c> attribute namespace.
+        /// </summary>
+        public const string ReplayedFrames = "replayed_frames";
+
+        /// <summary>
+        /// The <c>replays</c> attribute namespace.
+        /// </summary>
+        public const string Replays = "replays";
+
+        /// <summary>
+        /// The <c>replays_after_drop</c> attribute namespace.
+        /// </summary>
+        public const string ReplaysAfterDrop = "replays_after_drop";
+
+        /// <summary>
+        /// The <c>reply_chars</c> attribute namespace.
+        /// </summary>
+        public const string ReplyChars = "reply_chars";
+
+        /// <summary>
+        /// The <c>repo_kind</c> attribute namespace.
+        /// </summary>
+        public const string RepoKind = "repo_kind";
+
+        /// <summary>
+        /// The <c>reported_cli_kind</c> attribute namespace.
+        /// </summary>
+        public const string ReportedCliKind = "reported_cli_kind";
+
+        /// <summary>
+        /// The <c>reported_cli_version</c> attribute namespace.
+        /// </summary>
+        public const string ReportedCliVersion = "reported_cli_version";
+
+        /// <summary>
+        /// The <c>request_body_id</c> attribute namespace.
+        /// </summary>
+        public const string RequestBodyId = "request_body_id";
+
+        /// <summary>
+        /// The <c>request_id</c> attribute namespace.
+        /// </summary>
+        public const string RequestId = "request_id";
+
+        /// <summary>
+        /// The <c>requested</c> attribute namespace.
+        /// </summary>
+        public const string Requested = "requested";
+
+        /// <summary>
+        /// The <c>requested_lead_time_ms</c> attribute namespace.
+        /// </summary>
+        public const string RequestedLeadTimeMs = "requested_lead_time_ms";
+
+        /// <summary>
+        /// The <c>requested_level</c> attribute namespace.
+        /// </summary>
+        public const string RequestedLevel = "requested_level";
+
+        /// <summary>
+        /// The <c>requested_mode</c> attribute namespace.
+        /// </summary>
+        public const string RequestedMode = "requested_mode";
+
+        /// <summary>
+        /// The <c>requesting_site</c> attribute namespace.
+        /// </summary>
+        public const string RequestingSite = "requesting_site";
+
+        /// <summary>
+        /// The <c>required_version</c> attribute namespace.
+        /// </summary>
+        public const string RequiredVersion = "required_version";
+
+        /// <summary>
+        /// The <c>requires_computer_gate_blocked_count</c> attribute namespace.
+        /// </summary>
+        public const string RequiresComputerGateBlockedCount = "requires_computer_gate_blocked_count";
+
+        /// <summary>
+        /// The <c>requires_computer_insufficient_observation_count</c> attribute namespace.
+        /// </summary>
+        public const string RequiresComputerInsufficientObservationCount = "requires_computer_insufficient_observation_count";
+
+        /// <summary>
+        /// The <c>requires_computer_no_fresh_record_count</c> attribute namespace.
+        /// </summary>
+        public const string RequiresComputerNoFreshRecordCount = "requires_computer_no_fresh_record_count";
+
+        /// <summary>
+        /// The <c>resolution</c> attribute namespace.
+        /// </summary>
+        public const string Resolution = "resolution";
+
+        /// <summary>
+        /// The <c>resolve_ms</c> attribute namespace.
+        /// </summary>
+        public const string ResolveMs = "resolve_ms";
+
+        /// <summary>
+        /// The <c>resolved</c> attribute namespace.
+        /// </summary>
+        public const string Resolved = "resolved";
+
+        /// <summary>
+        /// The <c>resolved_person_holds</c> attribute namespace.
+        /// </summary>
+        public const string ResolvedPersonHolds = "resolved_person_holds";
+
+        /// <summary>
+        /// The <c>resolved_version</c> attribute namespace.
+        /// </summary>
+        public const string ResolvedVersion = "resolved_version";
+
+        /// <summary>
+        /// The <c>resource_type</c> attribute namespace.
+        /// </summary>
+        public const string ResourceType = "resource_type";
+
+        /// <summary>
+        /// The <c>response</c> attribute namespace.
+        /// </summary>
+        public const string Response = "response";
+
+        /// <summary>
+        /// The <c>response_length</c> attribute namespace.
+        /// </summary>
+        public const string ResponseLength = "response_length";
+
+        /// <summary>
+        /// The <c>rest_200_conditional_count</c> attribute namespace.
+        /// </summary>
+        public const string Rest200ConditionalCount = "rest_200_conditional_count";
+
+        /// <summary>
+        /// The <c>rest_200_unconditional_count</c> attribute namespace.
+        /// </summary>
+        public const string Rest200UnconditionalCount = "rest_200_unconditional_count";
+
+        /// <summary>
+        /// The <c>rest_304_by_endpoint</c> attribute namespace.
+        /// </summary>
+        public const string Rest304ByEndpoint = "rest_304_by_endpoint";
+
+        /// <summary>
+        /// The <c>rest_304_count</c> attribute namespace.
+        /// </summary>
+        public const string Rest304Count = "rest_304_count";
+
+        /// <summary>
+        /// The <c>rest_4xx_count</c> attribute namespace.
+        /// </summary>
+        public const string Rest4xxCount = "rest_4xx_count";
+
+        /// <summary>
+        /// The <c>rest_5xx_count</c> attribute namespace.
+        /// </summary>
+        public const string Rest5xxCount = "rest_5xx_count";
+
+        /// <summary>
+        /// The <c>rest_checks_fetch_count</c> attribute namespace.
+        /// </summary>
+        public const string RestChecksFetchCount = "rest_checks_fetch_count";
+
+        /// <summary>
+        /// The <c>rest_ratelimit_remaining</c> attribute namespace.
+        /// </summary>
+        public const string RestRatelimitRemaining = "rest_ratelimit_remaining";
+
+        /// <summary>
+        /// The <c>rest_ratelimit_used</c> attribute namespace.
+        /// </summary>
+        public const string RestRatelimitUsed = "rest_ratelimit_used";
+
+        /// <summary>
+        /// The <c>rest_read_by_endpoint</c> attribute namespace.
+        /// </summary>
+        public const string RestReadByEndpoint = "rest_read_by_endpoint";
+
+        /// <summary>
+        /// The <c>rest_routed_row_count</c> attribute namespace.
+        /// </summary>
+        public const string RestRoutedRowCount = "rest_routed_row_count";
+
+        /// <summary>
+        /// The <c>restored</c> attribute namespace.
+        /// </summary>
+        public const string Restored = "restored";
+
+        /// <summary>
+        /// The <c>result</c> attribute namespace.
+        /// </summary>
+        public const string Result = "result";
+
+        /// <summary>
+        /// The <c>result_subtype</c> attribute namespace.
+        /// </summary>
+        public const string ResultSubtype = "result_subtype";
+
+        /// <summary>
+        /// The <c>result_tokens</c> attribute namespace.
+        /// </summary>
+        public const string ResultTokens = "result_tokens";
+
+        /// <summary>
+        /// The <c>resume_cost_source</c> attribute namespace.
+        /// </summary>
+        public const string ResumeCostSource = "resume_cost_source";
+
+        /// <summary>
+        /// The <c>resume_from_byte</c> attribute namespace.
+        /// </summary>
+        public const string ResumeFromByte = "resume_from_byte";
+
+        /// <summary>
+        /// The <c>resume_reason</c> attribute namespace.
+        /// </summary>
+        public const string ResumeReason = "resume_reason";
+
+        /// <summary>
+        /// The <c>resume_seed</c> attribute namespace.
+        /// </summary>
+        public const string ResumeSeed = "resume_seed";
+
+        /// <summary>
+        /// The <c>resume_stop_trigger</c> attribute namespace.
+        /// </summary>
+        public const string ResumeStopTrigger = "resume_stop_trigger";
+
+        /// <summary>
+        /// The <c>resume_was_ours</c> attribute namespace.
+        /// </summary>
+        public const string ResumeWasOurs = "resume_was_ours";
+
+        /// <summary>
+        /// The <c>resumed_after_attention</c> attribute namespace.
+        /// </summary>
+        public const string ResumedAfterAttention = "resumed_after_attention";
+
+        /// <summary>
+        /// The <c>resumed_from_byte</c> attribute namespace.
+        /// </summary>
+        public const string ResumedFromByte = "resumed_from_byte";
+
+        /// <summary>
+        /// The <c>retained</c> attribute namespace.
+        /// </summary>
+        public const string Retained = "retained";
+
+        /// <summary>
+        /// The <c>retention_days</c> attribute namespace.
+        /// </summary>
+        public const string RetentionDays = "retention_days";
+
+        /// <summary>
+        /// The <c>retention_source</c> attribute namespace.
+        /// </summary>
+        public const string RetentionSource = "retention_source";
+
+        /// <summary>
+        /// The <c>retry_attempt</c> attribute namespace.
+        /// </summary>
+        public const string RetryAttempt = "retry_attempt";
+
+        /// <summary>
+        /// The <c>retry_count</c> attribute namespace.
+        /// </summary>
+        public const string RetryCount = "retry_count";
+
+        /// <summary>
+        /// The <c>retry_in_ms</c> attribute namespace.
+        /// </summary>
+        public const string RetryInMs = "retry_in_ms";
+
+        /// <summary>
+        /// The <c>return_refresh_github_row_count</c> attribute namespace.
+        /// </summary>
+        public const string ReturnRefreshGithubRowCount = "return_refresh_github_row_count";
+
+        /// <summary>
+        /// The <c>return_refresh_other_row_count</c> attribute namespace.
+        /// </summary>
+        public const string ReturnRefreshOtherRowCount = "return_refresh_other_row_count";
+
+        /// <summary>
+        /// The <c>return_refresh_skipped_low_budget_count</c> attribute namespace.
+        /// </summary>
+        public const string ReturnRefreshSkippedLowBudgetCount = "return_refresh_skipped_low_budget_count";
+
+        /// <summary>
+        /// The <c>reused_server</c> attribute namespace.
+        /// </summary>
+        public const string ReusedServer = "reused_server";
+
+        /// <summary>
+        /// The <c>rewind_active_chain_length</c> attribute namespace.
+        /// </summary>
+        public const string RewindActiveChainLength = "rewind_active_chain_length";
+
+        /// <summary>
+        /// The <c>rewind_target_miss_reason</c> attribute namespace.
+        /// </summary>
+        public const string RewindTargetMissReason = "rewind_target_miss_reason";
+
+        /// <summary>
+        /// The <c>rewind_transcript_has_compact_boundary</c> attribute namespace.
+        /// </summary>
+        public const string RewindTranscriptHasCompactBoundary = "rewind_transcript_has_compact_boundary";
+
+        /// <summary>
+        /// The <c>rewind_transcript_length</c> attribute namespace.
+        /// </summary>
+        public const string RewindTranscriptLength = "rewind_transcript_length";
+
+        /// <summary>
+        /// The <c>root_fenced</c> attribute namespace.
+        /// </summary>
+        public const string RootFenced = "root_fenced";
+
+        /// <summary>
+        /// The <c>root_is_unc</c> attribute namespace.
+        /// </summary>
+        public const string RootIsUnc = "root_is_unc";
+
+        /// <summary>
+        /// The <c>root_ms</c> attribute namespace.
+        /// </summary>
+        public const string RootMs = "root_ms";
+
+        /// <summary>
+        /// The <c>root_named</c> attribute namespace.
+        /// </summary>
+        public const string RootNamed = "root_named";
+
+        /// <summary>
+        /// The <c>rounds</c> attribute namespace.
+        /// </summary>
+        public const string Rounds = "rounds";
+
+        /// <summary>
+        /// The <c>rounds_last_day</c> attribute namespace.
+        /// </summary>
+        public const string RoundsLastDay = "rounds_last_day";
+
+        /// <summary>
+        /// The <c>rounds_last_hour</c> attribute namespace.
+        /// </summary>
+        public const string RoundsLastHour = "rounds_last_hour";
+
+        /// <summary>
+        /// The <c>route</c> attribute namespace.
+        /// </summary>
+        public const string Route = "route";
+
+        /// <summary>
+        /// The <c>route_ms</c> attribute namespace.
+        /// </summary>
+        public const string RouteMs = "route_ms";
+
+        /// <summary>
+        /// The <c>route_prefix</c> attribute namespace.
+        /// </summary>
+        public const string RoutePrefix = "route_prefix";
+
+        /// <summary>
+        /// The <c>routines_enabled</c> attribute namespace.
+        /// </summary>
+        public const string RoutinesEnabled = "routines_enabled";
+
+        /// <summary>
+        /// The <c>row_pk_resolved</c> attribute namespace.
+        /// </summary>
+        public const string RowPkResolved = "row_pk_resolved";
+
+        /// <summary>
+        /// The <c>rows</c> attribute namespace.
+        /// </summary>
+        public const string Rows = "rows";
+
+        /// <summary>
+        /// The <c>rows_source</c> attribute namespace.
+        /// </summary>
+        public const string RowsSource = "rows_source";
+
+        /// <summary>
         /// The <c>rpc</c> attribute namespace.
         /// </summary>
         public const string Rpc = "rpc";
+
+        /// <summary>
+        /// The <c>rpc_error</c> attribute namespace.
+        /// </summary>
+        public const string RpcError = "rpc_error";
+
+        /// <summary>
+        /// The <c>rpm_enabled_state_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string RpmEnabledStateAgeMs = "rpm_enabled_state_age_ms";
+
+        /// <summary>
+        /// The <c>rpm_enabled_state_ms</c> attribute namespace.
+        /// </summary>
+        public const string RpmEnabledStateMs = "rpm_enabled_state_ms";
+
+        /// <summary>
+        /// The <c>rpm_enabled_state_source</c> attribute namespace.
+        /// </summary>
+        public const string RpmEnabledStateSource = "rpm_enabled_state_source";
+
+        /// <summary>
+        /// The <c>rpm_fs_scan_ms</c> attribute namespace.
+        /// </summary>
+        public const string RpmFsScanMs = "rpm_fs_scan_ms";
+
+        /// <summary>
+        /// The <c>rule</c> attribute namespace.
+        /// </summary>
+        public const string Rule = "rule";
+
+        /// <summary>
+        /// The <c>running</c> attribute namespace.
+        /// </summary>
+        public const string Running = "running";
+
+        /// <summary>
+        /// The <c>running_session_count</c> attribute namespace.
+        /// </summary>
+        public const string RunningSessionCount = "running_session_count";
+
+        /// <summary>
+        /// The <c>running_sessions</c> attribute namespace.
+        /// </summary>
+        public const string RunningSessions = "running_sessions";
+
+        /// <summary>
+        /// The <c>safe_mode</c> attribute namespace.
+        /// </summary>
+        public const string SafeMode = "safe_mode";
+
+        /// <summary>
+        /// The <c>same_category_as_prior_loss</c> attribute namespace.
+        /// </summary>
+        public const string SameCategoryAsPriorLoss = "same_category_as_prior_loss";
+
+        /// <summary>
+        /// The <c>same_session</c> attribute namespace.
+        /// </summary>
+        public const string SameSession = "same_session";
+
+        /// <summary>
+        /// The <c>sample_index</c> attribute namespace.
+        /// </summary>
+        public const string SampleIndex = "sample_index";
+
+        /// <summary>
+        /// The <c>sampler_active</c> attribute namespace.
+        /// </summary>
+        public const string SamplerActive = "sampler_active";
+
+        /// <summary>
+        /// The <c>sampler_frames</c> attribute namespace.
+        /// </summary>
+        public const string SamplerFrames = "sampler_frames";
+
+        /// <summary>
+        /// The <c>sampler_start_lag_ms</c> attribute namespace.
+        /// </summary>
+        public const string SamplerStartLagMs = "sampler_start_lag_ms";
+
+        /// <summary>
+        /// The <c>sampling_trace_id</c> attribute namespace.
+        /// </summary>
+        public const string SamplingTraceId = "sampling_trace_id";
+
+        /// <summary>
+        /// The <c>sandbox_cascade</c> attribute namespace.
+        /// </summary>
+        public const string SandboxCascade = "sandbox_cascade";
+
+        /// <summary>
+        /// The <c>sandbox_env</c> attribute namespace.
+        /// </summary>
+        public const string SandboxEnv = "sandbox_env";
+
+        /// <summary>
+        /// The <c>sandbox_on</c> attribute namespace.
+        /// </summary>
+        public const string SandboxOn = "sandbox_on";
+
+        /// <summary>
+        /// The <c>sandbox_settings</c> attribute namespace.
+        /// </summary>
+        public const string SandboxSettings = "sandbox_settings";
+
+        /// <summary>
+        /// The <c>saved_in_manual</c> attribute namespace.
+        /// </summary>
+        public const string SavedInManual = "saved_in_manual";
+
+        /// <summary>
+        /// The <c>saved_other</c> attribute namespace.
+        /// </summary>
+        public const string SavedOther = "saved_other";
+
+        /// <summary>
+        /// The <c>saw_unreachable</c> attribute namespace.
+        /// </summary>
+        public const string SawUnreachable = "saw_unreachable";
+
+        /// <summary>
+        /// The <c>scale</c> attribute namespace.
+        /// </summary>
+        public const string Scale = "scale";
+
+        /// <summary>
+        /// The <c>scan_ms</c> attribute namespace.
+        /// </summary>
+        public const string ScanMs = "scan_ms";
+
+        /// <summary>
+        /// The <c>scheduled_task_id</c> attribute namespace.
+        /// </summary>
+        public const string ScheduledTaskId = "scheduled_task_id";
+
+        /// <summary>
+        /// The <c>scheduled_task_tool</c> attribute namespace.
+        /// </summary>
+        public const string ScheduledTaskTool = "scheduled_task_tool";
+
+        /// <summary>
+        /// The <c>scheme</c> attribute namespace.
+        /// </summary>
+        public const string Scheme = "scheme";
+
+        /// <summary>
+        /// The <c>scoped</c> attribute namespace.
+        /// </summary>
+        public const string Scoped = "scoped";
+
+        /// <summary>
+        /// The <c>scrollback_log</c> attribute namespace.
+        /// </summary>
+        public const string ScrollbackLog = "scrollback_log";
+
+        /// <summary>
+        /// The <c>_scrubError</c> attribute namespace.
+        /// </summary>
+        public const string ScrubError = "_scrubError";
+
+        /// <summary>
+        /// The <c>sdk_host</c> attribute namespace.
+        /// </summary>
+        public const string SdkHost = "sdk_host";
+
+        /// <summary>
+        /// The <c>sealed_count</c> attribute namespace.
+        /// </summary>
+        public const string SealedCount = "sealed_count";
+
+        /// <summary>
+        /// The <c>seconds_since_activity</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceActivity = "seconds_since_activity";
+
+        /// <summary>
+        /// The <c>seconds_since_create</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceCreate = "seconds_since_create";
+
+        /// <summary>
+        /// The <c>seconds_since_last_activity</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceLastActivity = "seconds_since_last_activity";
+
+        /// <summary>
+        /// The <c>seconds_since_last_oauth_decline</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceLastOauthDecline = "seconds_since_last_oauth_decline";
+
+        /// <summary>
+        /// The <c>seconds_since_last_response</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceLastResponse = "seconds_since_last_response";
+
+        /// <summary>
+        /// The <c>seconds_since_last_turn</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceLastTurn = "seconds_since_last_turn";
+
+        /// <summary>
+        /// The <c>seconds_since_offer</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceOffer = "seconds_since_offer";
+
+        /// <summary>
+        /// The <c>seconds_since_rewind</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceRewind = "seconds_since_rewind";
+
+        /// <summary>
+        /// The <c>seconds_since_stderr</c> attribute namespace.
+        /// </summary>
+        public const string SecondsSinceStderr = "seconds_since_stderr";
+
+        /// <summary>
+        /// The <c>seconds_to_outcome</c> attribute namespace.
+        /// </summary>
+        public const string SecondsToOutcome = "seconds_to_outcome";
+
+        /// <summary>
+        /// The <c>seconds_waiting</c> attribute namespace.
+        /// </summary>
+        public const string SecondsWaiting = "seconds_waiting";
 
         /// <summary>
         /// The <c>security_rule</c> attribute namespace.
@@ -471,9 +7566,49 @@ public static class QylAttributes
         public const string SecurityRule = "security_rule";
 
         /// <summary>
+        /// The <c>seeded_from_tail</c> attribute namespace.
+        /// </summary>
+        public const string SeededFromTail = "seeded_from_tail";
+
+        /// <summary>
         /// The <c>server</c> attribute namespace.
         /// </summary>
         public const string Server = "server";
+
+        /// <summary>
+        /// The <c>server_enabled</c> attribute namespace.
+        /// </summary>
+        public const string ServerEnabled = "server_enabled";
+
+        /// <summary>
+        /// The <c>server_fallback_hop</c> attribute namespace.
+        /// </summary>
+        public const string ServerFallbackHop = "server_fallback_hop";
+
+        /// <summary>
+        /// The <c>server_name</c> attribute namespace.
+        /// </summary>
+        public const string ServerName = "server_name";
+
+        /// <summary>
+        /// The <c>server_scope</c> attribute namespace.
+        /// </summary>
+        public const string ServerScope = "server_scope";
+
+        /// <summary>
+        /// The <c>server_type</c> attribute namespace.
+        /// </summary>
+        public const string ServerType = "server_type";
+
+        /// <summary>
+        /// The <c>server_uuid</c> attribute namespace.
+        /// </summary>
+        public const string ServerUuid = "server_uuid";
+
+        /// <summary>
+        /// The <c>server_version</c> attribute namespace.
+        /// </summary>
+        public const string ServerVersion = "server_version";
 
         /// <summary>
         /// The <c>service</c> attribute namespace.
@@ -486,9 +7621,409 @@ public static class QylAttributes
         public const string Session = "session";
 
         /// <summary>
+        /// The <c>session_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string SessionAgeMs = "session_age_ms";
+
+        /// <summary>
+        /// The <c>session_bytes_read</c> attribute namespace.
+        /// </summary>
+        public const string SessionBytesRead = "session_bytes_read";
+
+        /// <summary>
+        /// The <c>session_count</c> attribute namespace.
+        /// </summary>
+        public const string SessionCount = "session_count";
+
+        /// <summary>
+        /// The <c>session_exists</c> attribute namespace.
+        /// </summary>
+        public const string SessionExists = "session_exists";
+
+        /// <summary>
+        /// The <c>session_files_deleted</c> attribute namespace.
+        /// </summary>
+        public const string SessionFilesDeleted = "session_files_deleted";
+
+        /// <summary>
+        /// The <c>session_grouping_id</c> attribute namespace.
+        /// </summary>
+        public const string SessionGroupingId = "session_grouping_id";
+
+        /// <summary>
+        /// The <c>sessionId</c> attribute namespace.
+        /// </summary>
+        public const string SessionId = "sessionId";
+
+        /// <summary>
+        /// The <c>session_id</c> attribute namespace.
+        /// </summary>
+        public const string SessionIdNamespace = "session_id";
+
+        /// <summary>
+        /// The <c>session_presets</c> attribute namespace.
+        /// </summary>
+        public const string SessionPresets = "session_presets";
+
+        /// <summary>
+        /// The <c>session_repo_entry_base_missing</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoEntryBaseMissing = "session_repo_entry_base_missing";
+
+        /// <summary>
+        /// The <c>session_repo_missing</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoMissing = "session_repo_missing";
+
+        /// <summary>
+        /// The <c>session_repo_not_a_tree</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoNotATree = "session_repo_not_a_tree";
+
+        /// <summary>
+        /// The <c>session_repo_not_session_scoped</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoNotSessionScoped = "session_repo_not_session_scoped";
+
+        /// <summary>
+        /// The <c>session_repo_tree_not_anchored</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoTreeNotAnchored = "session_repo_tree_not_anchored";
+
+        /// <summary>
+        /// The <c>session_repo_unbound</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoUnbound = "session_repo_unbound";
+
+        /// <summary>
+        /// The <c>session_repo_would_refuse_base</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoWouldRefuseBase = "session_repo_would_refuse_base";
+
+        /// <summary>
+        /// The <c>session_repo_would_refuse_tree</c> attribute namespace.
+        /// </summary>
+        public const string SessionRepoWouldRefuseTree = "session_repo_would_refuse_tree";
+
+        /// <summary>
+        /// The <c>session_running</c> attribute namespace.
+        /// </summary>
+        public const string SessionRunning = "session_running";
+
+        /// <summary>
+        /// The <c>session_scope</c> attribute namespace.
+        /// </summary>
+        public const string SessionScope = "session_scope";
+
+        /// <summary>
+        /// The <c>session_title</c> attribute namespace.
+        /// </summary>
+        public const string SessionTitle = "session_title";
+
+        /// <summary>
+        /// The <c>session_tool</c> attribute namespace.
+        /// </summary>
+        public const string SessionTool = "session_tool";
+
+        /// <summary>
+        /// The <c>session_type</c> attribute namespace.
+        /// </summary>
+        public const string SessionType = "session_type";
+
+        /// <summary>
+        /// The <c>sessions</c> attribute namespace.
+        /// </summary>
+        public const string Sessions = "sessions";
+
+        /// <summary>
+        /// The <c>sessions_archived</c> attribute namespace.
+        /// </summary>
+        public const string SessionsArchived = "sessions_archived";
+
+        /// <summary>
+        /// The <c>sessions_pushed</c> attribute namespace.
+        /// </summary>
+        public const string SessionsPushed = "sessions_pushed";
+
+        /// <summary>
+        /// The <c>sessions_skipped_fence</c> attribute namespace.
+        /// </summary>
+        public const string SessionsSkippedFence = "sessions_skipped_fence";
+
+        /// <summary>
+        /// The <c>sessions_skipped_unsupported</c> attribute namespace.
+        /// </summary>
+        public const string SessionsSkippedUnsupported = "sessions_skipped_unsupported";
+
+        /// <summary>
+        /// The <c>set_ms</c> attribute namespace.
+        /// </summary>
+        public const string SetMs = "set_ms";
+
+        /// <summary>
+        /// The <c>set_origin</c> attribute namespace.
+        /// </summary>
+        public const string SetOrigin = "set_origin";
+
+        /// <summary>
+        /// The <c>setting_key</c> attribute namespace.
+        /// </summary>
+        public const string SettingKey = "setting_key";
+
+        /// <summary>
+        /// The <c>settings_tier</c> attribute namespace.
+        /// </summary>
+        public const string SettingsTier = "settings_tier";
+
+        /// <summary>
+        /// The <c>settings_tool</c> attribute namespace.
+        /// </summary>
+        public const string SettingsTool = "settings_tool";
+
+        /// <summary>
+        /// The <c>settle_ms</c> attribute namespace.
+        /// </summary>
+        public const string SettleMs = "settle_ms";
+
+        /// <summary>
+        /// The <c>settle_reason</c> attribute namespace.
+        /// </summary>
+        public const string SettleReason = "settle_reason";
+
+        /// <summary>
+        /// The <c>settled</c> attribute namespace.
+        /// </summary>
+        public const string Settled = "settled";
+
+        /// <summary>
+        /// The <c>shared</c> attribute namespace.
+        /// </summary>
+        public const string Shared = "shared";
+
+        /// <summary>
+        /// The <c>shell</c> attribute namespace.
+        /// </summary>
+        public const string Shell = "shell";
+
+        /// <summary>
+        /// The <c>shell_env_failed_reads</c> attribute namespace.
+        /// </summary>
+        public const string ShellEnvFailedReads = "shell_env_failed_reads";
+
+        /// <summary>
+        /// The <c>shell_integration</c> attribute namespace.
+        /// </summary>
+        public const string ShellIntegration = "shell_integration";
+
+        /// <summary>
+        /// The <c>shipit_stderr_tail</c> attribute namespace.
+        /// </summary>
+        public const string ShipitStderrTail = "shipit_stderr_tail";
+
+        /// <summary>
+        /// The <c>shown_ms</c> attribute namespace.
+        /// </summary>
+        public const string ShownMs = "shown_ms";
+
+        /// <summary>
+        /// The <c>side_sessions_available</c> attribute namespace.
+        /// </summary>
+        public const string SideSessionsAvailable = "side_sessions_available";
+
+        /// <summary>
+        /// The <c>sign_error_code</c> attribute namespace.
+        /// </summary>
+        public const string SignErrorCode = "sign_error_code";
+
+        /// <summary>
+        /// The <c>sign_error_probe_code</c> attribute namespace.
+        /// </summary>
+        public const string SignErrorProbeCode = "sign_error_probe_code";
+
+        /// <summary>
+        /// The <c>sign_in_cookie_present</c> attribute namespace.
+        /// </summary>
+        public const string SignInCookiePresent = "sign_in_cookie_present";
+
+        /// <summary>
+        /// The <c>sign_in_reason</c> attribute namespace.
+        /// </summary>
+        public const string SignInReason = "sign_in_reason";
+
+        /// <summary>
+        /// The <c>sign_in_waits</c> attribute namespace.
+        /// </summary>
+        public const string SignInWaits = "sign_in_waits";
+
+        /// <summary>
+        /// The <c>signal</c> attribute namespace.
+        /// </summary>
+        public const string Signal = "signal";
+
+        /// <summary>
         /// The <c>signalr</c> attribute namespace.
         /// </summary>
         public const string Signalr = "signalr";
+
+        /// <summary>
+        /// The <c>signals_ignored</c> attribute namespace.
+        /// </summary>
+        public const string SignalsIgnored = "signals_ignored";
+
+        /// <summary>
+        /// The <c>signed_in_at_last_exit</c> attribute namespace.
+        /// </summary>
+        public const string SignedInAtLastExit = "signed_in_at_last_exit";
+
+        /// <summary>
+        /// The <c>silence_ms</c> attribute namespace.
+        /// </summary>
+        public const string SilenceMs = "silence_ms";
+
+        /// <summary>
+        /// The <c>silent_reattach</c> attribute namespace.
+        /// </summary>
+        public const string SilentReattach = "silent_reattach";
+
+        /// <summary>
+        /// The <c>since_app_focus_ms</c> attribute namespace.
+        /// </summary>
+        public const string SinceAppFocusMs = "since_app_focus_ms";
+
+        /// <summary>
+        /// The <c>since_input_ms</c> attribute namespace.
+        /// </summary>
+        public const string SinceInputMs = "since_input_ms";
+
+        /// <summary>
+        /// The <c>since_page_hidden_ms</c> attribute namespace.
+        /// </summary>
+        public const string SincePageHiddenMs = "since_page_hidden_ms";
+
+        /// <summary>
+        /// The <c>since_page_visible_ms</c> attribute namespace.
+        /// </summary>
+        public const string SincePageVisibleMs = "since_page_visible_ms";
+
+        /// <summary>
+        /// The <c>single_ingest</c> attribute namespace.
+        /// </summary>
+        public const string SingleIngest = "single_ingest";
+
+        /// <summary>
+        /// The <c>site</c> attribute namespace.
+        /// </summary>
+        public const string Site = "site";
+
+        /// <summary>
+        /// The <c>sites</c> attribute namespace.
+        /// </summary>
+        public const string Sites = "sites";
+
+        /// <summary>
+        /// The <c>size</c> attribute namespace.
+        /// </summary>
+        public const string Size = "size";
+
+        /// <summary>
+        /// The <c>skill</c> attribute namespace.
+        /// </summary>
+        public const string Skill = "skill";
+
+        /// <summary>
+        /// The <c>skill_name</c> attribute namespace.
+        /// </summary>
+        public const string SkillName = "skill_name";
+
+        /// <summary>
+        /// The <c>skill_path_count</c> attribute namespace.
+        /// </summary>
+        public const string SkillPathCount = "skill_path_count";
+
+        /// <summary>
+        /// The <c>skip_push</c> attribute namespace.
+        /// </summary>
+        public const string SkipPush = "skip_push";
+
+        /// <summary>
+        /// The <c>skip_reason</c> attribute namespace.
+        /// </summary>
+        public const string SkipReason = "skip_reason";
+
+        /// <summary>
+        /// The <c>skipped</c> attribute namespace.
+        /// </summary>
+        public const string Skipped = "skipped";
+
+        /// <summary>
+        /// The <c>skipped_by_cap</c> attribute namespace.
+        /// </summary>
+        public const string SkippedByCap = "skipped_by_cap";
+
+        /// <summary>
+        /// The <c>skipped_collision</c> attribute namespace.
+        /// </summary>
+        public const string SkippedCollision = "skipped_collision";
+
+        /// <summary>
+        /// The <c>skipped_count</c> attribute namespace.
+        /// </summary>
+        public const string SkippedCount = "skipped_count";
+
+        /// <summary>
+        /// The <c>skipped_disabled</c> attribute namespace.
+        /// </summary>
+        public const string SkippedDisabled = "skipped_disabled";
+
+        /// <summary>
+        /// The <c>skipped_offline</c> attribute namespace.
+        /// </summary>
+        public const string SkippedOffline = "skipped_offline";
+
+        /// <summary>
+        /// The <c>sleep_assertion_held</c> attribute namespace.
+        /// </summary>
+        public const string SleepAssertionHeld = "sleep_assertion_held";
+
+        /// <summary>
+        /// The <c>sleep_duration_seconds</c> attribute namespace.
+        /// </summary>
+        public const string SleepDurationSeconds = "sleep_duration_seconds";
+
+        /// <summary>
+        /// The <c>sleep_signal</c> attribute namespace.
+        /// </summary>
+        public const string SleepSignal = "sleep_signal";
+
+        /// <summary>
+        /// The <c>slept</c> attribute namespace.
+        /// </summary>
+        public const string Slept = "slept";
+
+        /// <summary>
+        /// The <c>slept_ms</c> attribute namespace.
+        /// </summary>
+        public const string SleptMs = "slept_ms";
+
+        /// <summary>
+        /// The <c>slot_consumed</c> attribute namespace.
+        /// </summary>
+        public const string SlotConsumed = "slot_consumed";
+
+        /// <summary>
+        /// The <c>slot_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string SlotWaitMs = "slot_wait_ms";
+
+        /// <summary>
+        /// The <c>slow_folders</c> attribute namespace.
+        /// </summary>
+        public const string SlowFolders = "slow_folders";
+
+        /// <summary>
+        /// The <c>slow_shell_wait</c> attribute namespace.
+        /// </summary>
+        public const string SlowShellWait = "slow_shell_wait";
 
         /// <summary>
         /// The <c>soap</c> attribute namespace.
@@ -496,9 +8031,319 @@ public static class QylAttributes
         public const string Soap = "soap";
 
         /// <summary>
+        /// The <c>soft_deleted</c> attribute namespace.
+        /// </summary>
+        public const string SoftDeleted = "soft_deleted";
+
+        /// <summary>
         /// The <c>source</c> attribute namespace.
         /// </summary>
         public const string Source = "source";
+
+        /// <summary>
+        /// The <c>source_organization_uuid</c> attribute namespace.
+        /// </summary>
+        public const string SourceOrganizationUuid = "source_organization_uuid";
+
+        /// <summary>
+        /// The <c>source_was_previewed</c> attribute namespace.
+        /// </summary>
+        public const string SourceWasPreviewed = "source_was_previewed";
+
+        /// <summary>
+        /// The <c>space_dropped</c> attribute namespace.
+        /// </summary>
+        public const string SpaceDropped = "space_dropped";
+
+        /// <summary>
+        /// The <c>space_empty</c> attribute namespace.
+        /// </summary>
+        public const string SpaceEmpty = "space_empty";
+
+        /// <summary>
+        /// The <c>space_folders_0</c> attribute namespace.
+        /// </summary>
+        public const string SpaceFolders0 = "space_folders_0";
+
+        /// <summary>
+        /// The <c>space_folders_1</c> attribute namespace.
+        /// </summary>
+        public const string SpaceFolders1 = "space_folders_1";
+
+        /// <summary>
+        /// The <c>space_folders_2_plus</c> attribute namespace.
+        /// </summary>
+        public const string SpaceFolders2Plus = "space_folders_2_plus";
+
+        /// <summary>
+        /// The <c>space_id</c> attribute namespace.
+        /// </summary>
+        public const string SpaceId = "space_id";
+
+        /// <summary>
+        /// The <c>space_store_count</c> attribute namespace.
+        /// </summary>
+        public const string SpaceStoreCount = "space_store_count";
+
+        /// <summary>
+        /// The <c>space_tied_enabled_count</c> attribute namespace.
+        /// </summary>
+        public const string SpaceTiedEnabledCount = "space_tied_enabled_count";
+
+        /// <summary>
+        /// The <c>space_unresolvable</c> attribute namespace.
+        /// </summary>
+        public const string SpaceUnresolvable = "space_unresolvable";
+
+        /// <summary>
+        /// The <c>space_with_drive_links</c> attribute namespace.
+        /// </summary>
+        public const string SpaceWithDriveLinks = "space_with_drive_links";
+
+        /// <summary>
+        /// The <c>space_with_instructions</c> attribute namespace.
+        /// </summary>
+        public const string SpaceWithInstructions = "space_with_instructions";
+
+        /// <summary>
+        /// The <c>space_with_links</c> attribute namespace.
+        /// </summary>
+        public const string SpaceWithLinks = "space_with_links";
+
+        /// <summary>
+        /// The <c>space_with_projects</c> attribute namespace.
+        /// </summary>
+        public const string SpaceWithProjects = "space_with_projects";
+
+        /// <summary>
+        /// The <c>spaces_quarantined_count</c> attribute namespace.
+        /// </summary>
+        public const string SpacesQuarantinedCount = "spaces_quarantined_count";
+
+        /// <summary>
+        /// The <c>span</c> attribute namespace.
+        /// </summary>
+        public const string Span = "span";
+
+        /// <summary>
+        /// The <c>spare_claim_ms</c> attribute namespace.
+        /// </summary>
+        public const string SpareClaimMs = "spare_claim_ms";
+
+        /// <summary>
+        /// The <c>spare_event</c> attribute namespace.
+        /// </summary>
+        public const string SpareEvent = "spare_event";
+
+        /// <summary>
+        /// The <c>spare_fail_code</c> attribute namespace.
+        /// </summary>
+        public const string SpareFailCode = "spare_fail_code";
+
+        /// <summary>
+        /// The <c>spare_mcp_settled</c> attribute namespace.
+        /// </summary>
+        public const string SpareMcpSettled = "spare_mcp_settled";
+
+        /// <summary>
+        /// The <c>spare_miss_reason</c> attribute namespace.
+        /// </summary>
+        public const string SpareMissReason = "spare_miss_reason";
+
+        /// <summary>
+        /// The <c>spare_parked_ms</c> attribute namespace.
+        /// </summary>
+        public const string SpareParkedMs = "spare_parked_ms";
+
+        /// <summary>
+        /// The <c>spare_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string SpareWaitMs = "spare_wait_ms";
+
+        /// <summary>
+        /// The <c>spawn_argv_chars</c> attribute namespace.
+        /// </summary>
+        public const string SpawnArgvChars = "spawn_argv_chars";
+
+        /// <summary>
+        /// The <c>spawn_confirmed</c> attribute namespace.
+        /// </summary>
+        public const string SpawnConfirmed = "spawn_confirmed";
+
+        /// <summary>
+        /// The <c>spawn_fallback_count</c> attribute namespace.
+        /// </summary>
+        public const string SpawnFallbackCount = "spawn_fallback_count";
+
+        /// <summary>
+        /// The <c>spawn_mode</c> attribute namespace.
+        /// </summary>
+        public const string SpawnMode = "spawn_mode";
+
+        /// <summary>
+        /// The <c>spawn_reason</c> attribute namespace.
+        /// </summary>
+        public const string SpawnReason = "spawn_reason";
+
+        /// <summary>
+        /// The <c>spawn_source</c> attribute namespace.
+        /// </summary>
+        public const string SpawnSource = "spawn_source";
+
+        /// <summary>
+        /// The <c>spawn_to_init_ms</c> attribute namespace.
+        /// </summary>
+        public const string SpawnToInitMs = "spawn_to_init_ms";
+
+        /// <summary>
+        /// The <c>spawn_to_outcome_ms</c> attribute namespace.
+        /// </summary>
+        public const string SpawnToOutcomeMs = "spawn_to_outcome_ms";
+
+        /// <summary>
+        /// The <c>speed</c> attribute namespace.
+        /// </summary>
+        public const string Speed = "speed";
+
+        /// <summary>
+        /// The <c>spelled_in</c> attribute namespace.
+        /// </summary>
+        public const string SpelledIn = "spelled_in";
+
+        /// <summary>
+        /// The <c>spread_hours</c> attribute namespace.
+        /// </summary>
+        public const string SpreadHours = "spread_hours";
+
+        /// <summary>
+        /// The <c>ssh_client_launch_error_code</c> attribute namespace.
+        /// </summary>
+        public const string SshClientLaunchErrorCode = "ssh_client_launch_error_code";
+
+        /// <summary>
+        /// The <c>ssh_platform</c> attribute namespace.
+        /// </summary>
+        public const string SshPlatform = "ssh_platform";
+
+        /// <summary>
+        /// The <c>ssh_transport</c> attribute namespace.
+        /// </summary>
+        public const string SshTransport = "ssh_transport";
+
+        /// <summary>
+        /// The <c>ssh_transport_flag_state</c> attribute namespace.
+        /// </summary>
+        public const string SshTransportFlagState = "ssh_transport_flag_state";
+
+        /// <summary>
+        /// The <c>ssh_transport_flag_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string SshTransportFlagWaitMs = "ssh_transport_flag_wait_ms";
+
+        /// <summary>
+        /// The <c>ssh_transport_source</c> attribute namespace.
+        /// </summary>
+        public const string SshTransportSource = "ssh_transport_source";
+
+        /// <summary>
+        /// The <c>ssh_windows_client_unusable_reason</c> attribute namespace.
+        /// </summary>
+        public const string SshWindowsClientUnusableReason = "ssh_windows_client_unusable_reason";
+
+        /// <summary>
+        /// The <c>stage</c> attribute namespace.
+        /// </summary>
+        public const string Stage = "stage";
+
+        /// <summary>
+        /// The <c>staged_version</c> attribute namespace.
+        /// </summary>
+        public const string StagedVersion = "staged_version";
+
+        /// <summary>
+        /// The <c>stale</c> attribute namespace.
+        /// </summary>
+        public const string Stale = "stale";
+
+        /// <summary>
+        /// The <c>stale_claimed</c> attribute namespace.
+        /// </summary>
+        public const string StaleClaimed = "stale_claimed";
+
+        /// <summary>
+        /// The <c>stale_cowork_owned</c> attribute namespace.
+        /// </summary>
+        public const string StaleCoworkOwned = "stale_cowork_owned";
+
+        /// <summary>
+        /// The <c>stale_had_focus</c> attribute namespace.
+        /// </summary>
+        public const string StaleHadFocus = "stale_had_focus";
+
+        /// <summary>
+        /// The <c>stale_reason</c> attribute namespace.
+        /// </summary>
+        public const string StaleReason = "stale_reason";
+
+        /// <summary>
+        /// The <c>stale_shown_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string StaleShownAgeMs = "stale_shown_age_ms";
+
+        /// <summary>
+        /// The <c>stall_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string StallDurationMs = "stall_duration_ms";
+
+        /// <summary>
+        /// The <c>stamped_migrated_from_space</c> attribute namespace.
+        /// </summary>
+        public const string StampedMigratedFromSpace = "stamped_migrated_from_space";
+
+        /// <summary>
+        /// The <c>start_gate</c> attribute namespace.
+        /// </summary>
+        public const string StartGate = "start_gate";
+
+        /// <summary>
+        /// The <c>start_in_flight</c> attribute namespace.
+        /// </summary>
+        public const string StartInFlight = "start_in_flight";
+
+        /// <summary>
+        /// The <c>start_reason</c> attribute namespace.
+        /// </summary>
+        public const string StartReason = "start_reason";
+
+        /// <summary>
+        /// The <c>start_stage_reached</c> attribute namespace.
+        /// </summary>
+        public const string StartStageReached = "start_stage_reached";
+
+        /// <summary>
+        /// The <c>start_tool</c> attribute namespace.
+        /// </summary>
+        public const string StartTool = "start_tool";
+
+        /// <summary>
+        /// The <c>start_type</c> attribute namespace.
+        /// </summary>
+        public const string StartType = "start_type";
+
+        /// <summary>
+        /// The <c>started</c> attribute namespace.
+        /// </summary>
+        public const string Started = "started";
+
+        /// <summary>
+        /// The <c>started_by_model</c> attribute namespace.
+        /// </summary>
+        public const string StartedByModel = "started_by_model";
+
+        /// <summary>
+        /// The <c>stat_ms</c> attribute namespace.
+        /// </summary>
+        public const string StatMs = "stat_ms";
 
         /// <summary>
         /// The <c>state</c> attribute namespace.
@@ -506,9 +8351,489 @@ public static class QylAttributes
         public const string State = "state";
 
         /// <summary>
+        /// The <c>status</c> attribute namespace.
+        /// </summary>
+        public const string Status = "status";
+
+        /// <summary>
+        /// The <c>status_before</c> attribute namespace.
+        /// </summary>
+        public const string StatusBefore = "status_before";
+
+        /// <summary>
+        /// The <c>status_code</c> attribute namespace.
+        /// </summary>
+        public const string StatusCode = "status_code";
+
+        /// <summary>
+        /// The <c>status_ms</c> attribute namespace.
+        /// </summary>
+        public const string StatusMs = "status_ms";
+
+        /// <summary>
+        /// The <c>status_unknown</c> attribute namespace.
+        /// </summary>
+        public const string StatusUnknown = "status_unknown";
+
+        /// <summary>
+        /// The <c>stdout_chars</c> attribute namespace.
+        /// </summary>
+        public const string StdoutChars = "stdout_chars";
+
+        /// <summary>
+        /// The <c>steered_send_count</c> attribute namespace.
+        /// </summary>
+        public const string SteeredSendCount = "steered_send_count";
+
+        /// <summary>
+        /// The <c>step</c> attribute namespace.
+        /// </summary>
+        public const string Step = "step";
+
+        /// <summary>
+        /// The <c>step_budget_ms</c> attribute namespace.
+        /// </summary>
+        public const string StepBudgetMs = "step_budget_ms";
+
+        /// <summary>
+        /// The <c>still_running_sessions</c> attribute namespace.
+        /// </summary>
+        public const string StillRunningSessions = "still_running_sessions";
+
+        /// <summary>
+        /// The <c>stood_down</c> attribute namespace.
+        /// </summary>
+        public const string StoodDown = "stood_down";
+
+        /// <summary>
+        /// The <c>stop_outcome</c> attribute namespace.
+        /// </summary>
+        public const string StopOutcome = "stop_outcome";
+
+        /// <summary>
+        /// The <c>stop_reason</c> attribute namespace.
+        /// </summary>
+        public const string StopReason = "stop_reason";
+
+        /// <summary>
+        /// The <c>stopped_by_limit</c> attribute namespace.
+        /// </summary>
+        public const string StoppedByLimit = "stopped_by_limit";
+
+        /// <summary>
+        /// The <c>stopped_by_misses</c> attribute namespace.
+        /// </summary>
+        public const string StoppedByMisses = "stopped_by_misses";
+
+        /// <summary>
+        /// The <c>stopped_by_process_cap</c> attribute namespace.
+        /// </summary>
+        public const string StoppedByProcessCap = "stopped_by_process_cap";
+
+        /// <summary>
+        /// The <c>storage_budget_hit</c> attribute namespace.
+        /// </summary>
+        public const string StorageBudgetHit = "storage_budget_hit";
+
+        /// <summary>
+        /// The <c>storage_carried</c> attribute namespace.
+        /// </summary>
+        public const string StorageCarried = "storage_carried";
+
+        /// <summary>
+        /// The <c>storage_concurrency</c> attribute namespace.
+        /// </summary>
+        public const string StorageConcurrency = "storage_concurrency";
+
+        /// <summary>
+        /// The <c>storage_failed</c> attribute namespace.
+        /// </summary>
+        public const string StorageFailed = "storage_failed";
+
+        /// <summary>
+        /// The <c>storage_keys</c> attribute namespace.
+        /// </summary>
+        public const string StorageKeys = "storage_keys";
+
+        /// <summary>
+        /// The <c>storage_ms</c> attribute namespace.
+        /// </summary>
+        public const string StorageMs = "storage_ms";
+
+        /// <summary>
+        /// The <c>storage_origins</c> attribute namespace.
+        /// </summary>
+        public const string StorageOrigins = "storage_origins";
+
+        /// <summary>
+        /// The <c>storage_pending</c> attribute namespace.
+        /// </summary>
+        public const string StoragePending = "storage_pending";
+
+        /// <summary>
+        /// The <c>storage_timeouts</c> attribute namespace.
+        /// </summary>
+        public const string StorageTimeouts = "storage_timeouts";
+
+        /// <summary>
+        /// The <c>storage_tool</c> attribute namespace.
+        /// </summary>
+        public const string StorageTool = "storage_tool";
+
+        /// <summary>
+        /// The <c>store_count</c> attribute namespace.
+        /// </summary>
+        public const string StoreCount = "store_count";
+
+        /// <summary>
+        /// The <c>store_load_failed</c> attribute namespace.
+        /// </summary>
+        public const string StoreLoadFailed = "store_load_failed";
+
+        /// <summary>
+        /// The <c>store_load_state</c> attribute namespace.
+        /// </summary>
+        public const string StoreLoadState = "store_load_state";
+
+        /// <summary>
+        /// The <c>store_reset</c> attribute namespace.
+        /// </summary>
+        public const string StoreReset = "store_reset";
+
+        /// <summary>
+        /// The <c>store_state</c> attribute namespace.
+        /// </summary>
+        public const string StoreState = "store_state";
+
+        /// <summary>
+        /// The <c>store_unreadable</c> attribute namespace.
+        /// </summary>
+        public const string StoreUnreadable = "store_unreadable";
+
+        /// <summary>
+        /// The <c>stored_bypass_sent_as_auto</c> attribute namespace.
+        /// </summary>
+        public const string StoredBypassSentAsAuto = "stored_bypass_sent_as_auto";
+
+        /// <summary>
+        /// The <c>stream_ms</c> attribute namespace.
+        /// </summary>
+        public const string StreamMs = "stream_ms";
+
+        /// <summary>
+        /// The <c>structural</c> attribute namespace.
+        /// </summary>
+        public const string Structural = "structural";
+
+        /// <summary>
+        /// The <c>studio_installed</c> attribute namespace.
+        /// </summary>
+        public const string StudioInstalled = "studio_installed";
+
+        /// <summary>
+        /// The <c>subagent_type</c> attribute namespace.
+        /// </summary>
+        public const string SubagentType = "subagent_type";
+
+        /// <summary>
+        /// The <c>success</c> attribute namespace.
+        /// </summary>
+        public const string Success = "success";
+
+        /// <summary>
+        /// The <c>superseded</c> attribute namespace.
+        /// </summary>
+        public const string Superseded = "superseded";
+
+        /// <summary>
+        /// The <c>supported</c> attribute namespace.
+        /// </summary>
+        public const string Supported = "supported";
+
+        /// <summary>
+        /// The <c>suppressed_count</c> attribute namespace.
+        /// </summary>
+        public const string SuppressedCount = "suppressed_count";
+
+        /// <summary>
+        /// The <c>surface</c> attribute namespace.
+        /// </summary>
+        public const string Surface = "surface";
+
+        /// <summary>
+        /// The <c>survey_type</c> attribute namespace.
+        /// </summary>
+        public const string SurveyType = "survey_type";
+
+        /// <summary>
+        /// The <c>survivor_claimed</c> attribute namespace.
+        /// </summary>
+        public const string SurvivorClaimed = "survivor_claimed";
+
+        /// <summary>
+        /// The <c>survivor_cowork_owned</c> attribute namespace.
+        /// </summary>
+        public const string SurvivorCoworkOwned = "survivor_cowork_owned";
+
+        /// <summary>
+        /// The <c>survivor_shown_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string SurvivorShownAgeMs = "survivor_shown_age_ms";
+
+        /// <summary>
+        /// The <c>switch_id</c> attribute namespace.
+        /// </summary>
+        public const string SwitchId = "switch_id";
+
+        /// <summary>
+        /// The <c>switch_on</c> attribute namespace.
+        /// </summary>
+        public const string SwitchOn = "switch_on";
+
+        /// <summary>
+        /// The <c>synced_count</c> attribute namespace.
+        /// </summary>
+        public const string SyncedCount = "synced_count";
+
+        /// <summary>
         /// The <c>system</c> attribute namespace.
         /// </summary>
         public const string System = "system";
+
+        /// <summary>
+        /// The <c>system_message_chars</c> attribute namespace.
+        /// </summary>
+        public const string SystemMessageChars = "system_message_chars";
+
+        /// <summary>
+        /// The <c>system_prompt</c> attribute namespace.
+        /// </summary>
+        public const string SystemPrompt = "system_prompt";
+
+        /// <summary>
+        /// The <c>system_prompt_hash</c> attribute namespace.
+        /// </summary>
+        public const string SystemPromptHash = "system_prompt_hash";
+
+        /// <summary>
+        /// The <c>system_prompt_length</c> attribute namespace.
+        /// </summary>
+        public const string SystemPromptLength = "system_prompt_length";
+
+        /// <summary>
+        /// The <c>system_prompt_preview</c> attribute namespace.
+        /// </summary>
+        public const string SystemPromptPreview = "system_prompt_preview";
+
+        /// <summary>
+        /// The <c>system_prompt_snapshot</c> attribute namespace.
+        /// </summary>
+        public const string SystemPromptSnapshot = "system_prompt_snapshot";
+
+        /// <summary>
+        /// The <c>system_prompt_truncated</c> attribute namespace.
+        /// </summary>
+        public const string SystemPromptTruncated = "system_prompt_truncated";
+
+        /// <summary>
+        /// The <c>system_reminders</c> attribute namespace.
+        /// </summary>
+        public const string SystemReminders = "system_reminders";
+
+        /// <summary>
+        /// The <c>system_reminders_count</c> attribute namespace.
+        /// </summary>
+        public const string SystemRemindersCount = "system_reminders_count";
+
+        /// <summary>
+        /// The <c>system_reminders_original_length</c> attribute namespace.
+        /// </summary>
+        public const string SystemRemindersOriginalLength = "system_reminders_original_length";
+
+        /// <summary>
+        /// The <c>system_reminders_truncated</c> attribute namespace.
+        /// </summary>
+        public const string SystemRemindersTruncated = "system_reminders_truncated";
+
+        /// <summary>
+        /// The <c>tab</c> attribute namespace.
+        /// </summary>
+        public const string Tab = "tab";
+
+        /// <summary>
+        /// The <c>tabs</c> attribute namespace.
+        /// </summary>
+        public const string Tabs = "tabs";
+
+        /// <summary>
+        /// The <c>tabs_closed</c> attribute namespace.
+        /// </summary>
+        public const string TabsClosed = "tabs_closed";
+
+        /// <summary>
+        /// The <c>tail_drain_overlap</c> attribute namespace.
+        /// </summary>
+        public const string TailDrainOverlap = "tail_drain_overlap";
+
+        /// <summary>
+        /// The <c>tail_file_bytes</c> attribute namespace.
+        /// </summary>
+        public const string TailFileBytes = "tail_file_bytes";
+
+        /// <summary>
+        /// The <c>tail_handler_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailHandlerMs = "tail_handler_ms";
+
+        /// <summary>
+        /// The <c>tail_ipc_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailIpcMs = "tail_ipc_ms";
+
+        /// <summary>
+        /// The <c>tail_parse_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailParseMs = "tail_parse_ms";
+
+        /// <summary>
+        /// The <c>tail_parse_self_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailParseSelfMs = "tail_parse_self_ms";
+
+        /// <summary>
+        /// The <c>tail_queue_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailQueueMs = "tail_queue_ms";
+
+        /// <summary>
+        /// The <c>tail_read_bytes</c> attribute namespace.
+        /// </summary>
+        public const string TailReadBytes = "tail_read_bytes";
+
+        /// <summary>
+        /// The <c>tail_read_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailReadMs = "tail_read_ms";
+
+        /// <summary>
+        /// The <c>tail_reparse_count</c> attribute namespace.
+        /// </summary>
+        public const string TailReparseCount = "tail_reparse_count";
+
+        /// <summary>
+        /// The <c>tail_rows_kept</c> attribute namespace.
+        /// </summary>
+        public const string TailRowsKept = "tail_rows_kept";
+
+        /// <summary>
+        /// The <c>tail_rows_parsed</c> attribute namespace.
+        /// </summary>
+        public const string TailRowsParsed = "tail_rows_parsed";
+
+        /// <summary>
+        /// The <c>tail_rungs</c> attribute namespace.
+        /// </summary>
+        public const string TailRungs = "tail_rungs";
+
+        /// <summary>
+        /// The <c>tail_session_wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string TailSessionWaitMs = "tail_session_wait_ms";
+
+        /// <summary>
+        /// The <c>tail_source</c> attribute namespace.
+        /// </summary>
+        public const string TailSource = "tail_source";
+
+        /// <summary>
+        /// The <c>taken</c> attribute namespace.
+        /// </summary>
+        public const string Taken = "taken";
+
+        /// <summary>
+        /// The <c>target</c> attribute namespace.
+        /// </summary>
+        public const string Target = "target";
+
+        /// <summary>
+        /// The <c>target_from_flag</c> attribute namespace.
+        /// </summary>
+        public const string TargetFromFlag = "target_from_flag";
+
+        /// <summary>
+        /// The <c>target_id</c> attribute namespace.
+        /// </summary>
+        public const string TargetId = "target_id";
+
+        /// <summary>
+        /// The <c>target_kind</c> attribute namespace.
+        /// </summary>
+        public const string TargetKind = "target_kind";
+
+        /// <summary>
+        /// The <c>target_message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string TargetMessageUuid = "target_message_uuid";
+
+        /// <summary>
+        /// The <c>target_version</c> attribute namespace.
+        /// </summary>
+        public const string TargetVersion = "target_version";
+
+        /// <summary>
+        /// The <c>task_count</c> attribute namespace.
+        /// </summary>
+        public const string TaskCount = "task_count";
+
+        /// <summary>
+        /// The <c>task_type</c> attribute namespace.
+        /// </summary>
+        public const string TaskType = "task_type";
+
+        /// <summary>
+        /// The <c>task_wait_seconds</c> attribute namespace.
+        /// </summary>
+        public const string TaskWaitSeconds = "task_wait_seconds";
+
+        /// <summary>
+        /// The <c>tasks_already_remote</c> attribute namespace.
+        /// </summary>
+        public const string TasksAlreadyRemote = "tasks_already_remote";
+
+        /// <summary>
+        /// The <c>tasks_failed</c> attribute namespace.
+        /// </summary>
+        public const string TasksFailed = "tasks_failed";
+
+        /// <summary>
+        /// The <c>tasks_remote</c> attribute namespace.
+        /// </summary>
+        public const string TasksRemote = "tasks_remote";
+
+        /// <summary>
+        /// The <c>tasks_repointed</c> attribute namespace.
+        /// </summary>
+        public const string TasksRepointed = "tasks_repointed";
+
+        /// <summary>
+        /// The <c>tasks_stopped</c> attribute namespace.
+        /// </summary>
+        public const string TasksStopped = "tasks_stopped";
+
+        /// <summary>
+        /// The <c>tasks_total</c> attribute namespace.
+        /// </summary>
+        public const string TasksTotal = "tasks_total";
+
+        /// <summary>
+        /// The <c>tcc_folder_kind</c> attribute namespace.
+        /// </summary>
+        public const string TccFolderKind = "tcc_folder_kind";
+
+        /// <summary>
+        /// The <c>teardown_reason</c> attribute namespace.
+        /// </summary>
+        public const string TeardownReason = "teardown_reason";
 
         /// <summary>
         /// The <c>telemetry</c> attribute namespace.
@@ -516,9 +8841,44 @@ public static class QylAttributes
         public const string Telemetry = "telemetry";
 
         /// <summary>
+        /// The <c>terminal</c> attribute namespace.
+        /// </summary>
+        public const string Terminal = "terminal";
+
+        /// <summary>
         /// The <c>test</c> attribute namespace.
         /// </summary>
         public const string Test = "test";
+
+        /// <summary>
+        /// The <c>text_len</c> attribute namespace.
+        /// </summary>
+        public const string TextLen = "text_len";
+
+        /// <summary>
+        /// The <c>text_length</c> attribute namespace.
+        /// </summary>
+        public const string TextLength = "text_length";
+
+        /// <summary>
+        /// The <c>text_variant</c> attribute namespace.
+        /// </summary>
+        public const string TextVariant = "text_variant";
+
+        /// <summary>
+        /// The <c>thinking_forced</c> attribute namespace.
+        /// </summary>
+        public const string ThinkingForced = "thinking_forced";
+
+        /// <summary>
+        /// The <c>third_party</c> attribute namespace.
+        /// </summary>
+        public const string ThirdParty = "third_party";
+
+        /// <summary>
+        /// The <c>third_party_gpu_modules_allowed</c> attribute namespace.
+        /// </summary>
+        public const string ThirdPartyGpuModulesAllowed = "third_party_gpu_modules_allowed";
 
         /// <summary>
         /// The <c>thread</c> attribute namespace.
@@ -526,14 +8886,689 @@ public static class QylAttributes
         public const string Thread = "thread";
 
         /// <summary>
+        /// The <c>time_visible_ms</c> attribute namespace.
+        /// </summary>
+        public const string TimeVisibleMs = "time_visible_ms";
+
+        /// <summary>
+        /// The <c>timed_out</c> attribute namespace.
+        /// </summary>
+        public const string TimedOut = "timed_out";
+
+        /// <summary>
+        /// The <c>timed_out_here</c> attribute namespace.
+        /// </summary>
+        public const string TimedOutHere = "timed_out_here";
+
+        /// <summary>
+        /// The <c>timed_out_phase</c> attribute namespace.
+        /// </summary>
+        public const string TimedOutPhase = "timed_out_phase";
+
+        /// <summary>
+        /// The <c>timeout_ms</c> attribute namespace.
+        /// </summary>
+        public const string TimeoutMs = "timeout_ms";
+
+        /// <summary>
+        /// The <c>timing_ms</c> attribute namespace.
+        /// </summary>
+        public const string TimingMs = "timing_ms";
+
+        /// <summary>
+        /// The <c>title_check_outcome</c> attribute namespace.
+        /// </summary>
+        public const string TitleCheckOutcome = "title_check_outcome";
+
+        /// <summary>
+        /// The <c>title_overlap_pct</c> attribute namespace.
+        /// </summary>
+        public const string TitleOverlapPct = "title_overlap_pct";
+
+        /// <summary>
+        /// The <c>title_source</c> attribute namespace.
+        /// </summary>
+        public const string TitleSource = "title_source";
+
+        /// <summary>
+        /// The <c>title_turn_known</c> attribute namespace.
+        /// </summary>
+        public const string TitleTurnKnown = "title_turn_known";
+
+        /// <summary>
+        /// The <c>title_via_cli_outcome</c> attribute namespace.
+        /// </summary>
+        public const string TitleViaCliOutcome = "title_via_cli_outcome";
+
+        /// <summary>
         /// The <c>tls</c> attribute namespace.
         /// </summary>
         public const string Tls = "tls";
 
         /// <summary>
+        /// The <c>to_display</c> attribute namespace.
+        /// </summary>
+        public const string ToDisplay = "to_display";
+
+        /// <summary>
+        /// The <c>to_level</c> attribute namespace.
+        /// </summary>
+        public const string ToLevel = "to_level";
+
+        /// <summary>
+        /// The <c>to_mode</c> attribute namespace.
+        /// </summary>
+        public const string ToMode = "to_mode";
+
+        /// <summary>
+        /// The <c>to_version</c> attribute namespace.
+        /// </summary>
+        public const string ToVersion = "to_version";
+
+        /// <summary>
+        /// The <c>tool</c> attribute namespace.
+        /// </summary>
+        public const string Tool = "tool";
+
+        /// <summary>
+        /// The <c>tool_age_ms</c> attribute namespace.
+        /// </summary>
+        public const string ToolAgeMs = "tool_age_ms";
+
+        /// <summary>
+        /// The <c>tool_builtin</c> attribute namespace.
+        /// </summary>
+        public const string ToolBuiltin = "tool_builtin";
+
+        /// <summary>
+        /// The <c>tool_calls</c> attribute namespace.
+        /// </summary>
+        public const string ToolCalls = "tool_calls";
+
+        /// <summary>
+        /// The <c>tool_hash</c> attribute namespace.
+        /// </summary>
+        public const string ToolHash = "tool_hash";
+
+        /// <summary>
+        /// The <c>tool_host_sessions</c> attribute namespace.
+        /// </summary>
+        public const string ToolHostSessions = "tool_host_sessions";
+
+        /// <summary>
+        /// The <c>tool_input</c> attribute namespace.
+        /// </summary>
+        public const string ToolInput = "tool_input";
+
+        /// <summary>
+        /// The <c>tool_input_original_length</c> attribute namespace.
+        /// </summary>
+        public const string ToolInputOriginalLength = "tool_input_original_length";
+
+        /// <summary>
+        /// The <c>tool_input_size_bytes</c> attribute namespace.
+        /// </summary>
+        public const string ToolInputSizeBytes = "tool_input_size_bytes";
+
+        /// <summary>
+        /// The <c>tool_input_truncated</c> attribute namespace.
+        /// </summary>
+        public const string ToolInputTruncated = "tool_input_truncated";
+
+        /// <summary>
+        /// The <c>tool_name</c> attribute namespace.
+        /// </summary>
+        public const string ToolName = "tool_name";
+
+        /// <summary>
+        /// The <c>tool_name_safe</c> attribute namespace.
+        /// </summary>
+        public const string ToolNameSafe = "tool_name_safe";
+
+        /// <summary>
+        /// The <c>tool_parameters</c> attribute namespace.
+        /// </summary>
+        public const string ToolParameters = "tool_parameters";
+
+        /// <summary>
+        /// The <c>tool_result_size_bytes</c> attribute namespace.
+        /// </summary>
+        public const string ToolResultSizeBytes = "tool_result_size_bytes";
+
+        /// <summary>
+        /// The <c>tool_running_at_send</c> attribute namespace.
+        /// </summary>
+        public const string ToolRunningAtSend = "tool_running_at_send";
+
+        /// <summary>
+        /// The <c>tool_source</c> attribute namespace.
+        /// </summary>
+        public const string ToolSource = "tool_source";
+
+        /// <summary>
+        /// The <c>tool_truncated</c> attribute namespace.
+        /// </summary>
+        public const string ToolTruncated = "tool_truncated";
+
+        /// <summary>
+        /// The <c>tool_use_count_since_plan_call</c> attribute namespace.
+        /// </summary>
+        public const string ToolUseCountSincePlanCall = "tool_use_count_since_plan_call";
+
+        /// <summary>
+        /// The <c>tool_use_id</c> attribute namespace.
+        /// </summary>
+        public const string ToolUseId = "tool_use_id";
+
+        /// <summary>
+        /// The <c>tools</c> attribute namespace.
+        /// </summary>
+        public const string Tools = "tools";
+
+        /// <summary>
+        /// The <c>tools_count</c> attribute namespace.
+        /// </summary>
+        public const string ToolsCount = "tools_count";
+
+        /// <summary>
+        /// The <c>tools_parse_error</c> attribute namespace.
+        /// </summary>
+        public const string ToolsParseError = "tools_parse_error";
+
+        /// <summary>
+        /// The <c>top1_footprint_bytes</c> attribute namespace.
+        /// </summary>
+        public const string Top1FootprintBytes = "top1_footprint_bytes";
+
+        /// <summary>
+        /// The <c>top2_footprint_bytes</c> attribute namespace.
+        /// </summary>
+        public const string Top2FootprintBytes = "top2_footprint_bytes";
+
+        /// <summary>
+        /// The <c>top3_footprint_bytes</c> attribute namespace.
+        /// </summary>
+        public const string Top3FootprintBytes = "top3_footprint_bytes";
+
+        /// <summary>
+        /// The <c>total_attempts</c> attribute namespace.
+        /// </summary>
+        public const string TotalAttempts = "total_attempts";
+
+        /// <summary>
+        /// The <c>total_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string TotalDurationMs = "total_duration_ms";
+
+        /// <summary>
+        /// The <c>total_extensions_installed</c> attribute namespace.
+        /// </summary>
+        public const string TotalExtensionsInstalled = "total_extensions_installed";
+
+        /// <summary>
+        /// The <c>total_failures</c> attribute namespace.
+        /// </summary>
+        public const string TotalFailures = "total_failures";
+
+        /// <summary>
+        /// The <c>total_mem_gb</c> attribute namespace.
+        /// </summary>
+        public const string TotalMemGb = "total_mem_gb";
+
+        /// <summary>
+        /// The <c>total_ms</c> attribute namespace.
+        /// </summary>
+        public const string TotalMs = "total_ms";
+
+        /// <summary>
+        /// The <c>total_observed_runs</c> attribute namespace.
+        /// </summary>
+        public const string TotalObservedRuns = "total_observed_runs";
+
+        /// <summary>
+        /// The <c>total_retry_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string TotalRetryDurationMs = "total_retry_duration_ms";
+
+        /// <summary>
+        /// The <c>total_stalls</c> attribute namespace.
+        /// </summary>
+        public const string TotalStalls = "total_stalls";
+
+        /// <summary>
+        /// The <c>total_to_assistant_ms</c> attribute namespace.
+        /// </summary>
+        public const string TotalToAssistantMs = "total_to_assistant_ms";
+
+        /// <summary>
+        /// The <c>total_to_init_ms</c> attribute namespace.
+        /// </summary>
+        public const string TotalToInitMs = "total_to_init_ms";
+
+        /// <summary>
+        /// The <c>total_tokens</c> attribute namespace.
+        /// </summary>
+        public const string TotalTokens = "total_tokens";
+
+        /// <summary>
+        /// The <c>total_tool_uses</c> attribute namespace.
+        /// </summary>
+        public const string TotalToolUses = "total_tool_uses";
+
+        /// <summary>
+        /// The <c>tracked_processes</c> attribute namespace.
+        /// </summary>
+        public const string TrackedProcesses = "tracked_processes";
+
+        /// <summary>
+        /// The <c>transcript_bytes</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptBytes = "transcript_bytes";
+
+        /// <summary>
+        /// The <c>transcript_fill_rows</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptFillRows = "transcript_fill_rows";
+
+        /// <summary>
+        /// The <c>transcript_length</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptLength = "transcript_length";
+
+        /// <summary>
+        /// The <c>transcript_line_count</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptLineCount = "transcript_line_count";
+
+        /// <summary>
+        /// The <c>transcript_ms</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptMs = "transcript_ms";
+
+        /// <summary>
+        /// The <c>transcript_page_fallback</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptPageFallback = "transcript_page_fallback";
+
+        /// <summary>
+        /// The <c>transcript_page_source</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptPageSource = "transcript_page_source";
+
+        /// <summary>
+        /// The <c>transcript_relocated</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptRelocated = "transcript_relocated";
+
+        /// <summary>
+        /// The <c>transcript_result</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptResult = "transcript_result";
+
+        /// <summary>
+        /// The <c>transcript_size_bytes</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptSizeBytes = "transcript_size_bytes";
+
+        /// <summary>
+        /// The <c>transcript_total_rows</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptTotalRows = "transcript_total_rows";
+
+        /// <summary>
+        /// The <c>transcripts_deleted</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptsDeleted = "transcripts_deleted";
+
+        /// <summary>
+        /// The <c>transcripts_exempted_desktop</c> attribute namespace.
+        /// </summary>
+        public const string TranscriptsExemptedDesktop = "transcripts_exempted_desktop";
+
+        /// <summary>
+        /// The <c>transitions_seen</c> attribute namespace.
+        /// </summary>
+        public const string TransitionsSeen = "transitions_seen";
+
+        /// <summary>
+        /// The <c>transport</c> attribute namespace.
+        /// </summary>
+        public const string Transport = "transport";
+
+        /// <summary>
+        /// The <c>transport_type</c> attribute namespace.
+        /// </summary>
+        public const string TransportType = "transport_type";
+
+        /// <summary>
+        /// The <c>trigger</c> attribute namespace.
+        /// </summary>
+        public const string Trigger = "trigger";
+
+        /// <summary>
+        /// The <c>trigger_id</c> attribute namespace.
+        /// </summary>
+        public const string TriggerId = "trigger_id";
+
+        /// <summary>
+        /// The <c>trigger_type</c> attribute namespace.
+        /// </summary>
+        public const string TriggerType = "trigger_type";
+
+        /// <summary>
+        /// The <c>truncated</c> attribute namespace.
+        /// </summary>
+        public const string Truncated = "truncated";
+
+        /// <summary>
+        /// The <c>trust_check_cause</c> attribute namespace.
+        /// </summary>
+        public const string TrustCheckCause = "trust_check_cause";
+
+        /// <summary>
+        /// The <c>trust_total_ms</c> attribute namespace.
+        /// </summary>
+        public const string TrustTotalMs = "trust_total_ms";
+
+        /// <summary>
+        /// The <c>ttft_ms</c> attribute namespace.
+        /// </summary>
+        public const string TtftMs = "ttft_ms";
+
+        /// <summary>
+        /// The <c>turn_box_mounted</c> attribute namespace.
+        /// </summary>
+        public const string TurnBoxMounted = "turn_box_mounted";
+
+        /// <summary>
+        /// The <c>turn_interrupted</c> attribute namespace.
+        /// </summary>
+        public const string TurnInterrupted = "turn_interrupted";
+
+        /// <summary>
+        /// The <c>turn_ms</c> attribute namespace.
+        /// </summary>
+        public const string TurnMs = "turn_ms";
+
+        /// <summary>
+        /// The <c>turn_origin</c> attribute namespace.
+        /// </summary>
+        public const string TurnOrigin = "turn_origin";
+
+        /// <summary>
+        /// The <c>turn_scope</c> attribute namespace.
+        /// </summary>
+        public const string TurnScope = "turn_scope";
+
+        /// <summary>
+        /// The <c>turns_before_ptl</c> attribute namespace.
+        /// </summary>
+        public const string TurnsBeforePtl = "turns_before_ptl";
+
+        /// <summary>
+        /// The <c>turns_bucket</c> attribute namespace.
+        /// </summary>
+        public const string TurnsBucket = "turns_bucket";
+
+        /// <summary>
+        /// The <c>turns_since_title</c> attribute namespace.
+        /// </summary>
+        public const string TurnsSinceTitle = "turns_since_title";
+
+        /// <summary>
+        /// The <c>type</c> attribute namespace.
+        /// </summary>
+        public const string Type = "type";
+
+        /// <summary>
+        /// The <c>ui_app</c> attribute namespace.
+        /// </summary>
+        public const string UiApp = "ui_app";
+
+        /// <summary>
+        /// The <c>unarchive</c> attribute namespace.
+        /// </summary>
+        public const string Unarchive = "unarchive";
+
+        /// <summary>
+        /// The <c>unattended</c> attribute namespace.
+        /// </summary>
+        public const string Unattended = "unattended";
+
+        /// <summary>
+        /// The <c>unavailable_probe_code</c> attribute namespace.
+        /// </summary>
+        public const string UnavailableProbeCode = "unavailable_probe_code";
+
+        /// <summary>
+        /// The <c>unavailable_probe_reason</c> attribute namespace.
+        /// </summary>
+        public const string UnavailableProbeReason = "unavailable_probe_reason";
+
+        /// <summary>
+        /// The <c>unclean_days</c> attribute namespace.
+        /// </summary>
+        public const string UncleanDays = "unclean_days";
+
+        /// <summary>
+        /// The <c>uncovered_count</c> attribute namespace.
+        /// </summary>
+        public const string UncoveredCount = "uncovered_count";
+
+        /// <summary>
+        /// The <c>unhealthy_reason</c> attribute namespace.
+        /// </summary>
+        public const string UnhealthyReason = "unhealthy_reason";
+
+        /// <summary>
+        /// The <c>uninterruptible</c> attribute namespace.
+        /// </summary>
+        public const string Uninterruptible = "uninterruptible";
+
+        /// <summary>
+        /// The <c>unknown_answers</c> attribute namespace.
+        /// </summary>
+        public const string UnknownAnswers = "unknown_answers";
+
+        /// <summary>
+        /// The <c>unlisted_check_failed</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedCheckFailed = "unlisted_check_failed";
+
+        /// <summary>
+        /// The <c>unlisted_gone_not_available</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedGoneNotAvailable = "unlisted_gone_not_available";
+
+        /// <summary>
+        /// The <c>unlisted_gone_not_found</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedGoneNotFound = "unlisted_gone_not_found";
+
+        /// <summary>
+        /// The <c>unlisted_gone_scan_not_served</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedGoneScanNotServed = "unlisted_gone_scan_not_served";
+
+        /// <summary>
+        /// The <c>unlisted_gone_withheld</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedGoneWithheld = "unlisted_gone_withheld";
+
+        /// <summary>
+        /// The <c>unlisted_present</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedPresent = "unlisted_present";
+
+        /// <summary>
+        /// The <c>unlisted_sent</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedSent = "unlisted_sent";
+
+        /// <summary>
+        /// The <c>unlisted_unknown</c> attribute namespace.
+        /// </summary>
+        public const string UnlistedUnknown = "unlisted_unknown";
+
+        /// <summary>
+        /// The <c>unread_steers</c> attribute namespace.
+        /// </summary>
+        public const string UnreadSteers = "unread_steers";
+
+        /// <summary>
+        /// The <c>unreadable</c> attribute namespace.
+        /// </summary>
+        public const string Unreadable = "unreadable";
+
+        /// <summary>
+        /// The <c>unreadable_count</c> attribute namespace.
+        /// </summary>
+        public const string UnreadableCount = "unreadable_count";
+
+        /// <summary>
+        /// The <c>unreadable_files</c> attribute namespace.
+        /// </summary>
+        public const string UnreadableFiles = "unreadable_files";
+
+        /// <summary>
+        /// The <c>unreadable_settings</c> attribute namespace.
+        /// </summary>
+        public const string UnreadableSettings = "unreadable_settings";
+
+        /// <summary>
+        /// The <c>unreadable_store</c> attribute namespace.
+        /// </summary>
+        public const string UnreadableStore = "unreadable_store";
+
+        /// <summary>
+        /// The <c>unrecorded</c> attribute namespace.
+        /// </summary>
+        public const string Unrecorded = "unrecorded";
+
+        /// <summary>
+        /// The <c>unstarted</c> attribute namespace.
+        /// </summary>
+        public const string Unstarted = "unstarted";
+
+        /// <summary>
+        /// The <c>unsupported_code</c> attribute namespace.
+        /// </summary>
+        public const string UnsupportedCode = "unsupported_code";
+
+        /// <summary>
+        /// The <c>until</c> attribute namespace.
+        /// </summary>
+        public const string Until = "until";
+
+        /// <summary>
+        /// The <c>untracked_discard_requested</c> attribute namespace.
+        /// </summary>
+        public const string UntrackedDiscardRequested = "untracked_discard_requested";
+
+        /// <summary>
+        /// The <c>unverified</c> attribute namespace.
+        /// </summary>
+        public const string Unverified = "unverified";
+
+        /// <summary>
+        /// The <c>unwound_refusal_fallback</c> attribute namespace.
+        /// </summary>
+        public const string UnwoundRefusalFallback = "unwound_refusal_fallback";
+
+        /// <summary>
+        /// The <c>update_channel</c> attribute namespace.
+        /// </summary>
+        public const string UpdateChannel = "update_channel";
+
+        /// <summary>
+        /// The <c>update_count</c> attribute namespace.
+        /// </summary>
+        public const string UpdateCount = "update_count";
+
+        /// <summary>
+        /// The <c>update_relaunch_marker</c> attribute namespace.
+        /// </summary>
+        public const string UpdateRelaunchMarker = "update_relaunch_marker";
+
+        /// <summary>
+        /// The <c>update_version</c> attribute namespace.
+        /// </summary>
+        public const string UpdateVersion = "update_version";
+
+        /// <summary>
+        /// The <c>updated_cron</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedCron = "updated_cron";
+
+        /// <summary>
+        /// The <c>updated_description</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedDescription = "updated_description";
+
+        /// <summary>
+        /// The <c>updated_disable_jitter</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedDisableJitter = "updated_disable_jitter";
+
+        /// <summary>
+        /// The <c>updated_display_name</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedDisplayName = "updated_display_name";
+
+        /// <summary>
+        /// The <c>updated_enabled</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedEnabled = "updated_enabled";
+
+        /// <summary>
+        /// The <c>updated_fire_at</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedFireAt = "updated_fire_at";
+
+        /// <summary>
+        /// The <c>updated_notify_on_completion</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedNotifyOnCompletion = "updated_notify_on_completion";
+
+        /// <summary>
+        /// The <c>updated_project_uuids</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedProjectUuids = "updated_project_uuids";
+
+        /// <summary>
+        /// The <c>updated_prompt</c> attribute namespace.
+        /// </summary>
+        public const string UpdatedPrompt = "updated_prompt";
+
+        /// <summary>
+        /// The <c>upgraded_existing</c> attribute namespace.
+        /// </summary>
+        public const string UpgradedExisting = "upgraded_existing";
+
+        /// <summary>
+        /// The <c>upload_net_error_name</c> attribute namespace.
+        /// </summary>
+        public const string UploadNetErrorName = "upload_net_error_name";
+
+        /// <summary>
         /// The <c>url</c> attribute namespace.
         /// </summary>
         public const string Url = "url";
+
+        /// <summary>
+        /// The <c>url_class</c> attribute namespace.
+        /// </summary>
+        public const string UrlClass = "url_class";
+
+        /// <summary>
+        /// The <c>url_scheme</c> attribute namespace.
+        /// </summary>
+        public const string UrlScheme = "url_scheme";
+
+        /// <summary>
+        /// The <c>used_default</c> attribute namespace.
+        /// </summary>
+        public const string UsedDefault = "used_default";
 
         /// <summary>
         /// The <c>user</c> attribute namespace.
@@ -546,9 +9581,54 @@ public static class QylAttributes
         public const string UserAgent = "user_agent";
 
         /// <summary>
+        /// The <c>user_message_uuid</c> attribute namespace.
+        /// </summary>
+        public const string UserMessageUuid = "user_message_uuid";
+
+        /// <summary>
+        /// The <c>user_prompt</c> attribute namespace.
+        /// </summary>
+        public const string UserPrompt = "user_prompt";
+
+        /// <summary>
+        /// The <c>user_prompt_length</c> attribute namespace.
+        /// </summary>
+        public const string UserPromptLength = "user_prompt_length";
+
+        /// <summary>
+        /// The <c>user_system_prompt</c> attribute namespace.
+        /// </summary>
+        public const string UserSystemPrompt = "user_system_prompt";
+
+        /// <summary>
+        /// The <c>user_system_prompt_original_length</c> attribute namespace.
+        /// </summary>
+        public const string UserSystemPromptOriginalLength = "user_system_prompt_original_length";
+
+        /// <summary>
+        /// The <c>user_system_prompt_truncated</c> attribute namespace.
+        /// </summary>
+        public const string UserSystemPromptTruncated = "user_system_prompt_truncated";
+
+        /// <summary>
+        /// The <c>user_waiting</c> attribute namespace.
+        /// </summary>
+        public const string UserWaiting = "user_waiting";
+
+        /// <summary>
         /// The <c>v8js</c> attribute namespace.
         /// </summary>
         public const string V8js = "v8js";
+
+        /// <summary>
+        /// The <c>variant</c> attribute namespace.
+        /// </summary>
+        public const string Variant = "variant";
+
+        /// <summary>
+        /// The <c>vars_adopted</c> attribute namespace.
+        /// </summary>
+        public const string VarsAdopted = "vars_adopted";
 
         /// <summary>
         /// The <c>vcs</c> attribute namespace.
@@ -556,9 +9636,229 @@ public static class QylAttributes
         public const string Vcs = "vcs";
 
         /// <summary>
+        /// The <c>verb</c> attribute namespace.
+        /// </summary>
+        public const string Verb = "verb";
+
+        /// <summary>
+        /// The <c>verdict</c> attribute namespace.
+        /// </summary>
+        public const string Verdict = "verdict";
+
+        /// <summary>
+        /// The <c>verdict_detail</c> attribute namespace.
+        /// </summary>
+        public const string VerdictDetail = "verdict_detail";
+
+        /// <summary>
+        /// The <c>verdict_source</c> attribute namespace.
+        /// </summary>
+        public const string VerdictSource = "verdict_source";
+
+        /// <summary>
+        /// The <c>verified_since_recovery</c> attribute namespace.
+        /// </summary>
+        public const string VerifiedSinceRecovery = "verified_since_recovery";
+
+        /// <summary>
+        /// The <c>version</c> attribute namespace.
+        /// </summary>
+        public const string Version = "version";
+
+        /// <summary>
+        /// The <c>via</c> attribute namespace.
+        /// </summary>
+        public const string Via = "via";
+
+        /// <summary>
+        /// The <c>via_fallback</c> attribute namespace.
+        /// </summary>
+        public const string ViaFallback = "via_fallback";
+
+        /// <summary>
+        /// The <c>via_oopif</c> attribute namespace.
+        /// </summary>
+        public const string ViaOopif = "via_oopif";
+
+        /// <summary>
+        /// The <c>viewport_size_bucket</c> attribute namespace.
+        /// </summary>
+        public const string ViewportSizeBucket = "viewport_size_bucket";
+
+        /// <summary>
+        /// The <c>vm_guest_connected</c> attribute namespace.
+        /// </summary>
+        public const string VmGuestConnected = "vm_guest_connected";
+
+        /// <summary>
+        /// The <c>vm_network_mode</c> attribute namespace.
+        /// </summary>
+        public const string VmNetworkMode = "vm_network_mode";
+
+        /// <summary>
+        /// The <c>wait_ms</c> attribute namespace.
+        /// </summary>
+        public const string WaitMs = "wait_ms";
+
+        /// <summary>
+        /// The <c>waited_for_claude</c> attribute namespace.
+        /// </summary>
+        public const string WaitedForClaude = "waited_for_claude";
+
+        /// <summary>
+        /// The <c>waited_minutes</c> attribute namespace.
+        /// </summary>
+        public const string WaitedMinutes = "waited_minutes";
+
+        /// <summary>
+        /// The <c>waited_ms</c> attribute namespace.
+        /// </summary>
+        public const string WaitedMs = "waited_ms";
+
+        /// <summary>
+        /// The <c>waiting_children</c> attribute namespace.
+        /// </summary>
+        public const string WaitingChildren = "waiting_children";
+
+        /// <summary>
+        /// The <c>waiting_in</c> attribute namespace.
+        /// </summary>
+        public const string WaitingIn = "waiting_in";
+
+        /// <summary>
+        /// The <c>wake_at</c> attribute namespace.
+        /// </summary>
+        public const string WakeAt = "wake_at";
+
+        /// <summary>
+        /// The <c>wake_delivery</c> attribute namespace.
+        /// </summary>
+        public const string WakeDelivery = "wake_delivery";
+
+        /// <summary>
+        /// The <c>wake_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string WakeDurationMs = "wake_duration_ms";
+
+        /// <summary>
+        /// The <c>wake_ordinal</c> attribute namespace.
+        /// </summary>
+        public const string WakeOrdinal = "wake_ordinal";
+
+        /// <summary>
+        /// The <c>wake_when_done</c> attribute namespace.
+        /// </summary>
+        public const string WakeWhenDone = "wake_when_done";
+
+        /// <summary>
+        /// The <c>wakes_in_episode</c> attribute namespace.
+        /// </summary>
+        public const string WakesInEpisode = "wakes_in_episode";
+
+        /// <summary>
+        /// The <c>wakes_since_user_message</c> attribute namespace.
+        /// </summary>
+        public const string WakesSinceUserMessage = "wakes_since_user_message";
+
+        /// <summary>
+        /// The <c>wakeup_in_ms</c> attribute namespace.
+        /// </summary>
+        public const string WakeupInMs = "wakeup_in_ms";
+
+        /// <summary>
+        /// The <c>warm_duration_ms</c> attribute namespace.
+        /// </summary>
+        public const string WarmDurationMs = "warm_duration_ms";
+
+        /// <summary>
+        /// The <c>warm_trigger</c> attribute namespace.
+        /// </summary>
+        public const string WarmTrigger = "warm_trigger";
+
+        /// <summary>
+        /// The <c>warmed_count</c> attribute namespace.
+        /// </summary>
+        public const string WarmedCount = "warmed_count";
+
+        /// <summary>
+        /// The <c>warnings_count</c> attribute namespace.
+        /// </summary>
+        public const string WarningsCount = "warnings_count";
+
+        /// <summary>
+        /// The <c>was_auto_disabled</c> attribute namespace.
+        /// </summary>
+        public const string WasAutoDisabled = "was_auto_disabled";
+
+        /// <summary>
+        /// The <c>was_cross_repo</c> attribute namespace.
+        /// </summary>
+        public const string WasCrossRepo = "was_cross_repo";
+
+        /// <summary>
+        /// The <c>was_held</c> attribute namespace.
+        /// </summary>
+        public const string WasHeld = "was_held";
+
+        /// <summary>
+        /// The <c>was_hidden</c> attribute namespace.
+        /// </summary>
+        public const string WasHidden = "was_hidden";
+
+        /// <summary>
+        /// The <c>was_hidden_any</c> attribute namespace.
+        /// </summary>
+        public const string WasHiddenAny = "was_hidden_any";
+
+        /// <summary>
+        /// The <c>was_mid_turn</c> attribute namespace.
+        /// </summary>
+        public const string WasMidTurn = "was_mid_turn";
+
+        /// <summary>
+        /// The <c>was_recovered</c> attribute namespace.
+        /// </summary>
+        public const string WasRecovered = "was_recovered";
+
+        /// <summary>
+        /// The <c>was_running</c> attribute namespace.
+        /// </summary>
+        public const string WasRunning = "was_running";
+
+        /// <summary>
+        /// The <c>was_submit</c> attribute namespace.
+        /// </summary>
+        public const string WasSubmit = "was_submit";
+
+        /// <summary>
+        /// The <c>watch_connected_ms</c> attribute namespace.
+        /// </summary>
+        public const string WatchConnectedMs = "watch_connected_ms";
+
+        /// <summary>
+        /// The <c>watch_enabled</c> attribute namespace.
+        /// </summary>
+        public const string WatchEnabled = "watch_enabled";
+
+        /// <summary>
+        /// The <c>watch_state</c> attribute namespace.
+        /// </summary>
+        public const string WatchState = "watch_state";
+
+        /// <summary>
+        /// The <c>wave</c> attribute namespace.
+        /// </summary>
+        public const string Wave = "wave";
+
+        /// <summary>
         /// The <c>wcf</c> attribute namespace.
         /// </summary>
         public const string Wcf = "wcf";
+
+        /// <summary>
+        /// The <c>web_commit_hash</c> attribute namespace.
+        /// </summary>
+        public const string WebCommitHash = "web_commit_hash";
 
         /// <summary>
         /// The <c>webengine</c> attribute namespace.
@@ -566,9 +9866,369 @@ public static class QylAttributes
         public const string Webengine = "webengine";
 
         /// <summary>
+        /// The <c>while_working_held</c> attribute namespace.
+        /// </summary>
+        public const string WhileWorkingHeld = "while_working_held";
+
+        /// <summary>
+        /// The <c>why</c> attribute namespace.
+        /// </summary>
+        public const string Why = "why";
+
+        /// <summary>
+        /// The <c>will_hold</c> attribute namespace.
+        /// </summary>
+        public const string WillHold = "will_hold";
+
+        /// <summary>
+        /// The <c>willRetry</c> attribute namespace.
+        /// </summary>
+        public const string WillRetry = "willRetry";
+
+        /// <summary>
+        /// The <c>will_retry</c> attribute namespace.
+        /// </summary>
+        public const string WillRetryNamespace = "will_retry";
+
+        /// <summary>
+        /// The <c>window_fallback</c> attribute namespace.
+        /// </summary>
+        public const string WindowFallback = "window_fallback";
+
+        /// <summary>
+        /// The <c>window_ms</c> attribute namespace.
+        /// </summary>
+        public const string WindowMs = "window_ms";
+
+        /// <summary>
+        /// The <c>window_parked</c> attribute namespace.
+        /// </summary>
+        public const string WindowParked = "window_parked";
+
+        /// <summary>
+        /// The <c>window_probe_error</c> attribute namespace.
+        /// </summary>
+        public const string WindowProbeError = "window_probe_error";
+
+        /// <summary>
+        /// The <c>windows_host</c> attribute namespace.
+        /// </summary>
+        public const string WindowsHost = "windows_host";
+
+        /// <summary>
+        /// The <c>windows_host_jobs</c> attribute namespace.
+        /// </summary>
+        public const string WindowsHostJobs = "windows_host_jobs";
+
+        /// <summary>
+        /// The <c>woken_by</c> attribute namespace.
+        /// </summary>
+        public const string WokenBy = "woken_by";
+
+        /// <summary>
         /// The <c>workflow</c> attribute namespace.
         /// </summary>
         public const string Workflow = "workflow";
+
+        /// <summary>
+        /// The <c>working</c> attribute namespace.
+        /// </summary>
+        public const string Working = "working";
+
+        /// <summary>
+        /// The <c>workspace</c> attribute namespace.
+        /// </summary>
+        public const string Workspace = "workspace";
+
+        /// <summary>
+        /// The <c>workspaces_seeded</c> attribute namespace.
+        /// </summary>
+        public const string WorkspacesSeeded = "workspaces_seeded";
+
+        /// <summary>
+        /// The <c>worktree</c> attribute namespace.
+        /// </summary>
+        public const string Worktree = "worktree";
+
+        /// <summary>
+        /// The <c>worktree_cleanup_requested</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeCleanupRequested = "worktree_cleanup_requested";
+
+        /// <summary>
+        /// The <c>worktree_created</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeCreated = "worktree_created";
+
+        /// <summary>
+        /// The <c>worktree_kept_dirty</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeKeptDirty = "worktree_kept_dirty";
+
+        /// <summary>
+        /// The <c>worktree_lazy</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeLazy = "worktree_lazy";
+
+        /// <summary>
+        /// The <c>worktree_mode</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeMode = "worktree_mode";
+
+        /// <summary>
+        /// The <c>worktree_ms</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeMs = "worktree_ms";
+
+        /// <summary>
+        /// The <c>worktree_path</c> attribute namespace.
+        /// </summary>
+        public const string WorktreePath = "worktree_path";
+
+        /// <summary>
+        /// The <c>worktree_pool_enabled</c> attribute namespace.
+        /// </summary>
+        public const string WorktreePoolEnabled = "worktree_pool_enabled";
+
+        /// <summary>
+        /// The <c>worktree_refusal</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeRefusal = "worktree_refusal";
+
+        /// <summary>
+        /// The <c>worktree_reused</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeReused = "worktree_reused";
+
+        /// <summary>
+        /// The <c>worktree_source</c> attribute namespace.
+        /// </summary>
+        public const string WorktreeSource = "worktree_source";
+
+        /// <summary>
+        /// The <c>would_offer</c> attribute namespace.
+        /// </summary>
+        public const string WouldOffer = "would_offer";
+
+        /// <summary>
+        /// The <c>written</c> attribute namespace.
+        /// </summary>
+        public const string Written = "written";
+
+        /// <summary>
+        /// The <c>written_unacked</c> attribute namespace.
+        /// </summary>
+        public const string WrittenUnacked = "written_unacked";
+
+        /// <summary>
+        /// The <c>wsl</c> attribute namespace.
+        /// </summary>
+        public const string Wsl = "wsl";
+
+        /// <summary>
+        /// The <c>wsl_error_code</c> attribute namespace.
+        /// </summary>
+        public const string WslErrorCode = "wsl_error_code";
+
+        /// <summary>
+        /// The <c>wt_add_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtAddMs = "wt_add_ms";
+
+        /// <summary>
+        /// The <c>wt_checkout_race_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtCheckoutRaceMs = "wt_checkout_race_ms";
+
+        /// <summary>
+        /// The <c>wt_checkout_retried</c> attribute namespace.
+        /// </summary>
+        public const string WtCheckoutRetried = "wt_checkout_retried";
+
+        /// <summary>
+        /// The <c>wt_checkout_workers</c> attribute namespace.
+        /// </summary>
+        public const string WtCheckoutWorkers = "wt_checkout_workers";
+
+        /// <summary>
+        /// The <c>wt_config_copied</c> attribute namespace.
+        /// </summary>
+        public const string WtConfigCopied = "wt_config_copied";
+
+        /// <summary>
+        /// The <c>wt_config_deferred</c> attribute namespace.
+        /// </summary>
+        public const string WtConfigDeferred = "wt_config_deferred";
+
+        /// <summary>
+        /// The <c>wt_config_overlay_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtConfigOverlayMs = "wt_config_overlay_ms";
+
+        /// <summary>
+        /// The <c>wt_config_overlay_outcome</c> attribute namespace.
+        /// </summary>
+        public const string WtConfigOverlayOutcome = "wt_config_overlay_outcome";
+
+        /// <summary>
+        /// The <c>wt_fetch_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtFetchMs = "wt_fetch_ms";
+
+        /// <summary>
+        /// The <c>wt_fetch_outcome</c> attribute namespace.
+        /// </summary>
+        public const string WtFetchOutcome = "wt_fetch_outcome";
+
+        /// <summary>
+        /// The <c>wt_fetch_settled</c> attribute namespace.
+        /// </summary>
+        public const string WtFetchSettled = "wt_fetch_settled";
+
+        /// <summary>
+        /// The <c>wt_filter_refresh_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtFilterRefreshMs = "wt_filter_refresh_ms";
+
+        /// <summary>
+        /// The <c>wt_filter_refresh_no_space</c> attribute namespace.
+        /// </summary>
+        public const string WtFilterRefreshNoSpace = "wt_filter_refresh_no_space";
+
+        /// <summary>
+        /// The <c>wt_full_checkout_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtFullCheckoutMs = "wt_full_checkout_ms";
+
+        /// <summary>
+        /// The <c>wt_git_crypt_binary</c> attribute namespace.
+        /// </summary>
+        public const string WtGitCryptBinary = "wt_git_crypt_binary";
+
+        /// <summary>
+        /// The <c>wt_git_crypt_keys</c> attribute namespace.
+        /// </summary>
+        public const string WtGitCryptKeys = "wt_git_crypt_keys";
+
+        /// <summary>
+        /// The <c>wt_git_crypt_left</c> attribute namespace.
+        /// </summary>
+        public const string WtGitCryptLeft = "wt_git_crypt_left";
+
+        /// <summary>
+        /// The <c>wt_git_spawns</c> attribute namespace.
+        /// </summary>
+        public const string WtGitSpawns = "wt_git_spawns";
+
+        /// <summary>
+        /// The <c>wt_hooks_config_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtHooksConfigMs = "wt_hooks_config_ms";
+
+        /// <summary>
+        /// The <c>wt_include_matched</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludeMatched = "wt_include_matched";
+
+        /// <summary>
+        /// The <c>wt_include_patterns_dropped</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludePatternsDropped = "wt_include_patterns_dropped";
+
+        /// <summary>
+        /// The <c>wt_include_scan_mode</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludeScanMode = "wt_include_scan_mode";
+
+        /// <summary>
+        /// The <c>wt_include_scan_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludeScanMs = "wt_include_scan_ms";
+
+        /// <summary>
+        /// The <c>wt_include_scan_outcome</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludeScanOutcome = "wt_include_scan_outcome";
+
+        /// <summary>
+        /// The <c>wt_include_unsearched_dirs</c> attribute namespace.
+        /// </summary>
+        public const string WtIncludeUnsearchedDirs = "wt_include_unsearched_dirs";
+
+        /// <summary>
+        /// The <c>wt_lfs_hydrate_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtLfsHydrateMs = "wt_lfs_hydrate_ms";
+
+        /// <summary>
+        /// The <c>wt_lfs_hydrated</c> attribute namespace.
+        /// </summary>
+        public const string WtLfsHydrated = "wt_lfs_hydrated";
+
+        /// <summary>
+        /// The <c>wt_lfs_not_local</c> attribute namespace.
+        /// </summary>
+        public const string WtLfsNotLocal = "wt_lfs_not_local";
+
+        /// <summary>
+        /// The <c>wt_lfs_rejected</c> attribute namespace.
+        /// </summary>
+        public const string WtLfsRejected = "wt_lfs_rejected";
+
+        /// <summary>
+        /// The <c>wt_lfs_skipped</c> attribute namespace.
+        /// </summary>
+        public const string WtLfsSkipped = "wt_lfs_skipped";
+
+        /// <summary>
+        /// The <c>wt_load_avg_1m</c> attribute namespace.
+        /// </summary>
+        public const string WtLoadAvg1m = "wt_load_avg_1m";
+
+        /// <summary>
+        /// The <c>wt_overlay_settled_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtOverlaySettledMs = "wt_overlay_settled_ms";
+
+        /// <summary>
+        /// The <c>wt_post_checkout_hook_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtPostCheckoutHookMs = "wt_post_checkout_hook_ms";
+
+        /// <summary>
+        /// The <c>wt_post_checkout_hook_ran</c> attribute namespace.
+        /// </summary>
+        public const string WtPostCheckoutHookRan = "wt_post_checkout_hook_ran";
+
+        /// <summary>
+        /// The <c>wt_prep_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtPrepMs = "wt_prep_ms";
+
+        /// <summary>
+        /// The <c>wt_stage1_ms</c> attribute namespace.
+        /// </summary>
+        public const string WtStage1Ms = "wt_stage1_ms";
+
+        /// <summary>
+        /// The <c>wt_status_cache_prime</c> attribute namespace.
+        /// </summary>
+        public const string WtStatusCachePrime = "wt_status_cache_prime";
+
+        /// <summary>
+        /// The <c>wt_tracked_files</c> attribute namespace.
+        /// </summary>
+        public const string WtTrackedFiles = "wt_tracked_files";
+
+        /// <summary>
+        /// The <c>xcode_change</c> attribute namespace.
+        /// </summary>
+        public const string XcodeChange = "xcode_change";
+
+        /// <summary>
+        /// The <c>xcode_on_disk</c> attribute namespace.
+        /// </summary>
+        public const string XcodeOnDisk = "xcode_on_disk";
 
         /// <summary>
         /// The <c>zos</c> attribute namespace.
@@ -576,7 +10236,7 @@ public static class QylAttributes
         public const string Zos = "zos";
 
         /// <summary>Every catalogued value, in the order the constants are declared.</summary>
-        public static global::System.Collections.Generic.IReadOnlyList<string> AllValues { get; } = new[] { "android", "app", "artifact", "aspnetcore", "aws", "az", "azure", "browser", "build", "cassandra", "cicd", "client", "cloud", "cloudevents", "cloudfoundry", "code", "container", "cpu", "cpython", "db", "deployment", "destination", "device", "disk", "dns", "dotnet", "edge_group", "elastic", "elasticsearch", "enduser", "error", "event", "exception", "execution", "executor", "faas", "feature_flag", "file", "gcp", "gen_ai", "geo", "go", "graphql", "grpc", "heroku", "host", "http", "hw", "ios", "jsonrpc", "jvm", "k8s", "linux", "log", "mainframe", "mcp", "message", "messaging", "net", "network", "nfs", "nodejs", "nservicebus", "oci", "onc_rpc", "openai", "openshift", "opentracing", "oracle", "oracle_cloud", "os", "otel", "other", "peer", "pool", "pprof", "process", "profile", "quartz", "qyl", "rpc", "security_rule", "server", "service", "session", "signalr", "soap", "source", "state", "system", "telemetry", "test", "thread", "tls", "url", "user", "user_agent", "v8js", "vcs", "wcf", "webengine", "workflow", "zos" };
+        public static global::System.Collections.Generic.IReadOnlyList<string> AllValues { get; } = new[] { "abandon_reason", "abandoned_ms_ago", "abandoned_processes", "aborted", "accessibility_features", "accessibility_support_enabled", "account_enabled_count", "account_uuid", "acked", "action", "active_background_task_count", "active_chain_length", "active_count", "active_cron_count", "active_mcp_server_count", "active_phase_ms", "active_process_count", "active_session_count", "active_sessions", "active_workflow_count", "acts", "actual_sha256", "addedDirs", "additional_context_chars", "admin_removed", "adoptable_sessions", "adopted", "adopted_first_attempt", "adopts", "after_clear_or_rewind", "after_paint_ms", "age_days", "age_ms", "agent", "agent_id", "agent_path_count", "agent_type", "ahead_of_read", "airplane_mode", "already_archived", "already_exited", "already_there", "always_scope", "anchor_source", "android", "anthropic", "any_window_visible", "app", "app_class", "app_focused", "app_quit_trigger", "app_stall", "app_version", "appearance_id", "archive_index_state", "archived", "archived_phase_ms", "archived_phase_trigger", "archived_with_bridge_count", "arm", "armed_by", "armed_cron_count", "armed_durable_cron_count", "arriving_frame_ms", "artifact", "artifacts_deleted", "ask_took", "aspnetcore", "assistant_narration_block_count", "assistant_narration_char_count", "assistant_text_block_count", "assistant_text_char_count", "assistant_tool_group_count", "assistant_tool_use_count", "at_launch", "at_turn_boundary", "attach_reason", "attached_devices", "attached_duration_ms", "attachment_bytes", "attachment_seq", "attachments", "attempt", "attempt_id", "attempt_index", "attempt_num", "attempt_number", "attempted", "attempted_count", "attempts", "attempts_before_recovery", "attestation_form", "auth_auto_retry", "auth_method", "authorization", "auto_archive_on_close", "auto_compact", "auto_compact_attempts", "auto_compact_recovered", "auto_enabled", "auto_fix", "auto_merge", "auto_merge_seen", "auto_reason", "auto_reconnect_attempts", "auto_source", "auto_updates_disabled", "automatic", "awaited_ms", "awaited_outcome", "awaited_reason", "away_at_failure", "away_ms", "aws", "az", "azure", "backend", "backend_kind", "backfill_outcome", "background", "backgrounded", "backoff_ms", "bailed", "base_config_cache_hit", "bash_argv0", "bash_command", "bash_command_class", "bash_command_original_length", "bash_command_truncated", "basis", "batch_pr_count", "batch_request_count", "bearer_state", "bearer_token_type", "bind_eligible_count", "bind_outcome", "bind_unsigned_keyless", "bind_web_key", "blocked_chrome", "blocked_count", "blocked_custom_cron", "blocked_cwd", "blocked_dispatch_hook", "blocked_local_files_only", "blocked_local_folders", "blocked_no_prompt", "blocked_pattern_approvals", "blocked_projects", "blocked_projects_multi_or_malformed", "blocked_space", "blocked_sub_hourly", "blocking", "blocks_committed", "body", "body_length", "body_ref", "body_truncated", "body_withheld", "bounce_reason", "brake_rule", "branch_reattached", "bridge_url_present", "browser", "bucket_gb", "bucket_pct_of_ram", "build", "busy", "bypassed", "bytes", "bytes_at_failure", "bytes_downloaded", "bytes_dropped", "bytes_missing", "bytes_received", "cache_creation_1h_input_tokens", "cache_creation_1h_tokens", "cache_creation_5m_input_tokens", "cache_creation_5m_tokens", "cache_creation_input_tokens", "cache_creation_tokens", "cache_hit", "cache_read_input_tokens", "cache_read_tokens", "cached", "cadence_daily", "cadence_hourly", "cadence_manual", "cadence_one_shot", "cadence_other", "cadence_sub_hourly", "cadence_weekdays", "cadence_weekly", "caller", "can_recover", "can_rewind", "cancel_reason", "cancelled", "candidate_count", "candidates", "candidates_checked", "cap_bytes", "capacity", "capture_kind", "card_reason", "carrier", "carry_row", "cassandra", "category", "cause", "ccd_booted", "ccd_live_cli_count", "ccd_overhead_ms", "ccd_steering", "ccr", "chain_active", "chain_continues", "chain_starts", "change_key", "changed_count", "chars", "check_count", "check_ordinal", "check_source", "checkout_barrier", "checkout_overlap_mode", "child_session_id", "children", "choice", "chunk_count", "cicd", "claim_count", "claims", "clamped", "clash", "claude", "claude_settings", "clean_read_banked", "clean_shutdown", "cleared_by", "cli_binary_choice", "cli_current_version", "cli_fetch_bytes", "cli_fetch_failure", "cli_fetch_fell_back", "cli_fetch_longest_pause_ms", "cli_fetch_ms", "cli_informed", "cli_install_source", "cli_pinned_version", "cli_process_group_learned", "cli_provably_idle", "cli_session_id", "cli_stderr_tail", "cli_upload_bytes", "cli_upload_folder_not_plain", "cli_upload_longest_pause_ms", "cli_upload_ms", "cli_upload_pauses", "cli_upload_restarted_after_reject", "cli_upload_resumed_from_bytes", "cli_uptime_s", "cli_version", "click_age_ms", "clicked_in", "client", "client_request_id", "client_run_id_source", "clock_offset_decision", "clock_offset_ms", "close_count", "close_reason", "close_trigger", "closed", "closing_message_char_count", "cloud", "cloudevents", "cloudfoundry", "code", "code_cli_running", "code_session_active", "cold_boot", "cold_start", "command", "command_length", "command_marks", "command_name", "command_path_count", "command_source", "commands_run", "comment_count", "comments_inlined_count", "comments_truncated_count", "compact_error", "completed", "completed_turns", "configured_root_count", "confined", "confirm_requests", "confirmed_screens", "conflict_kind", "conflict_reminder_ordinal", "conflict_retries", "conflicted_count", "connect_attempt", "connect_error_kind", "connect_trigger", "connection_duration_ms", "connection_failed", "connection_generation", "consecutive_failures", "consecutive_ticks", "contained_by", "container", "content", "content_original_length", "content_truncated", "context", "context_tokens", "contexts_destroyed", "continuation", "continue_message_uuid", "conversations", "cookies", "copied", "copy_ms", "cost_usd", "cost_usd_micros", "count", "cowork_folder", "cowork_session_active", "cpu", "cpython", "crashed_app_version", "created", "creator_session_id", "creator_session_type", "cta", "cumulative_stall_ms", "current_title_chars", "current_version", "cwd", "cycle_health", "daemon_instance", "daemon_instance_changed", "daemon_instance_known", "daemon_upgrade", "daemon_version", "days_since_migration", "db", "decide_ms", "decided_by", "decision", "decision_ms", "decision_reason", "decision_source", "decision_type", "declares_parent_tools", "declined", "deduplicated", "deeplink_age_ms", "defer_ms", "deferred_archived_count", "deferred_at_start", "deferred_count", "deferred_for_ms", "deferred_sends", "deferred_startup_reads", "delayed_by_claude_work", "delayed_by_user_activity", "delegated_tool", "delete_sessions", "deleted", "deleted_count", "delivered", "delivered_count", "delta_ms", "demand_refresh_failed_count", "demand_refresh_floored_count", "demand_refresh_held_count", "demand_refresh_read_count", "denied", "denied_count", "dependency_folders", "deploy_bytes_total", "deploy_bytes_transferred", "deployment", "deployment_kind", "destination", "detach_ms", "detached_ms", "detail", "detected_by", "device", "device_free_count", "device_id_kind", "device_platform", "device_specified", "dial_context_version", "dialed", "died", "diff", "diff_original_length", "diff_truncated", "differed", "direction", "disable_jitter", "disabled", "disabled_count", "disabled_migratable_count", "discarded", "discarded_partial", "disk", "dismissed_by_model", "dispatch_origin_blocked_chrome", "dispatch_origin_blocked_count", "dispatch_origin_blocked_custom_cron", "dispatch_origin_blocked_cwd", "dispatch_origin_blocked_dispatch_hook", "dispatch_origin_blocked_local_folders", "dispatch_origin_blocked_no_prompt", "dispatch_origin_blocked_pattern_approvals", "dispatch_origin_blocked_projects", "dispatch_origin_blocked_space", "dispatch_origin_blocked_sub_hourly", "dispatch_origin_cadence_daily", "dispatch_origin_cadence_hourly", "dispatch_origin_cadence_manual", "dispatch_origin_cadence_one_shot", "dispatch_origin_cadence_other", "dispatch_origin_cadence_sub_hourly", "dispatch_origin_cadence_weekdays", "dispatch_origin_cadence_weekly", "dispatch_origin_count", "dispatch_origin_last_run_age_bucket", "dispatch_origin_migratable_count", "dispatch_origin_unreadable_count", "disposition", "dns", "dormant_days", "dotnet", "draft_len", "dropped_ms_ago", "dropped_overcap", "dropped_oversized", "dropped_since_last", "dropped_unreadable", "dropped_untrusted", "dry_run", "duration_bucket", "duration_ms", "duration_seconds", "edge_group", "effective_root_count", "effort", "elapsed_ms", "elastic", "elasticsearch", "emit_delay_ms", "emit_reason", "enabled", "enabled_count", "enabled_mcp_tool_count", "enabled_via", "enabled_via_override", "end_reason", "ended_by", "ended_by_unmount", "ended_turn", "ends_mid_turn", "enduser", "enforcement_hours", "engine_version", "enqueue_ms", "entries", "entry", "entry_point", "env_not_sent_failed", "env_not_sent_servers", "environment_id", "environment_source", "environments", "episode_index", "episode_ms", "episode_outcome", "error", "error_category", "error_class", "error_code", "error_count", "error_description", "error_detail", "error_domain", "error_kind", "errorMessage", "error_message", "error_name", "error_type", "errors", "escalated", "estimated_cache_write_usd", "evaluated_count", "event", "event_origin", "event_origin_server", "event_type", "ever_connected", "evicted_count", "evidence", "exception", "execution", "executor", "exit_code", "exit_code_decoded", "exit_killed_by", "exit_signal", "expected_cli_version", "expected_height", "expected_sha256", "expected_width", "expired", "explainer_shown", "extension_author", "extension_id", "extension_name", "extension_skipped", "extension_version", "faas", "failed", "failed_acts", "failed_count", "failed_not_found", "failed_other", "failed_phase", "failed_timeout", "failed_writes", "failing_count", "failure", "failure_age_ms", "failure_reason", "failure_type", "failures", "fallback", "fallback_cwd", "fast_folders", "fast_forward", "fatal_startup_result", "fault_class", "feature", "feature_flag", "feature_hash", "feature_source", "feed_arch", "fence_detail", "file", "file_count", "file_path", "file_path_original_length", "file_path_truncated", "filed_count", "files", "files_changed_count", "files_past_cutoff", "files_removed", "files_retained_fresh", "fill_rows", "final", "final_model", "fire_safety_skipped_count", "fired_by", "first_assistant_ms", "first_block_streaming", "first_child_in_job", "first_content_ms", "first_content_source", "first_load", "first_paint_ms", "first_seq", "first_timeout_op", "first_turn", "first_turn_since_spawn", "first_wake_message_uuid", "fleet_override", "floors_unset", "focus_state", "focused", "folder_count", "folder_grant_outcome", "folder_grant_recorded_count", "folder_grant_refusal_reasons", "folder_grant_refused_count", "folder_hash", "folder_reason", "folder_tree", "folders", "folders_excluded", "folders_limited", "folders_missing", "folders_served", "folders_unread", "followed_hinge", "follows_stall_snapshot", "force_ask_cause", "force_cleanup_explicit_false", "fork_ms", "found", "fps", "frame_depth", "frames_after", "frames_before", "fresh", "fresh_start", "fresh_worktree_created", "from_card", "from_deeplink", "from_level", "from_mode", "from_preset", "from_project_scan", "from_seq", "from_version", "frontier_renders", "frozen_ms", "fs_error_code", "full_checkout_wait_ms", "full_command", "gap", "gap_ms", "gate", "gate_blocked_built_in_browser_count", "gate_blocked_chrome_count", "gate_blocked_cooldown_count", "gate_blocked_count", "gate_blocked_cron_invalid_count", "gate_blocked_custom_cron_count", "gate_blocked_cwd_count", "gate_blocked_dispatch_hook_count", "gate_blocked_local_folders_count", "gate_blocked_no_prompt_count", "gate_blocked_pattern_approvals_count", "gate_blocked_placement_count", "gate_blocked_project_archived_count", "gate_blocked_project_upgraded_count", "gate_blocked_projects_count", "gate_blocked_remote_control_disabled_count", "gate_blocked_remote_control_unknown_count", "gate_blocked_space_count", "gate_blocked_sub_hourly_count", "gate_blocked_unscheduled_count", "gate_reason", "gc_cumulative_ms", "gc_in_stall_max_ms", "gc_in_stall_ms", "gcp", "gen_ai", "generation_age_ms", "geo", "gesture", "gesture_type", "git", "git_isolation_errno", "git_isolation_stage", "git_remove_ms", "git_settings_control", "go", "gone", "grant_copy_failed", "graphql", "graphql_errors_only_count", "graphql_failed_count", "graphql_rate_limited_count", "graphql_read_by_caller", "graphql_request_count", "graphql_write_count", "graphql_write_failed_count", "grpc", "had_cli_session", "had_first_response", "had_input", "had_interrupt_carrier", "had_live_query", "had_live_wakeup", "had_node_modules", "had_pending_cycle", "had_pending_turn", "had_result", "had_scheduled_task", "had_title", "handed_off", "handoff_tool", "hard_deny_served", "has_action_buttons", "has_active_query", "has_category", "has_cli_session_id", "has_config", "has_cron", "has_explanation", "has_fire_at", "has_hooks", "has_input_stream", "has_launch_tools", "has_live_processes", "has_live_sibling", "has_local_disk", "has_mcp", "has_message", "has_more", "has_notify_on_completion", "has_origin", "has_target_cwd", "has_thread", "has_title", "has_usage_data", "has_worktree", "head_changed", "head_changed_since_first_wake", "head_ordinal", "head_unknown_count", "heads_in_episode", "healed", "heartbeats", "heavy_work_task", "held", "held_back", "held_count", "held_ms", "held_steers", "helper_peer_check", "helper_quiet_ms", "helper_run", "helper_uptime_ms", "heroku", "hidden_at_emit", "hidden_count", "history_entries_pruned", "history_requested", "history_shim", "hit", "hit_rtt_ms", "hold_cause", "hold_change", "hold_ms", "hold_reason", "holder", "hook_definitions", "hook_event", "hook_matcher", "hook_name", "hook_sig_match", "hook_source", "hook_type", "hooked", "hooks_applied", "host", "host_base_merge", "host_configured_skipped", "host_count", "host_mount_ms", "host_owned_mcp", "host_slot", "host_window", "host_work", "hosted_count", "hosts", "how", "http", "http_sibling", "http_status", "http_status_text", "hw", "hw_attestation", "hw_unavailable_reason", "identity", "idle_gated", "idle_kind", "idle_summary", "idle_summary_delay_ms", "idle_timeout_ms", "image_count_in_buffer", "implementation", "import_source", "in_experiment", "in_flight", "in_place", "in_popout", "include_overlay_wait_ms", "include_uncommitted", "index_deferred_count", "index_stale_active_count", "init_arrived", "init_awake_ms", "init_mcp_connected_count", "init_mcp_disabled_count", "init_mcp_failed_count", "init_mcp_needs_auth_count", "init_mcp_other_count", "init_mcp_pending_count", "init_mcp_total_count", "init_ms", "init_plugin_count", "initial_user_message_chars", "initiator", "inp_ms", "input_delay_ms", "input_origin", "input_tokens", "insert_method", "install", "install_state_seeded", "installed", "insufficient_observation_count", "intent", "intent_before_initialized", "intent_lead_ms", "intent_saved_at_start", "interaction", "interaction_type", "internal_server_name", "interrupt_seq", "interrupted", "interrupted_age_seconds", "interrupted_overdue_ms", "interval_minutes", "into_open_tab", "invocation_trigger", "io_return", "ios", "ipc_bytes", "ipc_ms", "is_async", "is_built_in", "is_claude_host", "is_downgrade", "is_error", "is_financial", "is_first_turn", "is_fork", "is_git_repo", "is_high_risk", "is_internal", "is_large_import", "is_local", "is_localhost", "is_main_frame", "is_manual", "is_nest_build", "is_new_session", "is_plugin", "is_remote", "is_repeat", "is_resume", "is_running", "is_scheduled_task_session", "is_scratch", "is_side_session", "is_ssh", "is_startup_error", "is_stopping", "is_violin_bow", "is_visible", "is_warm", "is_windows", "is_worktree", "jitter_seconds", "jsonrpc", "judged", "jump_ms", "jvm", "k8s", "keep_awake_release", "kept", "kept_claimed_elsewhere", "kept_earlier", "kept_existing_count", "key_class", "key_count", "key", "keys_set", "kicked", "kind", "kinds", "lan_name", "lane", "language", "laptop_path_skipped", "last_buffered_message_type", "last_error_class", "last_error_code", "last_frame_age_ms", "last_message_model", "last_message_type", "last_oauth_decline_reason", "last_read_verdict", "last_task", "last_task_sync_ms", "last_timeout_op", "last_tool_name", "late", "latency_bucket", "latency_ms", "launch_limit", "launch_sample_rate", "launch_timeout_stage", "launched", "launcher_marked", "launcher_status", "launcher_version_check", "lead_time_ms", "leases", "left_awaiting_person_count", "legacy_kill", "legacy_user_waiting", "level", "lifetime_ms", "likely_ours", "likely_sleep", "limit", "lines", "link", "link_age_ms", "link_host", "link_late_pongs", "link_queued_pongs", "link_srtt_ms", "link_up", "linux", "list_source", "live_bindings", "live_children", "live_cli_count", "live_processes", "live_scheduled_cli_count", "live_sessions", "llm_request", "load_error_code", "load_ms", "load_phase", "loaf_entry_count", "loaf_in_delay_ms", "loaf_script_char_pos", "loaf_script_duration_ms", "loaf_script_forced_layout_ms", "loaf_script_function", "loaf_script_invoker", "loaf_script_invoker_type", "loaf_script_source", "loaf_total_blocking_ms", "loaf_total_forced_layout_ms", "local_enabled", "local_file_count", "local_session_id", "local_total_bytes", "lock_known_locked", "log", "log_reads", "long_frame_ms_max", "long_frame_ms_total", "losable_background_task_count", "losable_kind", "losses_this_round", "lost_input", "low_memory_posture", "main_rss_bytes", "main_view_footprint_bytes", "main_view_rss_bytes", "mainframe", "managed_launcher", "managed_only", "managed_rules_only", "managed_settings", "mark", "marked_count", "marker_age_ms", "marker_offered", "marketplace", "marketplace_uuid", "matched", "max_poll_gap_ms", "max_session_count", "max_system_idle_ms", "mcp", "mcp_cmd", "mcp_config_http_count", "mcp_config_sdk_count", "mcp_config_stdio_count", "mcp_kind_followed", "mcp_ms", "mcp_server", "mcp_server_count", "mcp_server_scope", "mcp_tool", "memory_copy_error", "memory_copy_keyless", "memory_copy_state", "memory_files_copied", "memory_files_total", "mention_type", "message", "message_buffer_size", "message_chars", "message_count", "message_uuid", "messages_after", "messages_before", "messaging", "method", "mid_turn", "migratable_count", "min_observed_days", "min_runs_observed", "minutes_since_launch", "missed_by_minutes", "missing", "missing_kind", "mode", "model", "model_downgraded", "model_swapped", "mount_commit_ms", "mount_composer_ms", "mount_layout_ms", "mount_list_ms", "mount_ms", "mount_panel_ms", "ms", "ms_after_commit", "ms_after_load", "ms_since_first_cut", "ms_since_last_read", "ms_since_last_wake", "ms_since_open", "ms_since_prior_loss", "ms_since_write", "ms_to_echo", "ms_to_first_token", "nav_only", "nav_temp", "needed_deploy", "needs_tree_before_spawn_reason", "net", "network", "new_context", "new_context_message_count", "new_context_original_length", "new_context_truncated", "new_cwd", "new_failure_count", "new_value", "newer_version", "newly_unclaimed", "next_unchecked", "nfs", "no_folder", "no_fresh_record_count", "no_fresh_record_denied_count", "no_fresh_record_no_prompt_count", "no_fresh_record_no_record_count", "no_fresh_record_stale_record_count", "no_fresh_record_task_missing_count", "no_fresh_record_unreadable_count", "no_off_read", "no_response_category", "no_tpm_probe_code", "nodejs", "not_copied", "not_evaluable_reason", "notice_requested", "notification_type", "notify_on_completion_after", "nservicebus", "ntstatus_name", "num_blocking", "num_cancelled", "num_hooks", "num_non_blocking_error", "num_outputs_persisted", "num_success", "num_turns", "observed_built_in_browser", "observed_chrome", "observed_computer_use", "observed_device_free_count", "observed_local_count", "observed_local_mcp", "observed_request_folder_access", "observed_task_count", "occurrence", "oci", "offer", "ok", "older_than_days", "oldest_age_ms", "on", "on_battery", "on_ssh_host", "onc_rpc", "one_time", "online", "open_ms", "open_seconds", "openai", "opened_by", "opened_via", "openshift", "opentracing", "operation", "oracle", "oracle_cloud", "org_browser_allowed", "org_skills_off", "organization", "organization_id", "origin", "origin_class", "origin_notify_none_count", "origin_unresolvable_count", "orphan_process_id", "os", "os_entry", "otel", "other", "outcome", "output", "output_original_length", "output_tokens", "output_truncated", "overdue_ms", "overlay_spawn_wait_ms", "overlay_wait_ms", "oversize_option", "own_address", "own_worktree_reattached", "owned_cycle", "page_note", "page_source", "paired_device_count", "pane_open", "pane_visible", "parent", "parent_agent_id", "parent_is_side_session", "parent_session_id", "parse_input_len", "parse_ms", "pass", "pass_trigger", "path", "payload_arch", "payload_kind", "peer", "pending_count", "pending_delete", "pending_had_first_response", "pending_handlers", "pending_hours", "pending_minutes", "pending_ms", "pending_requests", "pending_seconds", "pending_unarchive", "per_message", "period_days", "permission_mode", "permission_surface", "permissions", "persist_enabled", "phase", "picked_files_carried_count", "ping_ms", "place", "plan_call_count", "plan_call_count_since_compaction", "plan_open_step_count", "plane", "planned_count", "platform", "plist_scope", "plugin", "plugin_count", "plugin_delivery", "plugin_dir_count", "plugin_id", "plugin_id_hash", "plugin_mcp_connector_twin_by_name_count", "plugin_mcp_connector_twin_count", "plugin_uuid", "point_count", "policy_blocked", "policy_gate_passed", "poll_ms_p50", "poll_ms_p95", "pool", "pool_busy_skips", "pool_cached_unclean", "pool_candidates", "pool_deferred", "pool_indeterminate", "pool_ms", "pool_outcome", "pool_probes", "pool_rebind_attempts", "pool_rebind_ms", "pool_refused", "pool_trusted", "pool_wait_ms", "post_checkout_wait_ms", "post_tokens", "posted_count", "pprof", "pr_count", "pr_state", "pr_state_fail_auth_count", "pr_state_fail_forbidden_count", "pr_state_fail_forbidden_saml_count", "pr_state_fail_network_count", "pr_state_fail_not_found_count", "pr_state_fail_rate_limit_count", "pr_state_fail_rate_limit_held_count", "pr_state_fail_unavailable_count", "pr_state_fail_unknown_count", "pr_tool", "pre_tokens", "precompute_reuse", "prefix_parity", "preflight_ms", "prep_ms", "prepare_ms", "preprobe_hurried", "preprobe_via", "presence", "present_failures", "presentation_delay_ms", "press_lead_ms", "prev_reason", "previous_cwd", "previous_quit_clean", "previous_title_source", "previous_value", "prewarm", "prewarm_kind", "prewarm_lead_ms", "print_call", "print_call_age_ms", "prior_asides", "prior_installation_attempts", "prior_loss_how", "probe", "probe_answers", "probe_ms", "probe_result", "probe_trigger", "probed", "probed_height", "probed_width", "probes", "process", "process_instance_known", "processing_ms", "product", "profile", "project_dropped", "projects", "promoted_by_ios_intent", "prompt", "prompt_append_source", "prompt_asker", "prompt_cache_likely_expired", "prompt_kind", "prompt_length", "prompt_lifecycle", "prompt_origin", "prompt_outcome", "prompt_rendered", "prompt_suggestions_requested", "prompt_text", "proof_kind", "proposal", "proposal_id_present", "proposed_context", "proposed_title_chars", "protected_taken_count", "provenance", "provider", "proxy_diagnostic", "proxy_key", "prune_skipped_late_read_failed", "pruned_disabled", "quartz", "query_kind", "query_ms", "query_source", "query_source_safe", "queue_length", "queued_message_bar", "queued_sends", "quick_entry_images", "quick_entry_length", "quiet_bucket", "quiet_recovery", "quit_after_loss_ms", "quit_death_count", "quoted_chars", "qyl", "rate_limited_count", "rate_limited_held_count", "ratelimit_remaining", "ratelimit_reset_seconds", "ratelimit_used", "raw_output", "rc_intent", "rc_policy_bridge_yielded", "rc_reconciled", "rc_recorded", "rc_roundtrip_ms", "rc_wait_ms", "re_alert", "re_leased_from_pool", "read_ms", "read_only_mark_count", "reads", "reads_cap_limited", "ready", "ready_ms", "reaped_count", "reason", "reason_detail", "reattach_answer_ms", "reattach_auth", "reattach_failed_reason", "reattach_ms", "reattach_silent_retries", "recap_chars", "recap_chars_raw", "recent_artifact_click", "reconnected", "record_synced", "recorded", "recovered", "recovery_granted_ms_ago", "recreate_cause", "recreate_outcome", "redial_after_sleep", "redial_after_sleep_seq", "redial_presence", "redial_seq", "redirect_vendor", "refusal", "refusal_reason", "refused_other", "refused_route", "registry_plugin_count", "rejected_model", "release_reason", "released_by", "reload_attempt", "relocated_config", "remaining", "remote", "remote_control_on", "remote_control_user_owned", "remote_control_was_on", "remote_cwd_probe_ms", "remote_folder", "remote_scheduled_tasks_enabled", "remote_session_store_load_failed", "removed", "removed_count", "removed_job", "renderer", "renderer_build_id", "renderer_surface", "renewed", "repair_shown", "replaced_by", "replaces_message_uuid", "replay", "replayed_bytes", "replayed_frames", "replays", "replays_after_drop", "reply_chars", "repo_kind", "reported_cli_kind", "reported_cli_version", "request_body_id", "request_id", "requested", "requested_lead_time_ms", "requested_level", "requested_mode", "requesting_site", "required_version", "requires_computer_gate_blocked_count", "requires_computer_insufficient_observation_count", "requires_computer_no_fresh_record_count", "resolution", "resolve_ms", "resolved", "resolved_person_holds", "resolved_version", "resource_type", "response", "response_length", "rest_200_conditional_count", "rest_200_unconditional_count", "rest_304_by_endpoint", "rest_304_count", "rest_4xx_count", "rest_5xx_count", "rest_checks_fetch_count", "rest_ratelimit_remaining", "rest_ratelimit_used", "rest_read_by_endpoint", "rest_routed_row_count", "restored", "result", "result_subtype", "result_tokens", "resume_cost_source", "resume_from_byte", "resume_reason", "resume_seed", "resume_stop_trigger", "resume_was_ours", "resumed_after_attention", "resumed_from_byte", "retained", "retention_days", "retention_source", "retry_attempt", "retry_count", "retry_in_ms", "return_refresh_github_row_count", "return_refresh_other_row_count", "return_refresh_skipped_low_budget_count", "reused_server", "rewind_active_chain_length", "rewind_target_miss_reason", "rewind_transcript_has_compact_boundary", "rewind_transcript_length", "root_fenced", "root_is_unc", "root_ms", "root_named", "rounds", "rounds_last_day", "rounds_last_hour", "route", "route_ms", "route_prefix", "routines_enabled", "row_pk_resolved", "rows", "rows_source", "rpc", "rpc_error", "rpm_enabled_state_age_ms", "rpm_enabled_state_ms", "rpm_enabled_state_source", "rpm_fs_scan_ms", "rule", "running", "running_session_count", "running_sessions", "safe_mode", "same_category_as_prior_loss", "same_session", "sample_index", "sampler_active", "sampler_frames", "sampler_start_lag_ms", "sampling_trace_id", "sandbox_cascade", "sandbox_env", "sandbox_on", "sandbox_settings", "saved_in_manual", "saved_other", "saw_unreachable", "scale", "scan_ms", "scheduled_task_id", "scheduled_task_tool", "scheme", "scoped", "scrollback_log", "_scrubError", "sdk_host", "sealed_count", "seconds_since_activity", "seconds_since_create", "seconds_since_last_activity", "seconds_since_last_oauth_decline", "seconds_since_last_response", "seconds_since_last_turn", "seconds_since_offer", "seconds_since_rewind", "seconds_since_stderr", "seconds_to_outcome", "seconds_waiting", "security_rule", "seeded_from_tail", "server", "server_enabled", "server_fallback_hop", "server_name", "server_scope", "server_type", "server_uuid", "server_version", "service", "session", "session_age_ms", "session_bytes_read", "session_count", "session_exists", "session_files_deleted", "session_grouping_id", "sessionId", "session_id", "session_presets", "session_repo_entry_base_missing", "session_repo_missing", "session_repo_not_a_tree", "session_repo_not_session_scoped", "session_repo_tree_not_anchored", "session_repo_unbound", "session_repo_would_refuse_base", "session_repo_would_refuse_tree", "session_running", "session_scope", "session_title", "session_tool", "session_type", "sessions", "sessions_archived", "sessions_pushed", "sessions_skipped_fence", "sessions_skipped_unsupported", "set_ms", "set_origin", "setting_key", "settings_tier", "settings_tool", "settle_ms", "settle_reason", "settled", "shared", "shell", "shell_env_failed_reads", "shell_integration", "shipit_stderr_tail", "shown_ms", "side_sessions_available", "sign_error_code", "sign_error_probe_code", "sign_in_cookie_present", "sign_in_reason", "sign_in_waits", "signal", "signalr", "signals_ignored", "signed_in_at_last_exit", "silence_ms", "silent_reattach", "since_app_focus_ms", "since_input_ms", "since_page_hidden_ms", "since_page_visible_ms", "single_ingest", "site", "sites", "size", "skill", "skill_name", "skill_path_count", "skip_push", "skip_reason", "skipped", "skipped_by_cap", "skipped_collision", "skipped_count", "skipped_disabled", "skipped_offline", "sleep_assertion_held", "sleep_duration_seconds", "sleep_signal", "slept", "slept_ms", "slot_consumed", "slot_wait_ms", "slow_folders", "slow_shell_wait", "soap", "soft_deleted", "source", "source_organization_uuid", "source_was_previewed", "space_dropped", "space_empty", "space_folders_0", "space_folders_1", "space_folders_2_plus", "space_id", "space_store_count", "space_tied_enabled_count", "space_unresolvable", "space_with_drive_links", "space_with_instructions", "space_with_links", "space_with_projects", "spaces_quarantined_count", "span", "spare_claim_ms", "spare_event", "spare_fail_code", "spare_mcp_settled", "spare_miss_reason", "spare_parked_ms", "spare_wait_ms", "spawn_argv_chars", "spawn_confirmed", "spawn_fallback_count", "spawn_mode", "spawn_reason", "spawn_source", "spawn_to_init_ms", "spawn_to_outcome_ms", "speed", "spelled_in", "spread_hours", "ssh_client_launch_error_code", "ssh_platform", "ssh_transport", "ssh_transport_flag_state", "ssh_transport_flag_wait_ms", "ssh_transport_source", "ssh_windows_client_unusable_reason", "stage", "staged_version", "stale", "stale_claimed", "stale_cowork_owned", "stale_had_focus", "stale_reason", "stale_shown_age_ms", "stall_duration_ms", "stamped_migrated_from_space", "start_gate", "start_in_flight", "start_reason", "start_stage_reached", "start_tool", "start_type", "started", "started_by_model", "stat_ms", "state", "status", "status_before", "status_code", "status_ms", "status_unknown", "stdout_chars", "steered_send_count", "step", "step_budget_ms", "still_running_sessions", "stood_down", "stop_outcome", "stop_reason", "stopped_by_limit", "stopped_by_misses", "stopped_by_process_cap", "storage_budget_hit", "storage_carried", "storage_concurrency", "storage_failed", "storage_keys", "storage_ms", "storage_origins", "storage_pending", "storage_timeouts", "storage_tool", "store_count", "store_load_failed", "store_load_state", "store_reset", "store_state", "store_unreadable", "stored_bypass_sent_as_auto", "stream_ms", "structural", "studio_installed", "subagent_type", "success", "superseded", "supported", "suppressed_count", "surface", "survey_type", "survivor_claimed", "survivor_cowork_owned", "survivor_shown_age_ms", "switch_id", "switch_on", "synced_count", "system", "system_message_chars", "system_prompt", "system_prompt_hash", "system_prompt_length", "system_prompt_preview", "system_prompt_snapshot", "system_prompt_truncated", "system_reminders", "system_reminders_count", "system_reminders_original_length", "system_reminders_truncated", "tab", "tabs", "tabs_closed", "tail_drain_overlap", "tail_file_bytes", "tail_handler_ms", "tail_ipc_ms", "tail_parse_ms", "tail_parse_self_ms", "tail_queue_ms", "tail_read_bytes", "tail_read_ms", "tail_reparse_count", "tail_rows_kept", "tail_rows_parsed", "tail_rungs", "tail_session_wait_ms", "tail_source", "taken", "target", "target_from_flag", "target_id", "target_kind", "target_message_uuid", "target_version", "task_count", "task_type", "task_wait_seconds", "tasks_already_remote", "tasks_failed", "tasks_remote", "tasks_repointed", "tasks_stopped", "tasks_total", "tcc_folder_kind", "teardown_reason", "telemetry", "terminal", "test", "text_len", "text_length", "text_variant", "thinking_forced", "third_party", "third_party_gpu_modules_allowed", "thread", "time_visible_ms", "timed_out", "timed_out_here", "timed_out_phase", "timeout_ms", "timing_ms", "title_check_outcome", "title_overlap_pct", "title_source", "title_turn_known", "title_via_cli_outcome", "tls", "to_display", "to_level", "to_mode", "to_version", "tool", "tool_age_ms", "tool_builtin", "tool_calls", "tool_hash", "tool_host_sessions", "tool_input", "tool_input_original_length", "tool_input_size_bytes", "tool_input_truncated", "tool_name", "tool_name_safe", "tool_parameters", "tool_result_size_bytes", "tool_running_at_send", "tool_source", "tool_truncated", "tool_use_count_since_plan_call", "tool_use_id", "tools", "tools_count", "tools_parse_error", "top1_footprint_bytes", "top2_footprint_bytes", "top3_footprint_bytes", "total_attempts", "total_duration_ms", "total_extensions_installed", "total_failures", "total_mem_gb", "total_ms", "total_observed_runs", "total_retry_duration_ms", "total_stalls", "total_to_assistant_ms", "total_to_init_ms", "total_tokens", "total_tool_uses", "tracked_processes", "transcript_bytes", "transcript_fill_rows", "transcript_length", "transcript_line_count", "transcript_ms", "transcript_page_fallback", "transcript_page_source", "transcript_relocated", "transcript_result", "transcript_size_bytes", "transcript_total_rows", "transcripts_deleted", "transcripts_exempted_desktop", "transitions_seen", "transport", "transport_type", "trigger", "trigger_id", "trigger_type", "truncated", "trust_check_cause", "trust_total_ms", "ttft_ms", "turn_box_mounted", "turn_interrupted", "turn_ms", "turn_origin", "turn_scope", "turns_before_ptl", "turns_bucket", "turns_since_title", "type", "ui_app", "unarchive", "unattended", "unavailable_probe_code", "unavailable_probe_reason", "unclean_days", "uncovered_count", "unhealthy_reason", "uninterruptible", "unknown_answers", "unlisted_check_failed", "unlisted_gone_not_available", "unlisted_gone_not_found", "unlisted_gone_scan_not_served", "unlisted_gone_withheld", "unlisted_present", "unlisted_sent", "unlisted_unknown", "unread_steers", "unreadable", "unreadable_count", "unreadable_files", "unreadable_settings", "unreadable_store", "unrecorded", "unstarted", "unsupported_code", "until", "untracked_discard_requested", "unverified", "unwound_refusal_fallback", "update_channel", "update_count", "update_relaunch_marker", "update_version", "updated_cron", "updated_description", "updated_disable_jitter", "updated_display_name", "updated_enabled", "updated_fire_at", "updated_notify_on_completion", "updated_project_uuids", "updated_prompt", "upgraded_existing", "upload_net_error_name", "url", "url_class", "url_scheme", "used_default", "user", "user_agent", "user_message_uuid", "user_prompt", "user_prompt_length", "user_system_prompt", "user_system_prompt_original_length", "user_system_prompt_truncated", "user_waiting", "v8js", "variant", "vars_adopted", "vcs", "verb", "verdict", "verdict_detail", "verdict_source", "verified_since_recovery", "version", "via", "via_fallback", "via_oopif", "viewport_size_bucket", "vm_guest_connected", "vm_network_mode", "wait_ms", "waited_for_claude", "waited_minutes", "waited_ms", "waiting_children", "waiting_in", "wake_at", "wake_delivery", "wake_duration_ms", "wake_ordinal", "wake_when_done", "wakes_in_episode", "wakes_since_user_message", "wakeup_in_ms", "warm_duration_ms", "warm_trigger", "warmed_count", "warnings_count", "was_auto_disabled", "was_cross_repo", "was_held", "was_hidden", "was_hidden_any", "was_mid_turn", "was_recovered", "was_running", "was_submit", "watch_connected_ms", "watch_enabled", "watch_state", "wave", "wcf", "web_commit_hash", "webengine", "while_working_held", "why", "will_hold", "willRetry", "will_retry", "window_fallback", "window_ms", "window_parked", "window_probe_error", "windows_host", "windows_host_jobs", "woken_by", "workflow", "working", "workspace", "workspaces_seeded", "worktree", "worktree_cleanup_requested", "worktree_created", "worktree_kept_dirty", "worktree_lazy", "worktree_mode", "worktree_ms", "worktree_path", "worktree_pool_enabled", "worktree_refusal", "worktree_reused", "worktree_source", "would_offer", "written", "written_unacked", "wsl", "wsl_error_code", "wt_add_ms", "wt_checkout_race_ms", "wt_checkout_retried", "wt_checkout_workers", "wt_config_copied", "wt_config_deferred", "wt_config_overlay_ms", "wt_config_overlay_outcome", "wt_fetch_ms", "wt_fetch_outcome", "wt_fetch_settled", "wt_filter_refresh_ms", "wt_filter_refresh_no_space", "wt_full_checkout_ms", "wt_git_crypt_binary", "wt_git_crypt_keys", "wt_git_crypt_left", "wt_git_spawns", "wt_hooks_config_ms", "wt_include_matched", "wt_include_patterns_dropped", "wt_include_scan_mode", "wt_include_scan_ms", "wt_include_scan_outcome", "wt_include_unsearched_dirs", "wt_lfs_hydrate_ms", "wt_lfs_hydrated", "wt_lfs_not_local", "wt_lfs_rejected", "wt_lfs_skipped", "wt_load_avg_1m", "wt_overlay_settled_ms", "wt_post_checkout_hook_ms", "wt_post_checkout_hook_ran", "wt_prep_ms", "wt_stage1_ms", "wt_status_cache_prime", "wt_tracked_files", "xcode_change", "xcode_on_disk", "zos" };
         /// <summary>Whether <paramref name="value"/> is a catalogued value (ordinal).</summary>
         public static bool Contains(string value) { foreach (var candidate in AllValues) if (string.Equals(candidate, value, global::System.StringComparison.Ordinal)) return true; return false; }
     }

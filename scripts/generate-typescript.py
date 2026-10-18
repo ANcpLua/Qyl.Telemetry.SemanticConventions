@@ -16,6 +16,28 @@ ROOT = Path(__file__).resolve().parent.parent
 def symbol(value):
     return re.sub(r'[^A-Z0-9]+', '_', value.upper()).strip('_')
 
+def attribute_symbols(attributes):
+    """Keep dotted convention names; expose colliding bare producer keys as NATIVE."""
+    groups = {}
+    for attribute in attributes:
+        groups.setdefault(symbol(attribute['key']), []).append(attribute['key'])
+    result = {}
+    occupied = set()
+    for name, keys in sorted(groups.items()):
+        dotted = [key for key in keys if '.' in key]
+        for key in keys:
+            projected = name
+            if len(keys) > 1:
+                if len(keys) != 2 or len(dotted) != 1:
+                    raise ValueError(f'attribute identifier collision: {keys}')
+                if key != dotted[0]:
+                    projected += '_NATIVE'
+            if projected in occupied:
+                raise ValueError(f'attribute identifier collision: {projected}')
+            occupied.add(projected)
+            result[key] = projected
+    return result
+
 def semantic_snapshot(value):
     """Ignore filesystem provenance paths; keep source URLs and all registry semantics."""
     if isinstance(value, dict):
@@ -149,10 +171,11 @@ def generate(snapshot, catalog, policy):
             return not row.get('annotations', {}).get('code_generation', {}).get('exclude', False) and (tier == 'incubating' or row.get('stability') == 'stable' or row.get('deprecated') is not None)
         add('SCHEMA_URL', snapshot['schema_url'])
         add('REGISTRY_SNAPSHOT_SHA256', digest)
+        names = attribute_symbols([a for a in attributes if include(a)])
         for a in attributes:
             if not include(a):
                 continue
-            add('ATTR_' + symbol(a['key']), a['key'])
+            add('ATTR_' + names[a['key']], a['key'])
             if isinstance(a['type'], dict):
                 for member in a['type'].get('members', []):
                     if not member.get('annotations', {}).get('code_generation', {}).get('exclude', False) and (tier == 'incubating' or member.get('stability', a.get('stability')) == 'stable' or member.get('deprecated')):

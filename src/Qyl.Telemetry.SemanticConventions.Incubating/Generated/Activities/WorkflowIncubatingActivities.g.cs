@@ -60,4 +60,15 @@ public static class WorkflowIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("workflow.name", value);
+
+    /// <summary>
+    /// Identifier joining the agents and operations of a Workflow tool run.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:606. https://code.claude.com/docs/en/monitoring-usage:234. https://code.claude.com/docs/en/monitoring-usage:272. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetWorkflowRunId(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("workflow.run_id", value);
 }

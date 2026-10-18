@@ -14,6 +14,22 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.User;
 public static class UserAttributes
 {
     /// <summary>
+    /// Tagged Anthropic account identifier, when available.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:587. https://claude.com/docs/cowork/monitoring:80.
+    /// </remarks>
+    public const string AccountId = "user.account_id";
+
+    /// <summary>
+    /// Authenticated Anthropic account UUID, when available.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:586. https://claude.com/docs/cowork/monitoring:79.
+    /// </remarks>
+    public const string AccountUuid = "user.account_uuid";
+
+    /// <summary>
     /// User email address.
     /// </summary>
     public const string Email = "user.email";
@@ -22,6 +38,14 @@ public static class UserAttributes
     /// User's full name
     /// </summary>
     public const string FullName = "user.full_name";
+
+    /// <summary>
+    /// Gateway identity-provider group membership serialized as comma-separated text.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#standard-attributes.
+    /// </remarks>
+    public const string Groups = "user.groups";
 
     /// <summary>
     /// Unique user hash to correlate information for a user in anonymized form.

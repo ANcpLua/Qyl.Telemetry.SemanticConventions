@@ -18,6 +18,17 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 public static class DestinationIncubatingActivityExtensions
 {
     /// <summary>
+    /// Destination recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4378386. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetDestination(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("destination", value);
+
+    /// <summary>
     /// Destination address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name.
     /// </summary>
     /// <remarks>

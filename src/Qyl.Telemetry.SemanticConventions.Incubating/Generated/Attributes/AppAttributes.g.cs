@@ -30,6 +30,14 @@ public static class AppAttributes
     public const string CrashId = "app.crash.id";
 
     /// <summary>
+    /// Entry point that launched the Claude Code session.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:584.
+    /// </remarks>
+    public const string Entrypoint = "app.entrypoint";
+
+    /// <summary>
     /// A unique identifier representing the installation of an application on a specific device
     /// </summary>
     /// <remarks>
@@ -96,6 +104,14 @@ public static class AppAttributes
     /// A screen represents only the part of the device display drawn by the app. It typically contains multiple widgets or UI components and is larger in scope than individual widgets. Multiple screens can coexist on the same display simultaneously (e.g., split view on tablets).
     /// </remarks>
     public const string ScreenName = "app.screen.name";
+
+    /// <summary>
+    /// Version of the runtime that emitted the record.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:583.
+    /// </remarks>
+    public const string Version = "app.version";
 
     /// <summary>
     /// An identifier that uniquely differentiates this widget from other widgets in the same application.

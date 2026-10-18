@@ -1,0 +1,150 @@
+# Native Anthropic telemetry. Preserve emitted keys; upstream keys are references.
+# Development denotes the vendor contract stability, not proof that a feature is enabled.
+groups:
+- id: registry.vendor.claude_chrome
+  type: attribute_group
+  display_name: Claude Chrome extension native attributes
+  brief: Native telemetry fields absent from the pinned upstream registry.
+  attributes:
+  - id: account_uuid
+    type: string
+    stability: development
+    brief: Anthropic account UUID in the browser extension spelling.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733635. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
+      JavaScript UTF-16 offset 1747515. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1747562.
+  - id: permissions
+    type: string
+    stability: development
+    brief: Browser extension permission mode recorded on its operation span.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733704. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
+      JavaScript UTF-16 offset 1734694. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1746406.
+  - id: sampling_trace_id
+    type: string
+    stability: development
+    brief: Trace identifier used by the browser extension request-sampling helper.
+    note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733795. Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js;
+      JavaScript UTF-16 offset 1747091.
+- id: vendor.claude_chrome
+  type: attribute_group
+  brief: Pinned source and instrumentation-scope evidence.
+  annotations:
+    qyl:
+      vendor:
+        library: Claude Chrome extension
+        version: 1.0.101
+        repository: https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn
+        ref: fcoeoabgfenejglbffodgkkbkcdhcgfn/1.0.101_0
+        license: LicenseRef-Anthropic-Commercial-Terms
+        activity_sources:
+        - name: claude-browser-extension
+          note: 'assets/mcpPermissions-BLfQICzX.js:1, UTF-16 offset 576939, Kv(): getTracer scope. No standalone exporter
+            found.'
+        artifact_sha256: f7b64300c7dc13a45f90259a39b61c1dd47d15c7d819d95ff31e9013900bf785
+        dynamic_conventions:
+        - event_expression: k
+          fields:
+          - account_uuid
+          - session_id
+          - permissions
+          - model
+          - sampling_trace_id
+          source: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733551.
+        - event_expression: '`tool_execution_${e}${o?"_"+o:""}`'
+          fields:
+          - session_id
+          - permissions
+          - tool_name
+          - action
+          - success
+          - failure_reason
+          - success
+          source: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1734611.
+  attributes:
+  - ref: qyl.instrumentation.domain
+- id: span.anthropic.chrome.message_streaming.internal
+  type: span
+  span_kind: internal
+  stability: development
+  brief: Message streaming operation.
+  note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1746332. Declared OpenTelemetry API instrumentation.
+    The inspected extension contains no standalone TracerProvider or OTLP exporter; without an externally registered provider
+    these spans are no-ops.
+  attributes:
+  - ref: account_uuid
+    requirement_level: opt_in
+  - ref: model
+    requirement_level: opt_in
+  - ref: permissions
+    requirement_level: opt_in
+  - ref: sampling_trace_id
+    requirement_level: opt_in
+  - ref: session_id
+    requirement_level: opt_in
+- id: span.anthropic.chrome.send_user_message.internal
+  type: span
+  span_kind: internal
+  stability: development
+  brief: Send user message operation.
+  note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1752761. Declared OpenTelemetry API instrumentation.
+    The inspected extension contains no standalone TracerProvider or OTLP exporter; without an externally registered provider
+    these spans are no-ops.
+  attributes:
+  - ref: model
+    requirement_level: opt_in
+  - ref: permissions
+    requirement_level: opt_in
+  - ref: session_id
+    requirement_level: opt_in
+- id: span.anthropic.chrome.retry_last_message.internal
+  type: span
+  span_kind: internal
+  stability: development
+  brief: Retry last message operation.
+  note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1753091. Declared OpenTelemetry API instrumentation.
+    The inspected extension contains no standalone TracerProvider or OTLP exporter; without an externally registered provider
+    these spans are no-ops.
+  attributes:
+  - ref: model
+    requirement_level: opt_in
+  - ref: permissions
+    requirement_level: opt_in
+  - ref: session_id
+    requirement_level: opt_in
+- id: span.anthropic.chrome.anthropic_message_create.internal
+  type: span
+  span_kind: internal
+  stability: development
+  brief: Anthropic message create operation.
+  note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1733551. Default name of createAnthropicMessage;
+    its spanName argument may override this name.
+  attributes:
+  - ref: account_uuid
+    requirement_level: opt_in
+  - ref: model
+    requirement_level: opt_in
+  - ref: permissions
+    requirement_level: opt_in
+  - ref: sampling_trace_id
+    requirement_level: opt_in
+  - ref: session_id
+    requirement_level: opt_in
+- id: span.anthropic.chrome.tool_execution.internal
+  type: span
+  span_kind: internal
+  stability: development
+  brief: Tool execution {tool name} {action} operation.
+  note: Claude Chrome 1.0.101:assets/sidepanel-B6NOB89Y.js; JavaScript UTF-16 offset 1734611. Browser tool execution; the
+    action suffix is present only when the tool input supplies action.
+  attributes:
+  - ref: action
+    requirement_level: opt_in
+  - ref: failure_reason
+    requirement_level: opt_in
+  - ref: permissions
+    requirement_level: opt_in
+  - ref: session_id
+    requirement_level: opt_in
+  - ref: success
+    requirement_level: opt_in
+  - ref: tool_name
+    requirement_level: opt_in

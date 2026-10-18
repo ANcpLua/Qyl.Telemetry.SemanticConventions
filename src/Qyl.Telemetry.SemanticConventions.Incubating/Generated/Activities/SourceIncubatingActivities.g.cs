@@ -18,6 +18,17 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 public static class SourceIncubatingActivityExtensions
 {
     /// <summary>
+    /// Source recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:978. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2452611. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2871912. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetSource(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("source", value);
+
+    /// <summary>
     /// Source address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name.
     /// </summary>
     /// <remarks>

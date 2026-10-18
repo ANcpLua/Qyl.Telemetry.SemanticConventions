@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Destination;
 public static class DestinationAttributes
 {
     /// <summary>
+    /// Destination recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4378386. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string Destination = "destination";
+
+    /// <summary>
     /// Destination address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name.
     /// </summary>
     /// <remarks>

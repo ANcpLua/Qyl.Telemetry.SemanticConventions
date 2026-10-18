@@ -40,6 +40,17 @@ public static class AppIncubatingActivityExtensions
         => activity.SetTag("app.crash.id", value);
 
     /// <summary>
+    /// Entry point that launched the Claude Code session.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:584.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetAppEntrypoint(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("app.entrypoint", value);
+
+    /// <summary>
     /// A number of frame renders that experienced jank.
     /// </summary>
     /// <remarks>
@@ -103,6 +114,17 @@ public static class AppIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("app.screen.name", value);
+
+    /// <summary>
+    /// Version of the runtime that emitted the record.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:583.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetAppVersion(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("app.version", value);
 
     /// <summary>
     /// An identifier that uniquely differentiates this widget from other widgets in the same application.

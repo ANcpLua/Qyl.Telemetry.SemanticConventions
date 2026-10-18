@@ -34,108 +34,2040 @@ public static class AttributeMapping
     /// </summary>
     public static readonly string[] Namespaces =
     {
+        "_scrubError",
+        "abandon_reason",
+        "abandoned_ms_ago",
+        "abandoned_processes",
+        "aborted",
+        "accessibility_features",
+        "accessibility_support_enabled",
+        "account_enabled_count",
+        "account_uuid",
+        "acked",
+        "action",
+        "active_background_task_count",
+        "active_chain_length",
+        "active_count",
+        "active_cron_count",
+        "active_mcp_server_count",
+        "active_phase_ms",
+        "active_process_count",
+        "active_session_count",
+        "active_sessions",
+        "active_workflow_count",
+        "acts",
+        "actual_sha256",
+        "addedDirs",
+        "additional_context_chars",
+        "admin_removed",
+        "adoptable_sessions",
+        "adopted",
+        "adopted_first_attempt",
+        "adopts",
+        "after_clear_or_rewind",
+        "after_paint_ms",
+        "age_days",
+        "age_ms",
+        "agent",
+        "agent_id",
+        "agent_path_count",
+        "agent_type",
+        "ahead_of_read",
+        "airplane_mode",
+        "already_archived",
+        "already_exited",
+        "already_there",
+        "always_scope",
+        "anchor_source",
         "android",
+        "anthropic",
+        "any_window_visible",
         "app",
+        "app_class",
+        "app_focused",
+        "app_quit_trigger",
+        "app_stall",
+        "app_version",
+        "appearance_id",
+        "archive_index_state",
+        "archived",
+        "archived_phase_ms",
+        "archived_phase_trigger",
+        "archived_with_bridge_count",
+        "arm",
+        "armed_by",
+        "armed_cron_count",
+        "armed_durable_cron_count",
+        "arriving_frame_ms",
         "artifact",
+        "artifacts_deleted",
+        "ask_took",
         "aspnetcore",
+        "assistant_narration_block_count",
+        "assistant_narration_char_count",
+        "assistant_text_block_count",
+        "assistant_text_char_count",
+        "assistant_tool_group_count",
+        "assistant_tool_use_count",
+        "at_launch",
+        "at_turn_boundary",
+        "attach_reason",
+        "attached_devices",
+        "attached_duration_ms",
+        "attachment_bytes",
+        "attachment_seq",
+        "attachments",
+        "attempt",
+        "attempt_id",
+        "attempt_index",
+        "attempt_num",
+        "attempt_number",
+        "attempted",
+        "attempted_count",
+        "attempts",
+        "attempts_before_recovery",
+        "attestation_form",
+        "auth_auto_retry",
+        "auth_method",
+        "authorization",
+        "auto_archive_on_close",
+        "auto_compact",
+        "auto_compact_attempts",
+        "auto_compact_recovered",
+        "auto_enabled",
+        "auto_fix",
+        "auto_merge",
+        "auto_merge_seen",
+        "auto_reason",
+        "auto_reconnect_attempts",
+        "auto_source",
+        "auto_updates_disabled",
+        "automatic",
+        "awaited_ms",
+        "awaited_outcome",
+        "awaited_reason",
+        "away_at_failure",
+        "away_ms",
         "aws",
         "az",
         "azure",
+        "backend",
+        "backend_kind",
+        "backfill_outcome",
+        "background",
+        "backgrounded",
+        "backoff_ms",
+        "bailed",
+        "base_config_cache_hit",
+        "bash_argv0",
+        "bash_command",
+        "bash_command_class",
+        "bash_command_original_length",
+        "bash_command_truncated",
+        "basis",
+        "batch_pr_count",
+        "batch_request_count",
+        "bearer_state",
+        "bearer_token_type",
+        "bind_eligible_count",
+        "bind_outcome",
+        "bind_unsigned_keyless",
+        "bind_web_key",
+        "blocked_chrome",
+        "blocked_count",
+        "blocked_custom_cron",
+        "blocked_cwd",
+        "blocked_dispatch_hook",
+        "blocked_local_files_only",
+        "blocked_local_folders",
+        "blocked_no_prompt",
+        "blocked_pattern_approvals",
+        "blocked_projects",
+        "blocked_projects_multi_or_malformed",
+        "blocked_space",
+        "blocked_sub_hourly",
+        "blocking",
+        "blocks_committed",
+        "body",
+        "body_length",
+        "body_ref",
+        "body_truncated",
+        "body_withheld",
+        "bounce_reason",
+        "brake_rule",
+        "branch_reattached",
+        "bridge_url_present",
         "browser",
+        "bucket_gb",
+        "bucket_pct_of_ram",
         "build",
+        "busy",
+        "bypassed",
+        "bytes",
+        "bytes_at_failure",
+        "bytes_downloaded",
+        "bytes_dropped",
+        "bytes_missing",
+        "bytes_received",
+        "cache_creation_1h_input_tokens",
+        "cache_creation_1h_tokens",
+        "cache_creation_5m_input_tokens",
+        "cache_creation_5m_tokens",
+        "cache_creation_input_tokens",
+        "cache_creation_tokens",
+        "cache_hit",
+        "cache_read_input_tokens",
+        "cache_read_tokens",
+        "cached",
+        "cadence_daily",
+        "cadence_hourly",
+        "cadence_manual",
+        "cadence_one_shot",
+        "cadence_other",
+        "cadence_sub_hourly",
+        "cadence_weekdays",
+        "cadence_weekly",
+        "caller",
+        "can_recover",
+        "can_rewind",
+        "cancel_reason",
+        "cancelled",
+        "candidate_count",
+        "candidates",
+        "candidates_checked",
+        "cap_bytes",
+        "capacity",
+        "capture_kind",
+        "card_reason",
+        "carrier",
+        "carry_row",
         "cassandra",
+        "category",
+        "cause",
+        "ccd_booted",
+        "ccd_live_cli_count",
+        "ccd_overhead_ms",
+        "ccd_steering",
+        "ccr",
+        "chain_active",
+        "chain_continues",
+        "chain_starts",
+        "change_key",
+        "changed_count",
+        "chars",
+        "check_count",
+        "check_ordinal",
+        "check_source",
+        "checkout_barrier",
+        "checkout_overlap_mode",
+        "child_session_id",
+        "children",
+        "choice",
+        "chunk_count",
         "cicd",
+        "claim_count",
+        "claims",
+        "clamped",
+        "clash",
+        "claude",
+        "claude_settings",
+        "clean_read_banked",
+        "clean_shutdown",
+        "cleared_by",
+        "cli_binary_choice",
+        "cli_current_version",
+        "cli_fetch_bytes",
+        "cli_fetch_failure",
+        "cli_fetch_fell_back",
+        "cli_fetch_longest_pause_ms",
+        "cli_fetch_ms",
+        "cli_informed",
+        "cli_install_source",
+        "cli_pinned_version",
+        "cli_process_group_learned",
+        "cli_provably_idle",
+        "cli_session_id",
+        "cli_stderr_tail",
+        "cli_upload_bytes",
+        "cli_upload_folder_not_plain",
+        "cli_upload_longest_pause_ms",
+        "cli_upload_ms",
+        "cli_upload_pauses",
+        "cli_upload_restarted_after_reject",
+        "cli_upload_resumed_from_bytes",
+        "cli_uptime_s",
+        "cli_version",
+        "click_age_ms",
+        "clicked_in",
         "client",
+        "client_request_id",
+        "client_run_id_source",
+        "clock_offset_decision",
+        "clock_offset_ms",
+        "close_count",
+        "close_reason",
+        "close_trigger",
+        "closed",
+        "closing_message_char_count",
         "cloud",
         "cloudevents",
         "cloudfoundry",
         "code",
+        "code_cli_running",
+        "code_session_active",
+        "cold_boot",
+        "cold_start",
+        "command",
+        "command_length",
+        "command_marks",
+        "command_name",
+        "command_path_count",
+        "command_source",
+        "commands_run",
+        "comment_count",
+        "comments_inlined_count",
+        "comments_truncated_count",
+        "compact_error",
+        "completed",
+        "completed_turns",
+        "configured_root_count",
+        "confined",
+        "confirm_requests",
+        "confirmed_screens",
+        "conflict_kind",
+        "conflict_reminder_ordinal",
+        "conflict_retries",
+        "conflicted_count",
+        "connect_attempt",
+        "connect_error_kind",
+        "connect_trigger",
+        "connection_duration_ms",
+        "connection_failed",
+        "connection_generation",
+        "consecutive_failures",
+        "consecutive_ticks",
+        "contained_by",
         "container",
+        "content",
+        "content_original_length",
+        "content_truncated",
+        "context",
+        "context_tokens",
+        "contexts_destroyed",
+        "continuation",
+        "continue_message_uuid",
+        "conversations",
+        "cookies",
+        "copied",
+        "copy_ms",
+        "cost_usd",
+        "cost_usd_micros",
+        "count",
+        "cowork_folder",
+        "cowork_session_active",
         "cpu",
         "cpython",
+        "crashed_app_version",
+        "created",
+        "creator_session_id",
+        "creator_session_type",
+        "cta",
+        "cumulative_stall_ms",
+        "current_title_chars",
+        "current_version",
+        "cwd",
+        "cycle_health",
+        "daemon_instance",
+        "daemon_instance_changed",
+        "daemon_instance_known",
+        "daemon_upgrade",
+        "daemon_version",
+        "days_since_migration",
         "db",
+        "decide_ms",
+        "decided_by",
+        "decision",
+        "decision_ms",
+        "decision_reason",
+        "decision_source",
+        "decision_type",
+        "declares_parent_tools",
+        "declined",
+        "deduplicated",
+        "deeplink_age_ms",
+        "defer_ms",
+        "deferred_archived_count",
+        "deferred_at_start",
+        "deferred_count",
+        "deferred_for_ms",
+        "deferred_sends",
+        "deferred_startup_reads",
+        "delayed_by_claude_work",
+        "delayed_by_user_activity",
+        "delegated_tool",
+        "delete_sessions",
+        "deleted",
+        "deleted_count",
+        "delivered",
+        "delivered_count",
+        "delta_ms",
+        "demand_refresh_failed_count",
+        "demand_refresh_floored_count",
+        "demand_refresh_held_count",
+        "demand_refresh_read_count",
+        "denied",
+        "denied_count",
+        "dependency_folders",
+        "deploy_bytes_total",
+        "deploy_bytes_transferred",
         "deployment",
+        "deployment_kind",
         "destination",
+        "detach_ms",
+        "detached_ms",
+        "detail",
+        "detected_by",
         "device",
+        "device_free_count",
+        "device_id_kind",
+        "device_platform",
+        "device_specified",
+        "dial_context_version",
+        "dialed",
+        "died",
+        "diff",
+        "diff_original_length",
+        "diff_truncated",
+        "differed",
+        "direction",
+        "disable_jitter",
+        "disabled",
+        "disabled_count",
+        "disabled_migratable_count",
+        "discarded",
+        "discarded_partial",
         "disk",
+        "dismissed_by_model",
+        "dispatch_origin_blocked_chrome",
+        "dispatch_origin_blocked_count",
+        "dispatch_origin_blocked_custom_cron",
+        "dispatch_origin_blocked_cwd",
+        "dispatch_origin_blocked_dispatch_hook",
+        "dispatch_origin_blocked_local_folders",
+        "dispatch_origin_blocked_no_prompt",
+        "dispatch_origin_blocked_pattern_approvals",
+        "dispatch_origin_blocked_projects",
+        "dispatch_origin_blocked_space",
+        "dispatch_origin_blocked_sub_hourly",
+        "dispatch_origin_cadence_daily",
+        "dispatch_origin_cadence_hourly",
+        "dispatch_origin_cadence_manual",
+        "dispatch_origin_cadence_one_shot",
+        "dispatch_origin_cadence_other",
+        "dispatch_origin_cadence_sub_hourly",
+        "dispatch_origin_cadence_weekdays",
+        "dispatch_origin_cadence_weekly",
+        "dispatch_origin_count",
+        "dispatch_origin_last_run_age_bucket",
+        "dispatch_origin_migratable_count",
+        "dispatch_origin_unreadable_count",
+        "disposition",
         "dns",
+        "dormant_days",
         "dotnet",
+        "draft_len",
+        "dropped_ms_ago",
+        "dropped_overcap",
+        "dropped_oversized",
+        "dropped_since_last",
+        "dropped_unreadable",
+        "dropped_untrusted",
+        "dry_run",
+        "duration_bucket",
+        "duration_ms",
+        "duration_seconds",
         "edge_group",
+        "effective_root_count",
+        "effort",
+        "elapsed_ms",
         "elastic",
         "elasticsearch",
+        "emit_delay_ms",
+        "emit_reason",
+        "enabled",
+        "enabled_count",
+        "enabled_mcp_tool_count",
+        "enabled_via",
+        "enabled_via_override",
+        "end_reason",
+        "ended_by",
+        "ended_by_unmount",
+        "ended_turn",
+        "ends_mid_turn",
         "enduser",
+        "enforcement_hours",
+        "engine_version",
+        "enqueue_ms",
+        "entries",
+        "entry",
+        "entry_point",
+        "env_not_sent_failed",
+        "env_not_sent_servers",
+        "environment_id",
+        "environment_source",
+        "environments",
+        "episode_index",
+        "episode_ms",
+        "episode_outcome",
         "error",
+        "errorMessage",
+        "error_category",
+        "error_class",
+        "error_code",
+        "error_count",
+        "error_description",
+        "error_detail",
+        "error_domain",
+        "error_kind",
+        "error_message",
+        "error_name",
+        "error_type",
+        "errors",
+        "escalated",
+        "estimated_cache_write_usd",
+        "evaluated_count",
         "event",
+        "event_origin",
+        "event_origin_server",
+        "event_type",
+        "ever_connected",
+        "evicted_count",
+        "evidence",
         "exception",
         "execution",
         "executor",
+        "exit_code",
+        "exit_code_decoded",
+        "exit_killed_by",
+        "exit_signal",
+        "expected_cli_version",
+        "expected_height",
+        "expected_sha256",
+        "expected_width",
+        "expired",
+        "explainer_shown",
+        "extension_author",
+        "extension_id",
+        "extension_name",
+        "extension_skipped",
+        "extension_version",
         "faas",
+        "failed",
+        "failed_acts",
+        "failed_count",
+        "failed_not_found",
+        "failed_other",
+        "failed_phase",
+        "failed_timeout",
+        "failed_writes",
+        "failing_count",
+        "failure",
+        "failure_age_ms",
+        "failure_reason",
+        "failure_type",
+        "failures",
+        "fallback",
+        "fallback_cwd",
+        "fast_folders",
+        "fast_forward",
+        "fatal_startup_result",
+        "fault_class",
+        "feature",
         "feature_flag",
+        "feature_hash",
+        "feature_source",
+        "feed_arch",
+        "fence_detail",
         "file",
+        "file_count",
+        "file_path",
+        "file_path_original_length",
+        "file_path_truncated",
+        "filed_count",
+        "files",
+        "files_changed_count",
+        "files_past_cutoff",
+        "files_removed",
+        "files_retained_fresh",
+        "fill_rows",
+        "final",
+        "final_model",
+        "fire_safety_skipped_count",
+        "fired_by",
+        "first_assistant_ms",
+        "first_block_streaming",
+        "first_child_in_job",
+        "first_content_ms",
+        "first_content_source",
+        "first_load",
+        "first_paint_ms",
+        "first_seq",
+        "first_timeout_op",
+        "first_turn",
+        "first_turn_since_spawn",
+        "first_wake_message_uuid",
+        "fleet_override",
+        "floors_unset",
+        "focus_state",
+        "focused",
+        "folder_count",
+        "folder_grant_outcome",
+        "folder_grant_recorded_count",
+        "folder_grant_refusal_reasons",
+        "folder_grant_refused_count",
+        "folder_hash",
+        "folder_reason",
+        "folder_tree",
+        "folders",
+        "folders_excluded",
+        "folders_limited",
+        "folders_missing",
+        "folders_served",
+        "folders_unread",
+        "followed_hinge",
+        "follows_stall_snapshot",
+        "force_ask_cause",
+        "force_cleanup_explicit_false",
+        "fork_ms",
+        "found",
+        "fps",
+        "frame_depth",
+        "frames_after",
+        "frames_before",
+        "fresh",
+        "fresh_start",
+        "fresh_worktree_created",
+        "from_card",
+        "from_deeplink",
+        "from_level",
+        "from_mode",
+        "from_preset",
+        "from_project_scan",
+        "from_seq",
+        "from_version",
+        "frontier_renders",
+        "frozen_ms",
+        "fs_error_code",
+        "full_checkout_wait_ms",
+        "full_command",
+        "gap",
+        "gap_ms",
+        "gate",
+        "gate_blocked_built_in_browser_count",
+        "gate_blocked_chrome_count",
+        "gate_blocked_cooldown_count",
+        "gate_blocked_count",
+        "gate_blocked_cron_invalid_count",
+        "gate_blocked_custom_cron_count",
+        "gate_blocked_cwd_count",
+        "gate_blocked_dispatch_hook_count",
+        "gate_blocked_local_folders_count",
+        "gate_blocked_no_prompt_count",
+        "gate_blocked_pattern_approvals_count",
+        "gate_blocked_placement_count",
+        "gate_blocked_project_archived_count",
+        "gate_blocked_project_upgraded_count",
+        "gate_blocked_projects_count",
+        "gate_blocked_remote_control_disabled_count",
+        "gate_blocked_remote_control_unknown_count",
+        "gate_blocked_space_count",
+        "gate_blocked_sub_hourly_count",
+        "gate_blocked_unscheduled_count",
+        "gate_reason",
+        "gc_cumulative_ms",
+        "gc_in_stall_max_ms",
+        "gc_in_stall_ms",
         "gcp",
         "gen_ai",
+        "generation_age_ms",
         "geo",
+        "gesture",
+        "gesture_type",
+        "git",
+        "git_isolation_errno",
+        "git_isolation_stage",
+        "git_remove_ms",
+        "git_settings_control",
         "go",
+        "gone",
+        "grant_copy_failed",
         "graphql",
+        "graphql_errors_only_count",
+        "graphql_failed_count",
+        "graphql_rate_limited_count",
+        "graphql_read_by_caller",
+        "graphql_request_count",
+        "graphql_write_count",
+        "graphql_write_failed_count",
         "grpc",
+        "had_cli_session",
+        "had_first_response",
+        "had_input",
+        "had_interrupt_carrier",
+        "had_live_query",
+        "had_live_wakeup",
+        "had_node_modules",
+        "had_pending_cycle",
+        "had_pending_turn",
+        "had_result",
+        "had_scheduled_task",
+        "had_title",
+        "handed_off",
+        "handoff_tool",
+        "hard_deny_served",
+        "has_action_buttons",
+        "has_active_query",
+        "has_category",
+        "has_cli_session_id",
+        "has_config",
+        "has_cron",
+        "has_explanation",
+        "has_fire_at",
+        "has_hooks",
+        "has_input_stream",
+        "has_launch_tools",
+        "has_live_processes",
+        "has_live_sibling",
+        "has_local_disk",
+        "has_mcp",
+        "has_message",
+        "has_more",
+        "has_notify_on_completion",
+        "has_origin",
+        "has_target_cwd",
+        "has_thread",
+        "has_title",
+        "has_usage_data",
+        "has_worktree",
+        "head_changed",
+        "head_changed_since_first_wake",
+        "head_ordinal",
+        "head_unknown_count",
+        "heads_in_episode",
+        "healed",
+        "heartbeats",
+        "heavy_work_task",
+        "held",
+        "held_back",
+        "held_count",
+        "held_ms",
+        "held_steers",
+        "helper_peer_check",
+        "helper_quiet_ms",
+        "helper_run",
+        "helper_uptime_ms",
         "heroku",
+        "hidden_at_emit",
+        "hidden_count",
+        "history_entries_pruned",
+        "history_requested",
+        "history_shim",
+        "hit",
+        "hit_rtt_ms",
+        "hold_cause",
+        "hold_change",
+        "hold_ms",
+        "hold_reason",
+        "holder",
+        "hook_definitions",
+        "hook_event",
+        "hook_matcher",
+        "hook_name",
+        "hook_sig_match",
+        "hook_source",
+        "hook_type",
+        "hooked",
+        "hooks_applied",
         "host",
+        "host_base_merge",
+        "host_configured_skipped",
+        "host_count",
+        "host_mount_ms",
+        "host_owned_mcp",
+        "host_slot",
+        "host_window",
+        "host_work",
+        "hosted_count",
+        "hosts",
+        "how",
         "http",
+        "http_sibling",
+        "http_status",
+        "http_status_text",
         "hw",
+        "hw_attestation",
+        "hw_unavailable_reason",
+        "identity",
+        "idle_gated",
+        "idle_kind",
+        "idle_summary",
+        "idle_summary_delay_ms",
+        "idle_timeout_ms",
+        "image_count_in_buffer",
+        "implementation",
+        "import_source",
+        "in_experiment",
+        "in_flight",
+        "in_place",
+        "in_popout",
+        "include_overlay_wait_ms",
+        "include_uncommitted",
+        "index_deferred_count",
+        "index_stale_active_count",
+        "init_arrived",
+        "init_awake_ms",
+        "init_mcp_connected_count",
+        "init_mcp_disabled_count",
+        "init_mcp_failed_count",
+        "init_mcp_needs_auth_count",
+        "init_mcp_other_count",
+        "init_mcp_pending_count",
+        "init_mcp_total_count",
+        "init_ms",
+        "init_plugin_count",
+        "initial_user_message_chars",
+        "initiator",
+        "inp_ms",
+        "input_delay_ms",
+        "input_origin",
+        "input_tokens",
+        "insert_method",
+        "install",
+        "install_state_seeded",
+        "installed",
+        "insufficient_observation_count",
+        "intent",
+        "intent_before_initialized",
+        "intent_lead_ms",
+        "intent_saved_at_start",
+        "interaction",
+        "interaction_type",
+        "internal_server_name",
+        "interrupt_seq",
+        "interrupted",
+        "interrupted_age_seconds",
+        "interrupted_overdue_ms",
+        "interval_minutes",
+        "into_open_tab",
+        "invocation_trigger",
+        "io_return",
         "ios",
+        "ipc_bytes",
+        "ipc_ms",
+        "is_async",
+        "is_built_in",
+        "is_claude_host",
+        "is_downgrade",
+        "is_error",
+        "is_financial",
+        "is_first_turn",
+        "is_fork",
+        "is_git_repo",
+        "is_high_risk",
+        "is_internal",
+        "is_large_import",
+        "is_local",
+        "is_localhost",
+        "is_main_frame",
+        "is_manual",
+        "is_nest_build",
+        "is_new_session",
+        "is_plugin",
+        "is_remote",
+        "is_repeat",
+        "is_resume",
+        "is_running",
+        "is_scheduled_task_session",
+        "is_scratch",
+        "is_side_session",
+        "is_ssh",
+        "is_startup_error",
+        "is_stopping",
+        "is_violin_bow",
+        "is_visible",
+        "is_warm",
+        "is_windows",
+        "is_worktree",
+        "jitter_seconds",
         "jsonrpc",
+        "judged",
+        "jump_ms",
         "jvm",
         "k8s",
+        "keep_awake_release",
+        "kept",
+        "kept_claimed_elsewhere",
+        "kept_earlier",
+        "kept_existing_count",
+        "key",
+        "key_class",
+        "key_count",
+        "keys_set",
+        "kicked",
+        "kind",
+        "kinds",
+        "lan_name",
+        "lane",
+        "language",
+        "laptop_path_skipped",
+        "last_buffered_message_type",
+        "last_error_class",
+        "last_error_code",
+        "last_frame_age_ms",
+        "last_message_model",
+        "last_message_type",
+        "last_oauth_decline_reason",
+        "last_read_verdict",
+        "last_task",
+        "last_task_sync_ms",
+        "last_timeout_op",
+        "last_tool_name",
+        "late",
+        "latency_bucket",
+        "latency_ms",
+        "launch_limit",
+        "launch_sample_rate",
+        "launch_timeout_stage",
+        "launched",
+        "launcher_marked",
+        "launcher_status",
+        "launcher_version_check",
+        "lead_time_ms",
+        "leases",
+        "left_awaiting_person_count",
+        "legacy_kill",
+        "legacy_user_waiting",
+        "level",
+        "lifetime_ms",
+        "likely_ours",
+        "likely_sleep",
+        "limit",
+        "lines",
+        "link",
+        "link_age_ms",
+        "link_host",
+        "link_late_pongs",
+        "link_queued_pongs",
+        "link_srtt_ms",
+        "link_up",
         "linux",
+        "list_source",
+        "live_bindings",
+        "live_children",
+        "live_cli_count",
+        "live_processes",
+        "live_scheduled_cli_count",
+        "live_sessions",
+        "llm_request",
+        "load_error_code",
+        "load_ms",
+        "load_phase",
+        "loaf_entry_count",
+        "loaf_in_delay_ms",
+        "loaf_script_char_pos",
+        "loaf_script_duration_ms",
+        "loaf_script_forced_layout_ms",
+        "loaf_script_function",
+        "loaf_script_invoker",
+        "loaf_script_invoker_type",
+        "loaf_script_source",
+        "loaf_total_blocking_ms",
+        "loaf_total_forced_layout_ms",
+        "local_enabled",
+        "local_file_count",
+        "local_session_id",
+        "local_total_bytes",
+        "lock_known_locked",
         "log",
+        "log_reads",
+        "long_frame_ms_max",
+        "long_frame_ms_total",
+        "losable_background_task_count",
+        "losable_kind",
+        "losses_this_round",
+        "lost_input",
+        "low_memory_posture",
+        "main_rss_bytes",
+        "main_view_footprint_bytes",
+        "main_view_rss_bytes",
         "mainframe",
+        "managed_launcher",
+        "managed_only",
+        "managed_rules_only",
+        "managed_settings",
+        "mark",
+        "marked_count",
+        "marker_age_ms",
+        "marker_offered",
+        "marketplace",
+        "marketplace_uuid",
+        "matched",
+        "max_poll_gap_ms",
+        "max_session_count",
+        "max_system_idle_ms",
         "mcp",
+        "mcp_cmd",
+        "mcp_config_http_count",
+        "mcp_config_sdk_count",
+        "mcp_config_stdio_count",
+        "mcp_kind_followed",
+        "mcp_ms",
+        "mcp_server",
+        "mcp_server_count",
+        "mcp_server_scope",
+        "mcp_tool",
+        "memory_copy_error",
+        "memory_copy_keyless",
+        "memory_copy_state",
+        "memory_files_copied",
+        "memory_files_total",
+        "mention_type",
         "message",
+        "message_buffer_size",
+        "message_chars",
+        "message_count",
+        "message_uuid",
+        "messages_after",
+        "messages_before",
         "messaging",
+        "method",
+        "mid_turn",
+        "migratable_count",
+        "min_observed_days",
+        "min_runs_observed",
+        "minutes_since_launch",
+        "missed_by_minutes",
+        "missing",
+        "missing_kind",
+        "mode",
+        "model",
+        "model_downgraded",
+        "model_swapped",
+        "mount_commit_ms",
+        "mount_composer_ms",
+        "mount_layout_ms",
+        "mount_list_ms",
+        "mount_ms",
+        "mount_panel_ms",
+        "ms",
+        "ms_after_commit",
+        "ms_after_load",
+        "ms_since_first_cut",
+        "ms_since_last_read",
+        "ms_since_last_wake",
+        "ms_since_open",
+        "ms_since_prior_loss",
+        "ms_since_write",
+        "ms_to_echo",
+        "ms_to_first_token",
+        "nav_only",
+        "nav_temp",
+        "needed_deploy",
+        "needs_tree_before_spawn_reason",
         "net",
         "network",
+        "new_context",
+        "new_context_message_count",
+        "new_context_original_length",
+        "new_context_truncated",
+        "new_cwd",
+        "new_failure_count",
+        "new_value",
+        "newer_version",
+        "newly_unclaimed",
+        "next_unchecked",
         "nfs",
+        "no_folder",
+        "no_fresh_record_count",
+        "no_fresh_record_denied_count",
+        "no_fresh_record_no_prompt_count",
+        "no_fresh_record_no_record_count",
+        "no_fresh_record_stale_record_count",
+        "no_fresh_record_task_missing_count",
+        "no_fresh_record_unreadable_count",
+        "no_off_read",
+        "no_response_category",
+        "no_tpm_probe_code",
         "nodejs",
+        "not_copied",
+        "not_evaluable_reason",
+        "notice_requested",
+        "notification_type",
+        "notify_on_completion_after",
         "nservicebus",
+        "ntstatus_name",
+        "num_blocking",
+        "num_cancelled",
+        "num_hooks",
+        "num_non_blocking_error",
+        "num_outputs_persisted",
+        "num_success",
+        "num_turns",
+        "observed_built_in_browser",
+        "observed_chrome",
+        "observed_computer_use",
+        "observed_device_free_count",
+        "observed_local_count",
+        "observed_local_mcp",
+        "observed_request_folder_access",
+        "observed_task_count",
+        "occurrence",
         "oci",
+        "offer",
+        "ok",
+        "older_than_days",
+        "oldest_age_ms",
+        "on",
+        "on_battery",
+        "on_ssh_host",
         "onc_rpc",
+        "one_time",
+        "online",
+        "open_ms",
+        "open_seconds",
         "openai",
+        "opened_by",
+        "opened_via",
         "openshift",
         "opentracing",
+        "operation",
         "oracle",
         "oracle_cloud",
+        "org_browser_allowed",
+        "org_skills_off",
+        "organization",
+        "organization_id",
+        "origin",
+        "origin_class",
+        "origin_notify_none_count",
+        "origin_unresolvable_count",
+        "orphan_process_id",
         "os",
+        "os_entry",
         "otel",
         "other",
+        "outcome",
+        "output",
+        "output_original_length",
+        "output_tokens",
+        "output_truncated",
+        "overdue_ms",
+        "overlay_spawn_wait_ms",
+        "overlay_wait_ms",
+        "oversize_option",
+        "own_address",
+        "own_worktree_reattached",
+        "owned_cycle",
+        "page_note",
+        "page_source",
+        "paired_device_count",
+        "pane_open",
+        "pane_visible",
+        "parent",
+        "parent_agent_id",
+        "parent_is_side_session",
+        "parent_session_id",
+        "parse_input_len",
+        "parse_ms",
+        "pass",
+        "pass_trigger",
+        "path",
+        "payload_arch",
+        "payload_kind",
         "peer",
+        "pending_count",
+        "pending_delete",
+        "pending_had_first_response",
+        "pending_handlers",
+        "pending_hours",
+        "pending_minutes",
+        "pending_ms",
+        "pending_requests",
+        "pending_seconds",
+        "pending_unarchive",
+        "per_message",
+        "period_days",
+        "permission_mode",
+        "permission_surface",
+        "permissions",
+        "persist_enabled",
+        "phase",
+        "picked_files_carried_count",
+        "ping_ms",
+        "place",
+        "plan_call_count",
+        "plan_call_count_since_compaction",
+        "plan_open_step_count",
+        "plane",
+        "planned_count",
+        "platform",
+        "plist_scope",
+        "plugin",
+        "plugin_count",
+        "plugin_delivery",
+        "plugin_dir_count",
+        "plugin_id",
+        "plugin_id_hash",
+        "plugin_mcp_connector_twin_by_name_count",
+        "plugin_mcp_connector_twin_count",
+        "plugin_uuid",
+        "point_count",
+        "policy_blocked",
+        "policy_gate_passed",
+        "poll_ms_p50",
+        "poll_ms_p95",
         "pool",
+        "pool_busy_skips",
+        "pool_cached_unclean",
+        "pool_candidates",
+        "pool_deferred",
+        "pool_indeterminate",
+        "pool_ms",
+        "pool_outcome",
+        "pool_probes",
+        "pool_rebind_attempts",
+        "pool_rebind_ms",
+        "pool_refused",
+        "pool_trusted",
+        "pool_wait_ms",
+        "post_checkout_wait_ms",
+        "post_tokens",
+        "posted_count",
         "pprof",
+        "pr_count",
+        "pr_state",
+        "pr_state_fail_auth_count",
+        "pr_state_fail_forbidden_count",
+        "pr_state_fail_forbidden_saml_count",
+        "pr_state_fail_network_count",
+        "pr_state_fail_not_found_count",
+        "pr_state_fail_rate_limit_count",
+        "pr_state_fail_rate_limit_held_count",
+        "pr_state_fail_unavailable_count",
+        "pr_state_fail_unknown_count",
+        "pr_tool",
+        "pre_tokens",
+        "precompute_reuse",
+        "prefix_parity",
+        "preflight_ms",
+        "prep_ms",
+        "prepare_ms",
+        "preprobe_hurried",
+        "preprobe_via",
+        "presence",
+        "present_failures",
+        "presentation_delay_ms",
+        "press_lead_ms",
+        "prev_reason",
+        "previous_cwd",
+        "previous_quit_clean",
+        "previous_title_source",
+        "previous_value",
+        "prewarm",
+        "prewarm_kind",
+        "prewarm_lead_ms",
+        "print_call",
+        "print_call_age_ms",
+        "prior_asides",
+        "prior_installation_attempts",
+        "prior_loss_how",
+        "probe",
+        "probe_answers",
+        "probe_ms",
+        "probe_result",
+        "probe_trigger",
+        "probed",
+        "probed_height",
+        "probed_width",
+        "probes",
         "process",
+        "process_instance_known",
+        "processing_ms",
+        "product",
         "profile",
+        "project_dropped",
+        "projects",
+        "promoted_by_ios_intent",
+        "prompt",
+        "prompt_append_source",
+        "prompt_asker",
+        "prompt_cache_likely_expired",
+        "prompt_kind",
+        "prompt_length",
+        "prompt_lifecycle",
+        "prompt_origin",
+        "prompt_outcome",
+        "prompt_rendered",
+        "prompt_suggestions_requested",
+        "prompt_text",
+        "proof_kind",
+        "proposal",
+        "proposal_id_present",
+        "proposed_context",
+        "proposed_title_chars",
+        "protected_taken_count",
+        "provenance",
+        "provider",
+        "proxy_diagnostic",
+        "proxy_key",
+        "prune_skipped_late_read_failed",
+        "pruned_disabled",
         "quartz",
+        "query_kind",
+        "query_ms",
+        "query_source",
+        "query_source_safe",
+        "queue_length",
+        "queued_message_bar",
+        "queued_sends",
+        "quick_entry_images",
+        "quick_entry_length",
+        "quiet_bucket",
+        "quiet_recovery",
+        "quit_after_loss_ms",
+        "quit_death_count",
+        "quoted_chars",
         "qyl",
+        "rate_limited_count",
+        "rate_limited_held_count",
+        "ratelimit_remaining",
+        "ratelimit_reset_seconds",
+        "ratelimit_used",
+        "raw_output",
+        "rc_intent",
+        "rc_policy_bridge_yielded",
+        "rc_reconciled",
+        "rc_recorded",
+        "rc_roundtrip_ms",
+        "rc_wait_ms",
+        "re_alert",
+        "re_leased_from_pool",
+        "read_ms",
+        "read_only_mark_count",
+        "reads",
+        "reads_cap_limited",
+        "ready",
+        "ready_ms",
+        "reaped_count",
+        "reason",
+        "reason_detail",
+        "reattach_answer_ms",
+        "reattach_auth",
+        "reattach_failed_reason",
+        "reattach_ms",
+        "reattach_silent_retries",
+        "recap_chars",
+        "recap_chars_raw",
+        "recent_artifact_click",
+        "reconnected",
+        "record_synced",
+        "recorded",
+        "recovered",
+        "recovery_granted_ms_ago",
+        "recreate_cause",
+        "recreate_outcome",
+        "redial_after_sleep",
+        "redial_after_sleep_seq",
+        "redial_presence",
+        "redial_seq",
+        "redirect_vendor",
+        "refusal",
+        "refusal_reason",
+        "refused_other",
+        "refused_route",
+        "registry_plugin_count",
+        "rejected_model",
+        "release_reason",
+        "released_by",
+        "reload_attempt",
+        "relocated_config",
+        "remaining",
+        "remote",
+        "remote_control_on",
+        "remote_control_user_owned",
+        "remote_control_was_on",
+        "remote_cwd_probe_ms",
+        "remote_folder",
+        "remote_scheduled_tasks_enabled",
+        "remote_session_store_load_failed",
+        "removed",
+        "removed_count",
+        "removed_job",
+        "renderer",
+        "renderer_build_id",
+        "renderer_surface",
+        "renewed",
+        "repair_shown",
+        "replaced_by",
+        "replaces_message_uuid",
+        "replay",
+        "replayed_bytes",
+        "replayed_frames",
+        "replays",
+        "replays_after_drop",
+        "reply_chars",
+        "repo_kind",
+        "reported_cli_kind",
+        "reported_cli_version",
+        "request_body_id",
+        "request_id",
+        "requested",
+        "requested_lead_time_ms",
+        "requested_level",
+        "requested_mode",
+        "requesting_site",
+        "required_version",
+        "requires_computer_gate_blocked_count",
+        "requires_computer_insufficient_observation_count",
+        "requires_computer_no_fresh_record_count",
+        "resolution",
+        "resolve_ms",
+        "resolved",
+        "resolved_person_holds",
+        "resolved_version",
+        "resource_type",
+        "response",
+        "response_length",
+        "rest_200_conditional_count",
+        "rest_200_unconditional_count",
+        "rest_304_by_endpoint",
+        "rest_304_count",
+        "rest_4xx_count",
+        "rest_5xx_count",
+        "rest_checks_fetch_count",
+        "rest_ratelimit_remaining",
+        "rest_ratelimit_used",
+        "rest_read_by_endpoint",
+        "rest_routed_row_count",
+        "restored",
+        "result",
+        "result_subtype",
+        "result_tokens",
+        "resume_cost_source",
+        "resume_from_byte",
+        "resume_reason",
+        "resume_seed",
+        "resume_stop_trigger",
+        "resume_was_ours",
+        "resumed_after_attention",
+        "resumed_from_byte",
+        "retained",
+        "retention_days",
+        "retention_source",
+        "retry_attempt",
+        "retry_count",
+        "retry_in_ms",
+        "return_refresh_github_row_count",
+        "return_refresh_other_row_count",
+        "return_refresh_skipped_low_budget_count",
+        "reused_server",
+        "rewind_active_chain_length",
+        "rewind_target_miss_reason",
+        "rewind_transcript_has_compact_boundary",
+        "rewind_transcript_length",
+        "root_fenced",
+        "root_is_unc",
+        "root_ms",
+        "root_named",
+        "rounds",
+        "rounds_last_day",
+        "rounds_last_hour",
+        "route",
+        "route_ms",
+        "route_prefix",
+        "routines_enabled",
+        "row_pk_resolved",
+        "rows",
+        "rows_source",
         "rpc",
+        "rpc_error",
+        "rpm_enabled_state_age_ms",
+        "rpm_enabled_state_ms",
+        "rpm_enabled_state_source",
+        "rpm_fs_scan_ms",
+        "rule",
+        "running",
+        "running_session_count",
+        "running_sessions",
+        "safe_mode",
+        "same_category_as_prior_loss",
+        "same_session",
+        "sample_index",
+        "sampler_active",
+        "sampler_frames",
+        "sampler_start_lag_ms",
+        "sampling_trace_id",
+        "sandbox_cascade",
+        "sandbox_env",
+        "sandbox_on",
+        "sandbox_settings",
+        "saved_in_manual",
+        "saved_other",
+        "saw_unreachable",
+        "scale",
+        "scan_ms",
+        "scheduled_task_id",
+        "scheduled_task_tool",
+        "scheme",
+        "scoped",
+        "scrollback_log",
+        "sdk_host",
+        "sealed_count",
+        "seconds_since_activity",
+        "seconds_since_create",
+        "seconds_since_last_activity",
+        "seconds_since_last_oauth_decline",
+        "seconds_since_last_response",
+        "seconds_since_last_turn",
+        "seconds_since_offer",
+        "seconds_since_rewind",
+        "seconds_since_stderr",
+        "seconds_to_outcome",
+        "seconds_waiting",
         "security_rule",
+        "seeded_from_tail",
         "server",
+        "server_enabled",
+        "server_fallback_hop",
+        "server_name",
+        "server_scope",
+        "server_type",
+        "server_uuid",
+        "server_version",
         "service",
         "session",
+        "sessionId",
+        "session_age_ms",
+        "session_bytes_read",
+        "session_count",
+        "session_exists",
+        "session_files_deleted",
+        "session_grouping_id",
+        "session_id",
+        "session_presets",
+        "session_repo_entry_base_missing",
+        "session_repo_missing",
+        "session_repo_not_a_tree",
+        "session_repo_not_session_scoped",
+        "session_repo_tree_not_anchored",
+        "session_repo_unbound",
+        "session_repo_would_refuse_base",
+        "session_repo_would_refuse_tree",
+        "session_running",
+        "session_scope",
+        "session_title",
+        "session_tool",
+        "session_type",
+        "sessions",
+        "sessions_archived",
+        "sessions_pushed",
+        "sessions_skipped_fence",
+        "sessions_skipped_unsupported",
+        "set_ms",
+        "set_origin",
+        "setting_key",
+        "settings_tier",
+        "settings_tool",
+        "settle_ms",
+        "settle_reason",
+        "settled",
+        "shared",
+        "shell",
+        "shell_env_failed_reads",
+        "shell_integration",
+        "shipit_stderr_tail",
+        "shown_ms",
+        "side_sessions_available",
+        "sign_error_code",
+        "sign_error_probe_code",
+        "sign_in_cookie_present",
+        "sign_in_reason",
+        "sign_in_waits",
+        "signal",
         "signalr",
+        "signals_ignored",
+        "signed_in_at_last_exit",
+        "silence_ms",
+        "silent_reattach",
+        "since_app_focus_ms",
+        "since_input_ms",
+        "since_page_hidden_ms",
+        "since_page_visible_ms",
+        "single_ingest",
+        "site",
+        "sites",
+        "size",
+        "skill",
+        "skill_name",
+        "skill_path_count",
+        "skip_push",
+        "skip_reason",
+        "skipped",
+        "skipped_by_cap",
+        "skipped_collision",
+        "skipped_count",
+        "skipped_disabled",
+        "skipped_offline",
+        "sleep_assertion_held",
+        "sleep_duration_seconds",
+        "sleep_signal",
+        "slept",
+        "slept_ms",
+        "slot_consumed",
+        "slot_wait_ms",
+        "slow_folders",
+        "slow_shell_wait",
         "soap",
+        "soft_deleted",
         "source",
+        "source_organization_uuid",
+        "source_was_previewed",
+        "space_dropped",
+        "space_empty",
+        "space_folders_0",
+        "space_folders_1",
+        "space_folders_2_plus",
+        "space_id",
+        "space_store_count",
+        "space_tied_enabled_count",
+        "space_unresolvable",
+        "space_with_drive_links",
+        "space_with_instructions",
+        "space_with_links",
+        "space_with_projects",
+        "spaces_quarantined_count",
+        "span",
+        "spare_claim_ms",
+        "spare_event",
+        "spare_fail_code",
+        "spare_mcp_settled",
+        "spare_miss_reason",
+        "spare_parked_ms",
+        "spare_wait_ms",
+        "spawn_argv_chars",
+        "spawn_confirmed",
+        "spawn_fallback_count",
+        "spawn_mode",
+        "spawn_reason",
+        "spawn_source",
+        "spawn_to_init_ms",
+        "spawn_to_outcome_ms",
+        "speed",
+        "spelled_in",
+        "spread_hours",
+        "ssh_client_launch_error_code",
+        "ssh_platform",
+        "ssh_transport",
+        "ssh_transport_flag_state",
+        "ssh_transport_flag_wait_ms",
+        "ssh_transport_source",
+        "ssh_windows_client_unusable_reason",
+        "stage",
+        "staged_version",
+        "stale",
+        "stale_claimed",
+        "stale_cowork_owned",
+        "stale_had_focus",
+        "stale_reason",
+        "stale_shown_age_ms",
+        "stall_duration_ms",
+        "stamped_migrated_from_space",
+        "start_gate",
+        "start_in_flight",
+        "start_reason",
+        "start_stage_reached",
+        "start_tool",
+        "start_type",
+        "started",
+        "started_by_model",
+        "stat_ms",
         "state",
+        "status",
+        "status_before",
+        "status_code",
+        "status_ms",
+        "status_unknown",
+        "stdout_chars",
+        "steered_send_count",
+        "step",
+        "step_budget_ms",
+        "still_running_sessions",
+        "stood_down",
+        "stop_outcome",
+        "stop_reason",
+        "stopped_by_limit",
+        "stopped_by_misses",
+        "stopped_by_process_cap",
+        "storage_budget_hit",
+        "storage_carried",
+        "storage_concurrency",
+        "storage_failed",
+        "storage_keys",
+        "storage_ms",
+        "storage_origins",
+        "storage_pending",
+        "storage_timeouts",
+        "storage_tool",
+        "store_count",
+        "store_load_failed",
+        "store_load_state",
+        "store_reset",
+        "store_state",
+        "store_unreadable",
+        "stored_bypass_sent_as_auto",
+        "stream_ms",
+        "structural",
+        "studio_installed",
+        "subagent_type",
+        "success",
+        "superseded",
+        "supported",
+        "suppressed_count",
+        "surface",
+        "survey_type",
+        "survivor_claimed",
+        "survivor_cowork_owned",
+        "survivor_shown_age_ms",
+        "switch_id",
+        "switch_on",
+        "synced_count",
         "system",
+        "system_message_chars",
+        "system_prompt",
+        "system_prompt_hash",
+        "system_prompt_length",
+        "system_prompt_preview",
+        "system_prompt_snapshot",
+        "system_prompt_truncated",
+        "system_reminders",
+        "system_reminders_count",
+        "system_reminders_original_length",
+        "system_reminders_truncated",
+        "tab",
+        "tabs",
+        "tabs_closed",
+        "tail_drain_overlap",
+        "tail_file_bytes",
+        "tail_handler_ms",
+        "tail_ipc_ms",
+        "tail_parse_ms",
+        "tail_parse_self_ms",
+        "tail_queue_ms",
+        "tail_read_bytes",
+        "tail_read_ms",
+        "tail_reparse_count",
+        "tail_rows_kept",
+        "tail_rows_parsed",
+        "tail_rungs",
+        "tail_session_wait_ms",
+        "tail_source",
+        "taken",
+        "target",
+        "target_from_flag",
+        "target_id",
+        "target_kind",
+        "target_message_uuid",
+        "target_version",
+        "task_count",
+        "task_type",
+        "task_wait_seconds",
+        "tasks_already_remote",
+        "tasks_failed",
+        "tasks_remote",
+        "tasks_repointed",
+        "tasks_stopped",
+        "tasks_total",
+        "tcc_folder_kind",
+        "teardown_reason",
         "telemetry",
+        "terminal",
         "test",
+        "text_len",
+        "text_length",
+        "text_variant",
+        "thinking_forced",
+        "third_party",
+        "third_party_gpu_modules_allowed",
         "thread",
+        "time_visible_ms",
+        "timed_out",
+        "timed_out_here",
+        "timed_out_phase",
+        "timeout_ms",
+        "timing_ms",
+        "title_check_outcome",
+        "title_overlap_pct",
+        "title_source",
+        "title_turn_known",
+        "title_via_cli_outcome",
         "tls",
+        "to_display",
+        "to_level",
+        "to_mode",
+        "to_version",
+        "tool",
+        "tool_age_ms",
+        "tool_builtin",
+        "tool_calls",
+        "tool_hash",
+        "tool_host_sessions",
+        "tool_input",
+        "tool_input_original_length",
+        "tool_input_size_bytes",
+        "tool_input_truncated",
+        "tool_name",
+        "tool_name_safe",
+        "tool_parameters",
+        "tool_result_size_bytes",
+        "tool_running_at_send",
+        "tool_source",
+        "tool_truncated",
+        "tool_use_count_since_plan_call",
+        "tool_use_id",
+        "tools",
+        "tools_count",
+        "tools_parse_error",
+        "top1_footprint_bytes",
+        "top2_footprint_bytes",
+        "top3_footprint_bytes",
+        "total_attempts",
+        "total_duration_ms",
+        "total_extensions_installed",
+        "total_failures",
+        "total_mem_gb",
+        "total_ms",
+        "total_observed_runs",
+        "total_retry_duration_ms",
+        "total_stalls",
+        "total_to_assistant_ms",
+        "total_to_init_ms",
+        "total_tokens",
+        "total_tool_uses",
+        "tracked_processes",
+        "transcript_bytes",
+        "transcript_fill_rows",
+        "transcript_length",
+        "transcript_line_count",
+        "transcript_ms",
+        "transcript_page_fallback",
+        "transcript_page_source",
+        "transcript_relocated",
+        "transcript_result",
+        "transcript_size_bytes",
+        "transcript_total_rows",
+        "transcripts_deleted",
+        "transcripts_exempted_desktop",
+        "transitions_seen",
+        "transport",
+        "transport_type",
+        "trigger",
+        "trigger_id",
+        "trigger_type",
+        "truncated",
+        "trust_check_cause",
+        "trust_total_ms",
+        "ttft_ms",
+        "turn_box_mounted",
+        "turn_interrupted",
+        "turn_ms",
+        "turn_origin",
+        "turn_scope",
+        "turns_before_ptl",
+        "turns_bucket",
+        "turns_since_title",
+        "type",
+        "ui_app",
+        "unarchive",
+        "unattended",
+        "unavailable_probe_code",
+        "unavailable_probe_reason",
+        "unclean_days",
+        "uncovered_count",
+        "unhealthy_reason",
+        "uninterruptible",
+        "unknown_answers",
+        "unlisted_check_failed",
+        "unlisted_gone_not_available",
+        "unlisted_gone_not_found",
+        "unlisted_gone_scan_not_served",
+        "unlisted_gone_withheld",
+        "unlisted_present",
+        "unlisted_sent",
+        "unlisted_unknown",
+        "unread_steers",
+        "unreadable",
+        "unreadable_count",
+        "unreadable_files",
+        "unreadable_settings",
+        "unreadable_store",
+        "unrecorded",
+        "unstarted",
+        "unsupported_code",
+        "until",
+        "untracked_discard_requested",
+        "unverified",
+        "unwound_refusal_fallback",
+        "update_channel",
+        "update_count",
+        "update_relaunch_marker",
+        "update_version",
+        "updated_cron",
+        "updated_description",
+        "updated_disable_jitter",
+        "updated_display_name",
+        "updated_enabled",
+        "updated_fire_at",
+        "updated_notify_on_completion",
+        "updated_project_uuids",
+        "updated_prompt",
+        "upgraded_existing",
+        "upload_net_error_name",
         "url",
+        "url_class",
+        "url_scheme",
+        "used_default",
         "user",
         "user_agent",
+        "user_message_uuid",
+        "user_prompt",
+        "user_prompt_length",
+        "user_system_prompt",
+        "user_system_prompt_original_length",
+        "user_system_prompt_truncated",
+        "user_waiting",
         "v8js",
+        "variant",
+        "vars_adopted",
         "vcs",
+        "verb",
+        "verdict",
+        "verdict_detail",
+        "verdict_source",
+        "verified_since_recovery",
+        "version",
+        "via",
+        "via_fallback",
+        "via_oopif",
+        "viewport_size_bucket",
+        "vm_guest_connected",
+        "vm_network_mode",
+        "wait_ms",
+        "waited_for_claude",
+        "waited_minutes",
+        "waited_ms",
+        "waiting_children",
+        "waiting_in",
+        "wake_at",
+        "wake_delivery",
+        "wake_duration_ms",
+        "wake_ordinal",
+        "wake_when_done",
+        "wakes_in_episode",
+        "wakes_since_user_message",
+        "wakeup_in_ms",
+        "warm_duration_ms",
+        "warm_trigger",
+        "warmed_count",
+        "warnings_count",
+        "was_auto_disabled",
+        "was_cross_repo",
+        "was_held",
+        "was_hidden",
+        "was_hidden_any",
+        "was_mid_turn",
+        "was_recovered",
+        "was_running",
+        "was_submit",
+        "watch_connected_ms",
+        "watch_enabled",
+        "watch_state",
+        "wave",
         "wcf",
+        "web_commit_hash",
         "webengine",
+        "while_working_held",
+        "why",
+        "willRetry",
+        "will_hold",
+        "will_retry",
+        "window_fallback",
+        "window_ms",
+        "window_parked",
+        "window_probe_error",
+        "windows_host",
+        "windows_host_jobs",
+        "woken_by",
         "workflow",
+        "working",
+        "workspace",
+        "workspaces_seeded",
+        "worktree",
+        "worktree_cleanup_requested",
+        "worktree_created",
+        "worktree_kept_dirty",
+        "worktree_lazy",
+        "worktree_mode",
+        "worktree_ms",
+        "worktree_path",
+        "worktree_pool_enabled",
+        "worktree_refusal",
+        "worktree_reused",
+        "worktree_source",
+        "would_offer",
+        "written",
+        "written_unacked",
+        "wsl",
+        "wsl_error_code",
+        "wt_add_ms",
+        "wt_checkout_race_ms",
+        "wt_checkout_retried",
+        "wt_checkout_workers",
+        "wt_config_copied",
+        "wt_config_deferred",
+        "wt_config_overlay_ms",
+        "wt_config_overlay_outcome",
+        "wt_fetch_ms",
+        "wt_fetch_outcome",
+        "wt_fetch_settled",
+        "wt_filter_refresh_ms",
+        "wt_filter_refresh_no_space",
+        "wt_full_checkout_ms",
+        "wt_git_crypt_binary",
+        "wt_git_crypt_keys",
+        "wt_git_crypt_left",
+        "wt_git_spawns",
+        "wt_hooks_config_ms",
+        "wt_include_matched",
+        "wt_include_patterns_dropped",
+        "wt_include_scan_mode",
+        "wt_include_scan_ms",
+        "wt_include_scan_outcome",
+        "wt_include_unsearched_dirs",
+        "wt_lfs_hydrate_ms",
+        "wt_lfs_hydrated",
+        "wt_lfs_not_local",
+        "wt_lfs_rejected",
+        "wt_lfs_skipped",
+        "wt_load_avg_1m",
+        "wt_overlay_settled_ms",
+        "wt_post_checkout_hook_ms",
+        "wt_post_checkout_hook_ran",
+        "wt_prep_ms",
+        "wt_stage1_ms",
+        "wt_status_cache_prime",
+        "wt_tracked_files",
+        "xcode_change",
+        "xcode_on_disk",
         "zos",
     };
 
@@ -508,10 +2440,411 @@ public static class AttributeMapping
     {
         switch (key)
         {
+            case "_scrubError":
+            case "abandon_reason":
+            case "abandoned_ms_ago":
+            case "abandoned_processes":
+            case "aborted":
+            case "accessibility_features":
+            case "accessibility_support_enabled":
+            case "account_enabled_count":
+            case "account_uuid":
+            case "acked":
+            case "action":
+            case "active_background_task_count":
+            case "active_chain_length":
+            case "active_count":
+            case "active_cron_count":
+            case "active_mcp_server_count":
+            case "active_phase_ms":
+            case "active_process_count":
+            case "active_session_count":
+            case "active_sessions":
+            case "active_workflow_count":
+            case "acts":
+            case "actual_sha256":
+            case "addedDirs":
+            case "additional_context_chars":
+            case "admin_removed":
+            case "adoptable_sessions":
+            case "adopted":
+            case "adopted_first_attempt":
+            case "adopts":
+            case "after_clear_or_rewind":
+            case "after_paint_ms":
+            case "age_days":
+            case "age_ms":
+            case "agent.name":
+            case "agent.source":
+            case "agent_id":
+            case "agent_path_count":
+            case "agent_type":
+            case "ahead_of_read":
+            case "airplane_mode":
+            case "already_archived":
+            case "already_exited":
+            case "already_there":
+            case "always_scope":
+            case "anchor_source":
+            case "anthropic.beta":
+            case "anthropic.content.truncated":
+            case "anthropic.deployment.id":
+            case "anthropic.deployment_run.id":
+            case "anthropic.dream.id":
+            case "anthropic.environment.id":
+            case "anthropic.environment.work.id":
+            case "anthropic.file.id":
+            case "anthropic.mcp.server.name":
+            case "anthropic.memory_store.memory_version.id":
+            case "anthropic.message.batch.id":
+            case "anthropic.message.batch.request_count":
+            case "anthropic.message.count_tokens.input_tokens":
+            case "anthropic.message.stop_reason":
+            case "anthropic.model.id":
+            case "anthropic.organization.api_key.id":
+            case "anthropic.organization.external_key.id":
+            case "anthropic.organization.federation_issuer.id":
+            case "anthropic.organization.federation_rule.id":
+            case "anthropic.organization.federation_rule.workspace.id":
+            case "anthropic.organization.id":
+            case "anthropic.organization.invite.id":
+            case "anthropic.organization.plugin.id":
+            case "anthropic.organization.plugin.installation_setting.id":
+            case "anthropic.organization.plugin.version.id":
+            case "anthropic.organization.plugin_marketplace.id":
+            case "anthropic.organization.rbac_group.id":
+            case "anthropic.organization.rbac_group.member.id":
+            case "anthropic.organization.rbac_role.id":
+            case "anthropic.organization.service_account.id":
+            case "anthropic.organization.service_account.workspace.id":
+            case "anthropic.organization.spend_limit.id":
+            case "anthropic.organization.spend_limit_increase_request.id":
+            case "anthropic.organization.telemetry_destination.id":
+            case "anthropic.organization.telemetry_destination.workspace.id":
+            case "anthropic.organization.user.id":
+            case "anthropic.organization.workspace.id":
+            case "anthropic.organization.workspace.member.id":
+            case "anthropic.organization.workspace.service_account.id":
+            case "anthropic.request.id":
+            case "anthropic.request.service_tier":
+            case "anthropic.response.service_tier":
+            case "anthropic.session.environment.id":
+            case "anthropic.session.id":
+            case "anthropic.session.outcome.id":
+            case "anthropic.session.outcome_evaluation.explanation":
+            case "anthropic.session.outcome_evaluation.iteration":
+            case "anthropic.session.outcome_evaluation.result":
+            case "anthropic.session.resource.id":
+            case "anthropic.session.thread.id":
+            case "anthropic.session.turn.stop_reason":
+            case "anthropic.skill.id":
+            case "anthropic.skill.version.id":
+            case "anthropic.thinking.budget_tokens":
+            case "anthropic.thinking.type":
+            case "anthropic.tool.evaluated_permission":
+            case "anthropic.tool_result.content":
+            case "anthropic.toolset.name":
+            case "anthropic.tunnel.certificate.id":
+            case "anthropic.tunnel.id":
+            case "anthropic.usage.cache_creation.ephemeral_1h_input_tokens":
+            case "anthropic.usage.cache_creation.ephemeral_5m_input_tokens":
+            case "anthropic.usage.compaction.input_tokens":
+            case "anthropic.usage.compaction.output_tokens":
+            case "anthropic.user_profile.id":
+            case "anthropic.vault.credential.id":
+            case "anthropic.vault.id":
+            case "anthropic.workspace.id":
+            case "any_window_visible":
+            case "app.entrypoint":
+            case "app.version":
+            case "app_class":
+            case "app_focused":
+            case "app_quit_trigger":
+            case "app_stall":
+            case "app_version":
+            case "appearance_id":
+            case "archive_index_state":
+            case "archived":
+            case "archived_phase_ms":
+            case "archived_phase_trigger":
+            case "archived_with_bridge_count":
+            case "arm":
+            case "armed_by":
+            case "armed_cron_count":
+            case "armed_durable_cron_count":
+            case "arriving_frame_ms":
+            case "artifacts_deleted":
+            case "ask_took":
+            case "assistant_narration_block_count":
+            case "assistant_narration_char_count":
+            case "assistant_text_block_count":
+            case "assistant_text_char_count":
+            case "assistant_tool_group_count":
+            case "assistant_tool_use_count":
+            case "at_launch":
+            case "at_turn_boundary":
+            case "attach_reason":
+            case "attached_devices":
+            case "attached_duration_ms":
+            case "attachment_bytes":
+            case "attachment_seq":
+            case "attachments":
+            case "attempt":
+            case "attempt_id":
+            case "attempt_index":
+            case "attempt_num":
+            case "attempt_number":
+            case "attempted":
+            case "attempted_count":
+            case "attempts":
+            case "attempts_before_recovery":
+            case "attestation_form":
+            case "auth_auto_retry":
+            case "auth_method":
+            case "authorization":
+            case "auto_archive_on_close":
+            case "auto_compact":
+            case "auto_compact_attempts":
+            case "auto_compact_recovered":
+            case "auto_enabled":
+            case "auto_fix":
+            case "auto_merge":
+            case "auto_merge_seen":
+            case "auto_reason":
+            case "auto_reconnect_attempts":
+            case "auto_source":
+            case "auto_updates_disabled":
+            case "automatic":
+            case "awaited_ms":
+            case "awaited_outcome":
+            case "awaited_reason":
+            case "away_at_failure":
+            case "away_ms":
             case "az.client_request_id":
             case "az.schema_url":
+            case "backend":
+            case "backend_kind":
+            case "backfill_outcome":
+            case "background":
+            case "backgrounded":
+            case "backoff_ms":
+            case "bailed":
+            case "base_config_cache_hit":
+            case "bash_argv0":
+            case "bash_command":
+            case "bash_command_class":
+            case "bash_command_original_length":
+            case "bash_command_truncated":
+            case "basis":
+            case "batch_pr_count":
+            case "batch_request_count":
+            case "bearer_state":
+            case "bearer_token_type":
+            case "bind_eligible_count":
+            case "bind_outcome":
+            case "bind_unsigned_keyless":
+            case "bind_web_key":
+            case "blocked_chrome":
+            case "blocked_count":
+            case "blocked_custom_cron":
+            case "blocked_cwd":
+            case "blocked_dispatch_hook":
+            case "blocked_local_files_only":
+            case "blocked_local_folders":
+            case "blocked_no_prompt":
+            case "blocked_pattern_approvals":
+            case "blocked_projects":
+            case "blocked_projects_multi_or_malformed":
+            case "blocked_space":
+            case "blocked_sub_hourly":
+            case "blocking":
+            case "blocks_committed":
+            case "body":
+            case "body_length":
+            case "body_ref":
+            case "body_truncated":
+            case "body_withheld":
+            case "bounce_reason":
+            case "brake_rule":
+            case "branch_reattached":
+            case "bridge_url_present":
+            case "browser":
+            case "bucket_gb":
+            case "bucket_pct_of_ram":
             case "build.error.message":
             case "build.error.type":
+            case "busy":
+            case "bypassed":
+            case "bytes":
+            case "bytes_at_failure":
+            case "bytes_downloaded":
+            case "bytes_dropped":
+            case "bytes_missing":
+            case "bytes_received":
+            case "cache_creation_1h_input_tokens":
+            case "cache_creation_1h_tokens":
+            case "cache_creation_5m_input_tokens":
+            case "cache_creation_5m_tokens":
+            case "cache_creation_input_tokens":
+            case "cache_creation_tokens":
+            case "cache_hit":
+            case "cache_read_input_tokens":
+            case "cache_read_tokens":
+            case "cached":
+            case "cadence_daily":
+            case "cadence_hourly":
+            case "cadence_manual":
+            case "cadence_one_shot":
+            case "cadence_other":
+            case "cadence_sub_hourly":
+            case "cadence_weekdays":
+            case "cadence_weekly":
+            case "caller":
+            case "can_recover":
+            case "can_rewind":
+            case "cancel_reason":
+            case "cancelled":
+            case "candidate_count":
+            case "candidates":
+            case "candidates_checked":
+            case "cap_bytes":
+            case "capacity":
+            case "capture_kind":
+            case "card_reason":
+            case "carrier":
+            case "carry_row":
+            case "category":
+            case "cause":
+            case "ccd_booted":
+            case "ccd_live_cli_count":
+            case "ccd_overhead_ms":
+            case "ccd_steering":
+            case "ccr.session.id":
+            case "chain_active":
+            case "chain_continues":
+            case "chain_starts":
+            case "change_key":
+            case "changed_count":
+            case "chars":
+            case "check_count":
+            case "check_ordinal":
+            case "check_source":
+            case "checkout_barrier":
+            case "checkout_overlap_mode":
+            case "child_session_id":
+            case "children":
+            case "choice":
+            case "chunk_count":
+            case "claim_count":
+            case "claims":
+            case "clamped":
+            case "clash":
+            case "claude.deployment_mode":
+            case "claude_settings":
+            case "clean_read_banked":
+            case "clean_shutdown":
+            case "cleared_by":
+            case "cli_binary_choice":
+            case "cli_current_version":
+            case "cli_fetch_bytes":
+            case "cli_fetch_failure":
+            case "cli_fetch_fell_back":
+            case "cli_fetch_longest_pause_ms":
+            case "cli_fetch_ms":
+            case "cli_informed":
+            case "cli_install_source":
+            case "cli_pinned_version":
+            case "cli_process_group_learned":
+            case "cli_provably_idle":
+            case "cli_session_id":
+            case "cli_stderr_tail":
+            case "cli_upload_bytes":
+            case "cli_upload_folder_not_plain":
+            case "cli_upload_longest_pause_ms":
+            case "cli_upload_ms":
+            case "cli_upload_pauses":
+            case "cli_upload_restarted_after_reject":
+            case "cli_upload_resumed_from_bytes":
+            case "cli_uptime_s":
+            case "cli_version":
+            case "click_age_ms":
+            case "clicked_in":
+            case "client_request_id":
+            case "client_run_id_source":
+            case "clock_offset_decision":
+            case "clock_offset_ms":
+            case "close_count":
+            case "close_reason":
+            case "close_trigger":
+            case "closed":
+            case "closing_message_char_count":
+            case "code_cli_running":
+            case "code_session_active":
+            case "cold_boot":
+            case "cold_start":
+            case "command":
+            case "command_length":
+            case "command_marks":
+            case "command_name":
+            case "command_path_count":
+            case "command_source":
+            case "commands_run":
+            case "comment_count":
+            case "comments_inlined_count":
+            case "comments_truncated_count":
+            case "compact_error":
+            case "completed":
+            case "completed_turns":
+            case "configured_root_count":
+            case "confined":
+            case "confirm_requests":
+            case "confirmed_screens":
+            case "conflict_kind":
+            case "conflict_reminder_ordinal":
+            case "conflict_retries":
+            case "conflicted_count":
+            case "connect_attempt":
+            case "connect_error_kind":
+            case "connect_trigger":
+            case "connection_duration_ms":
+            case "connection_failed":
+            case "connection_generation":
+            case "consecutive_failures":
+            case "consecutive_ticks":
+            case "contained_by":
+            case "content":
+            case "content_original_length":
+            case "content_truncated":
+            case "context":
+            case "context_tokens":
+            case "contexts_destroyed":
+            case "continuation":
+            case "continue_message_uuid":
+            case "conversations":
+            case "cookies":
+            case "copied":
+            case "copy_ms":
+            case "cost_usd":
+            case "cost_usd_micros":
+            case "count":
+            case "cowork_folder":
+            case "cowork_session_active":
+            case "crashed_app_version":
+            case "created":
+            case "creator_session_id":
+            case "creator_session_type":
+            case "cta":
+            case "cumulative_stall_ms":
+            case "current_title_chars":
+            case "current_version":
+            case "cwd":
+            case "cycle_health":
+            case "daemon_instance":
+            case "daemon_instance_changed":
+            case "daemon_instance_known":
+            case "daemon_upgrade":
+            case "daemon_version":
+            case "days_since_migration":
             case "db.command.name":
             case "db.elasticsearch.schema_url":
             case "db.mongodb.cursor_id":
@@ -530,9 +2863,109 @@ public static class AttributeMapping
             case "db.odp.sql_id":
             case "db.odp.user.statement":
             case "db.operation.summary":
+            case "decide_ms":
+            case "decided_by":
+            case "decision":
+            case "decision_ms":
+            case "decision_reason":
+            case "decision_source":
+            case "decision_type":
+            case "declares_parent_tools":
+            case "declined":
+            case "deduplicated":
+            case "deeplink_age_ms":
+            case "defer_ms":
+            case "deferred_archived_count":
+            case "deferred_at_start":
+            case "deferred_count":
+            case "deferred_for_ms":
+            case "deferred_sends":
+            case "deferred_startup_reads":
+            case "delayed_by_claude_work":
+            case "delayed_by_user_activity":
+            case "delegated_tool":
+            case "delete_sessions":
+            case "deleted":
+            case "deleted_count":
+            case "delivered":
+            case "delivered_count":
+            case "delta_ms":
+            case "demand_refresh_failed_count":
+            case "demand_refresh_floored_count":
+            case "demand_refresh_held_count":
+            case "demand_refresh_read_count":
+            case "denied":
+            case "denied_count":
+            case "dependency_folders":
+            case "deploy_bytes_total":
+            case "deploy_bytes_transferred":
+            case "deployment_kind":
+            case "destination":
+            case "detach_ms":
+            case "detached_ms":
+            case "detail":
+            case "detected_by":
+            case "device_free_count":
+            case "device_id_kind":
+            case "device_platform":
+            case "device_specified":
+            case "dial_context_version":
+            case "dialed":
+            case "died":
+            case "diff":
+            case "diff_original_length":
+            case "diff_truncated":
+            case "differed":
+            case "direction":
+            case "disable_jitter":
+            case "disabled":
+            case "disabled_count":
+            case "disabled_migratable_count":
+            case "discarded":
+            case "discarded_partial":
+            case "dismissed_by_model":
+            case "dispatch_origin_blocked_chrome":
+            case "dispatch_origin_blocked_count":
+            case "dispatch_origin_blocked_custom_cron":
+            case "dispatch_origin_blocked_cwd":
+            case "dispatch_origin_blocked_dispatch_hook":
+            case "dispatch_origin_blocked_local_folders":
+            case "dispatch_origin_blocked_no_prompt":
+            case "dispatch_origin_blocked_pattern_approvals":
+            case "dispatch_origin_blocked_projects":
+            case "dispatch_origin_blocked_space":
+            case "dispatch_origin_blocked_sub_hourly":
+            case "dispatch_origin_cadence_daily":
+            case "dispatch_origin_cadence_hourly":
+            case "dispatch_origin_cadence_manual":
+            case "dispatch_origin_cadence_one_shot":
+            case "dispatch_origin_cadence_other":
+            case "dispatch_origin_cadence_sub_hourly":
+            case "dispatch_origin_cadence_weekdays":
+            case "dispatch_origin_cadence_weekly":
+            case "dispatch_origin_count":
+            case "dispatch_origin_last_run_age_bucket":
+            case "dispatch_origin_migratable_count":
+            case "dispatch_origin_unreadable_count":
+            case "disposition":
+            case "dormant_days":
+            case "draft_len":
+            case "dropped_ms_ago":
+            case "dropped_overcap":
+            case "dropped_oversized":
+            case "dropped_since_last":
+            case "dropped_unreadable":
+            case "dropped_untrusted":
+            case "dry_run":
+            case "duration_bucket":
+            case "duration_ms":
+            case "duration_seconds":
             case "edge_group.delivered":
             case "edge_group.delivery_status":
             case "edge_group.type":
+            case "effective_root_count":
+            case "effort":
+            case "elapsed_ms":
             case "elastic.transport.attempted_nodes":
             case "elastic.transport.deserialize_response_ms":
             case "elastic.transport.prepare_request_ms":
@@ -540,21 +2973,559 @@ public static class AttributeMapping
             case "elastic.transport.product.version":
             case "elastic.transport.schema_url":
             case "elastic.transport.version":
+            case "emit_delay_ms":
+            case "emit_reason":
+            case "enabled":
+            case "enabled_count":
+            case "enabled_mcp_tool_count":
+            case "enabled_via":
+            case "enabled_via_override":
+            case "end_reason":
+            case "ended_by":
+            case "ended_by_unmount":
+            case "ended_turn":
+            case "ends_mid_turn":
+            case "enforcement_hours":
+            case "engine_version":
+            case "enqueue_ms":
+            case "entries":
+            case "entry":
+            case "entry_point":
+            case "env_not_sent_failed":
+            case "env_not_sent_servers":
+            case "environment_id":
+            case "environment_source":
+            case "environments":
+            case "episode_index":
+            case "episode_ms":
+            case "episode_outcome":
+            case "error":
+            case "errorMessage":
+            case "error_category":
+            case "error_class":
+            case "error_code":
+            case "error_count":
+            case "error_description":
+            case "error_detail":
+            case "error_domain":
+            case "error_kind":
+            case "error_message":
+            case "error_name":
+            case "error_type":
+            case "errors":
+            case "escalated":
+            case "estimated_cache_write_usd":
+            case "evaluated_count":
+            case "event.sequence":
+            case "event.timestamp":
+            case "event_origin":
+            case "event_origin_server":
+            case "event_type":
+            case "ever_connected":
+            case "evicted_count":
+            case "evidence":
             case "execution.result":
             case "executor.id":
             case "executor.input":
             case "executor.output":
             case "executor.type":
+            case "exit_code":
+            case "exit_code_decoded":
+            case "exit_killed_by":
+            case "exit_signal":
+            case "expected_cli_version":
+            case "expected_height":
+            case "expected_sha256":
+            case "expected_width":
+            case "expired":
+            case "explainer_shown":
+            case "extension_author":
+            case "extension_id":
+            case "extension_name":
+            case "extension_skipped":
+            case "extension_version":
+            case "failed":
+            case "failed_acts":
+            case "failed_count":
+            case "failed_not_found":
+            case "failed_other":
+            case "failed_phase":
+            case "failed_timeout":
+            case "failed_writes":
+            case "failing_count":
+            case "failure":
+            case "failure_age_ms":
+            case "failure_reason":
+            case "failure_type":
+            case "failures":
+            case "fallback":
+            case "fallback_cwd":
+            case "fast_folders":
+            case "fast_forward":
+            case "fatal_startup_result":
+            case "fault_class":
+            case "feature":
+            case "feature_hash":
+            case "feature_source":
+            case "feed_arch":
+            case "fence_detail":
+            case "file_count":
+            case "file_path":
+            case "file_path_original_length":
+            case "file_path_truncated":
+            case "filed_count":
+            case "files":
+            case "files_changed_count":
+            case "files_past_cutoff":
+            case "files_removed":
+            case "files_retained_fresh":
+            case "fill_rows":
+            case "final":
+            case "final_model":
+            case "fire_safety_skipped_count":
+            case "fired_by":
+            case "first_assistant_ms":
+            case "first_block_streaming":
+            case "first_child_in_job":
+            case "first_content_ms":
+            case "first_content_source":
+            case "first_load":
+            case "first_paint_ms":
+            case "first_seq":
+            case "first_timeout_op":
+            case "first_turn":
+            case "first_turn_since_spawn":
+            case "first_wake_message_uuid":
+            case "fleet_override":
+            case "floors_unset":
+            case "focus_state":
+            case "focused":
+            case "folder_count":
+            case "folder_grant_outcome":
+            case "folder_grant_recorded_count":
+            case "folder_grant_refusal_reasons":
+            case "folder_grant_refused_count":
+            case "folder_hash":
+            case "folder_reason":
+            case "folder_tree":
+            case "folders":
+            case "folders_excluded":
+            case "folders_limited":
+            case "folders_missing":
+            case "folders_served":
+            case "folders_unread":
+            case "followed_hinge":
+            case "follows_stall_snapshot":
+            case "force_ask_cause":
+            case "force_cleanup_explicit_false":
+            case "fork_ms":
+            case "found":
+            case "fps":
+            case "frame_depth":
+            case "frames_after":
+            case "frames_before":
+            case "fresh":
+            case "fresh_start":
+            case "fresh_worktree_created":
+            case "from_card":
+            case "from_deeplink":
+            case "from_level":
+            case "from_mode":
+            case "from_preset":
+            case "from_project_scan":
+            case "from_seq":
+            case "from_version":
+            case "frontier_renders":
+            case "frozen_ms":
+            case "fs_error_code":
+            case "full_checkout_wait_ms":
+            case "full_command":
+            case "gap":
+            case "gap_ms":
+            case "gate":
+            case "gate_blocked_built_in_browser_count":
+            case "gate_blocked_chrome_count":
+            case "gate_blocked_cooldown_count":
+            case "gate_blocked_count":
+            case "gate_blocked_cron_invalid_count":
+            case "gate_blocked_custom_cron_count":
+            case "gate_blocked_cwd_count":
+            case "gate_blocked_dispatch_hook_count":
+            case "gate_blocked_local_folders_count":
+            case "gate_blocked_no_prompt_count":
+            case "gate_blocked_pattern_approvals_count":
+            case "gate_blocked_placement_count":
+            case "gate_blocked_project_archived_count":
+            case "gate_blocked_project_upgraded_count":
+            case "gate_blocked_projects_count":
+            case "gate_blocked_remote_control_disabled_count":
+            case "gate_blocked_remote_control_unknown_count":
+            case "gate_blocked_space_count":
+            case "gate_blocked_sub_hourly_count":
+            case "gate_blocked_unscheduled_count":
+            case "gate_reason":
+            case "gc_cumulative_ms":
+            case "gc_in_stall_max_ms":
+            case "gc_in_stall_ms":
+            case "gen_ai.system":
             case "gen_ai.token.type":
             case "gen_ai.usage.input_audio_tokens":
             case "gen_ai.usage.input_text_tokens":
             case "gen_ai.usage.output_audio_tokens":
             case "gen_ai.usage.output_text_tokens":
+            case "generation_age_ms":
+            case "gesture":
+            case "gesture_type":
+            case "git":
+            case "git_isolation_errno":
+            case "git_isolation_stage":
+            case "git_remove_ms":
+            case "git_settings_control":
+            case "gone":
+            case "grant_copy_failed":
+            case "graphql_errors_only_count":
+            case "graphql_failed_count":
+            case "graphql_rate_limited_count":
+            case "graphql_read_by_caller":
+            case "graphql_request_count":
+            case "graphql_write_count":
+            case "graphql_write_failed_count":
             case "grpc.method":
             case "grpc.status_code":
+            case "had_cli_session":
+            case "had_first_response":
+            case "had_input":
+            case "had_interrupt_carrier":
+            case "had_live_query":
+            case "had_live_wakeup":
+            case "had_node_modules":
+            case "had_pending_cycle":
+            case "had_pending_turn":
+            case "had_result":
+            case "had_scheduled_task":
+            case "had_title":
+            case "handed_off":
+            case "handoff_tool":
+            case "hard_deny_served":
+            case "has_action_buttons":
+            case "has_active_query":
+            case "has_category":
+            case "has_cli_session_id":
+            case "has_config":
+            case "has_cron":
+            case "has_explanation":
+            case "has_fire_at":
+            case "has_hooks":
+            case "has_input_stream":
+            case "has_launch_tools":
+            case "has_live_processes":
+            case "has_live_sibling":
+            case "has_local_disk":
+            case "has_mcp":
+            case "has_message":
+            case "has_more":
+            case "has_notify_on_completion":
+            case "has_origin":
+            case "has_target_cwd":
+            case "has_thread":
+            case "has_title":
+            case "has_usage_data":
+            case "has_worktree":
+            case "head_changed":
+            case "head_changed_since_first_wake":
+            case "head_ordinal":
+            case "head_unknown_count":
+            case "heads_in_episode":
+            case "healed":
+            case "heartbeats":
+            case "heavy_work_task":
+            case "held":
+            case "held_back":
+            case "held_count":
+            case "held_ms":
+            case "held_steers":
+            case "helper_peer_check":
+            case "helper_quiet_ms":
+            case "helper_run":
+            case "helper_uptime_ms":
+            case "hidden_at_emit":
+            case "hidden_count":
+            case "history_entries_pruned":
+            case "history_requested":
+            case "history_shim":
+            case "hit":
+            case "hit_rtt_ms":
+            case "hold_cause":
+            case "hold_change":
+            case "hold_ms":
+            case "hold_reason":
+            case "holder":
+            case "hook_definitions":
+            case "hook_event":
+            case "hook_matcher":
+            case "hook_name":
+            case "hook_sig_match":
+            case "hook_source":
+            case "hook_type":
+            case "hooked":
+            case "hooks_applied":
+            case "host":
+            case "host_base_merge":
+            case "host_configured_skipped":
+            case "host_count":
+            case "host_mount_ms":
+            case "host_owned_mcp":
+            case "host_slot":
+            case "host_window":
+            case "host_work":
+            case "hosted_count":
+            case "hosts":
+            case "how":
+            case "http_sibling":
+            case "http_status":
+            case "http_status_text":
+            case "hw_attestation":
+            case "hw_unavailable_reason":
+            case "identity.source":
+            case "idle_gated":
+            case "idle_kind":
+            case "idle_summary":
+            case "idle_summary_delay_ms":
+            case "idle_timeout_ms":
+            case "image_count_in_buffer":
+            case "implementation":
+            case "import_source":
+            case "in_experiment":
+            case "in_flight":
+            case "in_place":
+            case "in_popout":
+            case "include_overlay_wait_ms":
+            case "include_uncommitted":
+            case "index_deferred_count":
+            case "index_stale_active_count":
+            case "init_arrived":
+            case "init_awake_ms":
+            case "init_mcp_connected_count":
+            case "init_mcp_disabled_count":
+            case "init_mcp_failed_count":
+            case "init_mcp_needs_auth_count":
+            case "init_mcp_other_count":
+            case "init_mcp_pending_count":
+            case "init_mcp_total_count":
+            case "init_ms":
+            case "init_plugin_count":
+            case "initial_user_message_chars":
+            case "initiator":
+            case "inp_ms":
+            case "input_delay_ms":
+            case "input_origin":
+            case "input_tokens":
+            case "insert_method":
+            case "install.disabled_by_default":
+            case "install.trigger":
+            case "install_state_seeded":
+            case "installed":
+            case "insufficient_observation_count":
+            case "intent":
+            case "intent_before_initialized":
+            case "intent_lead_ms":
+            case "intent_saved_at_start":
+            case "interaction.duration_ms":
+            case "interaction.sequence":
+            case "interaction_type":
+            case "internal_server_name":
+            case "interrupt_seq":
+            case "interrupted":
+            case "interrupted_age_seconds":
+            case "interrupted_overdue_ms":
+            case "interval_minutes":
+            case "into_open_tab":
+            case "invocation_trigger":
+            case "io_return":
+            case "ipc_bytes":
+            case "ipc_ms":
+            case "is_async":
+            case "is_built_in":
+            case "is_claude_host":
+            case "is_downgrade":
+            case "is_error":
+            case "is_financial":
+            case "is_first_turn":
+            case "is_fork":
+            case "is_git_repo":
+            case "is_high_risk":
+            case "is_internal":
+            case "is_large_import":
+            case "is_local":
+            case "is_localhost":
+            case "is_main_frame":
+            case "is_manual":
+            case "is_nest_build":
+            case "is_new_session":
+            case "is_plugin":
+            case "is_remote":
+            case "is_repeat":
+            case "is_resume":
+            case "is_running":
+            case "is_scheduled_task_session":
+            case "is_scratch":
+            case "is_side_session":
+            case "is_ssh":
+            case "is_startup_error":
+            case "is_stopping":
+            case "is_violin_bow":
+            case "is_visible":
+            case "is_warm":
+            case "is_windows":
+            case "is_worktree":
+            case "jitter_seconds":
+            case "judged":
+            case "jump_ms":
+            case "keep_awake_release":
+            case "kept":
+            case "kept_claimed_elsewhere":
+            case "kept_earlier":
+            case "kept_existing_count":
+            case "key":
+            case "key_class":
+            case "key_count":
+            case "keys_set":
+            case "kicked":
+            case "kind":
+            case "kinds":
+            case "lan_name":
+            case "lane":
+            case "language":
+            case "laptop_path_skipped":
+            case "last_buffered_message_type":
+            case "last_error_class":
+            case "last_error_code":
+            case "last_frame_age_ms":
+            case "last_message_model":
+            case "last_message_type":
+            case "last_oauth_decline_reason":
+            case "last_read_verdict":
+            case "last_task":
+            case "last_task_sync_ms":
+            case "last_timeout_op":
+            case "last_tool_name":
+            case "late":
+            case "latency_bucket":
+            case "latency_ms":
+            case "launch_limit":
+            case "launch_sample_rate":
+            case "launch_timeout_stage":
+            case "launched":
+            case "launcher_marked":
+            case "launcher_status":
+            case "launcher_version_check":
+            case "lead_time_ms":
+            case "leases":
+            case "left_awaiting_person_count":
+            case "legacy_kill":
+            case "legacy_user_waiting":
+            case "level":
+            case "lifetime_ms":
+            case "likely_ours":
+            case "likely_sleep":
+            case "limit":
+            case "lines":
+            case "link.type":
+            case "link_age_ms":
+            case "link_host":
+            case "link_late_pongs":
+            case "link_queued_pongs":
+            case "link_srtt_ms":
+            case "link_up":
+            case "list_source":
+            case "live_bindings":
+            case "live_children":
+            case "live_cli_count":
+            case "live_processes":
+            case "live_scheduled_cli_count":
+            case "live_sessions":
+            case "llm_request.context":
+            case "load_error_code":
+            case "load_ms":
+            case "load_phase":
+            case "loaf_entry_count":
+            case "loaf_in_delay_ms":
+            case "loaf_script_char_pos":
+            case "loaf_script_duration_ms":
+            case "loaf_script_forced_layout_ms":
+            case "loaf_script_function":
+            case "loaf_script_invoker":
+            case "loaf_script_invoker_type":
+            case "loaf_script_source":
+            case "loaf_total_blocking_ms":
+            case "loaf_total_forced_layout_ms":
+            case "local_enabled":
+            case "local_file_count":
+            case "local_session_id":
+            case "local_total_bytes":
+            case "lock_known_locked":
+            case "log_reads":
+            case "long_frame_ms_max":
+            case "long_frame_ms_total":
+            case "losable_background_task_count":
+            case "losable_kind":
+            case "losses_this_round":
+            case "lost_input":
+            case "low_memory_posture":
+            case "main_rss_bytes":
+            case "main_view_footprint_bytes":
+            case "main_view_rss_bytes":
+            case "managed_launcher":
+            case "managed_only":
+            case "managed_rules_only":
+            case "managed_settings.helper.applied":
+            case "managed_settings.helper.entry":
+            case "managed_settings.helper.path":
+            case "managed_settings.helper.state":
+            case "managed_settings.resolved_sha256":
+            case "managed_settings.settings":
+            case "managed_settings.settings_truncated":
+            case "managed_settings.source_behavior":
+            case "managed_settings.sources":
+            case "managed_settings.trigger":
+            case "mark":
+            case "marked_count":
+            case "marker_age_ms":
+            case "marker_offered":
+            case "marketplace.is_official":
+            case "marketplace.name":
+            case "marketplace_uuid":
+            case "matched":
+            case "max_poll_gap_ms":
+            case "max_session_count":
+            case "max_system_idle_ms":
+            case "mcp_cmd":
+            case "mcp_config_http_count":
+            case "mcp_config_sdk_count":
+            case "mcp_config_stdio_count":
+            case "mcp_kind_followed":
+            case "mcp_ms":
+            case "mcp_server.name":
+            case "mcp_server_count":
+            case "mcp_server_scope":
+            case "mcp_tool":
+            case "mcp_tool.name":
+            case "memory_copy_error":
+            case "memory_copy_keyless":
+            case "memory_copy_state":
+            case "memory_files_copied":
+            case "memory_files_total":
+            case "mention_type":
             case "message.content":
             case "message.source_id":
             case "message.target_id":
+            case "message.uuid":
+            case "message_buffer_size":
+            case "message_chars":
+            case "message_count":
+            case "message_uuid":
+            case "messages_after":
+            case "messages_before":
             case "messaging.masstransit.begin_state":
             case "messaging.masstransit.consumer_type":
             case "messaging.masstransit.correlation_id":
@@ -569,6 +3540,66 @@ public static class AttributeMapping
             case "messaging.masstransit.source_address":
             case "messaging.masstransit.tracking_number":
             case "messaging.rabbitmq.delivery_tag":
+            case "method":
+            case "mid_turn":
+            case "migratable_count":
+            case "min_observed_days":
+            case "min_runs_observed":
+            case "minutes_since_launch":
+            case "missed_by_minutes":
+            case "missing":
+            case "missing_kind":
+            case "mode":
+            case "model":
+            case "model_downgraded":
+            case "model_swapped":
+            case "mount_commit_ms":
+            case "mount_composer_ms":
+            case "mount_layout_ms":
+            case "mount_list_ms":
+            case "mount_ms":
+            case "mount_panel_ms":
+            case "ms":
+            case "ms_after_commit":
+            case "ms_after_load":
+            case "ms_since_first_cut":
+            case "ms_since_last_read":
+            case "ms_since_last_wake":
+            case "ms_since_open":
+            case "ms_since_prior_loss":
+            case "ms_since_write":
+            case "ms_to_echo":
+            case "ms_to_first_token":
+            case "nav_only":
+            case "nav_temp":
+            case "needed_deploy":
+            case "needs_tree_before_spawn_reason":
+            case "new_context":
+            case "new_context_message_count":
+            case "new_context_original_length":
+            case "new_context_truncated":
+            case "new_cwd":
+            case "new_failure_count":
+            case "new_value":
+            case "newer_version":
+            case "newly_unclaimed":
+            case "next_unchecked":
+            case "no_folder":
+            case "no_fresh_record_count":
+            case "no_fresh_record_denied_count":
+            case "no_fresh_record_no_prompt_count":
+            case "no_fresh_record_no_record_count":
+            case "no_fresh_record_stale_record_count":
+            case "no_fresh_record_task_missing_count":
+            case "no_fresh_record_unreadable_count":
+            case "no_off_read":
+            case "no_response_category":
+            case "no_tpm_probe_code":
+            case "not_copied":
+            case "not_evaluable_reason":
+            case "notice_requested":
+            case "notification_type":
+            case "notify_on_completion_after":
             case "nservicebus.cancelled":
             case "nservicebus.content_type":
             case "nservicebus.control_message":
@@ -613,7 +3644,213 @@ public static class AttributeMapping
             case "nservicebus.saga.saga_type":
             case "nservicebus.time_to_be_received":
             case "nservicebus.version":
+            case "ntstatus_name":
+            case "num_blocking":
+            case "num_cancelled":
+            case "num_hooks":
+            case "num_non_blocking_error":
+            case "num_outputs_persisted":
+            case "num_success":
+            case "num_turns":
+            case "observed_built_in_browser":
+            case "observed_chrome":
+            case "observed_computer_use":
+            case "observed_device_free_count":
+            case "observed_local_count":
+            case "observed_local_mcp":
+            case "observed_request_folder_access":
+            case "observed_task_count":
+            case "occurrence":
+            case "offer":
+            case "ok":
+            case "older_than_days":
+            case "oldest_age_ms":
+            case "on":
+            case "on_battery":
+            case "on_ssh_host":
+            case "one_time":
+            case "online":
+            case "open_ms":
+            case "open_seconds":
+            case "opened_by":
+            case "opened_via":
+            case "operation":
+            case "org_browser_allowed":
+            case "org_skills_off":
+            case "organization.id":
+            case "organization_id":
+            case "origin":
+            case "origin_class":
+            case "origin_notify_none_count":
+            case "origin_unresolvable_count":
+            case "orphan_process_id":
+            case "os_entry":
+            case "outcome":
+            case "output":
+            case "output_original_length":
+            case "output_tokens":
+            case "output_truncated":
+            case "overdue_ms":
+            case "overlay_spawn_wait_ms":
+            case "overlay_wait_ms":
+            case "oversize_option":
+            case "own_address":
+            case "own_worktree_reattached":
+            case "owned_cycle":
+            case "page_note":
+            case "page_source":
+            case "paired_device_count":
+            case "pane_open":
+            case "pane_visible":
+            case "parent.source":
+            case "parent_agent_id":
+            case "parent_is_side_session":
+            case "parent_session_id":
+            case "parse_input_len":
+            case "parse_ms":
+            case "pass":
+            case "pass_trigger":
+            case "path":
+            case "payload_arch":
+            case "payload_kind":
             case "peer.address":
+            case "pending_count":
+            case "pending_delete":
+            case "pending_had_first_response":
+            case "pending_handlers":
+            case "pending_hours":
+            case "pending_minutes":
+            case "pending_ms":
+            case "pending_requests":
+            case "pending_seconds":
+            case "pending_unarchive":
+            case "per_message":
+            case "period_days":
+            case "permission_mode":
+            case "permission_surface":
+            case "permissions":
+            case "persist_enabled":
+            case "phase":
+            case "picked_files_carried_count":
+            case "ping_ms":
+            case "place":
+            case "plan_call_count":
+            case "plan_call_count_since_compaction":
+            case "plan_open_step_count":
+            case "plane":
+            case "planned_count":
+            case "platform":
+            case "plist_scope":
+            case "plugin.name":
+            case "plugin.scope":
+            case "plugin.version":
+            case "plugin_count":
+            case "plugin_delivery":
+            case "plugin_dir_count":
+            case "plugin_id":
+            case "plugin_id_hash":
+            case "plugin_mcp_connector_twin_by_name_count":
+            case "plugin_mcp_connector_twin_count":
+            case "plugin_uuid":
+            case "point_count":
+            case "policy_blocked":
+            case "policy_gate_passed":
+            case "poll_ms_p50":
+            case "poll_ms_p95":
+            case "pool":
+            case "pool_busy_skips":
+            case "pool_cached_unclean":
+            case "pool_candidates":
+            case "pool_deferred":
+            case "pool_indeterminate":
+            case "pool_ms":
+            case "pool_outcome":
+            case "pool_probes":
+            case "pool_rebind_attempts":
+            case "pool_rebind_ms":
+            case "pool_refused":
+            case "pool_trusted":
+            case "pool_wait_ms":
+            case "post_checkout_wait_ms":
+            case "post_tokens":
+            case "posted_count":
+            case "pr_count":
+            case "pr_state":
+            case "pr_state_fail_auth_count":
+            case "pr_state_fail_forbidden_count":
+            case "pr_state_fail_forbidden_saml_count":
+            case "pr_state_fail_network_count":
+            case "pr_state_fail_not_found_count":
+            case "pr_state_fail_rate_limit_count":
+            case "pr_state_fail_rate_limit_held_count":
+            case "pr_state_fail_unavailable_count":
+            case "pr_state_fail_unknown_count":
+            case "pr_tool":
+            case "pre_tokens":
+            case "precompute_reuse":
+            case "prefix_parity":
+            case "preflight_ms":
+            case "prep_ms":
+            case "prepare_ms":
+            case "preprobe_hurried":
+            case "preprobe_via":
+            case "presence":
+            case "present_failures":
+            case "presentation_delay_ms":
+            case "press_lead_ms":
+            case "prev_reason":
+            case "previous_cwd":
+            case "previous_quit_clean":
+            case "previous_title_source":
+            case "previous_value":
+            case "prewarm":
+            case "prewarm_kind":
+            case "prewarm_lead_ms":
+            case "print_call":
+            case "print_call_age_ms":
+            case "prior_asides":
+            case "prior_installation_attempts":
+            case "prior_loss_how":
+            case "probe":
+            case "probe_answers":
+            case "probe_ms":
+            case "probe_result":
+            case "probe_trigger":
+            case "probed":
+            case "probed_height":
+            case "probed_width":
+            case "probes":
+            case "process_instance_known":
+            case "processing_ms":
+            case "product":
+            case "project_dropped":
+            case "projects":
+            case "promoted_by_ios_intent":
+            case "prompt":
+            case "prompt.id":
+            case "prompt_append_source":
+            case "prompt_asker":
+            case "prompt_cache_likely_expired":
+            case "prompt_kind":
+            case "prompt_length":
+            case "prompt_lifecycle":
+            case "prompt_origin":
+            case "prompt_outcome":
+            case "prompt_rendered":
+            case "prompt_suggestions_requested":
+            case "prompt_text":
+            case "proof_kind":
+            case "proposal":
+            case "proposal_id_present":
+            case "proposed_context":
+            case "proposed_title_chars":
+            case "protected_taken_count":
+            case "provenance":
+            case "provider":
+            case "proxy_diagnostic":
+            case "proxy_key":
+            case "prune_skipped_late_read_failed":
+            case "pruned_disabled":
             case "quartz.cluster.recovered.instance.id":
             case "quartz.execution.group":
             case "quartz.fire.instance.id":
@@ -630,14 +3867,750 @@ public static class AttributeMapping
             case "quartz.scheduler.name":
             case "quartz.trigger.group":
             case "quartz.trigger.name":
+            case "query_kind":
+            case "query_ms":
+            case "query_source":
+            case "query_source_safe":
+            case "queue_length":
+            case "queued_message_bar":
+            case "queued_sends":
+            case "quick_entry_images":
+            case "quick_entry_length":
+            case "quiet_bucket":
+            case "quiet_recovery":
+            case "quit_after_loss_ms":
+            case "quit_death_count":
+            case "quoted_chars":
+            case "rate_limited_count":
+            case "rate_limited_held_count":
+            case "ratelimit_remaining":
+            case "ratelimit_reset_seconds":
+            case "ratelimit_used":
+            case "raw_output":
+            case "rc_intent":
+            case "rc_policy_bridge_yielded":
+            case "rc_reconciled":
+            case "rc_recorded":
+            case "rc_roundtrip_ms":
+            case "rc_wait_ms":
+            case "re_alert":
+            case "re_leased_from_pool":
+            case "read_ms":
+            case "read_only_mark_count":
+            case "reads":
+            case "reads_cap_limited":
+            case "ready":
+            case "ready_ms":
+            case "reaped_count":
+            case "reason":
+            case "reason_detail":
+            case "reattach_answer_ms":
+            case "reattach_auth":
+            case "reattach_failed_reason":
+            case "reattach_ms":
+            case "reattach_silent_retries":
+            case "recap_chars":
+            case "recap_chars_raw":
+            case "recent_artifact_click":
+            case "reconnected":
+            case "record_synced":
+            case "recorded":
+            case "recovered":
+            case "recovery_granted_ms_ago":
+            case "recreate_cause":
+            case "recreate_outcome":
+            case "redial_after_sleep":
+            case "redial_after_sleep_seq":
+            case "redial_presence":
+            case "redial_seq":
+            case "redirect_vendor":
+            case "refusal":
+            case "refusal_reason":
+            case "refused_other":
+            case "refused_route":
+            case "registry_plugin_count":
+            case "rejected_model":
+            case "release_reason":
+            case "released_by":
+            case "reload_attempt":
+            case "relocated_config":
+            case "remaining":
+            case "remote":
+            case "remote_control_on":
+            case "remote_control_user_owned":
+            case "remote_control_was_on":
+            case "remote_cwd_probe_ms":
+            case "remote_folder":
+            case "remote_scheduled_tasks_enabled":
+            case "remote_session_store_load_failed":
+            case "removed":
+            case "removed_count":
+            case "removed_job":
+            case "renderer":
+            case "renderer_build_id":
+            case "renderer_surface":
+            case "renewed":
+            case "repair_shown":
+            case "replaced_by":
+            case "replaces_message_uuid":
+            case "replay":
+            case "replayed_bytes":
+            case "replayed_frames":
+            case "replays":
+            case "replays_after_drop":
+            case "reply_chars":
+            case "repo_kind":
+            case "reported_cli_kind":
+            case "reported_cli_version":
+            case "request_body_id":
+            case "request_id":
+            case "requested":
+            case "requested_lead_time_ms":
+            case "requested_level":
+            case "requested_mode":
+            case "requesting_site":
+            case "required_version":
+            case "requires_computer_gate_blocked_count":
+            case "requires_computer_insufficient_observation_count":
+            case "requires_computer_no_fresh_record_count":
+            case "resolution":
+            case "resolve_ms":
+            case "resolved":
+            case "resolved_person_holds":
+            case "resolved_version":
+            case "resource_type":
+            case "response":
+            case "response.has_tool_call":
+            case "response.model_output":
+            case "response.model_output_original_length":
+            case "response.model_output_truncated":
+            case "response_length":
+            case "rest_200_conditional_count":
+            case "rest_200_unconditional_count":
+            case "rest_304_by_endpoint":
+            case "rest_304_count":
+            case "rest_4xx_count":
+            case "rest_5xx_count":
+            case "rest_checks_fetch_count":
+            case "rest_ratelimit_remaining":
+            case "rest_ratelimit_used":
+            case "rest_read_by_endpoint":
+            case "rest_routed_row_count":
+            case "restored":
+            case "result":
+            case "result_subtype":
+            case "result_tokens":
+            case "resume_cost_source":
+            case "resume_from_byte":
+            case "resume_reason":
+            case "resume_seed":
+            case "resume_stop_trigger":
+            case "resume_was_ours":
+            case "resumed_after_attention":
+            case "resumed_from_byte":
+            case "retained":
+            case "retention_days":
+            case "retention_source":
+            case "retry_attempt":
+            case "retry_count":
+            case "retry_in_ms":
+            case "return_refresh_github_row_count":
+            case "return_refresh_other_row_count":
+            case "return_refresh_skipped_low_budget_count":
+            case "reused_server":
+            case "rewind_active_chain_length":
+            case "rewind_target_miss_reason":
+            case "rewind_transcript_has_compact_boundary":
+            case "rewind_transcript_length":
+            case "root_fenced":
+            case "root_is_unc":
+            case "root_ms":
+            case "root_named":
+            case "rounds":
+            case "rounds_last_day":
+            case "rounds_last_hour":
+            case "route":
+            case "route_ms":
+            case "route_prefix":
+            case "routines_enabled":
+            case "row_pk_resolved":
+            case "rows":
+            case "rows_source":
+            case "rpc_error":
+            case "rpm_enabled_state_age_ms":
+            case "rpm_enabled_state_ms":
+            case "rpm_enabled_state_source":
+            case "rpm_fs_scan_ms":
+            case "rule":
+            case "running":
+            case "running_session_count":
+            case "running_sessions":
+            case "safe_mode":
+            case "same_category_as_prior_loss":
+            case "same_session":
+            case "sample_index":
+            case "sampler_active":
+            case "sampler_frames":
+            case "sampler_start_lag_ms":
+            case "sampling_trace_id":
+            case "sandbox_cascade":
+            case "sandbox_env":
+            case "sandbox_on":
+            case "sandbox_settings":
+            case "saved_in_manual":
+            case "saved_other":
+            case "saw_unreachable":
+            case "scale":
+            case "scan_ms":
+            case "scheduled_task_id":
+            case "scheduled_task_tool":
+            case "scheme":
+            case "scoped":
+            case "scrollback_log":
+            case "sdk_host":
+            case "sealed_count":
+            case "seconds_since_activity":
+            case "seconds_since_create":
+            case "seconds_since_last_activity":
+            case "seconds_since_last_oauth_decline":
+            case "seconds_since_last_response":
+            case "seconds_since_last_turn":
+            case "seconds_since_offer":
+            case "seconds_since_rewind":
+            case "seconds_since_stderr":
+            case "seconds_to_outcome":
+            case "seconds_waiting":
+            case "seeded_from_tail":
+            case "server_enabled":
+            case "server_fallback_hop":
+            case "server_name":
+            case "server_scope":
+            case "server_type":
+            case "server_uuid":
+            case "server_version":
+            case "service":
+            case "sessionId":
+            case "session_age_ms":
+            case "session_bytes_read":
+            case "session_count":
+            case "session_exists":
+            case "session_files_deleted":
+            case "session_grouping_id":
+            case "session_id":
+            case "session_presets":
+            case "session_repo_entry_base_missing":
+            case "session_repo_missing":
+            case "session_repo_not_a_tree":
+            case "session_repo_not_session_scoped":
+            case "session_repo_tree_not_anchored":
+            case "session_repo_unbound":
+            case "session_repo_would_refuse_base":
+            case "session_repo_would_refuse_tree":
+            case "session_running":
+            case "session_scope":
+            case "session_title":
+            case "session_tool":
+            case "session_type":
+            case "sessions":
+            case "sessions_archived":
+            case "sessions_pushed":
+            case "sessions_skipped_fence":
+            case "sessions_skipped_unsupported":
+            case "set_ms":
+            case "set_origin":
+            case "setting_key":
+            case "settings_tier":
+            case "settings_tool":
+            case "settle_ms":
+            case "settle_reason":
+            case "settled":
+            case "shared":
+            case "shell":
+            case "shell.type":
+            case "shell_env_failed_reads":
+            case "shell_integration":
+            case "shipit_stderr_tail":
+            case "shown_ms":
+            case "side_sessions_available":
+            case "sign_error_code":
+            case "sign_error_probe_code":
+            case "sign_in_cookie_present":
+            case "sign_in_reason":
+            case "sign_in_waits":
+            case "signal":
+            case "signals_ignored":
+            case "signed_in_at_last_exit":
+            case "silence_ms":
+            case "silent_reattach":
+            case "since_app_focus_ms":
+            case "since_input_ms":
+            case "since_page_hidden_ms":
+            case "since_page_visible_ms":
+            case "single_ingest":
+            case "site":
+            case "sites":
+            case "size":
+            case "skill.kind":
+            case "skill.name":
+            case "skill.source":
+            case "skill_name":
+            case "skill_path_count":
+            case "skip_push":
+            case "skip_reason":
+            case "skipped":
+            case "skipped_by_cap":
+            case "skipped_collision":
+            case "skipped_count":
+            case "skipped_disabled":
+            case "skipped_offline":
+            case "sleep_assertion_held":
+            case "sleep_duration_seconds":
+            case "sleep_signal":
+            case "slept":
+            case "slept_ms":
+            case "slot_consumed":
+            case "slot_wait_ms":
+            case "slow_folders":
+            case "slow_shell_wait":
             case "soap.message_version":
             case "soap.reply_action":
+            case "soft_deleted":
+            case "source":
+            case "source_organization_uuid":
+            case "source_was_previewed":
+            case "space_dropped":
+            case "space_empty":
+            case "space_folders_0":
+            case "space_folders_1":
+            case "space_folders_2_plus":
+            case "space_id":
+            case "space_store_count":
+            case "space_tied_enabled_count":
+            case "space_unresolvable":
+            case "space_with_drive_links":
+            case "space_with_instructions":
+            case "space_with_links":
+            case "space_with_projects":
+            case "spaces_quarantined_count":
+            case "span.type":
+            case "spare_claim_ms":
+            case "spare_event":
+            case "spare_fail_code":
+            case "spare_mcp_settled":
+            case "spare_miss_reason":
+            case "spare_parked_ms":
+            case "spare_wait_ms":
+            case "spawn_argv_chars":
+            case "spawn_confirmed":
+            case "spawn_fallback_count":
+            case "spawn_mode":
+            case "spawn_reason":
+            case "spawn_source":
+            case "spawn_to_init_ms":
+            case "spawn_to_outcome_ms":
+            case "speed":
+            case "spelled_in":
+            case "spread_hours":
+            case "ssh_client_launch_error_code":
+            case "ssh_platform":
+            case "ssh_transport":
+            case "ssh_transport_flag_state":
+            case "ssh_transport_flag_wait_ms":
+            case "ssh_transport_source":
+            case "ssh_windows_client_unusable_reason":
+            case "stage":
+            case "staged_version":
+            case "stale":
+            case "stale_claimed":
+            case "stale_cowork_owned":
+            case "stale_had_focus":
+            case "stale_reason":
+            case "stale_shown_age_ms":
+            case "stall_duration_ms":
+            case "stamped_migrated_from_space":
+            case "start_gate":
+            case "start_in_flight":
+            case "start_reason":
+            case "start_stage_reached":
+            case "start_tool":
+            case "start_type":
+            case "started":
+            case "started_by_model":
+            case "stat_ms":
+            case "status":
+            case "status_before":
+            case "status_code":
+            case "status_ms":
+            case "status_unknown":
+            case "stdout_chars":
+            case "steered_send_count":
+            case "step":
+            case "step_budget_ms":
+            case "still_running_sessions":
+            case "stood_down":
+            case "stop_outcome":
+            case "stop_reason":
+            case "stopped_by_limit":
+            case "stopped_by_misses":
+            case "stopped_by_process_cap":
+            case "storage_budget_hit":
+            case "storage_carried":
+            case "storage_concurrency":
+            case "storage_failed":
+            case "storage_keys":
+            case "storage_ms":
+            case "storage_origins":
+            case "storage_pending":
+            case "storage_timeouts":
+            case "storage_tool":
+            case "store_count":
+            case "store_load_failed":
+            case "store_load_state":
+            case "store_reset":
+            case "store_state":
+            case "store_unreadable":
+            case "stored_bypass_sent_as_auto":
+            case "stream_ms":
+            case "structural":
+            case "studio_installed":
+            case "subagent_type":
+            case "success":
+            case "superseded":
+            case "supported":
+            case "suppressed_count":
+            case "surface":
+            case "survey_type":
+            case "survivor_claimed":
+            case "survivor_cowork_owned":
+            case "survivor_shown_age_ms":
+            case "switch_id":
+            case "switch_on":
+            case "synced_count":
+            case "system_message_chars":
+            case "system_prompt":
+            case "system_prompt_hash":
+            case "system_prompt_length":
+            case "system_prompt_preview":
+            case "system_prompt_snapshot":
+            case "system_prompt_truncated":
+            case "system_reminders":
+            case "system_reminders_count":
+            case "system_reminders_original_length":
+            case "system_reminders_truncated":
+            case "tab":
+            case "tabs":
+            case "tabs_closed":
+            case "tail_drain_overlap":
+            case "tail_file_bytes":
+            case "tail_handler_ms":
+            case "tail_ipc_ms":
+            case "tail_parse_ms":
+            case "tail_parse_self_ms":
+            case "tail_queue_ms":
+            case "tail_read_bytes":
+            case "tail_read_ms":
+            case "tail_reparse_count":
+            case "tail_rows_kept":
+            case "tail_rows_parsed":
+            case "tail_rungs":
+            case "tail_session_wait_ms":
+            case "tail_source":
+            case "taken":
+            case "target":
+            case "target_from_flag":
+            case "target_id":
+            case "target_kind":
+            case "target_message_uuid":
+            case "target_version":
+            case "task_count":
+            case "task_type":
+            case "task_wait_seconds":
+            case "tasks_already_remote":
+            case "tasks_failed":
+            case "tasks_remote":
+            case "tasks_repointed":
+            case "tasks_stopped":
+            case "tasks_total":
+            case "tcc_folder_kind":
+            case "teardown_reason":
+            case "terminal":
+            case "terminal.type":
+            case "text_len":
+            case "text_length":
+            case "text_variant":
+            case "thinking_forced":
+            case "third_party":
+            case "third_party_gpu_modules_allowed":
+            case "time_visible_ms":
+            case "timed_out":
+            case "timed_out_here":
+            case "timed_out_phase":
+            case "timeout_ms":
+            case "timing_ms":
+            case "title_check_outcome":
+            case "title_overlap_pct":
+            case "title_source":
+            case "title_turn_known":
+            case "title_via_cli_outcome":
+            case "to_display":
+            case "to_level":
+            case "to_mode":
+            case "to_version":
+            case "tool":
+            case "tool_age_ms":
+            case "tool_builtin":
+            case "tool_calls":
+            case "tool_hash":
+            case "tool_host_sessions":
+            case "tool_input":
+            case "tool_input_original_length":
+            case "tool_input_size_bytes":
+            case "tool_input_truncated":
+            case "tool_name":
+            case "tool_name_safe":
+            case "tool_parameters":
+            case "tool_result_size_bytes":
+            case "tool_running_at_send":
+            case "tool_source":
+            case "tool_truncated":
+            case "tool_use_count_since_plan_call":
+            case "tool_use_id":
+            case "tools":
+            case "tools_count":
+            case "tools_parse_error":
+            case "top1_footprint_bytes":
+            case "top2_footprint_bytes":
+            case "top3_footprint_bytes":
+            case "total_attempts":
+            case "total_duration_ms":
+            case "total_extensions_installed":
+            case "total_failures":
+            case "total_mem_gb":
+            case "total_ms":
+            case "total_observed_runs":
+            case "total_retry_duration_ms":
+            case "total_stalls":
+            case "total_to_assistant_ms":
+            case "total_to_init_ms":
+            case "total_tokens":
+            case "total_tool_uses":
+            case "tracked_processes":
+            case "transcript_bytes":
+            case "transcript_fill_rows":
+            case "transcript_length":
+            case "transcript_line_count":
+            case "transcript_ms":
+            case "transcript_page_fallback":
+            case "transcript_page_source":
+            case "transcript_relocated":
+            case "transcript_result":
+            case "transcript_size_bytes":
+            case "transcript_total_rows":
+            case "transcripts_deleted":
+            case "transcripts_exempted_desktop":
+            case "transitions_seen":
+            case "transport":
+            case "transport_type":
+            case "trigger":
+            case "trigger_id":
+            case "trigger_type":
+            case "truncated":
+            case "trust_check_cause":
+            case "trust_total_ms":
+            case "ttft_ms":
+            case "turn_box_mounted":
+            case "turn_interrupted":
+            case "turn_ms":
+            case "turn_origin":
+            case "turn_scope":
+            case "turns_before_ptl":
+            case "turns_bucket":
+            case "turns_since_title":
+            case "type":
+            case "ui_app":
+            case "unarchive":
+            case "unattended":
+            case "unavailable_probe_code":
+            case "unavailable_probe_reason":
+            case "unclean_days":
+            case "uncovered_count":
+            case "unhealthy_reason":
+            case "uninterruptible":
+            case "unknown_answers":
+            case "unlisted_check_failed":
+            case "unlisted_gone_not_available":
+            case "unlisted_gone_not_found":
+            case "unlisted_gone_scan_not_served":
+            case "unlisted_gone_withheld":
+            case "unlisted_present":
+            case "unlisted_sent":
+            case "unlisted_unknown":
+            case "unread_steers":
+            case "unreadable":
+            case "unreadable_count":
+            case "unreadable_files":
+            case "unreadable_settings":
+            case "unreadable_store":
+            case "unrecorded":
+            case "unstarted":
+            case "unsupported_code":
+            case "until":
+            case "untracked_discard_requested":
+            case "unverified":
+            case "unwound_refusal_fallback":
+            case "update_channel":
+            case "update_count":
+            case "update_relaunch_marker":
+            case "update_version":
+            case "updated_cron":
+            case "updated_description":
+            case "updated_disable_jitter":
+            case "updated_display_name":
+            case "updated_enabled":
+            case "updated_fire_at":
+            case "updated_notify_on_completion":
+            case "updated_project_uuids":
+            case "updated_prompt":
+            case "upgraded_existing":
+            case "upload_net_error_name":
+            case "url_class":
+            case "url_scheme":
+            case "used_default":
+            case "user.account_id":
+            case "user.account_uuid":
+            case "user.groups":
+            case "user_message_uuid":
+            case "user_prompt":
+            case "user_prompt_length":
+            case "user_system_prompt":
+            case "user_system_prompt_original_length":
+            case "user_system_prompt_truncated":
+            case "user_waiting":
+            case "variant":
+            case "vars_adopted":
+            case "verb":
+            case "verdict":
+            case "verdict_detail":
+            case "verdict_source":
+            case "verified_since_recovery":
+            case "version":
+            case "via":
+            case "via_fallback":
+            case "via_oopif":
+            case "viewport_size_bucket":
+            case "vm_guest_connected":
+            case "vm_network_mode":
+            case "wait_ms":
+            case "waited_for_claude":
+            case "waited_minutes":
+            case "waited_ms":
+            case "waiting_children":
+            case "waiting_in":
+            case "wake_at":
+            case "wake_delivery":
+            case "wake_duration_ms":
+            case "wake_ordinal":
+            case "wake_when_done":
+            case "wakes_in_episode":
+            case "wakes_since_user_message":
+            case "wakeup_in_ms":
+            case "warm_duration_ms":
+            case "warm_trigger":
+            case "warmed_count":
+            case "warnings_count":
+            case "was_auto_disabled":
+            case "was_cross_repo":
+            case "was_held":
+            case "was_hidden":
+            case "was_hidden_any":
+            case "was_mid_turn":
+            case "was_recovered":
+            case "was_running":
+            case "was_submit":
+            case "watch_connected_ms":
+            case "watch_enabled":
+            case "watch_state":
+            case "wave":
             case "wcf.channel.path":
             case "wcf.channel.scheme":
+            case "web_commit_hash":
+            case "while_working_held":
+            case "why":
+            case "willRetry":
+            case "will_hold":
+            case "will_retry":
+            case "window_fallback":
+            case "window_ms":
+            case "window_parked":
+            case "window_probe_error":
+            case "windows_host":
+            case "windows_host_jobs":
+            case "woken_by":
             case "workflow.definition":
             case "workflow.description":
             case "workflow.id":
             case "workflow.name":
+            case "workflow.run_id":
+            case "working":
+            case "workspace.host_paths":
+            case "workspaces_seeded":
+            case "worktree":
+            case "worktree_cleanup_requested":
+            case "worktree_created":
+            case "worktree_kept_dirty":
+            case "worktree_lazy":
+            case "worktree_mode":
+            case "worktree_ms":
+            case "worktree_path":
+            case "worktree_pool_enabled":
+            case "worktree_refusal":
+            case "worktree_reused":
+            case "worktree_source":
+            case "would_offer":
+            case "written":
+            case "written_unacked":
+            case "wsl.version":
+            case "wsl_error_code":
+            case "wt_add_ms":
+            case "wt_checkout_race_ms":
+            case "wt_checkout_retried":
+            case "wt_checkout_workers":
+            case "wt_config_copied":
+            case "wt_config_deferred":
+            case "wt_config_overlay_ms":
+            case "wt_config_overlay_outcome":
+            case "wt_fetch_ms":
+            case "wt_fetch_outcome":
+            case "wt_fetch_settled":
+            case "wt_filter_refresh_ms":
+            case "wt_filter_refresh_no_space":
+            case "wt_full_checkout_ms":
+            case "wt_git_crypt_binary":
+            case "wt_git_crypt_keys":
+            case "wt_git_crypt_left":
+            case "wt_git_spawns":
+            case "wt_hooks_config_ms":
+            case "wt_include_matched":
+            case "wt_include_patterns_dropped":
+            case "wt_include_scan_mode":
+            case "wt_include_scan_ms":
+            case "wt_include_scan_outcome":
+            case "wt_include_unsearched_dirs":
+            case "wt_lfs_hydrate_ms":
+            case "wt_lfs_hydrated":
+            case "wt_lfs_not_local":
+            case "wt_lfs_rejected":
+            case "wt_lfs_skipped":
+            case "wt_load_avg_1m":
+            case "wt_overlay_settled_ms":
+            case "wt_post_checkout_hook_ms":
+            case "wt_post_checkout_hook_ran":
+            case "wt_prep_ms":
+            case "wt_stage1_ms":
+            case "wt_status_cache_prime":
+            case "wt_tracked_files":
+            case "xcode_change":
+            case "xcode_on_disk":
                 return true;
             default:
                 return false;
@@ -656,107 +4629,2039 @@ public static class AttributeMapping
         var root = dot < 0 ? key : key.Substring(0, dot);
         switch (root)
         {
+            case "_scrubError":
+            case "abandon_reason":
+            case "abandoned_ms_ago":
+            case "abandoned_processes":
+            case "aborted":
+            case "accessibility_features":
+            case "accessibility_support_enabled":
+            case "account_enabled_count":
+            case "account_uuid":
+            case "acked":
+            case "action":
+            case "active_background_task_count":
+            case "active_chain_length":
+            case "active_count":
+            case "active_cron_count":
+            case "active_mcp_server_count":
+            case "active_phase_ms":
+            case "active_process_count":
+            case "active_session_count":
+            case "active_sessions":
+            case "active_workflow_count":
+            case "acts":
+            case "actual_sha256":
+            case "addedDirs":
+            case "additional_context_chars":
+            case "admin_removed":
+            case "adoptable_sessions":
+            case "adopted":
+            case "adopted_first_attempt":
+            case "adopts":
+            case "after_clear_or_rewind":
+            case "after_paint_ms":
+            case "age_days":
+            case "age_ms":
+            case "agent":
+            case "agent_id":
+            case "agent_path_count":
+            case "agent_type":
+            case "ahead_of_read":
+            case "airplane_mode":
+            case "already_archived":
+            case "already_exited":
+            case "already_there":
+            case "always_scope":
+            case "anchor_source":
             case "android":
+            case "anthropic":
+            case "any_window_visible":
             case "app":
+            case "app_class":
+            case "app_focused":
+            case "app_quit_trigger":
+            case "app_stall":
+            case "app_version":
+            case "appearance_id":
+            case "archive_index_state":
+            case "archived":
+            case "archived_phase_ms":
+            case "archived_phase_trigger":
+            case "archived_with_bridge_count":
+            case "arm":
+            case "armed_by":
+            case "armed_cron_count":
+            case "armed_durable_cron_count":
+            case "arriving_frame_ms":
             case "artifact":
+            case "artifacts_deleted":
+            case "ask_took":
             case "aspnetcore":
+            case "assistant_narration_block_count":
+            case "assistant_narration_char_count":
+            case "assistant_text_block_count":
+            case "assistant_text_char_count":
+            case "assistant_tool_group_count":
+            case "assistant_tool_use_count":
+            case "at_launch":
+            case "at_turn_boundary":
+            case "attach_reason":
+            case "attached_devices":
+            case "attached_duration_ms":
+            case "attachment_bytes":
+            case "attachment_seq":
+            case "attachments":
+            case "attempt":
+            case "attempt_id":
+            case "attempt_index":
+            case "attempt_num":
+            case "attempt_number":
+            case "attempted":
+            case "attempted_count":
+            case "attempts":
+            case "attempts_before_recovery":
+            case "attestation_form":
+            case "auth_auto_retry":
+            case "auth_method":
+            case "authorization":
+            case "auto_archive_on_close":
+            case "auto_compact":
+            case "auto_compact_attempts":
+            case "auto_compact_recovered":
+            case "auto_enabled":
+            case "auto_fix":
+            case "auto_merge":
+            case "auto_merge_seen":
+            case "auto_reason":
+            case "auto_reconnect_attempts":
+            case "auto_source":
+            case "auto_updates_disabled":
+            case "automatic":
+            case "awaited_ms":
+            case "awaited_outcome":
+            case "awaited_reason":
+            case "away_at_failure":
+            case "away_ms":
             case "aws":
             case "az":
             case "azure":
+            case "backend":
+            case "backend_kind":
+            case "backfill_outcome":
+            case "background":
+            case "backgrounded":
+            case "backoff_ms":
+            case "bailed":
+            case "base_config_cache_hit":
+            case "bash_argv0":
+            case "bash_command":
+            case "bash_command_class":
+            case "bash_command_original_length":
+            case "bash_command_truncated":
+            case "basis":
+            case "batch_pr_count":
+            case "batch_request_count":
+            case "bearer_state":
+            case "bearer_token_type":
+            case "bind_eligible_count":
+            case "bind_outcome":
+            case "bind_unsigned_keyless":
+            case "bind_web_key":
+            case "blocked_chrome":
+            case "blocked_count":
+            case "blocked_custom_cron":
+            case "blocked_cwd":
+            case "blocked_dispatch_hook":
+            case "blocked_local_files_only":
+            case "blocked_local_folders":
+            case "blocked_no_prompt":
+            case "blocked_pattern_approvals":
+            case "blocked_projects":
+            case "blocked_projects_multi_or_malformed":
+            case "blocked_space":
+            case "blocked_sub_hourly":
+            case "blocking":
+            case "blocks_committed":
+            case "body":
+            case "body_length":
+            case "body_ref":
+            case "body_truncated":
+            case "body_withheld":
+            case "bounce_reason":
+            case "brake_rule":
+            case "branch_reattached":
+            case "bridge_url_present":
             case "browser":
+            case "bucket_gb":
+            case "bucket_pct_of_ram":
             case "build":
+            case "busy":
+            case "bypassed":
+            case "bytes":
+            case "bytes_at_failure":
+            case "bytes_downloaded":
+            case "bytes_dropped":
+            case "bytes_missing":
+            case "bytes_received":
+            case "cache_creation_1h_input_tokens":
+            case "cache_creation_1h_tokens":
+            case "cache_creation_5m_input_tokens":
+            case "cache_creation_5m_tokens":
+            case "cache_creation_input_tokens":
+            case "cache_creation_tokens":
+            case "cache_hit":
+            case "cache_read_input_tokens":
+            case "cache_read_tokens":
+            case "cached":
+            case "cadence_daily":
+            case "cadence_hourly":
+            case "cadence_manual":
+            case "cadence_one_shot":
+            case "cadence_other":
+            case "cadence_sub_hourly":
+            case "cadence_weekdays":
+            case "cadence_weekly":
+            case "caller":
+            case "can_recover":
+            case "can_rewind":
+            case "cancel_reason":
+            case "cancelled":
+            case "candidate_count":
+            case "candidates":
+            case "candidates_checked":
+            case "cap_bytes":
+            case "capacity":
+            case "capture_kind":
+            case "card_reason":
+            case "carrier":
+            case "carry_row":
             case "cassandra":
+            case "category":
+            case "cause":
+            case "ccd_booted":
+            case "ccd_live_cli_count":
+            case "ccd_overhead_ms":
+            case "ccd_steering":
+            case "ccr":
+            case "chain_active":
+            case "chain_continues":
+            case "chain_starts":
+            case "change_key":
+            case "changed_count":
+            case "chars":
+            case "check_count":
+            case "check_ordinal":
+            case "check_source":
+            case "checkout_barrier":
+            case "checkout_overlap_mode":
+            case "child_session_id":
+            case "children":
+            case "choice":
+            case "chunk_count":
             case "cicd":
+            case "claim_count":
+            case "claims":
+            case "clamped":
+            case "clash":
+            case "claude":
+            case "claude_settings":
+            case "clean_read_banked":
+            case "clean_shutdown":
+            case "cleared_by":
+            case "cli_binary_choice":
+            case "cli_current_version":
+            case "cli_fetch_bytes":
+            case "cli_fetch_failure":
+            case "cli_fetch_fell_back":
+            case "cli_fetch_longest_pause_ms":
+            case "cli_fetch_ms":
+            case "cli_informed":
+            case "cli_install_source":
+            case "cli_pinned_version":
+            case "cli_process_group_learned":
+            case "cli_provably_idle":
+            case "cli_session_id":
+            case "cli_stderr_tail":
+            case "cli_upload_bytes":
+            case "cli_upload_folder_not_plain":
+            case "cli_upload_longest_pause_ms":
+            case "cli_upload_ms":
+            case "cli_upload_pauses":
+            case "cli_upload_restarted_after_reject":
+            case "cli_upload_resumed_from_bytes":
+            case "cli_uptime_s":
+            case "cli_version":
+            case "click_age_ms":
+            case "clicked_in":
             case "client":
+            case "client_request_id":
+            case "client_run_id_source":
+            case "clock_offset_decision":
+            case "clock_offset_ms":
+            case "close_count":
+            case "close_reason":
+            case "close_trigger":
+            case "closed":
+            case "closing_message_char_count":
             case "cloud":
             case "cloudevents":
             case "cloudfoundry":
             case "code":
+            case "code_cli_running":
+            case "code_session_active":
+            case "cold_boot":
+            case "cold_start":
+            case "command":
+            case "command_length":
+            case "command_marks":
+            case "command_name":
+            case "command_path_count":
+            case "command_source":
+            case "commands_run":
+            case "comment_count":
+            case "comments_inlined_count":
+            case "comments_truncated_count":
+            case "compact_error":
+            case "completed":
+            case "completed_turns":
+            case "configured_root_count":
+            case "confined":
+            case "confirm_requests":
+            case "confirmed_screens":
+            case "conflict_kind":
+            case "conflict_reminder_ordinal":
+            case "conflict_retries":
+            case "conflicted_count":
+            case "connect_attempt":
+            case "connect_error_kind":
+            case "connect_trigger":
+            case "connection_duration_ms":
+            case "connection_failed":
+            case "connection_generation":
+            case "consecutive_failures":
+            case "consecutive_ticks":
+            case "contained_by":
             case "container":
+            case "content":
+            case "content_original_length":
+            case "content_truncated":
+            case "context":
+            case "context_tokens":
+            case "contexts_destroyed":
+            case "continuation":
+            case "continue_message_uuid":
+            case "conversations":
+            case "cookies":
+            case "copied":
+            case "copy_ms":
+            case "cost_usd":
+            case "cost_usd_micros":
+            case "count":
+            case "cowork_folder":
+            case "cowork_session_active":
             case "cpu":
             case "cpython":
+            case "crashed_app_version":
+            case "created":
+            case "creator_session_id":
+            case "creator_session_type":
+            case "cta":
+            case "cumulative_stall_ms":
+            case "current_title_chars":
+            case "current_version":
+            case "cwd":
+            case "cycle_health":
+            case "daemon_instance":
+            case "daemon_instance_changed":
+            case "daemon_instance_known":
+            case "daemon_upgrade":
+            case "daemon_version":
+            case "days_since_migration":
             case "db":
+            case "decide_ms":
+            case "decided_by":
+            case "decision":
+            case "decision_ms":
+            case "decision_reason":
+            case "decision_source":
+            case "decision_type":
+            case "declares_parent_tools":
+            case "declined":
+            case "deduplicated":
+            case "deeplink_age_ms":
+            case "defer_ms":
+            case "deferred_archived_count":
+            case "deferred_at_start":
+            case "deferred_count":
+            case "deferred_for_ms":
+            case "deferred_sends":
+            case "deferred_startup_reads":
+            case "delayed_by_claude_work":
+            case "delayed_by_user_activity":
+            case "delegated_tool":
+            case "delete_sessions":
+            case "deleted":
+            case "deleted_count":
+            case "delivered":
+            case "delivered_count":
+            case "delta_ms":
+            case "demand_refresh_failed_count":
+            case "demand_refresh_floored_count":
+            case "demand_refresh_held_count":
+            case "demand_refresh_read_count":
+            case "denied":
+            case "denied_count":
+            case "dependency_folders":
+            case "deploy_bytes_total":
+            case "deploy_bytes_transferred":
             case "deployment":
+            case "deployment_kind":
             case "destination":
+            case "detach_ms":
+            case "detached_ms":
+            case "detail":
+            case "detected_by":
             case "device":
+            case "device_free_count":
+            case "device_id_kind":
+            case "device_platform":
+            case "device_specified":
+            case "dial_context_version":
+            case "dialed":
+            case "died":
+            case "diff":
+            case "diff_original_length":
+            case "diff_truncated":
+            case "differed":
+            case "direction":
+            case "disable_jitter":
+            case "disabled":
+            case "disabled_count":
+            case "disabled_migratable_count":
+            case "discarded":
+            case "discarded_partial":
             case "disk":
+            case "dismissed_by_model":
+            case "dispatch_origin_blocked_chrome":
+            case "dispatch_origin_blocked_count":
+            case "dispatch_origin_blocked_custom_cron":
+            case "dispatch_origin_blocked_cwd":
+            case "dispatch_origin_blocked_dispatch_hook":
+            case "dispatch_origin_blocked_local_folders":
+            case "dispatch_origin_blocked_no_prompt":
+            case "dispatch_origin_blocked_pattern_approvals":
+            case "dispatch_origin_blocked_projects":
+            case "dispatch_origin_blocked_space":
+            case "dispatch_origin_blocked_sub_hourly":
+            case "dispatch_origin_cadence_daily":
+            case "dispatch_origin_cadence_hourly":
+            case "dispatch_origin_cadence_manual":
+            case "dispatch_origin_cadence_one_shot":
+            case "dispatch_origin_cadence_other":
+            case "dispatch_origin_cadence_sub_hourly":
+            case "dispatch_origin_cadence_weekdays":
+            case "dispatch_origin_cadence_weekly":
+            case "dispatch_origin_count":
+            case "dispatch_origin_last_run_age_bucket":
+            case "dispatch_origin_migratable_count":
+            case "dispatch_origin_unreadable_count":
+            case "disposition":
             case "dns":
+            case "dormant_days":
             case "dotnet":
+            case "draft_len":
+            case "dropped_ms_ago":
+            case "dropped_overcap":
+            case "dropped_oversized":
+            case "dropped_since_last":
+            case "dropped_unreadable":
+            case "dropped_untrusted":
+            case "dry_run":
+            case "duration_bucket":
+            case "duration_ms":
+            case "duration_seconds":
             case "edge_group":
+            case "effective_root_count":
+            case "effort":
+            case "elapsed_ms":
             case "elastic":
             case "elasticsearch":
+            case "emit_delay_ms":
+            case "emit_reason":
+            case "enabled":
+            case "enabled_count":
+            case "enabled_mcp_tool_count":
+            case "enabled_via":
+            case "enabled_via_override":
+            case "end_reason":
+            case "ended_by":
+            case "ended_by_unmount":
+            case "ended_turn":
+            case "ends_mid_turn":
             case "enduser":
+            case "enforcement_hours":
+            case "engine_version":
+            case "enqueue_ms":
+            case "entries":
+            case "entry":
+            case "entry_point":
+            case "env_not_sent_failed":
+            case "env_not_sent_servers":
+            case "environment_id":
+            case "environment_source":
+            case "environments":
+            case "episode_index":
+            case "episode_ms":
+            case "episode_outcome":
             case "error":
+            case "errorMessage":
+            case "error_category":
+            case "error_class":
+            case "error_code":
+            case "error_count":
+            case "error_description":
+            case "error_detail":
+            case "error_domain":
+            case "error_kind":
+            case "error_message":
+            case "error_name":
+            case "error_type":
+            case "errors":
+            case "escalated":
+            case "estimated_cache_write_usd":
+            case "evaluated_count":
             case "event":
+            case "event_origin":
+            case "event_origin_server":
+            case "event_type":
+            case "ever_connected":
+            case "evicted_count":
+            case "evidence":
             case "exception":
             case "execution":
             case "executor":
+            case "exit_code":
+            case "exit_code_decoded":
+            case "exit_killed_by":
+            case "exit_signal":
+            case "expected_cli_version":
+            case "expected_height":
+            case "expected_sha256":
+            case "expected_width":
+            case "expired":
+            case "explainer_shown":
+            case "extension_author":
+            case "extension_id":
+            case "extension_name":
+            case "extension_skipped":
+            case "extension_version":
             case "faas":
+            case "failed":
+            case "failed_acts":
+            case "failed_count":
+            case "failed_not_found":
+            case "failed_other":
+            case "failed_phase":
+            case "failed_timeout":
+            case "failed_writes":
+            case "failing_count":
+            case "failure":
+            case "failure_age_ms":
+            case "failure_reason":
+            case "failure_type":
+            case "failures":
+            case "fallback":
+            case "fallback_cwd":
+            case "fast_folders":
+            case "fast_forward":
+            case "fatal_startup_result":
+            case "fault_class":
+            case "feature":
             case "feature_flag":
+            case "feature_hash":
+            case "feature_source":
+            case "feed_arch":
+            case "fence_detail":
             case "file":
+            case "file_count":
+            case "file_path":
+            case "file_path_original_length":
+            case "file_path_truncated":
+            case "filed_count":
+            case "files":
+            case "files_changed_count":
+            case "files_past_cutoff":
+            case "files_removed":
+            case "files_retained_fresh":
+            case "fill_rows":
+            case "final":
+            case "final_model":
+            case "fire_safety_skipped_count":
+            case "fired_by":
+            case "first_assistant_ms":
+            case "first_block_streaming":
+            case "first_child_in_job":
+            case "first_content_ms":
+            case "first_content_source":
+            case "first_load":
+            case "first_paint_ms":
+            case "first_seq":
+            case "first_timeout_op":
+            case "first_turn":
+            case "first_turn_since_spawn":
+            case "first_wake_message_uuid":
+            case "fleet_override":
+            case "floors_unset":
+            case "focus_state":
+            case "focused":
+            case "folder_count":
+            case "folder_grant_outcome":
+            case "folder_grant_recorded_count":
+            case "folder_grant_refusal_reasons":
+            case "folder_grant_refused_count":
+            case "folder_hash":
+            case "folder_reason":
+            case "folder_tree":
+            case "folders":
+            case "folders_excluded":
+            case "folders_limited":
+            case "folders_missing":
+            case "folders_served":
+            case "folders_unread":
+            case "followed_hinge":
+            case "follows_stall_snapshot":
+            case "force_ask_cause":
+            case "force_cleanup_explicit_false":
+            case "fork_ms":
+            case "found":
+            case "fps":
+            case "frame_depth":
+            case "frames_after":
+            case "frames_before":
+            case "fresh":
+            case "fresh_start":
+            case "fresh_worktree_created":
+            case "from_card":
+            case "from_deeplink":
+            case "from_level":
+            case "from_mode":
+            case "from_preset":
+            case "from_project_scan":
+            case "from_seq":
+            case "from_version":
+            case "frontier_renders":
+            case "frozen_ms":
+            case "fs_error_code":
+            case "full_checkout_wait_ms":
+            case "full_command":
+            case "gap":
+            case "gap_ms":
+            case "gate":
+            case "gate_blocked_built_in_browser_count":
+            case "gate_blocked_chrome_count":
+            case "gate_blocked_cooldown_count":
+            case "gate_blocked_count":
+            case "gate_blocked_cron_invalid_count":
+            case "gate_blocked_custom_cron_count":
+            case "gate_blocked_cwd_count":
+            case "gate_blocked_dispatch_hook_count":
+            case "gate_blocked_local_folders_count":
+            case "gate_blocked_no_prompt_count":
+            case "gate_blocked_pattern_approvals_count":
+            case "gate_blocked_placement_count":
+            case "gate_blocked_project_archived_count":
+            case "gate_blocked_project_upgraded_count":
+            case "gate_blocked_projects_count":
+            case "gate_blocked_remote_control_disabled_count":
+            case "gate_blocked_remote_control_unknown_count":
+            case "gate_blocked_space_count":
+            case "gate_blocked_sub_hourly_count":
+            case "gate_blocked_unscheduled_count":
+            case "gate_reason":
+            case "gc_cumulative_ms":
+            case "gc_in_stall_max_ms":
+            case "gc_in_stall_ms":
             case "gcp":
             case "gen_ai":
+            case "generation_age_ms":
             case "geo":
+            case "gesture":
+            case "gesture_type":
+            case "git":
+            case "git_isolation_errno":
+            case "git_isolation_stage":
+            case "git_remove_ms":
+            case "git_settings_control":
             case "go":
+            case "gone":
+            case "grant_copy_failed":
             case "graphql":
+            case "graphql_errors_only_count":
+            case "graphql_failed_count":
+            case "graphql_rate_limited_count":
+            case "graphql_read_by_caller":
+            case "graphql_request_count":
+            case "graphql_write_count":
+            case "graphql_write_failed_count":
             case "grpc":
+            case "had_cli_session":
+            case "had_first_response":
+            case "had_input":
+            case "had_interrupt_carrier":
+            case "had_live_query":
+            case "had_live_wakeup":
+            case "had_node_modules":
+            case "had_pending_cycle":
+            case "had_pending_turn":
+            case "had_result":
+            case "had_scheduled_task":
+            case "had_title":
+            case "handed_off":
+            case "handoff_tool":
+            case "hard_deny_served":
+            case "has_action_buttons":
+            case "has_active_query":
+            case "has_category":
+            case "has_cli_session_id":
+            case "has_config":
+            case "has_cron":
+            case "has_explanation":
+            case "has_fire_at":
+            case "has_hooks":
+            case "has_input_stream":
+            case "has_launch_tools":
+            case "has_live_processes":
+            case "has_live_sibling":
+            case "has_local_disk":
+            case "has_mcp":
+            case "has_message":
+            case "has_more":
+            case "has_notify_on_completion":
+            case "has_origin":
+            case "has_target_cwd":
+            case "has_thread":
+            case "has_title":
+            case "has_usage_data":
+            case "has_worktree":
+            case "head_changed":
+            case "head_changed_since_first_wake":
+            case "head_ordinal":
+            case "head_unknown_count":
+            case "heads_in_episode":
+            case "healed":
+            case "heartbeats":
+            case "heavy_work_task":
+            case "held":
+            case "held_back":
+            case "held_count":
+            case "held_ms":
+            case "held_steers":
+            case "helper_peer_check":
+            case "helper_quiet_ms":
+            case "helper_run":
+            case "helper_uptime_ms":
             case "heroku":
+            case "hidden_at_emit":
+            case "hidden_count":
+            case "history_entries_pruned":
+            case "history_requested":
+            case "history_shim":
+            case "hit":
+            case "hit_rtt_ms":
+            case "hold_cause":
+            case "hold_change":
+            case "hold_ms":
+            case "hold_reason":
+            case "holder":
+            case "hook_definitions":
+            case "hook_event":
+            case "hook_matcher":
+            case "hook_name":
+            case "hook_sig_match":
+            case "hook_source":
+            case "hook_type":
+            case "hooked":
+            case "hooks_applied":
             case "host":
+            case "host_base_merge":
+            case "host_configured_skipped":
+            case "host_count":
+            case "host_mount_ms":
+            case "host_owned_mcp":
+            case "host_slot":
+            case "host_window":
+            case "host_work":
+            case "hosted_count":
+            case "hosts":
+            case "how":
             case "http":
+            case "http_sibling":
+            case "http_status":
+            case "http_status_text":
             case "hw":
+            case "hw_attestation":
+            case "hw_unavailable_reason":
+            case "identity":
+            case "idle_gated":
+            case "idle_kind":
+            case "idle_summary":
+            case "idle_summary_delay_ms":
+            case "idle_timeout_ms":
+            case "image_count_in_buffer":
+            case "implementation":
+            case "import_source":
+            case "in_experiment":
+            case "in_flight":
+            case "in_place":
+            case "in_popout":
+            case "include_overlay_wait_ms":
+            case "include_uncommitted":
+            case "index_deferred_count":
+            case "index_stale_active_count":
+            case "init_arrived":
+            case "init_awake_ms":
+            case "init_mcp_connected_count":
+            case "init_mcp_disabled_count":
+            case "init_mcp_failed_count":
+            case "init_mcp_needs_auth_count":
+            case "init_mcp_other_count":
+            case "init_mcp_pending_count":
+            case "init_mcp_total_count":
+            case "init_ms":
+            case "init_plugin_count":
+            case "initial_user_message_chars":
+            case "initiator":
+            case "inp_ms":
+            case "input_delay_ms":
+            case "input_origin":
+            case "input_tokens":
+            case "insert_method":
+            case "install":
+            case "install_state_seeded":
+            case "installed":
+            case "insufficient_observation_count":
+            case "intent":
+            case "intent_before_initialized":
+            case "intent_lead_ms":
+            case "intent_saved_at_start":
+            case "interaction":
+            case "interaction_type":
+            case "internal_server_name":
+            case "interrupt_seq":
+            case "interrupted":
+            case "interrupted_age_seconds":
+            case "interrupted_overdue_ms":
+            case "interval_minutes":
+            case "into_open_tab":
+            case "invocation_trigger":
+            case "io_return":
             case "ios":
+            case "ipc_bytes":
+            case "ipc_ms":
+            case "is_async":
+            case "is_built_in":
+            case "is_claude_host":
+            case "is_downgrade":
+            case "is_error":
+            case "is_financial":
+            case "is_first_turn":
+            case "is_fork":
+            case "is_git_repo":
+            case "is_high_risk":
+            case "is_internal":
+            case "is_large_import":
+            case "is_local":
+            case "is_localhost":
+            case "is_main_frame":
+            case "is_manual":
+            case "is_nest_build":
+            case "is_new_session":
+            case "is_plugin":
+            case "is_remote":
+            case "is_repeat":
+            case "is_resume":
+            case "is_running":
+            case "is_scheduled_task_session":
+            case "is_scratch":
+            case "is_side_session":
+            case "is_ssh":
+            case "is_startup_error":
+            case "is_stopping":
+            case "is_violin_bow":
+            case "is_visible":
+            case "is_warm":
+            case "is_windows":
+            case "is_worktree":
+            case "jitter_seconds":
             case "jsonrpc":
+            case "judged":
+            case "jump_ms":
             case "jvm":
             case "k8s":
+            case "keep_awake_release":
+            case "kept":
+            case "kept_claimed_elsewhere":
+            case "kept_earlier":
+            case "kept_existing_count":
+            case "key":
+            case "key_class":
+            case "key_count":
+            case "keys_set":
+            case "kicked":
+            case "kind":
+            case "kinds":
+            case "lan_name":
+            case "lane":
+            case "language":
+            case "laptop_path_skipped":
+            case "last_buffered_message_type":
+            case "last_error_class":
+            case "last_error_code":
+            case "last_frame_age_ms":
+            case "last_message_model":
+            case "last_message_type":
+            case "last_oauth_decline_reason":
+            case "last_read_verdict":
+            case "last_task":
+            case "last_task_sync_ms":
+            case "last_timeout_op":
+            case "last_tool_name":
+            case "late":
+            case "latency_bucket":
+            case "latency_ms":
+            case "launch_limit":
+            case "launch_sample_rate":
+            case "launch_timeout_stage":
+            case "launched":
+            case "launcher_marked":
+            case "launcher_status":
+            case "launcher_version_check":
+            case "lead_time_ms":
+            case "leases":
+            case "left_awaiting_person_count":
+            case "legacy_kill":
+            case "legacy_user_waiting":
+            case "level":
+            case "lifetime_ms":
+            case "likely_ours":
+            case "likely_sleep":
+            case "limit":
+            case "lines":
+            case "link":
+            case "link_age_ms":
+            case "link_host":
+            case "link_late_pongs":
+            case "link_queued_pongs":
+            case "link_srtt_ms":
+            case "link_up":
             case "linux":
+            case "list_source":
+            case "live_bindings":
+            case "live_children":
+            case "live_cli_count":
+            case "live_processes":
+            case "live_scheduled_cli_count":
+            case "live_sessions":
+            case "llm_request":
+            case "load_error_code":
+            case "load_ms":
+            case "load_phase":
+            case "loaf_entry_count":
+            case "loaf_in_delay_ms":
+            case "loaf_script_char_pos":
+            case "loaf_script_duration_ms":
+            case "loaf_script_forced_layout_ms":
+            case "loaf_script_function":
+            case "loaf_script_invoker":
+            case "loaf_script_invoker_type":
+            case "loaf_script_source":
+            case "loaf_total_blocking_ms":
+            case "loaf_total_forced_layout_ms":
+            case "local_enabled":
+            case "local_file_count":
+            case "local_session_id":
+            case "local_total_bytes":
+            case "lock_known_locked":
             case "log":
+            case "log_reads":
+            case "long_frame_ms_max":
+            case "long_frame_ms_total":
+            case "losable_background_task_count":
+            case "losable_kind":
+            case "losses_this_round":
+            case "lost_input":
+            case "low_memory_posture":
+            case "main_rss_bytes":
+            case "main_view_footprint_bytes":
+            case "main_view_rss_bytes":
             case "mainframe":
+            case "managed_launcher":
+            case "managed_only":
+            case "managed_rules_only":
+            case "managed_settings":
+            case "mark":
+            case "marked_count":
+            case "marker_age_ms":
+            case "marker_offered":
+            case "marketplace":
+            case "marketplace_uuid":
+            case "matched":
+            case "max_poll_gap_ms":
+            case "max_session_count":
+            case "max_system_idle_ms":
             case "mcp":
+            case "mcp_cmd":
+            case "mcp_config_http_count":
+            case "mcp_config_sdk_count":
+            case "mcp_config_stdio_count":
+            case "mcp_kind_followed":
+            case "mcp_ms":
+            case "mcp_server":
+            case "mcp_server_count":
+            case "mcp_server_scope":
+            case "mcp_tool":
+            case "memory_copy_error":
+            case "memory_copy_keyless":
+            case "memory_copy_state":
+            case "memory_files_copied":
+            case "memory_files_total":
+            case "mention_type":
             case "message":
+            case "message_buffer_size":
+            case "message_chars":
+            case "message_count":
+            case "message_uuid":
+            case "messages_after":
+            case "messages_before":
             case "messaging":
+            case "method":
+            case "mid_turn":
+            case "migratable_count":
+            case "min_observed_days":
+            case "min_runs_observed":
+            case "minutes_since_launch":
+            case "missed_by_minutes":
+            case "missing":
+            case "missing_kind":
+            case "mode":
+            case "model":
+            case "model_downgraded":
+            case "model_swapped":
+            case "mount_commit_ms":
+            case "mount_composer_ms":
+            case "mount_layout_ms":
+            case "mount_list_ms":
+            case "mount_ms":
+            case "mount_panel_ms":
+            case "ms":
+            case "ms_after_commit":
+            case "ms_after_load":
+            case "ms_since_first_cut":
+            case "ms_since_last_read":
+            case "ms_since_last_wake":
+            case "ms_since_open":
+            case "ms_since_prior_loss":
+            case "ms_since_write":
+            case "ms_to_echo":
+            case "ms_to_first_token":
+            case "nav_only":
+            case "nav_temp":
+            case "needed_deploy":
+            case "needs_tree_before_spawn_reason":
             case "net":
             case "network":
+            case "new_context":
+            case "new_context_message_count":
+            case "new_context_original_length":
+            case "new_context_truncated":
+            case "new_cwd":
+            case "new_failure_count":
+            case "new_value":
+            case "newer_version":
+            case "newly_unclaimed":
+            case "next_unchecked":
             case "nfs":
+            case "no_folder":
+            case "no_fresh_record_count":
+            case "no_fresh_record_denied_count":
+            case "no_fresh_record_no_prompt_count":
+            case "no_fresh_record_no_record_count":
+            case "no_fresh_record_stale_record_count":
+            case "no_fresh_record_task_missing_count":
+            case "no_fresh_record_unreadable_count":
+            case "no_off_read":
+            case "no_response_category":
+            case "no_tpm_probe_code":
             case "nodejs":
+            case "not_copied":
+            case "not_evaluable_reason":
+            case "notice_requested":
+            case "notification_type":
+            case "notify_on_completion_after":
             case "nservicebus":
+            case "ntstatus_name":
+            case "num_blocking":
+            case "num_cancelled":
+            case "num_hooks":
+            case "num_non_blocking_error":
+            case "num_outputs_persisted":
+            case "num_success":
+            case "num_turns":
+            case "observed_built_in_browser":
+            case "observed_chrome":
+            case "observed_computer_use":
+            case "observed_device_free_count":
+            case "observed_local_count":
+            case "observed_local_mcp":
+            case "observed_request_folder_access":
+            case "observed_task_count":
+            case "occurrence":
             case "oci":
+            case "offer":
+            case "ok":
+            case "older_than_days":
+            case "oldest_age_ms":
+            case "on":
+            case "on_battery":
+            case "on_ssh_host":
             case "onc_rpc":
+            case "one_time":
+            case "online":
+            case "open_ms":
+            case "open_seconds":
             case "openai":
+            case "opened_by":
+            case "opened_via":
             case "openshift":
             case "opentracing":
+            case "operation":
             case "oracle":
             case "oracle_cloud":
+            case "org_browser_allowed":
+            case "org_skills_off":
+            case "organization":
+            case "organization_id":
+            case "origin":
+            case "origin_class":
+            case "origin_notify_none_count":
+            case "origin_unresolvable_count":
+            case "orphan_process_id":
             case "os":
+            case "os_entry":
             case "otel":
+            case "outcome":
+            case "output":
+            case "output_original_length":
+            case "output_tokens":
+            case "output_truncated":
+            case "overdue_ms":
+            case "overlay_spawn_wait_ms":
+            case "overlay_wait_ms":
+            case "oversize_option":
+            case "own_address":
+            case "own_worktree_reattached":
+            case "owned_cycle":
+            case "page_note":
+            case "page_source":
+            case "paired_device_count":
+            case "pane_open":
+            case "pane_visible":
+            case "parent":
+            case "parent_agent_id":
+            case "parent_is_side_session":
+            case "parent_session_id":
+            case "parse_input_len":
+            case "parse_ms":
+            case "pass":
+            case "pass_trigger":
+            case "path":
+            case "payload_arch":
+            case "payload_kind":
             case "peer":
+            case "pending_count":
+            case "pending_delete":
+            case "pending_had_first_response":
+            case "pending_handlers":
+            case "pending_hours":
+            case "pending_minutes":
+            case "pending_ms":
+            case "pending_requests":
+            case "pending_seconds":
+            case "pending_unarchive":
+            case "per_message":
+            case "period_days":
+            case "permission_mode":
+            case "permission_surface":
+            case "permissions":
+            case "persist_enabled":
+            case "phase":
+            case "picked_files_carried_count":
+            case "ping_ms":
+            case "place":
+            case "plan_call_count":
+            case "plan_call_count_since_compaction":
+            case "plan_open_step_count":
+            case "plane":
+            case "planned_count":
+            case "platform":
+            case "plist_scope":
+            case "plugin":
+            case "plugin_count":
+            case "plugin_delivery":
+            case "plugin_dir_count":
+            case "plugin_id":
+            case "plugin_id_hash":
+            case "plugin_mcp_connector_twin_by_name_count":
+            case "plugin_mcp_connector_twin_count":
+            case "plugin_uuid":
+            case "point_count":
+            case "policy_blocked":
+            case "policy_gate_passed":
+            case "poll_ms_p50":
+            case "poll_ms_p95":
             case "pool":
+            case "pool_busy_skips":
+            case "pool_cached_unclean":
+            case "pool_candidates":
+            case "pool_deferred":
+            case "pool_indeterminate":
+            case "pool_ms":
+            case "pool_outcome":
+            case "pool_probes":
+            case "pool_rebind_attempts":
+            case "pool_rebind_ms":
+            case "pool_refused":
+            case "pool_trusted":
+            case "pool_wait_ms":
+            case "post_checkout_wait_ms":
+            case "post_tokens":
+            case "posted_count":
             case "pprof":
+            case "pr_count":
+            case "pr_state":
+            case "pr_state_fail_auth_count":
+            case "pr_state_fail_forbidden_count":
+            case "pr_state_fail_forbidden_saml_count":
+            case "pr_state_fail_network_count":
+            case "pr_state_fail_not_found_count":
+            case "pr_state_fail_rate_limit_count":
+            case "pr_state_fail_rate_limit_held_count":
+            case "pr_state_fail_unavailable_count":
+            case "pr_state_fail_unknown_count":
+            case "pr_tool":
+            case "pre_tokens":
+            case "precompute_reuse":
+            case "prefix_parity":
+            case "preflight_ms":
+            case "prep_ms":
+            case "prepare_ms":
+            case "preprobe_hurried":
+            case "preprobe_via":
+            case "presence":
+            case "present_failures":
+            case "presentation_delay_ms":
+            case "press_lead_ms":
+            case "prev_reason":
+            case "previous_cwd":
+            case "previous_quit_clean":
+            case "previous_title_source":
+            case "previous_value":
+            case "prewarm":
+            case "prewarm_kind":
+            case "prewarm_lead_ms":
+            case "print_call":
+            case "print_call_age_ms":
+            case "prior_asides":
+            case "prior_installation_attempts":
+            case "prior_loss_how":
+            case "probe":
+            case "probe_answers":
+            case "probe_ms":
+            case "probe_result":
+            case "probe_trigger":
+            case "probed":
+            case "probed_height":
+            case "probed_width":
+            case "probes":
             case "process":
+            case "process_instance_known":
+            case "processing_ms":
+            case "product":
             case "profile":
+            case "project_dropped":
+            case "projects":
+            case "promoted_by_ios_intent":
+            case "prompt":
+            case "prompt_append_source":
+            case "prompt_asker":
+            case "prompt_cache_likely_expired":
+            case "prompt_kind":
+            case "prompt_length":
+            case "prompt_lifecycle":
+            case "prompt_origin":
+            case "prompt_outcome":
+            case "prompt_rendered":
+            case "prompt_suggestions_requested":
+            case "prompt_text":
+            case "proof_kind":
+            case "proposal":
+            case "proposal_id_present":
+            case "proposed_context":
+            case "proposed_title_chars":
+            case "protected_taken_count":
+            case "provenance":
+            case "provider":
+            case "proxy_diagnostic":
+            case "proxy_key":
+            case "prune_skipped_late_read_failed":
+            case "pruned_disabled":
             case "quartz":
+            case "query_kind":
+            case "query_ms":
+            case "query_source":
+            case "query_source_safe":
+            case "queue_length":
+            case "queued_message_bar":
+            case "queued_sends":
+            case "quick_entry_images":
+            case "quick_entry_length":
+            case "quiet_bucket":
+            case "quiet_recovery":
+            case "quit_after_loss_ms":
+            case "quit_death_count":
+            case "quoted_chars":
             case "qyl":
+            case "rate_limited_count":
+            case "rate_limited_held_count":
+            case "ratelimit_remaining":
+            case "ratelimit_reset_seconds":
+            case "ratelimit_used":
+            case "raw_output":
+            case "rc_intent":
+            case "rc_policy_bridge_yielded":
+            case "rc_reconciled":
+            case "rc_recorded":
+            case "rc_roundtrip_ms":
+            case "rc_wait_ms":
+            case "re_alert":
+            case "re_leased_from_pool":
+            case "read_ms":
+            case "read_only_mark_count":
+            case "reads":
+            case "reads_cap_limited":
+            case "ready":
+            case "ready_ms":
+            case "reaped_count":
+            case "reason":
+            case "reason_detail":
+            case "reattach_answer_ms":
+            case "reattach_auth":
+            case "reattach_failed_reason":
+            case "reattach_ms":
+            case "reattach_silent_retries":
+            case "recap_chars":
+            case "recap_chars_raw":
+            case "recent_artifact_click":
+            case "reconnected":
+            case "record_synced":
+            case "recorded":
+            case "recovered":
+            case "recovery_granted_ms_ago":
+            case "recreate_cause":
+            case "recreate_outcome":
+            case "redial_after_sleep":
+            case "redial_after_sleep_seq":
+            case "redial_presence":
+            case "redial_seq":
+            case "redirect_vendor":
+            case "refusal":
+            case "refusal_reason":
+            case "refused_other":
+            case "refused_route":
+            case "registry_plugin_count":
+            case "rejected_model":
+            case "release_reason":
+            case "released_by":
+            case "reload_attempt":
+            case "relocated_config":
+            case "remaining":
+            case "remote":
+            case "remote_control_on":
+            case "remote_control_user_owned":
+            case "remote_control_was_on":
+            case "remote_cwd_probe_ms":
+            case "remote_folder":
+            case "remote_scheduled_tasks_enabled":
+            case "remote_session_store_load_failed":
+            case "removed":
+            case "removed_count":
+            case "removed_job":
+            case "renderer":
+            case "renderer_build_id":
+            case "renderer_surface":
+            case "renewed":
+            case "repair_shown":
+            case "replaced_by":
+            case "replaces_message_uuid":
+            case "replay":
+            case "replayed_bytes":
+            case "replayed_frames":
+            case "replays":
+            case "replays_after_drop":
+            case "reply_chars":
+            case "repo_kind":
+            case "reported_cli_kind":
+            case "reported_cli_version":
+            case "request_body_id":
+            case "request_id":
+            case "requested":
+            case "requested_lead_time_ms":
+            case "requested_level":
+            case "requested_mode":
+            case "requesting_site":
+            case "required_version":
+            case "requires_computer_gate_blocked_count":
+            case "requires_computer_insufficient_observation_count":
+            case "requires_computer_no_fresh_record_count":
+            case "resolution":
+            case "resolve_ms":
+            case "resolved":
+            case "resolved_person_holds":
+            case "resolved_version":
+            case "resource_type":
+            case "response":
+            case "response_length":
+            case "rest_200_conditional_count":
+            case "rest_200_unconditional_count":
+            case "rest_304_by_endpoint":
+            case "rest_304_count":
+            case "rest_4xx_count":
+            case "rest_5xx_count":
+            case "rest_checks_fetch_count":
+            case "rest_ratelimit_remaining":
+            case "rest_ratelimit_used":
+            case "rest_read_by_endpoint":
+            case "rest_routed_row_count":
+            case "restored":
+            case "result":
+            case "result_subtype":
+            case "result_tokens":
+            case "resume_cost_source":
+            case "resume_from_byte":
+            case "resume_reason":
+            case "resume_seed":
+            case "resume_stop_trigger":
+            case "resume_was_ours":
+            case "resumed_after_attention":
+            case "resumed_from_byte":
+            case "retained":
+            case "retention_days":
+            case "retention_source":
+            case "retry_attempt":
+            case "retry_count":
+            case "retry_in_ms":
+            case "return_refresh_github_row_count":
+            case "return_refresh_other_row_count":
+            case "return_refresh_skipped_low_budget_count":
+            case "reused_server":
+            case "rewind_active_chain_length":
+            case "rewind_target_miss_reason":
+            case "rewind_transcript_has_compact_boundary":
+            case "rewind_transcript_length":
+            case "root_fenced":
+            case "root_is_unc":
+            case "root_ms":
+            case "root_named":
+            case "rounds":
+            case "rounds_last_day":
+            case "rounds_last_hour":
+            case "route":
+            case "route_ms":
+            case "route_prefix":
+            case "routines_enabled":
+            case "row_pk_resolved":
+            case "rows":
+            case "rows_source":
             case "rpc":
+            case "rpc_error":
+            case "rpm_enabled_state_age_ms":
+            case "rpm_enabled_state_ms":
+            case "rpm_enabled_state_source":
+            case "rpm_fs_scan_ms":
+            case "rule":
+            case "running":
+            case "running_session_count":
+            case "running_sessions":
+            case "safe_mode":
+            case "same_category_as_prior_loss":
+            case "same_session":
+            case "sample_index":
+            case "sampler_active":
+            case "sampler_frames":
+            case "sampler_start_lag_ms":
+            case "sampling_trace_id":
+            case "sandbox_cascade":
+            case "sandbox_env":
+            case "sandbox_on":
+            case "sandbox_settings":
+            case "saved_in_manual":
+            case "saved_other":
+            case "saw_unreachable":
+            case "scale":
+            case "scan_ms":
+            case "scheduled_task_id":
+            case "scheduled_task_tool":
+            case "scheme":
+            case "scoped":
+            case "scrollback_log":
+            case "sdk_host":
+            case "sealed_count":
+            case "seconds_since_activity":
+            case "seconds_since_create":
+            case "seconds_since_last_activity":
+            case "seconds_since_last_oauth_decline":
+            case "seconds_since_last_response":
+            case "seconds_since_last_turn":
+            case "seconds_since_offer":
+            case "seconds_since_rewind":
+            case "seconds_since_stderr":
+            case "seconds_to_outcome":
+            case "seconds_waiting":
             case "security_rule":
+            case "seeded_from_tail":
             case "server":
+            case "server_enabled":
+            case "server_fallback_hop":
+            case "server_name":
+            case "server_scope":
+            case "server_type":
+            case "server_uuid":
+            case "server_version":
             case "service":
             case "session":
+            case "sessionId":
+            case "session_age_ms":
+            case "session_bytes_read":
+            case "session_count":
+            case "session_exists":
+            case "session_files_deleted":
+            case "session_grouping_id":
+            case "session_id":
+            case "session_presets":
+            case "session_repo_entry_base_missing":
+            case "session_repo_missing":
+            case "session_repo_not_a_tree":
+            case "session_repo_not_session_scoped":
+            case "session_repo_tree_not_anchored":
+            case "session_repo_unbound":
+            case "session_repo_would_refuse_base":
+            case "session_repo_would_refuse_tree":
+            case "session_running":
+            case "session_scope":
+            case "session_title":
+            case "session_tool":
+            case "session_type":
+            case "sessions":
+            case "sessions_archived":
+            case "sessions_pushed":
+            case "sessions_skipped_fence":
+            case "sessions_skipped_unsupported":
+            case "set_ms":
+            case "set_origin":
+            case "setting_key":
+            case "settings_tier":
+            case "settings_tool":
+            case "settle_ms":
+            case "settle_reason":
+            case "settled":
+            case "shared":
+            case "shell":
+            case "shell_env_failed_reads":
+            case "shell_integration":
+            case "shipit_stderr_tail":
+            case "shown_ms":
+            case "side_sessions_available":
+            case "sign_error_code":
+            case "sign_error_probe_code":
+            case "sign_in_cookie_present":
+            case "sign_in_reason":
+            case "sign_in_waits":
+            case "signal":
             case "signalr":
+            case "signals_ignored":
+            case "signed_in_at_last_exit":
+            case "silence_ms":
+            case "silent_reattach":
+            case "since_app_focus_ms":
+            case "since_input_ms":
+            case "since_page_hidden_ms":
+            case "since_page_visible_ms":
+            case "single_ingest":
+            case "site":
+            case "sites":
+            case "size":
+            case "skill":
+            case "skill_name":
+            case "skill_path_count":
+            case "skip_push":
+            case "skip_reason":
+            case "skipped":
+            case "skipped_by_cap":
+            case "skipped_collision":
+            case "skipped_count":
+            case "skipped_disabled":
+            case "skipped_offline":
+            case "sleep_assertion_held":
+            case "sleep_duration_seconds":
+            case "sleep_signal":
+            case "slept":
+            case "slept_ms":
+            case "slot_consumed":
+            case "slot_wait_ms":
+            case "slow_folders":
+            case "slow_shell_wait":
             case "soap":
+            case "soft_deleted":
             case "source":
+            case "source_organization_uuid":
+            case "source_was_previewed":
+            case "space_dropped":
+            case "space_empty":
+            case "space_folders_0":
+            case "space_folders_1":
+            case "space_folders_2_plus":
+            case "space_id":
+            case "space_store_count":
+            case "space_tied_enabled_count":
+            case "space_unresolvable":
+            case "space_with_drive_links":
+            case "space_with_instructions":
+            case "space_with_links":
+            case "space_with_projects":
+            case "spaces_quarantined_count":
+            case "span":
+            case "spare_claim_ms":
+            case "spare_event":
+            case "spare_fail_code":
+            case "spare_mcp_settled":
+            case "spare_miss_reason":
+            case "spare_parked_ms":
+            case "spare_wait_ms":
+            case "spawn_argv_chars":
+            case "spawn_confirmed":
+            case "spawn_fallback_count":
+            case "spawn_mode":
+            case "spawn_reason":
+            case "spawn_source":
+            case "spawn_to_init_ms":
+            case "spawn_to_outcome_ms":
+            case "speed":
+            case "spelled_in":
+            case "spread_hours":
+            case "ssh_client_launch_error_code":
+            case "ssh_platform":
+            case "ssh_transport":
+            case "ssh_transport_flag_state":
+            case "ssh_transport_flag_wait_ms":
+            case "ssh_transport_source":
+            case "ssh_windows_client_unusable_reason":
+            case "stage":
+            case "staged_version":
+            case "stale":
+            case "stale_claimed":
+            case "stale_cowork_owned":
+            case "stale_had_focus":
+            case "stale_reason":
+            case "stale_shown_age_ms":
+            case "stall_duration_ms":
+            case "stamped_migrated_from_space":
+            case "start_gate":
+            case "start_in_flight":
+            case "start_reason":
+            case "start_stage_reached":
+            case "start_tool":
+            case "start_type":
+            case "started":
+            case "started_by_model":
+            case "stat_ms":
             case "state":
+            case "status":
+            case "status_before":
+            case "status_code":
+            case "status_ms":
+            case "status_unknown":
+            case "stdout_chars":
+            case "steered_send_count":
+            case "step":
+            case "step_budget_ms":
+            case "still_running_sessions":
+            case "stood_down":
+            case "stop_outcome":
+            case "stop_reason":
+            case "stopped_by_limit":
+            case "stopped_by_misses":
+            case "stopped_by_process_cap":
+            case "storage_budget_hit":
+            case "storage_carried":
+            case "storage_concurrency":
+            case "storage_failed":
+            case "storage_keys":
+            case "storage_ms":
+            case "storage_origins":
+            case "storage_pending":
+            case "storage_timeouts":
+            case "storage_tool":
+            case "store_count":
+            case "store_load_failed":
+            case "store_load_state":
+            case "store_reset":
+            case "store_state":
+            case "store_unreadable":
+            case "stored_bypass_sent_as_auto":
+            case "stream_ms":
+            case "structural":
+            case "studio_installed":
+            case "subagent_type":
+            case "success":
+            case "superseded":
+            case "supported":
+            case "suppressed_count":
+            case "surface":
+            case "survey_type":
+            case "survivor_claimed":
+            case "survivor_cowork_owned":
+            case "survivor_shown_age_ms":
+            case "switch_id":
+            case "switch_on":
+            case "synced_count":
             case "system":
+            case "system_message_chars":
+            case "system_prompt":
+            case "system_prompt_hash":
+            case "system_prompt_length":
+            case "system_prompt_preview":
+            case "system_prompt_snapshot":
+            case "system_prompt_truncated":
+            case "system_reminders":
+            case "system_reminders_count":
+            case "system_reminders_original_length":
+            case "system_reminders_truncated":
+            case "tab":
+            case "tabs":
+            case "tabs_closed":
+            case "tail_drain_overlap":
+            case "tail_file_bytes":
+            case "tail_handler_ms":
+            case "tail_ipc_ms":
+            case "tail_parse_ms":
+            case "tail_parse_self_ms":
+            case "tail_queue_ms":
+            case "tail_read_bytes":
+            case "tail_read_ms":
+            case "tail_reparse_count":
+            case "tail_rows_kept":
+            case "tail_rows_parsed":
+            case "tail_rungs":
+            case "tail_session_wait_ms":
+            case "tail_source":
+            case "taken":
+            case "target":
+            case "target_from_flag":
+            case "target_id":
+            case "target_kind":
+            case "target_message_uuid":
+            case "target_version":
+            case "task_count":
+            case "task_type":
+            case "task_wait_seconds":
+            case "tasks_already_remote":
+            case "tasks_failed":
+            case "tasks_remote":
+            case "tasks_repointed":
+            case "tasks_stopped":
+            case "tasks_total":
+            case "tcc_folder_kind":
+            case "teardown_reason":
             case "telemetry":
+            case "terminal":
             case "test":
+            case "text_len":
+            case "text_length":
+            case "text_variant":
+            case "thinking_forced":
+            case "third_party":
+            case "third_party_gpu_modules_allowed":
             case "thread":
+            case "time_visible_ms":
+            case "timed_out":
+            case "timed_out_here":
+            case "timed_out_phase":
+            case "timeout_ms":
+            case "timing_ms":
+            case "title_check_outcome":
+            case "title_overlap_pct":
+            case "title_source":
+            case "title_turn_known":
+            case "title_via_cli_outcome":
             case "tls":
+            case "to_display":
+            case "to_level":
+            case "to_mode":
+            case "to_version":
+            case "tool":
+            case "tool_age_ms":
+            case "tool_builtin":
+            case "tool_calls":
+            case "tool_hash":
+            case "tool_host_sessions":
+            case "tool_input":
+            case "tool_input_original_length":
+            case "tool_input_size_bytes":
+            case "tool_input_truncated":
+            case "tool_name":
+            case "tool_name_safe":
+            case "tool_parameters":
+            case "tool_result_size_bytes":
+            case "tool_running_at_send":
+            case "tool_source":
+            case "tool_truncated":
+            case "tool_use_count_since_plan_call":
+            case "tool_use_id":
+            case "tools":
+            case "tools_count":
+            case "tools_parse_error":
+            case "top1_footprint_bytes":
+            case "top2_footprint_bytes":
+            case "top3_footprint_bytes":
+            case "total_attempts":
+            case "total_duration_ms":
+            case "total_extensions_installed":
+            case "total_failures":
+            case "total_mem_gb":
+            case "total_ms":
+            case "total_observed_runs":
+            case "total_retry_duration_ms":
+            case "total_stalls":
+            case "total_to_assistant_ms":
+            case "total_to_init_ms":
+            case "total_tokens":
+            case "total_tool_uses":
+            case "tracked_processes":
+            case "transcript_bytes":
+            case "transcript_fill_rows":
+            case "transcript_length":
+            case "transcript_line_count":
+            case "transcript_ms":
+            case "transcript_page_fallback":
+            case "transcript_page_source":
+            case "transcript_relocated":
+            case "transcript_result":
+            case "transcript_size_bytes":
+            case "transcript_total_rows":
+            case "transcripts_deleted":
+            case "transcripts_exempted_desktop":
+            case "transitions_seen":
+            case "transport":
+            case "transport_type":
+            case "trigger":
+            case "trigger_id":
+            case "trigger_type":
+            case "truncated":
+            case "trust_check_cause":
+            case "trust_total_ms":
+            case "ttft_ms":
+            case "turn_box_mounted":
+            case "turn_interrupted":
+            case "turn_ms":
+            case "turn_origin":
+            case "turn_scope":
+            case "turns_before_ptl":
+            case "turns_bucket":
+            case "turns_since_title":
+            case "type":
+            case "ui_app":
+            case "unarchive":
+            case "unattended":
+            case "unavailable_probe_code":
+            case "unavailable_probe_reason":
+            case "unclean_days":
+            case "uncovered_count":
+            case "unhealthy_reason":
+            case "uninterruptible":
+            case "unknown_answers":
+            case "unlisted_check_failed":
+            case "unlisted_gone_not_available":
+            case "unlisted_gone_not_found":
+            case "unlisted_gone_scan_not_served":
+            case "unlisted_gone_withheld":
+            case "unlisted_present":
+            case "unlisted_sent":
+            case "unlisted_unknown":
+            case "unread_steers":
+            case "unreadable":
+            case "unreadable_count":
+            case "unreadable_files":
+            case "unreadable_settings":
+            case "unreadable_store":
+            case "unrecorded":
+            case "unstarted":
+            case "unsupported_code":
+            case "until":
+            case "untracked_discard_requested":
+            case "unverified":
+            case "unwound_refusal_fallback":
+            case "update_channel":
+            case "update_count":
+            case "update_relaunch_marker":
+            case "update_version":
+            case "updated_cron":
+            case "updated_description":
+            case "updated_disable_jitter":
+            case "updated_display_name":
+            case "updated_enabled":
+            case "updated_fire_at":
+            case "updated_notify_on_completion":
+            case "updated_project_uuids":
+            case "updated_prompt":
+            case "upgraded_existing":
+            case "upload_net_error_name":
             case "url":
+            case "url_class":
+            case "url_scheme":
+            case "used_default":
             case "user":
             case "user_agent":
+            case "user_message_uuid":
+            case "user_prompt":
+            case "user_prompt_length":
+            case "user_system_prompt":
+            case "user_system_prompt_original_length":
+            case "user_system_prompt_truncated":
+            case "user_waiting":
             case "v8js":
+            case "variant":
+            case "vars_adopted":
             case "vcs":
+            case "verb":
+            case "verdict":
+            case "verdict_detail":
+            case "verdict_source":
+            case "verified_since_recovery":
+            case "version":
+            case "via":
+            case "via_fallback":
+            case "via_oopif":
+            case "viewport_size_bucket":
+            case "vm_guest_connected":
+            case "vm_network_mode":
+            case "wait_ms":
+            case "waited_for_claude":
+            case "waited_minutes":
+            case "waited_ms":
+            case "waiting_children":
+            case "waiting_in":
+            case "wake_at":
+            case "wake_delivery":
+            case "wake_duration_ms":
+            case "wake_ordinal":
+            case "wake_when_done":
+            case "wakes_in_episode":
+            case "wakes_since_user_message":
+            case "wakeup_in_ms":
+            case "warm_duration_ms":
+            case "warm_trigger":
+            case "warmed_count":
+            case "warnings_count":
+            case "was_auto_disabled":
+            case "was_cross_repo":
+            case "was_held":
+            case "was_hidden":
+            case "was_hidden_any":
+            case "was_mid_turn":
+            case "was_recovered":
+            case "was_running":
+            case "was_submit":
+            case "watch_connected_ms":
+            case "watch_enabled":
+            case "watch_state":
+            case "wave":
             case "wcf":
+            case "web_commit_hash":
             case "webengine":
+            case "while_working_held":
+            case "why":
+            case "willRetry":
+            case "will_hold":
+            case "will_retry":
+            case "window_fallback":
+            case "window_ms":
+            case "window_parked":
+            case "window_probe_error":
+            case "windows_host":
+            case "windows_host_jobs":
+            case "woken_by":
             case "workflow":
+            case "working":
+            case "workspace":
+            case "workspaces_seeded":
+            case "worktree":
+            case "worktree_cleanup_requested":
+            case "worktree_created":
+            case "worktree_kept_dirty":
+            case "worktree_lazy":
+            case "worktree_mode":
+            case "worktree_ms":
+            case "worktree_path":
+            case "worktree_pool_enabled":
+            case "worktree_refusal":
+            case "worktree_reused":
+            case "worktree_source":
+            case "would_offer":
+            case "written":
+            case "written_unacked":
+            case "wsl":
+            case "wsl_error_code":
+            case "wt_add_ms":
+            case "wt_checkout_race_ms":
+            case "wt_checkout_retried":
+            case "wt_checkout_workers":
+            case "wt_config_copied":
+            case "wt_config_deferred":
+            case "wt_config_overlay_ms":
+            case "wt_config_overlay_outcome":
+            case "wt_fetch_ms":
+            case "wt_fetch_outcome":
+            case "wt_fetch_settled":
+            case "wt_filter_refresh_ms":
+            case "wt_filter_refresh_no_space":
+            case "wt_full_checkout_ms":
+            case "wt_git_crypt_binary":
+            case "wt_git_crypt_keys":
+            case "wt_git_crypt_left":
+            case "wt_git_spawns":
+            case "wt_hooks_config_ms":
+            case "wt_include_matched":
+            case "wt_include_patterns_dropped":
+            case "wt_include_scan_mode":
+            case "wt_include_scan_ms":
+            case "wt_include_scan_outcome":
+            case "wt_include_unsearched_dirs":
+            case "wt_lfs_hydrate_ms":
+            case "wt_lfs_hydrated":
+            case "wt_lfs_not_local":
+            case "wt_lfs_rejected":
+            case "wt_lfs_skipped":
+            case "wt_load_avg_1m":
+            case "wt_overlay_settled_ms":
+            case "wt_post_checkout_hook_ms":
+            case "wt_post_checkout_hook_ran":
+            case "wt_prep_ms":
+            case "wt_stage1_ms":
+            case "wt_status_cache_prime":
+            case "wt_tracked_files":
+            case "xcode_change":
+            case "xcode_on_disk":
             case "zos":
                 return root;
             default:

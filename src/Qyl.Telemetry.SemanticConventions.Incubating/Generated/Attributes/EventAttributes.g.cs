@@ -18,4 +18,20 @@ public static class EventAttributes
     /// </summary>
     [global::System.Obsolete("The value of this attribute MUST now be set as the value of the EventName field on the LogRecord to indicate that the LogRecord represents an Event. ", false)]
     public const string Name = "event.name";
+
+    /// <summary>
+    /// Producer sequence number; the Claude Code counter is process scoped and resets on restart.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#standard-attributes. https://code.claude.com/docs/en/monitoring-usage:780. https://code.claude.com/docs/en/monitoring-usage:799.
+    /// </remarks>
+    public const string Sequence = "event.sequence";
+
+    /// <summary>
+    /// Time at which the producer recorded the event.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#standard-attributes. https://code.claude.com/docs/en/monitoring-usage:779. https://code.claude.com/docs/en/monitoring-usage:798.
+    /// </remarks>
+    public const string Timestamp = "event.timestamp";
 }

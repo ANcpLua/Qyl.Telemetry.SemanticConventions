@@ -251,9 +251,244 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     private QylAttributeNamespace(string value) => _value = value;
 
     /// <summary>
+    /// The <c>_scrubError</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ScrubError { get; } = new("_scrubError");
+
+    /// <summary>
+    /// The <c>abandon_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AbandonReason { get; } = new("abandon_reason");
+
+    /// <summary>
+    /// The <c>abandoned_ms_ago</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AbandonedMsAgo { get; } = new("abandoned_ms_ago");
+
+    /// <summary>
+    /// The <c>abandoned_processes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AbandonedProcesses { get; } = new("abandoned_processes");
+
+    /// <summary>
+    /// The <c>aborted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Aborted { get; } = new("aborted");
+
+    /// <summary>
+    /// The <c>accessibility_features</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AccessibilityFeatures { get; } = new("accessibility_features");
+
+    /// <summary>
+    /// The <c>accessibility_support_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AccessibilitySupportEnabled { get; } = new("accessibility_support_enabled");
+
+    /// <summary>
+    /// The <c>account_enabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AccountEnabledCount { get; } = new("account_enabled_count");
+
+    /// <summary>
+    /// The <c>account_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AccountUuid { get; } = new("account_uuid");
+
+    /// <summary>
+    /// The <c>acked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Acked { get; } = new("acked");
+
+    /// <summary>
+    /// The <c>action</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Action { get; } = new("action");
+
+    /// <summary>
+    /// The <c>active_background_task_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveBackgroundTaskCount { get; } = new("active_background_task_count");
+
+    /// <summary>
+    /// The <c>active_chain_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveChainLength { get; } = new("active_chain_length");
+
+    /// <summary>
+    /// The <c>active_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveCount { get; } = new("active_count");
+
+    /// <summary>
+    /// The <c>active_cron_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveCronCount { get; } = new("active_cron_count");
+
+    /// <summary>
+    /// The <c>active_mcp_server_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveMcpServerCount { get; } = new("active_mcp_server_count");
+
+    /// <summary>
+    /// The <c>active_phase_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActivePhaseMs { get; } = new("active_phase_ms");
+
+    /// <summary>
+    /// The <c>active_process_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveProcessCount { get; } = new("active_process_count");
+
+    /// <summary>
+    /// The <c>active_session_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveSessionCount { get; } = new("active_session_count");
+
+    /// <summary>
+    /// The <c>active_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveSessions { get; } = new("active_sessions");
+
+    /// <summary>
+    /// The <c>active_workflow_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActiveWorkflowCount { get; } = new("active_workflow_count");
+
+    /// <summary>
+    /// The <c>acts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Acts { get; } = new("acts");
+
+    /// <summary>
+    /// The <c>actual_sha256</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ActualSha256 { get; } = new("actual_sha256");
+
+    /// <summary>
+    /// The <c>addedDirs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AddedDirs { get; } = new("addedDirs");
+
+    /// <summary>
+    /// The <c>additional_context_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AdditionalContextChars { get; } = new("additional_context_chars");
+
+    /// <summary>
+    /// The <c>admin_removed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AdminRemoved { get; } = new("admin_removed");
+
+    /// <summary>
+    /// The <c>adoptable_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AdoptableSessions { get; } = new("adoptable_sessions");
+
+    /// <summary>
+    /// The <c>adopted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Adopted { get; } = new("adopted");
+
+    /// <summary>
+    /// The <c>adopted_first_attempt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AdoptedFirstAttempt { get; } = new("adopted_first_attempt");
+
+    /// <summary>
+    /// The <c>adopts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Adopts { get; } = new("adopts");
+
+    /// <summary>
+    /// The <c>after_clear_or_rewind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AfterClearOrRewind { get; } = new("after_clear_or_rewind");
+
+    /// <summary>
+    /// The <c>after_paint_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AfterPaintMs { get; } = new("after_paint_ms");
+
+    /// <summary>
+    /// The <c>age_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AgeDays { get; } = new("age_days");
+
+    /// <summary>
+    /// The <c>age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AgeMs { get; } = new("age_ms");
+
+    /// <summary>
+    /// The <c>agent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Agent { get; } = new("agent");
+
+    /// <summary>
+    /// The <c>agent_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AgentId { get; } = new("agent_id");
+
+    /// <summary>
+    /// The <c>agent_path_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AgentPathCount { get; } = new("agent_path_count");
+
+    /// <summary>
+    /// The <c>agent_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AgentType { get; } = new("agent_type");
+
+    /// <summary>
+    /// The <c>ahead_of_read</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AheadOfRead { get; } = new("ahead_of_read");
+
+    /// <summary>
+    /// The <c>airplane_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AirplaneMode { get; } = new("airplane_mode");
+
+    /// <summary>
+    /// The <c>already_archived</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AlreadyArchived { get; } = new("already_archived");
+
+    /// <summary>
+    /// The <c>already_exited</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AlreadyExited { get; } = new("already_exited");
+
+    /// <summary>
+    /// The <c>already_there</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AlreadyThere { get; } = new("already_there");
+
+    /// <summary>
+    /// The <c>always_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AlwaysScope { get; } = new("always_scope");
+
+    /// <summary>
+    /// The <c>anchor_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AnchorSource { get; } = new("anchor_source");
+
+    /// <summary>
     /// The <c>android</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Android { get; } = new("android");
+
+    /// <summary>
+    /// The <c>anthropic</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Anthropic { get; } = new("anthropic");
+
+    /// <summary>
+    /// The <c>any_window_visible</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AnyWindowVisible { get; } = new("any_window_visible");
 
     /// <summary>
     /// The <c>app</c> attribute namespace.
@@ -261,14 +496,329 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace App { get; } = new("app");
 
     /// <summary>
+    /// The <c>app_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppClass { get; } = new("app_class");
+
+    /// <summary>
+    /// The <c>app_focused</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppFocused { get; } = new("app_focused");
+
+    /// <summary>
+    /// The <c>app_quit_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppQuitTrigger { get; } = new("app_quit_trigger");
+
+    /// <summary>
+    /// The <c>app_stall</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppStall { get; } = new("app_stall");
+
+    /// <summary>
+    /// The <c>app_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppVersion { get; } = new("app_version");
+
+    /// <summary>
+    /// The <c>appearance_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AppearanceId { get; } = new("appearance_id");
+
+    /// <summary>
+    /// The <c>archive_index_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArchiveIndexState { get; } = new("archive_index_state");
+
+    /// <summary>
+    /// The <c>archived</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Archived { get; } = new("archived");
+
+    /// <summary>
+    /// The <c>archived_phase_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArchivedPhaseMs { get; } = new("archived_phase_ms");
+
+    /// <summary>
+    /// The <c>archived_phase_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArchivedPhaseTrigger { get; } = new("archived_phase_trigger");
+
+    /// <summary>
+    /// The <c>archived_with_bridge_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArchivedWithBridgeCount { get; } = new("archived_with_bridge_count");
+
+    /// <summary>
+    /// The <c>arm</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Arm { get; } = new("arm");
+
+    /// <summary>
+    /// The <c>armed_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArmedBy { get; } = new("armed_by");
+
+    /// <summary>
+    /// The <c>armed_cron_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArmedCronCount { get; } = new("armed_cron_count");
+
+    /// <summary>
+    /// The <c>armed_durable_cron_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArmedDurableCronCount { get; } = new("armed_durable_cron_count");
+
+    /// <summary>
+    /// The <c>arriving_frame_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArrivingFrameMs { get; } = new("arriving_frame_ms");
+
+    /// <summary>
     /// The <c>artifact</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Artifact { get; } = new("artifact");
 
     /// <summary>
+    /// The <c>artifacts_deleted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ArtifactsDeleted { get; } = new("artifacts_deleted");
+
+    /// <summary>
+    /// The <c>ask_took</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AskTook { get; } = new("ask_took");
+
+    /// <summary>
     /// The <c>aspnetcore</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Aspnetcore { get; } = new("aspnetcore");
+
+    /// <summary>
+    /// The <c>assistant_narration_block_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantNarrationBlockCount { get; } = new("assistant_narration_block_count");
+
+    /// <summary>
+    /// The <c>assistant_narration_char_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantNarrationCharCount { get; } = new("assistant_narration_char_count");
+
+    /// <summary>
+    /// The <c>assistant_text_block_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantTextBlockCount { get; } = new("assistant_text_block_count");
+
+    /// <summary>
+    /// The <c>assistant_text_char_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantTextCharCount { get; } = new("assistant_text_char_count");
+
+    /// <summary>
+    /// The <c>assistant_tool_group_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantToolGroupCount { get; } = new("assistant_tool_group_count");
+
+    /// <summary>
+    /// The <c>assistant_tool_use_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AssistantToolUseCount { get; } = new("assistant_tool_use_count");
+
+    /// <summary>
+    /// The <c>at_launch</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AtLaunch { get; } = new("at_launch");
+
+    /// <summary>
+    /// The <c>at_turn_boundary</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AtTurnBoundary { get; } = new("at_turn_boundary");
+
+    /// <summary>
+    /// The <c>attach_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttachReason { get; } = new("attach_reason");
+
+    /// <summary>
+    /// The <c>attached_devices</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttachedDevices { get; } = new("attached_devices");
+
+    /// <summary>
+    /// The <c>attached_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttachedDurationMs { get; } = new("attached_duration_ms");
+
+    /// <summary>
+    /// The <c>attachment_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttachmentBytes { get; } = new("attachment_bytes");
+
+    /// <summary>
+    /// The <c>attachment_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttachmentSeq { get; } = new("attachment_seq");
+
+    /// <summary>
+    /// The <c>attachments</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Attachments { get; } = new("attachments");
+
+    /// <summary>
+    /// The <c>attempt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Attempt { get; } = new("attempt");
+
+    /// <summary>
+    /// The <c>attempt_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptId { get; } = new("attempt_id");
+
+    /// <summary>
+    /// The <c>attempt_index</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptIndex { get; } = new("attempt_index");
+
+    /// <summary>
+    /// The <c>attempt_num</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptNum { get; } = new("attempt_num");
+
+    /// <summary>
+    /// The <c>attempt_number</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptNumber { get; } = new("attempt_number");
+
+    /// <summary>
+    /// The <c>attempted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Attempted { get; } = new("attempted");
+
+    /// <summary>
+    /// The <c>attempted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptedCount { get; } = new("attempted_count");
+
+    /// <summary>
+    /// The <c>attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Attempts { get; } = new("attempts");
+
+    /// <summary>
+    /// The <c>attempts_before_recovery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttemptsBeforeRecovery { get; } = new("attempts_before_recovery");
+
+    /// <summary>
+    /// The <c>attestation_form</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AttestationForm { get; } = new("attestation_form");
+
+    /// <summary>
+    /// The <c>auth_auto_retry</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AuthAutoRetry { get; } = new("auth_auto_retry");
+
+    /// <summary>
+    /// The <c>auth_method</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AuthMethod { get; } = new("auth_method");
+
+    /// <summary>
+    /// The <c>authorization</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Authorization { get; } = new("authorization");
+
+    /// <summary>
+    /// The <c>auto_archive_on_close</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoArchiveOnClose { get; } = new("auto_archive_on_close");
+
+    /// <summary>
+    /// The <c>auto_compact</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoCompact { get; } = new("auto_compact");
+
+    /// <summary>
+    /// The <c>auto_compact_attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoCompactAttempts { get; } = new("auto_compact_attempts");
+
+    /// <summary>
+    /// The <c>auto_compact_recovered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoCompactRecovered { get; } = new("auto_compact_recovered");
+
+    /// <summary>
+    /// The <c>auto_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoEnabled { get; } = new("auto_enabled");
+
+    /// <summary>
+    /// The <c>auto_fix</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoFix { get; } = new("auto_fix");
+
+    /// <summary>
+    /// The <c>auto_merge</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoMerge { get; } = new("auto_merge");
+
+    /// <summary>
+    /// The <c>auto_merge_seen</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoMergeSeen { get; } = new("auto_merge_seen");
+
+    /// <summary>
+    /// The <c>auto_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoReason { get; } = new("auto_reason");
+
+    /// <summary>
+    /// The <c>auto_reconnect_attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoReconnectAttempts { get; } = new("auto_reconnect_attempts");
+
+    /// <summary>
+    /// The <c>auto_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoSource { get; } = new("auto_source");
+
+    /// <summary>
+    /// The <c>auto_updates_disabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AutoUpdatesDisabled { get; } = new("auto_updates_disabled");
+
+    /// <summary>
+    /// The <c>automatic</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Automatic { get; } = new("automatic");
+
+    /// <summary>
+    /// The <c>awaited_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AwaitedMs { get; } = new("awaited_ms");
+
+    /// <summary>
+    /// The <c>awaited_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AwaitedOutcome { get; } = new("awaited_outcome");
+
+    /// <summary>
+    /// The <c>awaited_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AwaitedReason { get; } = new("awaited_reason");
+
+    /// <summary>
+    /// The <c>away_at_failure</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AwayAtFailure { get; } = new("away_at_failure");
+
+    /// <summary>
+    /// The <c>away_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace AwayMs { get; } = new("away_ms");
 
     /// <summary>
     /// The <c>aws</c> attribute namespace.
@@ -286,9 +836,249 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Azure { get; } = new("azure");
 
     /// <summary>
+    /// The <c>backend</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Backend { get; } = new("backend");
+
+    /// <summary>
+    /// The <c>backend_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BackendKind { get; } = new("backend_kind");
+
+    /// <summary>
+    /// The <c>backfill_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BackfillOutcome { get; } = new("backfill_outcome");
+
+    /// <summary>
+    /// The <c>background</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Background { get; } = new("background");
+
+    /// <summary>
+    /// The <c>backgrounded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Backgrounded { get; } = new("backgrounded");
+
+    /// <summary>
+    /// The <c>backoff_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BackoffMs { get; } = new("backoff_ms");
+
+    /// <summary>
+    /// The <c>bailed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Bailed { get; } = new("bailed");
+
+    /// <summary>
+    /// The <c>base_config_cache_hit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BaseConfigCacheHit { get; } = new("base_config_cache_hit");
+
+    /// <summary>
+    /// The <c>bash_argv0</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BashArgv0 { get; } = new("bash_argv0");
+
+    /// <summary>
+    /// The <c>bash_command</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BashCommand { get; } = new("bash_command");
+
+    /// <summary>
+    /// The <c>bash_command_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BashCommandClass { get; } = new("bash_command_class");
+
+    /// <summary>
+    /// The <c>bash_command_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BashCommandOriginalLength { get; } = new("bash_command_original_length");
+
+    /// <summary>
+    /// The <c>bash_command_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BashCommandTruncated { get; } = new("bash_command_truncated");
+
+    /// <summary>
+    /// The <c>basis</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Basis { get; } = new("basis");
+
+    /// <summary>
+    /// The <c>batch_pr_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BatchPrCount { get; } = new("batch_pr_count");
+
+    /// <summary>
+    /// The <c>batch_request_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BatchRequestCount { get; } = new("batch_request_count");
+
+    /// <summary>
+    /// The <c>bearer_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BearerState { get; } = new("bearer_state");
+
+    /// <summary>
+    /// The <c>bearer_token_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BearerTokenType { get; } = new("bearer_token_type");
+
+    /// <summary>
+    /// The <c>bind_eligible_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BindEligibleCount { get; } = new("bind_eligible_count");
+
+    /// <summary>
+    /// The <c>bind_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BindOutcome { get; } = new("bind_outcome");
+
+    /// <summary>
+    /// The <c>bind_unsigned_keyless</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BindUnsignedKeyless { get; } = new("bind_unsigned_keyless");
+
+    /// <summary>
+    /// The <c>bind_web_key</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BindWebKey { get; } = new("bind_web_key");
+
+    /// <summary>
+    /// The <c>blocked_chrome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedChrome { get; } = new("blocked_chrome");
+
+    /// <summary>
+    /// The <c>blocked_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedCount { get; } = new("blocked_count");
+
+    /// <summary>
+    /// The <c>blocked_custom_cron</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedCustomCron { get; } = new("blocked_custom_cron");
+
+    /// <summary>
+    /// The <c>blocked_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedCwd { get; } = new("blocked_cwd");
+
+    /// <summary>
+    /// The <c>blocked_dispatch_hook</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedDispatchHook { get; } = new("blocked_dispatch_hook");
+
+    /// <summary>
+    /// The <c>blocked_local_files_only</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedLocalFilesOnly { get; } = new("blocked_local_files_only");
+
+    /// <summary>
+    /// The <c>blocked_local_folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedLocalFolders { get; } = new("blocked_local_folders");
+
+    /// <summary>
+    /// The <c>blocked_no_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedNoPrompt { get; } = new("blocked_no_prompt");
+
+    /// <summary>
+    /// The <c>blocked_pattern_approvals</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedPatternApprovals { get; } = new("blocked_pattern_approvals");
+
+    /// <summary>
+    /// The <c>blocked_projects</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedProjects { get; } = new("blocked_projects");
+
+    /// <summary>
+    /// The <c>blocked_projects_multi_or_malformed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedProjectsMultiOrMalformed { get; } = new("blocked_projects_multi_or_malformed");
+
+    /// <summary>
+    /// The <c>blocked_space</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedSpace { get; } = new("blocked_space");
+
+    /// <summary>
+    /// The <c>blocked_sub_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlockedSubHourly { get; } = new("blocked_sub_hourly");
+
+    /// <summary>
+    /// The <c>blocking</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Blocking { get; } = new("blocking");
+
+    /// <summary>
+    /// The <c>blocks_committed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BlocksCommitted { get; } = new("blocks_committed");
+
+    /// <summary>
+    /// The <c>body</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Body { get; } = new("body");
+
+    /// <summary>
+    /// The <c>body_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BodyLength { get; } = new("body_length");
+
+    /// <summary>
+    /// The <c>body_ref</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BodyRef { get; } = new("body_ref");
+
+    /// <summary>
+    /// The <c>body_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BodyTruncated { get; } = new("body_truncated");
+
+    /// <summary>
+    /// The <c>body_withheld</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BodyWithheld { get; } = new("body_withheld");
+
+    /// <summary>
+    /// The <c>bounce_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BounceReason { get; } = new("bounce_reason");
+
+    /// <summary>
+    /// The <c>brake_rule</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BrakeRule { get; } = new("brake_rule");
+
+    /// <summary>
+    /// The <c>branch_reattached</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BranchReattached { get; } = new("branch_reattached");
+
+    /// <summary>
+    /// The <c>bridge_url_present</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BridgeUrlPresent { get; } = new("bridge_url_present");
+
+    /// <summary>
     /// The <c>browser</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Browser { get; } = new("browser");
+
+    /// <summary>
+    /// The <c>bucket_gb</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BucketGb { get; } = new("bucket_gb");
+
+    /// <summary>
+    /// The <c>bucket_pct_of_ram</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BucketPctOfRam { get; } = new("bucket_pct_of_ram");
 
     /// <summary>
     /// The <c>build</c> attribute namespace.
@@ -296,9 +1086,319 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Build { get; } = new("build");
 
     /// <summary>
+    /// The <c>busy</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Busy { get; } = new("busy");
+
+    /// <summary>
+    /// The <c>bypassed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Bypassed { get; } = new("bypassed");
+
+    /// <summary>
+    /// The <c>bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Bytes { get; } = new("bytes");
+
+    /// <summary>
+    /// The <c>bytes_at_failure</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BytesAtFailure { get; } = new("bytes_at_failure");
+
+    /// <summary>
+    /// The <c>bytes_downloaded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BytesDownloaded { get; } = new("bytes_downloaded");
+
+    /// <summary>
+    /// The <c>bytes_dropped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BytesDropped { get; } = new("bytes_dropped");
+
+    /// <summary>
+    /// The <c>bytes_missing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BytesMissing { get; } = new("bytes_missing");
+
+    /// <summary>
+    /// The <c>bytes_received</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace BytesReceived { get; } = new("bytes_received");
+
+    /// <summary>
+    /// The <c>cache_creation_1h_input_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreation1hInputTokens { get; } = new("cache_creation_1h_input_tokens");
+
+    /// <summary>
+    /// The <c>cache_creation_1h_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreation1hTokens { get; } = new("cache_creation_1h_tokens");
+
+    /// <summary>
+    /// The <c>cache_creation_5m_input_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreation5mInputTokens { get; } = new("cache_creation_5m_input_tokens");
+
+    /// <summary>
+    /// The <c>cache_creation_5m_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreation5mTokens { get; } = new("cache_creation_5m_tokens");
+
+    /// <summary>
+    /// The <c>cache_creation_input_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreationInputTokens { get; } = new("cache_creation_input_tokens");
+
+    /// <summary>
+    /// The <c>cache_creation_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheCreationTokens { get; } = new("cache_creation_tokens");
+
+    /// <summary>
+    /// The <c>cache_hit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheHit { get; } = new("cache_hit");
+
+    /// <summary>
+    /// The <c>cache_read_input_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheReadInputTokens { get; } = new("cache_read_input_tokens");
+
+    /// <summary>
+    /// The <c>cache_read_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CacheReadTokens { get; } = new("cache_read_tokens");
+
+    /// <summary>
+    /// The <c>cached</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cached { get; } = new("cached");
+
+    /// <summary>
+    /// The <c>cadence_daily</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceDaily { get; } = new("cadence_daily");
+
+    /// <summary>
+    /// The <c>cadence_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceHourly { get; } = new("cadence_hourly");
+
+    /// <summary>
+    /// The <c>cadence_manual</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceManual { get; } = new("cadence_manual");
+
+    /// <summary>
+    /// The <c>cadence_one_shot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceOneShot { get; } = new("cadence_one_shot");
+
+    /// <summary>
+    /// The <c>cadence_other</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceOther { get; } = new("cadence_other");
+
+    /// <summary>
+    /// The <c>cadence_sub_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceSubHourly { get; } = new("cadence_sub_hourly");
+
+    /// <summary>
+    /// The <c>cadence_weekdays</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceWeekdays { get; } = new("cadence_weekdays");
+
+    /// <summary>
+    /// The <c>cadence_weekly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CadenceWeekly { get; } = new("cadence_weekly");
+
+    /// <summary>
+    /// The <c>caller</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Caller { get; } = new("caller");
+
+    /// <summary>
+    /// The <c>can_recover</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CanRecover { get; } = new("can_recover");
+
+    /// <summary>
+    /// The <c>can_rewind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CanRewind { get; } = new("can_rewind");
+
+    /// <summary>
+    /// The <c>cancel_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CancelReason { get; } = new("cancel_reason");
+
+    /// <summary>
+    /// The <c>cancelled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cancelled { get; } = new("cancelled");
+
+    /// <summary>
+    /// The <c>candidate_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CandidateCount { get; } = new("candidate_count");
+
+    /// <summary>
+    /// The <c>candidates</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Candidates { get; } = new("candidates");
+
+    /// <summary>
+    /// The <c>candidates_checked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CandidatesChecked { get; } = new("candidates_checked");
+
+    /// <summary>
+    /// The <c>cap_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CapBytes { get; } = new("cap_bytes");
+
+    /// <summary>
+    /// The <c>capacity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Capacity { get; } = new("capacity");
+
+    /// <summary>
+    /// The <c>capture_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CaptureKind { get; } = new("capture_kind");
+
+    /// <summary>
+    /// The <c>card_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CardReason { get; } = new("card_reason");
+
+    /// <summary>
+    /// The <c>carrier</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Carrier { get; } = new("carrier");
+
+    /// <summary>
+    /// The <c>carry_row</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CarryRow { get; } = new("carry_row");
+
+    /// <summary>
     /// The <c>cassandra</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Cassandra { get; } = new("cassandra");
+
+    /// <summary>
+    /// The <c>category</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Category { get; } = new("category");
+
+    /// <summary>
+    /// The <c>cause</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cause { get; } = new("cause");
+
+    /// <summary>
+    /// The <c>ccd_booted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CcdBooted { get; } = new("ccd_booted");
+
+    /// <summary>
+    /// The <c>ccd_live_cli_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CcdLiveCliCount { get; } = new("ccd_live_cli_count");
+
+    /// <summary>
+    /// The <c>ccd_overhead_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CcdOverheadMs { get; } = new("ccd_overhead_ms");
+
+    /// <summary>
+    /// The <c>ccd_steering</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CcdSteering { get; } = new("ccd_steering");
+
+    /// <summary>
+    /// The <c>ccr</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Ccr { get; } = new("ccr");
+
+    /// <summary>
+    /// The <c>chain_active</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChainActive { get; } = new("chain_active");
+
+    /// <summary>
+    /// The <c>chain_continues</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChainContinues { get; } = new("chain_continues");
+
+    /// <summary>
+    /// The <c>chain_starts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChainStarts { get; } = new("chain_starts");
+
+    /// <summary>
+    /// The <c>change_key</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChangeKey { get; } = new("change_key");
+
+    /// <summary>
+    /// The <c>changed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChangedCount { get; } = new("changed_count");
+
+    /// <summary>
+    /// The <c>chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Chars { get; } = new("chars");
+
+    /// <summary>
+    /// The <c>check_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CheckCount { get; } = new("check_count");
+
+    /// <summary>
+    /// The <c>check_ordinal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CheckOrdinal { get; } = new("check_ordinal");
+
+    /// <summary>
+    /// The <c>check_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CheckSource { get; } = new("check_source");
+
+    /// <summary>
+    /// The <c>checkout_barrier</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CheckoutBarrier { get; } = new("checkout_barrier");
+
+    /// <summary>
+    /// The <c>checkout_overlap_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CheckoutOverlapMode { get; } = new("checkout_overlap_mode");
+
+    /// <summary>
+    /// The <c>child_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChildSessionId { get; } = new("child_session_id");
+
+    /// <summary>
+    /// The <c>children</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Children { get; } = new("children");
+
+    /// <summary>
+    /// The <c>choice</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Choice { get; } = new("choice");
+
+    /// <summary>
+    /// The <c>chunk_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ChunkCount { get; } = new("chunk_count");
 
     /// <summary>
     /// The <c>cicd</c> attribute namespace.
@@ -306,9 +1406,224 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Cicd { get; } = new("cicd");
 
     /// <summary>
+    /// The <c>claim_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClaimCount { get; } = new("claim_count");
+
+    /// <summary>
+    /// The <c>claims</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Claims { get; } = new("claims");
+
+    /// <summary>
+    /// The <c>clamped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Clamped { get; } = new("clamped");
+
+    /// <summary>
+    /// The <c>clash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Clash { get; } = new("clash");
+
+    /// <summary>
+    /// The <c>claude</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Claude { get; } = new("claude");
+
+    /// <summary>
+    /// The <c>claude_settings</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClaudeSettings { get; } = new("claude_settings");
+
+    /// <summary>
+    /// The <c>clean_read_banked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CleanReadBanked { get; } = new("clean_read_banked");
+
+    /// <summary>
+    /// The <c>clean_shutdown</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CleanShutdown { get; } = new("clean_shutdown");
+
+    /// <summary>
+    /// The <c>cleared_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClearedBy { get; } = new("cleared_by");
+
+    /// <summary>
+    /// The <c>cli_binary_choice</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliBinaryChoice { get; } = new("cli_binary_choice");
+
+    /// <summary>
+    /// The <c>cli_current_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliCurrentVersion { get; } = new("cli_current_version");
+
+    /// <summary>
+    /// The <c>cli_fetch_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliFetchBytes { get; } = new("cli_fetch_bytes");
+
+    /// <summary>
+    /// The <c>cli_fetch_failure</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliFetchFailure { get; } = new("cli_fetch_failure");
+
+    /// <summary>
+    /// The <c>cli_fetch_fell_back</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliFetchFellBack { get; } = new("cli_fetch_fell_back");
+
+    /// <summary>
+    /// The <c>cli_fetch_longest_pause_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliFetchLongestPauseMs { get; } = new("cli_fetch_longest_pause_ms");
+
+    /// <summary>
+    /// The <c>cli_fetch_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliFetchMs { get; } = new("cli_fetch_ms");
+
+    /// <summary>
+    /// The <c>cli_informed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliInformed { get; } = new("cli_informed");
+
+    /// <summary>
+    /// The <c>cli_install_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliInstallSource { get; } = new("cli_install_source");
+
+    /// <summary>
+    /// The <c>cli_pinned_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliPinnedVersion { get; } = new("cli_pinned_version");
+
+    /// <summary>
+    /// The <c>cli_process_group_learned</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliProcessGroupLearned { get; } = new("cli_process_group_learned");
+
+    /// <summary>
+    /// The <c>cli_provably_idle</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliProvablyIdle { get; } = new("cli_provably_idle");
+
+    /// <summary>
+    /// The <c>cli_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliSessionId { get; } = new("cli_session_id");
+
+    /// <summary>
+    /// The <c>cli_stderr_tail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliStderrTail { get; } = new("cli_stderr_tail");
+
+    /// <summary>
+    /// The <c>cli_upload_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadBytes { get; } = new("cli_upload_bytes");
+
+    /// <summary>
+    /// The <c>cli_upload_folder_not_plain</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadFolderNotPlain { get; } = new("cli_upload_folder_not_plain");
+
+    /// <summary>
+    /// The <c>cli_upload_longest_pause_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadLongestPauseMs { get; } = new("cli_upload_longest_pause_ms");
+
+    /// <summary>
+    /// The <c>cli_upload_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadMs { get; } = new("cli_upload_ms");
+
+    /// <summary>
+    /// The <c>cli_upload_pauses</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadPauses { get; } = new("cli_upload_pauses");
+
+    /// <summary>
+    /// The <c>cli_upload_restarted_after_reject</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadRestartedAfterReject { get; } = new("cli_upload_restarted_after_reject");
+
+    /// <summary>
+    /// The <c>cli_upload_resumed_from_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUploadResumedFromBytes { get; } = new("cli_upload_resumed_from_bytes");
+
+    /// <summary>
+    /// The <c>cli_uptime_s</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliUptimeS { get; } = new("cli_uptime_s");
+
+    /// <summary>
+    /// The <c>cli_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CliVersion { get; } = new("cli_version");
+
+    /// <summary>
+    /// The <c>click_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClickAgeMs { get; } = new("click_age_ms");
+
+    /// <summary>
+    /// The <c>clicked_in</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClickedIn { get; } = new("clicked_in");
+
+    /// <summary>
     /// The <c>client</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Client { get; } = new("client");
+
+    /// <summary>
+    /// The <c>client_request_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClientRequestId { get; } = new("client_request_id");
+
+    /// <summary>
+    /// The <c>client_run_id_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClientRunIdSource { get; } = new("client_run_id_source");
+
+    /// <summary>
+    /// The <c>clock_offset_decision</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClockOffsetDecision { get; } = new("clock_offset_decision");
+
+    /// <summary>
+    /// The <c>clock_offset_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClockOffsetMs { get; } = new("clock_offset_ms");
+
+    /// <summary>
+    /// The <c>close_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CloseCount { get; } = new("close_count");
+
+    /// <summary>
+    /// The <c>close_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CloseReason { get; } = new("close_reason");
+
+    /// <summary>
+    /// The <c>close_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CloseTrigger { get; } = new("close_trigger");
+
+    /// <summary>
+    /// The <c>closed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Closed { get; } = new("closed");
+
+    /// <summary>
+    /// The <c>closing_message_char_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ClosingMessageCharCount { get; } = new("closing_message_char_count");
 
     /// <summary>
     /// The <c>cloud</c> attribute namespace.
@@ -331,9 +1646,264 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Code { get; } = new("code");
 
     /// <summary>
+    /// The <c>code_cli_running</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CodeCliRunning { get; } = new("code_cli_running");
+
+    /// <summary>
+    /// The <c>code_session_active</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CodeSessionActive { get; } = new("code_session_active");
+
+    /// <summary>
+    /// The <c>cold_boot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ColdBoot { get; } = new("cold_boot");
+
+    /// <summary>
+    /// The <c>cold_start</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ColdStart { get; } = new("cold_start");
+
+    /// <summary>
+    /// The <c>command</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Command { get; } = new("command");
+
+    /// <summary>
+    /// The <c>command_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandLength { get; } = new("command_length");
+
+    /// <summary>
+    /// The <c>command_marks</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandMarks { get; } = new("command_marks");
+
+    /// <summary>
+    /// The <c>command_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandName { get; } = new("command_name");
+
+    /// <summary>
+    /// The <c>command_path_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandPathCount { get; } = new("command_path_count");
+
+    /// <summary>
+    /// The <c>command_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandSource { get; } = new("command_source");
+
+    /// <summary>
+    /// The <c>commands_run</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommandsRun { get; } = new("commands_run");
+
+    /// <summary>
+    /// The <c>comment_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommentCount { get; } = new("comment_count");
+
+    /// <summary>
+    /// The <c>comments_inlined_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommentsInlinedCount { get; } = new("comments_inlined_count");
+
+    /// <summary>
+    /// The <c>comments_truncated_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CommentsTruncatedCount { get; } = new("comments_truncated_count");
+
+    /// <summary>
+    /// The <c>compact_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CompactError { get; } = new("compact_error");
+
+    /// <summary>
+    /// The <c>completed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Completed { get; } = new("completed");
+
+    /// <summary>
+    /// The <c>completed_turns</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CompletedTurns { get; } = new("completed_turns");
+
+    /// <summary>
+    /// The <c>configured_root_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConfiguredRootCount { get; } = new("configured_root_count");
+
+    /// <summary>
+    /// The <c>confined</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Confined { get; } = new("confined");
+
+    /// <summary>
+    /// The <c>confirm_requests</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConfirmRequests { get; } = new("confirm_requests");
+
+    /// <summary>
+    /// The <c>confirmed_screens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConfirmedScreens { get; } = new("confirmed_screens");
+
+    /// <summary>
+    /// The <c>conflict_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConflictKind { get; } = new("conflict_kind");
+
+    /// <summary>
+    /// The <c>conflict_reminder_ordinal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConflictReminderOrdinal { get; } = new("conflict_reminder_ordinal");
+
+    /// <summary>
+    /// The <c>conflict_retries</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConflictRetries { get; } = new("conflict_retries");
+
+    /// <summary>
+    /// The <c>conflicted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConflictedCount { get; } = new("conflicted_count");
+
+    /// <summary>
+    /// The <c>connect_attempt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectAttempt { get; } = new("connect_attempt");
+
+    /// <summary>
+    /// The <c>connect_error_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectErrorKind { get; } = new("connect_error_kind");
+
+    /// <summary>
+    /// The <c>connect_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectTrigger { get; } = new("connect_trigger");
+
+    /// <summary>
+    /// The <c>connection_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectionDurationMs { get; } = new("connection_duration_ms");
+
+    /// <summary>
+    /// The <c>connection_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectionFailed { get; } = new("connection_failed");
+
+    /// <summary>
+    /// The <c>connection_generation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConnectionGeneration { get; } = new("connection_generation");
+
+    /// <summary>
+    /// The <c>consecutive_failures</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConsecutiveFailures { get; } = new("consecutive_failures");
+
+    /// <summary>
+    /// The <c>consecutive_ticks</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ConsecutiveTicks { get; } = new("consecutive_ticks");
+
+    /// <summary>
+    /// The <c>contained_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContainedBy { get; } = new("contained_by");
+
+    /// <summary>
     /// The <c>container</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Container { get; } = new("container");
+
+    /// <summary>
+    /// The <c>content</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Content { get; } = new("content");
+
+    /// <summary>
+    /// The <c>content_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContentOriginalLength { get; } = new("content_original_length");
+
+    /// <summary>
+    /// The <c>content_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContentTruncated { get; } = new("content_truncated");
+
+    /// <summary>
+    /// The <c>context</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Context { get; } = new("context");
+
+    /// <summary>
+    /// The <c>context_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContextTokens { get; } = new("context_tokens");
+
+    /// <summary>
+    /// The <c>contexts_destroyed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContextsDestroyed { get; } = new("contexts_destroyed");
+
+    /// <summary>
+    /// The <c>continuation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Continuation { get; } = new("continuation");
+
+    /// <summary>
+    /// The <c>continue_message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ContinueMessageUuid { get; } = new("continue_message_uuid");
+
+    /// <summary>
+    /// The <c>conversations</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Conversations { get; } = new("conversations");
+
+    /// <summary>
+    /// The <c>cookies</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cookies { get; } = new("cookies");
+
+    /// <summary>
+    /// The <c>copied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Copied { get; } = new("copied");
+
+    /// <summary>
+    /// The <c>copy_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CopyMs { get; } = new("copy_ms");
+
+    /// <summary>
+    /// The <c>cost_usd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CostUsd { get; } = new("cost_usd");
+
+    /// <summary>
+    /// The <c>cost_usd_micros</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CostUsdMicros { get; } = new("cost_usd_micros");
+
+    /// <summary>
+    /// The <c>count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Count { get; } = new("count");
+
+    /// <summary>
+    /// The <c>cowork_folder</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CoworkFolder { get; } = new("cowork_folder");
+
+    /// <summary>
+    /// The <c>cowork_session_active</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CoworkSessionActive { get; } = new("cowork_session_active");
 
     /// <summary>
     /// The <c>cpu</c> attribute namespace.
@@ -346,9 +1916,269 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Cpython { get; } = new("cpython");
 
     /// <summary>
+    /// The <c>crashed_app_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CrashedAppVersion { get; } = new("crashed_app_version");
+
+    /// <summary>
+    /// The <c>created</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Created { get; } = new("created");
+
+    /// <summary>
+    /// The <c>creator_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CreatorSessionId { get; } = new("creator_session_id");
+
+    /// <summary>
+    /// The <c>creator_session_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CreatorSessionType { get; } = new("creator_session_type");
+
+    /// <summary>
+    /// The <c>cta</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cta { get; } = new("cta");
+
+    /// <summary>
+    /// The <c>cumulative_stall_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CumulativeStallMs { get; } = new("cumulative_stall_ms");
+
+    /// <summary>
+    /// The <c>current_title_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CurrentTitleChars { get; } = new("current_title_chars");
+
+    /// <summary>
+    /// The <c>current_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CurrentVersion { get; } = new("current_version");
+
+    /// <summary>
+    /// The <c>cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Cwd { get; } = new("cwd");
+
+    /// <summary>
+    /// The <c>cycle_health</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace CycleHealth { get; } = new("cycle_health");
+
+    /// <summary>
+    /// The <c>daemon_instance</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaemonInstance { get; } = new("daemon_instance");
+
+    /// <summary>
+    /// The <c>daemon_instance_changed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaemonInstanceChanged { get; } = new("daemon_instance_changed");
+
+    /// <summary>
+    /// The <c>daemon_instance_known</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaemonInstanceKnown { get; } = new("daemon_instance_known");
+
+    /// <summary>
+    /// The <c>daemon_upgrade</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaemonUpgrade { get; } = new("daemon_upgrade");
+
+    /// <summary>
+    /// The <c>daemon_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaemonVersion { get; } = new("daemon_version");
+
+    /// <summary>
+    /// The <c>days_since_migration</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DaysSinceMigration { get; } = new("days_since_migration");
+
+    /// <summary>
     /// The <c>db</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Db { get; } = new("db");
+
+    /// <summary>
+    /// The <c>decide_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecideMs { get; } = new("decide_ms");
+
+    /// <summary>
+    /// The <c>decided_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecidedBy { get; } = new("decided_by");
+
+    /// <summary>
+    /// The <c>decision</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Decision { get; } = new("decision");
+
+    /// <summary>
+    /// The <c>decision_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecisionMs { get; } = new("decision_ms");
+
+    /// <summary>
+    /// The <c>decision_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecisionReason { get; } = new("decision_reason");
+
+    /// <summary>
+    /// The <c>decision_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecisionSource { get; } = new("decision_source");
+
+    /// <summary>
+    /// The <c>decision_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DecisionType { get; } = new("decision_type");
+
+    /// <summary>
+    /// The <c>declares_parent_tools</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeclaresParentTools { get; } = new("declares_parent_tools");
+
+    /// <summary>
+    /// The <c>declined</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Declined { get; } = new("declined");
+
+    /// <summary>
+    /// The <c>deduplicated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Deduplicated { get; } = new("deduplicated");
+
+    /// <summary>
+    /// The <c>deeplink_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeeplinkAgeMs { get; } = new("deeplink_age_ms");
+
+    /// <summary>
+    /// The <c>defer_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferMs { get; } = new("defer_ms");
+
+    /// <summary>
+    /// The <c>deferred_archived_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredArchivedCount { get; } = new("deferred_archived_count");
+
+    /// <summary>
+    /// The <c>deferred_at_start</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredAtStart { get; } = new("deferred_at_start");
+
+    /// <summary>
+    /// The <c>deferred_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredCount { get; } = new("deferred_count");
+
+    /// <summary>
+    /// The <c>deferred_for_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredForMs { get; } = new("deferred_for_ms");
+
+    /// <summary>
+    /// The <c>deferred_sends</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredSends { get; } = new("deferred_sends");
+
+    /// <summary>
+    /// The <c>deferred_startup_reads</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeferredStartupReads { get; } = new("deferred_startup_reads");
+
+    /// <summary>
+    /// The <c>delayed_by_claude_work</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DelayedByClaudeWork { get; } = new("delayed_by_claude_work");
+
+    /// <summary>
+    /// The <c>delayed_by_user_activity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DelayedByUserActivity { get; } = new("delayed_by_user_activity");
+
+    /// <summary>
+    /// The <c>delegated_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DelegatedTool { get; } = new("delegated_tool");
+
+    /// <summary>
+    /// The <c>delete_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeleteSessions { get; } = new("delete_sessions");
+
+    /// <summary>
+    /// The <c>deleted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Deleted { get; } = new("deleted");
+
+    /// <summary>
+    /// The <c>deleted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeletedCount { get; } = new("deleted_count");
+
+    /// <summary>
+    /// The <c>delivered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Delivered { get; } = new("delivered");
+
+    /// <summary>
+    /// The <c>delivered_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeliveredCount { get; } = new("delivered_count");
+
+    /// <summary>
+    /// The <c>delta_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeltaMs { get; } = new("delta_ms");
+
+    /// <summary>
+    /// The <c>demand_refresh_failed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DemandRefreshFailedCount { get; } = new("demand_refresh_failed_count");
+
+    /// <summary>
+    /// The <c>demand_refresh_floored_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DemandRefreshFlooredCount { get; } = new("demand_refresh_floored_count");
+
+    /// <summary>
+    /// The <c>demand_refresh_held_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DemandRefreshHeldCount { get; } = new("demand_refresh_held_count");
+
+    /// <summary>
+    /// The <c>demand_refresh_read_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DemandRefreshReadCount { get; } = new("demand_refresh_read_count");
+
+    /// <summary>
+    /// The <c>denied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Denied { get; } = new("denied");
+
+    /// <summary>
+    /// The <c>denied_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeniedCount { get; } = new("denied_count");
+
+    /// <summary>
+    /// The <c>dependency_folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DependencyFolders { get; } = new("dependency_folders");
+
+    /// <summary>
+    /// The <c>deploy_bytes_total</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeployBytesTotal { get; } = new("deploy_bytes_total");
+
+    /// <summary>
+    /// The <c>deploy_bytes_transferred</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeployBytesTransferred { get; } = new("deploy_bytes_transferred");
 
     /// <summary>
     /// The <c>deployment</c> attribute namespace.
@@ -356,9 +2186,34 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Deployment { get; } = new("deployment");
 
     /// <summary>
+    /// The <c>deployment_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeploymentKind { get; } = new("deployment_kind");
+
+    /// <summary>
     /// The <c>destination</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Destination { get; } = new("destination");
+
+    /// <summary>
+    /// The <c>detach_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DetachMs { get; } = new("detach_ms");
+
+    /// <summary>
+    /// The <c>detached_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DetachedMs { get; } = new("detached_ms");
+
+    /// <summary>
+    /// The <c>detail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Detail { get; } = new("detail");
+
+    /// <summary>
+    /// The <c>detected_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DetectedBy { get; } = new("detected_by");
 
     /// <summary>
     /// The <c>device</c> attribute namespace.
@@ -366,9 +2221,224 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Device { get; } = new("device");
 
     /// <summary>
+    /// The <c>device_free_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeviceFreeCount { get; } = new("device_free_count");
+
+    /// <summary>
+    /// The <c>device_id_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeviceIdKind { get; } = new("device_id_kind");
+
+    /// <summary>
+    /// The <c>device_platform</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DevicePlatform { get; } = new("device_platform");
+
+    /// <summary>
+    /// The <c>device_specified</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DeviceSpecified { get; } = new("device_specified");
+
+    /// <summary>
+    /// The <c>dial_context_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DialContextVersion { get; } = new("dial_context_version");
+
+    /// <summary>
+    /// The <c>dialed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Dialed { get; } = new("dialed");
+
+    /// <summary>
+    /// The <c>died</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Died { get; } = new("died");
+
+    /// <summary>
+    /// The <c>diff</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Diff { get; } = new("diff");
+
+    /// <summary>
+    /// The <c>diff_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DiffOriginalLength { get; } = new("diff_original_length");
+
+    /// <summary>
+    /// The <c>diff_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DiffTruncated { get; } = new("diff_truncated");
+
+    /// <summary>
+    /// The <c>differed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Differed { get; } = new("differed");
+
+    /// <summary>
+    /// The <c>direction</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Direction { get; } = new("direction");
+
+    /// <summary>
+    /// The <c>disable_jitter</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DisableJitter { get; } = new("disable_jitter");
+
+    /// <summary>
+    /// The <c>disabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Disabled { get; } = new("disabled");
+
+    /// <summary>
+    /// The <c>disabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DisabledCount { get; } = new("disabled_count");
+
+    /// <summary>
+    /// The <c>disabled_migratable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DisabledMigratableCount { get; } = new("disabled_migratable_count");
+
+    /// <summary>
+    /// The <c>discarded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Discarded { get; } = new("discarded");
+
+    /// <summary>
+    /// The <c>discarded_partial</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DiscardedPartial { get; } = new("discarded_partial");
+
+    /// <summary>
     /// The <c>disk</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Disk { get; } = new("disk");
+
+    /// <summary>
+    /// The <c>dismissed_by_model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DismissedByModel { get; } = new("dismissed_by_model");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_chrome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedChrome { get; } = new("dispatch_origin_blocked_chrome");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedCount { get; } = new("dispatch_origin_blocked_count");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_custom_cron</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedCustomCron { get; } = new("dispatch_origin_blocked_custom_cron");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedCwd { get; } = new("dispatch_origin_blocked_cwd");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_dispatch_hook</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedDispatchHook { get; } = new("dispatch_origin_blocked_dispatch_hook");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_local_folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedLocalFolders { get; } = new("dispatch_origin_blocked_local_folders");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_no_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedNoPrompt { get; } = new("dispatch_origin_blocked_no_prompt");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_pattern_approvals</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedPatternApprovals { get; } = new("dispatch_origin_blocked_pattern_approvals");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_projects</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedProjects { get; } = new("dispatch_origin_blocked_projects");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_space</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedSpace { get; } = new("dispatch_origin_blocked_space");
+
+    /// <summary>
+    /// The <c>dispatch_origin_blocked_sub_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginBlockedSubHourly { get; } = new("dispatch_origin_blocked_sub_hourly");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_daily</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceDaily { get; } = new("dispatch_origin_cadence_daily");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceHourly { get; } = new("dispatch_origin_cadence_hourly");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_manual</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceManual { get; } = new("dispatch_origin_cadence_manual");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_one_shot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceOneShot { get; } = new("dispatch_origin_cadence_one_shot");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_other</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceOther { get; } = new("dispatch_origin_cadence_other");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_sub_hourly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceSubHourly { get; } = new("dispatch_origin_cadence_sub_hourly");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_weekdays</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceWeekdays { get; } = new("dispatch_origin_cadence_weekdays");
+
+    /// <summary>
+    /// The <c>dispatch_origin_cadence_weekly</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCadenceWeekly { get; } = new("dispatch_origin_cadence_weekly");
+
+    /// <summary>
+    /// The <c>dispatch_origin_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginCount { get; } = new("dispatch_origin_count");
+
+    /// <summary>
+    /// The <c>dispatch_origin_last_run_age_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginLastRunAgeBucket { get; } = new("dispatch_origin_last_run_age_bucket");
+
+    /// <summary>
+    /// The <c>dispatch_origin_migratable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginMigratableCount { get; } = new("dispatch_origin_migratable_count");
+
+    /// <summary>
+    /// The <c>dispatch_origin_unreadable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DispatchOriginUnreadableCount { get; } = new("dispatch_origin_unreadable_count");
+
+    /// <summary>
+    /// The <c>disposition</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Disposition { get; } = new("disposition");
 
     /// <summary>
     /// The <c>dns</c> attribute namespace.
@@ -376,14 +2446,89 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Dns { get; } = new("dns");
 
     /// <summary>
+    /// The <c>dormant_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DormantDays { get; } = new("dormant_days");
+
+    /// <summary>
     /// The <c>dotnet</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Dotnet { get; } = new("dotnet");
 
     /// <summary>
+    /// The <c>draft_len</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DraftLen { get; } = new("draft_len");
+
+    /// <summary>
+    /// The <c>dropped_ms_ago</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedMsAgo { get; } = new("dropped_ms_ago");
+
+    /// <summary>
+    /// The <c>dropped_overcap</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedOvercap { get; } = new("dropped_overcap");
+
+    /// <summary>
+    /// The <c>dropped_oversized</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedOversized { get; } = new("dropped_oversized");
+
+    /// <summary>
+    /// The <c>dropped_since_last</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedSinceLast { get; } = new("dropped_since_last");
+
+    /// <summary>
+    /// The <c>dropped_unreadable</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedUnreadable { get; } = new("dropped_unreadable");
+
+    /// <summary>
+    /// The <c>dropped_untrusted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DroppedUntrusted { get; } = new("dropped_untrusted");
+
+    /// <summary>
+    /// The <c>dry_run</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DryRun { get; } = new("dry_run");
+
+    /// <summary>
+    /// The <c>duration_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DurationBucket { get; } = new("duration_bucket");
+
+    /// <summary>
+    /// The <c>duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DurationMs { get; } = new("duration_ms");
+
+    /// <summary>
+    /// The <c>duration_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace DurationSeconds { get; } = new("duration_seconds");
+
+    /// <summary>
     /// The <c>edge_group</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace EdgeGroup { get; } = new("edge_group");
+
+    /// <summary>
+    /// The <c>effective_root_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EffectiveRootCount { get; } = new("effective_root_count");
+
+    /// <summary>
+    /// The <c>effort</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Effort { get; } = new("effort");
+
+    /// <summary>
+    /// The <c>elapsed_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ElapsedMs { get; } = new("elapsed_ms");
 
     /// <summary>
     /// The <c>elastic</c> attribute namespace.
@@ -396,9 +2541,139 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Elasticsearch { get; } = new("elasticsearch");
 
     /// <summary>
+    /// The <c>emit_delay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EmitDelayMs { get; } = new("emit_delay_ms");
+
+    /// <summary>
+    /// The <c>emit_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EmitReason { get; } = new("emit_reason");
+
+    /// <summary>
+    /// The <c>enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Enabled { get; } = new("enabled");
+
+    /// <summary>
+    /// The <c>enabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnabledCount { get; } = new("enabled_count");
+
+    /// <summary>
+    /// The <c>enabled_mcp_tool_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnabledMcpToolCount { get; } = new("enabled_mcp_tool_count");
+
+    /// <summary>
+    /// The <c>enabled_via</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnabledVia { get; } = new("enabled_via");
+
+    /// <summary>
+    /// The <c>enabled_via_override</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnabledViaOverride { get; } = new("enabled_via_override");
+
+    /// <summary>
+    /// The <c>end_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EndReason { get; } = new("end_reason");
+
+    /// <summary>
+    /// The <c>ended_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EndedBy { get; } = new("ended_by");
+
+    /// <summary>
+    /// The <c>ended_by_unmount</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EndedByUnmount { get; } = new("ended_by_unmount");
+
+    /// <summary>
+    /// The <c>ended_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EndedTurn { get; } = new("ended_turn");
+
+    /// <summary>
+    /// The <c>ends_mid_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EndsMidTurn { get; } = new("ends_mid_turn");
+
+    /// <summary>
     /// The <c>enduser</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Enduser { get; } = new("enduser");
+
+    /// <summary>
+    /// The <c>enforcement_hours</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnforcementHours { get; } = new("enforcement_hours");
+
+    /// <summary>
+    /// The <c>engine_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EngineVersion { get; } = new("engine_version");
+
+    /// <summary>
+    /// The <c>enqueue_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnqueueMs { get; } = new("enqueue_ms");
+
+    /// <summary>
+    /// The <c>entries</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Entries { get; } = new("entries");
+
+    /// <summary>
+    /// The <c>entry</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Entry { get; } = new("entry");
+
+    /// <summary>
+    /// The <c>entry_point</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EntryPoint { get; } = new("entry_point");
+
+    /// <summary>
+    /// The <c>env_not_sent_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnvNotSentFailed { get; } = new("env_not_sent_failed");
+
+    /// <summary>
+    /// The <c>env_not_sent_servers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnvNotSentServers { get; } = new("env_not_sent_servers");
+
+    /// <summary>
+    /// The <c>environment_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnvironmentId { get; } = new("environment_id");
+
+    /// <summary>
+    /// The <c>environment_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EnvironmentSource { get; } = new("environment_source");
+
+    /// <summary>
+    /// The <c>environments</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Environments { get; } = new("environments");
+
+    /// <summary>
+    /// The <c>episode_index</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EpisodeIndex { get; } = new("episode_index");
+
+    /// <summary>
+    /// The <c>episode_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EpisodeMs { get; } = new("episode_ms");
+
+    /// <summary>
+    /// The <c>episode_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EpisodeOutcome { get; } = new("episode_outcome");
 
     /// <summary>
     /// The <c>error</c> attribute namespace.
@@ -406,9 +2681,119 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Error { get; } = new("error");
 
     /// <summary>
+    /// The <c>errorMessage</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorMessage { get; } = new("errorMessage");
+
+    /// <summary>
+    /// The <c>error_category</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorCategory { get; } = new("error_category");
+
+    /// <summary>
+    /// The <c>error_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorClass { get; } = new("error_class");
+
+    /// <summary>
+    /// The <c>error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorCode { get; } = new("error_code");
+
+    /// <summary>
+    /// The <c>error_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorCount { get; } = new("error_count");
+
+    /// <summary>
+    /// The <c>error_description</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorDescription { get; } = new("error_description");
+
+    /// <summary>
+    /// The <c>error_detail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorDetail { get; } = new("error_detail");
+
+    /// <summary>
+    /// The <c>error_domain</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorDomain { get; } = new("error_domain");
+
+    /// <summary>
+    /// The <c>error_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorKind { get; } = new("error_kind");
+
+    /// <summary>
+    /// The <c>error_message</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorMessageNamespace { get; } = new("error_message");
+
+    /// <summary>
+    /// The <c>error_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorName { get; } = new("error_name");
+
+    /// <summary>
+    /// The <c>error_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ErrorType { get; } = new("error_type");
+
+    /// <summary>
+    /// The <c>errors</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Errors { get; } = new("errors");
+
+    /// <summary>
+    /// The <c>escalated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Escalated { get; } = new("escalated");
+
+    /// <summary>
+    /// The <c>estimated_cache_write_usd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EstimatedCacheWriteUsd { get; } = new("estimated_cache_write_usd");
+
+    /// <summary>
+    /// The <c>evaluated_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EvaluatedCount { get; } = new("evaluated_count");
+
+    /// <summary>
     /// The <c>event</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Event { get; } = new("event");
+
+    /// <summary>
+    /// The <c>event_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EventOrigin { get; } = new("event_origin");
+
+    /// <summary>
+    /// The <c>event_origin_server</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EventOriginServer { get; } = new("event_origin_server");
+
+    /// <summary>
+    /// The <c>event_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EventType { get; } = new("event_type");
+
+    /// <summary>
+    /// The <c>ever_connected</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EverConnected { get; } = new("ever_connected");
+
+    /// <summary>
+    /// The <c>evicted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace EvictedCount { get; } = new("evicted_count");
+
+    /// <summary>
+    /// The <c>evidence</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Evidence { get; } = new("evidence");
 
     /// <summary>
     /// The <c>exception</c> attribute namespace.
@@ -426,9 +2811,189 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Executor { get; } = new("executor");
 
     /// <summary>
+    /// The <c>exit_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExitCode { get; } = new("exit_code");
+
+    /// <summary>
+    /// The <c>exit_code_decoded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExitCodeDecoded { get; } = new("exit_code_decoded");
+
+    /// <summary>
+    /// The <c>exit_killed_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExitKilledBy { get; } = new("exit_killed_by");
+
+    /// <summary>
+    /// The <c>exit_signal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExitSignal { get; } = new("exit_signal");
+
+    /// <summary>
+    /// The <c>expected_cli_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExpectedCliVersion { get; } = new("expected_cli_version");
+
+    /// <summary>
+    /// The <c>expected_height</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExpectedHeight { get; } = new("expected_height");
+
+    /// <summary>
+    /// The <c>expected_sha256</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExpectedSha256 { get; } = new("expected_sha256");
+
+    /// <summary>
+    /// The <c>expected_width</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExpectedWidth { get; } = new("expected_width");
+
+    /// <summary>
+    /// The <c>expired</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Expired { get; } = new("expired");
+
+    /// <summary>
+    /// The <c>explainer_shown</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExplainerShown { get; } = new("explainer_shown");
+
+    /// <summary>
+    /// The <c>extension_author</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExtensionAuthor { get; } = new("extension_author");
+
+    /// <summary>
+    /// The <c>extension_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExtensionId { get; } = new("extension_id");
+
+    /// <summary>
+    /// The <c>extension_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExtensionName { get; } = new("extension_name");
+
+    /// <summary>
+    /// The <c>extension_skipped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExtensionSkipped { get; } = new("extension_skipped");
+
+    /// <summary>
+    /// The <c>extension_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ExtensionVersion { get; } = new("extension_version");
+
+    /// <summary>
     /// The <c>faas</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Faas { get; } = new("faas");
+
+    /// <summary>
+    /// The <c>failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Failed { get; } = new("failed");
+
+    /// <summary>
+    /// The <c>failed_acts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedActs { get; } = new("failed_acts");
+
+    /// <summary>
+    /// The <c>failed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedCount { get; } = new("failed_count");
+
+    /// <summary>
+    /// The <c>failed_not_found</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedNotFound { get; } = new("failed_not_found");
+
+    /// <summary>
+    /// The <c>failed_other</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedOther { get; } = new("failed_other");
+
+    /// <summary>
+    /// The <c>failed_phase</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedPhase { get; } = new("failed_phase");
+
+    /// <summary>
+    /// The <c>failed_timeout</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedTimeout { get; } = new("failed_timeout");
+
+    /// <summary>
+    /// The <c>failed_writes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailedWrites { get; } = new("failed_writes");
+
+    /// <summary>
+    /// The <c>failing_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailingCount { get; } = new("failing_count");
+
+    /// <summary>
+    /// The <c>failure</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Failure { get; } = new("failure");
+
+    /// <summary>
+    /// The <c>failure_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailureAgeMs { get; } = new("failure_age_ms");
+
+    /// <summary>
+    /// The <c>failure_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailureReason { get; } = new("failure_reason");
+
+    /// <summary>
+    /// The <c>failure_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FailureType { get; } = new("failure_type");
+
+    /// <summary>
+    /// The <c>failures</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Failures { get; } = new("failures");
+
+    /// <summary>
+    /// The <c>fallback</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Fallback { get; } = new("fallback");
+
+    /// <summary>
+    /// The <c>fallback_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FallbackCwd { get; } = new("fallback_cwd");
+
+    /// <summary>
+    /// The <c>fast_folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FastFolders { get; } = new("fast_folders");
+
+    /// <summary>
+    /// The <c>fast_forward</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FastForward { get; } = new("fast_forward");
+
+    /// <summary>
+    /// The <c>fatal_startup_result</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FatalStartupResult { get; } = new("fatal_startup_result");
+
+    /// <summary>
+    /// The <c>fault_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FaultClass { get; } = new("fault_class");
+
+    /// <summary>
+    /// The <c>feature</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Feature { get; } = new("feature");
 
     /// <summary>
     /// The <c>feature_flag</c> attribute namespace.
@@ -436,9 +3001,519 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace FeatureFlag { get; } = new("feature_flag");
 
     /// <summary>
+    /// The <c>feature_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FeatureHash { get; } = new("feature_hash");
+
+    /// <summary>
+    /// The <c>feature_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FeatureSource { get; } = new("feature_source");
+
+    /// <summary>
+    /// The <c>feed_arch</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FeedArch { get; } = new("feed_arch");
+
+    /// <summary>
+    /// The <c>fence_detail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FenceDetail { get; } = new("fence_detail");
+
+    /// <summary>
     /// The <c>file</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace File { get; } = new("file");
+
+    /// <summary>
+    /// The <c>file_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FileCount { get; } = new("file_count");
+
+    /// <summary>
+    /// The <c>file_path</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilePath { get; } = new("file_path");
+
+    /// <summary>
+    /// The <c>file_path_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilePathOriginalLength { get; } = new("file_path_original_length");
+
+    /// <summary>
+    /// The <c>file_path_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilePathTruncated { get; } = new("file_path_truncated");
+
+    /// <summary>
+    /// The <c>filed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FiledCount { get; } = new("filed_count");
+
+    /// <summary>
+    /// The <c>files</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Files { get; } = new("files");
+
+    /// <summary>
+    /// The <c>files_changed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilesChangedCount { get; } = new("files_changed_count");
+
+    /// <summary>
+    /// The <c>files_past_cutoff</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilesPastCutoff { get; } = new("files_past_cutoff");
+
+    /// <summary>
+    /// The <c>files_removed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilesRemoved { get; } = new("files_removed");
+
+    /// <summary>
+    /// The <c>files_retained_fresh</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FilesRetainedFresh { get; } = new("files_retained_fresh");
+
+    /// <summary>
+    /// The <c>fill_rows</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FillRows { get; } = new("fill_rows");
+
+    /// <summary>
+    /// The <c>final</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Final { get; } = new("final");
+
+    /// <summary>
+    /// The <c>final_model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FinalModel { get; } = new("final_model");
+
+    /// <summary>
+    /// The <c>fire_safety_skipped_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FireSafetySkippedCount { get; } = new("fire_safety_skipped_count");
+
+    /// <summary>
+    /// The <c>fired_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FiredBy { get; } = new("fired_by");
+
+    /// <summary>
+    /// The <c>first_assistant_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstAssistantMs { get; } = new("first_assistant_ms");
+
+    /// <summary>
+    /// The <c>first_block_streaming</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstBlockStreaming { get; } = new("first_block_streaming");
+
+    /// <summary>
+    /// The <c>first_child_in_job</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstChildInJob { get; } = new("first_child_in_job");
+
+    /// <summary>
+    /// The <c>first_content_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstContentMs { get; } = new("first_content_ms");
+
+    /// <summary>
+    /// The <c>first_content_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstContentSource { get; } = new("first_content_source");
+
+    /// <summary>
+    /// The <c>first_load</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstLoad { get; } = new("first_load");
+
+    /// <summary>
+    /// The <c>first_paint_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstPaintMs { get; } = new("first_paint_ms");
+
+    /// <summary>
+    /// The <c>first_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstSeq { get; } = new("first_seq");
+
+    /// <summary>
+    /// The <c>first_timeout_op</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstTimeoutOp { get; } = new("first_timeout_op");
+
+    /// <summary>
+    /// The <c>first_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstTurn { get; } = new("first_turn");
+
+    /// <summary>
+    /// The <c>first_turn_since_spawn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstTurnSinceSpawn { get; } = new("first_turn_since_spawn");
+
+    /// <summary>
+    /// The <c>first_wake_message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FirstWakeMessageUuid { get; } = new("first_wake_message_uuid");
+
+    /// <summary>
+    /// The <c>fleet_override</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FleetOverride { get; } = new("fleet_override");
+
+    /// <summary>
+    /// The <c>floors_unset</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FloorsUnset { get; } = new("floors_unset");
+
+    /// <summary>
+    /// The <c>focus_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FocusState { get; } = new("focus_state");
+
+    /// <summary>
+    /// The <c>focused</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Focused { get; } = new("focused");
+
+    /// <summary>
+    /// The <c>folder_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderCount { get; } = new("folder_count");
+
+    /// <summary>
+    /// The <c>folder_grant_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderGrantOutcome { get; } = new("folder_grant_outcome");
+
+    /// <summary>
+    /// The <c>folder_grant_recorded_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderGrantRecordedCount { get; } = new("folder_grant_recorded_count");
+
+    /// <summary>
+    /// The <c>folder_grant_refusal_reasons</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderGrantRefusalReasons { get; } = new("folder_grant_refusal_reasons");
+
+    /// <summary>
+    /// The <c>folder_grant_refused_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderGrantRefusedCount { get; } = new("folder_grant_refused_count");
+
+    /// <summary>
+    /// The <c>folder_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderHash { get; } = new("folder_hash");
+
+    /// <summary>
+    /// The <c>folder_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderReason { get; } = new("folder_reason");
+
+    /// <summary>
+    /// The <c>folder_tree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FolderTree { get; } = new("folder_tree");
+
+    /// <summary>
+    /// The <c>folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Folders { get; } = new("folders");
+
+    /// <summary>
+    /// The <c>folders_excluded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FoldersExcluded { get; } = new("folders_excluded");
+
+    /// <summary>
+    /// The <c>folders_limited</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FoldersLimited { get; } = new("folders_limited");
+
+    /// <summary>
+    /// The <c>folders_missing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FoldersMissing { get; } = new("folders_missing");
+
+    /// <summary>
+    /// The <c>folders_served</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FoldersServed { get; } = new("folders_served");
+
+    /// <summary>
+    /// The <c>folders_unread</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FoldersUnread { get; } = new("folders_unread");
+
+    /// <summary>
+    /// The <c>followed_hinge</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FollowedHinge { get; } = new("followed_hinge");
+
+    /// <summary>
+    /// The <c>follows_stall_snapshot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FollowsStallSnapshot { get; } = new("follows_stall_snapshot");
+
+    /// <summary>
+    /// The <c>force_ask_cause</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ForceAskCause { get; } = new("force_ask_cause");
+
+    /// <summary>
+    /// The <c>force_cleanup_explicit_false</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ForceCleanupExplicitFalse { get; } = new("force_cleanup_explicit_false");
+
+    /// <summary>
+    /// The <c>fork_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ForkMs { get; } = new("fork_ms");
+
+    /// <summary>
+    /// The <c>found</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Found { get; } = new("found");
+
+    /// <summary>
+    /// The <c>fps</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Fps { get; } = new("fps");
+
+    /// <summary>
+    /// The <c>frame_depth</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FrameDepth { get; } = new("frame_depth");
+
+    /// <summary>
+    /// The <c>frames_after</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FramesAfter { get; } = new("frames_after");
+
+    /// <summary>
+    /// The <c>frames_before</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FramesBefore { get; } = new("frames_before");
+
+    /// <summary>
+    /// The <c>fresh</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Fresh { get; } = new("fresh");
+
+    /// <summary>
+    /// The <c>fresh_start</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FreshStart { get; } = new("fresh_start");
+
+    /// <summary>
+    /// The <c>fresh_worktree_created</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FreshWorktreeCreated { get; } = new("fresh_worktree_created");
+
+    /// <summary>
+    /// The <c>from_card</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromCard { get; } = new("from_card");
+
+    /// <summary>
+    /// The <c>from_deeplink</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromDeeplink { get; } = new("from_deeplink");
+
+    /// <summary>
+    /// The <c>from_level</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromLevel { get; } = new("from_level");
+
+    /// <summary>
+    /// The <c>from_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromMode { get; } = new("from_mode");
+
+    /// <summary>
+    /// The <c>from_preset</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromPreset { get; } = new("from_preset");
+
+    /// <summary>
+    /// The <c>from_project_scan</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromProjectScan { get; } = new("from_project_scan");
+
+    /// <summary>
+    /// The <c>from_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromSeq { get; } = new("from_seq");
+
+    /// <summary>
+    /// The <c>from_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FromVersion { get; } = new("from_version");
+
+    /// <summary>
+    /// The <c>frontier_renders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FrontierRenders { get; } = new("frontier_renders");
+
+    /// <summary>
+    /// The <c>frozen_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FrozenMs { get; } = new("frozen_ms");
+
+    /// <summary>
+    /// The <c>fs_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FsErrorCode { get; } = new("fs_error_code");
+
+    /// <summary>
+    /// The <c>full_checkout_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FullCheckoutWaitMs { get; } = new("full_checkout_wait_ms");
+
+    /// <summary>
+    /// The <c>full_command</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace FullCommand { get; } = new("full_command");
+
+    /// <summary>
+    /// The <c>gap</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Gap { get; } = new("gap");
+
+    /// <summary>
+    /// The <c>gap_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GapMs { get; } = new("gap_ms");
+
+    /// <summary>
+    /// The <c>gate</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Gate { get; } = new("gate");
+
+    /// <summary>
+    /// The <c>gate_blocked_built_in_browser_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedBuiltInBrowserCount { get; } = new("gate_blocked_built_in_browser_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_chrome_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedChromeCount { get; } = new("gate_blocked_chrome_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_cooldown_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedCooldownCount { get; } = new("gate_blocked_cooldown_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedCount { get; } = new("gate_blocked_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_cron_invalid_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedCronInvalidCount { get; } = new("gate_blocked_cron_invalid_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_custom_cron_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedCustomCronCount { get; } = new("gate_blocked_custom_cron_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_cwd_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedCwdCount { get; } = new("gate_blocked_cwd_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_dispatch_hook_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedDispatchHookCount { get; } = new("gate_blocked_dispatch_hook_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_local_folders_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedLocalFoldersCount { get; } = new("gate_blocked_local_folders_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_no_prompt_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedNoPromptCount { get; } = new("gate_blocked_no_prompt_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_pattern_approvals_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedPatternApprovalsCount { get; } = new("gate_blocked_pattern_approvals_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_placement_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedPlacementCount { get; } = new("gate_blocked_placement_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_project_archived_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedProjectArchivedCount { get; } = new("gate_blocked_project_archived_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_project_upgraded_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedProjectUpgradedCount { get; } = new("gate_blocked_project_upgraded_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_projects_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedProjectsCount { get; } = new("gate_blocked_projects_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_remote_control_disabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedRemoteControlDisabledCount { get; } = new("gate_blocked_remote_control_disabled_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_remote_control_unknown_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedRemoteControlUnknownCount { get; } = new("gate_blocked_remote_control_unknown_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_space_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedSpaceCount { get; } = new("gate_blocked_space_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_sub_hourly_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedSubHourlyCount { get; } = new("gate_blocked_sub_hourly_count");
+
+    /// <summary>
+    /// The <c>gate_blocked_unscheduled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateBlockedUnscheduledCount { get; } = new("gate_blocked_unscheduled_count");
+
+    /// <summary>
+    /// The <c>gate_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GateReason { get; } = new("gate_reason");
+
+    /// <summary>
+    /// The <c>gc_cumulative_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GcCumulativeMs { get; } = new("gc_cumulative_ms");
+
+    /// <summary>
+    /// The <c>gc_in_stall_max_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GcInStallMaxMs { get; } = new("gc_in_stall_max_ms");
+
+    /// <summary>
+    /// The <c>gc_in_stall_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GcInStallMs { get; } = new("gc_in_stall_ms");
 
     /// <summary>
     /// The <c>gcp</c> attribute namespace.
@@ -451,9 +3526,49 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace GenAi { get; } = new("gen_ai");
 
     /// <summary>
+    /// The <c>generation_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GenerationAgeMs { get; } = new("generation_age_ms");
+
+    /// <summary>
     /// The <c>geo</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Geo { get; } = new("geo");
+
+    /// <summary>
+    /// The <c>gesture</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Gesture { get; } = new("gesture");
+
+    /// <summary>
+    /// The <c>gesture_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GestureType { get; } = new("gesture_type");
+
+    /// <summary>
+    /// The <c>git</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Git { get; } = new("git");
+
+    /// <summary>
+    /// The <c>git_isolation_errno</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GitIsolationErrno { get; } = new("git_isolation_errno");
+
+    /// <summary>
+    /// The <c>git_isolation_stage</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GitIsolationStage { get; } = new("git_isolation_stage");
+
+    /// <summary>
+    /// The <c>git_remove_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GitRemoveMs { get; } = new("git_remove_ms");
+
+    /// <summary>
+    /// The <c>git_settings_control</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GitSettingsControl { get; } = new("git_settings_control");
 
     /// <summary>
     /// The <c>go</c> attribute namespace.
@@ -461,9 +3576,54 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Go { get; } = new("go");
 
     /// <summary>
+    /// The <c>gone</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Gone { get; } = new("gone");
+
+    /// <summary>
+    /// The <c>grant_copy_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GrantCopyFailed { get; } = new("grant_copy_failed");
+
+    /// <summary>
     /// The <c>graphql</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Graphql { get; } = new("graphql");
+
+    /// <summary>
+    /// The <c>graphql_errors_only_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlErrorsOnlyCount { get; } = new("graphql_errors_only_count");
+
+    /// <summary>
+    /// The <c>graphql_failed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlFailedCount { get; } = new("graphql_failed_count");
+
+    /// <summary>
+    /// The <c>graphql_rate_limited_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlRateLimitedCount { get; } = new("graphql_rate_limited_count");
+
+    /// <summary>
+    /// The <c>graphql_read_by_caller</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlReadByCaller { get; } = new("graphql_read_by_caller");
+
+    /// <summary>
+    /// The <c>graphql_request_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlRequestCount { get; } = new("graphql_request_count");
+
+    /// <summary>
+    /// The <c>graphql_write_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlWriteCount { get; } = new("graphql_write_count");
+
+    /// <summary>
+    /// The <c>graphql_write_failed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace GraphqlWriteFailedCount { get; } = new("graphql_write_failed_count");
 
     /// <summary>
     /// The <c>grpc</c> attribute namespace.
@@ -471,9 +3631,394 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Grpc { get; } = new("grpc");
 
     /// <summary>
+    /// The <c>had_cli_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadCliSession { get; } = new("had_cli_session");
+
+    /// <summary>
+    /// The <c>had_first_response</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadFirstResponse { get; } = new("had_first_response");
+
+    /// <summary>
+    /// The <c>had_input</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadInput { get; } = new("had_input");
+
+    /// <summary>
+    /// The <c>had_interrupt_carrier</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadInterruptCarrier { get; } = new("had_interrupt_carrier");
+
+    /// <summary>
+    /// The <c>had_live_query</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadLiveQuery { get; } = new("had_live_query");
+
+    /// <summary>
+    /// The <c>had_live_wakeup</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadLiveWakeup { get; } = new("had_live_wakeup");
+
+    /// <summary>
+    /// The <c>had_node_modules</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadNodeModules { get; } = new("had_node_modules");
+
+    /// <summary>
+    /// The <c>had_pending_cycle</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadPendingCycle { get; } = new("had_pending_cycle");
+
+    /// <summary>
+    /// The <c>had_pending_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadPendingTurn { get; } = new("had_pending_turn");
+
+    /// <summary>
+    /// The <c>had_result</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadResult { get; } = new("had_result");
+
+    /// <summary>
+    /// The <c>had_scheduled_task</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadScheduledTask { get; } = new("had_scheduled_task");
+
+    /// <summary>
+    /// The <c>had_title</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HadTitle { get; } = new("had_title");
+
+    /// <summary>
+    /// The <c>handed_off</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HandedOff { get; } = new("handed_off");
+
+    /// <summary>
+    /// The <c>handoff_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HandoffTool { get; } = new("handoff_tool");
+
+    /// <summary>
+    /// The <c>hard_deny_served</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HardDenyServed { get; } = new("hard_deny_served");
+
+    /// <summary>
+    /// The <c>has_action_buttons</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasActionButtons { get; } = new("has_action_buttons");
+
+    /// <summary>
+    /// The <c>has_active_query</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasActiveQuery { get; } = new("has_active_query");
+
+    /// <summary>
+    /// The <c>has_category</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasCategory { get; } = new("has_category");
+
+    /// <summary>
+    /// The <c>has_cli_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasCliSessionId { get; } = new("has_cli_session_id");
+
+    /// <summary>
+    /// The <c>has_config</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasConfig { get; } = new("has_config");
+
+    /// <summary>
+    /// The <c>has_cron</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasCron { get; } = new("has_cron");
+
+    /// <summary>
+    /// The <c>has_explanation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasExplanation { get; } = new("has_explanation");
+
+    /// <summary>
+    /// The <c>has_fire_at</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasFireAt { get; } = new("has_fire_at");
+
+    /// <summary>
+    /// The <c>has_hooks</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasHooks { get; } = new("has_hooks");
+
+    /// <summary>
+    /// The <c>has_input_stream</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasInputStream { get; } = new("has_input_stream");
+
+    /// <summary>
+    /// The <c>has_launch_tools</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasLaunchTools { get; } = new("has_launch_tools");
+
+    /// <summary>
+    /// The <c>has_live_processes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasLiveProcesses { get; } = new("has_live_processes");
+
+    /// <summary>
+    /// The <c>has_live_sibling</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasLiveSibling { get; } = new("has_live_sibling");
+
+    /// <summary>
+    /// The <c>has_local_disk</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasLocalDisk { get; } = new("has_local_disk");
+
+    /// <summary>
+    /// The <c>has_mcp</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasMcp { get; } = new("has_mcp");
+
+    /// <summary>
+    /// The <c>has_message</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasMessage { get; } = new("has_message");
+
+    /// <summary>
+    /// The <c>has_more</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasMore { get; } = new("has_more");
+
+    /// <summary>
+    /// The <c>has_notify_on_completion</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasNotifyOnCompletion { get; } = new("has_notify_on_completion");
+
+    /// <summary>
+    /// The <c>has_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasOrigin { get; } = new("has_origin");
+
+    /// <summary>
+    /// The <c>has_target_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasTargetCwd { get; } = new("has_target_cwd");
+
+    /// <summary>
+    /// The <c>has_thread</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasThread { get; } = new("has_thread");
+
+    /// <summary>
+    /// The <c>has_title</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasTitle { get; } = new("has_title");
+
+    /// <summary>
+    /// The <c>has_usage_data</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasUsageData { get; } = new("has_usage_data");
+
+    /// <summary>
+    /// The <c>has_worktree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HasWorktree { get; } = new("has_worktree");
+
+    /// <summary>
+    /// The <c>head_changed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeadChanged { get; } = new("head_changed");
+
+    /// <summary>
+    /// The <c>head_changed_since_first_wake</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeadChangedSinceFirstWake { get; } = new("head_changed_since_first_wake");
+
+    /// <summary>
+    /// The <c>head_ordinal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeadOrdinal { get; } = new("head_ordinal");
+
+    /// <summary>
+    /// The <c>head_unknown_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeadUnknownCount { get; } = new("head_unknown_count");
+
+    /// <summary>
+    /// The <c>heads_in_episode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeadsInEpisode { get; } = new("heads_in_episode");
+
+    /// <summary>
+    /// The <c>healed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Healed { get; } = new("healed");
+
+    /// <summary>
+    /// The <c>heartbeats</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Heartbeats { get; } = new("heartbeats");
+
+    /// <summary>
+    /// The <c>heavy_work_task</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeavyWorkTask { get; } = new("heavy_work_task");
+
+    /// <summary>
+    /// The <c>held</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Held { get; } = new("held");
+
+    /// <summary>
+    /// The <c>held_back</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeldBack { get; } = new("held_back");
+
+    /// <summary>
+    /// The <c>held_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeldCount { get; } = new("held_count");
+
+    /// <summary>
+    /// The <c>held_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeldMs { get; } = new("held_ms");
+
+    /// <summary>
+    /// The <c>held_steers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HeldSteers { get; } = new("held_steers");
+
+    /// <summary>
+    /// The <c>helper_peer_check</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HelperPeerCheck { get; } = new("helper_peer_check");
+
+    /// <summary>
+    /// The <c>helper_quiet_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HelperQuietMs { get; } = new("helper_quiet_ms");
+
+    /// <summary>
+    /// The <c>helper_run</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HelperRun { get; } = new("helper_run");
+
+    /// <summary>
+    /// The <c>helper_uptime_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HelperUptimeMs { get; } = new("helper_uptime_ms");
+
+    /// <summary>
     /// The <c>heroku</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Heroku { get; } = new("heroku");
+
+    /// <summary>
+    /// The <c>hidden_at_emit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HiddenAtEmit { get; } = new("hidden_at_emit");
+
+    /// <summary>
+    /// The <c>hidden_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HiddenCount { get; } = new("hidden_count");
+
+    /// <summary>
+    /// The <c>history_entries_pruned</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HistoryEntriesPruned { get; } = new("history_entries_pruned");
+
+    /// <summary>
+    /// The <c>history_requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HistoryRequested { get; } = new("history_requested");
+
+    /// <summary>
+    /// The <c>history_shim</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HistoryShim { get; } = new("history_shim");
+
+    /// <summary>
+    /// The <c>hit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Hit { get; } = new("hit");
+
+    /// <summary>
+    /// The <c>hit_rtt_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HitRttMs { get; } = new("hit_rtt_ms");
+
+    /// <summary>
+    /// The <c>hold_cause</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HoldCause { get; } = new("hold_cause");
+
+    /// <summary>
+    /// The <c>hold_change</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HoldChange { get; } = new("hold_change");
+
+    /// <summary>
+    /// The <c>hold_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HoldMs { get; } = new("hold_ms");
+
+    /// <summary>
+    /// The <c>hold_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HoldReason { get; } = new("hold_reason");
+
+    /// <summary>
+    /// The <c>holder</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Holder { get; } = new("holder");
+
+    /// <summary>
+    /// The <c>hook_definitions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookDefinitions { get; } = new("hook_definitions");
+
+    /// <summary>
+    /// The <c>hook_event</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookEvent { get; } = new("hook_event");
+
+    /// <summary>
+    /// The <c>hook_matcher</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookMatcher { get; } = new("hook_matcher");
+
+    /// <summary>
+    /// The <c>hook_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookName { get; } = new("hook_name");
+
+    /// <summary>
+    /// The <c>hook_sig_match</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookSigMatch { get; } = new("hook_sig_match");
+
+    /// <summary>
+    /// The <c>hook_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookSource { get; } = new("hook_source");
+
+    /// <summary>
+    /// The <c>hook_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HookType { get; } = new("hook_type");
+
+    /// <summary>
+    /// The <c>hooked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Hooked { get; } = new("hooked");
+
+    /// <summary>
+    /// The <c>hooks_applied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HooksApplied { get; } = new("hooks_applied");
 
     /// <summary>
     /// The <c>host</c> attribute namespace.
@@ -481,9 +4026,79 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Host { get; } = new("host");
 
     /// <summary>
+    /// The <c>host_base_merge</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostBaseMerge { get; } = new("host_base_merge");
+
+    /// <summary>
+    /// The <c>host_configured_skipped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostConfiguredSkipped { get; } = new("host_configured_skipped");
+
+    /// <summary>
+    /// The <c>host_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostCount { get; } = new("host_count");
+
+    /// <summary>
+    /// The <c>host_mount_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostMountMs { get; } = new("host_mount_ms");
+
+    /// <summary>
+    /// The <c>host_owned_mcp</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostOwnedMcp { get; } = new("host_owned_mcp");
+
+    /// <summary>
+    /// The <c>host_slot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostSlot { get; } = new("host_slot");
+
+    /// <summary>
+    /// The <c>host_window</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostWindow { get; } = new("host_window");
+
+    /// <summary>
+    /// The <c>host_work</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostWork { get; } = new("host_work");
+
+    /// <summary>
+    /// The <c>hosted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HostedCount { get; } = new("hosted_count");
+
+    /// <summary>
+    /// The <c>hosts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Hosts { get; } = new("hosts");
+
+    /// <summary>
+    /// The <c>how</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace How { get; } = new("how");
+
+    /// <summary>
     /// The <c>http</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Http { get; } = new("http");
+
+    /// <summary>
+    /// The <c>http_sibling</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HttpSibling { get; } = new("http_sibling");
+
+    /// <summary>
+    /// The <c>http_status</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HttpStatus { get; } = new("http_status");
+
+    /// <summary>
+    /// The <c>http_status_text</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HttpStatusText { get; } = new("http_status_text");
 
     /// <summary>
     /// The <c>hw</c> attribute namespace.
@@ -491,14 +4106,489 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Hw { get; } = new("hw");
 
     /// <summary>
+    /// The <c>hw_attestation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HwAttestation { get; } = new("hw_attestation");
+
+    /// <summary>
+    /// The <c>hw_unavailable_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace HwUnavailableReason { get; } = new("hw_unavailable_reason");
+
+    /// <summary>
+    /// The <c>identity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Identity { get; } = new("identity");
+
+    /// <summary>
+    /// The <c>idle_gated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IdleGated { get; } = new("idle_gated");
+
+    /// <summary>
+    /// The <c>idle_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IdleKind { get; } = new("idle_kind");
+
+    /// <summary>
+    /// The <c>idle_summary</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IdleSummary { get; } = new("idle_summary");
+
+    /// <summary>
+    /// The <c>idle_summary_delay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IdleSummaryDelayMs { get; } = new("idle_summary_delay_ms");
+
+    /// <summary>
+    /// The <c>idle_timeout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IdleTimeoutMs { get; } = new("idle_timeout_ms");
+
+    /// <summary>
+    /// The <c>image_count_in_buffer</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ImageCountInBuffer { get; } = new("image_count_in_buffer");
+
+    /// <summary>
+    /// The <c>implementation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Implementation { get; } = new("implementation");
+
+    /// <summary>
+    /// The <c>import_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ImportSource { get; } = new("import_source");
+
+    /// <summary>
+    /// The <c>in_experiment</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InExperiment { get; } = new("in_experiment");
+
+    /// <summary>
+    /// The <c>in_flight</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InFlight { get; } = new("in_flight");
+
+    /// <summary>
+    /// The <c>in_place</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InPlace { get; } = new("in_place");
+
+    /// <summary>
+    /// The <c>in_popout</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InPopout { get; } = new("in_popout");
+
+    /// <summary>
+    /// The <c>include_overlay_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IncludeOverlayWaitMs { get; } = new("include_overlay_wait_ms");
+
+    /// <summary>
+    /// The <c>include_uncommitted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IncludeUncommitted { get; } = new("include_uncommitted");
+
+    /// <summary>
+    /// The <c>index_deferred_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IndexDeferredCount { get; } = new("index_deferred_count");
+
+    /// <summary>
+    /// The <c>index_stale_active_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IndexStaleActiveCount { get; } = new("index_stale_active_count");
+
+    /// <summary>
+    /// The <c>init_arrived</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitArrived { get; } = new("init_arrived");
+
+    /// <summary>
+    /// The <c>init_awake_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitAwakeMs { get; } = new("init_awake_ms");
+
+    /// <summary>
+    /// The <c>init_mcp_connected_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpConnectedCount { get; } = new("init_mcp_connected_count");
+
+    /// <summary>
+    /// The <c>init_mcp_disabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpDisabledCount { get; } = new("init_mcp_disabled_count");
+
+    /// <summary>
+    /// The <c>init_mcp_failed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpFailedCount { get; } = new("init_mcp_failed_count");
+
+    /// <summary>
+    /// The <c>init_mcp_needs_auth_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpNeedsAuthCount { get; } = new("init_mcp_needs_auth_count");
+
+    /// <summary>
+    /// The <c>init_mcp_other_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpOtherCount { get; } = new("init_mcp_other_count");
+
+    /// <summary>
+    /// The <c>init_mcp_pending_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpPendingCount { get; } = new("init_mcp_pending_count");
+
+    /// <summary>
+    /// The <c>init_mcp_total_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMcpTotalCount { get; } = new("init_mcp_total_count");
+
+    /// <summary>
+    /// The <c>init_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitMs { get; } = new("init_ms");
+
+    /// <summary>
+    /// The <c>init_plugin_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitPluginCount { get; } = new("init_plugin_count");
+
+    /// <summary>
+    /// The <c>initial_user_message_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InitialUserMessageChars { get; } = new("initial_user_message_chars");
+
+    /// <summary>
+    /// The <c>initiator</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Initiator { get; } = new("initiator");
+
+    /// <summary>
+    /// The <c>inp_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InpMs { get; } = new("inp_ms");
+
+    /// <summary>
+    /// The <c>input_delay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InputDelayMs { get; } = new("input_delay_ms");
+
+    /// <summary>
+    /// The <c>input_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InputOrigin { get; } = new("input_origin");
+
+    /// <summary>
+    /// The <c>input_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InputTokens { get; } = new("input_tokens");
+
+    /// <summary>
+    /// The <c>insert_method</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InsertMethod { get; } = new("insert_method");
+
+    /// <summary>
+    /// The <c>install</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Install { get; } = new("install");
+
+    /// <summary>
+    /// The <c>install_state_seeded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InstallStateSeeded { get; } = new("install_state_seeded");
+
+    /// <summary>
+    /// The <c>installed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Installed { get; } = new("installed");
+
+    /// <summary>
+    /// The <c>insufficient_observation_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InsufficientObservationCount { get; } = new("insufficient_observation_count");
+
+    /// <summary>
+    /// The <c>intent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Intent { get; } = new("intent");
+
+    /// <summary>
+    /// The <c>intent_before_initialized</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IntentBeforeInitialized { get; } = new("intent_before_initialized");
+
+    /// <summary>
+    /// The <c>intent_lead_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IntentLeadMs { get; } = new("intent_lead_ms");
+
+    /// <summary>
+    /// The <c>intent_saved_at_start</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IntentSavedAtStart { get; } = new("intent_saved_at_start");
+
+    /// <summary>
+    /// The <c>interaction</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Interaction { get; } = new("interaction");
+
+    /// <summary>
+    /// The <c>interaction_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InteractionType { get; } = new("interaction_type");
+
+    /// <summary>
+    /// The <c>internal_server_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InternalServerName { get; } = new("internal_server_name");
+
+    /// <summary>
+    /// The <c>interrupt_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InterruptSeq { get; } = new("interrupt_seq");
+
+    /// <summary>
+    /// The <c>interrupted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Interrupted { get; } = new("interrupted");
+
+    /// <summary>
+    /// The <c>interrupted_age_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InterruptedAgeSeconds { get; } = new("interrupted_age_seconds");
+
+    /// <summary>
+    /// The <c>interrupted_overdue_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InterruptedOverdueMs { get; } = new("interrupted_overdue_ms");
+
+    /// <summary>
+    /// The <c>interval_minutes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IntervalMinutes { get; } = new("interval_minutes");
+
+    /// <summary>
+    /// The <c>into_open_tab</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IntoOpenTab { get; } = new("into_open_tab");
+
+    /// <summary>
+    /// The <c>invocation_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace InvocationTrigger { get; } = new("invocation_trigger");
+
+    /// <summary>
+    /// The <c>io_return</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IoReturn { get; } = new("io_return");
+
+    /// <summary>
     /// The <c>ios</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Ios { get; } = new("ios");
 
     /// <summary>
+    /// The <c>ipc_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IpcBytes { get; } = new("ipc_bytes");
+
+    /// <summary>
+    /// The <c>ipc_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IpcMs { get; } = new("ipc_ms");
+
+    /// <summary>
+    /// The <c>is_async</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsAsync { get; } = new("is_async");
+
+    /// <summary>
+    /// The <c>is_built_in</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsBuiltIn { get; } = new("is_built_in");
+
+    /// <summary>
+    /// The <c>is_claude_host</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsClaudeHost { get; } = new("is_claude_host");
+
+    /// <summary>
+    /// The <c>is_downgrade</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsDowngrade { get; } = new("is_downgrade");
+
+    /// <summary>
+    /// The <c>is_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsError { get; } = new("is_error");
+
+    /// <summary>
+    /// The <c>is_financial</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsFinancial { get; } = new("is_financial");
+
+    /// <summary>
+    /// The <c>is_first_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsFirstTurn { get; } = new("is_first_turn");
+
+    /// <summary>
+    /// The <c>is_fork</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsFork { get; } = new("is_fork");
+
+    /// <summary>
+    /// The <c>is_git_repo</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsGitRepo { get; } = new("is_git_repo");
+
+    /// <summary>
+    /// The <c>is_high_risk</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsHighRisk { get; } = new("is_high_risk");
+
+    /// <summary>
+    /// The <c>is_internal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsInternal { get; } = new("is_internal");
+
+    /// <summary>
+    /// The <c>is_large_import</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsLargeImport { get; } = new("is_large_import");
+
+    /// <summary>
+    /// The <c>is_local</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsLocal { get; } = new("is_local");
+
+    /// <summary>
+    /// The <c>is_localhost</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsLocalhost { get; } = new("is_localhost");
+
+    /// <summary>
+    /// The <c>is_main_frame</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsMainFrame { get; } = new("is_main_frame");
+
+    /// <summary>
+    /// The <c>is_manual</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsManual { get; } = new("is_manual");
+
+    /// <summary>
+    /// The <c>is_nest_build</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsNestBuild { get; } = new("is_nest_build");
+
+    /// <summary>
+    /// The <c>is_new_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsNewSession { get; } = new("is_new_session");
+
+    /// <summary>
+    /// The <c>is_plugin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsPlugin { get; } = new("is_plugin");
+
+    /// <summary>
+    /// The <c>is_remote</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsRemote { get; } = new("is_remote");
+
+    /// <summary>
+    /// The <c>is_repeat</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsRepeat { get; } = new("is_repeat");
+
+    /// <summary>
+    /// The <c>is_resume</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsResume { get; } = new("is_resume");
+
+    /// <summary>
+    /// The <c>is_running</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsRunning { get; } = new("is_running");
+
+    /// <summary>
+    /// The <c>is_scheduled_task_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsScheduledTaskSession { get; } = new("is_scheduled_task_session");
+
+    /// <summary>
+    /// The <c>is_scratch</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsScratch { get; } = new("is_scratch");
+
+    /// <summary>
+    /// The <c>is_side_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsSideSession { get; } = new("is_side_session");
+
+    /// <summary>
+    /// The <c>is_ssh</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsSsh { get; } = new("is_ssh");
+
+    /// <summary>
+    /// The <c>is_startup_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsStartupError { get; } = new("is_startup_error");
+
+    /// <summary>
+    /// The <c>is_stopping</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsStopping { get; } = new("is_stopping");
+
+    /// <summary>
+    /// The <c>is_violin_bow</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsViolinBow { get; } = new("is_violin_bow");
+
+    /// <summary>
+    /// The <c>is_visible</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsVisible { get; } = new("is_visible");
+
+    /// <summary>
+    /// The <c>is_warm</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsWarm { get; } = new("is_warm");
+
+    /// <summary>
+    /// The <c>is_windows</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsWindows { get; } = new("is_windows");
+
+    /// <summary>
+    /// The <c>is_worktree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace IsWorktree { get; } = new("is_worktree");
+
+    /// <summary>
+    /// The <c>jitter_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace JitterSeconds { get; } = new("jitter_seconds");
+
+    /// <summary>
     /// The <c>jsonrpc</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Jsonrpc { get; } = new("jsonrpc");
+
+    /// <summary>
+    /// The <c>judged</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Judged { get; } = new("judged");
+
+    /// <summary>
+    /// The <c>jump_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace JumpMs { get; } = new("jump_ms");
 
     /// <summary>
     /// The <c>jvm</c> attribute namespace.
@@ -511,9 +4601,424 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace K8s { get; } = new("k8s");
 
     /// <summary>
+    /// The <c>keep_awake_release</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeepAwakeRelease { get; } = new("keep_awake_release");
+
+    /// <summary>
+    /// The <c>kept</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Kept { get; } = new("kept");
+
+    /// <summary>
+    /// The <c>kept_claimed_elsewhere</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeptClaimedElsewhere { get; } = new("kept_claimed_elsewhere");
+
+    /// <summary>
+    /// The <c>kept_earlier</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeptEarlier { get; } = new("kept_earlier");
+
+    /// <summary>
+    /// The <c>kept_existing_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeptExistingCount { get; } = new("kept_existing_count");
+
+    /// <summary>
+    /// The <c>key</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeyNamespace { get; } = new("key");
+
+    /// <summary>
+    /// The <c>key_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeyClass { get; } = new("key_class");
+
+    /// <summary>
+    /// The <c>key_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeyCount { get; } = new("key_count");
+
+    /// <summary>
+    /// The <c>keys_set</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace KeysSet { get; } = new("keys_set");
+
+    /// <summary>
+    /// The <c>kicked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Kicked { get; } = new("kicked");
+
+    /// <summary>
+    /// The <c>kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Kind { get; } = new("kind");
+
+    /// <summary>
+    /// The <c>kinds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Kinds { get; } = new("kinds");
+
+    /// <summary>
+    /// The <c>lan_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LanName { get; } = new("lan_name");
+
+    /// <summary>
+    /// The <c>lane</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Lane { get; } = new("lane");
+
+    /// <summary>
+    /// The <c>language</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Language { get; } = new("language");
+
+    /// <summary>
+    /// The <c>laptop_path_skipped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LaptopPathSkipped { get; } = new("laptop_path_skipped");
+
+    /// <summary>
+    /// The <c>last_buffered_message_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastBufferedMessageType { get; } = new("last_buffered_message_type");
+
+    /// <summary>
+    /// The <c>last_error_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastErrorClass { get; } = new("last_error_class");
+
+    /// <summary>
+    /// The <c>last_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastErrorCode { get; } = new("last_error_code");
+
+    /// <summary>
+    /// The <c>last_frame_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastFrameAgeMs { get; } = new("last_frame_age_ms");
+
+    /// <summary>
+    /// The <c>last_message_model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastMessageModel { get; } = new("last_message_model");
+
+    /// <summary>
+    /// The <c>last_message_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastMessageType { get; } = new("last_message_type");
+
+    /// <summary>
+    /// The <c>last_oauth_decline_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastOauthDeclineReason { get; } = new("last_oauth_decline_reason");
+
+    /// <summary>
+    /// The <c>last_read_verdict</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastReadVerdict { get; } = new("last_read_verdict");
+
+    /// <summary>
+    /// The <c>last_task</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastTask { get; } = new("last_task");
+
+    /// <summary>
+    /// The <c>last_task_sync_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastTaskSyncMs { get; } = new("last_task_sync_ms");
+
+    /// <summary>
+    /// The <c>last_timeout_op</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastTimeoutOp { get; } = new("last_timeout_op");
+
+    /// <summary>
+    /// The <c>last_tool_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LastToolName { get; } = new("last_tool_name");
+
+    /// <summary>
+    /// The <c>late</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Late { get; } = new("late");
+
+    /// <summary>
+    /// The <c>latency_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LatencyBucket { get; } = new("latency_bucket");
+
+    /// <summary>
+    /// The <c>latency_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LatencyMs { get; } = new("latency_ms");
+
+    /// <summary>
+    /// The <c>launch_limit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LaunchLimit { get; } = new("launch_limit");
+
+    /// <summary>
+    /// The <c>launch_sample_rate</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LaunchSampleRate { get; } = new("launch_sample_rate");
+
+    /// <summary>
+    /// The <c>launch_timeout_stage</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LaunchTimeoutStage { get; } = new("launch_timeout_stage");
+
+    /// <summary>
+    /// The <c>launched</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Launched { get; } = new("launched");
+
+    /// <summary>
+    /// The <c>launcher_marked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LauncherMarked { get; } = new("launcher_marked");
+
+    /// <summary>
+    /// The <c>launcher_status</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LauncherStatus { get; } = new("launcher_status");
+
+    /// <summary>
+    /// The <c>launcher_version_check</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LauncherVersionCheck { get; } = new("launcher_version_check");
+
+    /// <summary>
+    /// The <c>lead_time_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LeadTimeMs { get; } = new("lead_time_ms");
+
+    /// <summary>
+    /// The <c>leases</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Leases { get; } = new("leases");
+
+    /// <summary>
+    /// The <c>left_awaiting_person_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LeftAwaitingPersonCount { get; } = new("left_awaiting_person_count");
+
+    /// <summary>
+    /// The <c>legacy_kill</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LegacyKill { get; } = new("legacy_kill");
+
+    /// <summary>
+    /// The <c>legacy_user_waiting</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LegacyUserWaiting { get; } = new("legacy_user_waiting");
+
+    /// <summary>
+    /// The <c>level</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Level { get; } = new("level");
+
+    /// <summary>
+    /// The <c>lifetime_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LifetimeMs { get; } = new("lifetime_ms");
+
+    /// <summary>
+    /// The <c>likely_ours</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LikelyOurs { get; } = new("likely_ours");
+
+    /// <summary>
+    /// The <c>likely_sleep</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LikelySleep { get; } = new("likely_sleep");
+
+    /// <summary>
+    /// The <c>limit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Limit { get; } = new("limit");
+
+    /// <summary>
+    /// The <c>lines</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Lines { get; } = new("lines");
+
+    /// <summary>
+    /// The <c>link</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Link { get; } = new("link");
+
+    /// <summary>
+    /// The <c>link_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkAgeMs { get; } = new("link_age_ms");
+
+    /// <summary>
+    /// The <c>link_host</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkHost { get; } = new("link_host");
+
+    /// <summary>
+    /// The <c>link_late_pongs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkLatePongs { get; } = new("link_late_pongs");
+
+    /// <summary>
+    /// The <c>link_queued_pongs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkQueuedPongs { get; } = new("link_queued_pongs");
+
+    /// <summary>
+    /// The <c>link_srtt_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkSrttMs { get; } = new("link_srtt_ms");
+
+    /// <summary>
+    /// The <c>link_up</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LinkUp { get; } = new("link_up");
+
+    /// <summary>
     /// The <c>linux</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Linux { get; } = new("linux");
+
+    /// <summary>
+    /// The <c>list_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ListSource { get; } = new("list_source");
+
+    /// <summary>
+    /// The <c>live_bindings</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveBindings { get; } = new("live_bindings");
+
+    /// <summary>
+    /// The <c>live_children</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveChildren { get; } = new("live_children");
+
+    /// <summary>
+    /// The <c>live_cli_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveCliCount { get; } = new("live_cli_count");
+
+    /// <summary>
+    /// The <c>live_processes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveProcesses { get; } = new("live_processes");
+
+    /// <summary>
+    /// The <c>live_scheduled_cli_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveScheduledCliCount { get; } = new("live_scheduled_cli_count");
+
+    /// <summary>
+    /// The <c>live_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LiveSessions { get; } = new("live_sessions");
+
+    /// <summary>
+    /// The <c>llm_request</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LlmRequest { get; } = new("llm_request");
+
+    /// <summary>
+    /// The <c>load_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoadErrorCode { get; } = new("load_error_code");
+
+    /// <summary>
+    /// The <c>load_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoadMs { get; } = new("load_ms");
+
+    /// <summary>
+    /// The <c>load_phase</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoadPhase { get; } = new("load_phase");
+
+    /// <summary>
+    /// The <c>loaf_entry_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafEntryCount { get; } = new("loaf_entry_count");
+
+    /// <summary>
+    /// The <c>loaf_in_delay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafInDelayMs { get; } = new("loaf_in_delay_ms");
+
+    /// <summary>
+    /// The <c>loaf_script_char_pos</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptCharPos { get; } = new("loaf_script_char_pos");
+
+    /// <summary>
+    /// The <c>loaf_script_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptDurationMs { get; } = new("loaf_script_duration_ms");
+
+    /// <summary>
+    /// The <c>loaf_script_forced_layout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptForcedLayoutMs { get; } = new("loaf_script_forced_layout_ms");
+
+    /// <summary>
+    /// The <c>loaf_script_function</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptFunction { get; } = new("loaf_script_function");
+
+    /// <summary>
+    /// The <c>loaf_script_invoker</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptInvoker { get; } = new("loaf_script_invoker");
+
+    /// <summary>
+    /// The <c>loaf_script_invoker_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptInvokerType { get; } = new("loaf_script_invoker_type");
+
+    /// <summary>
+    /// The <c>loaf_script_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafScriptSource { get; } = new("loaf_script_source");
+
+    /// <summary>
+    /// The <c>loaf_total_blocking_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafTotalBlockingMs { get; } = new("loaf_total_blocking_ms");
+
+    /// <summary>
+    /// The <c>loaf_total_forced_layout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LoafTotalForcedLayoutMs { get; } = new("loaf_total_forced_layout_ms");
+
+    /// <summary>
+    /// The <c>local_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LocalEnabled { get; } = new("local_enabled");
+
+    /// <summary>
+    /// The <c>local_file_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LocalFileCount { get; } = new("local_file_count");
+
+    /// <summary>
+    /// The <c>local_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LocalSessionId { get; } = new("local_session_id");
+
+    /// <summary>
+    /// The <c>local_total_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LocalTotalBytes { get; } = new("local_total_bytes");
+
+    /// <summary>
+    /// The <c>lock_known_locked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LockKnownLocked { get; } = new("lock_known_locked");
 
     /// <summary>
     /// The <c>log</c> attribute namespace.
@@ -521,9 +5026,134 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Log { get; } = new("log");
 
     /// <summary>
+    /// The <c>log_reads</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LogReads { get; } = new("log_reads");
+
+    /// <summary>
+    /// The <c>long_frame_ms_max</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LongFrameMsMax { get; } = new("long_frame_ms_max");
+
+    /// <summary>
+    /// The <c>long_frame_ms_total</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LongFrameMsTotal { get; } = new("long_frame_ms_total");
+
+    /// <summary>
+    /// The <c>losable_background_task_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LosableBackgroundTaskCount { get; } = new("losable_background_task_count");
+
+    /// <summary>
+    /// The <c>losable_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LosableKind { get; } = new("losable_kind");
+
+    /// <summary>
+    /// The <c>losses_this_round</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LossesThisRound { get; } = new("losses_this_round");
+
+    /// <summary>
+    /// The <c>lost_input</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LostInput { get; } = new("lost_input");
+
+    /// <summary>
+    /// The <c>low_memory_posture</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace LowMemoryPosture { get; } = new("low_memory_posture");
+
+    /// <summary>
+    /// The <c>main_rss_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MainRssBytes { get; } = new("main_rss_bytes");
+
+    /// <summary>
+    /// The <c>main_view_footprint_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MainViewFootprintBytes { get; } = new("main_view_footprint_bytes");
+
+    /// <summary>
+    /// The <c>main_view_rss_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MainViewRssBytes { get; } = new("main_view_rss_bytes");
+
+    /// <summary>
     /// The <c>mainframe</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Mainframe { get; } = new("mainframe");
+
+    /// <summary>
+    /// The <c>managed_launcher</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ManagedLauncher { get; } = new("managed_launcher");
+
+    /// <summary>
+    /// The <c>managed_only</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ManagedOnly { get; } = new("managed_only");
+
+    /// <summary>
+    /// The <c>managed_rules_only</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ManagedRulesOnly { get; } = new("managed_rules_only");
+
+    /// <summary>
+    /// The <c>managed_settings</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ManagedSettings { get; } = new("managed_settings");
+
+    /// <summary>
+    /// The <c>mark</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Mark { get; } = new("mark");
+
+    /// <summary>
+    /// The <c>marked_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MarkedCount { get; } = new("marked_count");
+
+    /// <summary>
+    /// The <c>marker_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MarkerAgeMs { get; } = new("marker_age_ms");
+
+    /// <summary>
+    /// The <c>marker_offered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MarkerOffered { get; } = new("marker_offered");
+
+    /// <summary>
+    /// The <c>marketplace</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Marketplace { get; } = new("marketplace");
+
+    /// <summary>
+    /// The <c>marketplace_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MarketplaceUuid { get; } = new("marketplace_uuid");
+
+    /// <summary>
+    /// The <c>matched</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Matched { get; } = new("matched");
+
+    /// <summary>
+    /// The <c>max_poll_gap_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MaxPollGapMs { get; } = new("max_poll_gap_ms");
+
+    /// <summary>
+    /// The <c>max_session_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MaxSessionCount { get; } = new("max_session_count");
+
+    /// <summary>
+    /// The <c>max_system_idle_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MaxSystemIdleMs { get; } = new("max_system_idle_ms");
 
     /// <summary>
     /// The <c>mcp</c> attribute namespace.
@@ -531,14 +5161,294 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Mcp { get; } = new("mcp");
 
     /// <summary>
+    /// The <c>mcp_cmd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpCmd { get; } = new("mcp_cmd");
+
+    /// <summary>
+    /// The <c>mcp_config_http_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpConfigHttpCount { get; } = new("mcp_config_http_count");
+
+    /// <summary>
+    /// The <c>mcp_config_sdk_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpConfigSdkCount { get; } = new("mcp_config_sdk_count");
+
+    /// <summary>
+    /// The <c>mcp_config_stdio_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpConfigStdioCount { get; } = new("mcp_config_stdio_count");
+
+    /// <summary>
+    /// The <c>mcp_kind_followed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpKindFollowed { get; } = new("mcp_kind_followed");
+
+    /// <summary>
+    /// The <c>mcp_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpMs { get; } = new("mcp_ms");
+
+    /// <summary>
+    /// The <c>mcp_server</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpServer { get; } = new("mcp_server");
+
+    /// <summary>
+    /// The <c>mcp_server_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpServerCount { get; } = new("mcp_server_count");
+
+    /// <summary>
+    /// The <c>mcp_server_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpServerScope { get; } = new("mcp_server_scope");
+
+    /// <summary>
+    /// The <c>mcp_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace McpTool { get; } = new("mcp_tool");
+
+    /// <summary>
+    /// The <c>memory_copy_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MemoryCopyError { get; } = new("memory_copy_error");
+
+    /// <summary>
+    /// The <c>memory_copy_keyless</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MemoryCopyKeyless { get; } = new("memory_copy_keyless");
+
+    /// <summary>
+    /// The <c>memory_copy_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MemoryCopyState { get; } = new("memory_copy_state");
+
+    /// <summary>
+    /// The <c>memory_files_copied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MemoryFilesCopied { get; } = new("memory_files_copied");
+
+    /// <summary>
+    /// The <c>memory_files_total</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MemoryFilesTotal { get; } = new("memory_files_total");
+
+    /// <summary>
+    /// The <c>mention_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MentionType { get; } = new("mention_type");
+
+    /// <summary>
     /// The <c>message</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Message { get; } = new("message");
 
     /// <summary>
+    /// The <c>message_buffer_size</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessageBufferSize { get; } = new("message_buffer_size");
+
+    /// <summary>
+    /// The <c>message_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessageChars { get; } = new("message_chars");
+
+    /// <summary>
+    /// The <c>message_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessageCount { get; } = new("message_count");
+
+    /// <summary>
+    /// The <c>message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessageUuid { get; } = new("message_uuid");
+
+    /// <summary>
+    /// The <c>messages_after</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessagesAfter { get; } = new("messages_after");
+
+    /// <summary>
+    /// The <c>messages_before</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MessagesBefore { get; } = new("messages_before");
+
+    /// <summary>
     /// The <c>messaging</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Messaging { get; } = new("messaging");
+
+    /// <summary>
+    /// The <c>method</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Method { get; } = new("method");
+
+    /// <summary>
+    /// The <c>mid_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MidTurn { get; } = new("mid_turn");
+
+    /// <summary>
+    /// The <c>migratable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MigratableCount { get; } = new("migratable_count");
+
+    /// <summary>
+    /// The <c>min_observed_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MinObservedDays { get; } = new("min_observed_days");
+
+    /// <summary>
+    /// The <c>min_runs_observed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MinRunsObserved { get; } = new("min_runs_observed");
+
+    /// <summary>
+    /// The <c>minutes_since_launch</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MinutesSinceLaunch { get; } = new("minutes_since_launch");
+
+    /// <summary>
+    /// The <c>missed_by_minutes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MissedByMinutes { get; } = new("missed_by_minutes");
+
+    /// <summary>
+    /// The <c>missing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Missing { get; } = new("missing");
+
+    /// <summary>
+    /// The <c>missing_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MissingKind { get; } = new("missing_kind");
+
+    /// <summary>
+    /// The <c>mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Mode { get; } = new("mode");
+
+    /// <summary>
+    /// The <c>model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Model { get; } = new("model");
+
+    /// <summary>
+    /// The <c>model_downgraded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ModelDowngraded { get; } = new("model_downgraded");
+
+    /// <summary>
+    /// The <c>model_swapped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ModelSwapped { get; } = new("model_swapped");
+
+    /// <summary>
+    /// The <c>mount_commit_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountCommitMs { get; } = new("mount_commit_ms");
+
+    /// <summary>
+    /// The <c>mount_composer_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountComposerMs { get; } = new("mount_composer_ms");
+
+    /// <summary>
+    /// The <c>mount_layout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountLayoutMs { get; } = new("mount_layout_ms");
+
+    /// <summary>
+    /// The <c>mount_list_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountListMs { get; } = new("mount_list_ms");
+
+    /// <summary>
+    /// The <c>mount_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountMs { get; } = new("mount_ms");
+
+    /// <summary>
+    /// The <c>mount_panel_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MountPanelMs { get; } = new("mount_panel_ms");
+
+    /// <summary>
+    /// The <c>ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Ms { get; } = new("ms");
+
+    /// <summary>
+    /// The <c>ms_after_commit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsAfterCommit { get; } = new("ms_after_commit");
+
+    /// <summary>
+    /// The <c>ms_after_load</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsAfterLoad { get; } = new("ms_after_load");
+
+    /// <summary>
+    /// The <c>ms_since_first_cut</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSinceFirstCut { get; } = new("ms_since_first_cut");
+
+    /// <summary>
+    /// The <c>ms_since_last_read</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSinceLastRead { get; } = new("ms_since_last_read");
+
+    /// <summary>
+    /// The <c>ms_since_last_wake</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSinceLastWake { get; } = new("ms_since_last_wake");
+
+    /// <summary>
+    /// The <c>ms_since_open</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSinceOpen { get; } = new("ms_since_open");
+
+    /// <summary>
+    /// The <c>ms_since_prior_loss</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSincePriorLoss { get; } = new("ms_since_prior_loss");
+
+    /// <summary>
+    /// The <c>ms_since_write</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsSinceWrite { get; } = new("ms_since_write");
+
+    /// <summary>
+    /// The <c>ms_to_echo</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsToEcho { get; } = new("ms_to_echo");
+
+    /// <summary>
+    /// The <c>ms_to_first_token</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace MsToFirstToken { get; } = new("ms_to_first_token");
+
+    /// <summary>
+    /// The <c>nav_only</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NavOnly { get; } = new("nav_only");
+
+    /// <summary>
+    /// The <c>nav_temp</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NavTemp { get; } = new("nav_temp");
+
+    /// <summary>
+    /// The <c>needed_deploy</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NeededDeploy { get; } = new("needed_deploy");
+
+    /// <summary>
+    /// The <c>needs_tree_before_spawn_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NeedsTreeBeforeSpawnReason { get; } = new("needs_tree_before_spawn_reason");
 
     /// <summary>
     /// The <c>net</c> attribute namespace.
@@ -551,9 +5461,114 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Network { get; } = new("network");
 
     /// <summary>
+    /// The <c>new_context</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewContext { get; } = new("new_context");
+
+    /// <summary>
+    /// The <c>new_context_message_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewContextMessageCount { get; } = new("new_context_message_count");
+
+    /// <summary>
+    /// The <c>new_context_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewContextOriginalLength { get; } = new("new_context_original_length");
+
+    /// <summary>
+    /// The <c>new_context_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewContextTruncated { get; } = new("new_context_truncated");
+
+    /// <summary>
+    /// The <c>new_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewCwd { get; } = new("new_cwd");
+
+    /// <summary>
+    /// The <c>new_failure_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewFailureCount { get; } = new("new_failure_count");
+
+    /// <summary>
+    /// The <c>new_value</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewValue { get; } = new("new_value");
+
+    /// <summary>
+    /// The <c>newer_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewerVersion { get; } = new("newer_version");
+
+    /// <summary>
+    /// The <c>newly_unclaimed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NewlyUnclaimed { get; } = new("newly_unclaimed");
+
+    /// <summary>
+    /// The <c>next_unchecked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NextUnchecked { get; } = new("next_unchecked");
+
+    /// <summary>
     /// The <c>nfs</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Nfs { get; } = new("nfs");
+
+    /// <summary>
+    /// The <c>no_folder</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFolder { get; } = new("no_folder");
+
+    /// <summary>
+    /// The <c>no_fresh_record_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordCount { get; } = new("no_fresh_record_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_denied_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordDeniedCount { get; } = new("no_fresh_record_denied_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_no_prompt_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordNoPromptCount { get; } = new("no_fresh_record_no_prompt_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_no_record_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordNoRecordCount { get; } = new("no_fresh_record_no_record_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_stale_record_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordStaleRecordCount { get; } = new("no_fresh_record_stale_record_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_task_missing_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordTaskMissingCount { get; } = new("no_fresh_record_task_missing_count");
+
+    /// <summary>
+    /// The <c>no_fresh_record_unreadable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoFreshRecordUnreadableCount { get; } = new("no_fresh_record_unreadable_count");
+
+    /// <summary>
+    /// The <c>no_off_read</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoOffRead { get; } = new("no_off_read");
+
+    /// <summary>
+    /// The <c>no_response_category</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoResponseCategory { get; } = new("no_response_category");
+
+    /// <summary>
+    /// The <c>no_tpm_probe_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoTpmProbeCode { get; } = new("no_tpm_probe_code");
 
     /// <summary>
     /// The <c>nodejs</c> attribute namespace.
@@ -561,9 +5576,119 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Nodejs { get; } = new("nodejs");
 
     /// <summary>
+    /// The <c>not_copied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NotCopied { get; } = new("not_copied");
+
+    /// <summary>
+    /// The <c>not_evaluable_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NotEvaluableReason { get; } = new("not_evaluable_reason");
+
+    /// <summary>
+    /// The <c>notice_requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NoticeRequested { get; } = new("notice_requested");
+
+    /// <summary>
+    /// The <c>notification_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NotificationType { get; } = new("notification_type");
+
+    /// <summary>
+    /// The <c>notify_on_completion_after</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NotifyOnCompletionAfter { get; } = new("notify_on_completion_after");
+
+    /// <summary>
     /// The <c>nservicebus</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Nservicebus { get; } = new("nservicebus");
+
+    /// <summary>
+    /// The <c>ntstatus_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NtstatusName { get; } = new("ntstatus_name");
+
+    /// <summary>
+    /// The <c>num_blocking</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumBlocking { get; } = new("num_blocking");
+
+    /// <summary>
+    /// The <c>num_cancelled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumCancelled { get; } = new("num_cancelled");
+
+    /// <summary>
+    /// The <c>num_hooks</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumHooks { get; } = new("num_hooks");
+
+    /// <summary>
+    /// The <c>num_non_blocking_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumNonBlockingError { get; } = new("num_non_blocking_error");
+
+    /// <summary>
+    /// The <c>num_outputs_persisted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumOutputsPersisted { get; } = new("num_outputs_persisted");
+
+    /// <summary>
+    /// The <c>num_success</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumSuccess { get; } = new("num_success");
+
+    /// <summary>
+    /// The <c>num_turns</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace NumTurns { get; } = new("num_turns");
+
+    /// <summary>
+    /// The <c>observed_built_in_browser</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedBuiltInBrowser { get; } = new("observed_built_in_browser");
+
+    /// <summary>
+    /// The <c>observed_chrome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedChrome { get; } = new("observed_chrome");
+
+    /// <summary>
+    /// The <c>observed_computer_use</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedComputerUse { get; } = new("observed_computer_use");
+
+    /// <summary>
+    /// The <c>observed_device_free_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedDeviceFreeCount { get; } = new("observed_device_free_count");
+
+    /// <summary>
+    /// The <c>observed_local_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedLocalCount { get; } = new("observed_local_count");
+
+    /// <summary>
+    /// The <c>observed_local_mcp</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedLocalMcp { get; } = new("observed_local_mcp");
+
+    /// <summary>
+    /// The <c>observed_request_folder_access</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedRequestFolderAccess { get; } = new("observed_request_folder_access");
+
+    /// <summary>
+    /// The <c>observed_task_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ObservedTaskCount { get; } = new("observed_task_count");
+
+    /// <summary>
+    /// The <c>occurrence</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Occurrence { get; } = new("occurrence");
 
     /// <summary>
     /// The <c>oci</c> attribute namespace.
@@ -571,14 +5696,79 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Oci { get; } = new("oci");
 
     /// <summary>
+    /// The <c>offer</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Offer { get; } = new("offer");
+
+    /// <summary>
+    /// The <c>ok</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Ok { get; } = new("ok");
+
+    /// <summary>
+    /// The <c>older_than_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OlderThanDays { get; } = new("older_than_days");
+
+    /// <summary>
+    /// The <c>oldest_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OldestAgeMs { get; } = new("oldest_age_ms");
+
+    /// <summary>
+    /// The <c>on</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace On { get; } = new("on");
+
+    /// <summary>
+    /// The <c>on_battery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OnBattery { get; } = new("on_battery");
+
+    /// <summary>
+    /// The <c>on_ssh_host</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OnSshHost { get; } = new("on_ssh_host");
+
+    /// <summary>
     /// The <c>onc_rpc</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace OncRpc { get; } = new("onc_rpc");
 
     /// <summary>
+    /// The <c>one_time</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OneTime { get; } = new("one_time");
+
+    /// <summary>
+    /// The <c>online</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Online { get; } = new("online");
+
+    /// <summary>
+    /// The <c>open_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OpenMs { get; } = new("open_ms");
+
+    /// <summary>
+    /// The <c>open_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OpenSeconds { get; } = new("open_seconds");
+
+    /// <summary>
     /// The <c>openai</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Openai { get; } = new("openai");
+
+    /// <summary>
+    /// The <c>opened_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OpenedBy { get; } = new("opened_by");
+
+    /// <summary>
+    /// The <c>opened_via</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OpenedVia { get; } = new("opened_via");
 
     /// <summary>
     /// The <c>openshift</c> attribute namespace.
@@ -591,6 +5781,11 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Opentracing { get; } = new("opentracing");
 
     /// <summary>
+    /// The <c>operation</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Operation { get; } = new("operation");
+
+    /// <summary>
     /// The <c>oracle</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Oracle { get; } = new("oracle");
@@ -601,9 +5796,59 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace OracleCloud { get; } = new("oracle_cloud");
 
     /// <summary>
+    /// The <c>org_browser_allowed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OrgBrowserAllowed { get; } = new("org_browser_allowed");
+
+    /// <summary>
+    /// The <c>org_skills_off</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OrgSkillsOff { get; } = new("org_skills_off");
+
+    /// <summary>
+    /// The <c>organization</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Organization { get; } = new("organization");
+
+    /// <summary>
+    /// The <c>organization_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OrganizationId { get; } = new("organization_id");
+
+    /// <summary>
+    /// The <c>origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Origin { get; } = new("origin");
+
+    /// <summary>
+    /// The <c>origin_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OriginClass { get; } = new("origin_class");
+
+    /// <summary>
+    /// The <c>origin_notify_none_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OriginNotifyNoneCount { get; } = new("origin_notify_none_count");
+
+    /// <summary>
+    /// The <c>origin_unresolvable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OriginUnresolvableCount { get; } = new("origin_unresolvable_count");
+
+    /// <summary>
+    /// The <c>orphan_process_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OrphanProcessId { get; } = new("orphan_process_id");
+
+    /// <summary>
     /// The <c>os</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Os { get; } = new("os");
+
+    /// <summary>
+    /// The <c>os_entry</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OsEntry { get; } = new("os_entry");
 
     /// <summary>
     /// The <c>otel</c> attribute namespace.
@@ -611,9 +5856,149 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Otel { get; } = new("otel");
 
     /// <summary>
-    /// Any attribute namespace outside the pinned registry.
+    /// The <c>other</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Other { get; } = new("other");
+
+    /// <summary>
+    /// The <c>outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Outcome { get; } = new("outcome");
+
+    /// <summary>
+    /// The <c>output</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Output { get; } = new("output");
+
+    /// <summary>
+    /// The <c>output_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OutputOriginalLength { get; } = new("output_original_length");
+
+    /// <summary>
+    /// The <c>output_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OutputTokens { get; } = new("output_tokens");
+
+    /// <summary>
+    /// The <c>output_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OutputTruncated { get; } = new("output_truncated");
+
+    /// <summary>
+    /// The <c>overdue_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OverdueMs { get; } = new("overdue_ms");
+
+    /// <summary>
+    /// The <c>overlay_spawn_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OverlaySpawnWaitMs { get; } = new("overlay_spawn_wait_ms");
+
+    /// <summary>
+    /// The <c>overlay_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OverlayWaitMs { get; } = new("overlay_wait_ms");
+
+    /// <summary>
+    /// The <c>oversize_option</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OversizeOption { get; } = new("oversize_option");
+
+    /// <summary>
+    /// The <c>own_address</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OwnAddress { get; } = new("own_address");
+
+    /// <summary>
+    /// The <c>own_worktree_reattached</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OwnWorktreeReattached { get; } = new("own_worktree_reattached");
+
+    /// <summary>
+    /// The <c>owned_cycle</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OwnedCycle { get; } = new("owned_cycle");
+
+    /// <summary>
+    /// The <c>page_note</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PageNote { get; } = new("page_note");
+
+    /// <summary>
+    /// The <c>page_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PageSource { get; } = new("page_source");
+
+    /// <summary>
+    /// The <c>paired_device_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PairedDeviceCount { get; } = new("paired_device_count");
+
+    /// <summary>
+    /// The <c>pane_open</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PaneOpen { get; } = new("pane_open");
+
+    /// <summary>
+    /// The <c>pane_visible</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PaneVisible { get; } = new("pane_visible");
+
+    /// <summary>
+    /// The <c>parent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Parent { get; } = new("parent");
+
+    /// <summary>
+    /// The <c>parent_agent_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ParentAgentId { get; } = new("parent_agent_id");
+
+    /// <summary>
+    /// The <c>parent_is_side_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ParentIsSideSession { get; } = new("parent_is_side_session");
+
+    /// <summary>
+    /// The <c>parent_session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ParentSessionId { get; } = new("parent_session_id");
+
+    /// <summary>
+    /// The <c>parse_input_len</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ParseInputLen { get; } = new("parse_input_len");
+
+    /// <summary>
+    /// The <c>parse_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ParseMs { get; } = new("parse_ms");
+
+    /// <summary>
+    /// The <c>pass</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Pass { get; } = new("pass");
+
+    /// <summary>
+    /// The <c>pass_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PassTrigger { get; } = new("pass_trigger");
+
+    /// <summary>
+    /// The <c>path</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Path { get; } = new("path");
+
+    /// <summary>
+    /// The <c>payload_arch</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PayloadArch { get; } = new("payload_arch");
+
+    /// <summary>
+    /// The <c>payload_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PayloadKind { get; } = new("payload_kind");
 
     /// <summary>
     /// The <c>peer</c> attribute namespace.
@@ -621,9 +6006,294 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Peer { get; } = new("peer");
 
     /// <summary>
+    /// The <c>pending_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingCount { get; } = new("pending_count");
+
+    /// <summary>
+    /// The <c>pending_delete</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingDelete { get; } = new("pending_delete");
+
+    /// <summary>
+    /// The <c>pending_had_first_response</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingHadFirstResponse { get; } = new("pending_had_first_response");
+
+    /// <summary>
+    /// The <c>pending_handlers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingHandlers { get; } = new("pending_handlers");
+
+    /// <summary>
+    /// The <c>pending_hours</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingHours { get; } = new("pending_hours");
+
+    /// <summary>
+    /// The <c>pending_minutes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingMinutes { get; } = new("pending_minutes");
+
+    /// <summary>
+    /// The <c>pending_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingMs { get; } = new("pending_ms");
+
+    /// <summary>
+    /// The <c>pending_requests</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingRequests { get; } = new("pending_requests");
+
+    /// <summary>
+    /// The <c>pending_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingSeconds { get; } = new("pending_seconds");
+
+    /// <summary>
+    /// The <c>pending_unarchive</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PendingUnarchive { get; } = new("pending_unarchive");
+
+    /// <summary>
+    /// The <c>per_message</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PerMessage { get; } = new("per_message");
+
+    /// <summary>
+    /// The <c>period_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PeriodDays { get; } = new("period_days");
+
+    /// <summary>
+    /// The <c>permission_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PermissionMode { get; } = new("permission_mode");
+
+    /// <summary>
+    /// The <c>permission_surface</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PermissionSurface { get; } = new("permission_surface");
+
+    /// <summary>
+    /// The <c>permissions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Permissions { get; } = new("permissions");
+
+    /// <summary>
+    /// The <c>persist_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PersistEnabled { get; } = new("persist_enabled");
+
+    /// <summary>
+    /// The <c>phase</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Phase { get; } = new("phase");
+
+    /// <summary>
+    /// The <c>picked_files_carried_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PickedFilesCarriedCount { get; } = new("picked_files_carried_count");
+
+    /// <summary>
+    /// The <c>ping_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PingMs { get; } = new("ping_ms");
+
+    /// <summary>
+    /// The <c>place</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Place { get; } = new("place");
+
+    /// <summary>
+    /// The <c>plan_call_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PlanCallCount { get; } = new("plan_call_count");
+
+    /// <summary>
+    /// The <c>plan_call_count_since_compaction</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PlanCallCountSinceCompaction { get; } = new("plan_call_count_since_compaction");
+
+    /// <summary>
+    /// The <c>plan_open_step_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PlanOpenStepCount { get; } = new("plan_open_step_count");
+
+    /// <summary>
+    /// The <c>plane</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Plane { get; } = new("plane");
+
+    /// <summary>
+    /// The <c>planned_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PlannedCount { get; } = new("planned_count");
+
+    /// <summary>
+    /// The <c>platform</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Platform { get; } = new("platform");
+
+    /// <summary>
+    /// The <c>plist_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PlistScope { get; } = new("plist_scope");
+
+    /// <summary>
+    /// The <c>plugin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Plugin { get; } = new("plugin");
+
+    /// <summary>
+    /// The <c>plugin_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginCount { get; } = new("plugin_count");
+
+    /// <summary>
+    /// The <c>plugin_delivery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginDelivery { get; } = new("plugin_delivery");
+
+    /// <summary>
+    /// The <c>plugin_dir_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginDirCount { get; } = new("plugin_dir_count");
+
+    /// <summary>
+    /// The <c>plugin_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginId { get; } = new("plugin_id");
+
+    /// <summary>
+    /// The <c>plugin_id_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginIdHash { get; } = new("plugin_id_hash");
+
+    /// <summary>
+    /// The <c>plugin_mcp_connector_twin_by_name_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginMcpConnectorTwinByNameCount { get; } = new("plugin_mcp_connector_twin_by_name_count");
+
+    /// <summary>
+    /// The <c>plugin_mcp_connector_twin_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginMcpConnectorTwinCount { get; } = new("plugin_mcp_connector_twin_count");
+
+    /// <summary>
+    /// The <c>plugin_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PluginUuid { get; } = new("plugin_uuid");
+
+    /// <summary>
+    /// The <c>point_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PointCount { get; } = new("point_count");
+
+    /// <summary>
+    /// The <c>policy_blocked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PolicyBlocked { get; } = new("policy_blocked");
+
+    /// <summary>
+    /// The <c>policy_gate_passed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PolicyGatePassed { get; } = new("policy_gate_passed");
+
+    /// <summary>
+    /// The <c>poll_ms_p50</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PollMsP50 { get; } = new("poll_ms_p50");
+
+    /// <summary>
+    /// The <c>poll_ms_p95</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PollMsP95 { get; } = new("poll_ms_p95");
+
+    /// <summary>
     /// The <c>pool</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Pool { get; } = new("pool");
+
+    /// <summary>
+    /// The <c>pool_busy_skips</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolBusySkips { get; } = new("pool_busy_skips");
+
+    /// <summary>
+    /// The <c>pool_cached_unclean</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolCachedUnclean { get; } = new("pool_cached_unclean");
+
+    /// <summary>
+    /// The <c>pool_candidates</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolCandidates { get; } = new("pool_candidates");
+
+    /// <summary>
+    /// The <c>pool_deferred</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolDeferred { get; } = new("pool_deferred");
+
+    /// <summary>
+    /// The <c>pool_indeterminate</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolIndeterminate { get; } = new("pool_indeterminate");
+
+    /// <summary>
+    /// The <c>pool_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolMs { get; } = new("pool_ms");
+
+    /// <summary>
+    /// The <c>pool_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolOutcome { get; } = new("pool_outcome");
+
+    /// <summary>
+    /// The <c>pool_probes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolProbes { get; } = new("pool_probes");
+
+    /// <summary>
+    /// The <c>pool_rebind_attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolRebindAttempts { get; } = new("pool_rebind_attempts");
+
+    /// <summary>
+    /// The <c>pool_rebind_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolRebindMs { get; } = new("pool_rebind_ms");
+
+    /// <summary>
+    /// The <c>pool_refused</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolRefused { get; } = new("pool_refused");
+
+    /// <summary>
+    /// The <c>pool_trusted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolTrusted { get; } = new("pool_trusted");
+
+    /// <summary>
+    /// The <c>pool_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PoolWaitMs { get; } = new("pool_wait_ms");
+
+    /// <summary>
+    /// The <c>post_checkout_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PostCheckoutWaitMs { get; } = new("post_checkout_wait_ms");
+
+    /// <summary>
+    /// The <c>post_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PostTokens { get; } = new("post_tokens");
+
+    /// <summary>
+    /// The <c>posted_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PostedCount { get; } = new("posted_count");
 
     /// <summary>
     /// The <c>pprof</c> attribute namespace.
@@ -631,9 +6301,254 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Pprof { get; } = new("pprof");
 
     /// <summary>
+    /// The <c>pr_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrCount { get; } = new("pr_count");
+
+    /// <summary>
+    /// The <c>pr_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrState { get; } = new("pr_state");
+
+    /// <summary>
+    /// The <c>pr_state_fail_auth_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailAuthCount { get; } = new("pr_state_fail_auth_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_forbidden_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailForbiddenCount { get; } = new("pr_state_fail_forbidden_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_forbidden_saml_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailForbiddenSamlCount { get; } = new("pr_state_fail_forbidden_saml_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_network_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailNetworkCount { get; } = new("pr_state_fail_network_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_not_found_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailNotFoundCount { get; } = new("pr_state_fail_not_found_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_rate_limit_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailRateLimitCount { get; } = new("pr_state_fail_rate_limit_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_rate_limit_held_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailRateLimitHeldCount { get; } = new("pr_state_fail_rate_limit_held_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_unavailable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailUnavailableCount { get; } = new("pr_state_fail_unavailable_count");
+
+    /// <summary>
+    /// The <c>pr_state_fail_unknown_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrStateFailUnknownCount { get; } = new("pr_state_fail_unknown_count");
+
+    /// <summary>
+    /// The <c>pr_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrTool { get; } = new("pr_tool");
+
+    /// <summary>
+    /// The <c>pre_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreTokens { get; } = new("pre_tokens");
+
+    /// <summary>
+    /// The <c>precompute_reuse</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrecomputeReuse { get; } = new("precompute_reuse");
+
+    /// <summary>
+    /// The <c>prefix_parity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrefixParity { get; } = new("prefix_parity");
+
+    /// <summary>
+    /// The <c>preflight_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreflightMs { get; } = new("preflight_ms");
+
+    /// <summary>
+    /// The <c>prep_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrepMs { get; } = new("prep_ms");
+
+    /// <summary>
+    /// The <c>prepare_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrepareMs { get; } = new("prepare_ms");
+
+    /// <summary>
+    /// The <c>preprobe_hurried</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreprobeHurried { get; } = new("preprobe_hurried");
+
+    /// <summary>
+    /// The <c>preprobe_via</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreprobeVia { get; } = new("preprobe_via");
+
+    /// <summary>
+    /// The <c>presence</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Presence { get; } = new("presence");
+
+    /// <summary>
+    /// The <c>present_failures</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PresentFailures { get; } = new("present_failures");
+
+    /// <summary>
+    /// The <c>presentation_delay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PresentationDelayMs { get; } = new("presentation_delay_ms");
+
+    /// <summary>
+    /// The <c>press_lead_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PressLeadMs { get; } = new("press_lead_ms");
+
+    /// <summary>
+    /// The <c>prev_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrevReason { get; } = new("prev_reason");
+
+    /// <summary>
+    /// The <c>previous_cwd</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreviousCwd { get; } = new("previous_cwd");
+
+    /// <summary>
+    /// The <c>previous_quit_clean</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreviousQuitClean { get; } = new("previous_quit_clean");
+
+    /// <summary>
+    /// The <c>previous_title_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreviousTitleSource { get; } = new("previous_title_source");
+
+    /// <summary>
+    /// The <c>previous_value</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PreviousValue { get; } = new("previous_value");
+
+    /// <summary>
+    /// The <c>prewarm</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Prewarm { get; } = new("prewarm");
+
+    /// <summary>
+    /// The <c>prewarm_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrewarmKind { get; } = new("prewarm_kind");
+
+    /// <summary>
+    /// The <c>prewarm_lead_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrewarmLeadMs { get; } = new("prewarm_lead_ms");
+
+    /// <summary>
+    /// The <c>print_call</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrintCall { get; } = new("print_call");
+
+    /// <summary>
+    /// The <c>print_call_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrintCallAgeMs { get; } = new("print_call_age_ms");
+
+    /// <summary>
+    /// The <c>prior_asides</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PriorAsides { get; } = new("prior_asides");
+
+    /// <summary>
+    /// The <c>prior_installation_attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PriorInstallationAttempts { get; } = new("prior_installation_attempts");
+
+    /// <summary>
+    /// The <c>prior_loss_how</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PriorLossHow { get; } = new("prior_loss_how");
+
+    /// <summary>
+    /// The <c>probe</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Probe { get; } = new("probe");
+
+    /// <summary>
+    /// The <c>probe_answers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbeAnswers { get; } = new("probe_answers");
+
+    /// <summary>
+    /// The <c>probe_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbeMs { get; } = new("probe_ms");
+
+    /// <summary>
+    /// The <c>probe_result</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbeResult { get; } = new("probe_result");
+
+    /// <summary>
+    /// The <c>probe_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbeTrigger { get; } = new("probe_trigger");
+
+    /// <summary>
+    /// The <c>probed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Probed { get; } = new("probed");
+
+    /// <summary>
+    /// The <c>probed_height</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbedHeight { get; } = new("probed_height");
+
+    /// <summary>
+    /// The <c>probed_width</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProbedWidth { get; } = new("probed_width");
+
+    /// <summary>
+    /// The <c>probes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Probes { get; } = new("probes");
+
+    /// <summary>
     /// The <c>process</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Process { get; } = new("process");
+
+    /// <summary>
+    /// The <c>process_instance_known</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProcessInstanceKnown { get; } = new("process_instance_known");
+
+    /// <summary>
+    /// The <c>processing_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProcessingMs { get; } = new("processing_ms");
+
+    /// <summary>
+    /// The <c>product</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Product { get; } = new("product");
 
     /// <summary>
     /// The <c>profile</c> attribute namespace.
@@ -641,9 +6556,214 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Profile { get; } = new("profile");
 
     /// <summary>
+    /// The <c>project_dropped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProjectDropped { get; } = new("project_dropped");
+
+    /// <summary>
+    /// The <c>projects</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Projects { get; } = new("projects");
+
+    /// <summary>
+    /// The <c>promoted_by_ios_intent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromotedByIosIntent { get; } = new("promoted_by_ios_intent");
+
+    /// <summary>
+    /// The <c>prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Prompt { get; } = new("prompt");
+
+    /// <summary>
+    /// The <c>prompt_append_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptAppendSource { get; } = new("prompt_append_source");
+
+    /// <summary>
+    /// The <c>prompt_asker</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptAsker { get; } = new("prompt_asker");
+
+    /// <summary>
+    /// The <c>prompt_cache_likely_expired</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptCacheLikelyExpired { get; } = new("prompt_cache_likely_expired");
+
+    /// <summary>
+    /// The <c>prompt_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptKind { get; } = new("prompt_kind");
+
+    /// <summary>
+    /// The <c>prompt_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptLength { get; } = new("prompt_length");
+
+    /// <summary>
+    /// The <c>prompt_lifecycle</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptLifecycle { get; } = new("prompt_lifecycle");
+
+    /// <summary>
+    /// The <c>prompt_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptOrigin { get; } = new("prompt_origin");
+
+    /// <summary>
+    /// The <c>prompt_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptOutcome { get; } = new("prompt_outcome");
+
+    /// <summary>
+    /// The <c>prompt_rendered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptRendered { get; } = new("prompt_rendered");
+
+    /// <summary>
+    /// The <c>prompt_suggestions_requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptSuggestionsRequested { get; } = new("prompt_suggestions_requested");
+
+    /// <summary>
+    /// The <c>prompt_text</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PromptText { get; } = new("prompt_text");
+
+    /// <summary>
+    /// The <c>proof_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProofKind { get; } = new("proof_kind");
+
+    /// <summary>
+    /// The <c>proposal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Proposal { get; } = new("proposal");
+
+    /// <summary>
+    /// The <c>proposal_id_present</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProposalIdPresent { get; } = new("proposal_id_present");
+
+    /// <summary>
+    /// The <c>proposed_context</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProposedContext { get; } = new("proposed_context");
+
+    /// <summary>
+    /// The <c>proposed_title_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProposedTitleChars { get; } = new("proposed_title_chars");
+
+    /// <summary>
+    /// The <c>protected_taken_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProtectedTakenCount { get; } = new("protected_taken_count");
+
+    /// <summary>
+    /// The <c>provenance</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Provenance { get; } = new("provenance");
+
+    /// <summary>
+    /// The <c>provider</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Provider { get; } = new("provider");
+
+    /// <summary>
+    /// The <c>proxy_diagnostic</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProxyDiagnostic { get; } = new("proxy_diagnostic");
+
+    /// <summary>
+    /// The <c>proxy_key</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ProxyKey { get; } = new("proxy_key");
+
+    /// <summary>
+    /// The <c>prune_skipped_late_read_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PruneSkippedLateReadFailed { get; } = new("prune_skipped_late_read_failed");
+
+    /// <summary>
+    /// The <c>pruned_disabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace PrunedDisabled { get; } = new("pruned_disabled");
+
+    /// <summary>
     /// The <c>quartz</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Quartz { get; } = new("quartz");
+
+    /// <summary>
+    /// The <c>query_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QueryKind { get; } = new("query_kind");
+
+    /// <summary>
+    /// The <c>query_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QueryMs { get; } = new("query_ms");
+
+    /// <summary>
+    /// The <c>query_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuerySource { get; } = new("query_source");
+
+    /// <summary>
+    /// The <c>query_source_safe</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuerySourceSafe { get; } = new("query_source_safe");
+
+    /// <summary>
+    /// The <c>queue_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QueueLength { get; } = new("queue_length");
+
+    /// <summary>
+    /// The <c>queued_message_bar</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QueuedMessageBar { get; } = new("queued_message_bar");
+
+    /// <summary>
+    /// The <c>queued_sends</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QueuedSends { get; } = new("queued_sends");
+
+    /// <summary>
+    /// The <c>quick_entry_images</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuickEntryImages { get; } = new("quick_entry_images");
+
+    /// <summary>
+    /// The <c>quick_entry_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuickEntryLength { get; } = new("quick_entry_length");
+
+    /// <summary>
+    /// The <c>quiet_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuietBucket { get; } = new("quiet_bucket");
+
+    /// <summary>
+    /// The <c>quiet_recovery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuietRecovery { get; } = new("quiet_recovery");
+
+    /// <summary>
+    /// The <c>quit_after_loss_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuitAfterLossMs { get; } = new("quit_after_loss_ms");
+
+    /// <summary>
+    /// The <c>quit_death_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuitDeathCount { get; } = new("quit_death_count");
+
+    /// <summary>
+    /// The <c>quoted_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace QuotedChars { get; } = new("quoted_chars");
 
     /// <summary>
     /// The <c>qyl</c> attribute namespace.
@@ -651,9 +6771,984 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Qyl { get; } = new("qyl");
 
     /// <summary>
+    /// The <c>rate_limited_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RateLimitedCount { get; } = new("rate_limited_count");
+
+    /// <summary>
+    /// The <c>rate_limited_held_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RateLimitedHeldCount { get; } = new("rate_limited_held_count");
+
+    /// <summary>
+    /// The <c>ratelimit_remaining</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RatelimitRemaining { get; } = new("ratelimit_remaining");
+
+    /// <summary>
+    /// The <c>ratelimit_reset_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RatelimitResetSeconds { get; } = new("ratelimit_reset_seconds");
+
+    /// <summary>
+    /// The <c>ratelimit_used</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RatelimitUsed { get; } = new("ratelimit_used");
+
+    /// <summary>
+    /// The <c>raw_output</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RawOutput { get; } = new("raw_output");
+
+    /// <summary>
+    /// The <c>rc_intent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcIntent { get; } = new("rc_intent");
+
+    /// <summary>
+    /// The <c>rc_policy_bridge_yielded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcPolicyBridgeYielded { get; } = new("rc_policy_bridge_yielded");
+
+    /// <summary>
+    /// The <c>rc_reconciled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcReconciled { get; } = new("rc_reconciled");
+
+    /// <summary>
+    /// The <c>rc_recorded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcRecorded { get; } = new("rc_recorded");
+
+    /// <summary>
+    /// The <c>rc_roundtrip_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcRoundtripMs { get; } = new("rc_roundtrip_ms");
+
+    /// <summary>
+    /// The <c>rc_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RcWaitMs { get; } = new("rc_wait_ms");
+
+    /// <summary>
+    /// The <c>re_alert</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReAlert { get; } = new("re_alert");
+
+    /// <summary>
+    /// The <c>re_leased_from_pool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReLeasedFromPool { get; } = new("re_leased_from_pool");
+
+    /// <summary>
+    /// The <c>read_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReadMs { get; } = new("read_ms");
+
+    /// <summary>
+    /// The <c>read_only_mark_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReadOnlyMarkCount { get; } = new("read_only_mark_count");
+
+    /// <summary>
+    /// The <c>reads</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Reads { get; } = new("reads");
+
+    /// <summary>
+    /// The <c>reads_cap_limited</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReadsCapLimited { get; } = new("reads_cap_limited");
+
+    /// <summary>
+    /// The <c>ready</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Ready { get; } = new("ready");
+
+    /// <summary>
+    /// The <c>ready_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReadyMs { get; } = new("ready_ms");
+
+    /// <summary>
+    /// The <c>reaped_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReapedCount { get; } = new("reaped_count");
+
+    /// <summary>
+    /// The <c>reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Reason { get; } = new("reason");
+
+    /// <summary>
+    /// The <c>reason_detail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReasonDetail { get; } = new("reason_detail");
+
+    /// <summary>
+    /// The <c>reattach_answer_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReattachAnswerMs { get; } = new("reattach_answer_ms");
+
+    /// <summary>
+    /// The <c>reattach_auth</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReattachAuth { get; } = new("reattach_auth");
+
+    /// <summary>
+    /// The <c>reattach_failed_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReattachFailedReason { get; } = new("reattach_failed_reason");
+
+    /// <summary>
+    /// The <c>reattach_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReattachMs { get; } = new("reattach_ms");
+
+    /// <summary>
+    /// The <c>reattach_silent_retries</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReattachSilentRetries { get; } = new("reattach_silent_retries");
+
+    /// <summary>
+    /// The <c>recap_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecapChars { get; } = new("recap_chars");
+
+    /// <summary>
+    /// The <c>recap_chars_raw</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecapCharsRaw { get; } = new("recap_chars_raw");
+
+    /// <summary>
+    /// The <c>recent_artifact_click</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecentArtifactClick { get; } = new("recent_artifact_click");
+
+    /// <summary>
+    /// The <c>reconnected</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Reconnected { get; } = new("reconnected");
+
+    /// <summary>
+    /// The <c>record_synced</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecordSynced { get; } = new("record_synced");
+
+    /// <summary>
+    /// The <c>recorded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Recorded { get; } = new("recorded");
+
+    /// <summary>
+    /// The <c>recovered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Recovered { get; } = new("recovered");
+
+    /// <summary>
+    /// The <c>recovery_granted_ms_ago</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecoveryGrantedMsAgo { get; } = new("recovery_granted_ms_ago");
+
+    /// <summary>
+    /// The <c>recreate_cause</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecreateCause { get; } = new("recreate_cause");
+
+    /// <summary>
+    /// The <c>recreate_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RecreateOutcome { get; } = new("recreate_outcome");
+
+    /// <summary>
+    /// The <c>redial_after_sleep</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RedialAfterSleep { get; } = new("redial_after_sleep");
+
+    /// <summary>
+    /// The <c>redial_after_sleep_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RedialAfterSleepSeq { get; } = new("redial_after_sleep_seq");
+
+    /// <summary>
+    /// The <c>redial_presence</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RedialPresence { get; } = new("redial_presence");
+
+    /// <summary>
+    /// The <c>redial_seq</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RedialSeq { get; } = new("redial_seq");
+
+    /// <summary>
+    /// The <c>redirect_vendor</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RedirectVendor { get; } = new("redirect_vendor");
+
+    /// <summary>
+    /// The <c>refusal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Refusal { get; } = new("refusal");
+
+    /// <summary>
+    /// The <c>refusal_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RefusalReason { get; } = new("refusal_reason");
+
+    /// <summary>
+    /// The <c>refused_other</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RefusedOther { get; } = new("refused_other");
+
+    /// <summary>
+    /// The <c>refused_route</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RefusedRoute { get; } = new("refused_route");
+
+    /// <summary>
+    /// The <c>registry_plugin_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RegistryPluginCount { get; } = new("registry_plugin_count");
+
+    /// <summary>
+    /// The <c>rejected_model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RejectedModel { get; } = new("rejected_model");
+
+    /// <summary>
+    /// The <c>release_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReleaseReason { get; } = new("release_reason");
+
+    /// <summary>
+    /// The <c>released_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReleasedBy { get; } = new("released_by");
+
+    /// <summary>
+    /// The <c>reload_attempt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReloadAttempt { get; } = new("reload_attempt");
+
+    /// <summary>
+    /// The <c>relocated_config</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RelocatedConfig { get; } = new("relocated_config");
+
+    /// <summary>
+    /// The <c>remaining</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Remaining { get; } = new("remaining");
+
+    /// <summary>
+    /// The <c>remote</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Remote { get; } = new("remote");
+
+    /// <summary>
+    /// The <c>remote_control_on</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteControlOn { get; } = new("remote_control_on");
+
+    /// <summary>
+    /// The <c>remote_control_user_owned</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteControlUserOwned { get; } = new("remote_control_user_owned");
+
+    /// <summary>
+    /// The <c>remote_control_was_on</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteControlWasOn { get; } = new("remote_control_was_on");
+
+    /// <summary>
+    /// The <c>remote_cwd_probe_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteCwdProbeMs { get; } = new("remote_cwd_probe_ms");
+
+    /// <summary>
+    /// The <c>remote_folder</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteFolder { get; } = new("remote_folder");
+
+    /// <summary>
+    /// The <c>remote_scheduled_tasks_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteScheduledTasksEnabled { get; } = new("remote_scheduled_tasks_enabled");
+
+    /// <summary>
+    /// The <c>remote_session_store_load_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemoteSessionStoreLoadFailed { get; } = new("remote_session_store_load_failed");
+
+    /// <summary>
+    /// The <c>removed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Removed { get; } = new("removed");
+
+    /// <summary>
+    /// The <c>removed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemovedCount { get; } = new("removed_count");
+
+    /// <summary>
+    /// The <c>removed_job</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RemovedJob { get; } = new("removed_job");
+
+    /// <summary>
+    /// The <c>renderer</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Renderer { get; } = new("renderer");
+
+    /// <summary>
+    /// The <c>renderer_build_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RendererBuildId { get; } = new("renderer_build_id");
+
+    /// <summary>
+    /// The <c>renderer_surface</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RendererSurface { get; } = new("renderer_surface");
+
+    /// <summary>
+    /// The <c>renewed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Renewed { get; } = new("renewed");
+
+    /// <summary>
+    /// The <c>repair_shown</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RepairShown { get; } = new("repair_shown");
+
+    /// <summary>
+    /// The <c>replaced_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplacedBy { get; } = new("replaced_by");
+
+    /// <summary>
+    /// The <c>replaces_message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplacesMessageUuid { get; } = new("replaces_message_uuid");
+
+    /// <summary>
+    /// The <c>replay</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Replay { get; } = new("replay");
+
+    /// <summary>
+    /// The <c>replayed_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplayedBytes { get; } = new("replayed_bytes");
+
+    /// <summary>
+    /// The <c>replayed_frames</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplayedFrames { get; } = new("replayed_frames");
+
+    /// <summary>
+    /// The <c>replays</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Replays { get; } = new("replays");
+
+    /// <summary>
+    /// The <c>replays_after_drop</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplaysAfterDrop { get; } = new("replays_after_drop");
+
+    /// <summary>
+    /// The <c>reply_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReplyChars { get; } = new("reply_chars");
+
+    /// <summary>
+    /// The <c>repo_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RepoKind { get; } = new("repo_kind");
+
+    /// <summary>
+    /// The <c>reported_cli_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReportedCliKind { get; } = new("reported_cli_kind");
+
+    /// <summary>
+    /// The <c>reported_cli_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReportedCliVersion { get; } = new("reported_cli_version");
+
+    /// <summary>
+    /// The <c>request_body_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestBodyId { get; } = new("request_body_id");
+
+    /// <summary>
+    /// The <c>request_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestId { get; } = new("request_id");
+
+    /// <summary>
+    /// The <c>requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Requested { get; } = new("requested");
+
+    /// <summary>
+    /// The <c>requested_lead_time_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestedLeadTimeMs { get; } = new("requested_lead_time_ms");
+
+    /// <summary>
+    /// The <c>requested_level</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestedLevel { get; } = new("requested_level");
+
+    /// <summary>
+    /// The <c>requested_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestedMode { get; } = new("requested_mode");
+
+    /// <summary>
+    /// The <c>requesting_site</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequestingSite { get; } = new("requesting_site");
+
+    /// <summary>
+    /// The <c>required_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequiredVersion { get; } = new("required_version");
+
+    /// <summary>
+    /// The <c>requires_computer_gate_blocked_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequiresComputerGateBlockedCount { get; } = new("requires_computer_gate_blocked_count");
+
+    /// <summary>
+    /// The <c>requires_computer_insufficient_observation_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequiresComputerInsufficientObservationCount { get; } = new("requires_computer_insufficient_observation_count");
+
+    /// <summary>
+    /// The <c>requires_computer_no_fresh_record_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RequiresComputerNoFreshRecordCount { get; } = new("requires_computer_no_fresh_record_count");
+
+    /// <summary>
+    /// The <c>resolution</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Resolution { get; } = new("resolution");
+
+    /// <summary>
+    /// The <c>resolve_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResolveMs { get; } = new("resolve_ms");
+
+    /// <summary>
+    /// The <c>resolved</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Resolved { get; } = new("resolved");
+
+    /// <summary>
+    /// The <c>resolved_person_holds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResolvedPersonHolds { get; } = new("resolved_person_holds");
+
+    /// <summary>
+    /// The <c>resolved_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResolvedVersion { get; } = new("resolved_version");
+
+    /// <summary>
+    /// The <c>resource_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResourceType { get; } = new("resource_type");
+
+    /// <summary>
+    /// The <c>response</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Response { get; } = new("response");
+
+    /// <summary>
+    /// The <c>response_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResponseLength { get; } = new("response_length");
+
+    /// <summary>
+    /// The <c>rest_200_conditional_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest200ConditionalCount { get; } = new("rest_200_conditional_count");
+
+    /// <summary>
+    /// The <c>rest_200_unconditional_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest200UnconditionalCount { get; } = new("rest_200_unconditional_count");
+
+    /// <summary>
+    /// The <c>rest_304_by_endpoint</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest304ByEndpoint { get; } = new("rest_304_by_endpoint");
+
+    /// <summary>
+    /// The <c>rest_304_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest304Count { get; } = new("rest_304_count");
+
+    /// <summary>
+    /// The <c>rest_4xx_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest4xxCount { get; } = new("rest_4xx_count");
+
+    /// <summary>
+    /// The <c>rest_5xx_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rest5xxCount { get; } = new("rest_5xx_count");
+
+    /// <summary>
+    /// The <c>rest_checks_fetch_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RestChecksFetchCount { get; } = new("rest_checks_fetch_count");
+
+    /// <summary>
+    /// The <c>rest_ratelimit_remaining</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RestRatelimitRemaining { get; } = new("rest_ratelimit_remaining");
+
+    /// <summary>
+    /// The <c>rest_ratelimit_used</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RestRatelimitUsed { get; } = new("rest_ratelimit_used");
+
+    /// <summary>
+    /// The <c>rest_read_by_endpoint</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RestReadByEndpoint { get; } = new("rest_read_by_endpoint");
+
+    /// <summary>
+    /// The <c>rest_routed_row_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RestRoutedRowCount { get; } = new("rest_routed_row_count");
+
+    /// <summary>
+    /// The <c>restored</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Restored { get; } = new("restored");
+
+    /// <summary>
+    /// The <c>result</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Result { get; } = new("result");
+
+    /// <summary>
+    /// The <c>result_subtype</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResultSubtype { get; } = new("result_subtype");
+
+    /// <summary>
+    /// The <c>result_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResultTokens { get; } = new("result_tokens");
+
+    /// <summary>
+    /// The <c>resume_cost_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeCostSource { get; } = new("resume_cost_source");
+
+    /// <summary>
+    /// The <c>resume_from_byte</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeFromByte { get; } = new("resume_from_byte");
+
+    /// <summary>
+    /// The <c>resume_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeReason { get; } = new("resume_reason");
+
+    /// <summary>
+    /// The <c>resume_seed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeSeed { get; } = new("resume_seed");
+
+    /// <summary>
+    /// The <c>resume_stop_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeStopTrigger { get; } = new("resume_stop_trigger");
+
+    /// <summary>
+    /// The <c>resume_was_ours</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumeWasOurs { get; } = new("resume_was_ours");
+
+    /// <summary>
+    /// The <c>resumed_after_attention</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumedAfterAttention { get; } = new("resumed_after_attention");
+
+    /// <summary>
+    /// The <c>resumed_from_byte</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ResumedFromByte { get; } = new("resumed_from_byte");
+
+    /// <summary>
+    /// The <c>retained</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Retained { get; } = new("retained");
+
+    /// <summary>
+    /// The <c>retention_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RetentionDays { get; } = new("retention_days");
+
+    /// <summary>
+    /// The <c>retention_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RetentionSource { get; } = new("retention_source");
+
+    /// <summary>
+    /// The <c>retry_attempt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RetryAttempt { get; } = new("retry_attempt");
+
+    /// <summary>
+    /// The <c>retry_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RetryCount { get; } = new("retry_count");
+
+    /// <summary>
+    /// The <c>retry_in_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RetryInMs { get; } = new("retry_in_ms");
+
+    /// <summary>
+    /// The <c>return_refresh_github_row_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReturnRefreshGithubRowCount { get; } = new("return_refresh_github_row_count");
+
+    /// <summary>
+    /// The <c>return_refresh_other_row_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReturnRefreshOtherRowCount { get; } = new("return_refresh_other_row_count");
+
+    /// <summary>
+    /// The <c>return_refresh_skipped_low_budget_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReturnRefreshSkippedLowBudgetCount { get; } = new("return_refresh_skipped_low_budget_count");
+
+    /// <summary>
+    /// The <c>reused_server</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ReusedServer { get; } = new("reused_server");
+
+    /// <summary>
+    /// The <c>rewind_active_chain_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RewindActiveChainLength { get; } = new("rewind_active_chain_length");
+
+    /// <summary>
+    /// The <c>rewind_target_miss_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RewindTargetMissReason { get; } = new("rewind_target_miss_reason");
+
+    /// <summary>
+    /// The <c>rewind_transcript_has_compact_boundary</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RewindTranscriptHasCompactBoundary { get; } = new("rewind_transcript_has_compact_boundary");
+
+    /// <summary>
+    /// The <c>rewind_transcript_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RewindTranscriptLength { get; } = new("rewind_transcript_length");
+
+    /// <summary>
+    /// The <c>root_fenced</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RootFenced { get; } = new("root_fenced");
+
+    /// <summary>
+    /// The <c>root_is_unc</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RootIsUnc { get; } = new("root_is_unc");
+
+    /// <summary>
+    /// The <c>root_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RootMs { get; } = new("root_ms");
+
+    /// <summary>
+    /// The <c>root_named</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RootNamed { get; } = new("root_named");
+
+    /// <summary>
+    /// The <c>rounds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rounds { get; } = new("rounds");
+
+    /// <summary>
+    /// The <c>rounds_last_day</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RoundsLastDay { get; } = new("rounds_last_day");
+
+    /// <summary>
+    /// The <c>rounds_last_hour</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RoundsLastHour { get; } = new("rounds_last_hour");
+
+    /// <summary>
+    /// The <c>route</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Route { get; } = new("route");
+
+    /// <summary>
+    /// The <c>route_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RouteMs { get; } = new("route_ms");
+
+    /// <summary>
+    /// The <c>route_prefix</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RoutePrefix { get; } = new("route_prefix");
+
+    /// <summary>
+    /// The <c>routines_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RoutinesEnabled { get; } = new("routines_enabled");
+
+    /// <summary>
+    /// The <c>row_pk_resolved</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RowPkResolved { get; } = new("row_pk_resolved");
+
+    /// <summary>
+    /// The <c>rows</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rows { get; } = new("rows");
+
+    /// <summary>
+    /// The <c>rows_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RowsSource { get; } = new("rows_source");
+
+    /// <summary>
     /// The <c>rpc</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Rpc { get; } = new("rpc");
+
+    /// <summary>
+    /// The <c>rpc_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RpcError { get; } = new("rpc_error");
+
+    /// <summary>
+    /// The <c>rpm_enabled_state_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RpmEnabledStateAgeMs { get; } = new("rpm_enabled_state_age_ms");
+
+    /// <summary>
+    /// The <c>rpm_enabled_state_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RpmEnabledStateMs { get; } = new("rpm_enabled_state_ms");
+
+    /// <summary>
+    /// The <c>rpm_enabled_state_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RpmEnabledStateSource { get; } = new("rpm_enabled_state_source");
+
+    /// <summary>
+    /// The <c>rpm_fs_scan_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RpmFsScanMs { get; } = new("rpm_fs_scan_ms");
+
+    /// <summary>
+    /// The <c>rule</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Rule { get; } = new("rule");
+
+    /// <summary>
+    /// The <c>running</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Running { get; } = new("running");
+
+    /// <summary>
+    /// The <c>running_session_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RunningSessionCount { get; } = new("running_session_count");
+
+    /// <summary>
+    /// The <c>running_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace RunningSessions { get; } = new("running_sessions");
+
+    /// <summary>
+    /// The <c>safe_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SafeMode { get; } = new("safe_mode");
+
+    /// <summary>
+    /// The <c>same_category_as_prior_loss</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SameCategoryAsPriorLoss { get; } = new("same_category_as_prior_loss");
+
+    /// <summary>
+    /// The <c>same_session</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SameSession { get; } = new("same_session");
+
+    /// <summary>
+    /// The <c>sample_index</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SampleIndex { get; } = new("sample_index");
+
+    /// <summary>
+    /// The <c>sampler_active</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SamplerActive { get; } = new("sampler_active");
+
+    /// <summary>
+    /// The <c>sampler_frames</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SamplerFrames { get; } = new("sampler_frames");
+
+    /// <summary>
+    /// The <c>sampler_start_lag_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SamplerStartLagMs { get; } = new("sampler_start_lag_ms");
+
+    /// <summary>
+    /// The <c>sampling_trace_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SamplingTraceId { get; } = new("sampling_trace_id");
+
+    /// <summary>
+    /// The <c>sandbox_cascade</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SandboxCascade { get; } = new("sandbox_cascade");
+
+    /// <summary>
+    /// The <c>sandbox_env</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SandboxEnv { get; } = new("sandbox_env");
+
+    /// <summary>
+    /// The <c>sandbox_on</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SandboxOn { get; } = new("sandbox_on");
+
+    /// <summary>
+    /// The <c>sandbox_settings</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SandboxSettings { get; } = new("sandbox_settings");
+
+    /// <summary>
+    /// The <c>saved_in_manual</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SavedInManual { get; } = new("saved_in_manual");
+
+    /// <summary>
+    /// The <c>saved_other</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SavedOther { get; } = new("saved_other");
+
+    /// <summary>
+    /// The <c>saw_unreachable</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SawUnreachable { get; } = new("saw_unreachable");
+
+    /// <summary>
+    /// The <c>scale</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Scale { get; } = new("scale");
+
+    /// <summary>
+    /// The <c>scan_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ScanMs { get; } = new("scan_ms");
+
+    /// <summary>
+    /// The <c>scheduled_task_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ScheduledTaskId { get; } = new("scheduled_task_id");
+
+    /// <summary>
+    /// The <c>scheduled_task_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ScheduledTaskTool { get; } = new("scheduled_task_tool");
+
+    /// <summary>
+    /// The <c>scheme</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Scheme { get; } = new("scheme");
+
+    /// <summary>
+    /// The <c>scoped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Scoped { get; } = new("scoped");
+
+    /// <summary>
+    /// The <c>scrollback_log</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ScrollbackLog { get; } = new("scrollback_log");
+
+    /// <summary>
+    /// The <c>sdk_host</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SdkHost { get; } = new("sdk_host");
+
+    /// <summary>
+    /// The <c>sealed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SealedCount { get; } = new("sealed_count");
+
+    /// <summary>
+    /// The <c>seconds_since_activity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceActivity { get; } = new("seconds_since_activity");
+
+    /// <summary>
+    /// The <c>seconds_since_create</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceCreate { get; } = new("seconds_since_create");
+
+    /// <summary>
+    /// The <c>seconds_since_last_activity</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceLastActivity { get; } = new("seconds_since_last_activity");
+
+    /// <summary>
+    /// The <c>seconds_since_last_oauth_decline</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceLastOauthDecline { get; } = new("seconds_since_last_oauth_decline");
+
+    /// <summary>
+    /// The <c>seconds_since_last_response</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceLastResponse { get; } = new("seconds_since_last_response");
+
+    /// <summary>
+    /// The <c>seconds_since_last_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceLastTurn { get; } = new("seconds_since_last_turn");
+
+    /// <summary>
+    /// The <c>seconds_since_offer</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceOffer { get; } = new("seconds_since_offer");
+
+    /// <summary>
+    /// The <c>seconds_since_rewind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceRewind { get; } = new("seconds_since_rewind");
+
+    /// <summary>
+    /// The <c>seconds_since_stderr</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsSinceStderr { get; } = new("seconds_since_stderr");
+
+    /// <summary>
+    /// The <c>seconds_to_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsToOutcome { get; } = new("seconds_to_outcome");
+
+    /// <summary>
+    /// The <c>seconds_waiting</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SecondsWaiting { get; } = new("seconds_waiting");
 
     /// <summary>
     /// The <c>security_rule</c> attribute namespace.
@@ -661,9 +7756,49 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace SecurityRule { get; } = new("security_rule");
 
     /// <summary>
+    /// The <c>seeded_from_tail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SeededFromTail { get; } = new("seeded_from_tail");
+
+    /// <summary>
     /// The <c>server</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Server { get; } = new("server");
+
+    /// <summary>
+    /// The <c>server_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerEnabled { get; } = new("server_enabled");
+
+    /// <summary>
+    /// The <c>server_fallback_hop</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerFallbackHop { get; } = new("server_fallback_hop");
+
+    /// <summary>
+    /// The <c>server_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerName { get; } = new("server_name");
+
+    /// <summary>
+    /// The <c>server_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerScope { get; } = new("server_scope");
+
+    /// <summary>
+    /// The <c>server_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerType { get; } = new("server_type");
+
+    /// <summary>
+    /// The <c>server_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerUuid { get; } = new("server_uuid");
+
+    /// <summary>
+    /// The <c>server_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ServerVersion { get; } = new("server_version");
 
     /// <summary>
     /// The <c>service</c> attribute namespace.
@@ -676,9 +7811,409 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Session { get; } = new("session");
 
     /// <summary>
+    /// The <c>sessionId</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionId { get; } = new("sessionId");
+
+    /// <summary>
+    /// The <c>session_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionAgeMs { get; } = new("session_age_ms");
+
+    /// <summary>
+    /// The <c>session_bytes_read</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionBytesRead { get; } = new("session_bytes_read");
+
+    /// <summary>
+    /// The <c>session_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionCount { get; } = new("session_count");
+
+    /// <summary>
+    /// The <c>session_exists</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionExists { get; } = new("session_exists");
+
+    /// <summary>
+    /// The <c>session_files_deleted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionFilesDeleted { get; } = new("session_files_deleted");
+
+    /// <summary>
+    /// The <c>session_grouping_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionGroupingId { get; } = new("session_grouping_id");
+
+    /// <summary>
+    /// The <c>session_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionIdNamespace { get; } = new("session_id");
+
+    /// <summary>
+    /// The <c>session_presets</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionPresets { get; } = new("session_presets");
+
+    /// <summary>
+    /// The <c>session_repo_entry_base_missing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoEntryBaseMissing { get; } = new("session_repo_entry_base_missing");
+
+    /// <summary>
+    /// The <c>session_repo_missing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoMissing { get; } = new("session_repo_missing");
+
+    /// <summary>
+    /// The <c>session_repo_not_a_tree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoNotATree { get; } = new("session_repo_not_a_tree");
+
+    /// <summary>
+    /// The <c>session_repo_not_session_scoped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoNotSessionScoped { get; } = new("session_repo_not_session_scoped");
+
+    /// <summary>
+    /// The <c>session_repo_tree_not_anchored</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoTreeNotAnchored { get; } = new("session_repo_tree_not_anchored");
+
+    /// <summary>
+    /// The <c>session_repo_unbound</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoUnbound { get; } = new("session_repo_unbound");
+
+    /// <summary>
+    /// The <c>session_repo_would_refuse_base</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoWouldRefuseBase { get; } = new("session_repo_would_refuse_base");
+
+    /// <summary>
+    /// The <c>session_repo_would_refuse_tree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRepoWouldRefuseTree { get; } = new("session_repo_would_refuse_tree");
+
+    /// <summary>
+    /// The <c>session_running</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionRunning { get; } = new("session_running");
+
+    /// <summary>
+    /// The <c>session_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionScope { get; } = new("session_scope");
+
+    /// <summary>
+    /// The <c>session_title</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionTitle { get; } = new("session_title");
+
+    /// <summary>
+    /// The <c>session_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionTool { get; } = new("session_tool");
+
+    /// <summary>
+    /// The <c>session_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionType { get; } = new("session_type");
+
+    /// <summary>
+    /// The <c>sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Sessions { get; } = new("sessions");
+
+    /// <summary>
+    /// The <c>sessions_archived</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionsArchived { get; } = new("sessions_archived");
+
+    /// <summary>
+    /// The <c>sessions_pushed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionsPushed { get; } = new("sessions_pushed");
+
+    /// <summary>
+    /// The <c>sessions_skipped_fence</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionsSkippedFence { get; } = new("sessions_skipped_fence");
+
+    /// <summary>
+    /// The <c>sessions_skipped_unsupported</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SessionsSkippedUnsupported { get; } = new("sessions_skipped_unsupported");
+
+    /// <summary>
+    /// The <c>set_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SetMs { get; } = new("set_ms");
+
+    /// <summary>
+    /// The <c>set_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SetOrigin { get; } = new("set_origin");
+
+    /// <summary>
+    /// The <c>setting_key</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SettingKey { get; } = new("setting_key");
+
+    /// <summary>
+    /// The <c>settings_tier</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SettingsTier { get; } = new("settings_tier");
+
+    /// <summary>
+    /// The <c>settings_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SettingsTool { get; } = new("settings_tool");
+
+    /// <summary>
+    /// The <c>settle_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SettleMs { get; } = new("settle_ms");
+
+    /// <summary>
+    /// The <c>settle_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SettleReason { get; } = new("settle_reason");
+
+    /// <summary>
+    /// The <c>settled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Settled { get; } = new("settled");
+
+    /// <summary>
+    /// The <c>shared</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Shared { get; } = new("shared");
+
+    /// <summary>
+    /// The <c>shell</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Shell { get; } = new("shell");
+
+    /// <summary>
+    /// The <c>shell_env_failed_reads</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ShellEnvFailedReads { get; } = new("shell_env_failed_reads");
+
+    /// <summary>
+    /// The <c>shell_integration</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ShellIntegration { get; } = new("shell_integration");
+
+    /// <summary>
+    /// The <c>shipit_stderr_tail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ShipitStderrTail { get; } = new("shipit_stderr_tail");
+
+    /// <summary>
+    /// The <c>shown_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ShownMs { get; } = new("shown_ms");
+
+    /// <summary>
+    /// The <c>side_sessions_available</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SideSessionsAvailable { get; } = new("side_sessions_available");
+
+    /// <summary>
+    /// The <c>sign_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignErrorCode { get; } = new("sign_error_code");
+
+    /// <summary>
+    /// The <c>sign_error_probe_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignErrorProbeCode { get; } = new("sign_error_probe_code");
+
+    /// <summary>
+    /// The <c>sign_in_cookie_present</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignInCookiePresent { get; } = new("sign_in_cookie_present");
+
+    /// <summary>
+    /// The <c>sign_in_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignInReason { get; } = new("sign_in_reason");
+
+    /// <summary>
+    /// The <c>sign_in_waits</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignInWaits { get; } = new("sign_in_waits");
+
+    /// <summary>
+    /// The <c>signal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Signal { get; } = new("signal");
+
+    /// <summary>
     /// The <c>signalr</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Signalr { get; } = new("signalr");
+
+    /// <summary>
+    /// The <c>signals_ignored</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignalsIgnored { get; } = new("signals_ignored");
+
+    /// <summary>
+    /// The <c>signed_in_at_last_exit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SignedInAtLastExit { get; } = new("signed_in_at_last_exit");
+
+    /// <summary>
+    /// The <c>silence_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SilenceMs { get; } = new("silence_ms");
+
+    /// <summary>
+    /// The <c>silent_reattach</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SilentReattach { get; } = new("silent_reattach");
+
+    /// <summary>
+    /// The <c>since_app_focus_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SinceAppFocusMs { get; } = new("since_app_focus_ms");
+
+    /// <summary>
+    /// The <c>since_input_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SinceInputMs { get; } = new("since_input_ms");
+
+    /// <summary>
+    /// The <c>since_page_hidden_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SincePageHiddenMs { get; } = new("since_page_hidden_ms");
+
+    /// <summary>
+    /// The <c>since_page_visible_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SincePageVisibleMs { get; } = new("since_page_visible_ms");
+
+    /// <summary>
+    /// The <c>single_ingest</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SingleIngest { get; } = new("single_ingest");
+
+    /// <summary>
+    /// The <c>site</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Site { get; } = new("site");
+
+    /// <summary>
+    /// The <c>sites</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Sites { get; } = new("sites");
+
+    /// <summary>
+    /// The <c>size</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Size { get; } = new("size");
+
+    /// <summary>
+    /// The <c>skill</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Skill { get; } = new("skill");
+
+    /// <summary>
+    /// The <c>skill_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkillName { get; } = new("skill_name");
+
+    /// <summary>
+    /// The <c>skill_path_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkillPathCount { get; } = new("skill_path_count");
+
+    /// <summary>
+    /// The <c>skip_push</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkipPush { get; } = new("skip_push");
+
+    /// <summary>
+    /// The <c>skip_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkipReason { get; } = new("skip_reason");
+
+    /// <summary>
+    /// The <c>skipped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Skipped { get; } = new("skipped");
+
+    /// <summary>
+    /// The <c>skipped_by_cap</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkippedByCap { get; } = new("skipped_by_cap");
+
+    /// <summary>
+    /// The <c>skipped_collision</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkippedCollision { get; } = new("skipped_collision");
+
+    /// <summary>
+    /// The <c>skipped_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkippedCount { get; } = new("skipped_count");
+
+    /// <summary>
+    /// The <c>skipped_disabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkippedDisabled { get; } = new("skipped_disabled");
+
+    /// <summary>
+    /// The <c>skipped_offline</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SkippedOffline { get; } = new("skipped_offline");
+
+    /// <summary>
+    /// The <c>sleep_assertion_held</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SleepAssertionHeld { get; } = new("sleep_assertion_held");
+
+    /// <summary>
+    /// The <c>sleep_duration_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SleepDurationSeconds { get; } = new("sleep_duration_seconds");
+
+    /// <summary>
+    /// The <c>sleep_signal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SleepSignal { get; } = new("sleep_signal");
+
+    /// <summary>
+    /// The <c>slept</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Slept { get; } = new("slept");
+
+    /// <summary>
+    /// The <c>slept_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SleptMs { get; } = new("slept_ms");
+
+    /// <summary>
+    /// The <c>slot_consumed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SlotConsumed { get; } = new("slot_consumed");
+
+    /// <summary>
+    /// The <c>slot_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SlotWaitMs { get; } = new("slot_wait_ms");
+
+    /// <summary>
+    /// The <c>slow_folders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SlowFolders { get; } = new("slow_folders");
+
+    /// <summary>
+    /// The <c>slow_shell_wait</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SlowShellWait { get; } = new("slow_shell_wait");
 
     /// <summary>
     /// The <c>soap</c> attribute namespace.
@@ -686,9 +8221,319 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Soap { get; } = new("soap");
 
     /// <summary>
+    /// The <c>soft_deleted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SoftDeleted { get; } = new("soft_deleted");
+
+    /// <summary>
     /// The <c>source</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Source { get; } = new("source");
+
+    /// <summary>
+    /// The <c>source_organization_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SourceOrganizationUuid { get; } = new("source_organization_uuid");
+
+    /// <summary>
+    /// The <c>source_was_previewed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SourceWasPreviewed { get; } = new("source_was_previewed");
+
+    /// <summary>
+    /// The <c>space_dropped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceDropped { get; } = new("space_dropped");
+
+    /// <summary>
+    /// The <c>space_empty</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceEmpty { get; } = new("space_empty");
+
+    /// <summary>
+    /// The <c>space_folders_0</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceFolders0 { get; } = new("space_folders_0");
+
+    /// <summary>
+    /// The <c>space_folders_1</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceFolders1 { get; } = new("space_folders_1");
+
+    /// <summary>
+    /// The <c>space_folders_2_plus</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceFolders2Plus { get; } = new("space_folders_2_plus");
+
+    /// <summary>
+    /// The <c>space_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceId { get; } = new("space_id");
+
+    /// <summary>
+    /// The <c>space_store_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceStoreCount { get; } = new("space_store_count");
+
+    /// <summary>
+    /// The <c>space_tied_enabled_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceTiedEnabledCount { get; } = new("space_tied_enabled_count");
+
+    /// <summary>
+    /// The <c>space_unresolvable</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceUnresolvable { get; } = new("space_unresolvable");
+
+    /// <summary>
+    /// The <c>space_with_drive_links</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceWithDriveLinks { get; } = new("space_with_drive_links");
+
+    /// <summary>
+    /// The <c>space_with_instructions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceWithInstructions { get; } = new("space_with_instructions");
+
+    /// <summary>
+    /// The <c>space_with_links</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceWithLinks { get; } = new("space_with_links");
+
+    /// <summary>
+    /// The <c>space_with_projects</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpaceWithProjects { get; } = new("space_with_projects");
+
+    /// <summary>
+    /// The <c>spaces_quarantined_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpacesQuarantinedCount { get; } = new("spaces_quarantined_count");
+
+    /// <summary>
+    /// The <c>span</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Span { get; } = new("span");
+
+    /// <summary>
+    /// The <c>spare_claim_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareClaimMs { get; } = new("spare_claim_ms");
+
+    /// <summary>
+    /// The <c>spare_event</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareEvent { get; } = new("spare_event");
+
+    /// <summary>
+    /// The <c>spare_fail_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareFailCode { get; } = new("spare_fail_code");
+
+    /// <summary>
+    /// The <c>spare_mcp_settled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareMcpSettled { get; } = new("spare_mcp_settled");
+
+    /// <summary>
+    /// The <c>spare_miss_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareMissReason { get; } = new("spare_miss_reason");
+
+    /// <summary>
+    /// The <c>spare_parked_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareParkedMs { get; } = new("spare_parked_ms");
+
+    /// <summary>
+    /// The <c>spare_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpareWaitMs { get; } = new("spare_wait_ms");
+
+    /// <summary>
+    /// The <c>spawn_argv_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnArgvChars { get; } = new("spawn_argv_chars");
+
+    /// <summary>
+    /// The <c>spawn_confirmed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnConfirmed { get; } = new("spawn_confirmed");
+
+    /// <summary>
+    /// The <c>spawn_fallback_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnFallbackCount { get; } = new("spawn_fallback_count");
+
+    /// <summary>
+    /// The <c>spawn_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnMode { get; } = new("spawn_mode");
+
+    /// <summary>
+    /// The <c>spawn_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnReason { get; } = new("spawn_reason");
+
+    /// <summary>
+    /// The <c>spawn_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnSource { get; } = new("spawn_source");
+
+    /// <summary>
+    /// The <c>spawn_to_init_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnToInitMs { get; } = new("spawn_to_init_ms");
+
+    /// <summary>
+    /// The <c>spawn_to_outcome_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpawnToOutcomeMs { get; } = new("spawn_to_outcome_ms");
+
+    /// <summary>
+    /// The <c>speed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Speed { get; } = new("speed");
+
+    /// <summary>
+    /// The <c>spelled_in</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpelledIn { get; } = new("spelled_in");
+
+    /// <summary>
+    /// The <c>spread_hours</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SpreadHours { get; } = new("spread_hours");
+
+    /// <summary>
+    /// The <c>ssh_client_launch_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshClientLaunchErrorCode { get; } = new("ssh_client_launch_error_code");
+
+    /// <summary>
+    /// The <c>ssh_platform</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshPlatform { get; } = new("ssh_platform");
+
+    /// <summary>
+    /// The <c>ssh_transport</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshTransport { get; } = new("ssh_transport");
+
+    /// <summary>
+    /// The <c>ssh_transport_flag_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshTransportFlagState { get; } = new("ssh_transport_flag_state");
+
+    /// <summary>
+    /// The <c>ssh_transport_flag_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshTransportFlagWaitMs { get; } = new("ssh_transport_flag_wait_ms");
+
+    /// <summary>
+    /// The <c>ssh_transport_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshTransportSource { get; } = new("ssh_transport_source");
+
+    /// <summary>
+    /// The <c>ssh_windows_client_unusable_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SshWindowsClientUnusableReason { get; } = new("ssh_windows_client_unusable_reason");
+
+    /// <summary>
+    /// The <c>stage</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Stage { get; } = new("stage");
+
+    /// <summary>
+    /// The <c>staged_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StagedVersion { get; } = new("staged_version");
+
+    /// <summary>
+    /// The <c>stale</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Stale { get; } = new("stale");
+
+    /// <summary>
+    /// The <c>stale_claimed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StaleClaimed { get; } = new("stale_claimed");
+
+    /// <summary>
+    /// The <c>stale_cowork_owned</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StaleCoworkOwned { get; } = new("stale_cowork_owned");
+
+    /// <summary>
+    /// The <c>stale_had_focus</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StaleHadFocus { get; } = new("stale_had_focus");
+
+    /// <summary>
+    /// The <c>stale_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StaleReason { get; } = new("stale_reason");
+
+    /// <summary>
+    /// The <c>stale_shown_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StaleShownAgeMs { get; } = new("stale_shown_age_ms");
+
+    /// <summary>
+    /// The <c>stall_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StallDurationMs { get; } = new("stall_duration_ms");
+
+    /// <summary>
+    /// The <c>stamped_migrated_from_space</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StampedMigratedFromSpace { get; } = new("stamped_migrated_from_space");
+
+    /// <summary>
+    /// The <c>start_gate</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartGate { get; } = new("start_gate");
+
+    /// <summary>
+    /// The <c>start_in_flight</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartInFlight { get; } = new("start_in_flight");
+
+    /// <summary>
+    /// The <c>start_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartReason { get; } = new("start_reason");
+
+    /// <summary>
+    /// The <c>start_stage_reached</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartStageReached { get; } = new("start_stage_reached");
+
+    /// <summary>
+    /// The <c>start_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartTool { get; } = new("start_tool");
+
+    /// <summary>
+    /// The <c>start_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartType { get; } = new("start_type");
+
+    /// <summary>
+    /// The <c>started</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Started { get; } = new("started");
+
+    /// <summary>
+    /// The <c>started_by_model</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StartedByModel { get; } = new("started_by_model");
+
+    /// <summary>
+    /// The <c>stat_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StatMs { get; } = new("stat_ms");
 
     /// <summary>
     /// The <c>state</c> attribute namespace.
@@ -696,9 +8541,489 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace State { get; } = new("state");
 
     /// <summary>
+    /// The <c>status</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Status { get; } = new("status");
+
+    /// <summary>
+    /// The <c>status_before</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StatusBefore { get; } = new("status_before");
+
+    /// <summary>
+    /// The <c>status_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StatusCode { get; } = new("status_code");
+
+    /// <summary>
+    /// The <c>status_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StatusMs { get; } = new("status_ms");
+
+    /// <summary>
+    /// The <c>status_unknown</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StatusUnknown { get; } = new("status_unknown");
+
+    /// <summary>
+    /// The <c>stdout_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StdoutChars { get; } = new("stdout_chars");
+
+    /// <summary>
+    /// The <c>steered_send_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SteeredSendCount { get; } = new("steered_send_count");
+
+    /// <summary>
+    /// The <c>step</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Step { get; } = new("step");
+
+    /// <summary>
+    /// The <c>step_budget_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StepBudgetMs { get; } = new("step_budget_ms");
+
+    /// <summary>
+    /// The <c>still_running_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StillRunningSessions { get; } = new("still_running_sessions");
+
+    /// <summary>
+    /// The <c>stood_down</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoodDown { get; } = new("stood_down");
+
+    /// <summary>
+    /// The <c>stop_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StopOutcome { get; } = new("stop_outcome");
+
+    /// <summary>
+    /// The <c>stop_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StopReason { get; } = new("stop_reason");
+
+    /// <summary>
+    /// The <c>stopped_by_limit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoppedByLimit { get; } = new("stopped_by_limit");
+
+    /// <summary>
+    /// The <c>stopped_by_misses</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoppedByMisses { get; } = new("stopped_by_misses");
+
+    /// <summary>
+    /// The <c>stopped_by_process_cap</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoppedByProcessCap { get; } = new("stopped_by_process_cap");
+
+    /// <summary>
+    /// The <c>storage_budget_hit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageBudgetHit { get; } = new("storage_budget_hit");
+
+    /// <summary>
+    /// The <c>storage_carried</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageCarried { get; } = new("storage_carried");
+
+    /// <summary>
+    /// The <c>storage_concurrency</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageConcurrency { get; } = new("storage_concurrency");
+
+    /// <summary>
+    /// The <c>storage_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageFailed { get; } = new("storage_failed");
+
+    /// <summary>
+    /// The <c>storage_keys</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageKeys { get; } = new("storage_keys");
+
+    /// <summary>
+    /// The <c>storage_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageMs { get; } = new("storage_ms");
+
+    /// <summary>
+    /// The <c>storage_origins</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageOrigins { get; } = new("storage_origins");
+
+    /// <summary>
+    /// The <c>storage_pending</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoragePending { get; } = new("storage_pending");
+
+    /// <summary>
+    /// The <c>storage_timeouts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageTimeouts { get; } = new("storage_timeouts");
+
+    /// <summary>
+    /// The <c>storage_tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StorageTool { get; } = new("storage_tool");
+
+    /// <summary>
+    /// The <c>store_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreCount { get; } = new("store_count");
+
+    /// <summary>
+    /// The <c>store_load_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreLoadFailed { get; } = new("store_load_failed");
+
+    /// <summary>
+    /// The <c>store_load_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreLoadState { get; } = new("store_load_state");
+
+    /// <summary>
+    /// The <c>store_reset</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreReset { get; } = new("store_reset");
+
+    /// <summary>
+    /// The <c>store_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreState { get; } = new("store_state");
+
+    /// <summary>
+    /// The <c>store_unreadable</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoreUnreadable { get; } = new("store_unreadable");
+
+    /// <summary>
+    /// The <c>stored_bypass_sent_as_auto</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StoredBypassSentAsAuto { get; } = new("stored_bypass_sent_as_auto");
+
+    /// <summary>
+    /// The <c>stream_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StreamMs { get; } = new("stream_ms");
+
+    /// <summary>
+    /// The <c>structural</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Structural { get; } = new("structural");
+
+    /// <summary>
+    /// The <c>studio_installed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace StudioInstalled { get; } = new("studio_installed");
+
+    /// <summary>
+    /// The <c>subagent_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SubagentType { get; } = new("subagent_type");
+
+    /// <summary>
+    /// The <c>success</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Success { get; } = new("success");
+
+    /// <summary>
+    /// The <c>superseded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Superseded { get; } = new("superseded");
+
+    /// <summary>
+    /// The <c>supported</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Supported { get; } = new("supported");
+
+    /// <summary>
+    /// The <c>suppressed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SuppressedCount { get; } = new("suppressed_count");
+
+    /// <summary>
+    /// The <c>surface</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Surface { get; } = new("surface");
+
+    /// <summary>
+    /// The <c>survey_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SurveyType { get; } = new("survey_type");
+
+    /// <summary>
+    /// The <c>survivor_claimed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SurvivorClaimed { get; } = new("survivor_claimed");
+
+    /// <summary>
+    /// The <c>survivor_cowork_owned</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SurvivorCoworkOwned { get; } = new("survivor_cowork_owned");
+
+    /// <summary>
+    /// The <c>survivor_shown_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SurvivorShownAgeMs { get; } = new("survivor_shown_age_ms");
+
+    /// <summary>
+    /// The <c>switch_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SwitchId { get; } = new("switch_id");
+
+    /// <summary>
+    /// The <c>switch_on</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SwitchOn { get; } = new("switch_on");
+
+    /// <summary>
+    /// The <c>synced_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SyncedCount { get; } = new("synced_count");
+
+    /// <summary>
     /// The <c>system</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace System { get; } = new("system");
+
+    /// <summary>
+    /// The <c>system_message_chars</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemMessageChars { get; } = new("system_message_chars");
+
+    /// <summary>
+    /// The <c>system_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPrompt { get; } = new("system_prompt");
+
+    /// <summary>
+    /// The <c>system_prompt_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPromptHash { get; } = new("system_prompt_hash");
+
+    /// <summary>
+    /// The <c>system_prompt_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPromptLength { get; } = new("system_prompt_length");
+
+    /// <summary>
+    /// The <c>system_prompt_preview</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPromptPreview { get; } = new("system_prompt_preview");
+
+    /// <summary>
+    /// The <c>system_prompt_snapshot</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPromptSnapshot { get; } = new("system_prompt_snapshot");
+
+    /// <summary>
+    /// The <c>system_prompt_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemPromptTruncated { get; } = new("system_prompt_truncated");
+
+    /// <summary>
+    /// The <c>system_reminders</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemReminders { get; } = new("system_reminders");
+
+    /// <summary>
+    /// The <c>system_reminders_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemRemindersCount { get; } = new("system_reminders_count");
+
+    /// <summary>
+    /// The <c>system_reminders_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemRemindersOriginalLength { get; } = new("system_reminders_original_length");
+
+    /// <summary>
+    /// The <c>system_reminders_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace SystemRemindersTruncated { get; } = new("system_reminders_truncated");
+
+    /// <summary>
+    /// The <c>tab</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Tab { get; } = new("tab");
+
+    /// <summary>
+    /// The <c>tabs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Tabs { get; } = new("tabs");
+
+    /// <summary>
+    /// The <c>tabs_closed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TabsClosed { get; } = new("tabs_closed");
+
+    /// <summary>
+    /// The <c>tail_drain_overlap</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailDrainOverlap { get; } = new("tail_drain_overlap");
+
+    /// <summary>
+    /// The <c>tail_file_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailFileBytes { get; } = new("tail_file_bytes");
+
+    /// <summary>
+    /// The <c>tail_handler_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailHandlerMs { get; } = new("tail_handler_ms");
+
+    /// <summary>
+    /// The <c>tail_ipc_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailIpcMs { get; } = new("tail_ipc_ms");
+
+    /// <summary>
+    /// The <c>tail_parse_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailParseMs { get; } = new("tail_parse_ms");
+
+    /// <summary>
+    /// The <c>tail_parse_self_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailParseSelfMs { get; } = new("tail_parse_self_ms");
+
+    /// <summary>
+    /// The <c>tail_queue_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailQueueMs { get; } = new("tail_queue_ms");
+
+    /// <summary>
+    /// The <c>tail_read_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailReadBytes { get; } = new("tail_read_bytes");
+
+    /// <summary>
+    /// The <c>tail_read_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailReadMs { get; } = new("tail_read_ms");
+
+    /// <summary>
+    /// The <c>tail_reparse_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailReparseCount { get; } = new("tail_reparse_count");
+
+    /// <summary>
+    /// The <c>tail_rows_kept</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailRowsKept { get; } = new("tail_rows_kept");
+
+    /// <summary>
+    /// The <c>tail_rows_parsed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailRowsParsed { get; } = new("tail_rows_parsed");
+
+    /// <summary>
+    /// The <c>tail_rungs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailRungs { get; } = new("tail_rungs");
+
+    /// <summary>
+    /// The <c>tail_session_wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailSessionWaitMs { get; } = new("tail_session_wait_ms");
+
+    /// <summary>
+    /// The <c>tail_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TailSource { get; } = new("tail_source");
+
+    /// <summary>
+    /// The <c>taken</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Taken { get; } = new("taken");
+
+    /// <summary>
+    /// The <c>target</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Target { get; } = new("target");
+
+    /// <summary>
+    /// The <c>target_from_flag</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TargetFromFlag { get; } = new("target_from_flag");
+
+    /// <summary>
+    /// The <c>target_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TargetId { get; } = new("target_id");
+
+    /// <summary>
+    /// The <c>target_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TargetKind { get; } = new("target_kind");
+
+    /// <summary>
+    /// The <c>target_message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TargetMessageUuid { get; } = new("target_message_uuid");
+
+    /// <summary>
+    /// The <c>target_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TargetVersion { get; } = new("target_version");
+
+    /// <summary>
+    /// The <c>task_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TaskCount { get; } = new("task_count");
+
+    /// <summary>
+    /// The <c>task_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TaskType { get; } = new("task_type");
+
+    /// <summary>
+    /// The <c>task_wait_seconds</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TaskWaitSeconds { get; } = new("task_wait_seconds");
+
+    /// <summary>
+    /// The <c>tasks_already_remote</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksAlreadyRemote { get; } = new("tasks_already_remote");
+
+    /// <summary>
+    /// The <c>tasks_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksFailed { get; } = new("tasks_failed");
+
+    /// <summary>
+    /// The <c>tasks_remote</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksRemote { get; } = new("tasks_remote");
+
+    /// <summary>
+    /// The <c>tasks_repointed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksRepointed { get; } = new("tasks_repointed");
+
+    /// <summary>
+    /// The <c>tasks_stopped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksStopped { get; } = new("tasks_stopped");
+
+    /// <summary>
+    /// The <c>tasks_total</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TasksTotal { get; } = new("tasks_total");
+
+    /// <summary>
+    /// The <c>tcc_folder_kind</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TccFolderKind { get; } = new("tcc_folder_kind");
+
+    /// <summary>
+    /// The <c>teardown_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TeardownReason { get; } = new("teardown_reason");
 
     /// <summary>
     /// The <c>telemetry</c> attribute namespace.
@@ -706,9 +9031,44 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Telemetry { get; } = new("telemetry");
 
     /// <summary>
+    /// The <c>terminal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Terminal { get; } = new("terminal");
+
+    /// <summary>
     /// The <c>test</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Test { get; } = new("test");
+
+    /// <summary>
+    /// The <c>text_len</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TextLen { get; } = new("text_len");
+
+    /// <summary>
+    /// The <c>text_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TextLength { get; } = new("text_length");
+
+    /// <summary>
+    /// The <c>text_variant</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TextVariant { get; } = new("text_variant");
+
+    /// <summary>
+    /// The <c>thinking_forced</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ThinkingForced { get; } = new("thinking_forced");
+
+    /// <summary>
+    /// The <c>third_party</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ThirdParty { get; } = new("third_party");
+
+    /// <summary>
+    /// The <c>third_party_gpu_modules_allowed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ThirdPartyGpuModulesAllowed { get; } = new("third_party_gpu_modules_allowed");
 
     /// <summary>
     /// The <c>thread</c> attribute namespace.
@@ -716,14 +9076,689 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Thread { get; } = new("thread");
 
     /// <summary>
+    /// The <c>time_visible_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimeVisibleMs { get; } = new("time_visible_ms");
+
+    /// <summary>
+    /// The <c>timed_out</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimedOut { get; } = new("timed_out");
+
+    /// <summary>
+    /// The <c>timed_out_here</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimedOutHere { get; } = new("timed_out_here");
+
+    /// <summary>
+    /// The <c>timed_out_phase</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimedOutPhase { get; } = new("timed_out_phase");
+
+    /// <summary>
+    /// The <c>timeout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimeoutMs { get; } = new("timeout_ms");
+
+    /// <summary>
+    /// The <c>timing_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TimingMs { get; } = new("timing_ms");
+
+    /// <summary>
+    /// The <c>title_check_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TitleCheckOutcome { get; } = new("title_check_outcome");
+
+    /// <summary>
+    /// The <c>title_overlap_pct</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TitleOverlapPct { get; } = new("title_overlap_pct");
+
+    /// <summary>
+    /// The <c>title_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TitleSource { get; } = new("title_source");
+
+    /// <summary>
+    /// The <c>title_turn_known</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TitleTurnKnown { get; } = new("title_turn_known");
+
+    /// <summary>
+    /// The <c>title_via_cli_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TitleViaCliOutcome { get; } = new("title_via_cli_outcome");
+
+    /// <summary>
     /// The <c>tls</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Tls { get; } = new("tls");
 
     /// <summary>
+    /// The <c>to_display</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToDisplay { get; } = new("to_display");
+
+    /// <summary>
+    /// The <c>to_level</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToLevel { get; } = new("to_level");
+
+    /// <summary>
+    /// The <c>to_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToMode { get; } = new("to_mode");
+
+    /// <summary>
+    /// The <c>to_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToVersion { get; } = new("to_version");
+
+    /// <summary>
+    /// The <c>tool</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Tool { get; } = new("tool");
+
+    /// <summary>
+    /// The <c>tool_age_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolAgeMs { get; } = new("tool_age_ms");
+
+    /// <summary>
+    /// The <c>tool_builtin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolBuiltin { get; } = new("tool_builtin");
+
+    /// <summary>
+    /// The <c>tool_calls</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolCalls { get; } = new("tool_calls");
+
+    /// <summary>
+    /// The <c>tool_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolHash { get; } = new("tool_hash");
+
+    /// <summary>
+    /// The <c>tool_host_sessions</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolHostSessions { get; } = new("tool_host_sessions");
+
+    /// <summary>
+    /// The <c>tool_input</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolInput { get; } = new("tool_input");
+
+    /// <summary>
+    /// The <c>tool_input_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolInputOriginalLength { get; } = new("tool_input_original_length");
+
+    /// <summary>
+    /// The <c>tool_input_size_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolInputSizeBytes { get; } = new("tool_input_size_bytes");
+
+    /// <summary>
+    /// The <c>tool_input_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolInputTruncated { get; } = new("tool_input_truncated");
+
+    /// <summary>
+    /// The <c>tool_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolName { get; } = new("tool_name");
+
+    /// <summary>
+    /// The <c>tool_name_safe</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolNameSafe { get; } = new("tool_name_safe");
+
+    /// <summary>
+    /// The <c>tool_parameters</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolParameters { get; } = new("tool_parameters");
+
+    /// <summary>
+    /// The <c>tool_result_size_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolResultSizeBytes { get; } = new("tool_result_size_bytes");
+
+    /// <summary>
+    /// The <c>tool_running_at_send</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolRunningAtSend { get; } = new("tool_running_at_send");
+
+    /// <summary>
+    /// The <c>tool_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolSource { get; } = new("tool_source");
+
+    /// <summary>
+    /// The <c>tool_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolTruncated { get; } = new("tool_truncated");
+
+    /// <summary>
+    /// The <c>tool_use_count_since_plan_call</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolUseCountSincePlanCall { get; } = new("tool_use_count_since_plan_call");
+
+    /// <summary>
+    /// The <c>tool_use_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolUseId { get; } = new("tool_use_id");
+
+    /// <summary>
+    /// The <c>tools</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Tools { get; } = new("tools");
+
+    /// <summary>
+    /// The <c>tools_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolsCount { get; } = new("tools_count");
+
+    /// <summary>
+    /// The <c>tools_parse_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ToolsParseError { get; } = new("tools_parse_error");
+
+    /// <summary>
+    /// The <c>top1_footprint_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Top1FootprintBytes { get; } = new("top1_footprint_bytes");
+
+    /// <summary>
+    /// The <c>top2_footprint_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Top2FootprintBytes { get; } = new("top2_footprint_bytes");
+
+    /// <summary>
+    /// The <c>top3_footprint_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Top3FootprintBytes { get; } = new("top3_footprint_bytes");
+
+    /// <summary>
+    /// The <c>total_attempts</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalAttempts { get; } = new("total_attempts");
+
+    /// <summary>
+    /// The <c>total_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalDurationMs { get; } = new("total_duration_ms");
+
+    /// <summary>
+    /// The <c>total_extensions_installed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalExtensionsInstalled { get; } = new("total_extensions_installed");
+
+    /// <summary>
+    /// The <c>total_failures</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalFailures { get; } = new("total_failures");
+
+    /// <summary>
+    /// The <c>total_mem_gb</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalMemGb { get; } = new("total_mem_gb");
+
+    /// <summary>
+    /// The <c>total_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalMs { get; } = new("total_ms");
+
+    /// <summary>
+    /// The <c>total_observed_runs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalObservedRuns { get; } = new("total_observed_runs");
+
+    /// <summary>
+    /// The <c>total_retry_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalRetryDurationMs { get; } = new("total_retry_duration_ms");
+
+    /// <summary>
+    /// The <c>total_stalls</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalStalls { get; } = new("total_stalls");
+
+    /// <summary>
+    /// The <c>total_to_assistant_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalToAssistantMs { get; } = new("total_to_assistant_ms");
+
+    /// <summary>
+    /// The <c>total_to_init_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalToInitMs { get; } = new("total_to_init_ms");
+
+    /// <summary>
+    /// The <c>total_tokens</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalTokens { get; } = new("total_tokens");
+
+    /// <summary>
+    /// The <c>total_tool_uses</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TotalToolUses { get; } = new("total_tool_uses");
+
+    /// <summary>
+    /// The <c>tracked_processes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TrackedProcesses { get; } = new("tracked_processes");
+
+    /// <summary>
+    /// The <c>transcript_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptBytes { get; } = new("transcript_bytes");
+
+    /// <summary>
+    /// The <c>transcript_fill_rows</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptFillRows { get; } = new("transcript_fill_rows");
+
+    /// <summary>
+    /// The <c>transcript_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptLength { get; } = new("transcript_length");
+
+    /// <summary>
+    /// The <c>transcript_line_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptLineCount { get; } = new("transcript_line_count");
+
+    /// <summary>
+    /// The <c>transcript_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptMs { get; } = new("transcript_ms");
+
+    /// <summary>
+    /// The <c>transcript_page_fallback</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptPageFallback { get; } = new("transcript_page_fallback");
+
+    /// <summary>
+    /// The <c>transcript_page_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptPageSource { get; } = new("transcript_page_source");
+
+    /// <summary>
+    /// The <c>transcript_relocated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptRelocated { get; } = new("transcript_relocated");
+
+    /// <summary>
+    /// The <c>transcript_result</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptResult { get; } = new("transcript_result");
+
+    /// <summary>
+    /// The <c>transcript_size_bytes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptSizeBytes { get; } = new("transcript_size_bytes");
+
+    /// <summary>
+    /// The <c>transcript_total_rows</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptTotalRows { get; } = new("transcript_total_rows");
+
+    /// <summary>
+    /// The <c>transcripts_deleted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptsDeleted { get; } = new("transcripts_deleted");
+
+    /// <summary>
+    /// The <c>transcripts_exempted_desktop</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TranscriptsExemptedDesktop { get; } = new("transcripts_exempted_desktop");
+
+    /// <summary>
+    /// The <c>transitions_seen</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TransitionsSeen { get; } = new("transitions_seen");
+
+    /// <summary>
+    /// The <c>transport</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Transport { get; } = new("transport");
+
+    /// <summary>
+    /// The <c>transport_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TransportType { get; } = new("transport_type");
+
+    /// <summary>
+    /// The <c>trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Trigger { get; } = new("trigger");
+
+    /// <summary>
+    /// The <c>trigger_id</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TriggerId { get; } = new("trigger_id");
+
+    /// <summary>
+    /// The <c>trigger_type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TriggerType { get; } = new("trigger_type");
+
+    /// <summary>
+    /// The <c>truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Truncated { get; } = new("truncated");
+
+    /// <summary>
+    /// The <c>trust_check_cause</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TrustCheckCause { get; } = new("trust_check_cause");
+
+    /// <summary>
+    /// The <c>trust_total_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TrustTotalMs { get; } = new("trust_total_ms");
+
+    /// <summary>
+    /// The <c>ttft_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TtftMs { get; } = new("ttft_ms");
+
+    /// <summary>
+    /// The <c>turn_box_mounted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnBoxMounted { get; } = new("turn_box_mounted");
+
+    /// <summary>
+    /// The <c>turn_interrupted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnInterrupted { get; } = new("turn_interrupted");
+
+    /// <summary>
+    /// The <c>turn_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnMs { get; } = new("turn_ms");
+
+    /// <summary>
+    /// The <c>turn_origin</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnOrigin { get; } = new("turn_origin");
+
+    /// <summary>
+    /// The <c>turn_scope</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnScope { get; } = new("turn_scope");
+
+    /// <summary>
+    /// The <c>turns_before_ptl</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnsBeforePtl { get; } = new("turns_before_ptl");
+
+    /// <summary>
+    /// The <c>turns_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnsBucket { get; } = new("turns_bucket");
+
+    /// <summary>
+    /// The <c>turns_since_title</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace TurnsSinceTitle { get; } = new("turns_since_title");
+
+    /// <summary>
+    /// The <c>type</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Type { get; } = new("type");
+
+    /// <summary>
+    /// The <c>ui_app</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UiApp { get; } = new("ui_app");
+
+    /// <summary>
+    /// The <c>unarchive</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unarchive { get; } = new("unarchive");
+
+    /// <summary>
+    /// The <c>unattended</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unattended { get; } = new("unattended");
+
+    /// <summary>
+    /// The <c>unavailable_probe_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnavailableProbeCode { get; } = new("unavailable_probe_code");
+
+    /// <summary>
+    /// The <c>unavailable_probe_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnavailableProbeReason { get; } = new("unavailable_probe_reason");
+
+    /// <summary>
+    /// The <c>unclean_days</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UncleanDays { get; } = new("unclean_days");
+
+    /// <summary>
+    /// The <c>uncovered_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UncoveredCount { get; } = new("uncovered_count");
+
+    /// <summary>
+    /// The <c>unhealthy_reason</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnhealthyReason { get; } = new("unhealthy_reason");
+
+    /// <summary>
+    /// The <c>uninterruptible</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Uninterruptible { get; } = new("uninterruptible");
+
+    /// <summary>
+    /// The <c>unknown_answers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnknownAnswers { get; } = new("unknown_answers");
+
+    /// <summary>
+    /// The <c>unlisted_check_failed</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedCheckFailed { get; } = new("unlisted_check_failed");
+
+    /// <summary>
+    /// The <c>unlisted_gone_not_available</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedGoneNotAvailable { get; } = new("unlisted_gone_not_available");
+
+    /// <summary>
+    /// The <c>unlisted_gone_not_found</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedGoneNotFound { get; } = new("unlisted_gone_not_found");
+
+    /// <summary>
+    /// The <c>unlisted_gone_scan_not_served</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedGoneScanNotServed { get; } = new("unlisted_gone_scan_not_served");
+
+    /// <summary>
+    /// The <c>unlisted_gone_withheld</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedGoneWithheld { get; } = new("unlisted_gone_withheld");
+
+    /// <summary>
+    /// The <c>unlisted_present</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedPresent { get; } = new("unlisted_present");
+
+    /// <summary>
+    /// The <c>unlisted_sent</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedSent { get; } = new("unlisted_sent");
+
+    /// <summary>
+    /// The <c>unlisted_unknown</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnlistedUnknown { get; } = new("unlisted_unknown");
+
+    /// <summary>
+    /// The <c>unread_steers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnreadSteers { get; } = new("unread_steers");
+
+    /// <summary>
+    /// The <c>unreadable</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unreadable { get; } = new("unreadable");
+
+    /// <summary>
+    /// The <c>unreadable_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnreadableCount { get; } = new("unreadable_count");
+
+    /// <summary>
+    /// The <c>unreadable_files</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnreadableFiles { get; } = new("unreadable_files");
+
+    /// <summary>
+    /// The <c>unreadable_settings</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnreadableSettings { get; } = new("unreadable_settings");
+
+    /// <summary>
+    /// The <c>unreadable_store</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnreadableStore { get; } = new("unreadable_store");
+
+    /// <summary>
+    /// The <c>unrecorded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unrecorded { get; } = new("unrecorded");
+
+    /// <summary>
+    /// The <c>unstarted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unstarted { get; } = new("unstarted");
+
+    /// <summary>
+    /// The <c>unsupported_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnsupportedCode { get; } = new("unsupported_code");
+
+    /// <summary>
+    /// The <c>until</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Until { get; } = new("until");
+
+    /// <summary>
+    /// The <c>untracked_discard_requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UntrackedDiscardRequested { get; } = new("untracked_discard_requested");
+
+    /// <summary>
+    /// The <c>unverified</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Unverified { get; } = new("unverified");
+
+    /// <summary>
+    /// The <c>unwound_refusal_fallback</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UnwoundRefusalFallback { get; } = new("unwound_refusal_fallback");
+
+    /// <summary>
+    /// The <c>update_channel</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdateChannel { get; } = new("update_channel");
+
+    /// <summary>
+    /// The <c>update_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdateCount { get; } = new("update_count");
+
+    /// <summary>
+    /// The <c>update_relaunch_marker</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdateRelaunchMarker { get; } = new("update_relaunch_marker");
+
+    /// <summary>
+    /// The <c>update_version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdateVersion { get; } = new("update_version");
+
+    /// <summary>
+    /// The <c>updated_cron</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedCron { get; } = new("updated_cron");
+
+    /// <summary>
+    /// The <c>updated_description</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedDescription { get; } = new("updated_description");
+
+    /// <summary>
+    /// The <c>updated_disable_jitter</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedDisableJitter { get; } = new("updated_disable_jitter");
+
+    /// <summary>
+    /// The <c>updated_display_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedDisplayName { get; } = new("updated_display_name");
+
+    /// <summary>
+    /// The <c>updated_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedEnabled { get; } = new("updated_enabled");
+
+    /// <summary>
+    /// The <c>updated_fire_at</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedFireAt { get; } = new("updated_fire_at");
+
+    /// <summary>
+    /// The <c>updated_notify_on_completion</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedNotifyOnCompletion { get; } = new("updated_notify_on_completion");
+
+    /// <summary>
+    /// The <c>updated_project_uuids</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedProjectUuids { get; } = new("updated_project_uuids");
+
+    /// <summary>
+    /// The <c>updated_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpdatedPrompt { get; } = new("updated_prompt");
+
+    /// <summary>
+    /// The <c>upgraded_existing</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UpgradedExisting { get; } = new("upgraded_existing");
+
+    /// <summary>
+    /// The <c>upload_net_error_name</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UploadNetErrorName { get; } = new("upload_net_error_name");
+
+    /// <summary>
     /// The <c>url</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Url { get; } = new("url");
+
+    /// <summary>
+    /// The <c>url_class</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UrlClass { get; } = new("url_class");
+
+    /// <summary>
+    /// The <c>url_scheme</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UrlScheme { get; } = new("url_scheme");
+
+    /// <summary>
+    /// The <c>used_default</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UsedDefault { get; } = new("used_default");
 
     /// <summary>
     /// The <c>user</c> attribute namespace.
@@ -736,9 +9771,54 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace UserAgent { get; } = new("user_agent");
 
     /// <summary>
+    /// The <c>user_message_uuid</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserMessageUuid { get; } = new("user_message_uuid");
+
+    /// <summary>
+    /// The <c>user_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserPrompt { get; } = new("user_prompt");
+
+    /// <summary>
+    /// The <c>user_prompt_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserPromptLength { get; } = new("user_prompt_length");
+
+    /// <summary>
+    /// The <c>user_system_prompt</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserSystemPrompt { get; } = new("user_system_prompt");
+
+    /// <summary>
+    /// The <c>user_system_prompt_original_length</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserSystemPromptOriginalLength { get; } = new("user_system_prompt_original_length");
+
+    /// <summary>
+    /// The <c>user_system_prompt_truncated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserSystemPromptTruncated { get; } = new("user_system_prompt_truncated");
+
+    /// <summary>
+    /// The <c>user_waiting</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace UserWaiting { get; } = new("user_waiting");
+
+    /// <summary>
     /// The <c>v8js</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace V8js { get; } = new("v8js");
+
+    /// <summary>
+    /// The <c>variant</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Variant { get; } = new("variant");
+
+    /// <summary>
+    /// The <c>vars_adopted</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VarsAdopted { get; } = new("vars_adopted");
 
     /// <summary>
     /// The <c>vcs</c> attribute namespace.
@@ -746,9 +9826,229 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Vcs { get; } = new("vcs");
 
     /// <summary>
+    /// The <c>verb</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Verb { get; } = new("verb");
+
+    /// <summary>
+    /// The <c>verdict</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Verdict { get; } = new("verdict");
+
+    /// <summary>
+    /// The <c>verdict_detail</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VerdictDetail { get; } = new("verdict_detail");
+
+    /// <summary>
+    /// The <c>verdict_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VerdictSource { get; } = new("verdict_source");
+
+    /// <summary>
+    /// The <c>verified_since_recovery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VerifiedSinceRecovery { get; } = new("verified_since_recovery");
+
+    /// <summary>
+    /// The <c>version</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Version { get; } = new("version");
+
+    /// <summary>
+    /// The <c>via</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Via { get; } = new("via");
+
+    /// <summary>
+    /// The <c>via_fallback</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ViaFallback { get; } = new("via_fallback");
+
+    /// <summary>
+    /// The <c>via_oopif</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ViaOopif { get; } = new("via_oopif");
+
+    /// <summary>
+    /// The <c>viewport_size_bucket</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace ViewportSizeBucket { get; } = new("viewport_size_bucket");
+
+    /// <summary>
+    /// The <c>vm_guest_connected</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VmGuestConnected { get; } = new("vm_guest_connected");
+
+    /// <summary>
+    /// The <c>vm_network_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace VmNetworkMode { get; } = new("vm_network_mode");
+
+    /// <summary>
+    /// The <c>wait_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitMs { get; } = new("wait_ms");
+
+    /// <summary>
+    /// The <c>waited_for_claude</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitedForClaude { get; } = new("waited_for_claude");
+
+    /// <summary>
+    /// The <c>waited_minutes</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitedMinutes { get; } = new("waited_minutes");
+
+    /// <summary>
+    /// The <c>waited_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitedMs { get; } = new("waited_ms");
+
+    /// <summary>
+    /// The <c>waiting_children</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitingChildren { get; } = new("waiting_children");
+
+    /// <summary>
+    /// The <c>waiting_in</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WaitingIn { get; } = new("waiting_in");
+
+    /// <summary>
+    /// The <c>wake_at</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeAt { get; } = new("wake_at");
+
+    /// <summary>
+    /// The <c>wake_delivery</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeDelivery { get; } = new("wake_delivery");
+
+    /// <summary>
+    /// The <c>wake_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeDurationMs { get; } = new("wake_duration_ms");
+
+    /// <summary>
+    /// The <c>wake_ordinal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeOrdinal { get; } = new("wake_ordinal");
+
+    /// <summary>
+    /// The <c>wake_when_done</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeWhenDone { get; } = new("wake_when_done");
+
+    /// <summary>
+    /// The <c>wakes_in_episode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakesInEpisode { get; } = new("wakes_in_episode");
+
+    /// <summary>
+    /// The <c>wakes_since_user_message</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakesSinceUserMessage { get; } = new("wakes_since_user_message");
+
+    /// <summary>
+    /// The <c>wakeup_in_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WakeupInMs { get; } = new("wakeup_in_ms");
+
+    /// <summary>
+    /// The <c>warm_duration_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WarmDurationMs { get; } = new("warm_duration_ms");
+
+    /// <summary>
+    /// The <c>warm_trigger</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WarmTrigger { get; } = new("warm_trigger");
+
+    /// <summary>
+    /// The <c>warmed_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WarmedCount { get; } = new("warmed_count");
+
+    /// <summary>
+    /// The <c>warnings_count</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WarningsCount { get; } = new("warnings_count");
+
+    /// <summary>
+    /// The <c>was_auto_disabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasAutoDisabled { get; } = new("was_auto_disabled");
+
+    /// <summary>
+    /// The <c>was_cross_repo</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasCrossRepo { get; } = new("was_cross_repo");
+
+    /// <summary>
+    /// The <c>was_held</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasHeld { get; } = new("was_held");
+
+    /// <summary>
+    /// The <c>was_hidden</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasHidden { get; } = new("was_hidden");
+
+    /// <summary>
+    /// The <c>was_hidden_any</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasHiddenAny { get; } = new("was_hidden_any");
+
+    /// <summary>
+    /// The <c>was_mid_turn</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasMidTurn { get; } = new("was_mid_turn");
+
+    /// <summary>
+    /// The <c>was_recovered</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasRecovered { get; } = new("was_recovered");
+
+    /// <summary>
+    /// The <c>was_running</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasRunning { get; } = new("was_running");
+
+    /// <summary>
+    /// The <c>was_submit</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WasSubmit { get; } = new("was_submit");
+
+    /// <summary>
+    /// The <c>watch_connected_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WatchConnectedMs { get; } = new("watch_connected_ms");
+
+    /// <summary>
+    /// The <c>watch_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WatchEnabled { get; } = new("watch_enabled");
+
+    /// <summary>
+    /// The <c>watch_state</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WatchState { get; } = new("watch_state");
+
+    /// <summary>
+    /// The <c>wave</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Wave { get; } = new("wave");
+
+    /// <summary>
     /// The <c>wcf</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Wcf { get; } = new("wcf");
+
+    /// <summary>
+    /// The <c>web_commit_hash</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WebCommitHash { get; } = new("web_commit_hash");
 
     /// <summary>
     /// The <c>webengine</c> attribute namespace.
@@ -756,9 +10056,369 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Webengine { get; } = new("webengine");
 
     /// <summary>
+    /// The <c>while_working_held</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WhileWorkingHeld { get; } = new("while_working_held");
+
+    /// <summary>
+    /// The <c>why</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Why { get; } = new("why");
+
+    /// <summary>
+    /// The <c>willRetry</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WillRetry { get; } = new("willRetry");
+
+    /// <summary>
+    /// The <c>will_hold</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WillHold { get; } = new("will_hold");
+
+    /// <summary>
+    /// The <c>will_retry</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WillRetryNamespace { get; } = new("will_retry");
+
+    /// <summary>
+    /// The <c>window_fallback</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowFallback { get; } = new("window_fallback");
+
+    /// <summary>
+    /// The <c>window_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowMs { get; } = new("window_ms");
+
+    /// <summary>
+    /// The <c>window_parked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowParked { get; } = new("window_parked");
+
+    /// <summary>
+    /// The <c>window_probe_error</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowProbeError { get; } = new("window_probe_error");
+
+    /// <summary>
+    /// The <c>windows_host</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowsHost { get; } = new("windows_host");
+
+    /// <summary>
+    /// The <c>windows_host_jobs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WindowsHostJobs { get; } = new("windows_host_jobs");
+
+    /// <summary>
+    /// The <c>woken_by</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WokenBy { get; } = new("woken_by");
+
+    /// <summary>
     /// The <c>workflow</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace Workflow { get; } = new("workflow");
+
+    /// <summary>
+    /// The <c>working</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Working { get; } = new("working");
+
+    /// <summary>
+    /// The <c>workspace</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Workspace { get; } = new("workspace");
+
+    /// <summary>
+    /// The <c>workspaces_seeded</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorkspacesSeeded { get; } = new("workspaces_seeded");
+
+    /// <summary>
+    /// The <c>worktree</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Worktree { get; } = new("worktree");
+
+    /// <summary>
+    /// The <c>worktree_cleanup_requested</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeCleanupRequested { get; } = new("worktree_cleanup_requested");
+
+    /// <summary>
+    /// The <c>worktree_created</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeCreated { get; } = new("worktree_created");
+
+    /// <summary>
+    /// The <c>worktree_kept_dirty</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeKeptDirty { get; } = new("worktree_kept_dirty");
+
+    /// <summary>
+    /// The <c>worktree_lazy</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeLazy { get; } = new("worktree_lazy");
+
+    /// <summary>
+    /// The <c>worktree_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeMode { get; } = new("worktree_mode");
+
+    /// <summary>
+    /// The <c>worktree_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeMs { get; } = new("worktree_ms");
+
+    /// <summary>
+    /// The <c>worktree_path</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreePath { get; } = new("worktree_path");
+
+    /// <summary>
+    /// The <c>worktree_pool_enabled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreePoolEnabled { get; } = new("worktree_pool_enabled");
+
+    /// <summary>
+    /// The <c>worktree_refusal</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeRefusal { get; } = new("worktree_refusal");
+
+    /// <summary>
+    /// The <c>worktree_reused</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeReused { get; } = new("worktree_reused");
+
+    /// <summary>
+    /// The <c>worktree_source</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WorktreeSource { get; } = new("worktree_source");
+
+    /// <summary>
+    /// The <c>would_offer</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WouldOffer { get; } = new("would_offer");
+
+    /// <summary>
+    /// The <c>written</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Written { get; } = new("written");
+
+    /// <summary>
+    /// The <c>written_unacked</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WrittenUnacked { get; } = new("written_unacked");
+
+    /// <summary>
+    /// The <c>wsl</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace Wsl { get; } = new("wsl");
+
+    /// <summary>
+    /// The <c>wsl_error_code</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WslErrorCode { get; } = new("wsl_error_code");
+
+    /// <summary>
+    /// The <c>wt_add_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtAddMs { get; } = new("wt_add_ms");
+
+    /// <summary>
+    /// The <c>wt_checkout_race_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtCheckoutRaceMs { get; } = new("wt_checkout_race_ms");
+
+    /// <summary>
+    /// The <c>wt_checkout_retried</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtCheckoutRetried { get; } = new("wt_checkout_retried");
+
+    /// <summary>
+    /// The <c>wt_checkout_workers</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtCheckoutWorkers { get; } = new("wt_checkout_workers");
+
+    /// <summary>
+    /// The <c>wt_config_copied</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtConfigCopied { get; } = new("wt_config_copied");
+
+    /// <summary>
+    /// The <c>wt_config_deferred</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtConfigDeferred { get; } = new("wt_config_deferred");
+
+    /// <summary>
+    /// The <c>wt_config_overlay_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtConfigOverlayMs { get; } = new("wt_config_overlay_ms");
+
+    /// <summary>
+    /// The <c>wt_config_overlay_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtConfigOverlayOutcome { get; } = new("wt_config_overlay_outcome");
+
+    /// <summary>
+    /// The <c>wt_fetch_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFetchMs { get; } = new("wt_fetch_ms");
+
+    /// <summary>
+    /// The <c>wt_fetch_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFetchOutcome { get; } = new("wt_fetch_outcome");
+
+    /// <summary>
+    /// The <c>wt_fetch_settled</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFetchSettled { get; } = new("wt_fetch_settled");
+
+    /// <summary>
+    /// The <c>wt_filter_refresh_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFilterRefreshMs { get; } = new("wt_filter_refresh_ms");
+
+    /// <summary>
+    /// The <c>wt_filter_refresh_no_space</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFilterRefreshNoSpace { get; } = new("wt_filter_refresh_no_space");
+
+    /// <summary>
+    /// The <c>wt_full_checkout_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtFullCheckoutMs { get; } = new("wt_full_checkout_ms");
+
+    /// <summary>
+    /// The <c>wt_git_crypt_binary</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtGitCryptBinary { get; } = new("wt_git_crypt_binary");
+
+    /// <summary>
+    /// The <c>wt_git_crypt_keys</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtGitCryptKeys { get; } = new("wt_git_crypt_keys");
+
+    /// <summary>
+    /// The <c>wt_git_crypt_left</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtGitCryptLeft { get; } = new("wt_git_crypt_left");
+
+    /// <summary>
+    /// The <c>wt_git_spawns</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtGitSpawns { get; } = new("wt_git_spawns");
+
+    /// <summary>
+    /// The <c>wt_hooks_config_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtHooksConfigMs { get; } = new("wt_hooks_config_ms");
+
+    /// <summary>
+    /// The <c>wt_include_matched</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludeMatched { get; } = new("wt_include_matched");
+
+    /// <summary>
+    /// The <c>wt_include_patterns_dropped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludePatternsDropped { get; } = new("wt_include_patterns_dropped");
+
+    /// <summary>
+    /// The <c>wt_include_scan_mode</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludeScanMode { get; } = new("wt_include_scan_mode");
+
+    /// <summary>
+    /// The <c>wt_include_scan_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludeScanMs { get; } = new("wt_include_scan_ms");
+
+    /// <summary>
+    /// The <c>wt_include_scan_outcome</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludeScanOutcome { get; } = new("wt_include_scan_outcome");
+
+    /// <summary>
+    /// The <c>wt_include_unsearched_dirs</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtIncludeUnsearchedDirs { get; } = new("wt_include_unsearched_dirs");
+
+    /// <summary>
+    /// The <c>wt_lfs_hydrate_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLfsHydrateMs { get; } = new("wt_lfs_hydrate_ms");
+
+    /// <summary>
+    /// The <c>wt_lfs_hydrated</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLfsHydrated { get; } = new("wt_lfs_hydrated");
+
+    /// <summary>
+    /// The <c>wt_lfs_not_local</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLfsNotLocal { get; } = new("wt_lfs_not_local");
+
+    /// <summary>
+    /// The <c>wt_lfs_rejected</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLfsRejected { get; } = new("wt_lfs_rejected");
+
+    /// <summary>
+    /// The <c>wt_lfs_skipped</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLfsSkipped { get; } = new("wt_lfs_skipped");
+
+    /// <summary>
+    /// The <c>wt_load_avg_1m</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtLoadAvg1m { get; } = new("wt_load_avg_1m");
+
+    /// <summary>
+    /// The <c>wt_overlay_settled_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtOverlaySettledMs { get; } = new("wt_overlay_settled_ms");
+
+    /// <summary>
+    /// The <c>wt_post_checkout_hook_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtPostCheckoutHookMs { get; } = new("wt_post_checkout_hook_ms");
+
+    /// <summary>
+    /// The <c>wt_post_checkout_hook_ran</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtPostCheckoutHookRan { get; } = new("wt_post_checkout_hook_ran");
+
+    /// <summary>
+    /// The <c>wt_prep_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtPrepMs { get; } = new("wt_prep_ms");
+
+    /// <summary>
+    /// The <c>wt_stage1_ms</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtStage1Ms { get; } = new("wt_stage1_ms");
+
+    /// <summary>
+    /// The <c>wt_status_cache_prime</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtStatusCachePrime { get; } = new("wt_status_cache_prime");
+
+    /// <summary>
+    /// The <c>wt_tracked_files</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace WtTrackedFiles { get; } = new("wt_tracked_files");
+
+    /// <summary>
+    /// The <c>xcode_change</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace XcodeChange { get; } = new("xcode_change");
+
+    /// <summary>
+    /// The <c>xcode_on_disk</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace XcodeOnDisk { get; } = new("xcode_on_disk");
 
     /// <summary>
     /// The <c>zos</c> attribute namespace.

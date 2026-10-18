@@ -68,23 +68,29 @@ public static class {{ ctx.type_root }}ActivityExtensions
 {% set e = namespace(kept = []) %}
 {% for m in a.type.members %}
 {% if ctx.tier == "incubating" or m.stability == "stable" or m.deprecated or a.deprecated %}
-{% set e.kept = e.kept + [{"id": lib.pascal(m.id), "value": m.value, "brief": m.brief | default("", true), "raw_id": m.id, "dep": (m.deprecated if m.deprecated else none)}] %}
+{% set e.kept = e.kept + [{"id": lib.pascal(m.id), "value": m.value, "brief": m.brief | default("", true), "raw_id": m.id, "index": loop.index0, "dep": (m.deprecated if m.deprecated else none)}] %}
 {% endif %}
 {% endfor %}
-{% set g = namespace(ids = [], vals = []) %}
-{% for m in e.kept %}
-{% set pos = namespace(p = -1) %}
-{% for k in range(g.ids | length) %}
-{% if g.ids[k] == m.id %}{% set pos.p = k %}{% endif %}
-{% endfor %}
+{% set g = namespace(groups = [], current = none, order = 0) %}
+{% for m in e.kept | sort(attribute="id", case_sensitive=true) %}
+{% if g.current is none or g.current.id != m.id %}
+{% if g.current is not none %}
+{% set g.groups = g.groups + [{"member": g.current, "order": g.order}] %}
+{% endif %}
+{% set g.current = m %}
+{% set g.order = m.index %}
+{% else %}
+{% if m.index < g.order %}{% set g.order = m.index %}{% endif %}
 {% set isdep = true if m.dep else false %}
-{% if pos.p < 0 %}
-{% set g.ids = g.ids + [m.id] %}
-{% set g.vals = g.vals + [m] %}
-{% elif ((true if g.vals[pos.p].dep else false) and not isdep) or ((true if g.vals[pos.p].dep else false) == isdep and m.value < g.vals[pos.p].value) %}
-{% set g.vals = g.vals[:pos.p] + [m] + g.vals[pos.p + 1:] %}
+{% if ((true if g.current.dep else false) and not isdep) or ((true if g.current.dep else false) == isdep and m.value < g.current.value) %}
+{% set g.current = m %}
+{% endif %}
 {% endif %}
 {% endfor %}
+{% if g.current is not none %}
+{% set g.groups = g.groups + [{"member": g.current, "order": g.order}] %}
+{% endif %}
+{% set g.vals = g.groups | sort(attribute="order") | map(attribute="member") | list %}
 {% set name = lib.pascal(a.key) %}
 {% set numeric = lib.parameter_type(a.type) == "long" %}
 {% set cs_type = "long" if numeric else "string" %}

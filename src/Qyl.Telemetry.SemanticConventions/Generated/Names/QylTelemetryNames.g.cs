@@ -150,6 +150,41 @@ public static class QylTelemetryNames
         public const string RabbitMQClientSubscriber = "RabbitMQ.Client.Subscriber";
 
         /// <summary>
+        /// The <c>claude-browser-extension</c> vendor activity source.
+        /// </summary>
+        public const string ClaudeBrowserExtension = "claude-browser-extension";
+
+        /// <summary>
+        /// The <c>claude-desktop.events</c> vendor activity source.
+        /// </summary>
+        public const string ClaudeDesktopEvents = "claude-desktop.events";
+
+        /// <summary>
+        /// The <c>com.anthropic.claude-platform</c> vendor activity source.
+        /// </summary>
+        public const string ComAnthropicClaudePlatform = "com.anthropic.claude-platform";
+
+        /// <summary>
+        /// The <c>com.anthropic.claude_code</c> vendor activity source.
+        /// </summary>
+        public const string ComAnthropicClaudeCode = "com.anthropic.claude_code";
+
+        /// <summary>
+        /// The <c>com.anthropic.claude_code.tracing</c> vendor activity source.
+        /// </summary>
+        public const string ComAnthropicClaudeCodeTracing = "com.anthropic.claude_code.tracing";
+
+        /// <summary>
+        /// The <c>com.anthropic.sdk.*</c> vendor activity source.
+        /// </summary>
+        public const string ComAnthropicSdk = "com.anthropic.sdk.*";
+
+        /// <summary>
+        /// The <c>com.anthropic.sdk.typescript</c> vendor activity source.
+        /// </summary>
+        public const string ComAnthropicSdkTypescript = "com.anthropic.sdk.typescript";
+
+        /// <summary>
         /// The <c>connector-net</c> vendor activity source.
         /// </summary>
         public const string ConnectorNet = "connector-net";

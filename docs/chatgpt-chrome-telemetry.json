@@ -1,0 +1,1014 @@
+{
+  "product": "ChatGPT Chrome extension",
+  "version": "1.26.1005.11759",
+  "extension_id": "hehggadaopoacecdllhhajmbjkdcmajg",
+  "source_fingerprint": "3ae2c44d1b54df50f858a9c3c618d9ca5d229838394cdbae8a19dfad150076cd",
+  "javascript_files": 18,
+  "javascript_bytes": 1969664,
+  "files": [
+    {
+      "file": "_metadata/computed_hashes.json",
+      "sha256": "082bc5033a7dc4d7aba3d224d7b14506d025fa680654b48f280156fcdb061cc5"
+    },
+    {
+      "file": "_metadata/verified_contents.json",
+      "sha256": "9a737dc6cc132bfcddf6419bbefddc08193bbc28b79a101e3c210c922bf1e5fc"
+    },
+    {
+      "file": "assets/codex-work-sidepanel-5HNvaIW9.css",
+      "sha256": "c3f7a41da3b4b4fd559e5450b999044b1b86fe6e0df58c9e0441a36943b8fb77"
+    },
+    {
+      "file": "assets/edge-ss8wdWNR.svg",
+      "sha256": "23c8319878fb96a1ab44108f981b3bbf84fc8b825d7968b7752c647dbfd1a9ed"
+    },
+    {
+      "file": "assets/microphone-permission-ku1E_AUN.css",
+      "sha256": "516b47415c6ab76f1f74a1c331f2d8aad8d8b30ad79689e359b756564a5c2fe7"
+    },
+    {
+      "file": "assets/waiting-room-B8ErwGS9.css",
+      "sha256": "cf939f95ce3f88ce580d28e41c3571fa16aea3420d172a632ff96b58fa39b166"
+    },
+    {
+      "file": "assets/zxing_reader-vui-RP1A.wasm",
+      "sha256": "0e8d688d71932ebb6b8b33f700d43d3cb997f59ed9cab3c05102d7f10288a392"
+    },
+    {
+      "file": "background.js",
+      "sha256": "5559009e49123ca8ed1bb3f44bd55202cf856f40ba09a7e9689c5f366f239088"
+    },
+    {
+      "file": "chunks/_virtual_wxt-html-plugins-vINxzu2L.js",
+      "sha256": "160e11dc4903bc5b39674284aee4105460645521181f0e6f55807c8fb6f60ead"
+    },
+    {
+      "file": "chunks/browser-accessibility-B3FAtEZ4.js",
+      "sha256": "180dc715b6dc1ca57be277330f43bb97aedefb02193ecfbf76fe01b5dcf34058"
+    },
+    {
+      "file": "chunks/chunk-BbOYAc3o.js",
+      "sha256": "8e5c8dfa16b193dc56090c92926b7c288ef1db11cd960c88141d26816717e52c"
+    },
+    {
+      "file": "chunks/codex-work-sidepanel-16q48QQM.js",
+      "sha256": "1c221a947016f93a5b479e40e0d9a1be9634c340669b208221beb0531415c5fe"
+    },
+    {
+      "file": "chunks/google-workspace-BnXIlG7d.js",
+      "sha256": "a3fabfffeec68d0dceb204c9ad0efe244e93f3b99edcce0a8edb170266ff7dc0"
+    },
+    {
+      "file": "chunks/js-kernel-Ja-7IJxY.js",
+      "sha256": "c8e5c4d74114d40b9a6e5da743e734fea4f1d83092d31f94604d35a0247fb00c"
+    },
+    {
+      "file": "chunks/js-kernel-host-Biytnb6r.js",
+      "sha256": "e16f585691654eb9dd8d6b9f79d9da9c712c217d8a6592f1c2d1d8dd96ce0fac"
+    },
+    {
+      "file": "chunks/js-kernel-offscreen-DIYPN8p_.js",
+      "sha256": "c7e158e488e9d0e1e76cfbe39f4a19d5b45b3ce48ddb94fa0e63a5616f154251"
+    },
+    {
+      "file": "chunks/microphone-permission-CrXqf8eG.js",
+      "sha256": "a485ac1f3532c7b8bf8ed5e1c59b9482f1b2f95017e23b0c3f2ce62695058059"
+    },
+    {
+      "file": "chunks/protocol-B9H2UyBu.js",
+      "sha256": "2e7dec0df5363ad10b2b525b24211a7c02f58c3ab6641255b7e3fc4874a8edf7"
+    },
+    {
+      "file": "chunks/src-BYK9sZgI.js",
+      "sha256": "b091de0ecf836601b7db8418d63920c9353d46d20961b7a74ceef08b048a478c"
+    },
+    {
+      "file": "chunks/waiting-room-D5QBoI60.js",
+      "sha256": "b03abe317529ef817f5b023b8110da3bc5599c80d5f9f10b1e55b57d0732d971"
+    },
+    {
+      "file": "codex/build-info.json",
+      "sha256": "9a92c292f9365c6ceef516094e07d95d5d315a2a5f2445c337033396c8ad26f4"
+    },
+    {
+      "file": "codex-work-sidepanel.html",
+      "sha256": "8a7331ccc3226ef25af2d714416a91024d9b55b25b7efeb5149bbb700cb58dc9"
+    },
+    {
+      "file": "content-scripts/chatgpt-website.js",
+      "sha256": "24165ca174358043ba2cc65a2a1a784001d44944e98af8bdaee8edf7b4f30902"
+    },
+    {
+      "file": "content-scripts/codex-work-preload.js",
+      "sha256": "d4b26e9ccde9abbda3668849517fc626beb6a9111dd1cd092bd5134773f7720d"
+    },
+    {
+      "file": "content-scripts/codex.js",
+      "sha256": "a15b0caf080d82b711ad9f91068c6d61a94cc51fb1ae74c1ec6cf30b5d47d568"
+    },
+    {
+      "file": "content-scripts/foreign-frame-monitor.js",
+      "sha256": "337ad4ff3ec7846134e5d39528936b1cbb68107de3c4da0e0641c712bda66129"
+    },
+    {
+      "file": "content-scripts/side-chat-tab-mentions.js",
+      "sha256": "48f9ad512f9ac1f576fbada854ff9b700daa1ba946381e9370f264df4fda75be"
+    },
+    {
+      "file": "images/app-icon.png",
+      "sha256": "979e5947e37e579b00b07f5e0e5f12c66d9dfe3b17238652432d0ba8219a091b"
+    },
+    {
+      "file": "images/cursor-chat.png",
+      "sha256": "c575bc277bab1b09518433aa465be98a8c04b305fe78ed674bf016bfa350e491"
+    },
+    {
+      "file": "images/icon128.png",
+      "sha256": "b7f651ebd6b9a7b77f264772cbed3e9d9e121fe7d081ce7a19b2625b4bc3888e"
+    },
+    {
+      "file": "images/icon16.png",
+      "sha256": "b3b3710b61be365164e0c3e75c279efc677fc3c02d6b21088153ef96c4cf7128"
+    },
+    {
+      "file": "images/icon32.png",
+      "sha256": "40faa4a3dc42448ef9a616bdede2799455d408b7d2ddf3fa92c57d04698d90b3"
+    },
+    {
+      "file": "images/icon48.png",
+      "sha256": "4b5afd873552f65095b3a1078483790d62605f7c8fccd15a8c3c2de1d87320ce"
+    },
+    {
+      "file": "js-kernel-host.html",
+      "sha256": "ea7d44abc399ec6c4b4e27e57ea38597f04ba02791150afe656b00e30ac2441c"
+    },
+    {
+      "file": "js-kernel-offscreen.html",
+      "sha256": "18302831d9885997b76e59df821af68983cb50c29fd427d5736249ae655332e6"
+    },
+    {
+      "file": "js-kernel.html",
+      "sha256": "02455765b5b9eaac7cf39995d70ae21112a628409030437f511e18fbd7538b45"
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "fc75c615e22a7ea7a82b8c9ed04cb11cfefced9102b7be3b9eca75189f6cf030"
+    },
+    {
+      "file": "microphone-permission.html",
+      "sha256": "84741b33213b06165fd6f6e55d046704fa921e43f8bda27b91c279a2f7519a1a"
+    },
+    {
+      "file": "side-panel-loading.html",
+      "sha256": "ed175ea270d839f1ad11db142e1b48d1a2bcea083b2eb2f54d60b57acec98377"
+    },
+    {
+      "file": "waiting-room.html",
+      "sha256": "cc5009f43a142f0db5d2aae77d1dd94f9e9d40bee27ac51f973a49b1421e18fe"
+    }
+  ],
+  "otlp_exporter_found": false,
+  "standalone_adapter": {
+    "file": "chunks/js-kernel-host-Biytnb6r.js",
+    "no_op_performance_offset": 1165371,
+    "runtime_factory_offset": 1178799,
+    "runtime_without_otel_offset": 1163797,
+    "no_op_error_reporter_offset": 633830
+  },
+  "inactive_span_hooks": [
+    {
+      "name": "browser_use.cdp.execute",
+      "fields": [
+        "browser_use.cdp.domain",
+        "browser_use.cdp.method",
+        "browser_use.tab.id",
+        "tab.id",
+        "browser_use.cdp.eval.await_promise",
+        "browser_use.cdp.eval.return_by_value",
+        "browser_use.cdp.eval.kind",
+        "browser_use.playwright.operation",
+        "browser_use.playwright.phase"
+      ],
+      "offset": 651064
+    },
+    {
+      "name": "browser_use.tab.reclaim",
+      "fields": [
+        "browser_use.command.type",
+        "browser_use.tab.id"
+      ],
+      "offset": 1159697
+    },
+    {
+      "name": "browser_use.tab.handoff",
+      "fields": [
+        "browser_use.command.type",
+        "browser_use.tab.id",
+        "browser_use.tab.mark_status"
+      ],
+      "offset": 1162415
+    }
+  ],
+  "inactive_log_hook": {
+    "name": "codex.browser_use.security_check",
+    "fields": {
+      "schema_version": "integer, fixed 1",
+      "permission": "string",
+      "decision": "allowed | denied",
+      "decision_context": "evaluated | not_required | error | cached | cancelled",
+      "decided_by": "automated_review | user | saved_user_permission | history_policy | network_policy | builtin_rule | openai_site_policy | security_mode | unknown",
+      "policy": "producer-supplied policy metadata",
+      "reason": "string when present",
+      "origin": "string when present",
+      "connector_id": "string when present",
+      "tool_name": "string when present",
+      "backend": "string when present",
+      "duration_ms": "number when present"
+    },
+    "permissions": [
+      "browser_auth",
+      "browser_history",
+      "origin_access",
+      "file_download",
+      "file_upload",
+      "full_cdp_access",
+      "page_asset_cross_origin_fetch",
+      "page_asset_download",
+      "raw_cdp_destination",
+      "webmcp_access"
+    ],
+    "source": "chunks/js-kernel-host-Biytnb6r.js",
+    "serializer_offset": 1141239,
+    "logger_offset": 1156546,
+    "standalone_status": "inactive: HN/oF do not supply runtime.otel"
+  },
+  "statsig_events": [
+    {
+      "kind": "statsig_background",
+      "name": "codex_chrome_extension_browser_tunnel",
+      "name_expression": "qd",
+      "offset": 179710,
+      "fields": [
+        {
+          "name": "observed_at_ms",
+          "types": [
+            "string"
+          ],
+          "offset": 179520
+        },
+        {
+          "name": "worker_id",
+          "types": [
+            "string"
+          ],
+          "offset": 179520
+        }
+      ],
+      "dynamic": true,
+      "source": "background.js",
+      "note": "ai(eventValue, metadata) forwards supplied fields as strings except instance_id and undefined values; therefore the metadata contract is open-ended. Observed event values include polling and setup."
+    },
+    {
+      "kind": "statsig_background",
+      "name": "codex_chrome_extension_sidechat_open",
+      "name_expression": "Vv",
+      "offset": 412481,
+      "fields": [
+        {
+          "name": "destination",
+          "types": [
+            "any"
+          ],
+          "offset": 412490
+        },
+        {
+          "name": "source",
+          "types": [
+            "any"
+          ],
+          "offset": 412504
+        }
+      ],
+      "dynamic": false,
+      "source": "background.js"
+    },
+    {
+      "kind": "statsig_background",
+      "name": "codex_chrome_extension_toolbar_state",
+      "name_expression": "rw",
+      "offset": 414092,
+      "fields": [
+        {
+          "name": "trigger",
+          "types": [
+            "any"
+          ],
+          "offset": 414158
+        }
+      ],
+      "dynamic": false,
+      "source": "background.js"
+    },
+    {
+      "kind": "statsig_background",
+      "name": "codex_chrome_extension_work_sidepanel_load",
+      "name_expression": "\"codex_chrome_extension_work_sidepanel_load\"",
+      "offset": 417218,
+      "fields": [
+        {
+          "name": "attempt",
+          "types": [
+            "string"
+          ],
+          "offset": 417275
+        },
+        {
+          "name": "elapsed_ms",
+          "types": [
+            "string"
+          ],
+          "offset": 417301
+        },
+        {
+          "name": "timed_out",
+          "types": [
+            "string"
+          ],
+          "offset": 417332
+        },
+        {
+          "name": "extension_id",
+          "types": [
+            "any"
+          ],
+          "offset": 417361
+        },
+        {
+          "name": "chromium_major",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 417392
+        }
+      ],
+      "dynamic": false,
+      "source": "background.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_auth_submission_rejected",
+      "name_expression": "\"browser_auth_submission_rejected\"",
+      "offset": 490116,
+      "fields": [
+        {
+          "name": "submission_mode",
+          "types": [
+            "string"
+          ],
+          "offset": 490259
+        },
+        {
+          "name": "request_id",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490305
+        },
+        {
+          "name": "first_outcome",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490346
+        },
+        {
+          "name": "first_reason",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490380
+        },
+        {
+          "name": "first_request_class",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490412
+        },
+        {
+          "name": "first_submission_phase",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490458
+        },
+        {
+          "name": "terminal_outcome",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490510
+        },
+        {
+          "name": "terminal_reason",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490547
+        },
+        {
+          "name": "terminal_request_class",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490582
+        },
+        {
+          "name": "terminal_submission_phase",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490631
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_auth_submission_failed",
+      "name_expression": "\"browser_auth_submission_failed\"",
+      "offset": 490116,
+      "fields": [
+        {
+          "name": "submission_mode",
+          "types": [
+            "string"
+          ],
+          "offset": 490259
+        },
+        {
+          "name": "request_id",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490305
+        },
+        {
+          "name": "first_outcome",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490346
+        },
+        {
+          "name": "first_reason",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490380
+        },
+        {
+          "name": "first_request_class",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490412
+        },
+        {
+          "name": "first_submission_phase",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490458
+        },
+        {
+          "name": "terminal_outcome",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490510
+        },
+        {
+          "name": "terminal_reason",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490547
+        },
+        {
+          "name": "terminal_request_class",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490582
+        },
+        {
+          "name": "terminal_submission_phase",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 490631
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_auth_attempt",
+      "name_expression": "\"browser_auth_attempt\"",
+      "offset": 491427,
+      "fields": [
+        {
+          "name": "request_id",
+          "types": [
+            "any"
+          ],
+          "offset": 491472
+        },
+        {
+          "name": "submission_mode",
+          "types": [
+            "any"
+          ],
+          "offset": 491496
+        },
+        {
+          "name": "sequence",
+          "types": [
+            "string"
+          ],
+          "offset": 491530
+        },
+        {
+          "name": "phase",
+          "types": [
+            "any"
+          ],
+          "offset": 491559
+        },
+        {
+          "name": "field_index",
+          "types": [
+            "string"
+          ],
+          "offset": 491574
+        },
+        {
+          "name": "reinspection",
+          "types": [
+            "string"
+          ],
+          "offset": 491617
+        },
+        {
+          "name": "outcome",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 491662
+        },
+        {
+          "name": "request_class",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 491689
+        },
+        {
+          "name": "method",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 491728
+        },
+        {
+          "name": "origin_relation",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 491753
+        },
+        {
+          "name": "dropped_attempt_events",
+          "types": [
+            "string"
+          ],
+          "offset": 491796
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_auth_save_preflight",
+      "name_expression": "\"browser_auth_save_preflight\"",
+      "offset": 494800,
+      "fields": [
+        {
+          "name": "submission_mode",
+          "types": [
+            "string"
+          ],
+          "offset": 494845
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_webmcp_disabled",
+      "name_expression": "\"webmcp_disabled\"",
+      "offset": 637103,
+      "fields": [
+        {
+          "name": "tool_count",
+          "types": [
+            "int"
+          ],
+          "offset": 637148
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_webmcp_disabled",
+      "name_expression": "\"webmcp_disabled\"",
+      "offset": 637315,
+      "fields": [
+        {
+          "name": "descriptor_bytes",
+          "types": [
+            "any"
+          ],
+          "offset": 637366
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_webmcp_disabled",
+      "name_expression": "\"webmcp_disabled\"",
+      "offset": 637521,
+      "fields": [
+        {
+          "name": "registration_changes",
+          "types": [
+            "any"
+          ],
+          "offset": 637576
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_bot_detection_reported",
+      "name_expression": "i.name",
+      "offset": 772977,
+      "fields": [
+        {
+          "name": "hostname",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "reason",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "conversation_id",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "session_id",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "thread_id",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "thread_source",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        },
+        {
+          "name": "turn_id",
+          "types": [
+            "string"
+          ],
+          "offset": 773100
+        }
+      ],
+      "dynamic": true,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_page_asset_bundle_failed",
+      "name_expression": "\"browser_use_page_asset_bundle_failed\"",
+      "offset": 1091231,
+      "fields": [
+        {
+          "name": "assetKind",
+          "types": [
+            "any"
+          ],
+          "offset": 1091278
+        },
+        {
+          "name": "contentType",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 1091290
+        },
+        {
+          "name": "failureType",
+          "types": [
+            "any"
+          ],
+          "offset": 1091315
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_response_meta_tabs_failed",
+      "name_expression": "\"browser_use_response_meta_tabs_failed\"",
+      "offset": 1138654,
+      "fields": [
+        {
+          "name": "backend",
+          "types": [
+            "any"
+          ],
+          "offset": 1138744
+        },
+        {
+          "name": "commandType",
+          "types": [
+            "any"
+          ],
+          "offset": 1138754
+        },
+        {
+          "name": "phase",
+          "types": [
+            "string"
+          ],
+          "offset": 1138768,
+          "value": "response-meta-tabs"
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_response_meta_screenshot_failed",
+      "name_expression": "\"browser_use_response_meta_screenshot_failed\"",
+      "offset": 1139378,
+      "fields": [
+        {
+          "name": "backend",
+          "types": [
+            "any"
+          ],
+          "offset": 1139474
+        },
+        {
+          "name": "commandType",
+          "types": [
+            "any"
+          ],
+          "offset": 1139484
+        },
+        {
+          "name": "phase",
+          "types": [
+            "string"
+          ],
+          "offset": 1139498,
+          "value": "response-meta-screenshot"
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_invocation_started",
+      "name_expression": "\"browser_use_invocation_started\"",
+      "offset": 1156711,
+      "fields": [
+        {
+          "name": "backend",
+          "types": [
+            "string"
+          ],
+          "offset": 1156758,
+          "value": "multi"
+        },
+        {
+          "name": "platform",
+          "types": [
+            "any"
+          ],
+          "offset": 1156774
+        },
+        {
+          "name": "release",
+          "types": [
+            "string"
+          ],
+          "offset": 1156794
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_backend_session_started",
+      "name_expression": "\"browser_use_backend_session_started\"",
+      "offset": 1157789,
+      "fields": [
+        {
+          "name": "platform",
+          "types": [
+            "any"
+          ],
+          "offset": 1157840
+        }
+      ],
+      "dynamic": true,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": null,
+      "name_expression": "Q",
+      "offset": 1159533,
+      "fields": [
+        {
+          "name": "thread_id",
+          "types": [
+            "any"
+          ],
+          "offset": 1159478
+        },
+        {
+          "name": "turn_id",
+          "types": [
+            "any"
+          ],
+          "offset": 1159490
+        }
+      ],
+      "dynamic": true,
+      "source": "chunks/js-kernel-host-Biytnb6r.js",
+      "note": "Dynamic command-timing callback. The standalone adapter supplies rm, whose startCommand does not invoke this callback."
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_security_blocked",
+      "name_expression": "\"browser_use_security_blocked\"",
+      "offset": 1160961,
+      "fields": [
+        {
+          "name": "thread_id",
+          "types": [
+            "any"
+          ],
+          "offset": 1159478
+        },
+        {
+          "name": "turn_id",
+          "types": [
+            "any"
+          ],
+          "offset": 1159490
+        },
+        {
+          "name": "backend",
+          "types": [
+            "any"
+          ],
+          "offset": 1161007
+        },
+        {
+          "name": "command_type",
+          "types": [
+            "any",
+            "string"
+          ],
+          "offset": 1161018
+        }
+      ],
+      "dynamic": true,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_setup",
+      "name_expression": "\"browser_use_setup\"",
+      "offset": 1162860,
+      "fields": [
+        {
+          "name": "backend",
+          "types": [
+            "string"
+          ],
+          "offset": 1162893,
+          "value": "multi"
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    },
+    {
+      "kind": "statsig_runtime",
+      "name": "codex_browser_use_invocation_ready",
+      "name_expression": "\"browser_use_invocation_ready\"",
+      "offset": 1162911,
+      "fields": [
+        {
+          "name": "backend",
+          "types": [
+            "string"
+          ],
+          "offset": 1162956,
+          "value": "multi"
+        },
+        {
+          "name": "platform",
+          "types": [
+            "any"
+          ],
+          "offset": 1162972
+        },
+        {
+          "name": "release",
+          "types": [
+            "string"
+          ],
+          "offset": 1162992
+        }
+      ],
+      "dynamic": false,
+      "source": "chunks/js-kernel-host-Biytnb6r.js"
+    }
+  ]
+}

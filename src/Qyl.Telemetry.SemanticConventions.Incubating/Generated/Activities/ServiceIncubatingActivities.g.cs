@@ -18,6 +18,17 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 public static class ServiceIncubatingActivityExtensions
 {
     /// <summary>
+    /// Service recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript UTF-16 offset 127374.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetService(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("service", value);
+
+    /// <summary>
     /// Logical name of the service on the other side of the connection. SHOULD be equal to the actual <a href="/docs/resource/README.md#service">`service.name`</a> resource attribute of the remote service if any.
     /// </summary>
     public static global::System.Diagnostics.Activity SetServicePeerName(

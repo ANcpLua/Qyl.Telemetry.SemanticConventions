@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Error;
 public static class ErrorAttributes
 {
     /// <summary>
+    /// Producer error detail, category or redaction marker.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:824. https://code.claude.com/docs/en/monitoring-usage:879. https://code.claude.com/docs/en/monitoring-usage:1047. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string Error = "error";
+
+    /// <summary>
     /// A message providing more detail about an error in human-readable form.
     /// </summary>
     /// <remarks>

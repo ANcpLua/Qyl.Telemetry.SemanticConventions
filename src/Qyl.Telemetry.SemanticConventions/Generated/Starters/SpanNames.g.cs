@@ -21,6 +21,3394 @@ namespace Qyl;
 public static class SpanNames
 {
     /// <summary>
+    /// The span name of <c>anthropic.agents.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsArchiveClient()
+    {
+        return "anthropic.agents.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.agents.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsCreateClient()
+    {
+        return "anthropic.agents.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.agents.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsListClient()
+    {
+        return "anthropic.agents.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.agents.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsRetrieveClient()
+    {
+        return "anthropic.agents.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.agents.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsUpdateClient()
+    {
+        return "anthropic.agents.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.agents.versions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.agents.versions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicAgentsVersionsListClient()
+    {
+        return "anthropic.agents.versions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.chrome.anthropic_message_create.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic_message_create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicChromeAnthropicMessageCreate()
+    {
+        return "anthropic_message_create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.chrome.message_streaming.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>message_streaming</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicChromeMessageStreaming()
+    {
+        return "message_streaming";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.chrome.retry_last_message.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>retry_last_message</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicChromeRetryLastMessage()
+    {
+        return "retry_last_message";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.chrome.send_user_message.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>send_user_message</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicChromeSendUserMessage()
+    {
+        return "send_user_message";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.chrome.tool_execution.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>tool_execution_{tool_name}_{action}</c>,
+    /// <c>tool_execution_{tool_name}</c>.
+    /// </remarks>
+    /// <param name="toolName">The <c>tool_name</c> value, or <see langword="null"/>.</param>
+    /// <param name="action">The <c>action</c> value, or <see langword="null"/>.</param>
+    /// <returns>The span name.</returns>
+    public static string AnthropicChromeToolExecution(object? toolName, object? action)
+    {
+        var toolNameText = global::System.Convert.ToString(toolName, global::System.Globalization.CultureInfo.InvariantCulture);
+        var actionText = global::System.Convert.ToString(action, global::System.Globalization.CultureInfo.InvariantCulture);
+        if (toolNameText is { Length: > 0 } && actionText is { Length: > 0 }) return "tool_execution_" + toolNameText + "_" + actionText;
+        if (toolNameText is { Length: > 0 }) return "tool_execution_" + toolNameText;
+        return "anthropic.chrome.tool_execution.internal";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.compaction.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.compaction</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicCompaction()
+    {
+        return "anthropic.compaction";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.completions.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.completions.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicCompletionsCreateClient()
+    {
+        return "anthropic.completions.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.custom_tool_use.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.custom_tool_use {gen_ai.tool.name}</c>.
+    /// </remarks>
+    /// <param name="genAiToolName">The <c>gen_ai.tool.name</c> value, or <see langword="null"/>.</param>
+    /// <returns>The span name.</returns>
+    public static string AnthropicCustomToolUse(string? genAiToolName)
+    {
+        var genAiToolNameText = genAiToolName;
+        if (genAiToolNameText is { Length: > 0 }) return "anthropic.custom_tool_use " + genAiToolNameText;
+        return "anthropic.custom_tool_use.internal";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployment_runs.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployment_runs.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentRunsListClient()
+    {
+        return "anthropic.deployment_runs.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployment_runs.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployment_runs.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentRunsRetrieveClient()
+    {
+        return "anthropic.deployment_runs.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsArchiveClient()
+    {
+        return "anthropic.deployments.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsCreateClient()
+    {
+        return "anthropic.deployments.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsListClient()
+    {
+        return "anthropic.deployments.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.pause.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.pause</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsPauseClient()
+    {
+        return "anthropic.deployments.pause";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsRetrieveClient()
+    {
+        return "anthropic.deployments.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.run.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.run</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsRunClient()
+    {
+        return "anthropic.deployments.run";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.unpause.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.unpause</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsUnpauseClient()
+    {
+        return "anthropic.deployments.unpause";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.deployments.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.deployments.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDeploymentsUpdateClient()
+    {
+        return "anthropic.deployments.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.dreams.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.dreams.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDreamsArchiveClient()
+    {
+        return "anthropic.dreams.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.dreams.cancel.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.dreams.cancel</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDreamsCancelClient()
+    {
+        return "anthropic.dreams.cancel";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.dreams.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.dreams.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDreamsCreateClient()
+    {
+        return "anthropic.dreams.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.dreams.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.dreams.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDreamsListClient()
+    {
+        return "anthropic.dreams.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.dreams.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.dreams.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicDreamsRetrieveClient()
+    {
+        return "anthropic.dreams.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environment.work.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environment.work</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentWork()
+    {
+        return "anthropic.environment.work";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsArchiveClient()
+    {
+        return "anthropic.environments.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsCreateClient()
+    {
+        return "anthropic.environments.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsDeleteClient()
+    {
+        return "anthropic.environments.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsListClient()
+    {
+        return "anthropic.environments.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsRetrieveClient()
+    {
+        return "anthropic.environments.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsUpdateClient()
+    {
+        return "anthropic.environments.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.ack.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.ack</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkAckClient()
+    {
+        return "anthropic.environments.work.ack";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.heartbeat.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.heartbeat</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkHeartbeatClient()
+    {
+        return "anthropic.environments.work.heartbeat";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkListClient()
+    {
+        return "anthropic.environments.work.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.poll.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.poll</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkPollClient()
+    {
+        return "anthropic.environments.work.poll";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkRetrieveClient()
+    {
+        return "anthropic.environments.work.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.stats.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.stats</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkStatsClient()
+    {
+        return "anthropic.environments.work.stats";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.stop.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.stop</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkStopClient()
+    {
+        return "anthropic.environments.work.stop";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.environments.work.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.environments.work.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicEnvironmentsWorkUpdateClient()
+    {
+        return "anthropic.environments.work.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.files.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.files.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicFilesDeleteClient()
+    {
+        return "anthropic.files.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.files.download.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.files.download</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicFilesDownloadClient()
+    {
+        return "anthropic.files.download";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.files.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.files.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicFilesListClient()
+    {
+        return "anthropic.files.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.files.retrieve_metadata.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.files.retrieve_metadata</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicFilesRetrieveMetadataClient()
+    {
+        return "anthropic.files.retrieve_metadata";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.files.upload.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.files.upload</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicFilesUploadClient()
+    {
+        return "anthropic.files.upload";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.mcp_tool_use.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.mcp_tool_use {gen_ai.tool.name}</c>.
+    /// </remarks>
+    /// <param name="genAiToolName">The <c>gen_ai.tool.name</c> value, or <see langword="null"/>.</param>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMcpToolUse(string? genAiToolName)
+    {
+        var genAiToolNameText = genAiToolName;
+        if (genAiToolNameText is { Length: > 0 }) return "anthropic.mcp_tool_use " + genAiToolNameText;
+        return "anthropic.mcp_tool_use.internal";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresArchiveClient()
+    {
+        return "anthropic.memory_stores.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresCreateClient()
+    {
+        return "anthropic.memory_stores.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresDeleteClient()
+    {
+        return "anthropic.memory_stores.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresListClient()
+    {
+        return "anthropic.memory_stores.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memories.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memories.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoriesCreateClient()
+    {
+        return "anthropic.memory_stores.memories.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memories.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memories.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoriesDeleteClient()
+    {
+        return "anthropic.memory_stores.memories.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memories.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memories.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoriesListClient()
+    {
+        return "anthropic.memory_stores.memories.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memories.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memories.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoriesRetrieveClient()
+    {
+        return "anthropic.memory_stores.memories.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memories.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memories.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoriesUpdateClient()
+    {
+        return "anthropic.memory_stores.memories.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memory_versions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memory_versions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoryVersionsListClient()
+    {
+        return "anthropic.memory_stores.memory_versions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memory_versions.redact.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memory_versions.redact</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoryVersionsRedactClient()
+    {
+        return "anthropic.memory_stores.memory_versions.redact";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.memory_versions.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.memory_versions.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresMemoryVersionsRetrieveClient()
+    {
+        return "anthropic.memory_stores.memory_versions.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresRetrieveClient()
+    {
+        return "anthropic.memory_stores.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.memory_stores.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.memory_stores.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMemoryStoresUpdateClient()
+    {
+        return "anthropic.memory_stores.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.cancel.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.cancel</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesCancelClient()
+    {
+        return "anthropic.messages.batches.cancel";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesCreateClient()
+    {
+        return "anthropic.messages.batches.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesDeleteClient()
+    {
+        return "anthropic.messages.batches.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesListClient()
+    {
+        return "anthropic.messages.batches.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.results.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.results</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesResultsClient()
+    {
+        return "anthropic.messages.batches.results";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.batches.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.batches.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesBatchesRetrieveClient()
+    {
+        return "anthropic.messages.batches.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.count_tokens.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.count_tokens</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesCountTokensClient()
+    {
+        return "anthropic.messages.count_tokens";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesCreateClient()
+    {
+        return "anthropic.messages.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.create.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesCreateServer()
+    {
+        return "anthropic.messages.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.messages.tool_runner.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.messages.tool_runner</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicMessagesToolRunner()
+    {
+        return "anthropic.messages.tool_runner";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.model_request.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.model_request</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicModelRequest()
+    {
+        return "anthropic.model_request";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.models.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.models.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicModelsListClient()
+    {
+        return "anthropic.models.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.models.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.models.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicModelsRetrieveClient()
+    {
+        return "anthropic.models.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.apps.chat.projects.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.apps.chat.projects.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsAppsChatProjectsListClient()
+    {
+        return "anthropic.organization.analytics.apps.chat.projects.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.artifacts.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.artifacts.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsArtifactsListClient()
+    {
+        return "anthropic.organization.analytics.artifacts.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.connectors.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.connectors.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsConnectorsListClient()
+    {
+        return "anthropic.organization.analytics.connectors.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.cost_report.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.cost_report.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsCostReportListClient()
+    {
+        return "anthropic.organization.analytics.cost_report.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.plugins.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.plugins.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsPluginsListClient()
+    {
+        return "anthropic.organization.analytics.plugins.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.skills.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.skills.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsSkillsListClient()
+    {
+        return "anthropic.organization.analytics.skills.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.summaries.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.summaries.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsSummariesListClient()
+    {
+        return "anthropic.organization.analytics.summaries.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.usage_report.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.usage_report.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsUsageReportListClient()
+    {
+        return "anthropic.organization.analytics.usage_report.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.user_cost_report.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.user_cost_report.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsUserCostReportListClient()
+    {
+        return "anthropic.organization.analytics.user_cost_report.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.user_usage_report.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.user_usage_report.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsUserUsageReportListClient()
+    {
+        return "anthropic.organization.analytics.user_usage_report.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.analytics.users.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.analytics.users.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationAnalyticsUsersListClient()
+    {
+        return "anthropic.organization.analytics.users.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.api_keys.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.api_keys.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationApiKeysListClient()
+    {
+        return "anthropic.organization.api_keys.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.api_keys.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.api_keys.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationApiKeysRetrieveClient()
+    {
+        return "anthropic.organization.api_keys.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.api_keys.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.api_keys.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationApiKeysUpdateClient()
+    {
+        return "anthropic.organization.api_keys.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.compliance_settings.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.compliance_settings.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationComplianceSettingsRetrieveClient()
+    {
+        return "anthropic.organization.compliance_settings.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.compliance_settings.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.compliance_settings.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationComplianceSettingsUpdateClient()
+    {
+        return "anthropic.organization.compliance_settings.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysCreateClient()
+    {
+        return "anthropic.organization.external_keys.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysDeleteClient()
+    {
+        return "anthropic.organization.external_keys.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysListClient()
+    {
+        return "anthropic.organization.external_keys.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysRetrieveClient()
+    {
+        return "anthropic.organization.external_keys.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysUpdateClient()
+    {
+        return "anthropic.organization.external_keys.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.external_keys.validate.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.external_keys.validate</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationExternalKeysValidateClient()
+    {
+        return "anthropic.organization.external_keys.validate";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.issuers.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.issuers.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationIssuersArchiveClient()
+    {
+        return "anthropic.organization.federation.issuers.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.issuers.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.issuers.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationIssuersCreateClient()
+    {
+        return "anthropic.organization.federation.issuers.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.issuers.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.issuers.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationIssuersListClient()
+    {
+        return "anthropic.organization.federation.issuers.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.issuers.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.issuers.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationIssuersRetrieveClient()
+    {
+        return "anthropic.organization.federation.issuers.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.issuers.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.issuers.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationIssuersUpdateClient()
+    {
+        return "anthropic.organization.federation.issuers.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesArchiveClient()
+    {
+        return "anthropic.organization.federation.rules.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesCreateClient()
+    {
+        return "anthropic.organization.federation.rules.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesListClient()
+    {
+        return "anthropic.organization.federation.rules.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesRetrieveClient()
+    {
+        return "anthropic.organization.federation.rules.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesUpdateClient()
+    {
+        return "anthropic.organization.federation.rules.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.workspaces.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.workspaces.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesWorkspacesAddClient()
+    {
+        return "anthropic.organization.federation.rules.workspaces.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.workspaces.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.workspaces.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesWorkspacesListClient()
+    {
+        return "anthropic.organization.federation.rules.workspaces.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.federation.rules.workspaces.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.federation.rules.workspaces.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationFederationRulesWorkspacesRemoveClient()
+    {
+        return "anthropic.organization.federation.rules.workspaces.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.invites.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.invites.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationInvitesCreateClient()
+    {
+        return "anthropic.organization.invites.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.invites.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.invites.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationInvitesDeleteClient()
+    {
+        return "anthropic.organization.invites.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.invites.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.invites.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationInvitesListClient()
+    {
+        return "anthropic.organization.invites.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.invites.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.invites.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationInvitesRetrieveClient()
+    {
+        return "anthropic.organization.invites.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugin_marketplaces.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugin_marketplaces.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginMarketplacesListClient()
+    {
+        return "anthropic.organization.plugin_marketplaces.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugin_marketplaces.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugin_marketplaces.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginMarketplacesRetrieveClient()
+    {
+        return "anthropic.organization.plugin_marketplaces.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugin_marketplaces.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugin_marketplaces.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginMarketplacesUpdateClient()
+    {
+        return "anthropic.organization.plugin_marketplaces.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugin_marketplaces.validate_archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugin_marketplaces.validate_archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginMarketplacesValidateArchiveClient()
+    {
+        return "anthropic.organization.plugin_marketplaces.validate_archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugin_marketplaces.validate_repository.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugin_marketplaces.validate_repository</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginMarketplacesValidateRepositoryClient()
+    {
+        return "anthropic.organization.plugin_marketplaces.validate_repository";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsCreateClient()
+    {
+        return "anthropic.organization.plugins.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsDeleteClient()
+    {
+        return "anthropic.organization.plugins.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.installation_settings.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.installation_settings.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsInstallationSettingsListClient()
+    {
+        return "anthropic.organization.plugins.installation_settings.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.installation_settings.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.installation_settings.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsInstallationSettingsRemoveClient()
+    {
+        return "anthropic.organization.plugins.installation_settings.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.installation_settings.set.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.installation_settings.set</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsInstallationSettingsSetClient()
+    {
+        return "anthropic.organization.plugins.installation_settings.set";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsListClient()
+    {
+        return "anthropic.organization.plugins.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsRetrieveClient()
+    {
+        return "anthropic.organization.plugins.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.shares.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.shares.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsSharesListClient()
+    {
+        return "anthropic.organization.plugins.shares.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsUpdateClient()
+    {
+        return "anthropic.organization.plugins.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.versions.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.versions.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsVersionsCreateClient()
+    {
+        return "anthropic.organization.plugins.versions.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.versions.download.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.versions.download</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsVersionsDownloadClient()
+    {
+        return "anthropic.organization.plugins.versions.download";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.versions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.versions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsVersionsListClient()
+    {
+        return "anthropic.organization.plugins.versions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.plugins.versions.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.plugins.versions.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationPluginsVersionsRetrieveClient()
+    {
+        return "anthropic.organization.plugins.versions.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rate_limits.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rate_limits.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRateLimitsListClient()
+    {
+        return "anthropic.organization.rate_limits.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsCreateClient()
+    {
+        return "anthropic.organization.rbac_groups.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsDeleteClient()
+    {
+        return "anthropic.organization.rbac_groups.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsListClient()
+    {
+        return "anthropic.organization.rbac_groups.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.members.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.members.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsMembersAddClient()
+    {
+        return "anthropic.organization.rbac_groups.members.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.members.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.members.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsMembersListClient()
+    {
+        return "anthropic.organization.rbac_groups.members.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.members.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.members.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsMembersRemoveClient()
+    {
+        return "anthropic.organization.rbac_groups.members.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsRetrieveClient()
+    {
+        return "anthropic.organization.rbac_groups.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_groups.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_groups.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacGroupsUpdateClient()
+    {
+        return "anthropic.organization.rbac_groups.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_roles.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_roles.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacRolesListClient()
+    {
+        return "anthropic.organization.rbac_roles.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_roles.permissions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_roles.permissions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacRolesPermissionsListClient()
+    {
+        return "anthropic.organization.rbac_roles.permissions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.rbac_roles.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.rbac_roles.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRbacRolesRetrieveClient()
+    {
+        return "anthropic.organization.rbac_roles.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationRetrieveClient()
+    {
+        return "anthropic.organization.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsArchiveClient()
+    {
+        return "anthropic.organization.service_accounts.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsCreateClient()
+    {
+        return "anthropic.organization.service_accounts.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsListClient()
+    {
+        return "anthropic.organization.service_accounts.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsRetrieveClient()
+    {
+        return "anthropic.organization.service_accounts.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsUpdateClient()
+    {
+        return "anthropic.organization.service_accounts.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.workspaces.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.workspaces.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsWorkspacesAddClient()
+    {
+        return "anthropic.organization.service_accounts.workspaces.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.workspaces.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.workspaces.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsWorkspacesListClient()
+    {
+        return "anthropic.organization.service_accounts.workspaces.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.service_accounts.workspaces.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.service_accounts.workspaces.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationServiceAccountsWorkspacesRemoveClient()
+    {
+        return "anthropic.organization.service_accounts.workspaces.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsDeleteClient()
+    {
+        return "anthropic.organization.spend_limits.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.effective.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.effective.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsEffectiveListClient()
+    {
+        return "anthropic.organization.spend_limits.effective.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.increase_requests.approve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.increase_requests.approve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsIncreaseRequestsApproveClient()
+    {
+        return "anthropic.organization.spend_limits.increase_requests.approve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.increase_requests.deny.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.increase_requests.deny</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsIncreaseRequestsDenyClient()
+    {
+        return "anthropic.organization.spend_limits.increase_requests.deny";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.increase_requests.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.increase_requests.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsIncreaseRequestsListClient()
+    {
+        return "anthropic.organization.spend_limits.increase_requests.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.increase_requests.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.increase_requests.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsIncreaseRequestsRetrieveClient()
+    {
+        return "anthropic.organization.spend_limits.increase_requests.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsListClient()
+    {
+        return "anthropic.organization.spend_limits.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsRetrieveClient()
+    {
+        return "anthropic.organization.spend_limits.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.spend_limits.set.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.spend_limits.set</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationSpendLimitsSetClient()
+    {
+        return "anthropic.organization.spend_limits.set";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsCreateClient()
+    {
+        return "anthropic.organization.telemetry_destinations.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsDeleteClient()
+    {
+        return "anthropic.organization.telemetry_destinations.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsListClient()
+    {
+        return "anthropic.organization.telemetry_destinations.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsRetrieveClient()
+    {
+        return "anthropic.organization.telemetry_destinations.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.test.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.test</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsTestClient()
+    {
+        return "anthropic.organization.telemetry_destinations.test";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsUpdateClient()
+    {
+        return "anthropic.organization.telemetry_destinations.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.workspaces.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.workspaces.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsWorkspacesAddClient()
+    {
+        return "anthropic.organization.telemetry_destinations.workspaces.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.workspaces.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.workspaces.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsWorkspacesListClient()
+    {
+        return "anthropic.organization.telemetry_destinations.workspaces.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.telemetry_destinations.workspaces.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.telemetry_destinations.workspaces.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationTelemetryDestinationsWorkspacesRemoveClient()
+    {
+        return "anthropic.organization.telemetry_destinations.workspaces.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.users.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.users.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationUsersListClient()
+    {
+        return "anthropic.organization.users.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.users.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.users.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationUsersRemoveClient()
+    {
+        return "anthropic.organization.users.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.users.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.users.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationUsersRetrieveClient()
+    {
+        return "anthropic.organization.users.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.users.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.users.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationUsersUpdateClient()
+    {
+        return "anthropic.organization.users.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesArchiveClient()
+    {
+        return "anthropic.organization.workspaces.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesCreateClient()
+    {
+        return "anthropic.organization.workspaces.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesListClient()
+    {
+        return "anthropic.organization.workspaces.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.members.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.members.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesMembersAddClient()
+    {
+        return "anthropic.organization.workspaces.members.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.members.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.members.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesMembersListClient()
+    {
+        return "anthropic.organization.workspaces.members.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.members.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.members.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesMembersRemoveClient()
+    {
+        return "anthropic.organization.workspaces.members.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.members.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.members.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesMembersRetrieveClient()
+    {
+        return "anthropic.organization.workspaces.members.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.members.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.members.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesMembersUpdateClient()
+    {
+        return "anthropic.organization.workspaces.members.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.rate_limits.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.rate_limits.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesRateLimitsListClient()
+    {
+        return "anthropic.organization.workspaces.rate_limits.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesRetrieveClient()
+    {
+        return "anthropic.organization.workspaces.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.service_accounts.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.service_accounts.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesServiceAccountsAddClient()
+    {
+        return "anthropic.organization.workspaces.service_accounts.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.service_accounts.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.service_accounts.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesServiceAccountsListClient()
+    {
+        return "anthropic.organization.workspaces.service_accounts.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.service_accounts.remove.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.service_accounts.remove</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesServiceAccountsRemoveClient()
+    {
+        return "anthropic.organization.workspaces.service_accounts.remove";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.service_accounts.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.service_accounts.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesServiceAccountsRetrieveClient()
+    {
+        return "anthropic.organization.workspaces.service_accounts.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.service_accounts.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.service_accounts.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesServiceAccountsUpdateClient()
+    {
+        return "anthropic.organization.workspaces.service_accounts.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.organization.workspaces.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.organization.workspaces.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicOrganizationWorkspacesUpdateClient()
+    {
+        return "anthropic.organization.workspaces.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.session.outcome_evaluation.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.session.outcome_evaluation</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionOutcomeEvaluation()
+    {
+        return "anthropic.session.outcome_evaluation";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.session.turn.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.session.turn</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionTurn()
+    {
+        return "anthropic.session.turn";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsArchiveClient()
+    {
+        return "anthropic.sessions.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.archive.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsArchiveServer()
+    {
+        return "anthropic.sessions.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsCreateClient()
+    {
+        return "anthropic.sessions.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.create.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsCreateServer()
+    {
+        return "anthropic.sessions.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsDeleteClient()
+    {
+        return "anthropic.sessions.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.delete.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsDeleteServer()
+    {
+        return "anthropic.sessions.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsListClient()
+    {
+        return "anthropic.sessions.events.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.list.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsListServer()
+    {
+        return "anthropic.sessions.events.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.send.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.send</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsSendClient()
+    {
+        return "anthropic.sessions.events.send";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.send.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.send</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsSendServer()
+    {
+        return "anthropic.sessions.events.send";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.stream.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.stream</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsStreamClient()
+    {
+        return "anthropic.sessions.events.stream";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.events.stream.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.events.stream</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsEventsStreamServer()
+    {
+        return "anthropic.sessions.events.stream";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsListClient()
+    {
+        return "anthropic.sessions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.list.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsListServer()
+    {
+        return "anthropic.sessions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.add.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesAddClient()
+    {
+        return "anthropic.sessions.resources.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.add.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.add</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesAddServer()
+    {
+        return "anthropic.sessions.resources.add";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesDeleteClient()
+    {
+        return "anthropic.sessions.resources.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.delete.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesDeleteServer()
+    {
+        return "anthropic.sessions.resources.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesListClient()
+    {
+        return "anthropic.sessions.resources.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.list.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesListServer()
+    {
+        return "anthropic.sessions.resources.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesRetrieveClient()
+    {
+        return "anthropic.sessions.resources.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.retrieve.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesRetrieveServer()
+    {
+        return "anthropic.sessions.resources.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesUpdateClient()
+    {
+        return "anthropic.sessions.resources.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.resources.update.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.resources.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsResourcesUpdateServer()
+    {
+        return "anthropic.sessions.resources.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsRetrieveClient()
+    {
+        return "anthropic.sessions.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.retrieve.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsRetrieveServer()
+    {
+        return "anthropic.sessions.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsArchiveClient()
+    {
+        return "anthropic.sessions.threads.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.archive.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsArchiveServer()
+    {
+        return "anthropic.sessions.threads.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.events.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.events.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsEventsListClient()
+    {
+        return "anthropic.sessions.threads.events.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.events.list.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.events.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsEventsListServer()
+    {
+        return "anthropic.sessions.threads.events.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.events.stream.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.events.stream</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsEventsStreamClient()
+    {
+        return "anthropic.sessions.threads.events.stream";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.events.stream.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.events.stream</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsEventsStreamServer()
+    {
+        return "anthropic.sessions.threads.events.stream";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsListClient()
+    {
+        return "anthropic.sessions.threads.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.list.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsListServer()
+    {
+        return "anthropic.sessions.threads.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsRetrieveClient()
+    {
+        return "anthropic.sessions.threads.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.threads.retrieve.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.threads.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsThreadsRetrieveServer()
+    {
+        return "anthropic.sessions.threads.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsUpdateClient()
+    {
+        return "anthropic.sessions.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.sessions.update.server</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.sessions.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSessionsUpdateServer()
+    {
+        return "anthropic.sessions.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsCreateClient()
+    {
+        return "anthropic.skills.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsDeleteClient()
+    {
+        return "anthropic.skills.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsListClient()
+    {
+        return "anthropic.skills.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsRetrieveClient()
+    {
+        return "anthropic.skills.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.versions.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.versions.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsVersionsCreateClient()
+    {
+        return "anthropic.skills.versions.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.versions.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.versions.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsVersionsDeleteClient()
+    {
+        return "anthropic.skills.versions.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.versions.download.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.versions.download</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsVersionsDownloadClient()
+    {
+        return "anthropic.skills.versions.download";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.versions.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.versions.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsVersionsListClient()
+    {
+        return "anthropic.skills.versions.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.skills.versions.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.skills.versions.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicSkillsVersionsRetrieveClient()
+    {
+        return "anthropic.skills.versions.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tool_use.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tool_use {gen_ai.tool.name}</c>.
+    /// </remarks>
+    /// <param name="genAiToolName">The <c>gen_ai.tool.name</c> value, or <see langword="null"/>.</param>
+    /// <returns>The span name.</returns>
+    public static string AnthropicToolUse(string? genAiToolName)
+    {
+        var genAiToolNameText = genAiToolName;
+        if (genAiToolNameText is { Length: > 0 }) return "anthropic.tool_use " + genAiToolNameText;
+        return "anthropic.tool_use.internal";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsArchiveClient()
+    {
+        return "anthropic.tunnels.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.certificates.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.certificates.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsCertificatesArchiveClient()
+    {
+        return "anthropic.tunnels.certificates.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.certificates.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.certificates.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsCertificatesCreateClient()
+    {
+        return "anthropic.tunnels.certificates.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.certificates.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.certificates.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsCertificatesListClient()
+    {
+        return "anthropic.tunnels.certificates.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.certificates.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.certificates.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsCertificatesRetrieveClient()
+    {
+        return "anthropic.tunnels.certificates.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsCreateClient()
+    {
+        return "anthropic.tunnels.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsListClient()
+    {
+        return "anthropic.tunnels.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsRetrieveClient()
+    {
+        return "anthropic.tunnels.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.reveal_token.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.reveal_token</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsRevealTokenClient()
+    {
+        return "anthropic.tunnels.reveal_token";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.tunnels.rotate_token.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.tunnels.rotate_token</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicTunnelsRotateTokenClient()
+    {
+        return "anthropic.tunnels.rotate_token";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.user_profiles.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.user_profiles.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicUserProfilesCreateClient()
+    {
+        return "anthropic.user_profiles.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.user_profiles.create_enrollment_url.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.user_profiles.create_enrollment_url</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicUserProfilesCreateEnrollmentUrlClient()
+    {
+        return "anthropic.user_profiles.create_enrollment_url";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.user_profiles.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.user_profiles.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicUserProfilesListClient()
+    {
+        return "anthropic.user_profiles.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.user_profiles.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.user_profiles.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicUserProfilesRetrieveClient()
+    {
+        return "anthropic.user_profiles.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.user_profiles.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.user_profiles.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicUserProfilesUpdateClient()
+    {
+        return "anthropic.user_profiles.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsArchiveClient()
+    {
+        return "anthropic.vaults.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCreateClient()
+    {
+        return "anthropic.vaults.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.archive.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.archive</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsArchiveClient()
+    {
+        return "anthropic.vaults.credentials.archive";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.create.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.create</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsCreateClient()
+    {
+        return "anthropic.vaults.credentials.create";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsDeleteClient()
+    {
+        return "anthropic.vaults.credentials.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsListClient()
+    {
+        return "anthropic.vaults.credentials.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.mcp_oauth_validate.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.mcp_oauth_validate</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsMcpOauthValidateClient()
+    {
+        return "anthropic.vaults.credentials.mcp_oauth_validate";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsRetrieveClient()
+    {
+        return "anthropic.vaults.credentials.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.credentials.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.credentials.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsCredentialsUpdateClient()
+    {
+        return "anthropic.vaults.credentials.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.delete.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.delete</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsDeleteClient()
+    {
+        return "anthropic.vaults.delete";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.list.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.list</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsListClient()
+    {
+        return "anthropic.vaults.list";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.retrieve.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.retrieve</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsRetrieveClient()
+    {
+        return "anthropic.vaults.retrieve";
+    }
+
+    /// <summary>
+    /// The span name of <c>anthropic.vaults.update.client</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>anthropic.vaults.update</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string AnthropicVaultsUpdateClient()
+    {
+        return "anthropic.vaults.update";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.bash.subprocess.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.bash.subprocess</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeBashSubprocess()
+    {
+        return "claude_code.bash.subprocess";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.compaction.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.compaction</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeCompaction()
+    {
+        return "claude_code.compaction";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.hook.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.hook</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeHook()
+    {
+        return "claude_code.hook";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.interaction.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.interaction</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeInteraction()
+    {
+        return "claude_code.interaction";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.llm_request.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.llm_request</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeLlmRequest()
+    {
+        return "claude_code.llm_request";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.mcp.rpc.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.mcp.rpc</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeMcpRpc()
+    {
+        return "claude_code.mcp.rpc";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.subagent.spawn.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.subagent.spawn</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeSubagentSpawn()
+    {
+        return "claude_code.subagent.spawn";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.tool.blocked_on_user.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.tool.blocked_on_user</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeToolBlockedOnUser()
+    {
+        return "claude_code.tool.blocked_on_user";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.tool.execution.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.tool.execution</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeToolExecution()
+    {
+        return "claude_code.tool.execution";
+    }
+
+    /// <summary>
+    /// The span name of <c>claude_code.tool.internal</c>: the first template whose every placeholder has a value.
+    /// </summary>
+    /// <remarks>
+    /// <c>claude_code.tool</c>.
+    /// </remarks>
+    /// <returns>The span name.</returns>
+    public static string ClaudeCodeTool()
+    {
+        return "claude_code.tool";
+    }
+
+    /// <summary>
     /// The span name of <c>db.client</c>: the first template whose every placeholder has a value.
     /// </summary>
     /// <remarks>

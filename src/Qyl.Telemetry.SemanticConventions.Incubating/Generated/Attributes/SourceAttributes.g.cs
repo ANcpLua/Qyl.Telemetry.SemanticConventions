@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Source;
 public static class SourceAttributes
 {
     /// <summary>
+    /// Source recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:978. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2452611. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2871912. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string Source = "source";
+
+    /// <summary>
     /// Source address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name.
     /// </summary>
     /// <remarks>

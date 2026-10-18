@@ -44,4 +44,12 @@ public static class WorkflowAttributes
     /// Span tag on the "Microsoft.Agents.AI.Workflows" ActivitySource. Declared at dotnet/src/Microsoft.Agents.AI.Workflows/Observability/Tags.cs:8; set at dotnet/src/Microsoft.Agents.AI.Workflows/WorkflowBuilder.cs:648 on <c>workflow.build</c>, when the workflow has a name.
     /// </remarks>
     public const string Name = "workflow.name";
+
+    /// <summary>
+    /// Identifier joining the agents and operations of a Workflow tool run.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:606. https://code.claude.com/docs/en/monitoring-usage:234. https://code.claude.com/docs/en/monitoring-usage:272. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string RunId = "workflow.run_id";
 }

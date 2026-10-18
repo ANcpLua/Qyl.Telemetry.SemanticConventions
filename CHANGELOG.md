@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased]
+
+- Add native Anthropic telemetry coverage for Claude Code 2.1.302, Cowork and Claude Desktop 2.42304.0, the Claude API and TypeScript SDK 0.135.0, and Claude for Chrome 1.0.101. Include beta spans, log and span events, metrics, native attributes and documented dynamic naming paths.
+- Preserve native keys and mixed wire representations, referencing shared upstream definitions.
+- Preserve generated enum output while replacing repeated member scans with sorted grouping.
+- Resolve C# identifier collisions, retain TypeScript native-key aliases, and accept registered vendor spellings in live checks while retaining undeclared-key checks.
+- Audit ChatGPT Chrome extension 1.26.1005.11759 and document its inactive tracing hooks and separate Statsig event vocabulary.
+- Add a reproducible Markdown export for the local and vendor registries at every stability.
+
 ## [14.1.0] - 2026-10-18
 
 - Export `getCapturedFieldPersistence` from the TypeScript package's `policy` entry point, generated from the same registry-owned captured-field roots and character sets as C#.

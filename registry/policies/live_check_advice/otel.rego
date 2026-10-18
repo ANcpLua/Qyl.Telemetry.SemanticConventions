@@ -2,11 +2,13 @@ package live_check_advice
 
 import rego.v1
 
-# Verbatim copy of Weaver 0.27.0's default advice policy,
+# Derived from Weaver 0.27.0's default advice policy,
 # defaults/policies/live_check_advice/otel.rego at tag v0.27.0. `--advice-policies` replaces
 # the default policy directory rather than adding to it, so a policy set that does not carry
-# this file loses the four name and namespace advisors below. It is copied, not edited: the
-# qyl rules live in their own files next to it, and a Weaver upgrade replaces this one.
+# this file loses the four name and namespace advisors below. The local exception accepts
+# explicitly registered names: vendor keys can be bare or camelCase, and a declared scalar
+# such as error can coexist with the independently declared error.type. Undeclared names
+# retain the upstream checks. Preserve this exception when updating the upstream copy.
 #
 # It is only the *rego* advisors that `--advice-policies` replaces. Weaver's deprecated,
 # stability, type and enum advisors are compiled into the binary and always run, which is why
@@ -35,6 +37,7 @@ concat(".", array.slice(parts, 0, i)) |
 # checks attribute has a namespace
 deny contains make_advice(advice_type, advice_level, advice_context, message) if {
 	input.sample.attribute
+	not attributes_set[input.sample.attribute.name]
 	not contains(input.sample.attribute.name, ".")
 	advice_type := "missing_namespace"
 	advice_level := "improvement"
@@ -45,6 +48,7 @@ deny contains make_advice(advice_type, advice_level, advice_context, message) if
 # checks attribute name format
 deny contains make_advice(advice_type, advice_level, advice_context, message) if {
 	input.sample.attribute
+	not attributes_set[input.sample.attribute.name]
 	not is_template_type(input.sample.attribute.name)
 	not regex.match(name_regex, input.sample.attribute.name)
 	advice_type := "invalid_format"
@@ -68,6 +72,8 @@ deny contains make_advice_with_signal_info(advice_type, advice_level, advice_con
 # checks attribute namespace doesn't collide with existing attributes
 deny contains make_advice(advice_type, advice_level, advice_context, message) if {
 	input.sample.attribute
+	not attributes_set[input.sample.attribute.name]
+	not is_template_type(input.sample.attribute.name)
 
 	# Skip if no namespace
 	contains(input.sample.attribute.name, ".")

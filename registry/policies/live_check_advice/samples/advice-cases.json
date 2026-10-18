@@ -162,11 +162,43 @@
       "attributes": [
         {
           "name": "http.request.header.host",
-          "value": ["example.com"]
+          "value": [
+            "example.com"
+          ]
         },
         {
           "name": "http.request.headers.host",
-          "value": ["example.com"]
+          "value": [
+            "example.com"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "span": {
+      "name": "qyl.live_check.vendor_spellings",
+      "kind": "internal",
+      "attributes": [
+        {
+          "name": "error",
+          "value": "test"
+        },
+        {
+          "name": "sessionId",
+          "value": "session-123"
+        },
+        {
+          "name": "_scrubError",
+          "value": true
+        },
+        {
+          "name": "prompt.id",
+          "value": "prompt-123"
+        },
+        {
+          "name": "error.unknown_child",
+          "value": "test"
         }
       ]
     }

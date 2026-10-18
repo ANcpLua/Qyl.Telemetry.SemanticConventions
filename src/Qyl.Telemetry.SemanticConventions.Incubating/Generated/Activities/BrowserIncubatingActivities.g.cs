@@ -18,6 +18,17 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 public static class BrowserIncubatingActivityExtensions
 {
     /// <summary>
+    /// Browser recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CDiepCgV.js; JavaScript UTF-16 offset 26875. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CDiepCgV.js; JavaScript UTF-16 offset 34444. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CDiepCgV.js; JavaScript UTF-16 offset 35760. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetBrowser(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("browser", value);
+
+    /// <summary>
     /// The delta between the current value and the last-reported value. See <a href="https://github.com/GoogleChrome/web-vitals?tab=readme-ov-file#report-only-the-delta-of-changes">delta</a>.
     /// </summary>
     public static global::System.Diagnostics.Activity SetBrowserWebVitalDelta(

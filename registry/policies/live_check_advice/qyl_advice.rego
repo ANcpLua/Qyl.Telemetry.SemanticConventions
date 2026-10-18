@@ -32,7 +32,7 @@ import rego.v1
 # Everything else keeps Weaver's default level, unchanged: `not_stable`, `missing_attribute`,
 # the required/recommended/opt-in/conditionally-required attribute findings, `unit_mismatch`,
 # `unexpected_instrument`, the entity association checks, and otel.rego's four name and
-# namespace rules.
+# namespace rules for undeclared names. Explicitly registered native spellings are accepted.
 
 # ---------------------------------------------------------------------------
 # (a) enum values

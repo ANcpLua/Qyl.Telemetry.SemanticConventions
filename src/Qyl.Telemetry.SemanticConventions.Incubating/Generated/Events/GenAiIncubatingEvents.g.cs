@@ -58,4 +58,18 @@ public static class GenAiIncubatingEventDefinitions
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
             attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If the operation ended in an error.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("gen_ai.evaluation.explanation", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("gen_ai.evaluation.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("gen_ai.evaluation.score.label", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If applicable.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gen_ai.evaluation.score.value", "double", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If applicable.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gen_ai.response.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "When available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, false) });
+
+    /// <summary>
+    /// Gen ai request attempt event.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#span-attributes. Span event, not a standalone log event.
+    /// </remarks>
+    public static readonly global::Qyl.Telemetry.SemanticConventions.EventDefinition GenAiRequestAttempt =
+        new(
+            name: "gen_ai.request.attempt",
+            brief: "Gen ai request attempt event.",
+            stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
+            deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("attempt", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("client_request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
 }

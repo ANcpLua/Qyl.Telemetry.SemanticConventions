@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Host;
 public static class HostAttributes
 {
     /// <summary>
+    /// Host recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 2001300. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 2011728. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 2105787. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public const string Host = "host";
+
+    /// <summary>
     /// The CPU architecture the host system is running on.
     /// </summary>
     public const string Arch = "host.arch";

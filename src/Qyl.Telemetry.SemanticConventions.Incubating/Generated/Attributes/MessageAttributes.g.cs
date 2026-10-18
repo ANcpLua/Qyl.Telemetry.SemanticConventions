@@ -81,4 +81,12 @@ public static class MessageAttributes
     /// </summary>
     [global::System.Obsolete("Removed, no replacement.", false)]
     public const string UncompressedSize = "message.uncompressed_size";
+
+    /// <summary>
+    /// Identifier joining a telemetry event to a persisted transcript message.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:784. https://code.claude.com/docs/en/monitoring-usage:804. https://code.claude.com/docs/en/monitoring-usage:957.
+    /// </remarks>
+    public const string Uuid = "message.uuid";
 }

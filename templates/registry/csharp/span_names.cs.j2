@@ -74,6 +74,8 @@ public static class SpanNames
 {% set base = lib.param_base(key, s.type) %}
 {% if t == "string" %}
 {{ inner }}var {{ base }}Text = {{ lib.param_name(key, s.type) }};
+{% elif t == "object" %}
+{{ inner }}var {{ base }}Text = global::System.Convert.ToString({{ lib.param_name(key, s.type) }}, global::System.Globalization.CultureInfo.InvariantCulture);
 {% else %}
 {{ inner }}var {{ base }}Text = {{ lib.param_name(key, s.type) }}?.ToString({% if t != "bool" %}global::System.Globalization.CultureInfo.InvariantCulture{% endif %});
 {% endif %}

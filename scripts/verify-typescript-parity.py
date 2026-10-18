@@ -27,11 +27,16 @@ for kind in ('Attributes', 'Metrics', 'Events'):
 
 for tier in ('stable', 'incubating'):
     expected = {'SCHEMA_URL': snapshot['schema_url'], 'REGISTRY_SNAPSHOT_SHA256': actual[tier]['REGISTRY_SNAPSHOT_SHA256']}
+    dotted_symbols = {symbol(r['key']) for r in rows('attributes', 'key') if included(r, tier) and '.' in r['key']}
     for row in rows('attributes', 'key'):
         if not included(row, tier):
             continue
         key = row['key']
-        expected['ATTR_' + symbol(key)] = key
+        constant = 'ATTR_' + symbol(key)
+        if '.' not in key and symbol(key) in dotted_symbols:
+            constant += '_NATIVE'
+        assert constant not in expected, f'duplicate projected attribute constant: {constant}'
+        expected[constant] = key
         # The attribute and its values must share the same C# block, not merely occur elsewhere.
         block = re.search(r'^    public const string \w+ = ' + re.escape(json.dumps(key)) + r';(.*?)(?=^    public const string|\Z)', sources['Attributes'], re.S | re.M)
         assert block, f'C# attribute missing: {key}'

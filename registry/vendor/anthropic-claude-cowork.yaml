@@ -1,0 +1,266 @@
+# Native Anthropic telemetry. Preserve emitted keys; upstream keys are references.
+# Development denotes the vendor contract stability, not proof that a feature is enabled.
+groups:
+- id: vendor.claude_cowork
+  type: attribute_group
+  brief: Pinned source and instrumentation-scope evidence.
+  annotations:
+    qyl:
+      vendor:
+        library: Claude Desktop Cowork
+        version: 2.42304.0
+        repository: https://claude.com/docs/cowork/monitoring
+        ref: e7f60e658f15cfece9efa384a78a39aec3c12845
+        license: LicenseRef-Anthropic-Commercial-Terms
+        activity_sources:
+        - name: com.anthropic.claude_code
+          note: https://claude.com/docs/cowork/monitoring; Cowork session engine uses the Claude Code telemetry contract.
+        artifact_sha256: bfa22ac393906762fa04b9607ff202907405b089c1ae7db257159202f31bb3d0
+  attributes:
+  - ref: qyl.instrumentation.domain
+- id: event.vendor.claude_cowork.user_prompt
+  type: event
+  name: user_prompt
+  stability: development
+  brief: User prompt event.
+  note: https://claude.com/docs/cowork/monitoring:90. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: prompt
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: prompt_length
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in
+- id: event.vendor.claude_cowork.assistant_response
+  type: event
+  name: assistant_response
+  stability: development
+  brief: Assistant response event.
+  note: https://claude.com/docs/cowork/monitoring:107. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: model
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: request_id
+    requirement_level: opt_in
+  - ref: response
+    requirement_level: opt_in
+  - ref: response_length
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in
+- id: event.vendor.claude_cowork.tool_result
+  type: event
+  name: tool_result
+  stability: development
+  brief: Tool result event.
+  note: https://claude.com/docs/cowork/monitoring:128. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: decision_source
+    requirement_level: opt_in
+  - ref: decision_type
+    requirement_level: opt_in
+  - ref: duration_ms
+    requirement_level: opt_in
+  - ref: error
+    requirement_level: opt_in
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: mcp_server_scope
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: success
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: tool_input
+    requirement_level: opt_in
+  - ref: tool_name
+    requirement_level: opt_in
+  - ref: tool_parameters
+    requirement_level: opt_in
+  - ref: tool_result_size_bytes
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in
+- id: event.vendor.claude_cowork.api_request
+  type: event
+  name: api_request
+  stability: development
+  brief: Api request event.
+  note: https://claude.com/docs/cowork/monitoring:153. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: cache_creation_tokens
+    requirement_level: opt_in
+  - ref: cache_read_tokens
+    requirement_level: opt_in
+  - ref: cost_usd
+    requirement_level: opt_in
+  - ref: duration_ms
+    requirement_level: opt_in
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: input_tokens
+    requirement_level: opt_in
+  - ref: model
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: output_tokens
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: speed
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in
+- id: event.vendor.claude_cowork.api_error
+  type: event
+  name: api_error
+  stability: development
+  brief: Api error event.
+  note: https://claude.com/docs/cowork/monitoring:176. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: attempt
+    requirement_level: opt_in
+  - ref: duration_ms
+    requirement_level: opt_in
+  - ref: error
+    requirement_level: opt_in
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: model
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: speed
+    requirement_level: opt_in
+  - ref: status_code
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in
+- id: event.vendor.claude_cowork.tool_decision
+  type: event
+  name: tool_decision
+  stability: development
+  brief: Tool decision event.
+  note: https://claude.com/docs/cowork/monitoring:197. Cowork documented event.name label. service.name is cowork; correlate
+    with prompt.id. Do not assume this bare label is the shared engine log body.
+  attributes:
+  - ref: decision
+    requirement_level: opt_in
+  - ref: event.sequence
+    requirement_level: opt_in
+  - ref: event.timestamp
+    requirement_level: opt_in
+  - ref: organization.id
+    requirement_level: opt_in
+  - ref: prompt.id
+    requirement_level: opt_in
+  - ref: session.id
+    requirement_level: opt_in
+  - ref: source
+    requirement_level: opt_in
+  - ref: terminal.type
+    requirement_level: opt_in
+  - ref: tool_name
+    requirement_level: opt_in
+  - ref: user.account_id
+    requirement_level: opt_in
+  - ref: user.account_uuid
+    requirement_level: opt_in
+  - ref: user.email
+    requirement_level: opt_in
+  - ref: user.id
+    requirement_level: opt_in
+  - ref: workspace.host_paths
+    requirement_level: opt_in

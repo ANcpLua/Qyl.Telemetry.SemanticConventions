@@ -112,6 +112,13 @@ Vendor keys are tags. The application never renames one and the collector passes
 client-visible product requests, responses, stream events and errors are owned by
 [`qyl-api-schema`](https://github.com/ANcpLua/qyl-api-schema).
 
+The [Anthropic coverage notes](docs/anthropic-telemetry.md) distinguish Claude Code, Cowork,
+Desktop, the Claude API/SDK and Chrome instrumentation, including beta and dynamic paths.
+The [browser extension audit](docs/browser-extension-telemetry.md) also covers ChatGPT
+1.26.1005.11759, separating its inactive tracing hooks from its Statsig product analytics.
+To export the local and vendor definitions at every stability, run
+`uv run --no-project --with pyyaml python3 scripts/export-registry-reference.py --output reference.md`.
+
 ### Policies
 
 Two Rego sets, because two registry shapes answer different questions.

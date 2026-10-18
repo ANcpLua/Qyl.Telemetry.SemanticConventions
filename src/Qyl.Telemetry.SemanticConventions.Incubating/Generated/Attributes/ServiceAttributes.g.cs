@@ -14,6 +14,14 @@ namespace Qyl.Telemetry.SemanticConventions.Incubating.Attributes.Service;
 public static class ServiceAttributes
 {
     /// <summary>
+    /// Service recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CziVBdux.js; JavaScript UTF-16 offset 127374.
+    /// </remarks>
+    public const string Service = "service";
+
+    /// <summary>
     /// The operational criticality of the service.
     /// </summary>
     /// <remarks>

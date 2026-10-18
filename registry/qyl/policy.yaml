@@ -393,5 +393,853 @@ groups:
                 - "{mcp.method.name}"
           mcp.server:
             span_name: *mcp_name
+
+
+          # BEGIN Anthropic native span names
+          anthropic.agents.archive.client:
+            span_name:
+              templates: ["anthropic.agents.archive"]
+          anthropic.agents.create.client:
+            span_name:
+              templates: ["anthropic.agents.create"]
+          anthropic.agents.list.client:
+            span_name:
+              templates: ["anthropic.agents.list"]
+          anthropic.agents.retrieve.client:
+            span_name:
+              templates: ["anthropic.agents.retrieve"]
+          anthropic.agents.update.client:
+            span_name:
+              templates: ["anthropic.agents.update"]
+          anthropic.agents.versions.list.client:
+            span_name:
+              templates: ["anthropic.agents.versions.list"]
+          anthropic.chrome.anthropic_message_create.internal:
+            span_name:
+              templates: ["anthropic_message_create"]
+          anthropic.chrome.message_streaming.internal:
+            span_name:
+              templates: ["message_streaming"]
+          anthropic.chrome.retry_last_message.internal:
+            span_name:
+              templates: ["retry_last_message"]
+          anthropic.chrome.send_user_message.internal:
+            span_name:
+              templates: ["send_user_message"]
+          anthropic.chrome.tool_execution.internal:
+            span_name:
+              templates: ["tool_execution_{tool_name}_{action}", "tool_execution_{tool_name}"]
+          anthropic.compaction.internal:
+            span_name:
+              templates: ["anthropic.compaction"]
+          anthropic.completions.create.client:
+            span_name:
+              templates: ["anthropic.completions.create"]
+          anthropic.custom_tool_use.internal:
+            span_name:
+              templates: ["anthropic.custom_tool_use {gen_ai.tool.name}"]
+          anthropic.deployment_runs.list.client:
+            span_name:
+              templates: ["anthropic.deployment_runs.list"]
+          anthropic.deployment_runs.retrieve.client:
+            span_name:
+              templates: ["anthropic.deployment_runs.retrieve"]
+          anthropic.deployments.archive.client:
+            span_name:
+              templates: ["anthropic.deployments.archive"]
+          anthropic.deployments.create.client:
+            span_name:
+              templates: ["anthropic.deployments.create"]
+          anthropic.deployments.list.client:
+            span_name:
+              templates: ["anthropic.deployments.list"]
+          anthropic.deployments.pause.client:
+            span_name:
+              templates: ["anthropic.deployments.pause"]
+          anthropic.deployments.retrieve.client:
+            span_name:
+              templates: ["anthropic.deployments.retrieve"]
+          anthropic.deployments.run.client:
+            span_name:
+              templates: ["anthropic.deployments.run"]
+          anthropic.deployments.unpause.client:
+            span_name:
+              templates: ["anthropic.deployments.unpause"]
+          anthropic.deployments.update.client:
+            span_name:
+              templates: ["anthropic.deployments.update"]
+          anthropic.dreams.archive.client:
+            span_name:
+              templates: ["anthropic.dreams.archive"]
+          anthropic.dreams.cancel.client:
+            span_name:
+              templates: ["anthropic.dreams.cancel"]
+          anthropic.dreams.create.client:
+            span_name:
+              templates: ["anthropic.dreams.create"]
+          anthropic.dreams.list.client:
+            span_name:
+              templates: ["anthropic.dreams.list"]
+          anthropic.dreams.retrieve.client:
+            span_name:
+              templates: ["anthropic.dreams.retrieve"]
+          anthropic.environment.work.internal:
+            span_name:
+              templates: ["anthropic.environment.work"]
+          anthropic.environments.archive.client:
+            span_name:
+              templates: ["anthropic.environments.archive"]
+          anthropic.environments.create.client:
+            span_name:
+              templates: ["anthropic.environments.create"]
+          anthropic.environments.delete.client:
+            span_name:
+              templates: ["anthropic.environments.delete"]
+          anthropic.environments.list.client:
+            span_name:
+              templates: ["anthropic.environments.list"]
+          anthropic.environments.retrieve.client:
+            span_name:
+              templates: ["anthropic.environments.retrieve"]
+          anthropic.environments.update.client:
+            span_name:
+              templates: ["anthropic.environments.update"]
+          anthropic.environments.work.ack.client:
+            span_name:
+              templates: ["anthropic.environments.work.ack"]
+          anthropic.environments.work.heartbeat.client:
+            span_name:
+              templates: ["anthropic.environments.work.heartbeat"]
+          anthropic.environments.work.list.client:
+            span_name:
+              templates: ["anthropic.environments.work.list"]
+          anthropic.environments.work.poll.client:
+            span_name:
+              templates: ["anthropic.environments.work.poll"]
+          anthropic.environments.work.retrieve.client:
+            span_name:
+              templates: ["anthropic.environments.work.retrieve"]
+          anthropic.environments.work.stats.client:
+            span_name:
+              templates: ["anthropic.environments.work.stats"]
+          anthropic.environments.work.stop.client:
+            span_name:
+              templates: ["anthropic.environments.work.stop"]
+          anthropic.environments.work.update.client:
+            span_name:
+              templates: ["anthropic.environments.work.update"]
+          anthropic.files.delete.client:
+            span_name:
+              templates: ["anthropic.files.delete"]
+          anthropic.files.download.client:
+            span_name:
+              templates: ["anthropic.files.download"]
+          anthropic.files.list.client:
+            span_name:
+              templates: ["anthropic.files.list"]
+          anthropic.files.retrieve_metadata.client:
+            span_name:
+              templates: ["anthropic.files.retrieve_metadata"]
+          anthropic.files.upload.client:
+            span_name:
+              templates: ["anthropic.files.upload"]
+          anthropic.mcp_tool_use.internal:
+            span_name:
+              templates: ["anthropic.mcp_tool_use {gen_ai.tool.name}"]
+          anthropic.memory_stores.archive.client:
+            span_name:
+              templates: ["anthropic.memory_stores.archive"]
+          anthropic.memory_stores.create.client:
+            span_name:
+              templates: ["anthropic.memory_stores.create"]
+          anthropic.memory_stores.delete.client:
+            span_name:
+              templates: ["anthropic.memory_stores.delete"]
+          anthropic.memory_stores.list.client:
+            span_name:
+              templates: ["anthropic.memory_stores.list"]
+          anthropic.memory_stores.memories.create.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memories.create"]
+          anthropic.memory_stores.memories.delete.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memories.delete"]
+          anthropic.memory_stores.memories.list.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memories.list"]
+          anthropic.memory_stores.memories.retrieve.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memories.retrieve"]
+          anthropic.memory_stores.memories.update.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memories.update"]
+          anthropic.memory_stores.memory_versions.list.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memory_versions.list"]
+          anthropic.memory_stores.memory_versions.redact.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memory_versions.redact"]
+          anthropic.memory_stores.memory_versions.retrieve.client:
+            span_name:
+              templates: ["anthropic.memory_stores.memory_versions.retrieve"]
+          anthropic.memory_stores.retrieve.client:
+            span_name:
+              templates: ["anthropic.memory_stores.retrieve"]
+          anthropic.memory_stores.update.client:
+            span_name:
+              templates: ["anthropic.memory_stores.update"]
+          anthropic.messages.batches.cancel.client:
+            span_name:
+              templates: ["anthropic.messages.batches.cancel"]
+          anthropic.messages.batches.create.client:
+            span_name:
+              templates: ["anthropic.messages.batches.create"]
+          anthropic.messages.batches.delete.client:
+            span_name:
+              templates: ["anthropic.messages.batches.delete"]
+          anthropic.messages.batches.list.client:
+            span_name:
+              templates: ["anthropic.messages.batches.list"]
+          anthropic.messages.batches.results.client:
+            span_name:
+              templates: ["anthropic.messages.batches.results"]
+          anthropic.messages.batches.retrieve.client:
+            span_name:
+              templates: ["anthropic.messages.batches.retrieve"]
+          anthropic.messages.count_tokens.client:
+            span_name:
+              templates: ["anthropic.messages.count_tokens"]
+          anthropic.messages.create.client:
+            span_name:
+              templates: ["anthropic.messages.create"]
+          anthropic.messages.create.server:
+            span_name:
+              templates: ["anthropic.messages.create"]
+          anthropic.messages.tool_runner.internal:
+            span_name:
+              templates: ["anthropic.messages.tool_runner"]
+          anthropic.model_request.internal:
+            span_name:
+              templates: ["anthropic.model_request"]
+          anthropic.models.list.client:
+            span_name:
+              templates: ["anthropic.models.list"]
+          anthropic.models.retrieve.client:
+            span_name:
+              templates: ["anthropic.models.retrieve"]
+          anthropic.organization.analytics.apps.chat.projects.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.apps.chat.projects.list"]
+          anthropic.organization.analytics.artifacts.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.artifacts.list"]
+          anthropic.organization.analytics.connectors.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.connectors.list"]
+          anthropic.organization.analytics.cost_report.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.cost_report.list"]
+          anthropic.organization.analytics.plugins.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.plugins.list"]
+          anthropic.organization.analytics.skills.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.skills.list"]
+          anthropic.organization.analytics.summaries.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.summaries.list"]
+          anthropic.organization.analytics.usage_report.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.usage_report.list"]
+          anthropic.organization.analytics.user_cost_report.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.user_cost_report.list"]
+          anthropic.organization.analytics.user_usage_report.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.user_usage_report.list"]
+          anthropic.organization.analytics.users.list.client:
+            span_name:
+              templates: ["anthropic.organization.analytics.users.list"]
+          anthropic.organization.api_keys.list.client:
+            span_name:
+              templates: ["anthropic.organization.api_keys.list"]
+          anthropic.organization.api_keys.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.api_keys.retrieve"]
+          anthropic.organization.api_keys.update.client:
+            span_name:
+              templates: ["anthropic.organization.api_keys.update"]
+          anthropic.organization.compliance_settings.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.compliance_settings.retrieve"]
+          anthropic.organization.compliance_settings.update.client:
+            span_name:
+              templates: ["anthropic.organization.compliance_settings.update"]
+          anthropic.organization.external_keys.create.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.create"]
+          anthropic.organization.external_keys.delete.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.delete"]
+          anthropic.organization.external_keys.list.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.list"]
+          anthropic.organization.external_keys.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.retrieve"]
+          anthropic.organization.external_keys.update.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.update"]
+          anthropic.organization.external_keys.validate.client:
+            span_name:
+              templates: ["anthropic.organization.external_keys.validate"]
+          anthropic.organization.federation.issuers.archive.client:
+            span_name:
+              templates: ["anthropic.organization.federation.issuers.archive"]
+          anthropic.organization.federation.issuers.create.client:
+            span_name:
+              templates: ["anthropic.organization.federation.issuers.create"]
+          anthropic.organization.federation.issuers.list.client:
+            span_name:
+              templates: ["anthropic.organization.federation.issuers.list"]
+          anthropic.organization.federation.issuers.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.federation.issuers.retrieve"]
+          anthropic.organization.federation.issuers.update.client:
+            span_name:
+              templates: ["anthropic.organization.federation.issuers.update"]
+          anthropic.organization.federation.rules.archive.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.archive"]
+          anthropic.organization.federation.rules.create.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.create"]
+          anthropic.organization.federation.rules.list.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.list"]
+          anthropic.organization.federation.rules.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.retrieve"]
+          anthropic.organization.federation.rules.update.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.update"]
+          anthropic.organization.federation.rules.workspaces.add.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.workspaces.add"]
+          anthropic.organization.federation.rules.workspaces.list.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.workspaces.list"]
+          anthropic.organization.federation.rules.workspaces.remove.client:
+            span_name:
+              templates: ["anthropic.organization.federation.rules.workspaces.remove"]
+          anthropic.organization.invites.create.client:
+            span_name:
+              templates: ["anthropic.organization.invites.create"]
+          anthropic.organization.invites.delete.client:
+            span_name:
+              templates: ["anthropic.organization.invites.delete"]
+          anthropic.organization.invites.list.client:
+            span_name:
+              templates: ["anthropic.organization.invites.list"]
+          anthropic.organization.invites.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.invites.retrieve"]
+          anthropic.organization.plugin_marketplaces.list.client:
+            span_name:
+              templates: ["anthropic.organization.plugin_marketplaces.list"]
+          anthropic.organization.plugin_marketplaces.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.plugin_marketplaces.retrieve"]
+          anthropic.organization.plugin_marketplaces.update.client:
+            span_name:
+              templates: ["anthropic.organization.plugin_marketplaces.update"]
+          anthropic.organization.plugin_marketplaces.validate_archive.client:
+            span_name:
+              templates: ["anthropic.organization.plugin_marketplaces.validate_archive"]
+          anthropic.organization.plugin_marketplaces.validate_repository.client:
+            span_name:
+              templates: ["anthropic.organization.plugin_marketplaces.validate_repository"]
+          anthropic.organization.plugins.create.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.create"]
+          anthropic.organization.plugins.delete.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.delete"]
+          anthropic.organization.plugins.installation_settings.list.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.installation_settings.list"]
+          anthropic.organization.plugins.installation_settings.remove.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.installation_settings.remove"]
+          anthropic.organization.plugins.installation_settings.set.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.installation_settings.set"]
+          anthropic.organization.plugins.list.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.list"]
+          anthropic.organization.plugins.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.retrieve"]
+          anthropic.organization.plugins.shares.list.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.shares.list"]
+          anthropic.organization.plugins.update.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.update"]
+          anthropic.organization.plugins.versions.create.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.versions.create"]
+          anthropic.organization.plugins.versions.download.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.versions.download"]
+          anthropic.organization.plugins.versions.list.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.versions.list"]
+          anthropic.organization.plugins.versions.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.plugins.versions.retrieve"]
+          anthropic.organization.rate_limits.list.client:
+            span_name:
+              templates: ["anthropic.organization.rate_limits.list"]
+          anthropic.organization.rbac_groups.create.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.create"]
+          anthropic.organization.rbac_groups.delete.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.delete"]
+          anthropic.organization.rbac_groups.list.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.list"]
+          anthropic.organization.rbac_groups.members.add.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.members.add"]
+          anthropic.organization.rbac_groups.members.list.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.members.list"]
+          anthropic.organization.rbac_groups.members.remove.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.members.remove"]
+          anthropic.organization.rbac_groups.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.retrieve"]
+          anthropic.organization.rbac_groups.update.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_groups.update"]
+          anthropic.organization.rbac_roles.list.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_roles.list"]
+          anthropic.organization.rbac_roles.permissions.list.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_roles.permissions.list"]
+          anthropic.organization.rbac_roles.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.rbac_roles.retrieve"]
+          anthropic.organization.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.retrieve"]
+          anthropic.organization.service_accounts.archive.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.archive"]
+          anthropic.organization.service_accounts.create.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.create"]
+          anthropic.organization.service_accounts.list.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.list"]
+          anthropic.organization.service_accounts.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.retrieve"]
+          anthropic.organization.service_accounts.update.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.update"]
+          anthropic.organization.service_accounts.workspaces.add.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.workspaces.add"]
+          anthropic.organization.service_accounts.workspaces.list.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.workspaces.list"]
+          anthropic.organization.service_accounts.workspaces.remove.client:
+            span_name:
+              templates: ["anthropic.organization.service_accounts.workspaces.remove"]
+          anthropic.organization.spend_limits.delete.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.delete"]
+          anthropic.organization.spend_limits.effective.list.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.effective.list"]
+          anthropic.organization.spend_limits.increase_requests.approve.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.increase_requests.approve"]
+          anthropic.organization.spend_limits.increase_requests.deny.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.increase_requests.deny"]
+          anthropic.organization.spend_limits.increase_requests.list.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.increase_requests.list"]
+          anthropic.organization.spend_limits.increase_requests.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.increase_requests.retrieve"]
+          anthropic.organization.spend_limits.list.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.list"]
+          anthropic.organization.spend_limits.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.retrieve"]
+          anthropic.organization.spend_limits.set.client:
+            span_name:
+              templates: ["anthropic.organization.spend_limits.set"]
+          anthropic.organization.telemetry_destinations.create.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.create"]
+          anthropic.organization.telemetry_destinations.delete.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.delete"]
+          anthropic.organization.telemetry_destinations.list.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.list"]
+          anthropic.organization.telemetry_destinations.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.retrieve"]
+          anthropic.organization.telemetry_destinations.test.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.test"]
+          anthropic.organization.telemetry_destinations.update.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.update"]
+          anthropic.organization.telemetry_destinations.workspaces.add.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.workspaces.add"]
+          anthropic.organization.telemetry_destinations.workspaces.list.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.workspaces.list"]
+          anthropic.organization.telemetry_destinations.workspaces.remove.client:
+            span_name:
+              templates: ["anthropic.organization.telemetry_destinations.workspaces.remove"]
+          anthropic.organization.users.list.client:
+            span_name:
+              templates: ["anthropic.organization.users.list"]
+          anthropic.organization.users.remove.client:
+            span_name:
+              templates: ["anthropic.organization.users.remove"]
+          anthropic.organization.users.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.users.retrieve"]
+          anthropic.organization.users.update.client:
+            span_name:
+              templates: ["anthropic.organization.users.update"]
+          anthropic.organization.workspaces.archive.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.archive"]
+          anthropic.organization.workspaces.create.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.create"]
+          anthropic.organization.workspaces.list.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.list"]
+          anthropic.organization.workspaces.members.add.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.members.add"]
+          anthropic.organization.workspaces.members.list.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.members.list"]
+          anthropic.organization.workspaces.members.remove.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.members.remove"]
+          anthropic.organization.workspaces.members.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.members.retrieve"]
+          anthropic.organization.workspaces.members.update.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.members.update"]
+          anthropic.organization.workspaces.rate_limits.list.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.rate_limits.list"]
+          anthropic.organization.workspaces.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.retrieve"]
+          anthropic.organization.workspaces.service_accounts.add.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.service_accounts.add"]
+          anthropic.organization.workspaces.service_accounts.list.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.service_accounts.list"]
+          anthropic.organization.workspaces.service_accounts.remove.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.service_accounts.remove"]
+          anthropic.organization.workspaces.service_accounts.retrieve.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.service_accounts.retrieve"]
+          anthropic.organization.workspaces.service_accounts.update.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.service_accounts.update"]
+          anthropic.organization.workspaces.update.client:
+            span_name:
+              templates: ["anthropic.organization.workspaces.update"]
+          anthropic.session.outcome_evaluation.internal:
+            span_name:
+              templates: ["anthropic.session.outcome_evaluation"]
+          anthropic.session.turn.internal:
+            span_name:
+              templates: ["anthropic.session.turn"]
+          anthropic.sessions.archive.client:
+            span_name:
+              templates: ["anthropic.sessions.archive"]
+          anthropic.sessions.archive.server:
+            span_name:
+              templates: ["anthropic.sessions.archive"]
+          anthropic.sessions.create.client:
+            span_name:
+              templates: ["anthropic.sessions.create"]
+          anthropic.sessions.create.server:
+            span_name:
+              templates: ["anthropic.sessions.create"]
+          anthropic.sessions.delete.client:
+            span_name:
+              templates: ["anthropic.sessions.delete"]
+          anthropic.sessions.delete.server:
+            span_name:
+              templates: ["anthropic.sessions.delete"]
+          anthropic.sessions.events.list.client:
+            span_name:
+              templates: ["anthropic.sessions.events.list"]
+          anthropic.sessions.events.list.server:
+            span_name:
+              templates: ["anthropic.sessions.events.list"]
+          anthropic.sessions.events.send.client:
+            span_name:
+              templates: ["anthropic.sessions.events.send"]
+          anthropic.sessions.events.send.server:
+            span_name:
+              templates: ["anthropic.sessions.events.send"]
+          anthropic.sessions.events.stream.client:
+            span_name:
+              templates: ["anthropic.sessions.events.stream"]
+          anthropic.sessions.events.stream.server:
+            span_name:
+              templates: ["anthropic.sessions.events.stream"]
+          anthropic.sessions.list.client:
+            span_name:
+              templates: ["anthropic.sessions.list"]
+          anthropic.sessions.list.server:
+            span_name:
+              templates: ["anthropic.sessions.list"]
+          anthropic.sessions.resources.add.client:
+            span_name:
+              templates: ["anthropic.sessions.resources.add"]
+          anthropic.sessions.resources.add.server:
+            span_name:
+              templates: ["anthropic.sessions.resources.add"]
+          anthropic.sessions.resources.delete.client:
+            span_name:
+              templates: ["anthropic.sessions.resources.delete"]
+          anthropic.sessions.resources.delete.server:
+            span_name:
+              templates: ["anthropic.sessions.resources.delete"]
+          anthropic.sessions.resources.list.client:
+            span_name:
+              templates: ["anthropic.sessions.resources.list"]
+          anthropic.sessions.resources.list.server:
+            span_name:
+              templates: ["anthropic.sessions.resources.list"]
+          anthropic.sessions.resources.retrieve.client:
+            span_name:
+              templates: ["anthropic.sessions.resources.retrieve"]
+          anthropic.sessions.resources.retrieve.server:
+            span_name:
+              templates: ["anthropic.sessions.resources.retrieve"]
+          anthropic.sessions.resources.update.client:
+            span_name:
+              templates: ["anthropic.sessions.resources.update"]
+          anthropic.sessions.resources.update.server:
+            span_name:
+              templates: ["anthropic.sessions.resources.update"]
+          anthropic.sessions.retrieve.client:
+            span_name:
+              templates: ["anthropic.sessions.retrieve"]
+          anthropic.sessions.retrieve.server:
+            span_name:
+              templates: ["anthropic.sessions.retrieve"]
+          anthropic.sessions.threads.archive.client:
+            span_name:
+              templates: ["anthropic.sessions.threads.archive"]
+          anthropic.sessions.threads.archive.server:
+            span_name:
+              templates: ["anthropic.sessions.threads.archive"]
+          anthropic.sessions.threads.events.list.client:
+            span_name:
+              templates: ["anthropic.sessions.threads.events.list"]
+          anthropic.sessions.threads.events.list.server:
+            span_name:
+              templates: ["anthropic.sessions.threads.events.list"]
+          anthropic.sessions.threads.events.stream.client:
+            span_name:
+              templates: ["anthropic.sessions.threads.events.stream"]
+          anthropic.sessions.threads.events.stream.server:
+            span_name:
+              templates: ["anthropic.sessions.threads.events.stream"]
+          anthropic.sessions.threads.list.client:
+            span_name:
+              templates: ["anthropic.sessions.threads.list"]
+          anthropic.sessions.threads.list.server:
+            span_name:
+              templates: ["anthropic.sessions.threads.list"]
+          anthropic.sessions.threads.retrieve.client:
+            span_name:
+              templates: ["anthropic.sessions.threads.retrieve"]
+          anthropic.sessions.threads.retrieve.server:
+            span_name:
+              templates: ["anthropic.sessions.threads.retrieve"]
+          anthropic.sessions.update.client:
+            span_name:
+              templates: ["anthropic.sessions.update"]
+          anthropic.sessions.update.server:
+            span_name:
+              templates: ["anthropic.sessions.update"]
+          anthropic.skills.create.client:
+            span_name:
+              templates: ["anthropic.skills.create"]
+          anthropic.skills.delete.client:
+            span_name:
+              templates: ["anthropic.skills.delete"]
+          anthropic.skills.list.client:
+            span_name:
+              templates: ["anthropic.skills.list"]
+          anthropic.skills.retrieve.client:
+            span_name:
+              templates: ["anthropic.skills.retrieve"]
+          anthropic.skills.versions.create.client:
+            span_name:
+              templates: ["anthropic.skills.versions.create"]
+          anthropic.skills.versions.delete.client:
+            span_name:
+              templates: ["anthropic.skills.versions.delete"]
+          anthropic.skills.versions.download.client:
+            span_name:
+              templates: ["anthropic.skills.versions.download"]
+          anthropic.skills.versions.list.client:
+            span_name:
+              templates: ["anthropic.skills.versions.list"]
+          anthropic.skills.versions.retrieve.client:
+            span_name:
+              templates: ["anthropic.skills.versions.retrieve"]
+          anthropic.tool_use.internal:
+            span_name:
+              templates: ["anthropic.tool_use {gen_ai.tool.name}"]
+          anthropic.tunnels.archive.client:
+            span_name:
+              templates: ["anthropic.tunnels.archive"]
+          anthropic.tunnels.certificates.archive.client:
+            span_name:
+              templates: ["anthropic.tunnels.certificates.archive"]
+          anthropic.tunnels.certificates.create.client:
+            span_name:
+              templates: ["anthropic.tunnels.certificates.create"]
+          anthropic.tunnels.certificates.list.client:
+            span_name:
+              templates: ["anthropic.tunnels.certificates.list"]
+          anthropic.tunnels.certificates.retrieve.client:
+            span_name:
+              templates: ["anthropic.tunnels.certificates.retrieve"]
+          anthropic.tunnels.create.client:
+            span_name:
+              templates: ["anthropic.tunnels.create"]
+          anthropic.tunnels.list.client:
+            span_name:
+              templates: ["anthropic.tunnels.list"]
+          anthropic.tunnels.retrieve.client:
+            span_name:
+              templates: ["anthropic.tunnels.retrieve"]
+          anthropic.tunnels.reveal_token.client:
+            span_name:
+              templates: ["anthropic.tunnels.reveal_token"]
+          anthropic.tunnels.rotate_token.client:
+            span_name:
+              templates: ["anthropic.tunnels.rotate_token"]
+          anthropic.user_profiles.create.client:
+            span_name:
+              templates: ["anthropic.user_profiles.create"]
+          anthropic.user_profiles.create_enrollment_url.client:
+            span_name:
+              templates: ["anthropic.user_profiles.create_enrollment_url"]
+          anthropic.user_profiles.list.client:
+            span_name:
+              templates: ["anthropic.user_profiles.list"]
+          anthropic.user_profiles.retrieve.client:
+            span_name:
+              templates: ["anthropic.user_profiles.retrieve"]
+          anthropic.user_profiles.update.client:
+            span_name:
+              templates: ["anthropic.user_profiles.update"]
+          anthropic.vaults.archive.client:
+            span_name:
+              templates: ["anthropic.vaults.archive"]
+          anthropic.vaults.create.client:
+            span_name:
+              templates: ["anthropic.vaults.create"]
+          anthropic.vaults.credentials.archive.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.archive"]
+          anthropic.vaults.credentials.create.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.create"]
+          anthropic.vaults.credentials.delete.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.delete"]
+          anthropic.vaults.credentials.list.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.list"]
+          anthropic.vaults.credentials.mcp_oauth_validate.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.mcp_oauth_validate"]
+          anthropic.vaults.credentials.retrieve.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.retrieve"]
+          anthropic.vaults.credentials.update.client:
+            span_name:
+              templates: ["anthropic.vaults.credentials.update"]
+          anthropic.vaults.delete.client:
+            span_name:
+              templates: ["anthropic.vaults.delete"]
+          anthropic.vaults.list.client:
+            span_name:
+              templates: ["anthropic.vaults.list"]
+          anthropic.vaults.retrieve.client:
+            span_name:
+              templates: ["anthropic.vaults.retrieve"]
+          anthropic.vaults.update.client:
+            span_name:
+              templates: ["anthropic.vaults.update"]
+          claude_code.bash.subprocess.internal:
+            span_name:
+              templates: ["claude_code.bash.subprocess"]
+          claude_code.compaction.internal:
+            span_name:
+              templates: ["claude_code.compaction"]
+          claude_code.hook.internal:
+            span_name:
+              templates: ["claude_code.hook"]
+          claude_code.interaction.internal:
+            span_name:
+              templates: ["claude_code.interaction"]
+          claude_code.llm_request.internal:
+            span_name:
+              templates: ["claude_code.llm_request"]
+          claude_code.mcp.rpc.internal:
+            span_name:
+              templates: ["claude_code.mcp.rpc"]
+          claude_code.subagent.spawn.internal:
+            span_name:
+              templates: ["claude_code.subagent.spawn"]
+          claude_code.tool.blocked_on_user.internal:
+            span_name:
+              templates: ["claude_code.tool.blocked_on_user"]
+          claude_code.tool.execution.internal:
+            span_name:
+              templates: ["claude_code.tool.execution"]
+          claude_code.tool.internal:
+            span_name:
+              templates: ["claude_code.tool"]
+          # END Anthropic native span names
+
     attributes:
       - ref: qyl.instrumentation.domain

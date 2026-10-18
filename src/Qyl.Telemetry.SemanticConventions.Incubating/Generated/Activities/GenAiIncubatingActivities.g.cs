@@ -634,6 +634,17 @@ public static class GenAiIncubatingActivityExtensions
         => activity.SetTag("gen_ai.skill.source.uri", value);
 
     /// <summary>
+    /// Legacy GenAI provider key still emitted by the pinned Claude Code runtime.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage:228. Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 18522.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetGenAiSystem(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("gen_ai.system", value);
+
+    /// <summary>
     /// The system message or instructions provided to the GenAI model separately from the chat history.
     /// </summary>
     /// <remarks>

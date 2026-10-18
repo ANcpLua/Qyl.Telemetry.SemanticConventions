@@ -81,6 +81,18 @@ import sys
 # span name -> [(attribute key, sorted "id:level" list)], in the order the sample declares
 # them. An empty list means the attribute must draw no advice at all.
 EXPECTED = {
+    # Registered native spellings coexist with namespaces; undeclared children still fail.
+    "qyl.live_check.vendor_spellings": [
+        ("error", ["not_stable:improvement"]),
+        ("sessionId", ["not_stable:improvement"]),
+        ("_scrubError", ["not_stable:improvement"]),
+        ("prompt.id", ["not_stable:improvement"]),
+        ("error.unknown_child", [
+            "extends_namespace:information",
+            "illegal_namespace:violation",
+            "missing_attribute:violation",
+        ]),
+    ],
     "qyl.live_check.open_enum": [
         # error.type carries the member `_OTHER`, so both values are prescribed, not defects.
         ("error.type", ["open_enum_value:information"]),
@@ -120,7 +132,7 @@ EXPECTED = {
         ("az.client_request_id", ["not_stable:improvement"]),
         ("db.elasticsearch.schema_url", ["not_stable:improvement"]),
     ],
-    # otel.rego is copied into the set verbatim, so its name and namespace rules still run.
+    # Undeclared keys retain the upstream name and namespace checks.
     "qyl.live_check.name_rules": [
         ("NotANamespacedKey", [
             "invalid_format:violation",

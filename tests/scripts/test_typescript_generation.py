@@ -10,6 +10,20 @@ generator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(generator)
 
 class SnapshotTests(unittest.TestCase):
+    def test_native_spelling_collisions_keep_both_wire_keys(self):
+        names = generator.attribute_symbols([
+            {'key': 'session_id'}, {'key': 'session.id'}, {'key': 'model'},
+        ])
+        self.assertEqual(names, {
+            'session.id': 'SESSION_ID', 'session_id': 'SESSION_ID_NATIVE', 'model': 'MODEL',
+        })
+
+    def test_native_alias_cannot_overwrite_another_attribute(self):
+        with self.assertRaisesRegex(ValueError, 'identifier collision'):
+            generator.attribute_symbols([
+                {'key': 'session.id'}, {'key': 'session_id'}, {'key': 'session.id.native'},
+            ])
+
     def test_captured_classifier_uses_supplied_registry_roots_and_alphabets(self):
         policy = {'captured_fields': {
             'http_roots': ['custom.headers'], 'rpc_roots': ['custom.metadata'],
