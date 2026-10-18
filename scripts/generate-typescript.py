@@ -211,4 +211,4 @@ def generate(snapshot, catalog, policy):
     print(f'Generated TypeScript {version}: {len(attributes)} attributes, {len(metrics)} metrics, {len(events)} events; snapshot {digest}')
 
 if __name__ == '__main__':
-    generate(json.loads(Path(sys.argv[1]).read_text()), json.loads((ROOT / '.build/registry-catalog.json').read_text()), json.loads(sys.argv[2]))
+    generate(json.loads(Path(sys.argv[1]).read_text()), json.loads((ROOT / '.build/registry-catalog.json').read_text()), json.loads(Path(sys.argv[2]).read_text())['params']['policy'])

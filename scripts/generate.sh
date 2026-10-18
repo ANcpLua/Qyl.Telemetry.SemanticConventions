@@ -123,9 +123,11 @@ PY
 # qyl's policy over the registry (registry/qyl/policy.yaml): the persistence rule, the
 # end-of-operation attributes and the span-name chains and starters. Its annotations ride on
 # non-registry groups, which the materialized v2 registry drops, so they are read here into one
-# JSON value the templates receive as `params.policy`. An annotation this reader does not know
-# is an error, not a silent no-op.
-policy_json="$(python_yaml - registry/qyl/policy.yaml <<'PY'
+# JSON parameter file shared by Weaver and the TypeScript generator. Keeping the policy off
+# argv avoids Linux's per-argument size limit as the registry grows. An annotation this reader
+# does not know is an error, not a silent no-op.
+params_file=".build/generate-params.json"
+python_yaml - registry/qyl/policy.yaml > "${params_file}" <<'PY'
 import glob
 import json
 import sys
@@ -187,9 +189,8 @@ policy = {
 for key in ("not_persisted", "denied_key_tokens", "token_exempt", "phase_end", "vendor_keys"):
     if not policy[key]:
         raise SystemExit(f"error: registry/qyl/policy.yaml declares no {key}")
-print(json.dumps(policy, separators=(",", ":"), sort_keys=True))
+print(json.dumps({"params": {"policy": policy}}, separators=(",", ":"), sort_keys=True))
 PY
-)"
 
 "${WEAVER_CMD[@]}" registry check -r registry
 "${WEAVER_CMD[@]}" registry check -r registry --v2 --include-unreferenced -p registry/policies-v2
@@ -211,11 +212,11 @@ rm -rf src/Qyl.Telemetry.SemanticConventions/Generated src/Qyl.Telemetry.Semanti
   -D "genai_commit=${genai_commit}" \
   -D "scope_names=${scope_names}" \
   -D "vendor_activity_sources=${vendor_activity_sources}" \
-  -D "policy=${policy_json}" \
+  --params "${params_file}" \
   csharp \
   .
 
-python3 scripts/generate-typescript.py .build/typescript-registry.json "${policy_json}"
+python3 scripts/generate-typescript.py .build/typescript-registry.json "${params_file}"
 
 "${script_dir}/generate-reference.sh"
 
