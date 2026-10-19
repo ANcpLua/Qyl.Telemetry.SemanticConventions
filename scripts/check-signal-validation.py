@@ -42,7 +42,10 @@ def main():
     samples = []
     for absent in [None] + [a["key"] for a in required]:
         samples.append({"name": "agent " + operation_name, "kind": "internal",
-                        "resource": {"attributes": []},
+                        "resource": {"attributes": [
+                            {"name": "service.name", "value": "qyl.signal-validation"},
+                            {"name": "service.instance.id", "value": "validation-instance"},
+                        ]},
                         "attributes": [a for a in attributes if a["name"] != absent]})
     for kind in ["client", "server"]:
         samples.append({"name": "anthropic.messages.create", "kind": kind, "attributes": []})
