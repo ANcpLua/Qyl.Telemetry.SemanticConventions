@@ -3409,7 +3409,7 @@ signal = "openai_codex.world_state.build.internal"
 [["live-check".matchers]]
 id = "span.qyl.agent.operation.internal"
 sample_type = "span"
-when = "kind == \"internal\" && (name == \"qyl.agent.operation.internal\" || name.matches(\"^agent\\\\ (?:approval|model_request|task|tool|turn)$\"))"
+when = "kind == \"internal\" && (name == \"qyl.agent.operation.internal\" || name.matches(\"^agent\\\\ .+$\"))"
 signal = "qyl.agent.operation.internal"
 
 [["live-check".matchers]]

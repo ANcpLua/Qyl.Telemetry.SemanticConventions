@@ -8,6 +8,7 @@ import sys
 
 def name_pattern(template, attributes, substitutions):
     parts, anchored, position = [], False, 0
+    literal_anchor = bool(re.sub(r"\{[^{}]+\}", "", template).strip())
     for match in re.finditer(r"\{([^{}]+)\}", template):
         literal = template[position:match.start()]
         anchored |= bool(literal.strip())
@@ -16,7 +17,7 @@ def name_pattern(template, attributes, substitutions):
         attribute_type = attributes.get(key, {}).get("type", {})
         members = attribute_type.get("members", []) if isinstance(attribute_type, dict) else []
         values = {str(substitutions.get(key, {}).get(str(m["value"]), m["value"])) for m in members}
-        if values:
+        if values and not literal_anchor:
             parts.append("(?:" + "|".join(re.escape(v) for v in sorted(values)) + ")")
             anchored = True
         else:
@@ -31,7 +32,7 @@ def name_pattern(template, attributes, substitutions):
 
 def matchers(registry, policy):
     result = []
-    for span in sorted(registry["registry"]["spans"], key=lambda s: s["type"]):
+    for span in sorted(registry["registry"].get("spans", []), key=lambda s: s["type"]):
         signal, kind = span["type"], span["kind"]
         rule = policy["spans"].get(signal, {})
         attributes = {a["key"]: a for a in span.get("attributes", [])}

@@ -16,9 +16,7 @@ class GenerationTransportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / 'generation with spaces'
             scripts = root / 'scripts'
-            scripts.mkdir(parents=True)
-            for name in ('generate.sh', 'generate-typescript.py'):
-                shutil.copyfile(ROOT / 'scripts' / name, scripts / name)
+            shutil.copytree(ROOT / 'scripts', scripts, ignore=shutil.ignore_patterns('__pycache__'))
             for name in ('fetch-core.sh', 'generate-reference.sh'):
                 (scripts / name).write_text('#!/usr/bin/env bash\nexit 0\n')
                 (scripts / name).chmod(0o755)
@@ -85,8 +83,9 @@ if args[:2] == ['registry', 'generate']:
 ''')
             (binaries / 'weaver').chmod(0o755)
             env = dict(os.environ, PATH=str(binaries) + os.pathsep + os.environ['PATH'], WEAVER='weaver')
-            subprocess.run(['bash', str(scripts / 'generate.sh'), '--verbose'], cwd=root,
-                           env=env, check=True, capture_output=True, text=True)
+            run = subprocess.run(['bash', str(scripts / 'generate.sh'), '--verbose'], cwd=root,
+                                 env=env, capture_output=True, text=True)
+            self.assertEqual(0, run.returncode, run.stdout + run.stderr)
             policy = json.loads((root / '.build/received-policy.json').read_text())
             self.assertGreater(len(json.dumps(policy).encode()), 131072)
             self.assertEqual(policy, {
@@ -101,7 +100,7 @@ if args[:2] == ['registry', 'generate']:
             for relative in ('typescript/src/policy.ts', 'typescript/dist/policy.js'):
                 self.assertIn(json.dumps(captured['http_roots']), (root / relative).read_text())
             calls = [json.loads(line) for line in (root / '.build/weaver-calls.jsonl').read_text().splitlines()]
-            self.assertEqual([args[:2] for args in calls],
-                             [['registry', 'check'], ['registry', 'check'], ['registry', 'generate']])
-            self.assertIn('--v2', calls[1])
-            self.assertIn('registry/policies-v2', calls[1])
+            generation = next(args for args in calls if args[:2] == ['registry', 'generate'])
+            self.assertIn('--params', generation)
+            self.assertTrue(any(args[:2] == ['registry', 'check'] and '--v2' in args
+                                and 'registry/policies-v2' in args for args in calls))

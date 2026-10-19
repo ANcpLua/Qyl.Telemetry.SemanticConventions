@@ -27,6 +27,11 @@ class LiveCheckGenerationTests(unittest.TestCase):
     def test_a_free_form_name_does_not_claim_unrelated_spans(self):
         self.assertIsNone(generator.name_pattern("{db.query.summary}", {}, {}))
 
+    def test_a_literal_prefix_still_routes_new_operation_values(self):
+        attributes = {"operation": {"type": {"members": [{"value": "tool"}]}}}
+        pattern = generator.name_pattern("agent {operation}", attributes, {})
+        self.assertIsNotNone(re.fullmatch(pattern, "agent a new operation"))
+
     def test_enum_names_use_declared_wire_values_and_substitutions(self):
         attributes = {"method": {"type": {"members": [{"value": "GET"}, {"value": "_OTHER"}]}}}
         pattern = generator.name_pattern("{method} {path}", attributes, {"method": {"_OTHER": "HTTP"}})
