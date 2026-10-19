@@ -35,7 +35,7 @@ public sealed class SetterFidelityTests
         }
 
         var root = RepositoryRoot.LocateFrom(AppContext.BaseDirectory, "Qyl.Telemetry.SemanticConventions.slnx");
-        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, ".build", "typescript-registry.json")));
+        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, ".build", "registry.json")));
         var sources = new[] { document.RootElement }.Concat(document.RootElement.GetProperty("dependencies").EnumerateObject().Select(static d => d.Value)).ToArray();
         var attributes = sources.SelectMany(static s => Rows(s.GetProperty("registry"), "attributes"))
             .Select(static a => a.GetProperty("key").GetString()!).ToHashSet(StringComparer.Ordinal);

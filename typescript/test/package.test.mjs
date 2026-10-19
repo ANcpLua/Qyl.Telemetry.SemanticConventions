@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { test } from 'node:test';
 
 const root = resolve(import.meta.dirname, '../..');
-test('packed exports preserve constants, units, tiers and C# parity', () => {
+test('packed exports preserve constants, units and tiers', () => {
   const temp = mkdtempSync(resolve(tmpdir(), 'qyl-semconv-'));
   try {
     const output = JSON.parse(execFileSync('npm', ['pack', './typescript', '--json', '--pack-destination', temp], {cwd:root,encoding:'utf8'}));
@@ -67,12 +67,8 @@ assert.ok(Object.isFrozen(header));
 assert.ok(Object.isFrozen(findAttribute('db.system').deprecated));
 assert.throws(() => { header.valueKind = 'Integer'; }, TypeError);
 for (const [key,value] of Object.entries(stable)) assert.deepEqual(all[key], value);
-console.log(JSON.stringify({stable, incubating: all}));
 `;
-    const exported = execFileSync('node', ['--input-type=module', '-e', check], {cwd:temp,encoding:'utf8'});
-    const parity = resolve(temp, 'exports.json');
-    writeFileSync(parity, exported);
-    execFileSync('python3', ['scripts/verify-typescript-parity.py', parity], {cwd:root,encoding:'utf8'});
+    execFileSync('node', ['--input-type=module', '-e', check], {cwd:temp,encoding:'utf8'});
     const pkg = JSON.parse(readFileSync(resolve(temp, 'node_modules/@ancplua/qyl-semantic-conventions/package.json')));
     assert.equal(pkg.sideEffects, false);
     assert.equal(pkg.dependencies, undefined);

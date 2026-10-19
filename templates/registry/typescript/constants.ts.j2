@@ -1,0 +1,12 @@
+{%- import "lib.j2" as lib -%}
+{#- One export per name, as const in the TypeScript source, as a literal type in the declarations. -#}
+{{ lib.header("Weaver v2", params.registry_snapshot_sha256) }}
+{% for export in ctx.exports %}
+{% if ctx.flavor == "d.ts" %}
+export declare const {{ export.name }}: {{ export.type }};
+{% elif ctx.flavor == "ts" %}
+export const {{ export.name }} = {{ export.value }} as const;
+{% else %}
+export const {{ export.name }} = {{ export.value }};
+{% endif %}
+{% endfor %}

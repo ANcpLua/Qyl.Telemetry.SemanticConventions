@@ -194,27 +194,34 @@ Moving a pin is a deliberate change: edit `registry/manifest.yaml`, re-run
 ## How generation works
 
 [`scripts/generate.sh`](scripts/generate.sh) checks the registry against both policy sets and
-then runs one `weaver registry generate --v2 --include-unreferenced` over the Jinja templates
-under [`templates/`](templates). There is no intermediate JSON and no compile-time generator:
-the output is committed, the same shape as the `check-generated` target in
+then runs the same `weaver registry generate --v2 --include-unreferenced` for each target under
+[`templates/registry`](templates/registry): `snapshot`, `csharp` and `typescript`. There is no
+compile-time generator: the output is committed, the same shape as the `check-generated` target in
 [opentelemetry-weaver-examples](https://github.com/open-telemetry/opentelemetry-weaver-examples)`/basic`.
+The `snapshot` target writes the resolved registry to `.build/registry.json`. Its SHA-256, without
+the local paths of fetched dependencies, reaches both language targets as
+`registry_snapshot_sha256` (C# `RegistrySnapshot.Sha256`, TypeScript `REGISTRY_SNAPSHOT_SHA256`),
+and the live-check matchers are generated from the file.
 
 ```text
 registry/  (manifest.yaml: core + genai dependencies; qyl/ and vendor/ next to them)
         |
         v
-scripts/generate.sh -> weaver registry generate --v2 --include-unreferenced
+scripts/generate.sh -> weaver registry generate --v2 --include-unreferenced <target>
         |
-        +----> src/Qyl.Telemetry.SemanticConventions/Generated/            (stable tier)
-        +----> src/Qyl.Telemetry.SemanticConventions.Incubating/Generated/ (the other tiers)
-        +----> src/…Analyzers/SemconvRegistryFacts.g.cs, SemconvDeprecations.g.cs, SemconvTypedSurface.g.cs
-        +----> generated/pins.props                   (the pins, for MSBuild)
+        +-- snapshot ---> .build/registry.json  (the fingerprint, the live-check matchers)
+        +-- csharp -----> src/Qyl.Telemetry.SemanticConventions/Generated/            (stable tier)
+        |                 src/Qyl.Telemetry.SemanticConventions.Incubating/Generated/ (the other tiers)
+        |                 src/…Analyzers/SemconvRegistryFacts.g.cs, SemconvDeprecations.g.cs, SemconvTypedSurface.g.cs
+        |                 generated/pins.props  (the pins, for MSBuild)
+        +-- typescript -> typescript/src/, typescript/dist/, typescript/package.json
 ```
 
-[`templates/registry/csharp/weaver.yaml`](templates/registry/csharp/weaver.yaml) is where a
-target is declared: one JQ filter shaping the registry into a context, one `.cs.j2` template
-rendering it. No template parameter has a default. The three schema URLs are registry facts
-the filters read off the materialized registry itself; the Weaver version, the core tag, the
+A target's `weaver.yaml`, such as
+[`templates/registry/csharp/weaver.yaml`](templates/registry/csharp/weaver.yaml), declares its
+files: one JQ filter shaping the registry into a context, one `.j2` template rendering it. No
+template parameter has a default. The three schema URLs are registry facts the filters read off
+the materialized registry itself; the Weaver version, the core tag, the
 core commit and the genai commit reach the templates only from `Version.props` and
 `registry/manifest.yaml`, through `scripts/generate.sh`. A bare `weaver registry generate`
 therefore writes `error: missing param <name>` into the header instead of a stale pin.
@@ -228,9 +235,10 @@ collector does not persist (`qyl.persisted: false`, the denied-key tokens, `qyl.
 and the finite captured HTTP-header / textual RPC-metadata field-name and credential rule,
 which attributes are known only when an operation ends (`qyl.phase: end`), and the span-name
 chains and starters keyed by span refinement id (`qyl.span_name`, `starter`, `domain`, `fixed`).
-`scripts/generate.sh` reads it into one JSON value, `-D policy=<json>`, which the templates
-receive as `params.policy`. `registry/` stays the only source. Weaver writes files and never
-deletes one, so `scripts/generate.sh` clears both `Generated/` trees first.
+`scripts/generate.sh` reads it into one parameter file, `--params .build/generate-params.json`,
+which the templates receive as `params.policy`. `registry/` stays the only source. Weaver writes
+files and never deletes one, so `scripts/generate.sh` clears both `Generated/` trees and
+`typescript/src` and `typescript/dist` first.
 
 [`scripts/check-generated.sh`](scripts/check-generated.sh) is the gate: it regenerates
 everything and fails on `git diff HEAD`. `GeneratedSurfaceTests` checks that both packages
@@ -462,7 +470,7 @@ sample and the expected table in `scripts/check-live-check-policies.sh`.
 
 ## Releasing
 
-Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to `https://qyl.at/schemas/<version>` and `typescript/package.json` to the same version, add the `CHANGELOG.md` entry, run `scripts/generate.sh` and commit. Then run `./release.sh <version>`: it packs the three NuGet packages and the npm tarball, publishes them with the keys registered in Vitals, tags `v<version>` and creates the GitHub release. `--dry-run` packs and runs npm's publish dry run only.
+Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to `https://qyl.at/schemas/<version>`, add the `CHANGELOG.md` entry, run `scripts/generate.sh` (it writes the same version into `typescript/package.json`) and commit. Then run `./release.sh <version>`: it packs the three NuGet packages and the npm tarball, publishes them with the keys registered in Vitals, tags `v<version>` and creates the GitHub release. `--dry-run` packs and runs npm's publish dry run only.
 
 ## License
 
@@ -470,4 +478,4 @@ Apache-2.0
 
 ## TypeScript bindings
 
-The `typescript/` package generates stable and incubating constants and a separate lookup catalog from the same resolved registry as the C# bindings. See [the TypeScript package documentation](typescript/README.md). The package has no runtime dependencies. Run `npm test --prefix typescript` to verify the packed exports.
+Weaver's `typescript` target ([`templates/registry/typescript`](templates/registry/typescript)) renders the `typescript/` package's stable and incubating constants, its lookup catalog and its captured-field policy from the same resolved registry and parameters as the C# bindings. See [the TypeScript package documentation](typescript/README.md). The package has no runtime dependencies. Run `npm test --prefix typescript` to verify the packed exports.

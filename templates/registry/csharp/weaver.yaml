@@ -16,9 +16,10 @@ jq_modules:
 # No pin has a default here. The three schema URLs are registry facts and reach the templates
 # through the filters below ($schema_urls); the Weaver version, the core tag, the core commit
 # and the genai commit reach them as -D parameters that scripts/generate.sh reads out of
-# Version.props and registry/manifest.yaml. A bare `weaver registry generate` therefore leaves
-# them unset, `lib.param` writes `error: missing param <name>` into the header instead of a
-# stale value, and scripts/check-generated.sh fails on the diff.
+# Version.props and registry/manifest.yaml, and registry_snapshot_sha256 as the one it computes
+# from the snapshot target's output. A bare `weaver registry generate` therefore leaves them
+# unset, `lib.param` writes `error: missing param <name>` into the header instead of a stale
+# value, and scripts/check-generated.sh fails on the diff.
 params:
   scope_names: ""
   vendor_activity_sources: ""
@@ -506,8 +507,7 @@ templates:
       | . as $facts
       | [ $facts + {target_template: "analyzer_facts.cs.j2", output_file: "src/Qyl.Telemetry.SemanticConventions.Analyzers/SemconvRegistryFacts.g.cs"},
           $facts + {target_template: "registry_value_kind.cs.j2", output_file: "src/Qyl.Telemetry.SemanticConventions/Generated/RegistryAttributeValueKind.g.cs"},
-          $facts + {target_template: "registry_catalog.cs.j2", output_file: "src/Qyl.Telemetry.SemanticConventions/Generated/RegistryCatalog.g.cs"},
-          $facts + {target_template: "registry.json.j2", output_file: ".build/registry-catalog.json"} ]
+          $facts + {target_template: "registry_catalog.cs.j2", output_file: "src/Qyl.Telemetry.SemanticConventions/Generated/RegistryCatalog.g.cs"} ]
     application_mode: each
     file_name: "{{ ctx.output_file }}"
 
@@ -614,8 +614,9 @@ templates:
     application_mode: single
     file_name: "src/Qyl.Telemetry.SemanticConventions.Analyzers/SemconvDeprecations.g.cs"
 
-  # Share this exact resolved snapshot with the TypeScript generator.
-  - template: registry.json.j2
-    filter: .
+  # The fingerprint of the resolved registry, the TypeScript package's REGISTRY_SNAPSHOT_SHA256.
+  # The template reads params.registry_snapshot_sha256 only.
+  - template: registry_snapshot.cs.j2
+    filter: .schema_url
     application_mode: single
-    file_name: .build/typescript-registry.json
+    file_name: "src/Qyl.Telemetry.SemanticConventions/Generated/RegistrySnapshot.g.cs"

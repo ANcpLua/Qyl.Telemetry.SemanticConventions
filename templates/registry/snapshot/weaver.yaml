@@ -1,0 +1,9 @@
+# The resolved registry as one JSON file. scripts/generate.sh renders this target first: the
+# SHA-256 of .build/registry.json (local dependency paths excluded) is the registry_snapshot_sha256
+# both language targets carry, and the live-check matchers, the signal validation and the
+# setter-fidelity test read the file itself.
+templates:
+  - template: registry.json.j2
+    filter: .
+    application_mode: single
+    file_name: .build/registry.json

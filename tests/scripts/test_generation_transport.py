@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class GenerationTransportTests(unittest.TestCase):
-    def test_large_policy_reaches_weaver_and_typescript_without_argv_payloads(self):
+    def test_large_policy_reaches_every_weaver_target_without_argv_payloads(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / 'generation with spaces'
             scripts = root / 'scripts'
@@ -26,7 +26,7 @@ class GenerationTransportTests(unittest.TestCase):
             (root / 'Version.props').write_text('<Project><WeaverVersion>0.28.0</WeaverVersion></Project>')
             (root / 'Directory.Build.props').write_text('<Project><VersionPrefix>1.0.0</VersionPrefix></Project>')
             (root / 'LICENSE').write_text('test license\n')
-            (root / 'src/Qyl.Telemetry.SemanticConventions/Generated').mkdir(parents=True)
+            (root / 'typescript').mkdir()
             (root / 'registry/qyl').mkdir(parents=True)
             (root / 'registry/vendor').mkdir()
             (root / 'registry/manifest.yaml').write_text(yaml.safe_dump({
@@ -75,11 +75,10 @@ with open('.build/weaver-calls.jsonl', 'a') as calls:
 if args[:2] == ['registry', 'generate']:
     params = yaml.safe_load(Path(args[args.index('--params') + 1]).read_text())['params']
     Path('.build/received-policy.json').write_text(json.dumps(params['policy']))
-    Path('.build/typescript-registry.json').write_text(json.dumps({
-        'schema_url': 'https://qyl.at/schemas/1.0.0', 'dependencies': {}, 'registry': {},
-    }))
-    Path('.build/registry-catalog.json').write_text('{"attributes":[],"metrics":[]}')
-    Path('src/Qyl.Telemetry.SemanticConventions/Generated').mkdir(parents=True)
+    if args[-2] == 'snapshot':
+        Path('.build/registry.json').write_text(json.dumps({
+            'schema_url': 'https://qyl.at/schemas/1.0.0', 'dependencies': {}, 'registry': {},
+        }))
 ''')
             (binaries / 'weaver').chmod(0o755)
             env = dict(os.environ, PATH=str(binaries) + os.pathsep + os.environ['PATH'], WEAVER='weaver')
@@ -97,10 +96,15 @@ if args[:2] == ['registry', 'generate']:
                                       'fixed': {'test.key': 'test.value'}, 'templates': ['test {name}'],
                                       'substitutions': {'name': 'test.key'}}},
             })
-            for relative in ('typescript/src/policy.ts', 'typescript/dist/policy.js'):
-                self.assertIn(json.dumps(captured['http_roots']), (root / relative).read_text())
             calls = [json.loads(line) for line in (root / '.build/weaver-calls.jsonl').read_text().splitlines()]
-            generation = next(args for args in calls if args[:2] == ['registry', 'generate'])
-            self.assertIn('--params', generation)
+            generations = [args for args in calls if args[:2] == ['registry', 'generate']]
+            self.assertEqual(['snapshot', 'csharp', 'typescript'], [args[-2] for args in generations])
+            for args in generations:
+                self.assertIn('--params', args)
+            fingerprints = [[value for value in args if value.startswith('registry_snapshot_sha256=')]
+                            for args in generations[1:]]
+            self.assertEqual(fingerprints[0], fingerprints[1])
+            self.assertRegex(fingerprints[0][0], '^registry_snapshot_sha256=[0-9a-f]{64}$')
+            self.assertEqual('test license\n', (root / 'typescript/LICENSE').read_text())
             self.assertTrue(any(args[:2] == ['registry', 'check'] and '--v2' in args
                                 and 'registry/policies-v2' in args for args in calls))

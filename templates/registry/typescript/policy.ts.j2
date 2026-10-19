@@ -1,0 +1,33 @@
+{%- import "lib.j2" as lib -%}
+{#- The captured-field classifier; the declarations carry its signature only. -#}
+{%- set typed = ctx.flavor != "js" -%}
+{{ lib.header("registry/qyl/policy.yaml", params.registry_snapshot_sha256) }}
+{% if ctx.flavor != "d.ts" %}
+const httpRoots = {{ ctx.http_roots }}{% if typed %} as const{% endif %};
+const httpNameCharacters = {{ ctx.http_name_characters }};
+const rpcRoots = {{ ctx.rpc_roots }}{% if typed %} as const{% endif %};
+const rpcNameCharacters = {{ ctx.rpc_name_characters }};
+{% endif %}
+/** True for valid captured names, false for bare/invalid captured families, undefined for unrelated keys.
+ * Classifies names only; callers own capture selection and value shape. */
+{% if ctx.flavor == "d.ts" %}
+export declare function getCapturedFieldPersistence(key: string): boolean | undefined;
+{% else %}
+export function getCapturedFieldPersistence(key{% if typed %}: string{% endif %}){% if typed %}: boolean | undefined{% endif %} {
+  // Fold ASCII only: Unicode case conversion must not admit non-protocol characters.
+  const comparison = key.replace(/[A-Z]/g, letter => letter.toLowerCase());
+  for (const [roots, allowed] of [[httpRoots, httpNameCharacters], [rpcRoots, rpcNameCharacters]]{% if typed %} as const{% endif %}) {
+    for (const root of roots) {
+      if (comparison === root) return false;
+      if (!comparison.startsWith(root + ".")) continue;
+      const name = comparison.slice(root.length + 1);
+      if (name.length === 0) return false;
+      for (const character of name) {
+        if (!allowed.includes(character)) return false;
+      }
+      return true;
+    }
+  }
+  return undefined;
+}
+{% endif %}

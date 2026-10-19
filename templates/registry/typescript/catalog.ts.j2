@@ -1,0 +1,35 @@
+{%- import "lib.j2" as lib -%}
+{#- Frozen rows and the two lookups; the declarations carry the record types only. -#}
+{%- set typed = ctx.flavor != "js" -%}
+{{ lib.header("Weaver v2", params.registry_snapshot_sha256) }}
+{% if typed %}
+/** Registry membership does not prohibit custom OpenTelemetry names or assign scope ownership. */
+export type RegistryAttributeValueKind = "Unknown" | "String" | "Integer" | "Double" | "Boolean" | "StringArray" | "IntegerArray" | "DoubleArray" | "BooleanArray" | "Any";
+export interface RegistryDeprecation { readonly reason: string; readonly renamed_to?: string; readonly note?: string; }
+export interface RegistryAttributeInfo { readonly name: string; readonly valueKind: RegistryAttributeValueKind; readonly isTemplate: boolean; readonly stability: string; readonly deprecated: RegistryDeprecation | null; }
+export interface RegistryMetricInfo { readonly name: string; readonly instrument: string; readonly unit: string | null; readonly stability: string; readonly deprecated: RegistryDeprecation | null; }
+{% endif %}
+{% if ctx.flavor == "d.ts" %}
+export declare function findAttribute(key: string): RegistryAttributeInfo | undefined;
+export declare function findMetric(name: string): RegistryMetricInfo | undefined;
+{% else %}
+const attributeRows{% if typed %}: ReadonlyArray<RegistryAttributeInfo>{% endif %} = [
+{% for row in ctx.attributes %}
+  Object.freeze({"name":{{ row.name }},"valueKind":{{ row.valueKind }},"isTemplate":{{ row.isTemplate }},"stability":{{ row.stability }},"deprecated":{% if row.deprecated == "null" %}null{% else %}Object.freeze({{ row.deprecated }}){% endif %}}),
+{% endfor %}
+];
+const metricRows{% if typed %}: ReadonlyArray<RegistryMetricInfo>{% endif %} = [
+{% for row in ctx.metrics %}
+  Object.freeze({"name":{{ row.name }},"instrument":{{ row.instrument }},"unit":{{ row.unit }},"stability":{{ row.stability }},"deprecated":{% if row.deprecated == "null" %}null{% else %}Object.freeze({{ row.deprecated }}){% endif %}}),
+{% endfor %}
+];
+const attributes = new Map(attributeRows.filter(row => !row.isTemplate).map(row => [row.name, row]));
+const templates = attributeRows.filter(row => row.isTemplate).sort((a, b) => b.name.length - a.name.length);
+const metrics = new Map(metricRows.map(row => [row.name, row]));
+/** Exact keys and nonempty template expansions; requirements stay with their signal definitions. */
+export function findAttribute(key{% if typed %}: string{% endif %}){% if typed %}: RegistryAttributeInfo | undefined{% endif %} {
+  return attributes.get(key) ?? templates.find(row => key.length > row.name.length + 1 && key.startsWith(row.name + "."));
+}
+/** An unknown custom metric is not an OpenTelemetry error. */
+export function findMetric(name{% if typed %}: string{% endif %}){% if typed %}: RegistryMetricInfo | undefined{% endif %} { return metrics.get(name); }
+{% endif %}

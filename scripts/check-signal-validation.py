@@ -33,7 +33,7 @@ def findings(value):
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    registry = json.loads((root / ".build/typescript-registry.json").read_text())["registry"]
+    registry = json.loads((root / ".build/registry.json").read_text())["registry"]
     spans = {span["type"]: span for span in registry["spans"]}
     operation = spans["qyl.agent.operation.internal"]
     required = [a for a in operation["attributes"] if a["requirement_level"] == "required"]

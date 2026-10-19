@@ -123,7 +123,7 @@ PY
 # qyl's policy over the registry (registry/qyl/policy.yaml): the persistence rule, the
 # end-of-operation attributes and the span-name chains and starters. Its annotations ride on
 # non-registry groups, which the materialized v2 registry drops, so they are read here into one
-# JSON parameter file shared by Weaver and the TypeScript generator. Keeping the policy off
+# JSON parameter file every Weaver target reads as params.policy. Keeping the policy off
 # argv avoids Linux's per-argument size limit as the registry grows. An annotation this reader
 # does not know is an error, not a silent no-op.
 params_file=".build/generate-params.json"
@@ -198,30 +198,68 @@ python3 scripts/check-future.py
 
 # Weaver writes files and never deletes one, so a root the registry or a filter stops producing
 # (every host.* attribute is resource-only and gets no setter) would leave its stale file behind.
-# The two Generated trees are wholly generated (RegistrySnapshot.g.cs by generate-typescript.py
-# below); clear them first.
-rm -rf src/Qyl.Telemetry.SemanticConventions/Generated src/Qyl.Telemetry.SemanticConventions.Incubating/Generated
+# The two Generated trees and the TypeScript package's src/ and dist/ are wholly generated; clear
+# them first.
+rm -rf src/Qyl.Telemetry.SemanticConventions/Generated src/Qyl.Telemetry.SemanticConventions.Incubating/Generated \
+  typescript/src typescript/dist
 
-"${WEAVER_CMD[@]}" registry generate \
-  -r registry \
-  --v2 \
-  --include-unreferenced \
-  -t templates \
-  -D "weaver_version=${actual_weaver_version}" \
-  -D "core_ref=${core_ref}" \
-  -D "core_commit=${core_commit}" \
-  -D "genai_commit=${genai_commit}" \
-  -D "scope_names=${scope_names}" \
-  -D "vendor_activity_sources=${vendor_activity_sources}" \
-  --params "${params_file}" \
-  csharp \
-  .
+# One `weaver registry generate` per target under templates/registry, all with the same registry,
+# flags and parameters.
+weaver_generate() {
+  "${WEAVER_CMD[@]}" registry generate \
+    -r registry \
+    --v2 \
+    --include-unreferenced \
+    -t templates \
+    -D "weaver_version=${actual_weaver_version}" \
+    -D "core_ref=${core_ref}" \
+    -D "core_commit=${core_commit}" \
+    -D "genai_commit=${genai_commit}" \
+    -D "scope_names=${scope_names}" \
+    -D "vendor_activity_sources=${vendor_activity_sources}" \
+    --params "${params_file}" \
+    "$@" \
+    .
+}
 
-python3 scripts/generate-typescript.py .build/typescript-registry.json "${params_file}"
-python3 scripts/generate-live-check.py .build/typescript-registry.json "${params_file}" registry/.weaver.toml
+# The resolved registry first, as .build/registry.json. Its SHA-256 without the local paths of
+# fetched dependencies, so a checkout or cache location does not move it, is the fingerprint both
+# language targets carry: C# RegistrySnapshot.Sha256 and TypeScript REGISTRY_SNAPSHOT_SHA256.
+weaver_generate snapshot
+registry_snapshot_sha256="$(python3 - .build/registry.json <<'PY'
+import hashlib
+import json
+import sys
+
+def semantic(value):
+    if isinstance(value, dict):
+        result = {}
+        for key, item in value.items():
+            if key == "provenance":
+                item = {field: data for field, data in item.items()
+                        if field != "path" or data.startswith(("https://", "http://"))}
+            result[key] = semantic(item)
+        return result
+    if isinstance(value, list):
+        return [semantic(item) for item in value]
+    return value
+
+with open(sys.argv[1], encoding="utf-8") as snapshot:
+    canonical = json.dumps(semantic(json.load(snapshot)), sort_keys=True, separators=(",", ":"))
+print(hashlib.sha256(canonical.encode()).hexdigest())
+PY
+)"
+
+for target in csharp typescript; do
+  weaver_generate -D "registry_snapshot_sha256=${registry_snapshot_sha256}" "${target}"
+done
+cp LICENSE typescript/LICENSE
+
+python3 scripts/generate-live-check.py .build/registry.json "${params_file}" registry/.weaver.toml
 
 "${script_dir}/generate-reference.sh"
 
 echo "Regenerated from registry/ with Weaver ${actual_weaver_version}"
 echo "  core:  ${core_ref} (${core_commit})"
 echo "  genai: ${genai_commit}"
+echo "  registry snapshot: ${registry_snapshot_sha256}"

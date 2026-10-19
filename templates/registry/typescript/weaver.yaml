@@ -1,0 +1,50 @@
+whitespace_control:
+  trim_blocks: true
+  lstrip_blocks: true
+  keep_trailing_newline: true
+
+jq_modules:
+  - jq/typescript.jq
+
+# The npm package @ancplua/qyl-semantic-conventions under typescript/: per module the
+# TypeScript source (src/), the JavaScript (dist/) and its declarations (dist/), so the package
+# has no build step and no runtime dependency. registry_snapshot_sha256 and params.policy reach
+# these templates the same way they reach the csharp target, from scripts/generate.sh.
+templates:
+  # The constants: the root export (index) carries the stable and deprecated rows, ./incubating
+  # every row.
+  - template: constants.ts.j2
+    filter: >
+      . as $registry
+      | [ {module: "index", tier: "stable"}, {module: "incubating", tier: "incubating"}
+          | .tier as $tier
+          | . + {exports: ($registry | ts_exports($tier; $params.registry_snapshot_sha256))}
+          | . + ts_files(.module) ]
+    application_mode: each
+    file_name: "typescript/{{ ctx.file }}"
+
+  # ./catalog: findAttribute and findMetric over the C# RegistryCatalog's rows.
+  - template: catalog.ts.j2
+    filter: ts_catalog as $catalog | [ts_files("catalog") | . + $catalog]
+    application_mode: each
+    file_name: "typescript/{{ ctx.file }}"
+
+  # ./policy: getCapturedFieldPersistence over the captured-field roots and alphabets of
+  # registry/qyl/policy.yaml, the rule C# RegistryPolicy applies.
+  - template: policy.ts.j2
+    filter: >
+      $params.policy.captured_fields as $fields
+      | [ts_files("policy")
+         | . + {http_roots: ($fields.http_roots | ts_list),
+                http_name_characters: ($fields.http_name_characters | tojson),
+                rpc_roots: ($fields.rpc_roots | ts_list),
+                rpc_name_characters: ($fields.rpc_name_characters | tojson)}]
+    application_mode: each
+    file_name: "typescript/{{ ctx.file }}"
+
+  # The package version is the qyl registry's: https://qyl.at/schemas/<version>.
+  - template: package.json.j2
+    filter: >
+      {version: (.schema_url | ltrimstr("https://qyl.at/schemas/"))}
+    application_mode: single
+    file_name: typescript/package.json
