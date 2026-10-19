@@ -2,7 +2,7 @@
 # dotnet also keeps global.json, which dotnet itself reads.
 [tools]
 "node" = "24.21.0"
-"dotnet" = "10.0.401"
+"dotnet" = "10.0.402"
 "github:open-telemetry/weaver" = "0.28.0"
 # uv runs the Python helpers of scripts/generate.sh, the gate's unittest and scripts/check-pin-freshness.py.
 "uv" = "0.13.0"

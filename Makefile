@@ -1,5 +1,5 @@
 # Every Weaver step of this repository, runnable one at a time or all at once with `make weaver`.
-# The tools come from mise.toml (weaver 0.28.0, dotnet 10.0.401, node 24.21.0): run `mise install` once.
+# The tools come from mise.toml (weaver 0.28.0, dotnet 10.0.402, node 24.21.0): run `mise install` once.
 
 SHELL := /bin/bash
 SLN := Qyl.Telemetry.SemanticConventions.slnx

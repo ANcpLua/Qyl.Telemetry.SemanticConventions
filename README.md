@@ -248,9 +248,9 @@ dotnet build Qyl.Telemetry.SemanticConventions.slnx --no-restore --configuration
 dotnet run --project tests/Qyl.Telemetry.SemanticConventions.Pipeline.Tests/ --configuration Release --no-build
 ```
 
-`dotnet test` does not drive the test project: it is a Microsoft.Testing.Platform project and
-the .NET 10 SDK dropped the VSTest bridge, so the runner is `dotnet run --project`, which is
-what `mise run check` uses. `./release.sh <version>` packs, pushes and then runs
+The test project is a Microsoft.Testing.Platform project: `mise run check` runs it with
+`dotnet run --project`, and `global.json` selects the native runner, so `dotnet test` drives it
+too. `./release.sh <version>` packs, pushes and then runs
 [`eng/release/verify-packages.sh`](eng/release/verify-packages.sh), which proves the published
 packages install and work together in a clean `net10.0` consumer.
 
