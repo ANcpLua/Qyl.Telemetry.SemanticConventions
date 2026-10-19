@@ -7,11 +7,11 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 internal static class SemconvNamespace
 {
     private const string Root = "OpenTelemetry.SemanticConventions";
+    private const string QylRoot = "Qyl.Telemetry.SemanticConventions";
 
     /// <summary>
     /// Returns true if the type's suffix matches a recognised SemConv tier AND it lives
-    /// in or under any namespace segment named <c>OpenTelemetry.SemanticConventions</c>
-    /// (handles both upstream's flat layout and consumer-side nested layouts, e.g. qyl).
+    /// in or under the upstream or qyl semantic-convention namespace, including nested layouts.
     /// When <paramref name="allowNonAttributesTiers"/> is <c>true</c>, the suffix check
     /// additionally accepts the three non-Attributes tiers a semantic-convention
     /// package pre-generates — <c>*Metrics</c>, <c>*Meters</c>, <c>*Activities</c> — gated behind
@@ -111,11 +111,13 @@ internal static class SemconvNamespace
             return false;
         }
 
-        return s == Root
-               || s.StartsWith(Root + ".", StringComparison.Ordinal)
-               || s.Contains("." + Root + ".")
-               || s.EndsWith("." + Root, StringComparison.Ordinal);
+        return IsWithinRoot(s, Root) || IsWithinRoot(s, QylRoot);
     }
+
+    private static bool IsWithinRoot(string value, string root) =>
+        value == root || value.StartsWith(root + ".", StringComparison.Ordinal)
+        || value.IndexOf("." + root + ".", StringComparison.Ordinal) >= 0
+        || value.EndsWith("." + root, StringComparison.Ordinal);
 
     /// <summary>
     /// Returns true if the namespace's display string contains an <c>.Incubating</c>

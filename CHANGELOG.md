@@ -1,5 +1,10 @@
 # Changelog
 
+## [15.0.2] - 2026-10-19
+
+- Recognize the current Qyl.Telemetry.SemanticConventions namespaces in semantic analyzers while preserving upstream namespace support and rejecting lookalikes.
+- Verify constant diagnostics against the actual generated package assembly and distinguish telemetry-key literals from unrelated protocol fields.
+
 ## [15.0.1] - 2026-10-19
 
 - Keep bare authorization attributes denied when they are declared by a native vendor. Preserve explicitly selected HTTP-header and RPC-metadata captures.
