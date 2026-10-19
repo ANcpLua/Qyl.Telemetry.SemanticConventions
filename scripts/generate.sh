@@ -194,6 +194,7 @@ PY
 
 "${WEAVER_CMD[@]}" registry check -r registry
 "${WEAVER_CMD[@]}" registry check -r registry --v2 --include-unreferenced -p registry/policies-v2
+python3 scripts/check-future.py
 
 # Weaver writes files and never deletes one, so a root the registry or a filter stops producing
 # (every host.* attribute is resource-only and gets no setter) would leave its stale file behind.
@@ -217,6 +218,7 @@ rm -rf src/Qyl.Telemetry.SemanticConventions/Generated src/Qyl.Telemetry.Semanti
   .
 
 python3 scripts/generate-typescript.py .build/typescript-registry.json "${params_file}"
+python3 scripts/generate-live-check.py .build/typescript-registry.json "${params_file}" registry/.weaver.toml
 
 "${script_dir}/generate-reference.sh"
 

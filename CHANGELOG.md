@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [15.0.0] - 2026-10-19
+
+- Generate persistent Weaver v2 span matchers from the registry naming contracts, retaining native client/server distinctions and validating each matched signal's required fields.
+- Gate owned strict `--future` defects separately from pinned dependency warnings and Weaver's experimental definition/2 notice. Preserve fieldless native spans in definition/2 without inventing attributes.
+- Keep operation identity on spans and events without requiring a separate OpenTelemetry resource per operation.
 
 - Preserve nested entity association expressions and defining-registry provenance on metrics, spans and events. Carry signal collection requirements and independent span-attribute sampling relevance.
 - Use one deterministic C# wire-key symbol map for constants, typed setters, value sets and analyzer metadata. Resolve setters by declaring type and parameter signature; preserve colliding TypeScript enum constants.

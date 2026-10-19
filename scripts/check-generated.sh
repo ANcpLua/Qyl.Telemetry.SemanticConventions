@@ -16,6 +16,7 @@ cd "${repo_root}"
 "${script_dir}/generate.sh"
 
 generated_paths=(
+  "registry/.weaver.toml"
   "src/Qyl.Telemetry.SemanticConventions/Generated"
   "src/Qyl.Telemetry.SemanticConventions.Incubating/Generated"
   "src/Qyl.Telemetry.SemanticConventions.Analyzers/SemconvRegistryFacts.g.cs"

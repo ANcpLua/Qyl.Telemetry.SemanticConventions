@@ -1,0 +1,3215 @@
+# Native spans with no declared fields use definition/2, which permits empty attribute lists.
+file_format: definition/2
+spans:
+- type: openai_codex.add_collaboration_tools.internal
+  kind: internal
+  name:
+    templates:
+    - add_collaboration_tools
+  requirement_level: recommended
+  stability: development
+  brief: add collaboration tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_collaboration_tools; explicit exported names: add_collaboration_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1461
+  annotations:
+    qyl:
+      openai:
+        literal_name: add_collaboration_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - add_collaboration_tools
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1461
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.add_core_tool_sources.internal
+  kind: internal
+  name:
+    templates:
+    - add_core_tool_sources
+  requirement_level: recommended
+  stability: development
+  brief: add core tool sources.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_core_tool_sources; explicit exported names: add_core_tool_sources.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1176
+  annotations:
+    qyl:
+      openai:
+        literal_name: add_core_tool_sources
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - add_core_tool_sources
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1176
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.add_core_utility_tools.internal
+  kind: internal
+  name:
+    templates:
+    - add_core_utility_tools
+  requirement_level: recommended
+  stability: development
+  brief: add core utility tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_core_utility_tools; explicit exported names: add_core_utility_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1306
+  annotations:
+    qyl:
+      openai:
+        literal_name: add_core_utility_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - add_core_utility_tools
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1306
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.add_mcp_resource_tools.internal
+  kind: internal
+  name:
+    templates:
+    - add_mcp_resource_tools
+  requirement_level: recommended
+  stability: development
+  brief: add mcp resource tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_mcp_resource_tools; explicit exported names: add_mcp_resource_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1288
+  annotations:
+    qyl:
+      openai:
+        literal_name: add_mcp_resource_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - add_mcp_resource_tools
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1288
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.add_shell_tools.internal
+  kind: internal
+  name:
+    templates:
+    - add_shell_tools
+  requirement_level: recommended
+  stability: development
+  brief: add shell tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_shell_tools; explicit exported names: add_shell_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1244
+  annotations:
+    qyl:
+      openai:
+        literal_name: add_shell_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - add_shell_tools
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1244
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.agents_md.discover.internal
+  kind: internal
+  name:
+    templates:
+    - agents_md.discover
+  requirement_level: recommended
+  stability: development
+  brief: agents md discover.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is agents_md.discover; explicit exported names: agents_md.discover.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agents_md.rs#L191
+  annotations:
+    qyl:
+      openai:
+        literal_name: agents_md.discover
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - agents_md.discover
+        source_records:
+        - file: core/src/agents_md.rs
+          line: 191
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.agents_md.refresh.internal
+  kind: internal
+  name:
+    templates:
+    - agents_md.refresh
+  requirement_level: recommended
+  stability: development
+  brief: agents md refresh.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is agents_md.refresh; explicit exported names: agents_md.refresh.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agents_md_manager.rs#L67
+  annotations:
+    qyl:
+      openai:
+        literal_name: agents_md.refresh
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - agents_md.refresh
+        source_records:
+        - file: core/src/agents_md_manager.rs
+          line: 67
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.app_server.thread_start.config_snapshot.internal
+  kind: internal
+  name:
+    templates:
+    - app_server.thread_start.config_snapshot
+  requirement_level: recommended
+  stability: development
+  brief: app server thread start config snapshot.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.config_snapshot; explicit exported names: app_server.thread_start.config_snapshot.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1575
+  annotations:
+    qyl:
+      openai:
+        literal_name: app_server.thread_start.config_snapshot
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - app_server.thread_start.config_snapshot
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 1575
+          fields:
+            otel.name: '"app_server.thread_start.config_snapshot"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.app_server.thread_start.notify_started.internal
+  kind: internal
+  name:
+    templates:
+    - app_server.thread_start.notify_started
+  requirement_level: recommended
+  stability: development
+  brief: app server thread start notify started.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.notify_started; explicit exported names: app_server.thread_start.notify_started.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1665
+  annotations:
+    qyl:
+      openai:
+        literal_name: app_server.thread_start.notify_started
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - app_server.thread_start.notify_started
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 1665
+          fields:
+            otel.name: '"app_server.thread_start.notify_started"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.app_server.thread_start.resolve_status.internal
+  kind: internal
+  name:
+    templates:
+    - app_server.thread_start.resolve_status
+  requirement_level: recommended
+  stability: development
+  brief: app server thread start resolve status.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.resolve_status; explicit exported names: app_server.thread_start.resolve_status.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1622
+  annotations:
+    qyl:
+      openai:
+        literal_name: app_server.thread_start.resolve_status
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - app_server.thread_start.resolve_status
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 1622
+          fields:
+            otel.name: '"app_server.thread_start.resolve_status"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.app_server.thread_start.send_response.internal
+  kind: internal
+  name:
+    templates:
+    - app_server.thread_start.send_response
+  requirement_level: recommended
+  stability: development
+  brief: app server thread start send response.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.send_response; explicit exported names: app_server.thread_start.send_response.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1656
+  annotations:
+    qyl:
+      openai:
+        literal_name: app_server.thread_start.send_response
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - app_server.thread_start.send_response
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 1656
+          fields:
+            otel.name: '"app_server.thread_start.send_response"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.app_server.thread_start.upsert_thread.internal
+  kind: internal
+  name:
+    templates:
+    - app_server.thread_start.upsert_thread
+  requirement_level: recommended
+  stability: development
+  brief: app server thread start upsert thread.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.upsert_thread; explicit exported names: app_server.thread_start.upsert_thread.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1612
+  annotations:
+    qyl:
+      openai:
+        literal_name: app_server.thread_start.upsert_thread
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - app_server.thread_start.upsert_thread
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 1612
+          fields:
+            otel.name: '"app_server.thread_start.upsert_thread"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.append_mcp_tools.internal
+  kind: internal
+  name:
+    templates:
+    - append_mcp_tools
+  requirement_level: recommended
+  stability: development
+  brief: append mcp tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_mcp_tools; explicit exported names: append_mcp_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/mcp_tool_exposure.rs#L62
+  annotations:
+    qyl:
+      openai:
+        literal_name: append_mcp_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - append_mcp_tools
+        source_records:
+        - file: core/src/mcp_tool_exposure.rs
+          line: 62
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.append_source_tools.internal
+  kind: internal
+  name:
+    templates:
+    - append_source_tools
+  requirement_level: recommended
+  stability: development
+  brief: append source tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_source_tools; explicit exported names: append_source_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L320
+  annotations:
+    qyl:
+      openai:
+        literal_name: append_source_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - append_source_tools
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 320
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.append_tool_search_executor.internal
+  kind: internal
+  name:
+    templates:
+    - append_tool_search_executor
+  requirement_level: recommended
+  stability: development
+  brief: append tool search executor.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_tool_search_executor; explicit exported names: append_tool_search_executor.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1627
+  annotations:
+    qyl:
+      openai:
+        literal_name: append_tool_search_executor
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - append_tool_search_executor
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 1627
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.auth.internal
+  kind: internal
+  name:
+    templates:
+    - auth
+  requirement_level: recommended
+  stability: development
+  brief: auth.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is auth; explicit exported names: auth.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/login/src/auth/manager.rs#L2390
+  annotations:
+    qyl:
+      openai:
+        literal_name: auth
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - auth
+        source_records:
+        - file: login/src/auth/manager.rs
+          line: 2390
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_core_tool_registry.internal
+  kind: internal
+  name:
+    templates:
+    - build_core_tool_registry
+  requirement_level: recommended
+  stability: development
+  brief: build core tool registry.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_core_tool_registry; explicit exported names: build_core_tool_registry.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L292
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_core_tool_registry
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_core_tool_registry
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 292
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_model_visible_specs.internal
+  kind: internal
+  name:
+    templates:
+    - build_model_visible_specs
+  requirement_level: recommended
+  stability: development
+  brief: build model visible specs.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_model_visible_specs; explicit exported names: build_model_visible_specs.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L626
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_model_visible_specs
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_model_visible_specs
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 626
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_prompt.internal
+  kind: internal
+  name:
+    templates:
+    - build_prompt
+  requirement_level: recommended
+  stability: development
+  brief: build prompt.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_prompt; explicit exported names: build_prompt.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1665
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_prompt
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_prompt
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 1665
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_skill_outcome.internal
+  kind: internal
+  name:
+    templates:
+    - build_skill_outcome
+  requirement_level: recommended
+  stability: development
+  brief: build skill outcome.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_skill_outcome; explicit exported names: build_skill_outcome.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/host_service.rs#L350
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_skill_outcome
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_skill_outcome
+        source_records:
+        - file: ext/skills/src/host_service.rs
+          line: 350
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_skills_and_plugins.internal
+  kind: internal
+  name:
+    templates:
+    - build_skills_and_plugins
+  requirement_level: recommended
+  stability: development
+  brief: build skills and plugins.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_skills_and_plugins; explicit exported names: build_skills_and_plugins.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1098
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_skills_and_plugins
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_skills_and_plugins
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 1098
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_tool_call.internal
+  kind: internal
+  name:
+    templates:
+    - build_tool_call
+  requirement_level: recommended
+  stability: development
+  brief: build tool call.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_tool_call; explicit exported names: build_tool_call.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/router.rs#L256
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_tool_call
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_tool_call
+        source_records:
+        - file: core/src/tools/router.rs
+          line: 256
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.build_tool_router.internal
+  kind: internal
+  name:
+    templates:
+    - build_tool_router
+  requirement_level: recommended
+  stability: development
+  brief: build tool router.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_tool_router; explicit exported names: build_tool_router.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L119
+  annotations:
+    qyl:
+      openai:
+        literal_name: build_tool_router
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - build_tool_router
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 119
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.built_tools.load_discoverable_tools.internal
+  kind: internal
+  name:
+    templates:
+    - built_tools.load_discoverable_tools
+  requirement_level: recommended
+  stability: development
+  brief: built tools load discoverable tools.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is built_tools.load_discoverable_tools; explicit exported names: built_tools.load_discoverable_tools.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1958
+  annotations:
+    qyl:
+      openai:
+        literal_name: built_tools.load_discoverable_tools
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - built_tools.load_discoverable_tools
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 1958
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.cached_directory_connectors_for_tool_suggest_with_auth.internal
+  kind: internal
+  name:
+    templates:
+    - cached_directory_connectors_for_tool_suggest_with_auth
+  requirement_level: recommended
+  stability: development
+  brief: cached directory connectors for tool suggest with auth.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is cached_directory_connectors_for_tool_suggest_with_auth; explicit exported names: cached_directory_connectors_for_tool_suggest_with_auth.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/connectors.rs#L421
+  annotations:
+    qyl:
+      openai:
+        literal_name: cached_directory_connectors_for_tool_suggest_with_auth
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - cached_directory_connectors_for_tool_suggest_with_auth
+        source_records:
+        - file: core/src/connectors.rs
+          line: 421
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.capability_roots.resolve.internal
+  kind: internal
+  name:
+    templates:
+    - capability_roots.resolve
+  requirement_level: recommended
+  stability: development
+  brief: capability roots resolve.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capability_roots.resolve; explicit exported names: capability_roots.resolve.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/resolved_capability.rs#L116
+  annotations:
+    qyl:
+      openai:
+        literal_name: capability_roots.resolve
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - capability_roots.resolve
+        source_records:
+        - file: exec-server/src/resolved_capability.rs
+          line: 116
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.capture_binding_with_metadata.internal
+  kind: internal
+  name:
+    templates:
+    - capture_binding_with_metadata
+  requirement_level: recommended
+  stability: development
+  brief: capture binding with metadata.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capture_binding_with_metadata; explicit exported names: capture_binding_with_metadata.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/tool_catalog.rs#L269
+  annotations:
+    qyl:
+      openai:
+        literal_name: capture_binding_with_metadata
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - capture_binding_with_metadata
+        source_records:
+        - file: codex-mcp/src/connection_manager/tool_catalog.rs
+          line: 269
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.code_mode.grpc.open_binding.internal
+  kind: internal
+  name:
+    templates:
+    - code_mode.grpc.open_binding
+  requirement_level: recommended
+  stability: development
+  brief: code mode grpc open binding.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.open_binding; explicit exported names: code_mode.grpc.open_binding.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode/src/grpc_session/mod.rs#L99
+  annotations:
+    qyl:
+      openai:
+        literal_name: code_mode.grpc.open_binding
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - code_mode.grpc.open_binding
+        source_records:
+        - file: code-mode/src/grpc_session/mod.rs
+          line: 99
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.code_mode.grpc.open_session.internal
+  kind: internal
+  name:
+    templates:
+    - code_mode.grpc.open_session
+  requirement_level: recommended
+  stability: development
+  brief: code mode grpc open session.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.open_session; explicit exported names: code_mode.grpc.open_session.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode/src/grpc_session/mod.rs#L116
+  annotations:
+    qyl:
+      openai:
+        literal_name: code_mode.grpc.open_session
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - code_mode.grpc.open_session
+        source_records:
+        - file: code-mode/src/grpc_session/mod.rs
+          line: 116
+          fields: {}
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.code_mode_host.grpc.open_session.internal
+  kind: internal
+  name:
+    templates:
+    - code_mode_host.grpc.open_session
+  requirement_level: recommended
+  stability: development
+  brief: code mode host grpc open session.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.grpc.open_session; explicit exported names: code_mode_host.grpc.open_session.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/grpc/mod.rs#L322
+  annotations:
+    qyl:
+      openai:
+        literal_name: code_mode_host.grpc.open_session
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - code_mode_host.grpc.open_session
+        source_records:
+        - file: code-mode-host/src/grpc/mod.rs
+          line: 322
+          fields: {}
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.code_mode_host.run_main.internal
+  kind: internal
+  name:
+    templates:
+    - code_mode_host.run_main
+  requirement_level: recommended
+  stability: development
+  brief: code mode host run main.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.run_main; explicit exported names: code_mode_host.run_main.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/lib.rs#L91
+  annotations:
+    qyl:
+      openai:
+        literal_name: code_mode_host.run_main
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - code_mode_host.run_main
+        source_records:
+        - file: code-mode-host/src/lib.rs
+          line: 91
+          fields:
+            otel.name: '"code_mode_host.run_main"'
+          macro: instrument
+        test_only: false
+- type: openai_codex.code_mode_host.startup.internal
+  kind: internal
+  name:
+    templates:
+    - code_mode_host.startup
+  requirement_level: recommended
+  stability: development
+  brief: code mode host startup.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.startup; explicit exported names: code_mode_host.startup.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/main.rs#L68
+  annotations:
+    qyl:
+      openai:
+        literal_name: code_mode_host.startup
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - code_mode_host.startup
+        source_records:
+        - file: code-mode-host/src/main.rs
+          line: 68
+          fields:
+            otel.name: '"code_mode_host.startup"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.codex.exec_server.internal
+  kind: internal
+  name:
+    templates:
+    - codex.exec_server
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server; explicit exported names: codex.exec_server.
+
+    Span kind: internal explicitly recorded by the source. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/server.rs#L44
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server
+        source_records:
+        - file: exec-server/src/server.rs
+          line: 44
+          fields:
+            otel.kind: '"internal"'
+          macro: instrument
+        test_only: false
+- type: openai_codex.codex.exec_server.remote.connect.internal
+  kind: internal
+  name:
+    templates:
+    - codex.exec_server.remote.connect
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server remote connect.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.connect; explicit exported names: codex.exec_server.remote.connect.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client_refresh.rs#L227
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server.remote.connect
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server.remote.connect
+        source_records:
+        - file: exec-server/src/client_refresh.rs
+          line: 227
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.codex.exec_server.remote.harness.connect.client
+  kind: client
+  name:
+    templates:
+    - codex.exec_server.remote.harness.connect
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server remote harness connect.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.harness.connect; explicit exported names: codex.exec_server.remote.harness.connect.
+
+    Span kind: client explicitly recorded by the source. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client_transport.rs#L596
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server.remote.harness.connect
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server.remote.harness.connect
+        source_records:
+        - file: exec-server/src/client_transport.rs
+          line: 596
+          fields:
+            otel.kind: '"client"'
+            otel.name: '"codex.exec_server.remote.harness.connect"'
+          macro: instrument
+        test_only: false
+- type: openai_codex.codex.exec_server.remote.initialize_rpc.client
+  kind: client
+  name:
+    templates:
+    - codex.exec_server.remote.initialize_rpc
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server remote initialize rpc.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.initialize_rpc; explicit exported names: codex.exec_server.remote.initialize_rpc.
+
+    Span kind: client explicitly recorded by the source. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client.rs#L807
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server.remote.initialize_rpc
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server.remote.initialize_rpc
+        source_records:
+        - file: exec-server/src/client.rs
+          line: 807
+          fields:
+            otel.kind: '"client"'
+            otel.name: '"codex.exec_server.remote.initialize_rpc"'
+          macro: tracing::info_span
+        test_only: false
+- type: openai_codex.codex.exec_server.remote.noise.connect.internal
+  kind: internal
+  name:
+    templates:
+    - codex.exec_server.remote.noise.connect
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server remote noise connect.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.noise.connect; explicit exported names: codex.exec_server.remote.noise.connect.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client_transport.rs#L437
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server.remote.noise.connect
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server.remote.noise.connect
+        source_records:
+        - file: exec-server/src/client_transport.rs
+          line: 437
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.codex.exec_server.remote.noise.handshake.client
+  kind: client
+  name:
+    templates:
+    - codex.exec_server.remote.noise.handshake
+  requirement_level: recommended
+  stability: development
+  brief: codex exec server remote noise handshake.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.noise.handshake; explicit exported names: codex.exec_server.remote.noise.handshake.
+
+    Span kind: client explicitly recorded by the source. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client_transport.rs#L707
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.exec_server.remote.noise.handshake
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.exec_server.remote.noise.handshake
+        source_records:
+        - file: exec-server/src/client_transport.rs
+          line: 707
+          fields:
+            otel.kind: '"client"'
+            otel.name: '"codex.exec_server.remote.noise.handshake"'
+          macro: instrument
+        test_only: false
+- type: openai_codex.codex.process.spawn.internal
+  kind: internal
+  name:
+    templates:
+    - codex.process.spawn
+  requirement_level: recommended
+  stability: development
+  brief: codex process spawn.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.process.spawn; explicit exported names: codex.process.spawn.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/sandboxing/src/spawn.rs#L44
+  annotations:
+    qyl:
+      openai:
+        literal_name: codex.process.spawn
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - codex.process.spawn
+        source_records:
+        - file: sandboxing/src/spawn.rs
+          line: 44
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.connectors.plugin.declarations.load.internal
+  kind: internal
+  name:
+    templates:
+    - connectors.plugin.declarations.load
+  requirement_level: recommended
+  stability: development
+  brief: connectors plugin declarations load.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is connectors.plugin.declarations.load; explicit exported names: connectors.plugin.declarations.load.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/connectors/src/plugin_app.rs#L35
+  annotations:
+    qyl:
+      openai:
+        literal_name: connectors.plugin.declarations.load
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - connectors.plugin.declarations.load
+        source_records:
+        - file: ext/connectors/src/plugin_app.rs
+          line: 35
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.dispatch_tool_call_with_state.internal
+  kind: internal
+  name:
+    templates:
+    - dispatch_tool_call_with_state
+  requirement_level: recommended
+  stability: development
+  brief: dispatch tool call with state.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is dispatch_tool_call_with_state; explicit exported names: dispatch_tool_call_with_state.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/router.rs#L334
+  annotations:
+    qyl:
+      openai:
+        literal_name: dispatch_tool_call_with_state
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - dispatch_tool_call_with_state
+        source_records:
+        - file: core/src/tools/router.rs
+          line: 334
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.drain_in_flight.internal
+  kind: internal
+  name:
+    templates:
+    - drain_in_flight
+  requirement_level: recommended
+  stability: development
+  brief: drain in flight.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is drain_in_flight; explicit exported names: drain_in_flight.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2564
+  annotations:
+    qyl:
+      openai:
+        literal_name: drain_in_flight
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - drain_in_flight
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 2564
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.extension_tool_executors.internal
+  kind: internal
+  name:
+    templates:
+    - extension_tool_executors
+  requirement_level: recommended
+  stability: development
+  brief: extension tool executors.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is extension_tool_executors; explicit exported names: extension_tool_executors.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L348
+  annotations:
+    qyl:
+      openai:
+        literal_name: extension_tool_executors
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - extension_tool_executors
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 348
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.fetch_recommended_plugin_install_metadata.internal
+  kind: internal
+  name:
+    templates:
+    - fetch_recommended_plugin_install_metadata
+  requirement_level: recommended
+  stability: development
+  brief: fetch recommended plugin install metadata.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fetch_recommended_plugin_install_metadata; explicit exported names: fetch_recommended_plugin_install_metadata.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/remote.rs#L1052
+  annotations:
+    qyl:
+      openai:
+        literal_name: fetch_recommended_plugin_install_metadata
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - fetch_recommended_plugin_install_metadata
+        source_records:
+        - file: core-plugins/src/remote.rs
+          line: 1052
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.fetch_recommended_plugins.internal
+  kind: internal
+  name:
+    templates:
+    - fetch_recommended_plugins
+  requirement_level: recommended
+  stability: development
+  brief: fetch recommended plugins.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fetch_recommended_plugins; explicit exported names: fetch_recommended_plugins.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/remote.rs#L1031
+  annotations:
+    qyl:
+      openai:
+        literal_name: fetch_recommended_plugins
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - fetch_recommended_plugins
+        source_records:
+        - file: core-plugins/src/remote.rs
+          line: 1031
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.finalize_tool_router.internal
+  kind: internal
+  name:
+    templates:
+    - finalize_tool_router
+  requirement_level: recommended
+  stability: development
+  brief: finalize tool router.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is finalize_tool_router; explicit exported names: finalize_tool_router.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L367
+  annotations:
+    qyl:
+      openai:
+        literal_name: finalize_tool_router
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - finalize_tool_router
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 367
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.fs.sandbox_execute.internal
+  kind: internal
+  name:
+    templates:
+    - fs.sandbox_execute
+  requirement_level: recommended
+  stability: development
+  brief: fs sandbox execute.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.sandbox_execute; explicit exported names: fs.sandbox_execute.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/fs_sandbox.rs#L394
+  annotations:
+    qyl:
+      openai:
+        literal_name: fs.sandbox_execute
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - fs.sandbox_execute
+        source_records:
+        - file: exec-server/src/fs_sandbox.rs
+          line: 394
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.fs.sandbox_request.internal
+  kind: internal
+  name:
+    templates:
+    - fs.sandbox_request
+  requirement_level: recommended
+  stability: development
+  brief: fs sandbox request.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.sandbox_request; explicit exported names: fs.sandbox_request.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/fs_sandbox.rs#L84
+  annotations:
+    qyl:
+      openai:
+        literal_name: fs.sandbox_request
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - fs.sandbox_request
+        source_records:
+        - file: exec-server/src/fs_sandbox.rs
+          line: 84
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.get_image.internal
+  kind: internal
+  name:
+    templates:
+    - get_image
+  requirement_level: recommended
+  stability: development
+  brief: get image.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_image; explicit exported names: get_image.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/clipboard_paste.rs#L79
+  annotations:
+    qyl:
+      openai:
+        literal_name: get_image
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - get_image
+        source_records:
+        - file: tui/src/clipboard_paste.rs
+          line: 79
+          fields: {}
+          macro: tracing::debug_span
+        test_only: false
+- type: openai_codex.get_or_build.internal
+  kind: internal
+  name:
+    templates:
+    - get_or_build
+  requirement_level: recommended
+  stability: development
+  brief: get or build.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_or_build; explicit exported names: get_or_build.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/handlers/tool_search.rs#L67
+  annotations:
+    qyl:
+      openai:
+        literal_name: get_or_build
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - get_or_build
+        source_records:
+        - file: core/src/tools/handlers/tool_search.rs
+          line: 67
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.handle_output_item_done.internal
+  kind: internal
+  name:
+    templates:
+    - handle_output_item_done
+  requirement_level: recommended
+  stability: development
+  brief: handle output item done.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_output_item_done; explicit exported names: handle_output_item_done.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/stream_events_utils.rs#L314
+  annotations:
+    qyl:
+      openai:
+        literal_name: handle_output_item_done
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - handle_output_item_done
+        source_records:
+        - file: core/src/stream_events_utils.rs
+          line: 314
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.handle_tool_call.internal
+  kind: internal
+  name:
+    templates:
+    - handle_tool_call
+  requirement_level: recommended
+  stability: development
+  brief: handle tool call.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_tool_call; explicit exported names: handle_tool_call.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L77
+  annotations:
+    qyl:
+      openai:
+        literal_name: handle_tool_call
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - handle_tool_call
+        source_records:
+        - file: core/src/tools/parallel.rs
+          line: 77
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.handle_tool_call_with_source.internal
+  kind: internal
+  name:
+    templates:
+    - handle_tool_call_with_source
+  requirement_level: recommended
+  stability: development
+  brief: handle tool call with source.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_tool_call_with_source; explicit exported names: handle_tool_call_with_source.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L125
+  annotations:
+    qyl:
+      openai:
+        literal_name: handle_tool_call_with_source
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - handle_tool_call_with_source
+        source_records:
+        - file: core/src/tools/parallel.rs
+          line: 125
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.hosted_model_tool_specs.internal
+  kind: internal
+  name:
+    templates:
+    - hosted_model_tool_specs
+  requirement_level: recommended
+  stability: development
+  brief: hosted model tool specs.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is hosted_model_tool_specs; explicit exported names: hosted_model_tool_specs.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L685
+  annotations:
+    qyl:
+      openai:
+        literal_name: hosted_model_tool_specs
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - hosted_model_tool_specs
+        source_records:
+        - file: core/src/tools/spec_plan.rs
+          line: 685
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.initialize.internal
+  kind: internal
+  name:
+    templates:
+    - initialize
+  requirement_level: recommended
+  stability: development
+  brief: initialize.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is initialize; explicit exported names: initialize.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rmcp-client/src/rmcp_client.rs#L637
+  annotations:
+    qyl:
+      openai:
+        literal_name: initialize
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - initialize
+        source_records:
+        - file: rmcp-client/src/rmcp_client.rs
+          line: 637
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.list_skills.internal
+  kind: internal
+  name:
+    templates:
+    - list_skills
+  requirement_level: recommended
+  stability: development
+  brief: list skills.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_skills; explicit exported names: list_skills.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/extension.rs#L572
+  annotations:
+    qyl:
+      openai:
+        literal_name: list_skills
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - list_skills
+        source_records:
+        - file: ext/skills/src/extension.rs
+          line: 572
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.list_tool_suggest_discoverable_plugins.internal
+  kind: internal
+  name:
+    templates:
+    - list_tool_suggest_discoverable_plugins
+  requirement_level: recommended
+  stability: development
+  brief: list tool suggest discoverable plugins.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tool_suggest_discoverable_plugins; explicit exported names: list_tool_suggest_discoverable_plugins.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/plugins/discoverable.rs#L10
+  annotations:
+    qyl:
+      openai:
+        literal_name: list_tool_suggest_discoverable_plugins
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - list_tool_suggest_discoverable_plugins
+        source_records:
+        - file: core/src/plugins/discoverable.rs
+          line: 10
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.list_tool_suggest_discoverable_tools_with_auth.internal
+  kind: internal
+  name:
+    templates:
+    - list_tool_suggest_discoverable_tools_with_auth
+  requirement_level: recommended
+  stability: development
+  brief: list tool suggest discoverable tools with auth.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tool_suggest_discoverable_tools_with_auth; explicit exported names: list_tool_suggest_discoverable_tools_with_auth.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/connectors.rs#L83
+  annotations:
+    qyl:
+      openai:
+        literal_name: list_tool_suggest_discoverable_tools_with_auth
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - list_tool_suggest_discoverable_tools_with_auth
+        source_records:
+        - file: core/src/connectors.rs
+          line: 83
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.list_tools_with_connector_ids.internal
+  kind: internal
+  name:
+    templates:
+    - list_tools_with_connector_ids
+  requirement_level: recommended
+  stability: development
+  brief: list tools with connector ids.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tools_with_connector_ids; explicit exported names: list_tools_with_connector_ids.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rmcp-client/src/rmcp_client.rs#L716
+  annotations:
+    qyl:
+      openai:
+        literal_name: list_tools_with_connector_ids
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - list_tools_with_connector_ids
+        source_records:
+        - file: rmcp-client/src/rmcp_client.rs
+          line: 716
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.load.internal
+  kind: internal
+  name:
+    templates:
+    - load
+  requirement_level: recommended
+  stability: development
+  brief: load.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load; explicit exported names: load.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/exec_policy.rs#L302
+  annotations:
+    qyl:
+      openai:
+        literal_name: load
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - load
+        source_records:
+        - file: core/src/exec_policy.rs
+          line: 302
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.load_cached_codex_apps_server_info.internal
+  kind: internal
+  name:
+    templates:
+    - load_cached_codex_apps_server_info
+  requirement_level: recommended
+  stability: development
+  brief: load cached codex apps server info.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_cached_codex_apps_server_info; explicit exported names: load_cached_codex_apps_server_info.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/connectors/src/connector_runtime/persistence.rs#L88
+  annotations:
+    qyl:
+      openai:
+        literal_name: load_cached_codex_apps_server_info
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - load_cached_codex_apps_server_info
+        source_records:
+        - file: connectors/src/connector_runtime/persistence.rs
+          line: 88
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.load_cached_connector_runtime_for_identity.internal
+  kind: internal
+  name:
+    templates:
+    - load_cached_connector_runtime_for_identity
+  requirement_level: recommended
+  stability: development
+  brief: load cached connector runtime for identity.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_cached_connector_runtime_for_identity; explicit exported names: load_cached_connector_runtime_for_identity.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/connectors/src/connector_runtime/persistence.rs#L55
+  annotations:
+    qyl:
+      openai:
+        literal_name: load_cached_connector_runtime_for_identity
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - load_cached_connector_runtime_for_identity
+        source_records:
+        - file: connectors/src/connector_runtime/persistence.rs
+          line: 55
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.load_plugins_from_layer_stack.internal
+  kind: internal
+  name:
+    templates:
+    - load_plugins_from_layer_stack
+  requirement_level: recommended
+  stability: development
+  brief: load plugins from layer stack.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_plugins_from_layer_stack; explicit exported names: load_plugins_from_layer_stack.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/loader.rs#L135
+  annotations:
+    qyl:
+      openai:
+        literal_name: load_plugins_from_layer_stack
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - load_plugins_from_layer_stack
+        source_records:
+        - file: core-plugins/src/loader.rs
+          line: 135
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.load_with_cli_overrides.internal
+  kind: internal
+  name:
+    templates:
+    - load_with_cli_overrides
+  requirement_level: recommended
+  stability: development
+  brief: load with cli overrides.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_with_cli_overrides; explicit exported names: load_with_cli_overrides.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/config_manager.rs#L450
+  annotations:
+    qyl:
+      openai:
+        literal_name: load_with_cli_overrides
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - load_with_cli_overrides
+        source_records:
+        - file: app-server/src/config_manager.rs
+          line: 450
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.plugin.metadata.load.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.plugin.metadata.load
+  requirement_level: recommended
+  stability: development
+  brief: mcp plugin metadata load.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.plugin.metadata.load; explicit exported names: mcp.plugin.metadata.load.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/mcp/src/plugin.rs#L93
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.plugin.metadata.load
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.plugin.metadata.load
+        source_records:
+        - file: ext/mcp/src/plugin.rs
+          line: 93
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.plugin.servers.load.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.plugin.servers.load
+  requirement_level: recommended
+  stability: development
+  brief: mcp plugin servers load.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.plugin.servers.load; explicit exported names: mcp.plugin.servers.load.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/mcp/src/plugin/provider.rs#L52
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.plugin.servers.load
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.plugin.servers.load
+        source_records:
+        - file: ext/mcp/src/plugin/provider.rs
+          line: 52
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.runtime.refresh.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.runtime.refresh
+  requirement_level: recommended
+  stability: development
+  brief: mcp runtime refresh.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh; explicit exported names: mcp.runtime.refresh.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp_runtime.rs#L283
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.runtime.refresh
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.runtime.refresh
+        source_records:
+        - file: core/src/session/mcp_runtime.rs
+          line: 283
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.runtime.refresh_if_dirty.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.runtime.refresh_if_dirty
+  requirement_level: recommended
+  stability: development
+  brief: mcp runtime refresh if dirty.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh_if_dirty; explicit exported names: mcp.runtime.refresh_if_dirty.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp.rs#L193
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.runtime.refresh_if_dirty
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.runtime.refresh_if_dirty
+        source_records:
+        - file: core/src/session/mcp.rs
+          line: 193
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.runtime.refresh_wait.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.runtime.refresh_wait
+  requirement_level: recommended
+  stability: development
+  brief: mcp runtime refresh wait.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh_wait; explicit exported names: mcp.runtime.refresh_wait.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp_refresh.rs#L34
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.runtime.refresh_wait
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.runtime.refresh_wait
+        source_records:
+        - file: core/src/session/mcp_refresh.rs
+          line: 34
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.mcp.runtime_config.project_for_step.internal
+  kind: internal
+  name:
+    templates:
+    - mcp.runtime_config.project_for_step
+  requirement_level: recommended
+  stability: development
+  brief: mcp runtime config project for step.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime_config.project_for_step; explicit exported names: mcp.runtime_config.project_for_step.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/mcp.rs#L159
+  annotations:
+    qyl:
+      openai:
+        literal_name: mcp.runtime_config.project_for_step
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - mcp.runtime_config.project_for_step
+        source_records:
+        - file: core/src/mcp.rs
+          line: 159
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.paste_image_as_png.internal
+  kind: internal
+  name:
+    templates:
+    - paste_image_as_png
+  requirement_level: recommended
+  stability: development
+  brief: paste image as png.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is paste_image_as_png; explicit exported names: paste_image_as_png.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/clipboard_paste.rs#L56
+  annotations:
+    qyl:
+      openai:
+        literal_name: paste_image_as_png
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - paste_image_as_png
+        source_records:
+        - file: tui/src/clipboard_paste.rs
+          line: 56
+          fields: {}
+          macro: tracing::debug_span
+        test_only: false
+- type: openai_codex.plugins.executor.package.resolve.internal
+  kind: internal
+  name:
+    templates:
+    - plugins.executor.package.resolve
+  requirement_level: recommended
+  stability: development
+  brief: plugins executor package resolve.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is plugins.executor.package.resolve; explicit exported names: plugins.executor.package.resolve.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/executor_provider.rs#L182
+  annotations:
+    qyl:
+      openai:
+        literal_name: plugins.executor.package.resolve
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - plugins.executor.package.resolve
+        source_records:
+        - file: core-plugins/src/executor_provider.rs
+          line: 182
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.prepare_call_for_tool.internal
+  kind: internal
+  name:
+    templates:
+    - prepare_call_for_tool
+  requirement_level: recommended
+  stability: development
+  brief: prepare call for tool.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is prepare_call_for_tool; explicit exported names: prepare_call_for_tool.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/tool_catalog.rs#L540
+  annotations:
+    qyl:
+      openai:
+        literal_name: prepare_call_for_tool
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - prepare_call_for_tool
+        source_records:
+        - file: codex-mcp/src/connection_manager/tool_catalog.rs
+          line: 540
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.prepare_tool_recommendations.internal
+  kind: internal
+  name:
+    templates:
+    - prepare_tool_recommendations
+  requirement_level: recommended
+  stability: development
+  brief: prepare tool recommendations.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is prepare_tool_recommendations; explicit exported names: prepare_tool_recommendations.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1844
+  annotations:
+    qyl:
+      openai:
+        literal_name: prepare_tool_recommendations
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - prepare_tool_recommendations
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 1844
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.read_plugin_detail_for_marketplace_plugin.internal
+  kind: internal
+  name:
+    templates:
+    - read_plugin_detail_for_marketplace_plugin
+  requirement_level: recommended
+  stability: development
+  brief: read plugin detail for marketplace plugin.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is read_plugin_detail_for_marketplace_plugin; explicit exported names: read_plugin_detail_for_marketplace_plugin.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/manager.rs#L2621
+  annotations:
+    qyl:
+      openai:
+        literal_name: read_plugin_detail_for_marketplace_plugin
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - read_plugin_detail_for_marketplace_plugin
+        source_records:
+        - file: core-plugins/src/manager.rs
+          line: 2621
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.realtime_conversation.running_state.internal
+  kind: internal
+  name:
+    templates:
+    - realtime_conversation.running_state
+  requirement_level: recommended
+  stability: development
+  brief: realtime conversation running state.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is realtime_conversation.running_state; explicit exported names: realtime_conversation.running_state.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/realtime_conversation.rs#L577
+  annotations:
+    qyl:
+      openai:
+        literal_name: realtime_conversation.running_state
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - realtime_conversation.running_state
+        source_records:
+        - file: core/src/realtime_conversation.rs
+          line: 577
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.receiving.internal
+  kind: internal
+  name:
+    templates:
+    - receiving
+  requirement_level: recommended
+  stability: development
+  brief: receiving.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is receiving; explicit exported names: receiving.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2732
+  annotations:
+    qyl:
+      openai:
+        literal_name: receiving
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - receiving
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 2732
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.receiving_stream.internal
+  kind: internal
+  name:
+    templates:
+    - receiving_stream
+  requirement_level: recommended
+  stability: development
+  brief: receiving stream.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is receiving_stream; explicit exported names: receiving_stream.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2713
+  annotations:
+    qyl:
+      openai:
+        literal_name: receiving_stream
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - receiving_stream
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 2713
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.recommended_plugin_candidates_for_config.internal
+  kind: internal
+  name:
+    templates:
+    - recommended_plugin_candidates_for_config
+  requirement_level: recommended
+  stability: development
+  brief: recommended plugin candidates for config.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is recommended_plugin_candidates_for_config; explicit exported names: recommended_plugin_candidates_for_config.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/manager.rs#L1996
+  annotations:
+    qyl:
+      openai:
+        literal_name: recommended_plugin_candidates_for_config
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - recommended_plugin_candidates_for_config
+        source_records:
+        - file: core-plugins/src/manager.rs
+          line: 1996
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.record_context_updates_and_set_reference_context_item.internal
+  kind: internal
+  name:
+    templates:
+    - record_context_updates_and_set_reference_context_item
+  requirement_level: recommended
+  stability: development
+  brief: record context updates and set reference context item.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is record_context_updates_and_set_reference_context_item; explicit exported names: record_context_updates_and_set_reference_context_item.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L4852
+  annotations:
+    qyl:
+      openai:
+        literal_name: record_context_updates_and_set_reference_context_item
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - record_context_updates_and_set_reference_context_item
+        source_records:
+        - file: core/src/session/mod.rs
+          line: 4852
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.regular_task.prepare_run_turn.internal
+  kind: internal
+  name:
+    templates:
+    - regular_task.prepare_run_turn
+  requirement_level: recommended
+  stability: development
+  brief: regular task prepare run turn.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is regular_task.prepare_run_turn; explicit exported names: regular_task.prepare_run_turn.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/regular.rs#L82
+  annotations:
+    qyl:
+      openai:
+        literal_name: regular_task.prepare_run_turn
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - regular_task.prepare_run_turn
+        source_records:
+        - file: core/src/tasks/regular.rs
+          line: 82
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.resolve.internal
+  kind: internal
+  name:
+    templates:
+    - resolve
+  requirement_level: recommended
+  stability: development
+  brief: resolve.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resolve; explicit exported names: resolve.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/attachment-store/src/lib.rs#L176
+  annotations:
+    qyl:
+      openai:
+        literal_name: resolve
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - resolve
+        source_records:
+        - file: attachment-store/src/lib.rs
+          line: 176
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.resume_running_thread.internal
+  kind: internal
+  name:
+    templates:
+    - resume_running_thread
+  requirement_level: recommended
+  stability: development
+  brief: resume running thread.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_running_thread; explicit exported names: resume_running_thread.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L4498
+  annotations:
+    qyl:
+      openai:
+        literal_name: resume_running_thread
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - resume_running_thread
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 4498
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.resume_thread_from_history.internal
+  kind: internal
+  name:
+    templates:
+    - resume_thread_from_history
+  requirement_level: recommended
+  stability: development
+  brief: resume thread from history.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_thread_from_history; explicit exported names: resume_thread_from_history.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L4788
+  annotations:
+    qyl:
+      openai:
+        literal_name: resume_thread_from_history
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - resume_thread_from_history
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 4788
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.resume_thread_with_history.internal
+  kind: internal
+  name:
+    templates:
+    - resume_thread_with_history
+  requirement_level: recommended
+  stability: development
+  brief: resume thread with history.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_thread_with_history; explicit exported names: resume_thread_with_history.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/thread_manager.rs#L1314
+  annotations:
+    qyl:
+      openai:
+        literal_name: resume_thread_with_history
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - resume_thread_with_history
+        source_records:
+        - file: core/src/thread_manager.rs
+          line: 1314
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_hooks_and_record_inputs.internal
+  kind: internal
+  name:
+    templates:
+    - run_hooks_and_record_inputs
+  requirement_level: recommended
+  stability: development
+  brief: run hooks and record inputs.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_hooks_and_record_inputs; explicit exported names: run_hooks_and_record_inputs.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L932
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_hooks_and_record_inputs
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_hooks_and_record_inputs
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 932
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_legacy_after_agent_hook.internal
+  kind: internal
+  name:
+    templates:
+    - run_legacy_after_agent_hook
+  requirement_level: recommended
+  stability: development
+  brief: run legacy after agent hook.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_legacy_after_agent_hook; explicit exported names: run_legacy_after_agent_hook.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/hook_runtime.rs#L608
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_legacy_after_agent_hook
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_legacy_after_agent_hook
+        source_records:
+        - file: core/src/hook_runtime.rs
+          line: 608
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_pending_session_start_hooks.internal
+  kind: internal
+  name:
+    templates:
+    - run_pending_session_start_hooks
+  requirement_level: recommended
+  stability: development
+  brief: run pending session start hooks.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_pending_session_start_hooks; explicit exported names: run_pending_session_start_hooks.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/hook_runtime.rs#L127
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_pending_session_start_hooks
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_pending_session_start_hooks
+        source_records:
+        - file: core/src/hook_runtime.rs
+          line: 127
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_pre_sampling_compact.internal
+  kind: internal
+  name:
+    templates:
+    - run_pre_sampling_compact
+  requirement_level: recommended
+  stability: development
+  brief: run pre sampling compact.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_pre_sampling_compact; explicit exported names: run_pre_sampling_compact.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1371
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_pre_sampling_compact
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_pre_sampling_compact
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 1371
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_session_end_hooks.internal
+  kind: internal
+  name:
+    templates:
+    - run_session_end_hooks
+  requirement_level: recommended
+  stability: development
+  brief: run session end hooks.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_session_end_hooks; explicit exported names: run_session_end_hooks.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/hook_runtime.rs#L470
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_session_end_hooks
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_session_end_hooks
+        source_records:
+        - file: core/src/hook_runtime.rs
+          line: 470
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.run_turn.internal
+  kind: internal
+  name:
+    templates:
+    - run_turn
+  requirement_level: recommended
+  stability: development
+  brief: run turn.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn; explicit exported names: run_turn.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/regular.rs#L47
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_turn
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_turn
+        source_records:
+        - file: core/src/tasks/regular.rs
+          line: 47
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.run_turn.collect_post_sampling_state.internal
+  kind: internal
+  name:
+    templates:
+    - run_turn.collect_post_sampling_state
+  requirement_level: recommended
+  stability: development
+  brief: run turn collect post sampling state.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn.collect_post_sampling_state; explicit exported names: run_turn.collect_post_sampling_state.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L602
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_turn.collect_post_sampling_state
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_turn.collect_post_sampling_state
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 602
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.run_turn.prepare_sampling_request_input.internal
+  kind: internal
+  name:
+    templates:
+    - run_turn.prepare_sampling_request_input
+  requirement_level: recommended
+  stability: development
+  brief: run turn prepare sampling request input.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn.prepare_sampling_request_input; explicit exported names: run_turn.prepare_sampling_request_input.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L559
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_turn.prepare_sampling_request_input
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_turn.prepare_sampling_request_input
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 559
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.run_turn_stop_hooks.internal
+  kind: internal
+  name:
+    templates:
+    - run_turn_stop_hooks
+  requirement_level: recommended
+  stability: development
+  brief: run turn stop hooks.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn_stop_hooks; explicit exported names: run_turn_stop_hooks.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/hook_runtime.rs#L391
+  annotations:
+    qyl:
+      openai:
+        literal_name: run_turn_stop_hooks
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - run_turn_stop_hooks
+        source_records:
+        - file: core/src/hook_runtime.rs
+          line: 391
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.session.flush_rollout.internal
+  kind: internal
+  name:
+    templates:
+    - session.flush_rollout
+  requirement_level: recommended
+  stability: development
+  brief: session flush rollout.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session.flush_rollout; explicit exported names: session.flush_rollout.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L1513
+  annotations:
+    qyl:
+      openai:
+        literal_name: session.flush_rollout
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session.flush_rollout
+        source_records:
+        - file: core/src/session/mod.rs
+          line: 1513
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.session_init.internal
+  kind: internal
+  name:
+    templates:
+    - session_init
+  requirement_level: recommended
+  stability: development
+  brief: session init.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init; explicit exported names: session_init.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L774
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_init
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_init
+        source_records:
+        - file: core/src/session/session.rs
+          line: 774
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.session_init.auth_mcp.internal
+  kind: internal
+  name:
+    templates:
+    - session_init.auth_mcp
+  requirement_level: recommended
+  stability: development
+  brief: session init auth mcp.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.auth_mcp; explicit exported names: session_init.auth_mcp.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1215
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_init.auth_mcp
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_init.auth_mcp
+        source_records:
+        - file: core/src/session/session.rs
+          line: 1215
+          fields:
+            otel.name: '"session_init.auth_mcp"'
+          macro: info_span
+        test_only: false
+- type: openai_codex.session_init.mcp_manager_init.internal
+  kind: internal
+  name:
+    templates:
+    - session_init.mcp_manager_init
+  requirement_level: recommended
+  stability: development
+  brief: session init mcp manager init.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.mcp_manager_init; explicit exported names: session_init.mcp_manager_init.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp_runtime.rs#L143
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_init.mcp_manager_init
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_init.mcp_manager_init
+        source_records:
+        - file: core/src/session/mcp_runtime.rs
+          line: 143
+          fields:
+            otel.name: '"session_init.mcp_manager_init"'
+          macro: info_span
+        test_only: false
+- type: openai_codex.session_init.plugin_skill_warmup.internal
+  kind: internal
+  name:
+    templates:
+    - session_init.plugin_skill_warmup
+  requirement_level: recommended
+  stability: development
+  brief: session init plugin skill warmup.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.plugin_skill_warmup; explicit exported names: session_init.plugin_skill_warmup.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1490
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_init.plugin_skill_warmup
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_init.plugin_skill_warmup
+        source_records:
+        - file: core/src/session/session.rs
+          line: 1490
+          fields:
+            otel.name: '"session_init.plugin_skill_warmup"'
+          macro: info_span
+        test_only: false
+- type: openai_codex.session_init.thread_name_lookup.internal
+  kind: internal
+  name:
+    templates:
+    - session_init.thread_name_lookup
+  requirement_level: recommended
+  stability: development
+  brief: session init thread name lookup.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.thread_name_lookup; explicit exported names: session_init.thread_name_lookup.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1502
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_init.thread_name_lookup
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_init.thread_name_lookup
+        source_records:
+        - file: core/src/session/session.rs
+          line: 1502
+          fields:
+            otel.name: '"session_init.thread_name_lookup"'
+          macro: info_span
+        test_only: false
+- type: openai_codex.session_task.run.internal
+  kind: internal
+  name:
+    templates:
+    - session_task.run
+  requirement_level: recommended
+  stability: development
+  brief: session task run.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_task.run; explicit exported names: session_task.run.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.rs#L380
+  annotations:
+    qyl:
+      openai:
+        literal_name: session_task.run
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - session_task.run
+        source_records:
+        - file: core/src/tasks/mod.rs
+          line: 380
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.set_previous_turn_settings.internal
+  kind: internal
+  name:
+    templates:
+    - set_previous_turn_settings
+  requirement_level: recommended
+  stability: development
+  brief: set previous turn settings.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is set_previous_turn_settings; explicit exported names: set_previous_turn_settings.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L1955
+  annotations:
+    qyl:
+      openai:
+        literal_name: set_previous_turn_settings
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - set_previous_turn_settings
+        source_records:
+        - file: core/src/session/mod.rs
+          line: 1955
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.skills.cloud.refresh_cloud_catalog.internal
+  kind: internal
+  name:
+    templates:
+    - skills.cloud.refresh_cloud_catalog
+  requirement_level: recommended
+  stability: development
+  brief: skills cloud refresh cloud catalog.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.cloud.refresh_cloud_catalog; explicit exported names: skills.cloud.refresh_cloud_catalog.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/state.rs#L291
+  annotations:
+    qyl:
+      openai:
+        literal_name: skills.cloud.refresh_cloud_catalog
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - skills.cloud.refresh_cloud_catalog
+        source_records:
+        - file: ext/skills/src/state.rs
+          line: 291
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.skills.executor.catalog_root.internal
+  kind: internal
+  name:
+    templates:
+    - skills.executor.catalog_root
+  requirement_level: recommended
+  stability: development
+  brief: skills executor catalog root.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.executor.catalog_root; explicit exported names: skills.executor.catalog_root.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/state.rs#L201
+  annotations:
+    qyl:
+      openai:
+        literal_name: skills.executor.catalog_root
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - skills.executor.catalog_root
+        source_records:
+        - file: ext/skills/src/state.rs
+          line: 201
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.skills_for_config.internal
+  kind: internal
+  name:
+    templates:
+    - skills_for_config
+  requirement_level: recommended
+  stability: development
+  brief: skills for config.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills_for_config; explicit exported names: skills_for_config.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/host_service.rs#L171
+  annotations:
+    qyl:
+      openai:
+        literal_name: skills_for_config
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - skills_for_config
+        source_records:
+        - file: ext/skills/src/host_service.rs
+          line: 171
+          fields:
+            otel.name: '"skills_for_config"'
+          macro: instrument
+        test_only: false
+- type: openai_codex.startup_prewarm.resolve.internal
+  kind: internal
+  name:
+    templates:
+    - startup_prewarm.resolve
+  requirement_level: recommended
+  stability: development
+  brief: startup prewarm resolve.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is startup_prewarm.resolve; explicit exported names: startup_prewarm.resolve.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/startup_prewarm.rs#L83
+  annotations:
+    qyl:
+      openai:
+        literal_name: startup_prewarm.resolve
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - startup_prewarm.resolve
+        source_records:
+        - file: core/src/session/startup_prewarm.rs
+          line: 83
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.step_context.capture.internal
+  kind: internal
+  name:
+    templates:
+    - step_context.capture
+  requirement_level: recommended
+  stability: development
+  brief: step context capture.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is step_context.capture; explicit exported names: step_context.capture.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L3862
+  annotations:
+    qyl:
+      openai:
+        literal_name: step_context.capture
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - step_context.capture
+        source_records:
+        - file: core/src/session/mod.rs
+          line: 3862
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.stored_thread_to_initial_history.internal
+  kind: internal
+  name:
+    templates:
+    - stored_thread_to_initial_history
+  requirement_level: recommended
+  stability: development
+  brief: stored thread to initial history.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is stored_thread_to_initial_history; explicit exported names: stored_thread_to_initial_history.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L4908
+  annotations:
+    qyl:
+      openai:
+        literal_name: stored_thread_to_initial_history
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - stored_thread_to_initial_history
+        source_records:
+        - file: app-server/src/request_processors/thread_processor.rs
+          line: 4908
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.stream_request.internal
+  kind: internal
+  name:
+    templates:
+    - stream_request
+  requirement_level: recommended
+  stability: development
+  brief: stream request.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is stream_request; explicit exported names: stream_request.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2679
+  annotations:
+    qyl:
+      openai:
+        literal_name: stream_request
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - stream_request
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 2679
+          fields: {}
+          macro: trace_span
+        test_only: false
+- type: openai_codex.thread_spawn.internal
+  kind: internal
+  name:
+    templates:
+    - thread_spawn
+  requirement_level: recommended
+  stability: development
+  brief: thread spawn.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is thread_spawn; explicit exported names: thread_spawn.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L577
+  annotations:
+    qyl:
+      openai:
+        literal_name: thread_spawn
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - thread_spawn
+        source_records:
+        - file: core/src/session/mod.rs
+          line: 577
+          fields:
+            otel.name: '"thread_spawn"'
+          macro: info_span
+        test_only: false
+- type: openai_codex.turn_context.make.internal
+  kind: internal
+  name:
+    templates:
+    - turn_context.make
+  requirement_level: recommended
+  stability: development
+  brief: turn context make.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is turn_context.make; explicit exported names: turn_context.make.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn_context.rs#L1012
+  annotations:
+    qyl:
+      openai:
+        literal_name: turn_context.make
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - turn_context.make
+        source_records:
+        - file: core/src/session/turn_context.rs
+          line: 1012
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.turn_diff_display_roots.internal
+  kind: internal
+  name:
+    templates:
+    - turn_diff_display_roots
+  requirement_level: recommended
+  stability: development
+  brief: turn diff display roots.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is turn_diff_display_roots; explicit exported names: turn_diff_display_roots.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L909
+  annotations:
+    qyl:
+      openai:
+        literal_name: turn_diff_display_roots
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - turn_diff_display_roots
+        source_records:
+        - file: core/src/session/turn.rs
+          line: 909
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.upload.internal
+  kind: internal
+  name:
+    templates:
+    - upload
+  requirement_level: recommended
+  stability: development
+  brief: upload.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is upload; explicit exported names: upload.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/attachment-store/src/lib.rs#L167
+  annotations:
+    qyl:
+      openai:
+        literal_name: upload
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - upload
+        source_records:
+        - file: attachment-store/src/lib.rs
+          line: 167
+          fields: {}
+          macro: instrument
+        test_only: false
+- type: openai_codex.world_state.build.internal
+  kind: internal
+  name:
+    templates:
+    - world_state.build
+  requirement_level: recommended
+  stability: development
+  brief: world state build.
+  note: |-
+    Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is world_state.build; explicit exported names: world_state.build.
+
+    Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded status. Do not infer native error status merely because a log or error.message exists. Values declared as field::Empty arrive only if the source later records them; they are unavailable for head sampling before that point. Client peer address/port, where not recorded by the producer, remain unavailable rather than fabricated.
+
+    https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/world_state.rs#L58
+  annotations:
+    qyl:
+      openai:
+        literal_name: world_state.build
+        record_kind: native_span
+        dynamic_name: false
+        exported_names:
+        - world_state.build
+        source_records:
+        - file: core/src/session/world_state.rs
+          line: 58
+          fields: {}
+          macro: instrument
+        test_only: false

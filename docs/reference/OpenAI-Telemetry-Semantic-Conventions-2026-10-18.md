@@ -38,7 +38,7 @@ One logical operation tracked across its observed lifecycle.
 | Stability | development |
 | Signal collection | recommended |
 | name | `qyl.agent.operation` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 The operation identifier is stable across delivery retries. Parent and turn attributes describe relationships;
@@ -128,7 +128,7 @@ A conversation within the namespace of its originating product.
 | Stability | development |
 | Signal collection | recommended |
 | name | `qyl.agent.session` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Product plus conversation ID identify this entity. Adapters MUST additionally scope tenant-local IDs
@@ -238,7 +238,7 @@ One identified turn within a conversation.
 | Stability | development |
 | Signal collection | recommended |
 | name | `qyl.agent.turn` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 The identifying tuple is immutable. Do not create this entity when a source has no turn identifier; retain the available session association instead.
@@ -309,7 +309,7 @@ A source-established change in one operation's lifecycle state.
 | Stability | development |
 | Signal collection | recommended |
 | name | `qyl.agent.operation.state_changed` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Emit after deduplication. Preserve source time and original record identity when available. Correlate by
@@ -317,8 +317,6 @@ explicit operation, turn, tool-call or trace identities; never by proximity alon
 observations must not silently rewind a terminal operation. Record uncertainty instead of guessing.
 This development adapter contract does not claim that OpenAI or Anthropic emits this qyl event natively.
 
-
-Entity associations (the outer list is an implicit `one_of`): `["qyl.agent.operation"]`.
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
 | --- | --- | --- | --- | --- | --- |
@@ -442,7 +440,7 @@ Operations with a deduplicated terminal observation.
 | metric_name | `qyl.agent.operation.completed` |
 | instrument | `counter` |
 | unit | `{operation}` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Increment once for completed, failed or cancelled operations. Separate terminal outcomes using state; this counter is not a count of successful operations alone. Never increment again for redelivery.
@@ -519,7 +517,7 @@ Duration of completed observed agent operations.
 | metric_name | `qyl.agent.operation.duration` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Record once per deduplicated completed operation with a known duration. Convert native milliseconds to
@@ -599,7 +597,7 @@ Number of currently tracked operations in each lifecycle state.
 | metric_name | `qyl.agent.operation.status` |
 | instrument | `updowncounter` |
 | unit | `1` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Each tracked operation contributes 1 to its current state and 0 to every other member of the closed state
@@ -678,7 +676,7 @@ Cross-producer agent identity, lifecycle and source attribution.
 | --- | --- |
 | Kind | `attribute_group` |
 | Stability | Defined per attribute |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
@@ -817,7 +815,7 @@ One observed agent operation, with explicitly established start and end boundari
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 Start when the source establishes that this operation begins; end on its matching terminal observation.
@@ -829,8 +827,6 @@ approval is not automatically an error. Leave successful status Unset. Do not pu
 Product, operation category and established identity are available at start; state, duration and error facts
 become available at completion and cannot be assumed present for head sampling.
 
-
-Entity associations (the outer list is an implicit `one_of`): `["qyl.agent.operation"]`.
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
 | --- | --- | --- | --- | --- | --- |
@@ -18351,7 +18347,7 @@ Records inter-agent send/receive bookkeeping; detailed internal diagnostic, not 
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.agent_communication` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -18523,7 +18519,7 @@ Exports an opted-in live final answer from the main agent or an eligible spawned
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.agent_response` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -18834,7 +18830,7 @@ Records one model/API request attempt and its HTTP/authentication diagnostics.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.api_request` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log; Detailed log + trace-safe event; Trace-safe event.
@@ -19571,7 +19567,7 @@ Reports reloading the app-server telemetry configuration.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.app_server.otel_reloaded` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -19617,7 +19613,7 @@ Warns that a thread shutdown exceeded an expected wait.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.app_server.thread_shutdown_slow` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -19685,7 +19681,7 @@ Records an authentication recovery step and its outcome.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.auth_recovery` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -20074,7 +20070,7 @@ Records the Code Mode host portion of tool execution in nanoseconds for attribut
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.code_mode.host_timing` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -20237,7 +20233,7 @@ Records a nested tool dispatch abandoned, cancelled, or closed before normal com
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.code_mode.nested_tool_dispatch_interrupted` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -20360,7 +20356,7 @@ Marks dispatch of a nested Code Mode tool call.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.code_mode.nested_tool_dispatched` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -20531,7 +20527,7 @@ Records startup model, context, permissions and authentication-environment metad
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.conversation_starts` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -20986,7 +20982,7 @@ Records process exit code and whether termination was requested.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.process_exit` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -21277,7 +21273,7 @@ Records inability to spawn an executor process.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.process_spawn_failed` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -21568,7 +21564,7 @@ Records executor process start with the launch correlation retained for its life
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.process_start` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -21859,7 +21855,7 @@ Marks placement of an executor RPC into its request queue.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.request_enqueued` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -21918,7 +21914,7 @@ Marks executor response placement into the outgoing queue.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.response_enqueued` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -22001,7 +21997,7 @@ Records receipt of an executor RPC response and timing information.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.response_received` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -22108,7 +22104,7 @@ Records inferred sandbox denial for an executor process.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.exec_server.sandbox_denied` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -22399,7 +22395,7 @@ Exports an opted-in terminal automatic-review assessment, classifications and bo
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.guardian_assessment` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -22790,7 +22786,7 @@ Records use of a fallback while building a client with custom CA configuration.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.http_client.custom_ca_fallback` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -22838,7 +22834,7 @@ Records a TLS backend fallback.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.http_client.tls_backend_fallback` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -22884,7 +22880,7 @@ Records a scheduling interruption caused by mailbox/input work.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.mailbox_preemption` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -22983,7 +22979,7 @@ Records a failed spawn after validation, with bounded failure classification.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.multi_agent.spawn.failure` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -23329,7 +23325,7 @@ Records the managed proxy decision for a destination/request; a decision does no
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.network_proxy.policy_decision` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log; Local diagnostic target; not automatically an exported OTel log.
@@ -23876,7 +23872,7 @@ Records a blob upload attempt after which no further retry will be made.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_failed` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -24215,7 +24211,7 @@ Records a successful blob upload after earlier failed attempts.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_recovered` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -24530,7 +24526,7 @@ Records a failed blob upload attempt that will be retried.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_retry` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -24869,7 +24865,7 @@ Marks dispatch of a plugin/connector installation prompt.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.plugin_install_elicitation_sent` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -25114,7 +25110,7 @@ Records the outcome of a plugin/connector installation suggestion.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.plugin_install_suggestion` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -25431,7 +25427,7 @@ Records an outgoing client retry and its reason/timing.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.retry` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -25560,7 +25556,7 @@ Records initial and escalated execution outcomes and durations.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.sandbox_outcome` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log; Trace-safe event.
@@ -25865,7 +25861,7 @@ Records detected explicit/implicit skill use, without skill contents or filesyst
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.skill_invocation` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -26148,7 +26144,7 @@ Records streaming-event handling, stream errors and completion usage metadata.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.sse_event` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log; Detailed log + trace-safe event; Trace-safe event.
@@ -26574,7 +26570,7 @@ Records a coarse startup phase, its outcome and duration.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.startup_phase` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -26819,7 +26815,7 @@ Records internal tool-call diagnostics.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.tool_call` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -27058,7 +27054,7 @@ Marks receipt of a tool call before its result is ready.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.tool_call_received` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -27301,7 +27297,7 @@ Records a tool approval/denial and whether the decision came from configuration 
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.tool_decision` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -27605,7 +27601,7 @@ Records tool execution outcome; detailed logs contain arguments/output preview, 
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.tool_result` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -28071,7 +28067,7 @@ Marks availability of a tool result for the caller.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.tool_result_ready` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -28266,7 +28262,7 @@ Records a turn cost estimate, interruption status and execution settings.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.turn_cost` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log.
@@ -28538,7 +28534,7 @@ Records time to first token for a turn.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.turn_ttft` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -28735,7 +28731,7 @@ Marks a unified-execution process-start request before execution is confirmed.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.unified_exec.process_start_requested` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -28834,7 +28830,7 @@ Records prompt length and image counts; raw prompt text is separately controlled
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.user_prompt` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log; Trace-safe event.
@@ -29059,7 +29055,7 @@ Records WebSocket connection setup/reuse and authentication diagnostics.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.websocket_connect` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -29706,7 +29702,7 @@ Records one request carried over WebSocket.
 | Stability | development |
 | Signal collection | recommended |
 | name | `codex.websocket_request` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Detailed log + trace-safe event.
@@ -30105,7 +30101,7 @@ Records diagnostics about the MCP binding/tool catalog.
 | Stability | development |
 | Signal collection | recommended |
 | name | `mcp.binding_catalog` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Trace-safe event.
@@ -30300,7 +30296,7 @@ Records readiness of MCP startup/tool discovery.
 | Stability | development |
 | Signal collection | recommended |
 | name | `mcp.startup_readiness` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Route: Local diagnostic target; not automatically an exported OTel log.
@@ -30506,7 +30502,7 @@ Counts/accumulates agents md edit observations; interpret each dimension using t
 | metric_name | `codex.agents_md.edit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -30565,7 +30561,7 @@ Counts/accumulates api request observations; interpret each dimension using the 
 | metric_name | `codex.api_request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -30664,7 +30660,7 @@ Elapsed-time distribution for api request.
 | metric_name | `codex.api_request.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -30763,7 +30759,7 @@ Distribution of app server codex home size bytes measurements.
 | metric_name | `codex.app_server.codex_home.size_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -30830,7 +30826,7 @@ Counts/accumulates approval requested observations; interpret each dimension usi
 | metric_name | `codex.approval.requested` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -30913,7 +30909,7 @@ Distribution of apps installed connector count measurements.
 | metric_name | `codex.apps.installed.connector_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -30988,7 +30984,7 @@ Elapsed-time distribution for apps installed.
 | metric_name | `codex.apps.installed.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -31129,7 +31125,7 @@ Distribution of apps installed response bytes measurements.
 | metric_name | `codex.apps.installed.response_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -31204,7 +31200,7 @@ Distribution of apps installed tool count measurements.
 | metric_name | `codex.apps.installed.tool_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -31279,7 +31275,7 @@ Elapsed-time distribution for apps read.
 | metric_name | `codex.apps.read.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -31338,7 +31334,7 @@ Elapsed-time distribution for apps refresh.
 | metric_name | `codex.apps.refresh.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -31386,7 +31382,7 @@ Elapsed-time distribution for apps snapshot age ms.
 | metric_name | `codex.apps.snapshot.age_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -31469,7 +31465,7 @@ Distribution of artifact operation expected output count measurements.
 | metric_name | `codex.artifact.operation.expected_output_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -31576,7 +31572,7 @@ Counts/accumulates artifact operation started observations; interpret each dimen
 | metric_name | `codex.artifact.operation.started` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -31683,7 +31679,7 @@ Elapsed-time distribution for auth storage.
 | metric_name | `codex.auth_storage.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -31871,7 +31867,7 @@ Credential-store operation outcomes; uses categories rather than credential cont
 | metric_name | `codex.auth_storage.operation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -32059,7 +32055,7 @@ Credential refresh persistence outcomes.
 | metric_name | `codex.auth_storage.refresh_persist` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -32247,7 +32243,7 @@ Elapsed-time distribution for auth storage refresh persist.
 | metric_name | `codex.auth_storage.refresh_persist.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -32435,7 +32431,7 @@ Elapsed-time distribution for cloud config bundle fetch.
 | metric_name | `codex.cloud_config_bundle.fetch.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -32483,7 +32479,7 @@ Counts/accumulates cloud config bundle fetch attempt observations; interpret eac
 | metric_name | `codex.cloud_config_bundle.fetch_attempt` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -32631,7 +32627,7 @@ Counts/accumulates cloud config bundle fetch final observations; interpret each 
 | metric_name | `codex.cloud_config_bundle.fetch_final` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -32795,7 +32791,7 @@ Counts/accumulates cloud config bundle load observations; interpret each dimensi
 | metric_name | `codex.cloud_config_bundle.load` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -32903,7 +32899,7 @@ Counts/accumulates compaction model fallback observations; interpret each dimens
 | metric_name | `codex.compaction.model_fallback` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33026,7 +33022,7 @@ Thread turn count recorded at thread completion.
 | metric_name | `codex.conversation.turn.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33073,7 +33069,7 @@ Counts/accumulates daemon start observations; interpret each dimension using the
 | metric_name | `codex.daemon.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33156,7 +33152,7 @@ Counts/accumulates daemon update observations; interpret each dimension using th
 | metric_name | `codex.daemon.update` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33258,7 +33254,7 @@ Counts/accumulates db backfill observations; interpret each dimension using the 
 | metric_name | `codex.db.backfill` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33342,7 +33338,7 @@ Elapsed-time distribution for db backfill.
 | metric_name | `codex.db.backfill.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -33389,7 +33385,7 @@ Counts/accumulates db error observations; interpret each dimension using the sou
 | metric_name | `codex.db.error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33464,7 +33460,7 @@ Counts/accumulates external agent config detect observations; interpret each dim
 | metric_name | `codex.external_agent_config.detect` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33532,7 +33528,7 @@ Counts/accumulates external agent config import observations; interpret each dim
 | metric_name | `codex.external_agent_config.import` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33600,7 +33596,7 @@ Records feature settings that differ from defaults, tagged with feature and valu
 | metric_name | `codex.feature.state` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33667,7 +33663,7 @@ Counts/accumulates goal blocked observations; interpret each dimension using the
 | metric_name | `codex.goal.blocked` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33715,7 +33711,7 @@ Counts/accumulates goal budget limited observations; interpret each dimension us
 | metric_name | `codex.goal.budget_limited` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33763,7 +33759,7 @@ Counts/accumulates goal completed observations; interpret each dimension using t
 | metric_name | `codex.goal.completed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33811,7 +33807,7 @@ Counts/accumulates goal created observations; interpret each dimension using the
 | metric_name | `codex.goal.created` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33858,7 +33854,7 @@ Accumulated goal work time in seconds at a recorded terminal condition.
 | metric_name | `codex.goal.duration_s` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33905,7 +33901,7 @@ Counts/accumulates goal resumed observations; interpret each dimension using the
 | metric_name | `codex.goal.resumed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33952,7 +33948,7 @@ Tokens attributed to a goal when its status transitions to a recorded terminal c
 | metric_name | `codex.goal.token_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -33999,7 +33995,7 @@ Counts/accumulates goal usage limited observations; interpret each dimension usi
 | metric_name | `codex.goal.usage_limited` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34047,7 +34043,7 @@ Distribution of guardian context request tokens measurements.
 | metric_name | `codex.guardian.context.request_tokens` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34140,7 +34136,7 @@ Distribution of guardian context section cost measurements.
 | metric_name | `codex.guardian.context.section_cost` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34242,7 +34238,7 @@ Elapsed-time distribution for guardian decision.
 | metric_name | `codex.guardian.decision.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -34289,7 +34285,7 @@ Counts/accumulates guardian denial limit reached observations; interpret each di
 | metric_name | `codex.guardian.denial_limit_reached` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34336,7 +34332,7 @@ Counts/accumulates guardian review observations; interpret each dimension using 
 | metric_name | `codex.guardian.review` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34383,7 +34379,7 @@ Elapsed-time distribution for guardian review.
 | metric_name | `codex.guardian.review.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -34430,7 +34426,7 @@ Distribution of guardian review token usage measurements.
 | metric_name | `codex.guardian.review.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34477,7 +34473,7 @@ Counts/accumulates guardian review truncation observations; interpret each dimen
 | metric_name | `codex.guardian.review.truncation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34560,7 +34556,7 @@ Distribution of guardian review truncation bytes measurements.
 | metric_name | `codex.guardian.review.truncation.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34651,7 +34647,7 @@ Elapsed-time distribution for guardian review ttft.
 | metric_name | `codex.guardian.review.ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -34698,7 +34694,7 @@ Counts/accumulates guardian v2 classification observations; interpret each dimen
 | metric_name | `codex.guardian_v2.classification` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34821,7 +34817,7 @@ Elapsed-time distribution for guardian v2 classification.
 | metric_name | `codex.guardian_v2.classification.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -34944,7 +34940,7 @@ Counts/accumulates guardian v2 classification risk observations; interpret each 
 | metric_name | `codex.guardian_v2.classification.risk` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35019,7 +35015,7 @@ Distribution of guardian v2 classification token usage measurements.
 | metric_name | `codex.guardian_v2.classification.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35078,7 +35074,7 @@ Counts/accumulates guardian v2 classification truncation observations; interpret
 | metric_name | `codex.guardian_v2.classification.truncation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35161,7 +35157,7 @@ Distribution of guardian v2 classification truncation bytes measurements.
 | metric_name | `codex.guardian_v2.classification.truncation.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35252,7 +35248,7 @@ Elapsed-time distribution for guardian v2 connection.
 | metric_name | `codex.guardian_v2.connection.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35375,7 +35371,7 @@ Elapsed-time distribution for guardian v2 connection lease.
 | metric_name | `codex.guardian_v2.connection.lease.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35458,7 +35454,7 @@ Counts/accumulates guardian v2 decisions comparison observations; interpret each
 | metric_name | `codex.guardian_v2.decisions_comparison` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35557,7 +35553,7 @@ Counts/accumulates guardian v2 decisions comparison comparison observations; int
 | metric_name | `codex.guardian_v2.decisions_comparison.comparison` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35643,7 +35639,7 @@ Elapsed-time distribution for guardian v2 decisions comparison.
 | metric_name | `codex.guardian_v2.decisions_comparison.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35742,7 +35738,7 @@ Counts/accumulates guardian v2 decisions comparison setup failure observations; 
 | metric_name | `codex.guardian_v2.decisions_comparison.setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35817,7 +35813,7 @@ Counts/accumulates guardian v2 fast decision observations; interpret each dimens
 | metric_name | `codex.guardian_v2.fast_decision` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35916,7 +35912,7 @@ Counts/accumulates guardian v2 review fallback observations; interpret each dime
 | metric_name | `codex.guardian_v2.review_fallback` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -35975,7 +35971,7 @@ Distribution of guardian v2 tool call lag measurements.
 | metric_name | `codex.guardian_v2.tool_call_lag` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36022,7 +36018,7 @@ Counts/accumulates hooks run observations; interpret each dimension using the so
 | metric_name | `codex.hooks.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36069,7 +36065,7 @@ Elapsed-time distribution for hooks run.
 | metric_name | `codex.hooks.run.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36116,7 +36112,7 @@ Distribution of mcp binding catalog raw definition json bytes measurements.
 | metric_name | `codex.mcp.binding_catalog.raw_definition_json_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36191,7 +36187,7 @@ Counts/accumulates mcp call observations; interpret each dimension using the sou
 | metric_name | `codex.mcp.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36238,7 +36234,7 @@ Elapsed-time distribution for mcp call.
 | metric_name | `codex.mcp.call.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36285,7 +36281,7 @@ MCP error classification counts, separate from the general call outcome.
 | metric_name | `codex.mcp.call.error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36332,7 +36328,7 @@ Counts/accumulates mcp executor discovery observations; interpret each dimension
 | metric_name | `codex.mcp.executor_discovery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36407,7 +36403,7 @@ Counts/accumulates mcp executor discovery server observations; interpret each di
 | metric_name | `codex.mcp.executor_discovery.server` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36506,7 +36502,7 @@ Counts/accumulates mcp protocol discovery observations; interpret each dimension
 | metric_name | `codex.mcp.protocol_discovery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -36629,7 +36625,7 @@ Elapsed-time distribution for mcp protocol discovery.
 | metric_name | `codex.mcp.protocol_discovery.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36760,7 +36756,7 @@ Elapsed-time distribution for mcp tools cache publish.
 | metric_name | `codex.mcp.tools.cache_publish.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36808,7 +36804,7 @@ Elapsed-time distribution for mcp tools cache write.
 | metric_name | `codex.mcp.tools.cache_write.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36856,7 +36852,7 @@ Elapsed-time distribution for mcp tools fetch uncached.
 | metric_name | `codex.mcp.tools.fetch_uncached.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36904,7 +36900,7 @@ Elapsed-time distribution for mcp tools list.
 | metric_name | `codex.mcp.tools.list.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -36964,7 +36960,7 @@ Counts/accumulates memories tool call observations; interpret each dimension usi
 | metric_name | `codex.memories.tool.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37119,7 +37115,7 @@ Counts/accumulates memories usage observations; interpret each dimension using t
 | metric_name | `codex.memories.usage` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37250,7 +37246,7 @@ Counts/accumulates memory phase1 observations; interpret each dimension using th
 | metric_name | `codex.memory.phase1` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37325,7 +37321,7 @@ Elapsed-time distribution for memory phase1.
 | metric_name | `codex.memory.phase1.e2e_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -37372,7 +37368,7 @@ Counts/accumulates memory phase1 output observations; interpret each dimension u
 | metric_name | `codex.memory.phase1.output` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37432,7 +37428,7 @@ Distribution of memory phase1 token usage measurements.
 | metric_name | `codex.memory.phase1.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37500,7 +37496,7 @@ Counts/accumulates memory phase2 observations; interpret each dimension using th
 | metric_name | `codex.memory.phase2` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37611,7 +37607,7 @@ Elapsed-time distribution for memory phase2.
 | metric_name | `codex.memory.phase2.e2e_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -37658,7 +37654,7 @@ Counts/accumulates memory phase2 input observations; interpret each dimension us
 | metric_name | `codex.memory.phase2.input` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37705,7 +37701,7 @@ Distribution of memory phase2 token usage measurements.
 | metric_name | `codex.memory.phase2.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37809,7 +37805,7 @@ Counts/accumulates memory startup observations; interpret each dimension using t
 | metric_name | `codex.memory.startup` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37884,7 +37880,7 @@ Distribution of memory storage bytes measurements.
 | metric_name | `codex.memory.storage_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37931,7 +37927,7 @@ Counts/accumulates multi agent nickname pool reset observations; interpret each 
 | metric_name | `codex.multi_agent.nickname_pool_reset` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -37978,7 +37974,7 @@ Counts/accumulates multi agent result delivery observations; interpret each dime
 | metric_name | `codex.multi_agent.result_delivery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38053,7 +38049,7 @@ Counts/accumulates multi agent resume observations; interpret each dimension usi
 | metric_name | `codex.multi_agent.resume` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38100,7 +38096,7 @@ Counts/accumulates multi agent spawn observations; interpret each dimension usin
 | metric_name | `codex.multi_agent.spawn` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38193,7 +38189,7 @@ Counts/accumulates multi agent spawn failure observations; interpret each dimens
 | metric_name | `codex.multi_agent.spawn.failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38316,7 +38312,7 @@ Elapsed-time distribution for multi agent spawn phase.
 | metric_name | `codex.multi_agent.spawn.phase.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -38399,7 +38395,7 @@ Elapsed-time distribution for multi agent wait.
 | metric_name | `codex.multi_agent.wait.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -38474,7 +38470,7 @@ Counts/accumulates plugins install elicitation sent observations; interpret each
 | metric_name | `codex.plugins.install_elicitation.sent` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38533,7 +38529,7 @@ Counts/accumulates plugins install suggestion observations; interpret each dimen
 | metric_name | `codex.plugins.install_suggestion` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38624,7 +38620,7 @@ Counts/accumulates plugins loaded cache event observations; interpret each dimen
 | metric_name | `codex.plugins.loaded_cache.event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38683,7 +38679,7 @@ Elapsed-time distribution for plugins loaded cache load.
 | metric_name | `codex.plugins.loaded_cache.load.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -38730,7 +38726,7 @@ Counts/accumulates plugins loaded cache request observations; interpret each dim
 | metric_name | `codex.plugins.loaded_cache.request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38805,7 +38801,7 @@ Elapsed-time distribution for plugins loaded cache wait.
 | metric_name | `codex.plugins.loaded_cache.wait.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -38852,7 +38848,7 @@ Counts/accumulates plugins startup sync observations; interpret each dimension u
 | metric_name | `codex.plugins.startup_sync` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -38936,7 +38932,7 @@ Counts/accumulates plugins startup sync final observations; interpret each dimen
 | metric_name | `codex.plugins.startup_sync.final` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39020,7 +39016,7 @@ Counts/accumulates process start observations; interpret each dimension using th
 | metric_name | `codex.process.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39067,7 +39063,7 @@ Elapsed-time distribution for remote models fetch update.
 | metric_name | `codex.remote_models.fetch_update.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39115,7 +39111,7 @@ Elapsed-time distribution for remote models load cache.
 | metric_name | `codex.remote_models.load_cache.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39163,7 +39159,7 @@ Elapsed-time distribution for responses api engine iapi tbt.
 | metric_name | `codex.responses_api_engine_iapi_tbt.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39210,7 +39206,7 @@ Elapsed-time distribution for responses api engine iapi ttft.
 | metric_name | `codex.responses_api_engine_iapi_ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39257,7 +39253,7 @@ Elapsed-time distribution for responses api engine service tbt.
 | metric_name | `codex.responses_api_engine_service_tbt.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39304,7 +39300,7 @@ Elapsed-time distribution for responses api engine service ttft.
 | metric_name | `codex.responses_api_engine_service_ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39351,7 +39347,7 @@ Elapsed-time distribution for responses api inference time.
 | metric_name | `codex.responses_api_inference_time.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39398,7 +39394,7 @@ Elapsed-time distribution for responses api overhead.
 | metric_name | `codex.responses_api_overhead.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -39445,7 +39441,7 @@ Counts/accumulates rollout persistence append observations; interpret each dimen
 | metric_name | `codex.rollout.persistence.append` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39538,7 +39534,7 @@ Distribution of rollout persistence bytes removed measurements.
 | metric_name | `codex.rollout.persistence.bytes_removed` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39637,7 +39633,7 @@ Distribution of rollout persistence item bytes v2 measurements.
 | metric_name | `codex.rollout.persistence.item_bytes_v2` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39760,7 +39756,7 @@ Counts/accumulates rollout persistence measurement error observations; interpret
 | metric_name | `codex.rollout.persistence.measurement_error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39863,7 +39859,7 @@ Distribution of rollout persistence turn bytes v2 measurements.
 | metric_name | `codex.rollout.persistence.turn_bytes_v2` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -39978,7 +39974,7 @@ Distribution of rollout size bytes measurements.
 | metric_name | `codex.rollout.size_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40025,7 +40021,7 @@ Counts/accumulates rollout compression file observations; interpret each dimensi
 | metric_name | `codex.rollout_compression.file` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40124,7 +40120,7 @@ Distribution of rollout compression file compressed bytes measurements.
 | metric_name | `codex.rollout_compression.file.compressed_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40223,7 +40219,7 @@ Compressed bytes divided by source bytes, multiplied by 10,000 (basis points); z
 | metric_name | `codex.rollout_compression.file.compression_ratio` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40322,7 +40318,7 @@ Elapsed-time distribution for rollout compression file.
 | metric_name | `codex.rollout_compression.file.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -40422,7 +40418,7 @@ Distribution of rollout compression file source bytes measurements.
 | metric_name | `codex.rollout_compression.file.source_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40521,7 +40517,7 @@ Counts/accumulates rollout compression materialize observations; interpret each 
 | metric_name | `codex.rollout_compression.materialize` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40596,7 +40592,7 @@ Elapsed-time distribution for rollout compression materialize.
 | metric_name | `codex.rollout_compression.materialize.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -40672,7 +40668,7 @@ Counts/accumulates rollout compression read observations; interpret each dimensi
 | metric_name | `codex.rollout_compression.read` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -40835,7 +40831,7 @@ Elapsed-time distribution for rollout compression read io.
 | metric_name | `codex.rollout_compression.read.io_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -41006,7 +41002,7 @@ Counts/accumulates rollout compression run observations; interpret each dimensio
 | metric_name | `codex.rollout_compression.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41147,7 +41143,7 @@ Elapsed-time distribution for rollout compression run.
 | metric_name | `codex.rollout_compression.run.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -41247,7 +41243,7 @@ Counts/accumulates rollout compression scan observations; interpret each dimensi
 | metric_name | `codex.rollout_compression.scan` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41418,7 +41414,7 @@ Counts/accumulates rollout compression temp cleanup observations; interpret each
 | metric_name | `codex.rollout_compression.temp_cleanup` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41517,7 +41513,7 @@ Counts/accumulates rollout migration run observations; interpret each dimension 
 | metric_name | `codex.rollout_migration.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41728,7 +41724,7 @@ Elapsed-time distribution for rollout migration run.
 | metric_name | `codex.rollout_migration.run.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41859,7 +41855,7 @@ Distribution of rollout migration run io bytes measurements.
 | metric_name | `codex.rollout_migration.run.io_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -41990,7 +41986,7 @@ Counts/accumulates rollout migration thread observations; interpret each dimensi
 | metric_name | `codex.rollout_migration.thread` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -42145,7 +42141,7 @@ Counts/accumulates sandbox integrity check observations; interpret each dimensio
 | metric_name | `codex.sandbox_integrity.check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -42284,7 +42280,7 @@ Elapsed-time distribution for sandbox integrity.
 | metric_name | `codex.sandbox_integrity.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -42331,7 +42327,7 @@ Elapsed-time distribution for sandbox integrity preparation ms.
 | metric_name | `codex.sandbox_integrity.preparation_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -42406,7 +42402,7 @@ Counts/accumulates shell snapshot observations; interpret each dimension using t
 | metric_name | `codex.shell_snapshot` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -42544,7 +42540,7 @@ Counts/accumulates shell snapshot command observations; interpret each dimension
 | metric_name | `codex.shell_snapshot.command` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -42669,7 +42665,7 @@ Elapsed-time distribution for shell snapshot.
 | metric_name | `codex.shell_snapshot.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -42801,7 +42797,7 @@ Elapsed-time distribution for shell snapshot.
 | metric_name | `codex.shell_snapshot.wait_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -42935,7 +42931,7 @@ Counts/accumulates skill injected observations; interpret each dimension using t
 | metric_name | `codex.skill.injected` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43126,7 +43122,7 @@ Elapsed-time distribution for skill turn.
 | metric_name | `codex.skill.turn.duration_seconds` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43257,7 +43253,7 @@ Counts/accumulates skills shadow selection observations; interpret each dimensio
 | metric_name | `codex.skills.shadow_selection` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43468,7 +43464,7 @@ Distribution of skills shadow selection catalog entries measurements.
 | metric_name | `codex.skills.shadow_selection.catalog_entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43591,7 +43587,7 @@ Elapsed-time distribution for skills shadow selection.
 | metric_name | `codex.skills.shadow_selection.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -43714,7 +43710,7 @@ Counts/accumulates skills shadow selection invocation observations; interpret ea
 | metric_name | `codex.skills.shadow_selection.invocation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43829,7 +43825,7 @@ Distribution of skills shadow selection query terms measurements.
 | metric_name | `codex.skills.shadow_selection.query_terms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -43952,7 +43948,7 @@ Distribution of skills shadow selection reduction bps measurements.
 | metric_name | `codex.skills.shadow_selection.reduction_bps` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44075,7 +44071,7 @@ Distribution of skills shadow selection selected entries measurements.
 | metric_name | `codex.skills.shadow_selection.selected_entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44198,7 +44194,7 @@ Counts/accumulates sqlite corruption count observations; interpret each dimensio
 | metric_name | `codex.sqlite.corruption.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44258,7 +44254,7 @@ Counts/accumulates sqlite fallback count observations; interpret each dimension 
 | metric_name | `codex.sqlite.fallback.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44358,7 +44354,7 @@ Counts/accumulates sqlite init count observations; interpret each dimension usin
 | metric_name | `codex.sqlite.init.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44490,7 +44486,7 @@ Elapsed-time distribution for sqlite init.
 | metric_name | `codex.sqlite.init.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -44622,7 +44618,7 @@ Counts/accumulates sqlite logs queue dropped observations; interpret each dimens
 | metric_name | `codex.sqlite.logs.queue.dropped` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44698,7 +44694,7 @@ Distribution of sqlite logs write bytes measurements.
 | metric_name | `codex.sqlite.logs.write.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44797,7 +44793,7 @@ Counts/accumulates sqlite logs write count observations; interpret each dimensio
 | metric_name | `codex.sqlite.logs.write.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -44896,7 +44892,7 @@ Elapsed-time distribution for sqlite logs write.
 | metric_name | `codex.sqlite.logs.write.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -44995,7 +44991,7 @@ Distribution of sqlite logs write entries measurements.
 | metric_name | `codex.sqlite.logs.write.entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -45094,7 +45090,7 @@ Distribution of sqlite logs write max entry bytes measurements.
 | metric_name | `codex.sqlite.logs.write.max_entry_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -45193,7 +45189,7 @@ Counts/accumulates sqlite reclamation count observations; interpret each dimensi
 | metric_name | `codex.sqlite.reclamation.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -45300,7 +45296,7 @@ Elapsed-time distribution for sqlite reclamation.
 | metric_name | `codex.sqlite.reclamation.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -45415,7 +45411,7 @@ Distribution of sqlite reclamation pages measurements.
 | metric_name | `codex.sqlite.reclamation.pages` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -45538,7 +45534,7 @@ Counts/accumulates sse event observations; interpret each dimension using the so
 | metric_name | `codex.sse_event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -45647,7 +45643,7 @@ Elapsed-time distribution for sse event.
 | metric_name | `codex.sse_event.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -45756,7 +45752,7 @@ Elapsed-time distribution for startup phase.
 | metric_name | `codex.startup.phase.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -45855,7 +45851,7 @@ Age of prewarm work when the first actual turn resolves it.
 | metric_name | `codex.startup_prewarm.age_at_first_turn_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -45948,7 +45944,7 @@ Elapsed-time distribution for startup prewarm.
 | metric_name | `codex.startup_prewarm.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -46059,7 +46055,7 @@ Counts/accumulates startup prewarm websocket check observations; interpret each 
 | metric_name | `codex.startup_prewarm.websocket_check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46152,7 +46148,7 @@ Counts/accumulates status line observations; interpret each dimension using the 
 | metric_name | `codex.status_line` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46199,7 +46195,7 @@ Counts/accumulates task compact observations; interpret each dimension using the
 | metric_name | `codex.task.compact` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46266,7 +46262,7 @@ Counts/accumulates task review observations; interpret each dimension using the 
 | metric_name | `codex.task.review` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46313,7 +46309,7 @@ Counts/accumulates task user shell observations; interpret each dimension using 
 | metric_name | `codex.task.user_shell` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46360,7 +46356,7 @@ Counts/accumulates thread fork observations; interpret each dimension using the 
 | metric_name | `codex.thread.fork` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46444,7 +46440,7 @@ Counts/accumulates thread rename observations; interpret each dimension using th
 | metric_name | `codex.thread.rename` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46498,7 +46494,7 @@ Distribution of skill-description characters removed by the rendering budget.
 | metric_name | `codex.thread.skills.description_truncated_chars` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46558,7 +46554,7 @@ Distribution of enabled skills considered for catalog rendering.
 | metric_name | `codex.thread.skills.enabled_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46618,7 +46614,7 @@ Distribution of skills retained in rendered catalogs.
 | metric_name | `codex.thread.skills.kept_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46678,7 +46674,7 @@ Records 1 when the rendered skill list omitted entries, otherwise 0.
 | metric_name | `codex.thread.skills.truncated` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46738,7 +46734,7 @@ Counts/accumulates thread started observations; interpret each dimension using t
 | metric_name | `codex.thread.started` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46803,7 +46799,7 @@ Rendered tool-catalog fragment size; snapshot/delta is distinguished by tags.
 | metric_name | `codex.thread.tools.fragment_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -46902,7 +46898,7 @@ Count of namespaces in rendered tool catalogs.
 | metric_name | `codex.thread.tools.namespaces_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47001,7 +46997,7 @@ Counts/accumulates thread history sqlite projection observations; interpret each
 | metric_name | `codex.thread_history.sqlite_projection` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47076,7 +47072,7 @@ Counts/accumulates thread history sqlite projection anomaly observations; interp
 | metric_name | `codex.thread_history.sqlite_projection.anomaly` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47151,7 +47147,7 @@ Counts/accumulates tool call observations; interpret each dimension using the so
 | metric_name | `codex.tool.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47274,7 +47270,7 @@ Elapsed-time distribution for tool call.
 | metric_name | `codex.tool.call.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -47397,7 +47393,7 @@ Counts/accumulates tool unified exec observations; interpret each dimension usin
 | metric_name | `codex.tool.unified_exec` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47456,7 +47452,7 @@ Distribution of tool metadata shed bytes measurements.
 | metric_name | `codex.tool_metadata.shed_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47531,7 +47527,7 @@ Counts incremental tool-catalog changes; initial snapshots are excluded.
 | metric_name | `codex.tools.incremental_updates` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47606,7 +47602,7 @@ Distribution of finalized tool registrations, grouped by exposure and tool mode.
 | metric_name | `codex.tools.registered` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47673,7 +47669,7 @@ Counts/accumulates transport fallback to http observations; interpret each dimen
 | metric_name | `codex.transport.fallback_to_http` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47732,7 +47728,7 @@ Counts/accumulates tui fullscreen transcript observations; interpret each dimens
 | metric_name | `codex.tui.fullscreen_transcript` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47807,7 +47803,7 @@ Counts/accumulates tui start observations; interpret each dimension using the so
 | metric_name | `codex.tui.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -47854,7 +47850,7 @@ Adds the estimated turn cost in millionths of USD; contains turn/conversation co
 | metric_name | `codex.turn.cost_microusd` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48009,7 +48005,7 @@ Elapsed end-to-end turn time.
 | metric_name | `codex.turn.e2e_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -48056,7 +48052,7 @@ Counts/accumulates turn memory observations; interpret each dimension using the 
 | metric_name | `codex.turn.memory` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48139,7 +48135,7 @@ Counts/accumulates turn network proxy observations; interpret each dimension usi
 | metric_name | `codex.turn.network_proxy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48198,7 +48194,7 @@ Distribution of per-turn usage by token_type; not a cumulative billing counter.
 | metric_name | `codex.turn.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48257,7 +48253,7 @@ Distribution of how many tools were called during a turn.
 | metric_name | `codex.turn.tool.call` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48304,7 +48300,7 @@ Time to the first model output item, which need not be a visible text token.
 | metric_name | `codex.turn.ttfm.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -48351,7 +48347,7 @@ Time to the first token in a turn.
 | metric_name | `codex.turn.ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -48398,7 +48394,7 @@ Counts/accumulates turn unified exec running processes observations; interpret e
 | metric_name | `codex.turn.unified_exec.running_processes` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48445,7 +48441,7 @@ Counts/accumulates unified exec stdin review size check observations; interpret 
 | metric_name | `codex.unified_exec.stdin_review.size_check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48528,7 +48524,7 @@ Counts/accumulates voice session connected observations; interpret each dimensio
 | metric_name | `codex.voice.session.connected` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48575,7 +48571,7 @@ Elapsed-time distribution for voice session.
 | metric_name | `codex.voice.session.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -48650,7 +48646,7 @@ Counts/accumulates voice session ended observations; interpret each dimension us
 | metric_name | `codex.voice.session.ended` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48697,7 +48693,7 @@ Counts/accumulates voice session failure observations; interpret each dimension 
 | metric_name | `codex.voice.session.failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48796,7 +48792,7 @@ Counts/accumulates voice session start observations; interpret each dimension us
 | metric_name | `codex.voice.session.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48843,7 +48839,7 @@ Distribution of web search results payload bytes measurements.
 | metric_name | `codex.web_search.results.payload_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -48890,7 +48886,7 @@ Counts/accumulates websocket continuation observations; interpret each dimension
 | metric_name | `codex.websocket.continuation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49037,7 +49033,7 @@ Counts/accumulates websocket event observations; interpret each dimension using 
 | metric_name | `codex.websocket.event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49136,7 +49132,7 @@ Elapsed-time distribution for websocket event.
 | metric_name | `codex.websocket.event.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -49235,7 +49231,7 @@ Counts/accumulates websocket request observations; interpret each dimension usin
 | metric_name | `codex.websocket.request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49310,7 +49306,7 @@ Elapsed-time distribution for websocket request.
 | metric_name | `codex.websocket.request.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -49385,7 +49381,7 @@ Counts/accumulates windows mxc available observations; interpret each dimension 
 | metric_name | `codex.windows_mxc.available` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49444,7 +49440,7 @@ Counts/accumulates windows sandbox createprocessasuserw failed observations; int
 | metric_name | `codex.windows_sandbox.createprocessasuserw_failed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49543,7 +49539,7 @@ Counts/accumulates windows sandbox elevated prompt accept observations; interpre
 | metric_name | `codex.windows_sandbox.elevated_prompt_accept` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49590,7 +49586,7 @@ Counts/accumulates windows sandbox elevated prompt quit observations; interpret 
 | metric_name | `codex.windows_sandbox.elevated_prompt_quit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49637,7 +49633,7 @@ Counts/accumulates windows sandbox elevated prompt shown observations; interpret
 | metric_name | `codex.windows_sandbox.elevated_prompt_shown` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49684,7 +49680,7 @@ Counts/accumulates windows sandbox elevated prompt use legacy observations; inte
 | metric_name | `codex.windows_sandbox.elevated_prompt_use_legacy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49731,7 +49727,7 @@ Counts/accumulates windows sandbox elevated setup canceled observations; interpr
 | metric_name | `codex.windows_sandbox.elevated_setup_canceled` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -49833,7 +49829,7 @@ Elapsed-time distribution for windows sandbox elevated setup.
 | metric_name | `codex.windows_sandbox.elevated_setup_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -49917,7 +49913,7 @@ Counts/accumulates windows sandbox elevated setup failure observations; interpre
 | metric_name | `codex.windows_sandbox.elevated_setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50019,7 +50015,7 @@ Counts/accumulates windows sandbox fallback prompt quit observations; interpret 
 | metric_name | `codex.windows_sandbox.fallback_prompt_quit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50066,7 +50062,7 @@ Counts/accumulates windows sandbox fallback prompt shown observations; interpret
 | metric_name | `codex.windows_sandbox.fallback_prompt_shown` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50113,7 +50109,7 @@ Counts/accumulates windows sandbox fallback retry elevated observations; interpr
 | metric_name | `codex.windows_sandbox.fallback_retry_elevated` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50160,7 +50156,7 @@ Counts/accumulates windows sandbox fallback use legacy observations; interpret e
 | metric_name | `codex.windows_sandbox.fallback_use_legacy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50207,7 +50203,7 @@ Counts/accumulates windows sandbox legacy setup preflight failed observations; i
 | metric_name | `codex.windows_sandbox.legacy_setup_preflight_failed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50282,7 +50278,7 @@ Counts/accumulates windows sandbox runner result observations; interpret each di
 | metric_name | `codex.windows_sandbox.runner_result` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50389,7 +50385,7 @@ Counts/accumulates windows sandbox service stopped observations; interpret each 
 | metric_name | `codex.windows_sandbox.service_stopped` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50472,7 +50468,7 @@ Elapsed-time distribution for windows sandbox setup.
 | metric_name | `codex.windows_sandbox.setup_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit ms.
@@ -50606,7 +50602,7 @@ Counts/accumulates windows sandbox setup elevated sandbox command observations; 
 | metric_name | `codex.windows_sandbox.setup_elevated_sandbox_command` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50653,7 +50649,7 @@ Counts/accumulates windows sandbox setup failure observations; interpret each di
 | metric_name | `codex.windows_sandbox.setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50752,7 +50748,7 @@ Counts/accumulates windows sandbox setup success observations; interpret each di
 | metric_name | `codex.windows_sandbox.setup_success` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50851,7 +50847,7 @@ Counts/accumulates windows sandbox wfp setup failure observations; interpret eac
 | metric_name | `codex.windows_sandbox.wfp_setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50928,7 +50924,7 @@ Counts/accumulates windows sandbox wfp setup success observations; interpret eac
 | metric_name | `codex.windows_sandbox.wfp_setup_success` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -50995,7 +50991,7 @@ Counts/accumulates windows system config namespace squatting probe observations;
 | metric_name | `codex.windows_system_config.namespace_squatting_probe` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51070,7 +51066,7 @@ Caller-side executor RPC attempts, including admission and transport failures.
 | metric_name | `exec_server_client_requests_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51146,7 +51142,7 @@ Current connections active.
 | metric_name | `exec_server_connections_active` |
 | instrument | `gauge` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51206,7 +51202,7 @@ Counts/accumulates exec server connections total observations; interpret each di
 | metric_name | `exec_server_connections_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51265,7 +51261,7 @@ Elapsed-time distribution for exec server process.
 | metric_name | `exec_server_process_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -51340,7 +51336,7 @@ Current processes active.
 | metric_name | `exec_server_processes_active` |
 | instrument | `gauge` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51388,7 +51384,7 @@ Counts/accumulates exec server processes finished total observations; interpret 
 | metric_name | `exec_server_processes_finished_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51463,7 +51459,7 @@ Counts/accumulates exec server remote reconnects total observations; interpret e
 | metric_name | `exec_server_remote_reconnects_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51538,7 +51534,7 @@ Elapsed-time distribution for exec server remote registration.
 | metric_name | `exec_server_remote_registration_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -51614,7 +51610,7 @@ Counts/accumulates exec server remote registration total observations; interpret
 | metric_name | `exec_server_remote_registration_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51690,7 +51686,7 @@ Elapsed-time distribution for exec server remote rendezvous connect.
 | metric_name | `exec_server_remote_rendezvous_connect_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -51766,7 +51762,7 @@ Counts/accumulates exec server remote rendezvous connect total observations; int
 | metric_name | `exec_server_remote_rendezvous_connect_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -51842,7 +51838,7 @@ Elapsed-time distribution for exec server request.
 | metric_name | `exec_server_request_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -51941,7 +51937,7 @@ Elapsed-time distribution for exec server request queue.
 | metric_name | `exec_server_request_queue_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -52016,7 +52012,7 @@ Elapsed-time distribution for exec server request total.
 | metric_name | `exec_server_request_total_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native OTLP instrument declares unit s.
@@ -52115,7 +52111,7 @@ Counts/accumulates exec server requests total observations; interpret each dimen
 | metric_name | `exec_server_requests_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 The native instrument omits OTLP unit metadata. The empty unit is intentional; a unit inferred from the name must not be presented as an emitted unit.
@@ -52214,9 +52210,10 @@ add collaboration tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.add_collaboration_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_collaboration_tools; explicit exported names: add_collaboration_tools.
 
@@ -52260,9 +52257,10 @@ add core tool sources.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.add_core_tool_sources.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_core_tool_sources; explicit exported names: add_core_tool_sources.
 
@@ -52306,9 +52304,10 @@ add core utility tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.add_core_utility_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_core_utility_tools; explicit exported names: add_core_utility_tools.
 
@@ -52352,9 +52351,10 @@ add mcp resource tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.add_mcp_resource_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_mcp_resource_tools; explicit exported names: add_mcp_resource_tools.
 
@@ -52398,9 +52398,10 @@ add shell tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.add_shell_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is add_shell_tools; explicit exported names: add_shell_tools.
 
@@ -52444,9 +52445,10 @@ agents md discover.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.agents_md.discover.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is agents_md.discover; explicit exported names: agents_md.discover.
 
@@ -52491,7 +52493,7 @@ agents md load.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is agents_md.load; explicit exported names: agents_md.load.
@@ -52564,9 +52566,10 @@ agents md refresh.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.agents_md.refresh.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is agents_md.refresh; explicit exported names: agents_md.refresh.
 
@@ -52611,7 +52614,7 @@ app server request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `server` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -52783,7 +52786,7 @@ app server serialized request queue.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.serialized_request_queue; explicit exported names: app_server.serialized_request_queue.
@@ -52857,7 +52860,7 @@ app server thread start attach listener.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.attach_listener; explicit exported names: app_server.thread_start.attach_listener.
@@ -52931,9 +52934,10 @@ app server thread start config snapshot.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.app_server.thread_start.config_snapshot.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.config_snapshot; explicit exported names: app_server.thread_start.config_snapshot.
 
@@ -52980,7 +52984,7 @@ app server thread start create thread.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.create_thread; explicit exported names: app_server.thread_start.create_thread.
@@ -53054,9 +53058,10 @@ app server thread start notify started.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.app_server.thread_start.notify_started.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.notify_started; explicit exported names: app_server.thread_start.notify_started.
 
@@ -53102,9 +53107,10 @@ app server thread start resolve status.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.app_server.thread_start.resolve_status.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.resolve_status; explicit exported names: app_server.thread_start.resolve_status.
 
@@ -53150,9 +53156,10 @@ app server thread start send response.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.app_server.thread_start.send_response.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.send_response; explicit exported names: app_server.thread_start.send_response.
 
@@ -53198,9 +53205,10 @@ app server thread start upsert thread.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.app_server.thread_start.upsert_thread.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is app_server.thread_start.upsert_thread; explicit exported names: app_server.thread_start.upsert_thread.
 
@@ -53247,7 +53255,7 @@ Development/test-client operation: app server test client command.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -53321,7 +53329,7 @@ Development/test-client operation: app server test client request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -53405,7 +53413,7 @@ append dynamic tool runtimes.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_dynamic_tool_runtimes; explicit exported names: append_dynamic_tool_runtimes.
@@ -53461,7 +53469,7 @@ append items.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_items; explicit exported names: append_items.
@@ -53525,9 +53533,10 @@ append mcp tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.append_mcp_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_mcp_tools; explicit exported names: append_mcp_tools.
 
@@ -53571,9 +53580,10 @@ append source tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.append_source_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_source_tools; explicit exported names: append_source_tools.
 
@@ -53617,9 +53627,10 @@ append tool search executor.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.append_tool_search_executor.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is append_tool_search_executor; explicit exported names: append_tool_search_executor.
 
@@ -53664,7 +53675,7 @@ apply rollout reconstruction.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is apply_rollout_reconstruction; explicit exported names: apply_rollout_reconstruction.
@@ -53743,9 +53754,10 @@ auth.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.auth.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is auth; explicit exported names: auth.
 
@@ -53789,9 +53801,10 @@ build core tool registry.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_core_tool_registry.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_core_tool_registry; explicit exported names: build_core_tool_registry.
 
@@ -53836,7 +53849,7 @@ build extension turn input items.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_extension_turn_input_items; explicit exported names: build_extension_turn_input_items.
@@ -53891,9 +53904,10 @@ build model visible specs.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_model_visible_specs.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_model_visible_specs; explicit exported names: build_model_visible_specs.
 
@@ -53937,9 +53951,10 @@ build prompt.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_prompt.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_prompt; explicit exported names: build_prompt.
 
@@ -53983,9 +53998,10 @@ build skill outcome.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_skill_outcome.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_skill_outcome; explicit exported names: build_skill_outcome.
 
@@ -54029,9 +54045,10 @@ build skills and plugins.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_skills_and_plugins.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_skills_and_plugins; explicit exported names: build_skills_and_plugins.
 
@@ -54075,9 +54092,10 @@ build tool call.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_tool_call.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_tool_call; explicit exported names: build_tool_call.
 
@@ -54121,9 +54139,10 @@ build tool router.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.build_tool_router.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is build_tool_router; explicit exported names: build_tool_router.
 
@@ -54168,7 +54187,7 @@ built tools.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is built_tools; explicit exported names: built_tools.
@@ -54289,9 +54308,10 @@ built tools load discoverable tools.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.built_tools.load_discoverable_tools.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is built_tools.load_discoverable_tools; explicit exported names: built_tools.load_discoverable_tools.
 
@@ -54335,9 +54355,10 @@ cached directory connectors for tool suggest with auth.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.cached_directory_connectors_for_tool_suggest_with_auth.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is cached_directory_connectors_for_tool_suggest_with_auth; explicit exported names: cached_directory_connectors_for_tool_suggest_with_auth.
 
@@ -54382,7 +54403,7 @@ capability roots discover v1.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capability_roots.discover_v1; explicit exported names: capability_roots.discover_v1.
@@ -54447,7 +54468,7 @@ capability roots discovery cache resolve.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capability_roots.discovery_cache.resolve; explicit exported names: capability_roots.discovery_cache.resolve.
@@ -54502,9 +54523,10 @@ capability roots resolve.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.capability_roots.resolve.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capability_roots.resolve; explicit exported names: capability_roots.resolve.
 
@@ -54549,7 +54571,7 @@ capability roots snapshot for step.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capability_roots.snapshot_for_step; explicit exported names: capability_roots.snapshot_for_step.
@@ -54604,9 +54626,10 @@ capture binding with metadata.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.capture_binding_with_metadata.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is capture_binding_with_metadata; explicit exported names: capture_binding_with_metadata.
 
@@ -54651,7 +54674,7 @@ code mode broker invoke tool.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.broker.invoke_tool; explicit exported names: code_mode.broker.invoke_tool.
@@ -54821,7 +54844,7 @@ code mode grpc callback.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.callback; explicit exported names: code_mode.grpc.callback.
@@ -54936,7 +54959,7 @@ code mode grpc execute.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.execute; explicit exported names: code_mode.grpc.execute.
@@ -55034,9 +55057,10 @@ code mode grpc open binding.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.code_mode.grpc.open_binding.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.open_binding; explicit exported names: code_mode.grpc.open_binding.
 
@@ -55080,9 +55104,10 @@ code mode grpc open session.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.code_mode.grpc.open_session.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.open_session; explicit exported names: code_mode.grpc.open_session.
 
@@ -55127,7 +55152,7 @@ code mode grpc subscribe to tool calls.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.grpc.subscribe_to_tool_calls; explicit exported names: code_mode.grpc.subscribe_to_tool_calls.
@@ -55185,7 +55210,7 @@ code mode handler execute.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.handler.execute; explicit exported names: code_mode.handler.execute.
@@ -55347,7 +55372,7 @@ code mode handler wait.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.handler.wait; explicit exported names: code_mode.handler.wait.
@@ -55509,7 +55534,7 @@ code mode runtime invoke tool.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode.runtime.invoke_tool; explicit exported names: code_mode.runtime.invoke_tool.
@@ -55655,7 +55680,7 @@ code mode host grpc close session.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.grpc.close_session; explicit exported names: code_mode_host.grpc.close_session.
@@ -55714,7 +55739,7 @@ code mode host grpc execute.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.grpc.execute; explicit exported names: code_mode_host.grpc.execute.
@@ -55820,9 +55845,10 @@ code mode host grpc open session.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.code_mode_host.grpc.open_session.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.grpc.open_session; explicit exported names: code_mode_host.grpc.open_session.
 
@@ -55867,7 +55893,7 @@ code mode host grpc wait.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.grpc.wait; explicit exported names: code_mode_host.grpc.wait.
@@ -55958,7 +55984,7 @@ code mode host request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.request; explicit exported names: code_mode_host.request.
@@ -56040,9 +56066,10 @@ code mode host run main.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.code_mode_host.run_main.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.run_main; explicit exported names: code_mode_host.run_main.
 
@@ -56088,9 +56115,10 @@ code mode host startup.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.code_mode_host.startup.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is code_mode_host.startup; explicit exported names: code_mode_host.startup.
 
@@ -56137,7 +56165,7 @@ codex compaction.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.compaction; explicit exported names: codex.compaction.
@@ -56254,7 +56282,7 @@ codex exec.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec; explicit exported names: codex.exec.
@@ -56339,7 +56367,7 @@ codex exec server http request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.http_request; explicit exported names: codex.exec_server.http_request.
@@ -56467,9 +56495,10 @@ codex exec server.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server; explicit exported names: codex.exec_server.
 
@@ -56516,7 +56545,7 @@ codex exec server process.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.process; explicit exported names: codex.exec_server.process.
@@ -56614,7 +56643,7 @@ codex exec server process capture shell snapshot.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.process_capture_shell_snapshot; explicit exported names: codex.exec_server.process_capture_shell_snapshot.
@@ -56688,7 +56717,7 @@ codex exec server process prepare sandbox.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.process_prepare_sandbox; explicit exported names: codex.exec_server.process_prepare_sandbox.
@@ -56762,7 +56791,7 @@ codex exec server process prepare shell snapshot.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.process_prepare_shell_snapshot; explicit exported names: codex.exec_server.process_prepare_shell_snapshot.
@@ -56842,7 +56871,7 @@ codex exec server process start.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.process_start; explicit exported names: codex.exec_server.process_start.
@@ -56915,9 +56944,10 @@ codex exec server remote connect.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.remote.connect.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.connect; explicit exported names: codex.exec_server.remote.connect.
 
@@ -56962,7 +56992,7 @@ codex exec server remote environment registry connect.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.environment_registry.connect; explicit exported names: codex.exec_server.remote.environment_registry.connect.
@@ -57038,7 +57068,7 @@ codex exec server remote environment registry validate harness key.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.environment_registry.validate_harness_key; explicit exported names: codex.exec_server.remote.environment_registry.validate_harness_key.
@@ -57121,9 +57151,10 @@ codex exec server remote harness connect.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.remote.harness.connect.client` |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.harness.connect; explicit exported names: codex.exec_server.remote.harness.connect.
 
@@ -57170,9 +57201,10 @@ codex exec server remote initialize rpc.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.remote.initialize_rpc.client` |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.initialize_rpc; explicit exported names: codex.exec_server.remote.initialize_rpc.
 
@@ -57219,9 +57251,10 @@ codex exec server remote noise connect.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.remote.noise.connect.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.noise.connect; explicit exported names: codex.exec_server.remote.noise.connect.
 
@@ -57265,9 +57298,10 @@ codex exec server remote noise handshake.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.exec_server.remote.noise.handshake.client` |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.noise.handshake; explicit exported names: codex.exec_server.remote.noise.handshake.
 
@@ -57315,7 +57349,7 @@ codex exec server remote noise websocket connect.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.noise.websocket_connect; explicit exported names: codex.exec_server.remote.noise.websocket_connect.
@@ -57399,7 +57433,7 @@ codex exec server remote register.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.register; explicit exported names: codex.exec_server.remote.register.
@@ -57478,7 +57512,7 @@ codex exec server remote rendezvous connect.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.exec_server.remote.rendezvous.connect; explicit exported names: codex.exec_server.remote.rendezvous.connect.
@@ -57554,7 +57588,7 @@ codex exec server request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -57652,7 +57686,7 @@ codex exec server request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `server` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source span starts with the exported name unknown. The request dispatcher later records the actual method into otel.name, so no fixed exported-name contract is generated.
@@ -57786,7 +57820,7 @@ codex hooks command.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.hooks.command; explicit exported names: codex.hooks.command.
@@ -58020,7 +58054,7 @@ codex hooks mcp tool.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.hooks.mcp_tool; explicit exported names: codex.hooks.mcp_tool.
@@ -58141,9 +58175,10 @@ codex process spawn.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.codex.process.spawn.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.process.spawn; explicit exported names: codex.process.spawn.
 
@@ -58188,7 +58223,7 @@ codex sampling.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.sampling; explicit exported names: codex.sampling.
@@ -58294,7 +58329,7 @@ codex tool blocking.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.tool_blocking; explicit exported names: codex.tool_blocking.
@@ -58400,7 +58435,7 @@ codex turn input.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is codex.turn_input; explicit exported names: codex.turn_input.
@@ -58483,7 +58518,7 @@ collect explicit skill mentions.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is collect_explicit_skill_mentions; explicit exported names: collect_explicit_skill_mentions.
@@ -58544,9 +58579,10 @@ connectors plugin declarations load.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.connectors.plugin.declarations.load.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is connectors.plugin.declarations.load; explicit exported names: connectors.plugin.declarations.load.
 
@@ -58591,7 +58627,7 @@ decide request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is decide_request; explicit exported names: decide_request.
@@ -58665,7 +58701,7 @@ dispatch tool call with code mode result.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -58800,9 +58836,10 @@ dispatch tool call with state.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.dispatch_tool_call_with_state.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is dispatch_tool_call_with_state; explicit exported names: dispatch_tool_call_with_state.
 
@@ -58846,9 +58883,10 @@ drain in flight.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.drain_in_flight.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is drain_in_flight; explicit exported names: drain_in_flight.
 
@@ -58893,7 +58931,7 @@ encode image.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is encode_image; explicit exported names: encode_image.
@@ -58959,7 +58997,7 @@ endpoint session execute with.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is endpoint_session.execute_with; explicit exported names: endpoint_session.execute_with.
@@ -59043,7 +59081,7 @@ endpoint session stream encoded json with.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is endpoint_session.stream_encoded_json_with; explicit exported names: endpoint_session.stream_encoded_json_with.
@@ -59127,7 +59165,7 @@ environments resolve.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is environments.resolve; explicit exported names: environments.resolve.
@@ -59231,7 +59269,7 @@ environments snapshot.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is environments.snapshot; explicit exported names: environments.snapshot.
@@ -59311,7 +59349,7 @@ environments wait until ready.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is environments.wait_until_ready; explicit exported names: environments.wait_until_ready.
@@ -59385,7 +59423,7 @@ exec server environment force info.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is exec_server.environment.force_info; explicit exported names: exec_server.environment.force_info.
@@ -59459,7 +59497,7 @@ exec server environment info.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is exec_server.environment.info; explicit exported names: exec_server.environment.info.
@@ -59533,7 +59571,7 @@ exec server environment refresh connection.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is exec_server.environment.refresh_connection; explicit exported names: exec_server.environment.refresh_connection.
@@ -59607,7 +59645,7 @@ exec server environment wait until ready.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is exec_server.environment.wait_until_ready; explicit exported names: exec_server.environment.wait_until_ready.
@@ -59680,9 +59718,10 @@ extension tool executors.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.extension_tool_executors.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is extension_tool_executors; explicit exported names: extension_tool_executors.
 
@@ -59726,9 +59765,10 @@ fetch recommended plugin install metadata.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.fetch_recommended_plugin_install_metadata.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fetch_recommended_plugin_install_metadata; explicit exported names: fetch_recommended_plugin_install_metadata.
 
@@ -59772,9 +59812,10 @@ fetch recommended plugins.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.fetch_recommended_plugins.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fetch_recommended_plugins; explicit exported names: fetch_recommended_plugins.
 
@@ -59818,9 +59859,10 @@ finalize tool router.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.finalize_tool_router.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is finalize_tool_router; explicit exported names: finalize_tool_router.
 
@@ -59865,7 +59907,7 @@ fs get metadata.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.get_metadata; explicit exported names: fs.get_metadata.
@@ -59939,7 +59981,7 @@ fs read file.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.read_file; explicit exported names: fs.read_file.
@@ -60012,9 +60054,10 @@ fs sandbox execute.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.fs.sandbox_execute.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.sandbox_execute; explicit exported names: fs.sandbox_execute.
 
@@ -60059,7 +60102,7 @@ fs sandbox prepare.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.sandbox_prepare; explicit exported names: fs.sandbox_prepare.
@@ -60124,9 +60167,10 @@ fs sandbox request.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.fs.sandbox_request.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is fs.sandbox_request; explicit exported names: fs.sandbox_request.
 
@@ -60171,7 +60215,7 @@ get default model.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_default_model; explicit exported names: get_default_model.
@@ -60269,9 +60313,10 @@ get image.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.get_image.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_image; explicit exported names: get_image.
 
@@ -60316,7 +60361,7 @@ get model info.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_model_info; explicit exported names: get_model_info.
@@ -60398,9 +60443,10 @@ get or build.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.get_or_build.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is get_or_build; explicit exported names: get_or_build.
 
@@ -60445,7 +60491,7 @@ guardian background scoring.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is guardian_background_scoring; explicit exported names: guardian_background_scoring.
@@ -60621,7 +60667,7 @@ guardian review.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is guardian_review; explicit exported names: guardian_review.
@@ -60743,7 +60789,7 @@ guardian scoring observation.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is guardian_scoring_observation; explicit exported names: guardian_scoring_observation.
@@ -60904,9 +60950,10 @@ handle output item done.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.handle_output_item_done.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_output_item_done; explicit exported names: handle_output_item_done.
 
@@ -60951,7 +60998,7 @@ handle responses.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -61143,9 +61190,10 @@ handle tool call.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.handle_tool_call.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_tool_call; explicit exported names: handle_tool_call.
 
@@ -61189,9 +61237,10 @@ handle tool call with source.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.handle_tool_call_with_source.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is handle_tool_call_with_source; explicit exported names: handle_tool_call_with_source.
 
@@ -61235,9 +61284,10 @@ hosted model tool specs.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.hosted_model_tool_specs.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is hosted_model_tool_specs; explicit exported names: hosted_model_tool_specs.
 
@@ -61281,9 +61331,10 @@ initialize.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.initialize.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is initialize; explicit exported names: initialize.
 
@@ -61328,7 +61379,7 @@ instructions load.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is instructions.load; explicit exported names: instructions.load.
@@ -61402,7 +61453,7 @@ list models.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_models; explicit exported names: list_models.
@@ -61459,9 +61510,10 @@ list skills.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.list_skills.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_skills; explicit exported names: list_skills.
 
@@ -61505,9 +61557,10 @@ list tool suggest discoverable plugins.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.list_tool_suggest_discoverable_plugins.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tool_suggest_discoverable_plugins; explicit exported names: list_tool_suggest_discoverable_plugins.
 
@@ -61551,9 +61604,10 @@ list tool suggest discoverable tools with auth.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.list_tool_suggest_discoverable_tools_with_auth.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tool_suggest_discoverable_tools_with_auth; explicit exported names: list_tool_suggest_discoverable_tools_with_auth.
 
@@ -61598,7 +61652,7 @@ list tools for client uncached.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tools_for_client_uncached; explicit exported names: list_tools_for_client_uncached.
@@ -61672,7 +61726,7 @@ list tools for server.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tools_for_server; explicit exported names: list_tools_for_server.
@@ -61793,9 +61847,10 @@ list tools with connector ids.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.list_tools_with_connector_ids.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tools_with_connector_ids; explicit exported names: list_tools_with_connector_ids.
 
@@ -61840,7 +61895,7 @@ list tools with errors.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is list_tools_with_errors; explicit exported names: list_tools_with_errors.
@@ -61913,9 +61968,10 @@ load.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.load.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load; explicit exported names: load.
 
@@ -61959,9 +62015,10 @@ load cached codex apps server info.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.load_cached_codex_apps_server_info.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_cached_codex_apps_server_info; explicit exported names: load_cached_codex_apps_server_info.
 
@@ -62005,9 +62062,10 @@ load cached connector runtime for identity.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.load_cached_connector_runtime_for_identity.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_cached_connector_runtime_for_identity; explicit exported names: load_cached_connector_runtime_for_identity.
 
@@ -62051,9 +62109,10 @@ load plugins from layer stack.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.load_plugins_from_layer_stack.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_plugins_from_layer_stack; explicit exported names: load_plugins_from_layer_stack.
 
@@ -62098,7 +62157,7 @@ load skill prompts.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_skill_prompts; explicit exported names: load_skill_prompts.
@@ -62153,9 +62212,10 @@ load with cli overrides.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.load_with_cli_overrides.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is load_with_cli_overrides; explicit exported names: load_with_cli_overrides.
 
@@ -62200,7 +62260,7 @@ make rmcp client.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is make_rmcp_client; explicit exported names: make_rmcp_client.
@@ -62274,7 +62334,7 @@ mcp http request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.http.request; explicit exported names: mcp.http.request.
@@ -62347,9 +62407,10 @@ mcp plugin metadata load.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.plugin.metadata.load.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.plugin.metadata.load; explicit exported names: mcp.plugin.metadata.load.
 
@@ -62393,9 +62454,10 @@ mcp plugin servers load.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.plugin.servers.load.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.plugin.servers.load; explicit exported names: mcp.plugin.servers.load.
 
@@ -62439,9 +62501,10 @@ mcp runtime refresh.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.runtime.refresh.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh; explicit exported names: mcp.runtime.refresh.
 
@@ -62485,9 +62548,10 @@ mcp runtime refresh if dirty.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.runtime.refresh_if_dirty.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh_if_dirty; explicit exported names: mcp.runtime.refresh_if_dirty.
 
@@ -62531,9 +62595,10 @@ mcp runtime refresh wait.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.runtime.refresh_wait.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.refresh_wait; explicit exported names: mcp.runtime.refresh_wait.
 
@@ -62578,7 +62643,7 @@ mcp runtime resolve for step.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime.resolve_for_step; explicit exported names: mcp.runtime.resolve_for_step.
@@ -62651,9 +62716,10 @@ mcp runtime config project for step.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.mcp.runtime_config.project_for_step.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.runtime_config.project_for_step; explicit exported names: mcp.runtime_config.project_for_step.
 
@@ -62698,7 +62764,7 @@ mcp tools call.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `client` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is mcp.tools.call; explicit exported names: mcp.tools.call.
@@ -63105,7 +63171,7 @@ merge connector selection.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is merge_connector_selection; explicit exported names: merge_connector_selection.
@@ -63161,7 +63227,7 @@ merge into namespaces.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is merge_into_namespaces; explicit exported names: merge_into_namespaces.
@@ -63217,7 +63283,7 @@ model client stream responses api.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is model_client.stream_responses_api; explicit exported names: model_client.stream_responses_api.
@@ -63357,7 +63423,7 @@ model client stream responses websocket.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is model_client.stream_responses_websocket; explicit exported names: model_client.stream_responses_websocket.
@@ -63511,7 +63577,7 @@ model client websocket connection.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is model_client.websocket_connection; explicit exported names: model_client.websocket_connection.
@@ -63649,7 +63715,7 @@ new.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is new; explicit exported names: new.
@@ -63737,7 +63803,7 @@ noise relay stream.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is noise_relay.stream; explicit exported names: noise_relay.stream.
@@ -63794,9 +63860,10 @@ paste image as png.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.paste_image_as_png.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is paste_image_as_png; explicit exported names: paste_image_as_png.
 
@@ -63841,7 +63908,7 @@ persist rollout items.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is persist_rollout_items; explicit exported names: persist_rollout_items.
@@ -63897,7 +63964,7 @@ plugin reconcile.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is plugin_reconcile; explicit exported names: plugin_reconcile.
@@ -63970,9 +64037,10 @@ plugins executor package resolve.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.plugins.executor.package.resolve.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is plugins.executor.package.resolve; explicit exported names: plugins.executor.package.resolve.
 
@@ -64017,7 +64085,7 @@ plugins for config.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is plugins_for_config; explicit exported names: plugins_for_config.
@@ -64091,9 +64159,10 @@ prepare call for tool.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.prepare_call_for_tool.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is prepare_call_for_tool; explicit exported names: prepare_call_for_tool.
 
@@ -64137,9 +64206,10 @@ prepare tool recommendations.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.prepare_tool_recommendations.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is prepare_tool_recommendations; explicit exported names: prepare_tool_recommendations.
 
@@ -64184,7 +64254,7 @@ read main prompt.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is read_main_prompt; explicit exported names: read_main_prompt.
@@ -64257,9 +64327,10 @@ read plugin detail for marketplace plugin.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.read_plugin_detail_for_marketplace_plugin.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is read_plugin_detail_for_marketplace_plugin; explicit exported names: read_plugin_detail_for_marketplace_plugin.
 
@@ -64304,7 +64375,7 @@ realtime call create.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is realtime_call.create; explicit exported names: realtime_call.create.
@@ -64387,9 +64458,10 @@ realtime conversation running state.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.realtime_conversation.running_state.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is realtime_conversation.running_state; explicit exported names: realtime_conversation.running_state.
 
@@ -64433,9 +64505,10 @@ receiving.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.receiving.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is receiving; explicit exported names: receiving.
 
@@ -64479,9 +64552,10 @@ receiving stream.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.receiving_stream.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is receiving_stream; explicit exported names: receiving_stream.
 
@@ -64525,9 +64599,10 @@ recommended plugin candidates for config.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.recommended_plugin_candidates_for_config.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is recommended_plugin_candidates_for_config; explicit exported names: recommended_plugin_candidates_for_config.
 
@@ -64572,7 +64647,7 @@ recommended plugins mode for config.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is recommended_plugins_mode_for_config; explicit exported names: recommended_plugins_mode_for_config.
@@ -64669,9 +64744,10 @@ record context updates and set reference context item.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.record_context_updates_and_set_reference_context_item.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is record_context_updates_and_set_reference_context_item; explicit exported names: record_context_updates_and_set_reference_context_item.
 
@@ -64716,7 +64792,7 @@ record conversation items.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is record_conversation_items; explicit exported names: record_conversation_items.
@@ -64772,7 +64848,7 @@ refresh transaction.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is refresh_transaction; explicit exported names: refresh_transaction.
@@ -64853,9 +64929,10 @@ regular task prepare run turn.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.regular_task.prepare_run_turn.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is regular_task.prepare_run_turn; explicit exported names: regular_task.prepare_run_turn.
 
@@ -64900,7 +64977,7 @@ render available skills.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is render_available_skills; explicit exported names: render_available_skills.
@@ -64955,9 +65032,10 @@ resolve.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.resolve.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resolve; explicit exported names: resolve.
 
@@ -65002,7 +65080,7 @@ responses stream.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is responses.stream; explicit exported names: responses.stream.
@@ -65100,7 +65178,7 @@ responses stream request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is responses.stream_request; explicit exported names: responses.stream_request.
@@ -65192,7 +65270,7 @@ responses websocket connect.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is responses_websocket.connect; explicit exported names: responses_websocket.connect.
@@ -65274,7 +65352,7 @@ responses websocket stream request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is responses_websocket.stream_request; explicit exported names: responses_websocket.stream_request.
@@ -65355,9 +65433,10 @@ resume running thread.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.resume_running_thread.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_running_thread; explicit exported names: resume_running_thread.
 
@@ -65401,9 +65480,10 @@ resume thread from history.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.resume_thread_from_history.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_thread_from_history; explicit exported names: resume_thread_from_history.
 
@@ -65447,9 +65527,10 @@ resume thread with history.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.resume_thread_with_history.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is resume_thread_with_history; explicit exported names: resume_thread_with_history.
 
@@ -65494,7 +65575,7 @@ run auto compact.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_auto_compact; explicit exported names: run_auto_compact.
@@ -65591,9 +65672,10 @@ run hooks and record inputs.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_hooks_and_record_inputs.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_hooks_and_record_inputs; explicit exported names: run_hooks_and_record_inputs.
 
@@ -65637,9 +65719,10 @@ run legacy after agent hook.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_legacy_after_agent_hook.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_legacy_after_agent_hook; explicit exported names: run_legacy_after_agent_hook.
 
@@ -65684,7 +65767,7 @@ run multiplexed environment.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_multiplexed_environment; explicit exported names: run_multiplexed_environment.
@@ -65741,9 +65824,10 @@ run pending session start hooks.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_pending_session_start_hooks.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_pending_session_start_hooks; explicit exported names: run_pending_session_start_hooks.
 
@@ -65787,9 +65871,10 @@ run pre sampling compact.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_pre_sampling_compact.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_pre_sampling_compact; explicit exported names: run_pre_sampling_compact.
 
@@ -65834,7 +65919,7 @@ run sampling request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_sampling_request; explicit exported names: run_sampling_request.
@@ -65939,9 +66024,10 @@ run session end hooks.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_session_end_hooks.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_session_end_hooks; explicit exported names: run_session_end_hooks.
 
@@ -65985,9 +66071,10 @@ run turn collect post sampling state.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_turn.collect_post_sampling_state.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn.collect_post_sampling_state; explicit exported names: run_turn.collect_post_sampling_state.
 
@@ -66031,9 +66118,10 @@ run turn.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_turn.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn; explicit exported names: run_turn.
 
@@ -66077,9 +66165,10 @@ run turn prepare sampling request input.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_turn.prepare_sampling_request_input.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn.prepare_sampling_request_input; explicit exported names: run_turn.prepare_sampling_request_input.
 
@@ -66123,9 +66212,10 @@ run turn stop hooks.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.run_turn_stop_hooks.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is run_turn_stop_hooks; explicit exported names: run_turn_stop_hooks.
 
@@ -66170,7 +66260,7 @@ search remote plugins.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is search_remote_plugins; explicit exported names: search_remote_plugins.
@@ -66268,7 +66358,7 @@ send raw response items.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is send_raw_response_items; explicit exported names: send_raw_response_items.
@@ -66323,9 +66413,10 @@ session flush rollout.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session.flush_rollout.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session.flush_rollout; explicit exported names: session.flush_rollout.
 
@@ -66369,9 +66460,10 @@ session init auth mcp.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_init.auth_mcp.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.auth_mcp; explicit exported names: session_init.auth_mcp.
 
@@ -66417,9 +66509,10 @@ session init.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_init.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init; explicit exported names: session_init.
 
@@ -66463,9 +66556,10 @@ session init mcp manager init.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_init.mcp_manager_init.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.mcp_manager_init; explicit exported names: session_init.mcp_manager_init.
 
@@ -66512,7 +66606,7 @@ session init network proxy.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.network_proxy; explicit exported names: session_init.network_proxy.
@@ -66586,9 +66680,10 @@ session init plugin skill warmup.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_init.plugin_skill_warmup.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.plugin_skill_warmup; explicit exported names: session_init.plugin_skill_warmup.
 
@@ -66635,7 +66730,7 @@ session init required mcp wait.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.required_mcp_wait; explicit exported names: session_init.required_mcp_wait.
@@ -66692,7 +66787,7 @@ session init state db.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.state_db; explicit exported names: session_init.state_db.
@@ -66766,9 +66861,10 @@ session init thread name lookup.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_init.thread_name_lookup.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.thread_name_lookup; explicit exported names: session_init.thread_name_lookup.
 
@@ -66815,7 +66911,7 @@ session init thread persistence.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_init.thread_persistence; explicit exported names: session_init.thread_persistence.
@@ -66890,7 +66986,7 @@ session loop.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_loop; explicit exported names: session_loop.
@@ -66963,9 +67059,10 @@ session task run.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.session_task.run.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is session_task.run; explicit exported names: session_task.run.
 
@@ -67009,9 +67106,10 @@ set previous turn settings.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.set_previous_turn_settings.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is set_previous_turn_settings; explicit exported names: set_previous_turn_settings.
 
@@ -67056,7 +67154,7 @@ shell snapshot.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is shell_snapshot; explicit exported names: shell_snapshot.
@@ -67129,9 +67227,10 @@ skills cloud refresh cloud catalog.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.skills.cloud.refresh_cloud_catalog.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.cloud.refresh_cloud_catalog; explicit exported names: skills.cloud.refresh_cloud_catalog.
 
@@ -67176,7 +67275,7 @@ skills environment load.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.environment.load; explicit exported names: skills.environment.load.
@@ -67241,9 +67340,10 @@ skills executor catalog root.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.skills.executor.catalog_root.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.executor.catalog_root; explicit exported names: skills.executor.catalog_root.
 
@@ -67288,7 +67388,7 @@ skills executor refresh executor catalog.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.executor.refresh_executor_catalog; explicit exported names: skills.executor.refresh_executor_catalog.
@@ -67344,7 +67444,7 @@ skills shadow selection rank.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills.shadow_selection.rank; explicit exported names: skills.shadow_selection.rank.
@@ -67399,9 +67499,10 @@ skills for config.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.skills_for_config.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is skills_for_config; explicit exported names: skills_for_config.
 
@@ -67448,7 +67549,7 @@ start server task.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is start_server_task; explicit exported names: start_server_task.
@@ -67522,7 +67623,7 @@ startup prewarm.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is startup_prewarm; explicit exported names: startup_prewarm.
@@ -67588,9 +67689,10 @@ startup prewarm resolve.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.startup_prewarm.resolve.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is startup_prewarm.resolve; explicit exported names: startup_prewarm.resolve.
 
@@ -67634,9 +67736,10 @@ step context capture.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.step_context.capture.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is step_context.capture; explicit exported names: step_context.capture.
 
@@ -67680,9 +67783,10 @@ stored thread to initial history.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.stored_thread_to_initial_history.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is stored_thread_to_initial_history; explicit exported names: stored_thread_to_initial_history.
 
@@ -67726,9 +67830,10 @@ stream request.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.stream_request.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is stream_request; explicit exported names: stream_request.
 
@@ -67773,7 +67878,7 @@ submission dispatch.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -67864,9 +67969,10 @@ thread spawn.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.thread_spawn.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is thread_spawn; explicit exported names: thread_spawn.
 
@@ -67913,7 +68019,7 @@ track turn resolved config analytics.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is track_turn_resolved_config_analytics; explicit exported names: track_turn_resolved_config_analytics.
@@ -67969,7 +68075,7 @@ try run sampling request.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is try_run_sampling_request; explicit exported names: try_run_sampling_request.
@@ -68067,7 +68173,7 @@ turn.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The exported span name can be assigned dynamically through otel.name; no invented fixed-name contract is generated.
@@ -68292,7 +68398,7 @@ turn context build.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is turn_context.build; explicit exported names: turn_context.build.
@@ -68349,9 +68455,10 @@ turn context make.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.turn_context.make.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is turn_context.make; explicit exported names: turn_context.make.
 
@@ -68395,9 +68502,10 @@ turn diff display roots.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.turn_diff_display_roots.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is turn_diff_display_roots; explicit exported names: turn_diff_display_roots.
 
@@ -68442,7 +68550,7 @@ unified exec collect output.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is unified_exec.collect_output; explicit exported names: unified_exec.collect_output.
@@ -68556,7 +68664,7 @@ unified exec exec command.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is unified_exec.exec_command; explicit exported names: unified_exec.exec_command.
@@ -68756,7 +68864,7 @@ unified exec open session.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is unified_exec.open_session; explicit exported names: unified_exec.open_session.
@@ -68822,7 +68930,7 @@ unified exec write stdin.
 | Stability | development |
 | Signal collection | recommended |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is unified_exec.write_stdin; explicit exported names: unified_exec.write_stdin.
@@ -69005,9 +69113,10 @@ upload.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.upload.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is upload; explicit exported names: upload.
 
@@ -69051,9 +69160,10 @@ world state build.
 | Kind | `span` |
 | Stability | development |
 | Signal collection | recommended |
+| name | `openai_codex.world_state.build.internal` |
 | span_kind | `internal` |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
-| Source | `registry/vendor/openai-codex.yaml` |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
+| Source | `registry/vendor/openai-codex-spans.yaml` |
 
 Operation boundary: the lifetime of the source tracing span or instrumented function/future, including an early return or cancellation. It does not imply the lifetime of a whole conversation or a successful remote operation. The source name is world_state.build; explicit exported names: world_state.build.
 
@@ -69099,7 +69209,7 @@ Native Codex 0.163.0 fields absent from the pinned upstream and existing vendor 
 | --- | --- |
 | Kind | `attribute_group` |
 | Stability | Defined per attribute |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
@@ -76413,8 +76523,39 @@ Source and transport boundaries for OpenAI Codex telemetry.
 | --- | --- |
 | Kind | `attribute_group` |
 | Stability | Defined per attribute |
-| Registry schema | https://qyl.at/schemas/14.1.0 |
+| Registry schema | https://qyl.at/schemas/15.0.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
+
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.instrumentation.domain` | enum | recommended | Not applicable | development | qyl auto-instrumentation domain that emitted the span or metric. |
+
+#### Attribute details: `qyl.instrumentation.domain`
+
+| Member | Wire value | Stability | Meaning / deprecation |
+| --- | --- | --- | --- |
+| `app` | `app` | development | Application work started through the generated `Spans.Work` starter. |
+| `asp_net_core_server` | `aspnetcore.server` | development | qyl aspnetcore.server instrumentation domain. |
+| `azure_sdk` | `azure.sdk` | development | qyl azure.sdk instrumentation domain. |
+| `db_client` | `db.client` | development | qyl db.client instrumentation domain. |
+| `db_ef_core` | `db.efcore` | development | qyl db.efcore instrumentation domain. |
+| `db_elasticsearch` | `db.elasticsearch` | development | qyl db.elasticsearch instrumentation domain. |
+| `db_mongo_db` | `db.mongodb` | development | qyl db.mongodb instrumentation domain. |
+| `db_redis` | `db.redis` | development | qyl db.redis instrumentation domain. |
+| `db_sql_client` | `db.sqlclient` | development | qyl db.sqlclient instrumentation domain. |
+| `elastic_transport` | `elastic.transport` | development | qyl elastic.transport instrumentation domain. |
+| `gen_ai_execute_tool` | `gen_ai.execute_tool` | development | A tool execution started through a generated execute_tool starter. |
+| `gen_ai_invoke_agent` | `gen_ai.invoke_agent` | development | An agent invocation started through the generated invoke_agent starter. |
+| `graph_ql` | `graphql` | development | qyl graphql instrumentation domain. |
+| `http_client` | `http.client` | development | qyl http.client instrumentation domain. |
+| `job_quartz` | `job.quartz` | development | qyl job.quartz instrumentation domain. |
+| `messaging_kafka` | `messaging.kafka` | development | qyl messaging.kafka instrumentation domain. |
+| `messaging_mass_transit` | `messaging.masstransit` | development | qyl messaging.masstransit instrumentation domain. |
+| `messaging_n_service_bus` | `messaging.nservicebus` | development | qyl messaging.nservicebus instrumentation domain. |
+| `messaging_process` | `messaging.process` | development | Message processing started through the generated process-consumer starter. |
+| `messaging_rabbit_mq` | `messaging.rabbitmq` | development | qyl messaging.rabbitmq instrumentation domain. |
+| `rpc_grpc` | `rpc.grpc` | development | qyl rpc.grpc instrumentation domain. |
+| `rpc_wcf_client` | `rpc.wcf.client` | development | qyl rpc.wcf.client instrumentation domain. |
 
 #### Source and contract annotations
 

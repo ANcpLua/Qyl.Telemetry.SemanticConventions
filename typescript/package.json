@@ -1,6 +1,6 @@
 {
   "name": "@ancplua/qyl-semantic-conventions",
-  "version": "14.1.0",
+  "version": "15.0.0",
   "description": "qyl semantic convention constants generated from the shared OpenTelemetry registry",
   "type": "module",
   "sideEffects": false,

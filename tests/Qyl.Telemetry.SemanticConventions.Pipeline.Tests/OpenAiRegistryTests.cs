@@ -82,17 +82,15 @@ public sealed class OpenAiRegistryTests
     }
 
     [TestMethod]
-    public void Span_and_event_associations_preserve_the_entity_type()
+    public void Operation_identity_is_carried_by_signals_without_requiring_a_resource_per_operation()
     {
         var span = QylIncubatingSpanDefinitions.QylAgentOperationInternal;
         var observation = QylIncubatingEventDefinitions.QylAgentOperationStateChanged;
-        var spanEntity = Assert.IsInstanceOfType<EntityRef>(Assert.ContainsSingle(span.EntityAssociations));
-        Assert.AreEqual("qyl.agent.operation", spanEntity.Type);
-        Assert.AreEqual(SchemaUrl.Qyl, spanEntity.Provenance.SchemaUrl);
+        Assert.IsTrue(span.Attributes.Any(static a => a.Name == "qyl.agent.operation.id" && a.RequirementLevel == RequirementLevel.Required));
+        Assert.IsTrue(observation.Attributes.Any(static a => a.Name == "qyl.agent.operation.id" && a.RequirementLevel == RequirementLevel.Required));
+        Assert.IsFalse(span.EntityAssociations.OfType<EntityRef>().Any(static e => e.Type == "qyl.agent.operation"));
+        Assert.IsFalse(observation.EntityAssociations.OfType<EntityRef>().Any(static e => e.Type == "qyl.agent.operation"));
         Assert.AreSequenceEqual(["agent {qyl.agent.operation.name}"], span.SpanName);
-        var eventEntity = Assert.IsInstanceOfType<EntityRef>(Assert.ContainsSingle(observation.EntityAssociations));
-        Assert.AreEqual("qyl.agent.operation", eventEntity.Type);
-        Assert.AreEqual(SchemaUrl.Qyl, eventEntity.Provenance.SchemaUrl);
         Assert.AreEqual(AttributePhase.End, span.Attributes.Single(static a => a.Name == "qyl.agent.operation.state").Phase);
         Assert.AreEqual(AttributePhase.Start, observation.Attributes.Single(static a => a.Name == "qyl.agent.operation.state").Phase);
     }

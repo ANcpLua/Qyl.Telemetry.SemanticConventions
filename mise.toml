@@ -17,6 +17,7 @@ scripts/quiet.sh check \
   'node scripts/check-reference.mjs' \
   'npm test --prefix typescript' \
   './scripts/check-live-check-policies.sh' \
+  'python3 scripts/check-signal-validation.py' \
   'dotnet restore Qyl.Telemetry.SemanticConventions.slnx' \
   'dotnet build Qyl.Telemetry.SemanticConventions.slnx --no-restore --configuration Release' \
   'dotnet run --project tests/Qyl.Telemetry.SemanticConventions.Pipeline.Tests/ --configuration Release --no-build'

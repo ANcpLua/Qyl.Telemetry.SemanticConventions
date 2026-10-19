@@ -160,7 +160,6 @@ groups:
       approval is not automatically an error. Leave successful status Unset. Do not put identifiers in span names.
       Product, operation category and established identity are available at start; state, duration and error facts
       become available at completion and cannot be assumed present for head sampling.
-    entity_associations: [qyl.agent.operation]
     attributes:
       - {ref: qyl.agent.operation.id, requirement_level: required}
       - {ref: qyl.agent.operation.name, requirement_level: required}
@@ -187,7 +186,6 @@ groups:
       explicit operation, turn, tool-call or trace identities; never by proximity alone. Late and out-of-order
       observations must not silently rewind a terminal operation. Record uncertainty instead of guessing.
       This development adapter contract does not claim that OpenAI or Anthropic emits this qyl event natively.
-    entity_associations: [qyl.agent.operation]
     attributes:
       - {ref: qyl.agent.operation.id, requirement_level: required}
       - {ref: qyl.agent.operation.name, requirement_level: required}

@@ -123,6 +123,9 @@ vendor and resolved upstream definitions at every stability. Both are rendered d
 Weaver 0.28.0 from `templates/registry/markdown/*.j2`; run
 `mise exec -- scripts/generate-reference.sh` to regenerate them. The qyl agent-observability
 profile defines development adapter obligations; the catalog does not assert deployed ingestion.
+Operation IDs belong on span/event attributes. The ordinary lifecycle signals do not associate
+an operation entity with the OpenTelemetry resource: that would require a new resource identity
+for each operation. The standalone entity vocabulary does not impose that resource layout.
 
 ### Policies
 
@@ -369,6 +372,21 @@ signal definition, and the catalog does not assign instruments to scopes.
 
 `weaver registry live-check` compares emitted spans, metrics and logs against the registry
 and reports a finding per attribute, judged by the two halves above.
+
+`registry/.weaver.toml` is generated from the resolved span definitions and the naming contracts
+in `registry/qyl/policy.yaml`. It selects Weaver v2 and routes spans by their wire name and kind,
+so client/server spans sharing a name retain distinct requirements. The registry type is also
+accepted as an explicit name. Free-form names without a recognizable literal or enum are not
+guessed; they need an explicit type or a producer-specific discriminator before their required
+fields can be checked. Unmatched telemetry still receives global attribute validation.
+`scripts/check-signal-validation.py` proves that an ordinary operation passes, each required
+field fails when removed, and a shared native name routes separately for client and server.
+
+Generation also runs `scripts/check-future.py`. It rejects owned registry defects and unknown
+dependency diagnostics, while reporting the pinned dependencies' known forward-compatibility
+warnings separately in `artifacts/logs/future.json`. Weaver 0.28's `definition/2` experimental
+format notice is reported separately even for valid local files. This gate does not claim that
+the raw `weaver registry check --future` command exits zero for those pinned upstream inputs.
 
 All three of `-r`, `--config` and `--advice-policies` need a **local path**. Weaver's
 `<url>[sub-folder]` archive syntax does not work for this registry: the core dependency is a
