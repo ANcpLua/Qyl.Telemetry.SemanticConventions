@@ -4,6 +4,7 @@
 
 - Keep bare authorization attributes denied when they are declared by a native vendor. Preserve explicitly selected HTTP-header and RPC-metadata captures.
 - Probe fresh registry indexes during release verification instead of accepting stale CDN responses.
+- Keep regeneration against committed source as the generated-file drift check; remove the duplicate version-sensitive hash snapshot and allow persistence denials to grow.
 
 ## [15.0.0] - 2026-10-19
 

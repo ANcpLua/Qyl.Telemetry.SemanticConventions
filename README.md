@@ -233,13 +233,13 @@ receive as `params.policy`. `registry/` stays the only source. Weaver writes fil
 deletes one, so `scripts/generate.sh` clears both `Generated/` trees first.
 
 [`scripts/check-generated.sh`](scripts/check-generated.sh) is the gate: it regenerates
-everything and fails on `git diff HEAD`. `GeneratedSurfaceTests` is the second line, pinning
-the SHA-256 of every generated file so a mismatch names each differing, missing or extra one;
-`REGEN_SNAPSHOTS=1` rewrites that manifest after an intentional change.
+everything and fails on `git diff HEAD`. `GeneratedSurfaceTests` checks that both packages
+provide the required signal families. Compilation and focused contract tests validate their
+behavior without a second inventory of generated-file hashes.
 
 `weaver` must be the version [`Version.props`](Version.props) pins — `scripts/generate.sh`
-refuses to run against any other. `mise run check` runs the whole sequence; run it before
-every push:
+refuses to run against any other. `mise run check` runs the whole sequence; commit and push
+regenerated outputs first so its drift check compares the intended commit:
 
 ```bash
 uv run --no-project --with pyyaml python3 -m unittest discover --start-directory tests/scripts --pattern 'test_*.py'
