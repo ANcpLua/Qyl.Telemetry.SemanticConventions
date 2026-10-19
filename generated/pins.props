@@ -8,6 +8,6 @@
     <SemConvCoreCommit>e10a930844c6951757a43b849d364f7d056ac32b</SemConvCoreCommit>
     <SemConvGenAiRef>547934afa90a34298441caf80c43b27255c3a292</SemConvGenAiRef>
     <SemConvGenAiSchemaUrl>https://opentelemetry.io/schemas/gen-ai-dev/1.42.0-dev</SemConvGenAiSchemaUrl>
-    <QylSchemaUrl>https://qyl.at/schemas/15.0.0</QylSchemaUrl>
+    <QylSchemaUrl>https://qyl.at/schemas/15.0.1</QylSchemaUrl>
   </PropertyGroup>
 </Project>

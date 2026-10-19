@@ -1,5 +1,10 @@
 # Changelog
 
+## [15.0.1] - 2026-10-19
+
+- Keep bare authorization attributes denied when they are declared by a native vendor. Preserve explicitly selected HTTP-header and RPC-metadata captures.
+- Probe fresh registry indexes during release verification instead of accepting stale CDN responses.
+
 ## [15.0.0] - 2026-10-19
 
 - Generate persistent Weaver v2 span matchers from the registry naming contracts, retaining native client/server distinctions and validating each matched signal's required fields.

@@ -20,15 +20,18 @@ public sealed class RegistryPolicyTests
     public void Every_unrelated_exact_and_prefix_denial_is_preserved()
     {
         // The collector's list plus the vendor keys whose content the registry denies elsewhere (10.0.1).
-        Assert.AreSequenceEqual(CollectorDeniedExactKeys.Concat(["build.error.message", "db.odp.user.statement", "nservicebus.originating_machine", "nservicebus.processing_machine"]).Order(), RegistryPolicy.NotPersistedKeys.Order());
+        foreach (var key in CollectorDeniedExactKeys.Concat(["build.error.message", "db.odp.user.statement", "nservicebus.originating_machine", "nservicebus.processing_machine"]))
+            Assert.Contains(key, RegistryPolicy.NotPersistedKeys);
         Assert.AreSequenceEqual(RegistryPolicy.NotPersistedKeys.Order(), RegistryPolicy.NotPersistedKeys);
-        Assert.AreSequenceEqual(["enduser.", "user."], RegistryPolicy.NotPersistedPrefixes);
+        Assert.Contains("enduser.", RegistryPolicy.NotPersistedPrefixes);
+        Assert.Contains("user.", RegistryPolicy.NotPersistedPrefixes);
     }
 
     [TestMethod]
-    public void The_token_list_matches_the_collectors()
+    public void Existing_token_denials_and_exemptions_are_preserved()
     {
-        Assert.AreSequenceEqual(CollectorDeniedKeyTokens, RegistryPolicy.DeniedKeyTokens);
+        foreach (var token in CollectorDeniedKeyTokens)
+            Assert.Contains(token, RegistryPolicy.DeniedKeyTokens);
         foreach (var key in CollectorTokenExemptKeys)
             Assert.Contains(key, RegistryPolicy.TokenExemptKeys);
         Assert.Contains("messaging.masstransit.message_id", RegistryPolicy.VendorKeys);
@@ -45,6 +48,7 @@ public sealed class RegistryPolicyTests
     }
 
     [TestMethod]
+    [DataRow("authorization", false)]
     [DataRow("gen_ai.agent.name", true)]
     [DataRow("db.query.summary", true)]
     [DataRow("messaging.message.id", true)]

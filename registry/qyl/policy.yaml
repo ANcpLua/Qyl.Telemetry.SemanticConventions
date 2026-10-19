@@ -53,6 +53,8 @@ groups:
           - set-cookie
           - token
     attributes:
+      - ref: authorization
+        annotations: {qyl: {persisted: false}}
       - ref: code.file.path
         annotations: {qyl: {persisted: false}}
       - ref: code.stacktrace
