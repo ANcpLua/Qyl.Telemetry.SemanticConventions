@@ -1,7 +1,8 @@
 Continue the agent observability work across the existing qyl, Qyl.Telemetry.AutoInstrumentation,
 Qyl.Telemetry.SemanticConventions, Qyl.Telemetry.Tests, qyl.mcp and qyl-api-schema clones.
 Read their current instructions and source; verify the current published versions instead of
-reusing historical pins. The convention validation and release wave are a separate completed task.
+reusing historical pins. Check the convention-validation and release status first; do not repeat
+completed work or treat local candidates as published.
 
 1. Prove real ingestion. Run actual Codex and Claude Code workloads through their supported
 telemetry routes into qyl. Retain raw telemetry, validate it with the matching published Weaver
@@ -23,6 +24,6 @@ Preserve the agreed 29 tools, complete statistics, Events and execution journal.
 Collector and TypeSpec ownership consistent, retire browser/workbench functionality deliberately,
 and verify the resulting MCP behavior with the supported SDK and mcpdo.
 
-Use tests for observable contracts and demonstrated failures. Avoid fixed inventory counts,
+Use tests for observable contracts and demonstrated failures. Avoid incidental inventory counts,
 generated-text comparisons or artificial constraints that make legitimate future growth fail.
 Report implemented behavior, actual runtime evidence, remaining gaps and architectural uncertainty.
