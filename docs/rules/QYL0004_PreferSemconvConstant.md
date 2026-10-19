@@ -12,7 +12,7 @@
 
 ## Description
 
-When a telemetry attribute key literal matches a known semantic-convention attribute name from OpenTelemetry.SemanticConventions.Attributes.*, prefer the typed constant for refactor-safety and discoverability.
+When a telemetry attribute key literal matches a known attribute name from the referenced semantic-convention packages, prefer the typed constant for refactor-safety and discoverability.
 
 ## See also
 
