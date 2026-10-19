@@ -74,10 +74,16 @@ with open('.build/weaver-calls.jsonl', 'a') as calls:
     calls.write(json.dumps(args) + '\\n')
 if args[:2] == ['registry', 'generate']:
     params = yaml.safe_load(Path(args[args.index('--params') + 1]).read_text())['params']
-    Path('.build/received-policy.json').write_text(json.dumps(params['policy']))
+    Path('.build/received-policy-' + args[-2] + '.json').write_text(json.dumps(params['policy']))
     if args[-2] == 'snapshot':
+        enum = {'members': [{'id': 'one', 'value': 'one'}]}
         Path('.build/registry.json').write_text(json.dumps({
-            'schema_url': 'https://qyl.at/schemas/1.0.0', 'dependencies': {}, 'registry': {},
+            'schema_url': 'https://qyl.at/schemas/1.0.0',
+            'registry': {'attributes': [{'key': 'secret.kind', 'type': enum},
+                                        {'key': 'secret.text', 'type': 'string'},
+                                        {'key': 'plain.kind', 'type': enum}]},
+            'dependencies': {'core': {'registry': {'attributes': [{'key': 'secret.level', 'type': enum},
+                                                                  {'key': 'secret.text', 'type': enum}]}}},
         }))
 ''')
             (binaries / 'weaver').chmod(0o755)
@@ -85,12 +91,18 @@ if args[:2] == ['registry', 'generate']:
             run = subprocess.run(['bash', str(scripts / 'generate.sh'), '--verbose'], cwd=root,
                                  env=env, capture_output=True, text=True)
             self.assertEqual(0, run.returncode, run.stdout + run.stderr)
-            policy = json.loads((root / '.build/received-policy.json').read_text())
+            received = {target: json.loads((root / ('.build/received-policy-' + target + '.json')).read_text())
+                        for target in ('snapshot', 'csharp', 'typescript')}
+            # The snapshot resolves the attribute types; the targets after it receive the enum keys
+            # that contain a denied token as exemptions. A top-level string definition stays denied.
+            self.assertEqual(['allowed.key'], received['snapshot']['token_exempt'])
+            self.assertEqual(received['csharp'], received['typescript'])
+            policy = received['typescript']
             self.assertGreater(len(json.dumps(policy).encode()), 131072)
             self.assertEqual(policy, {
                 'vendor_keys': ['vendor.key'], 'not_persisted': ['secret.key'],
                 'not_persisted_prefixes': [], 'denied_key_tokens': ['secret'],
-                'token_exempt': ['allowed.key'], 'exception_text': [],
+                'token_exempt': ['allowed.key', 'secret.kind', 'secret.level'], 'exception_text': [],
                 'captured_fields': captured, 'phase_end': ['end.key'],
                 'spans': {'test.span': {'starter': True, 'domain': 'test',
                                       'fixed': {'test.key': 'test.value'}, 'templates': ['test {name}'],

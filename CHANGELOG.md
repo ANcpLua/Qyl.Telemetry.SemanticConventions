@@ -1,5 +1,11 @@
 # Changelog
 
+## [15.0.3] - 2026-10-19
+
+- Keep registry enum attributes whose key contains a denied token. Their values are registry members, not free text, so `RegistryPolicy.TokenExemptKeys` now lists `cicd.pipeline.result`, `cicd.pipeline.task.run.result` and the other 17: the ASP.NET Core authentication, authorization, diagnostics, identity and rate-limiting results, `aspnetcore.identity.token_purpose`, `aspnetcore.identity.token_verified`, `faas.document.operation`, `feature_flag.result.reason`, `gen_ai.token.modality`, `message.type`, `messaging.rocketmq.message.type`, `otel.span.sampling_result`, `rpc.message.type` and `test.case.result.status`. Free-text keys such as `gen_ai.tool.call.result` and `feature_flag.result.value` stay denied.
+- Derive the enum exemptions from the resolved registry during generation, so a future enum attribute needs no policy entry; `gen_ai.token.type` loses its now redundant annotation.
+- Render the TypeScript package from Weaver templates in the same generation pass as C#; its contents are unchanged.
+
 ## [15.0.2] - 2026-10-19
 
 - Recognize the current Qyl.Telemetry.SemanticConventions namespaces in semantic analyzers while preserving upstream namespace support and rejecting lookalikes.

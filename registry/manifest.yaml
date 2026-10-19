@@ -10,7 +10,7 @@
 file_format: definition_manifest/2.0
 name: qyl
 description: qyl vocabulary layered on the core and genai OpenTelemetry semantic conventions.
-schema_url: https://qyl.at/schemas/15.0.2
+schema_url: https://qyl.at/schemas/15.0.3
 stability: development
 dependencies:
   # renovate: datasource=github-tags depName=open-telemetry/semantic-conventions

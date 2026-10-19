@@ -8,8 +8,11 @@ groups:
   # Ingest policy. `persisted: false` keys are dropped at ingest, and so is every key that starts
   # with one of them plus "." or with a
   # not-persisted prefix. The token rule drops any other key that contains a denied token
-  # (ordinal, case-insensitive) unless the key is `token_exempt` or a vendor key (registry/vendor/):
-  # a vendor spells its own tags. The generated RegistryPolicy table carries all of it; the
+  # (ordinal, case-insensitive) unless the key is `token_exempt`, a registry enum attribute or a
+  # vendor key (registry/vendor/): a vendor spells its own tags. The tokens guard free text such as
+  # tool and model results; an enum attribute carries one of its registry members
+  # (cicd.pipeline.result: success, failure, ...), so scripts/generate.sh adds every enum key that
+  # contains a token to the exemptions. The generated RegistryPolicy table carries all of it; the
   # starters' views and the collector catalog read that one table.
   - id: qyl.policy.persistence
     type: attribute_group
@@ -136,10 +139,8 @@ groups:
         annotations: {qyl: {persisted: false}}
       - ref: url.query
         annotations: {qyl: {persisted: false}}
-      # Allowlisted keys that merely contain a denied token.
+      # Allowlisted keys that merely contain a denied token. Enum attributes need no entry here.
       - ref: db.query.summary
-        annotations: {qyl: {token_exempt: true}}
-      - ref: gen_ai.token.type
         annotations: {qyl: {token_exempt: true}}
       - ref: messaging.kafka.message.offset
         annotations: {qyl: {token_exempt: true}}

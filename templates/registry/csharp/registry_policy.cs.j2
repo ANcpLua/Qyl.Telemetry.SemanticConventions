@@ -4,6 +4,8 @@
   span views and the qyl collector's catalog read this one table, so a test can
   never assert a key that ingest drops. Explicit key/prefix denials precede the finite
   captured-field rule. Other keys use the token rule, which token-exempt and vendor keys skip.
+  policy.token_exempt holds the annotated keys and the registry enum keys that contain a denied
+  token, which scripts/generate.sh adds from the resolved registry.
 -#}
 {%- set pad = "    " -%}
 {%- set inner = "        " -%}
@@ -25,14 +27,17 @@ namespace Qyl.Telemetry.SemanticConventions;
 
 /// <summary>
 /// Which attribute keys are eligible for persistence, generated from the registry annotations
-/// <c>qyl.persisted</c>, <c>qyl.token_exempt</c>, <c>qyl.sanitize</c> and the denied-token list.
+/// <c>qyl.persisted</c>, <c>qyl.token_exempt</c>, <c>qyl.sanitize</c>, the denied-token list and
+/// the registry's enum attributes.
 /// </summary>
 /// <remarks>
 /// A key is not persisted when it is one of <see cref="NotPersistedKeys"/> or a template child of
 /// one, when it starts with one of
 /// <see cref="NotPersistedPrefixes"/>, or when it contains one of <see cref="DeniedKeyTokens"/>
 /// (ordinal, case-insensitive) and is neither one of <see cref="TokenExemptKeys"/> nor one of
-/// <see cref="VendorKeys"/>: a vendor spells its own tags. Keys the collector lifts into columns
+/// <see cref="VendorKeys"/>: a vendor spells its own tags. The tokens guard free text; a registry
+/// enum attribute carries one of its registry members, so <see cref="TokenExemptKeys"/> lists every
+/// enum key that contains a token (<c>cicd.pipeline.result</c>). Keys the collector lifts into columns
 /// (<c>session.id</c>, <c>mcp.session.id</c>, <c>gen_ai.conversation.id</c>) are not persisted as
 /// attributes.
 /// Keys in <see cref="ExceptionTextKeys"/> require value sanitization before persistence;
@@ -119,7 +124,7 @@ public static class RegistryPolicy
 {% endfor %}
 {{ pad }}};
 
-{{ lib.doc_block(pad, "summary", "The keys annotated <c>qyl.token_exempt: true</c>: persisted although they contain a denied token.") }}
+{{ lib.doc_block(pad, "summary", "The keys annotated <c>qyl.token_exempt: true</c> and the registry enum attributes whose key contains a denied token: persisted although they contain one.") }}
 {{ pad }}public static global::System.Collections.Generic.IReadOnlyList<string> TokenExemptKeys { get; } = new string[]
 {{ pad }}{
 {% for k in policy.token_exempt %}

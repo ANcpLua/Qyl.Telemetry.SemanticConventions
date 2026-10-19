@@ -250,6 +250,34 @@ print(hashlib.sha256(canonical.encode()).hexdigest())
 PY
 )"
 
+# The token rule keeps free text out of storage. A registry enum attribute carries one of its
+# registry members instead (cicd.pipeline.result: success, failure, ...), so every enum key that
+# contains a denied token joins the token exemptions here, once the snapshot has resolved each
+# attribute's type and before the targets render params.policy. A top-level definition wins
+# over a dependency's, as in the template filters.
+python3 - .build/registry.json "${params_file}" <<'PY'
+import json
+import sys
+
+registry_path, params_path = sys.argv[1:]
+with open(registry_path, encoding="utf-8") as snapshot:
+    registry = json.load(snapshot)
+with open(params_path, encoding="utf-8") as params_json:
+    params = json.load(params_json)
+policy = params["params"]["policy"]
+
+types = {}
+for source in [registry, *(registry.get("dependencies") or {}).values()]:
+    for attribute in (source.get("registry") or {}).get("attributes") or []:
+        types.setdefault(attribute["key"], attribute.get("type"))
+enum_keys = {key for key, kind in types.items()
+             if isinstance(kind, dict) and "members" in kind
+             and any(token in key.lower() for token in policy["denied_key_tokens"])}
+policy["token_exempt"] = sorted(set(policy["token_exempt"]) | enum_keys)
+with open(params_path, "w", encoding="utf-8") as params_json:
+    params_json.write(json.dumps(params, separators=(",", ":"), sort_keys=True) + "\n")
+PY
+
 for target in csharp typescript; do
   weaver_generate -D "registry_snapshot_sha256=${registry_snapshot_sha256}" "${target}"
 done

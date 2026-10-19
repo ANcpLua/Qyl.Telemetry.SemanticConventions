@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using ANcpLua.Roslyn.Utilities.Testing.MSBuild;
 
@@ -43,8 +44,40 @@ public sealed class RegistryPolicyTests
     {
         var policy = File.ReadAllText(RepoPath("registry", "qyl", "policy.yaml"));
         Assert.AreSequenceEqual(RegistryPolicy.NotPersistedKeys.Order(), Annotated(policy, "persisted: false").Order());
-        Assert.AreSequenceEqual(RegistryPolicy.TokenExemptKeys.Order(), Annotated(policy, "token_exempt: true").Order());
+        Assert.AreSequenceEqual(RegistryPolicy.TokenExemptKeys.Order(),
+            Annotated(policy, "token_exempt: true").Union(RegistryEnumKeys().Where(RegistryPolicy.ContainsDeniedToken)).Order());
         Assert.AreSequenceEqual(RegistryPolicy.ExceptionTextKeys.Order(), Annotated(policy, "sanitize: exception_text").Order());
+    }
+
+    /// <summary>
+    /// A registry enum attribute carries one of its registry members, not free text, so the token rule
+    /// keeps it. TokenExemptKeys is the list the qyl collector's catalog copies.
+    /// </summary>
+    [TestMethod]
+    [DataRow("cicd.pipeline.result")]
+    [DataRow("cicd.pipeline.task.run.result")]
+    [DataRow("test.case.result.status")]
+    [DataRow("aspnetcore.identity.password_check_result")]
+    [DataRow("faas.document.operation")]
+    [DataRow("gen_ai.token.modality")]
+    [DataRow("messaging.rocketmq.message.type")]
+    public void A_registry_enum_attribute_is_kept_although_its_key_contains_a_denied_token(string key)
+    {
+        Assert.IsTrue(RegistryPolicy.ContainsDeniedToken(key), key);
+        Assert.IsTrue(RegistryPolicy.IsPersisted(key), key);
+        Assert.Contains(key, RegistryPolicy.TokenExemptKeys);
+    }
+
+    [TestMethod]
+    [DataRow("gen_ai.tool.call.result")]
+    [DataRow("feature_flag.result.value")]
+    [DataRow("feature_flag.result.variant")]
+    [DataRow("qyl.app.tool.result")]
+    [DataRow("qyl.app.model.result")]
+    public void A_free_text_result_stays_denied(string key)
+    {
+        Assert.DoesNotContain(key, RegistryPolicy.TokenExemptKeys);
+        Assert.IsFalse(RegistryPolicy.IsPersisted(key), key);
     }
 
     [TestMethod]
@@ -112,6 +145,20 @@ public sealed class RegistryPolicyTests
             .Where(match => Regex.IsMatch(match.Groups["annotations"].Value,
                 @"(?:^|,)\s*" + Regex.Escape(annotation) + @"\s*(?:,|$)"))
             .Select(static match => match.Groups["key"].Value);
+
+    // The enum attributes of the resolved registry that scripts/generate.sh snapshots; a top-level
+    // definition wins over a dependency's, as in the generator.
+    private static string[] RegistryEnumKeys()
+    {
+        using var document = JsonDocument.Parse(File.ReadAllText(RepoPath(".build", "registry.json")));
+        var sources = new[] { document.RootElement }.Concat(document.RootElement.GetProperty("dependencies").EnumerateObject().Select(static d => d.Value));
+        var isEnum = new Dictionary<string, bool>(StringComparer.Ordinal);
+        foreach (var attribute in sources.SelectMany(static s => s.GetProperty("registry").GetProperty("attributes").EnumerateArray()))
+            isEnum.TryAdd(attribute.GetProperty("key").GetString()!,
+                attribute.GetProperty("type") is { ValueKind: JsonValueKind.Object } type && type.TryGetProperty("members", out _));
+        return [.. isEnum.Where(static entry => entry.Value).Select(static entry => entry.Key)];
+    }
+
     private static string RepoPath(params string[] parts)
     {
         string root = RepositoryRoot.LocateFrom(AppContext.BaseDirectory, "Qyl.Telemetry.SemanticConventions.slnx");

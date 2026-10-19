@@ -236,7 +236,10 @@ and the finite captured HTTP-header / textual RPC-metadata field-name and creden
 which attributes are known only when an operation ends (`qyl.phase: end`), and the span-name
 chains and starters keyed by span refinement id (`qyl.span_name`, `starter`, `domain`, `fixed`).
 `scripts/generate.sh` reads it into one parameter file, `--params .build/generate-params.json`,
-which the templates receive as `params.policy`. `registry/` stays the only source. Weaver writes
+which the templates receive as `params.policy`. After the snapshot it adds every registry enum
+attribute whose key contains a denied token to `token_exempt`: the tokens guard free text, and an
+enum attribute such as `cicd.pipeline.result` carries one of its registry members. `registry/`
+stays the only source. Weaver writes
 files and never deletes one, so `scripts/generate.sh` clears both `Generated/` trees and
 `typescript/src` and `typescript/dist` first.
 
@@ -342,7 +345,8 @@ These singletons round the surface out.
   qyl's ActivitySources carry.
 - `RegistryPolicy` — the collector's persistence rule as a table (`NotPersistedKeys`,
   `NotPersistedPrefixes`, `DeniedKeyTokens`, `TokenExemptKeys`, `VendorKeys`, `IsPersisted`);
-  the views and the qyl collector's catalog read it.
+  the views and the qyl collector's catalog read it. `TokenExemptKeys` includes every registry
+  enum attribute whose key contains a denied token.
 - `SpanRecord`, `SpanEventRecord`, `SpanLinkRecord`, `ResourceRecord`,
   `InstrumentationScopeRecord`, `ResourceEntityReference` and `StoreIdentity` — the trace
   contract the generated views read and `Qyl.Telemetry.Testing` builds on. Construct a span
