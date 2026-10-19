@@ -24,11 +24,11 @@ internal sealed class SemconvTypedSetter(string key, bool isTemplate)
 
 internal static class SemconvTypedSurface
 {
-    /// <summary>Generated setter name to the key it writes; a template setter takes (segment, value).</summary>
-    internal static readonly Dictionary<string, SemconvTypedSetter> Setters = new(StringComparer.Ordinal)
+    /// <summary>Declaring type and complete parameter signature identify the generated setter.</summary>
+    internal static readonly Dictionary<(string DeclaringType, string Method, string Parameters), SemconvTypedSetter> Setters = new()
     {
 {% for a in ctx.attributes %}
-        [{{ lib.cs_string("Set" ~ lib.pascal(a.key)) }}] = new({{ lib.cs_string(a.key) }}, {{ "true" if ((a.type is string) and a.type[0:9] == "template[") else "false" }}),
+        [({{ lib.cs_string(a.cs_namespace ~ "." ~ a.cs_activity_class) }}, {{ lib.cs_string("Set" ~ a.cs_symbol) }}, {{ lib.cs_string(lib.setter_parameter_types(a)) }})] = new({{ lib.cs_string(a.key) }}, {{ "true" if ((a.type is string) and a.type[0:9] == "template[") else "false" }}),
 {% endfor %}
     };
 
@@ -42,7 +42,7 @@ internal static class SemconvTypedSurface
         {
 {% set seen = namespace(ids = []) %}
 {% for m in a.type.members %}
-{% set id = lib.value_member_name(lib.pascal(a.key), lib.pascal(m.id)) %}
+{% set id = lib.value_member_name(a.cs_symbol, lib.pascal(m.id)) %}
 {% if ((not stable_tier) or m.stability == "stable" or m.deprecated or a.deprecated) and id not in seen.ids %}
 {% set seen.ids = seen.ids + [id] %}
             [{{ lib.cs_string(id) }}] = {{ lib.cs_string(m.value | string) }},

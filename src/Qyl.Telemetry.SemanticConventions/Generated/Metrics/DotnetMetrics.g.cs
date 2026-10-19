@@ -31,7 +31,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of .NET assemblies that are currently loaded.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -48,8 +49,9 @@ public static class DotnetMetricDefinitions
             brief: "The number of exceptions that have been thrown in managed code.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The number of garbage collections that have occurred since the process has started.
@@ -65,8 +67,9 @@ public static class DotnetMetricDefinitions
             brief: "The number of garbage collections that have occurred since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The _approximate_ number of bytes allocated on the managed GC heap since the process has started. The returned value does not include any native allocations.
@@ -82,7 +85,8 @@ public static class DotnetMetricDefinitions
             brief: "The _approximate_ number of bytes allocated on the managed GC heap since the process has started. The returned value does not include any native allocations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -99,8 +103,9 @@ public static class DotnetMetricDefinitions
             brief: "The heap fragmentation, as observed during the latest garbage collection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The managed GC heap size (including fragmentation), as observed during the latest garbage collection.
@@ -116,8 +121,9 @@ public static class DotnetMetricDefinitions
             brief: "The managed GC heap size (including fragmentation), as observed during the latest garbage collection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dotnet.gc.heap.generation", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The amount of committed virtual memory in use by the .NET GC, as observed during the latest garbage collection.
@@ -133,7 +139,8 @@ public static class DotnetMetricDefinitions
             brief: "The amount of committed virtual memory in use by the .NET GC, as observed during the latest garbage collection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -150,7 +157,8 @@ public static class DotnetMetricDefinitions
             brief: "The total amount of time paused in GC since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -167,7 +175,8 @@ public static class DotnetMetricDefinitions
             brief: "The amount of time the JIT compiler has spent compiling methods since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -184,7 +193,8 @@ public static class DotnetMetricDefinitions
             brief: "Count of bytes of intermediate language that have been compiled since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -201,7 +211,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of times the JIT compiler (re)compiled methods since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -218,7 +229,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of times there was contention when trying to acquire a monitor lock since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -235,7 +247,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of processors available to the process.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -252,8 +265,9 @@ public static class DotnetMetricDefinitions
             brief: "CPU time used by the process.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of bytes of physical memory mapped to the process context.
@@ -269,7 +283,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of bytes of physical memory mapped to the process context.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -286,7 +301,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of work items that are currently queued to be processed by the thread pool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -303,7 +319,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of thread pool threads that currently exist.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -320,7 +337,8 @@ public static class DotnetMetricDefinitions
             brief: "The number of work items that the thread pool has completed since the process has started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -337,6 +355,7 @@ public static class DotnetMetricDefinitions
             brief: "The number of timer instances that are currently active.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 }

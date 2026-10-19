@@ -31,5 +31,5 @@ public static class McpServerAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage#metric-details.
     /// </remarks>
-    public const string Name = "mcp_server.name";
+    public const string NameNative = "mcp_server.name";
 }

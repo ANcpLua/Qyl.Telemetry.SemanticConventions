@@ -30,8 +30,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "Number of exceptions caught by exception handling middleware.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.diagnostics.exception.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.diagnostics.handler.type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if the exception was handled by this handler.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.diagnostics.exception.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.diagnostics.handler.type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if the exception was handled by this handler.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// Number of requests that are currently active on the server that hold a rate limiting lease.
@@ -46,8 +47,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "Number of requests that are currently active on the server that hold a rate limiting lease.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Number of requests that are currently queued, waiting to acquire a rate limiting lease.
@@ -62,8 +64,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "Number of requests that are currently queued, waiting to acquire a rate limiting lease.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The time the request spent in a queue waiting to acquire a rate limiting lease.
@@ -78,8 +81,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "The time the request spent in a queue waiting to acquire a rate limiting lease.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.rate_limiting.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.rate_limiting.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) });
 
     /// <summary>
     /// The duration of rate limiting lease held by requests on the server.
@@ -94,8 +98,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "The duration of rate limiting lease held by requests on the server.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Number of requests that tried to acquire a rate limiting lease.
@@ -115,8 +120,9 @@ public static class AspnetcoreMetricDefinitions
             brief: "Number of requests that tried to acquire a rate limiting lease.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.rate_limiting.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.rate_limiting.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if the matched endpoint for the request had a rate-limiting policy.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.rate_limiting.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) });
 
     /// <summary>
     /// Number of requests that were attempted to be matched to an endpoint.
@@ -131,6 +137,7 @@ public static class AspnetcoreMetricDefinitions
             brief: "Number of requests that were attempted to be matched to an endpoint.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.routing.is_fallback", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if a route was successfully matched.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.routing.match_status", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.route", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if a route was successfully matched.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.routing.is_fallback", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if a route was successfully matched.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.routing.match_status", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.route", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if a route was successfully matched.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

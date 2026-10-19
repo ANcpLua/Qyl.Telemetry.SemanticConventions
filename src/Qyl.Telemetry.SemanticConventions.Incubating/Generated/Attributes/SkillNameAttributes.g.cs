@@ -19,5 +19,5 @@ public static class SkillNameAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:278. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string SkillName = "skill_name";
+    public const string SkillNameNative = "skill_name";
 }

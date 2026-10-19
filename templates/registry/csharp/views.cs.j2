@@ -74,10 +74,26 @@ public static class {{ ctx.class_name }}
 /// </remarks>
 public readonly struct {{ view }}Span
 {
-{{ pad }}/// <summary>Wraps <paramref name="record"/>; <see cref="{{ ctx.class_name }}.{{ view }}"/> selects the records that match.</summary>
+{{ pad }}/// <summary>Projects a matching record; rejects missing or incorrectly typed required attributes.</summary>
 {{ pad }}/// <param name="record">The span.</param>
 {{ pad }}public {{ view }}Span(global::Qyl.Telemetry.SemanticConventions.SpanRecord record)
-{{ pad }}    => Record = record ?? throw new global::System.ArgumentNullException(nameof(record));
+{{ pad }}{
+{{ pad }}    if (record is null) throw new global::System.ArgumentNullException(nameof(record));
+{{ pad }}    if (!Matches(record)) throw new global::System.ArgumentException("The record does not match {{ s.id }}.", nameof(record));
+{{ pad }}    Record = record;
+{{ pad }}}
+
+{{ pad }}/// <summary>Returns a view when the record matches; otherwise returns false and a null view.</summary>
+{{ pad }}public static bool TryCreate(global::Qyl.Telemetry.SemanticConventions.SpanRecord? record, out {{ view }}Span? view)
+{{ pad }}{
+{{ pad }}    if (record is null || !Matches(record))
+{{ pad }}    {
+{{ pad }}        view = null;
+{{ pad }}        return false;
+{{ pad }}    }
+{{ pad }}    view = new {{ view }}Span(record);
+{{ pad }}    return true;
+{{ pad }}}
 
 {{ lib.doc_block(pad, "summary", "The attribute keys this view reads, all of them persisted.") }}
 {{ pad }}public static global::System.Collections.Generic.IReadOnlyList<string> Keys { get; } = new string[] { {% for k in keys %}{% if not loop.first %}, {% endif %}{{ lib.cs_string(k) }}{% endfor %} };
@@ -104,22 +120,16 @@ public readonly struct {{ view }}Span
 {% set ab = lib.trim_end_newlines(a.brief | default("", true)) %}
 
 {{ lib.doc_block(pad, "summary", "<c>" ~ a.key ~ "</c>" ~ ((": " ~ lib.render_inline(ab | replace("\n", " "))) if (ab | length) > 0 else ".")) }}
-{% if is_enum and t == "long" %}
-{{ pad }}public {{ lib.struct_type(a) }}{{ "" if required else "?" }} {{ prop }} => {% if required %}{{ lib.struct_type(a) }}.Custom(Record.GetInt64("{{ a.key }}") ?? 0){% else %}Record.GetInt64("{{ a.key }}") is { } value ? {{ lib.struct_type(a) }}.Custom(value) : null{% endif %};
-{% elif is_enum %}
-{{ pad }}public {{ lib.struct_type(a) }}{{ "" if required else "?" }} {{ prop }} => {% if required %}{{ lib.struct_type(a) }}.Custom(Record.GetString("{{ a.key }}") ?? string.Empty){% else %}Record.GetString("{{ a.key }}") is { } value ? {{ lib.struct_type(a) }}.Custom(value) : null{% endif %};
-{% elif t == "string" %}
-{{ pad }}public string{{ "" if required else "?" }} {{ prop }} => Record.GetString("{{ a.key }}"){{ " ?? string.Empty" if required else "" }};
-{% elif t == "long" %}
-{{ pad }}public long? {{ prop }} => Record.GetInt64("{{ a.key }}");
-{% elif t == "double" %}
-{{ pad }}public double? {{ prop }} => Record.GetDouble("{{ a.key }}");
-{% elif t == "bool" %}
-{{ pad }}public bool? {{ prop }} => Record.GetBoolean("{{ a.key }}");
-{% elif t == "string[]" %}
-{{ pad }}public global::System.Collections.Generic.IReadOnlyList<string>? {{ prop }} => Record.GetStrings("{{ a.key }}");
+{% set read = lib.view_read(a, "Record") %}
+{% set checked = "(" ~ read ~ " ?? throw new global::System.InvalidOperationException(\"Required attribute '" ~ a.key ~ "' is missing or has an invalid type.\"))" if required else read %}
+{% if is_enum %}
+{{ pad }}public {{ lib.struct_type(a) }}{{ "" if required else "?" }} {{ prop }} => {% if required %}{{ lib.struct_type(a) }}.Custom({{ checked }}){% else %}{{ read }} is { } value ? {{ lib.struct_type(a) }}.Custom(value) : null{% endif %};
+{% elif t in ["string", "long", "double", "bool"] %}
+{{ pad }}public {{ t }}{{ "" if required else "?" }} {{ prop }} => {{ checked }};
+{% elif t in ["string[]", "long[]", "double[]", "bool[]"] %}
+{{ pad }}public global::System.Collections.Generic.IReadOnlyList<{{ t[:-2] }}>{{ "" if required else "?" }} {{ prop }} => {{ checked }};
 {% else %}
-{{ pad }}public object? {{ prop }} => Record.Attributes.TryGetValue("{{ a.key }}", out var value) ? value : null;
+{{ pad }}public object{{ "" if required else "?" }} {{ prop }} => {{ checked }};
 {% endif %}
 {% endfor %}
 
@@ -131,7 +141,7 @@ public readonly struct {{ view }}Span
 {{ pad }}       && span.Kind == global::Qyl.Telemetry.SemanticConventions.SpanKind.{{ kindname }}
 {% for a in v.attrs %}
 {% if lib.requirement_level_name(a.requirement_level) == "Required" %}
-{{ pad }}       && span.Attributes.ContainsKey("{{ a.key }}")
+{{ pad }}       && {{ lib.view_read(a, "span") }} is not null
 {% endif %}
 {% endfor %}
 {% for key, value in rule.fixed | items %}

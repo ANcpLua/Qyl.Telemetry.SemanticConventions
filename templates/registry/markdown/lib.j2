@@ -37,6 +37,9 @@
 | --- | --- |
 | Kind | `{{ g.type }}` |
 | Stability | {{ g.stability | default("Defined per attribute") }} |
+{% if g.type in ["metric", "span", "event", "entity"] %}
+| Signal collection | {{ g.requirement_level | default("recommended", true) }} |
+{% endif %}
 {% for key in ["name", "metric_name", "span_kind", "instrument", "unit", "extends"] %}
 {% if g[key] is defined %}
 | {{ key }} | {% if key == "unit" and g[key] == "" %}Empty on the native instrument{% else %}`{{ cell(g[key]) }}`{% endif %} |
@@ -55,14 +58,14 @@
 
 {% endif %}
 {% if g.entity_associations is defined and g.entity_associations %}
-Entity associations: {% for entity in g.entity_associations %}`{{ entity.type if entity is mapping else entity }}`{% if not loop.last %}, {% endif %}{% endfor %}.
+Entity associations (the outer list is an implicit `one_of`): `{{ g.entity_associations | tojson }}`.
 
 {% endif %}
 {% if g.attributes %}
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
 {% for a in g.attributes %}
-| `{{ cell(a.name) }}` | {{ cell(type_name(a.type)) }} | {{ cell(requirement(a)) }}{% if a.role | default("") == "descriptive" %}; descriptive{% endif %} | {{ a.stability | default("development") }}{% if a.deprecated is defined %}; deprecated{% endif %} | {{ cell(a.brief | default("")) }}{% if a.doc_details is defined and not a.doc_details and a.note is defined %} {{ cell(a.note) }}{% endif %} |
+| `{{ cell(a.name) }}` | {{ cell(type_name(a.type)) }} | {{ cell(requirement(a)) }}{% if a.role | default("") == "descriptive" %}; descriptive{% endif %} | {% if g.type == "span" %}{{ a.sampling_relevant | default(false) }}{% else %}Not applicable{% endif %} | {{ a.stability | default("development") }}{% if a.deprecated is defined %}; deprecated{% endif %} | {{ cell(a.brief | default("")) }}{% if a.doc_details is defined and not a.doc_details and a.note is defined %} {{ cell(a.note) }}{% endif %} |
 {% endfor %}
 
 {% for a in g.attributes %}

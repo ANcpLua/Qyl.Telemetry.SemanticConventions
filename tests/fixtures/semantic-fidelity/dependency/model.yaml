@@ -1,0 +1,12 @@
+file_format: definition/2
+attributes:
+  - key: external.id
+    type: string
+    brief: External identity.
+    stability: development
+    examples: [external-1]
+entities:
+  - type: external.service
+    brief: External service.
+    stability: development
+    identity: [ref: external.id]

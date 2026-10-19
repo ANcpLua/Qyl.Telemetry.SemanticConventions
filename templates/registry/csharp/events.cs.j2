@@ -39,7 +39,8 @@ public static class {{ ctx.type_root }}EventDefinitions
 {{ pad }}        brief: "{{ lib.escape_attribute(brief) }}",
 {{ pad }}        stability: {{ lib.stability_expr(e.stability | default("development", true)) }},
 {{ pad }}        deprecation: {{ lib.deprecation_expr(e.deprecated) }},
+{{ pad }}        requirementLevel: {{ lib.signal_requirement_expr(e.requirement_level | default("recommended", true)) }},
 {{ pad }}        attributes: {{ lib.attribute_array_expr(e.attributes | default([], true), params.policy) }},
-{{ pad }}        entities: {{ lib.entity_array_expr(e.entity_associations | default([], true)) }});
+{{ pad }}        entityAssociations: {{ lib.entity_array_expr(e.entity_associations | default([], true), e.provenance.source | default(ctx.qyl_schema_url, true)) }});
 {% endfor %}
 }

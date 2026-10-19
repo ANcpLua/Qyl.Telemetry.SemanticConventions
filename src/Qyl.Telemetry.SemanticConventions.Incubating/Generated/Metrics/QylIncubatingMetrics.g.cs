@@ -30,8 +30,9 @@ public static class QylIncubatingMetricDefinitions
             brief: "Operations with a deduplicated terminal observation.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Duration of completed observed agent operations.
@@ -48,8 +49,9 @@ public static class QylIncubatingMetricDefinitions
             brief: "Duration of completed observed agent operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Number of currently tracked operations in each lifecycle state.
@@ -69,8 +71,9 @@ public static class QylIncubatingMetricDefinitions
             brief: "Number of currently tracked operations in each lifecycle state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.agent.operation.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.operation.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.product", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("qyl.agent.source", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Identical typed duplicate attributes coalesced into one map entry at ingest.
@@ -85,8 +88,9 @@ public static class QylIncubatingMetricDefinitions
             brief: "Identical typed duplicate attributes coalesced into one map entry at ingest.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.attribute.namespace", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.attribute.namespace", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Attributes the collector dropped under its explicit persistence policy.
@@ -101,8 +105,9 @@ public static class QylIncubatingMetricDefinitions
             brief: "Attributes the collector dropped under its explicit persistence policy.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.attribute.namespace", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("qyl.attribute.namespace", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Exception attributes replaced with a safe marker because their value could not be sanitized.
@@ -117,6 +122,7 @@ public static class QylIncubatingMetricDefinitions
             brief: "Exception attributes replaced with a safe marker because their value could not be sanitized.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("qyl.attribute.key", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("qyl.attribute.key", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

@@ -17,24 +17,27 @@ public sealed class MetricDefinition<TInstrument>
     /// <param name="brief">Human-readable brief.</param>
     /// <param name="stability">The stability tier.</param>
     /// <param name="deprecation">Structured deprecation; <see cref="Deprecation.None"/> when current.</param>
-    /// <param name="entities">Entities this metric is associated with.</param>
+    /// <param name="entityAssociations">Entity association expressions; the list is an implicit one-of.</param>
     /// <param name="attributes">Attributes this metric carries, with requirement levels.</param>
+    /// <param name="requirementLevel">Whether this signal is recommended or opt-in.</param>
     public MetricDefinition(
         string name,
         string unit,
         string brief,
         Stability stability,
         Deprecation deprecation,
-        IReadOnlyList<EntityRef> entities,
-        IReadOnlyList<AttributeRef> attributes)
+        IReadOnlyList<EntityAssociation> entityAssociations,
+        IReadOnlyList<AttributeRef> attributes,
+        SignalRequirementLevel requirementLevel = SignalRequirementLevel.Recommended)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Unit = unit ?? throw new ArgumentNullException(nameof(unit));
         Brief = brief ?? throw new ArgumentNullException(nameof(brief));
         Stability = stability;
         Deprecation = deprecation ?? throw new ArgumentNullException(nameof(deprecation));
-        Entities = entities ?? throw new ArgumentNullException(nameof(entities));
+        EntityAssociations = entityAssociations ?? throw new ArgumentNullException(nameof(entityAssociations));
         Attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
+        RequirementLevel = requirementLevel;
     }
 
     /// <summary>The canonical OpenTelemetry metric name.</summary>
@@ -55,8 +58,11 @@ public sealed class MetricDefinition<TInstrument>
     /// <summary>Structured deprecation; <see cref="Deprecation.None"/> when current.</summary>
     public Deprecation Deprecation { get; }
 
-    /// <summary>Entities this metric is associated with (e.g. <c>process</c>, <c>host</c>).</summary>
-    public IReadOnlyList<EntityRef> Entities { get; }
+    /// <summary>Entity association expressions. At least one list entry must be satisfied.</summary>
+    public IReadOnlyList<EntityAssociation> EntityAssociations { get; }
+
+    /// <summary>The collection requirement for this signal, independent of attribute requirements.</summary>
+    public SignalRequirementLevel RequirementLevel { get; }
 
     /// <summary>Attributes this metric carries, with requirement levels.</summary>
     public IReadOnlyList<AttributeRef> Attributes { get; }

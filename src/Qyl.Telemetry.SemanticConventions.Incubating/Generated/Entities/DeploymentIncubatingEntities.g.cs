@@ -26,6 +26,7 @@ public static class DeploymentIncubatingEntityDefinitions
             brief: "The software deployment.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("deployment.environment.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("deployment.environment.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 }

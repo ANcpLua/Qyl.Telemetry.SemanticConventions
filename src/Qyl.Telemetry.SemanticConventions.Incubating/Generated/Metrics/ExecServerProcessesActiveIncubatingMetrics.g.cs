@@ -36,6 +36,7 @@ public static class ExecServerProcessesActiveIncubatingMetricDefinitions
             brief: "Current processes active.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 }

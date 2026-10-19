@@ -30,8 +30,9 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Total CPU time consumed.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "Required if mode is available, i.e. metrics coming from the Docker Stats API, containerd stats or cAdvisor.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "Required if mode is available, i.e. metrics coming from the Docker Stats API, containerd stats or cAdvisor.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Container's CPU usage, measured in CPUs. Range from 0 to the number of allocatable CPUs.
@@ -46,8 +47,9 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container's CPU usage, measured in CPUs. Range from 0 to the number of allocatable CPUs.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "Required if mode is available, i.e. metrics coming from the Docker Stats API, containerd stats or cAdvisor.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "Required if mode is available, i.e. metrics coming from the Docker Stats API, containerd stats or cAdvisor.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Disk bytes for the container.
@@ -62,8 +64,9 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Disk bytes for the container.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Container filesystem available bytes.
@@ -81,7 +84,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container filesystem available bytes.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -100,7 +104,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container filesystem capacity.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -121,7 +126,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container filesystem usage.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -139,7 +145,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container memory available.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -156,7 +163,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container memory RSS.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -174,7 +182,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Memory usage of the container.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -191,7 +200,8 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container memory working set.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -207,8 +217,9 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Network bytes for the container.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Container memory paging faults.
@@ -224,8 +235,9 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "Container memory paging faults.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The time the container has been running.
@@ -241,6 +253,7 @@ public static class ContainerIncubatingMetricDefinitions
             brief: "The time the container has been running.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 }

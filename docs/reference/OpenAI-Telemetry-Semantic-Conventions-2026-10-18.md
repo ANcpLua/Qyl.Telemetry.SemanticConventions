@@ -36,6 +36,7 @@ One logical operation tracked across its observed lifecycle.
 | --- | --- |
 | Kind | `entity` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `qyl.agent.operation` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
@@ -44,14 +45,14 @@ The operation identifier is stable across delivery retries. Parent and turn attr
 they are not unsupported entity-relationship declarations. State changes never alter identity.
 
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `gen_ai.tool.call.id` | string | recommended; descriptive | development | The tool call identifier supplied by the model or provider. |
-| `qyl.agent.operation.id` | string | identity (no requirement level) | development | Stable identifier for one observed logical operation. |
-| `qyl.agent.operation.name` | enum | recommended; descriptive | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | recommended; descriptive | development | Last established lifecycle state of an operation. |
-| `qyl.agent.parent.operation.id` | string | recommended; descriptive | development | Identifier of the directly enclosing observed operation. |
-| `qyl.agent.turn.id` | string | recommended; descriptive | development | Native turn or prompt identifier scoped to its provider and conversation. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `gen_ai.tool.call.id` | string | recommended; descriptive | Not applicable | development | The tool call identifier supplied by the model or provider. |
+| `qyl.agent.operation.id` | string | identity (no requirement level) | Not applicable | development | Stable identifier for one observed logical operation. |
+| `qyl.agent.operation.name` | enum | recommended; descriptive | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | recommended; descriptive | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.parent.operation.id` | string | recommended; descriptive | Not applicable | development | Identifier of the directly enclosing observed operation. |
+| `qyl.agent.turn.id` | string | recommended; descriptive | Not applicable | development | Native turn or prompt identifier scoped to its provider and conversation. |
 
 #### Attribute details: `gen_ai.tool.call.id`
 
@@ -125,6 +126,7 @@ A conversation within the namespace of its originating product.
 | --- | --- |
 | Kind | `entity` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `qyl.agent.session` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
@@ -134,12 +136,12 @@ before assigning gen_ai.conversation.id. Model provider is descriptive and may c
 These are identity fields; Weaver 0.28.0 does not attach requirement_level to materialized identity.
 
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `gen_ai.conversation.id` | string | identity (no requirement level) | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
-| `gen_ai.provider.name` | enum | recommended; descriptive | development | The Generative AI provider as identified by the client or server instrumentation. |
-| `qyl.agent.product` | enum | identity (no requirement level) | development | Product responsible for the observed activity. |
-| `service.name` | string | recommended; descriptive | stable | Logical name of the service.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `gen_ai.conversation.id` | string | identity (no requirement level) | Not applicable | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
+| `gen_ai.provider.name` | enum | recommended; descriptive | Not applicable | development | The Generative AI provider as identified by the client or server instrumentation. |
+| `qyl.agent.product` | enum | identity (no requirement level) | Not applicable | development | Product responsible for the observed activity. |
+| `service.name` | string | recommended; descriptive | Not applicable | stable | Logical name of the service.  |
 
 #### Attribute details: `gen_ai.conversation.id`
 
@@ -234,18 +236,19 @@ One identified turn within a conversation.
 | --- | --- |
 | Kind | `entity` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `qyl.agent.turn` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
 The identifying tuple is immutable. Do not create this entity when a source has no turn identifier; retain the available session association instead.
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `gen_ai.conversation.id` | string | identity (no requirement level) | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
-| `gen_ai.request.model` | string | recommended; descriptive | development | The name of the GenAI model a request is being made to. |
-| `qyl.agent.product` | enum | identity (no requirement level) | development | Product responsible for the observed activity. |
-| `qyl.agent.turn.id` | string | identity (no requirement level) | development | Native turn or prompt identifier scoped to its provider and conversation. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `gen_ai.conversation.id` | string | identity (no requirement level) | Not applicable | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
+| `gen_ai.request.model` | string | recommended; descriptive | Not applicable | development | The name of the GenAI model a request is being made to. |
+| `qyl.agent.product` | enum | identity (no requirement level) | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.turn.id` | string | identity (no requirement level) | Not applicable | development | Native turn or prompt identifier scoped to its provider and conversation. |
 
 #### Attribute details: `gen_ai.conversation.id`
 
@@ -304,6 +307,7 @@ A source-established change in one operation's lifecycle state.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `qyl.agent.operation.state_changed` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
@@ -314,18 +318,18 @@ observations must not silently rewind a terminal operation. Record uncertainty i
 This development adapter contract does not claim that OpenAI or Anthropic emits this qyl event natively.
 
 
-Entity associations: `qyl.agent.operation`.
+Entity associations (the outer list is an implicit `one_of`): `["qyl.agent.operation"]`.
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `qyl.agent.operation.id` | string | required | development | Stable identifier for one observed logical operation. |
-| `qyl.agent.operation.name` | enum | required | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | required | development | Last established lifecycle state of an operation. |
-| `qyl.agent.product` | enum | required | development | Product responsible for the observed activity. |
-| `qyl.agent.record.id` | string | recommended | development | Stable identity of the original source record within its source stream. |
-| `qyl.agent.record.observed_at` | string | recommended | development | UTC ISO 8601 time at which the adapter observed the source record. |
-| `qyl.agent.record.payload` | any | opt_in | development | Optional original source record retained for explicitly enabled diagnostics. |
-| `qyl.agent.source` | enum | required | development | Collection boundary from which an observation was obtained. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.agent.operation.id` | string | required | Not applicable | development | Stable identifier for one observed logical operation. |
+| `qyl.agent.operation.name` | enum | required | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | required | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.product` | enum | required | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.record.id` | string | recommended | Not applicable | development | Stable identity of the original source record within its source stream. |
+| `qyl.agent.record.observed_at` | string | recommended | Not applicable | development | UTC ISO 8601 time at which the adapter observed the source record. |
+| `qyl.agent.record.payload` | any | opt_in | Not applicable | development | Optional original source record retained for explicitly enabled diagnostics. |
+| `qyl.agent.source` | enum | required | Not applicable | development | Collection boundary from which an observation was obtained. |
 
 #### Attribute details: `qyl.agent.operation.id`
 
@@ -434,6 +438,7 @@ Operations with a deduplicated terminal observation.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `qyl.agent.operation.completed` |
 | instrument | `counter` |
 | unit | `{operation}` |
@@ -442,12 +447,12 @@ Operations with a deduplicated terminal observation.
 
 Increment once for completed, failed or cancelled operations. Separate terminal outcomes using state; this counter is not a count of successful operations alone. Never increment again for redelivery.
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `qyl.agent.operation.name` | enum | required | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | required | development | Last established lifecycle state of an operation. |
-| `qyl.agent.product` | enum | required | development | Product responsible for the observed activity. |
-| `qyl.agent.source` | enum | required | development | Collection boundary from which an observation was obtained. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.agent.operation.name` | enum | required | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | required | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.product` | enum | required | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.source` | enum | required | Not applicable | development | Collection boundary from which an observation was obtained. |
 
 #### Attribute details: `qyl.agent.operation.name`
 
@@ -510,6 +515,7 @@ Duration of completed observed agent operations.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `qyl.agent.operation.duration` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -521,12 +527,12 @@ seconds explicitly. A source duration with a different boundary is a different m
 be merged. Dimensions are bounded categories; exclude conversation, operation, turn, tool-call and user IDs.
 
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `qyl.agent.operation.name` | enum | required | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | required | development | Last established lifecycle state of an operation. |
-| `qyl.agent.product` | enum | required | development | Product responsible for the observed activity. |
-| `qyl.agent.source` | enum | required | development | Collection boundary from which an observation was obtained. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.agent.operation.name` | enum | required | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | required | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.product` | enum | required | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.source` | enum | required | Not applicable | development | Collection boundary from which an observation was obtained. |
 
 #### Attribute details: `qyl.agent.operation.name`
 
@@ -589,6 +595,7 @@ Number of currently tracked operations in each lifecycle state.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `qyl.agent.operation.status` |
 | instrument | `updowncounter` |
 | unit | `1` |
@@ -603,12 +610,12 @@ population after restart before reporting it. This is current state, not a cumul
 A historical event stream without sufficient state reconstruction cannot honestly emit this metric.
 
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `qyl.agent.operation.name` | enum | required | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | required | development | Last established lifecycle state of an operation. |
-| `qyl.agent.product` | enum | required | development | Product responsible for the observed activity. |
-| `qyl.agent.source` | enum | required | development | Collection boundary from which an observation was obtained. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.agent.operation.name` | enum | required | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | required | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.product` | enum | required | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.source` | enum | required | Not applicable | development | Collection boundary from which an observation was obtained. |
 
 #### Attribute details: `qyl.agent.operation.name`
 
@@ -674,18 +681,18 @@ Cross-producer agent identity, lifecycle and source attribution.
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `qyl.agent.operation.id` | string | recommended | development | Stable identifier for one observed logical operation. |
-| `qyl.agent.operation.name` | enum | recommended | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | recommended | development | Last established lifecycle state of an operation. |
-| `qyl.agent.parent.operation.id` | string | recommended | development | Identifier of the directly enclosing observed operation. |
-| `qyl.agent.product` | enum | recommended | development | Product responsible for the observed activity. |
-| `qyl.agent.record.id` | string | recommended | development | Stable identity of the original source record within its source stream. |
-| `qyl.agent.record.observed_at` | string | recommended | development | UTC ISO 8601 time at which the adapter observed the source record. |
-| `qyl.agent.record.payload` | any | recommended | development | Optional original source record retained for explicitly enabled diagnostics. |
-| `qyl.agent.source` | enum | recommended | development | Collection boundary from which an observation was obtained. |
-| `qyl.agent.turn.id` | string | recommended | development | Native turn or prompt identifier scoped to its provider and conversation. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `qyl.agent.operation.id` | string | recommended | Not applicable | development | Stable identifier for one observed logical operation. |
+| `qyl.agent.operation.name` | enum | recommended | Not applicable | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | recommended | Not applicable | development | Last established lifecycle state of an operation. |
+| `qyl.agent.parent.operation.id` | string | recommended | Not applicable | development | Identifier of the directly enclosing observed operation. |
+| `qyl.agent.product` | enum | recommended | Not applicable | development | Product responsible for the observed activity. |
+| `qyl.agent.record.id` | string | recommended | Not applicable | development | Stable identity of the original source record within its source stream. |
+| `qyl.agent.record.observed_at` | string | recommended | Not applicable | development | UTC ISO 8601 time at which the adapter observed the source record. |
+| `qyl.agent.record.payload` | any | recommended | Not applicable | development | Optional original source record retained for explicitly enabled diagnostics. |
+| `qyl.agent.source` | enum | recommended | Not applicable | development | Collection boundary from which an observation was obtained. |
+| `qyl.agent.turn.id` | string | recommended | Not applicable | development | Native turn or prompt identifier scoped to its provider and conversation. |
 
 #### Attribute details: `qyl.agent.operation.id`
 
@@ -808,6 +815,7 @@ One observed agent operation, with explicitly established start and end boundari
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/qyl/agent-observability.yaml` |
@@ -822,20 +830,20 @@ Product, operation category and established identity are available at start; sta
 become available at completion and cannot be assumed present for head sampling.
 
 
-Entity associations: `qyl.agent.operation`.
+Entity associations (the outer list is an implicit `one_of`): `["qyl.agent.operation"]`.
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error.type` | enum | {"conditionally_required":"If the observed operation failed."} | stable | Describes a class of error the operation ended with.  |
-| `gen_ai.conversation.id` | string | recommended | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
-| `gen_ai.tool.call.id` | string | recommended | development | The tool call identifier supplied by the model or provider. |
-| `qyl.agent.operation.id` | string | required | development | Stable identifier for one observed logical operation. |
-| `qyl.agent.operation.name` | enum | required | development | Bounded operation category used for cross-producer comparisons. |
-| `qyl.agent.operation.state` | enum | recommended | development | Last established lifecycle state of an operation. |
-| `qyl.agent.parent.operation.id` | string | recommended | development | Identifier of the directly enclosing observed operation. |
-| `qyl.agent.product` | enum | required | development | Product responsible for the observed activity. |
-| `qyl.agent.source` | enum | required | development | Collection boundary from which an observation was obtained. |
-| `qyl.agent.turn.id` | string | recommended | development | Native turn or prompt identifier scoped to its provider and conversation. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error.type` | enum | {"conditionally_required":"If the observed operation failed."} | false | stable | Describes a class of error the operation ended with.  |
+| `gen_ai.conversation.id` | string | recommended | false | development | The unique identifier for a conversation (session, thread), used to store and correlate messages within this conversation. |
+| `gen_ai.tool.call.id` | string | recommended | false | development | The tool call identifier supplied by the model or provider. |
+| `qyl.agent.operation.id` | string | required | false | development | Stable identifier for one observed logical operation. |
+| `qyl.agent.operation.name` | enum | required | false | development | Bounded operation category used for cross-producer comparisons. |
+| `qyl.agent.operation.state` | enum | recommended | false | development | Last established lifecycle state of an operation. |
+| `qyl.agent.parent.operation.id` | string | recommended | false | development | Identifier of the directly enclosing observed operation. |
+| `qyl.agent.product` | enum | required | false | development | Product responsible for the observed activity. |
+| `qyl.agent.source` | enum | required | false | development | Collection boundary from which an observation was obtained. |
+| `qyl.agent.turn.id` | string | recommended | false | development | Native turn or prompt identifier scoped to its provider and conversation. |
 
 #### Attribute details: `error.type`
 
@@ -18341,6 +18349,7 @@ Records inter-agent send/receive bookkeeping; detailed internal diagnostic, not 
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.agent_communication` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -18352,14 +18361,14 @@ This is an observation of the named occurrence, not a certificate that a later o
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agent_communication.rs#L53
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agent_communication.rs#L72
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `communication_id` | any | recommended | development | Identifier joining the send and receive observations of an inter-agent communication. |
-| `content` | any | opt_in | development | Content recorded by the native producer; see the versioned source evidence. |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `receiver_thread_id` | string | recommended | development | Thread receiving the inter-agent message. |
-| `sender_thread_id` | string | recommended | development | Thread sending the inter-agent message. |
-| `state` | enum | recommended | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `communication_id` | any | recommended | Not applicable | development | Identifier joining the send and receive observations of an inter-agent communication. |
+| `content` | any | opt_in | Not applicable | development | Content recorded by the native producer; see the versioned source evidence. |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `receiver_thread_id` | string | recommended | Not applicable | development | Thread receiving the inter-agent message. |
+| `sender_thread_id` | string | recommended | Not applicable | development | Thread sending the inter-agent message. |
+| `state` | enum | recommended | Not applicable | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
 
 #### Attribute details: `communication_id`
 
@@ -18512,6 +18521,7 @@ Exports an opted-in live final answer from the main agent or an eligible spawned
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.agent_response` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -18522,28 +18532,28 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/agent_response.rs#L96
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `agent.type` | any | recommended | development | Main agent or eligible spawned subagent. |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `initiating.agent.path` | any | recommended | development | Initiating agent path. |
-| `item.id` | string | recommended | development | Conversation item identifier. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `parent.conversation.id` | string | recommended | development | Parent conversation for a spawned agent. |
-| `parent.turn.id` | string | recommended | development | Parent turn attribution. |
-| `response` | any | opt_in | development | Assistant text output, subject to redaction and truncation; excludes thinking blocks. |
-| `response_length` | int | recommended | development | Length of the assistant text output. |
-| `response_truncated` | boolean | recommended | development | Whether the answer exceeded the telemetry cap. |
-| `root.turn.id` | string | recommended | development | Root turn attribution. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `agent.type` | any | recommended | Not applicable | development | Main agent or eligible spawned subagent. |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `initiating.agent.path` | any | recommended | Not applicable | development | Initiating agent path. |
+| `item.id` | string | recommended | Not applicable | development | Conversation item identifier. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `parent.conversation.id` | string | recommended | Not applicable | development | Parent conversation for a spawned agent. |
+| `parent.turn.id` | string | recommended | Not applicable | development | Parent turn attribution. |
+| `response` | any | opt_in | Not applicable | development | Assistant text output, subject to redaction and truncation; excludes thinking blocks. |
+| `response_length` | int | recommended | Not applicable | development | Length of the assistant text output. |
+| `response_truncated` | boolean | recommended | Not applicable | development | Whether the answer exceeded the telemetry cap. |
+| `root.turn.id` | string | recommended | Not applicable | development | Root turn attribution. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `agent.type`
 
@@ -18822,6 +18832,7 @@ Records one model/API request attempt and its HTTP/authentication diagnostics.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.api_request` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -18834,42 +18845,42 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/model-provider/src/models_endpoint.rs#L320
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/model-provider/src/models_endpoint.rs#L346
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `attempt` | any | recommended | development | Attempt recorded by the native producer; see the versioned source evidence. |
-| `auth.agent_id` | string | recommended | development | Agent identity attribution. |
-| `auth.cf_ray` | any | recommended | development | Cloudflare correlation ID. |
-| `auth.env_codex_api_key_enabled` | any | recommended | development | Whether the Codex API-key environment path is enabled. |
-| `auth.env_codex_api_key_present` | any | recommended | development | Presence of the CODEX_API_KEY environment variable. |
-| `auth.env_openai_api_key_present` | any | recommended | development | Presence of the OPENAI_API_KEY environment variable. |
-| `auth.env_provider_key_name` | string | recommended | development | Configured provider environment-variable name, not its value. |
-| `auth.env_provider_key_present` | any | recommended | development | Whether that provider key variable exists. |
-| `auth.env_refresh_token_url_override_present` | any | recommended | development | Whether a refresh URL override is configured. |
-| `auth.error` | any | recommended | development | Authentication error classification. |
-| `auth.error_code` | any | recommended | development | Authentication error code. |
-| `auth.header_attached` | any | recommended | development | Whether an authentication header was attached; not the header secret. |
-| `auth.header_name` | any | recommended | development | Header name only. |
-| `auth.mode` | any | recommended | development | Recovery authentication mode. |
-| `auth.recovery_mode` | any | recommended | development | Authentication recovery strategy. |
-| `auth.recovery_phase` | any | recommended | development | Recovery phase. |
-| `auth.request_id` | any | recommended | development | Server request correlation ID. |
-| `auth.retry_after_unauthorized` | any | recommended | development | Whether this follows an unauthorized-response recovery. |
-| `auth.task_id` | string | recommended | development | Task identity attribution. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `endpoint` | any | recommended | development | Endpoint classification recorded by the caller. |
-| `error.message` | string | opt_in | development; deprecated | A message providing more detail about an error in human-readable form. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `http.response.status_code` | int | recommended | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `attempt` | any | recommended | Not applicable | development | Attempt recorded by the native producer; see the versioned source evidence. |
+| `auth.agent_id` | string | recommended | Not applicable | development | Agent identity attribution. |
+| `auth.cf_ray` | any | recommended | Not applicable | development | Cloudflare correlation ID. |
+| `auth.env_codex_api_key_enabled` | any | recommended | Not applicable | development | Whether the Codex API-key environment path is enabled. |
+| `auth.env_codex_api_key_present` | any | recommended | Not applicable | development | Presence of the CODEX_API_KEY environment variable. |
+| `auth.env_openai_api_key_present` | any | recommended | Not applicable | development | Presence of the OPENAI_API_KEY environment variable. |
+| `auth.env_provider_key_name` | string | recommended | Not applicable | development | Configured provider environment-variable name, not its value. |
+| `auth.env_provider_key_present` | any | recommended | Not applicable | development | Whether that provider key variable exists. |
+| `auth.env_refresh_token_url_override_present` | any | recommended | Not applicable | development | Whether a refresh URL override is configured. |
+| `auth.error` | any | recommended | Not applicable | development | Authentication error classification. |
+| `auth.error_code` | any | recommended | Not applicable | development | Authentication error code. |
+| `auth.header_attached` | any | recommended | Not applicable | development | Whether an authentication header was attached; not the header secret. |
+| `auth.header_name` | any | recommended | Not applicable | development | Header name only. |
+| `auth.mode` | any | recommended | Not applicable | development | Recovery authentication mode. |
+| `auth.recovery_mode` | any | recommended | Not applicable | development | Authentication recovery strategy. |
+| `auth.recovery_phase` | any | recommended | Not applicable | development | Recovery phase. |
+| `auth.request_id` | any | recommended | Not applicable | development | Server request correlation ID. |
+| `auth.retry_after_unauthorized` | any | recommended | Not applicable | development | Whether this follows an unauthorized-response recovery. |
+| `auth.task_id` | string | recommended | Not applicable | development | Task identity attribution. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `endpoint` | any | recommended | Not applicable | development | Endpoint classification recorded by the caller. |
+| `error.message` | string | opt_in | Not applicable | development; deprecated | A message providing more detail about an error in human-readable form. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `http.response.status_code` | int | recommended | Not applicable | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -19558,6 +19569,7 @@ Reports reloading the app-server telemetry configuration.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.app_server.otel_reloaded` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -19603,6 +19615,7 @@ Warns that a thread shutdown exceeded an expected wait.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.app_server.thread_shutdown_slow` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -19670,6 +19683,7 @@ Records an authentication recovery step and its outcome.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.auth_recovery` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -19680,27 +19694,27 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L927
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth.cf_ray` | any | recommended | development | Cloudflare correlation ID. |
-| `auth.error` | any | recommended | development | Authentication error classification. |
-| `auth.error_code` | any | recommended | development | Authentication error code. |
-| `auth.mode` | any | recommended | development | Recovery authentication mode. |
-| `auth.outcome` | any | recommended | development | Recovery outcome. |
-| `auth.recovery_reason` | any | recommended | development | Reason recovery was attempted. |
-| `auth.request_id` | any | recommended | development | Server request correlation ID. |
-| `auth.state_changed` | any | recommended | development | Whether authentication state changed during recovery. |
-| `auth.step` | any | recommended | development | Recovery step. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth.cf_ray` | any | recommended | Not applicable | development | Cloudflare correlation ID. |
+| `auth.error` | any | recommended | Not applicable | development | Authentication error classification. |
+| `auth.error_code` | any | recommended | Not applicable | development | Authentication error code. |
+| `auth.mode` | any | recommended | Not applicable | development | Recovery authentication mode. |
+| `auth.outcome` | any | recommended | Not applicable | development | Recovery outcome. |
+| `auth.recovery_reason` | any | recommended | Not applicable | development | Reason recovery was attempted. |
+| `auth.request_id` | any | recommended | Not applicable | development | Server request correlation ID. |
+| `auth.state_changed` | any | recommended | Not applicable | development | Whether authentication state changed during recovery. |
+| `auth.step` | any | recommended | Not applicable | development | Recovery step. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -20058,6 +20072,7 @@ Records the Code Mode host portion of tool execution in nanoseconds for attribut
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.code_mode.host_timing` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -20068,14 +20083,14 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/telemetry.rs#L76
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `cell_id` | string | recommended | development | Code Mode execution-cell identifier in this emitter’s native spelling. |
-| `code_mode_host_duration_ns` | any | recommended | development | Code Mode host elapsed nanoseconds. |
-| `conversation_id` | string | recommended | development | Conversation ID in this emitter’s native spelling. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `cell_id` | string | recommended | Not applicable | development | Code Mode execution-cell identifier in this emitter’s native spelling. |
+| `code_mode_host_duration_ns` | any | recommended | Not applicable | development | Code Mode host elapsed nanoseconds. |
+| `conversation_id` | string | recommended | Not applicable | development | Conversation ID in this emitter’s native spelling. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -20220,6 +20235,7 @@ Records a nested tool dispatch abandoned, cancelled, or closed before normal com
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.code_mode.nested_tool_dispatch_interrupted` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -20230,11 +20246,11 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/telemetry.rs#L137
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `call_id`
 
@@ -20342,6 +20358,7 @@ Marks dispatch of a nested Code Mode tool call.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.code_mode.nested_tool_dispatched` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -20352,13 +20369,13 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/mod.rs#L359
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `runtime_tool_call_id` | any | recommended | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `cell.id` | any | recommended | Not applicable | development | Code Mode execution-cell identifier. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `runtime_tool_call_id` | any | recommended | Not applicable | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -20512,6 +20529,7 @@ Records startup model, context, permissions and authentication-environment metad
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.conversation_starts` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -20522,33 +20540,33 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L690
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `approval_policy` | string | recommended | development | Effective approval policy. |
-| `auth.env_codex_api_key_enabled` | any | recommended | development | Whether the Codex API-key environment path is enabled. |
-| `auth.env_codex_api_key_present` | any | recommended | development | Presence of the CODEX_API_KEY environment variable. |
-| `auth.env_openai_api_key_present` | any | recommended | development | Presence of the OPENAI_API_KEY environment variable. |
-| `auth.env_provider_key_name` | string | recommended | development | Configured provider environment-variable name, not its value. |
-| `auth.env_provider_key_present` | any | recommended | development | Whether that provider key variable exists. |
-| `auth.env_refresh_token_url_override_present` | any | recommended | development | Whether a refresh URL override is configured. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `auto_compact_token_limit` | any | recommended | development | Automatic-compaction threshold. |
-| `context_window` | any | recommended | development | Configured/reported context window size. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `mcp_server_count` | any | recommended | development | Mcp server count recorded by the native producer; see the versioned source evidence. |
-| `mcp_servers` | any | recommended | development | Joined configured MCP server names (detailed log). |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `provider_name` | string | recommended | development | Configured model provider label. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `reasoning_summary` | string | recommended | development | Reasoning-summary mode. |
-| `sandbox_policy` | string | recommended | development | Effective sandbox policy. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `approval_policy` | string | recommended | Not applicable | development | Effective approval policy. |
+| `auth.env_codex_api_key_enabled` | any | recommended | Not applicable | development | Whether the Codex API-key environment path is enabled. |
+| `auth.env_codex_api_key_present` | any | recommended | Not applicable | development | Presence of the CODEX_API_KEY environment variable. |
+| `auth.env_openai_api_key_present` | any | recommended | Not applicable | development | Presence of the OPENAI_API_KEY environment variable. |
+| `auth.env_provider_key_name` | string | recommended | Not applicable | development | Configured provider environment-variable name, not its value. |
+| `auth.env_provider_key_present` | any | recommended | Not applicable | development | Whether that provider key variable exists. |
+| `auth.env_refresh_token_url_override_present` | any | recommended | Not applicable | development | Whether a refresh URL override is configured. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `auto_compact_token_limit` | any | recommended | Not applicable | development | Automatic-compaction threshold. |
+| `context_window` | any | recommended | Not applicable | development | Configured/reported context window size. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `mcp_server_count` | any | recommended | Not applicable | development | Mcp server count recorded by the native producer; see the versioned source evidence. |
+| `mcp_servers` | any | recommended | Not applicable | development | Joined configured MCP server names (detailed log). |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `provider_name` | string | recommended | Not applicable | development | Configured model provider label. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `reasoning_summary` | string | recommended | Not applicable | development | Reasoning-summary mode. |
+| `sandbox_policy` | string | recommended | Not applicable | development | Effective sandbox policy. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -20966,6 +20984,7 @@ Records process exit code and whether termination was requested.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.process_exit` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -20976,18 +20995,18 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L48
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `process.exit_code` | any | recommended | development | Exited process status code. |
-| `process.termination_requested` | any | recommended | development | Whether a termination request was recorded. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `sandbox.type` | any | recommended | development | Sandbox implementation/classification. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `process.exit_code` | any | recommended | Not applicable | development | Exited process status code. |
+| `process.termination_requested` | any | recommended | Not applicable | development | Whether a termination request was recorded. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `sandbox.type` | any | recommended | Not applicable | development | Sandbox implementation/classification. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
 
 #### Attribute details: `conversation.id`
 
@@ -21256,6 +21275,7 @@ Records inability to spawn an executor process.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.process_spawn_failed` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -21266,18 +21286,18 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L36
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `process.exit_code` | any | recommended | development | Exited process status code. |
-| `process.termination_requested` | any | recommended | development | Whether a termination request was recorded. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `sandbox.type` | any | recommended | development | Sandbox implementation/classification. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `process.exit_code` | any | recommended | Not applicable | development | Exited process status code. |
+| `process.termination_requested` | any | recommended | Not applicable | development | Whether a termination request was recorded. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `sandbox.type` | any | recommended | Not applicable | development | Sandbox implementation/classification. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
 
 #### Attribute details: `conversation.id`
 
@@ -21546,6 +21566,7 @@ Records executor process start with the launch correlation retained for its life
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.process_start` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -21556,18 +21577,18 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L34
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `process.exit_code` | any | recommended | development | Exited process status code. |
-| `process.termination_requested` | any | recommended | development | Whether a termination request was recorded. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `sandbox.type` | any | recommended | development | Sandbox implementation/classification. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `process.exit_code` | any | recommended | Not applicable | development | Exited process status code. |
+| `process.termination_requested` | any | recommended | Not applicable | development | Whether a termination request was recorded. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `sandbox.type` | any | recommended | Not applicable | development | Sandbox implementation/classification. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
 
 #### Attribute details: `conversation.id`
 
@@ -21836,6 +21857,7 @@ Marks placement of an executor RPC into its request queue.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.request_enqueued` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -21846,9 +21868,9 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/rpc.rs#L689
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `rpc.method` | string | recommended | Not applicable | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
 
 #### Attribute details: `rpc.method`
 
@@ -21894,6 +21916,7 @@ Marks executor response placement into the outgoing queue.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.response_enqueued` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -21904,10 +21927,10 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/server/handler.rs#L309
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `rpc.method` | string | recommended | Not applicable | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
 
 #### Attribute details: `outcome`
 
@@ -21976,6 +21999,7 @@ Records receipt of an executor RPC response and timing information.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.response_received` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -21986,11 +22010,11 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/rpc_timing.rs#L33
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `reader_to_caller_ns` | any | recommended | development | Elapsed response-read completion to caller handoff time, in nanoseconds. |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `reader_to_caller_ns` | any | recommended | Not applicable | development | Elapsed response-read completion to caller handoff time, in nanoseconds. |
+| `rpc.method` | string | recommended | Not applicable | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
 
 #### Attribute details: `outcome`
 
@@ -22082,6 +22106,7 @@ Records inferred sandbox denial for an executor process.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.exec_server.sandbox_denied` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22092,18 +22117,18 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L39
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `process.exit_code` | any | recommended | development | Exited process status code. |
-| `process.termination_requested` | any | recommended | development | Whether a termination request was recorded. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `sandbox.type` | any | recommended | development | Sandbox implementation/classification. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `process.exit_code` | any | recommended | Not applicable | development | Exited process status code. |
+| `process.termination_requested` | any | recommended | Not applicable | development | Whether a termination request was recorded. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `sandbox.type` | any | recommended | Not applicable | development | Sandbox implementation/classification. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
 
 #### Attribute details: `conversation.id`
 
@@ -22372,6 +22397,7 @@ Exports an opted-in terminal automatic-review assessment, classifications and bo
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.guardian_assessment` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22382,30 +22408,30 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/guardian_assessment.rs#L50
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `completed_at_ms` | any | recommended | development | Completion timestamp in milliseconds. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `item.id` | string | recommended | development | Conversation item identifier. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `rationale` | any | opt_in | development | Review explanation text, opt-in and bounded. |
-| `rationale_length` | int | recommended | development | Untruncated rationale byte length. |
-| `rationale_truncated` | boolean | recommended | development | Whether the rationale exceeded the telemetry cap. |
-| `review.id` | string | recommended | development | Automatic-review identifier. |
-| `risk_level` | any | recommended | development | Automatic-review risk class. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `started_at_ms` | any | recommended | development | Start timestamp in milliseconds. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
-| `user_authorization` | any | recommended | development | Automatic-review authorization assessment. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `completed_at_ms` | any | recommended | Not applicable | development | Completion timestamp in milliseconds. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `item.id` | string | recommended | Not applicable | development | Conversation item identifier. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `rationale` | any | opt_in | Not applicable | development | Review explanation text, opt-in and bounded. |
+| `rationale_length` | int | recommended | Not applicable | development | Untruncated rationale byte length. |
+| `rationale_truncated` | boolean | recommended | Not applicable | development | Whether the rationale exceeded the telemetry cap. |
+| `review.id` | string | recommended | Not applicable | development | Automatic-review identifier. |
+| `risk_level` | any | recommended | Not applicable | development | Automatic-review risk class. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `started_at_ms` | any | recommended | Not applicable | development | Start timestamp in milliseconds. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
+| `user_authorization` | any | recommended | Not applicable | development | Automatic-review authorization assessment. |
 
 #### Attribute details: `app.version`
 
@@ -22762,6 +22788,7 @@ Records use of a fallback while building a client with custom CA configuration.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.http_client.custom_ca_fallback` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22809,6 +22836,7 @@ Records a TLS backend fallback.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.http_client.tls_backend_fallback` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22854,6 +22882,7 @@ Records a scheduling interruption caused by mailbox/input work.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.mailbox_preemption` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22864,10 +22893,10 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2920
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
 
 #### Attribute details: `conversation.id`
 
@@ -22952,6 +22981,7 @@ Records a failed spawn after validation, with bounded failure classification.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.multi_agent.spawn.failure` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -22962,24 +22992,24 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L305
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `detail` | any | recommended | development | Detail recorded by the native producer; see the versioned source evidence. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `fork_mode` | any | recommended | development | Spawn/fork strategy classification supplied by the caller. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `multi_agent_version` | any | recommended | development | Multi-agent implementation version selected for this operation. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `detail` | any | recommended | Not applicable | development | Detail recorded by the native producer; see the versioned source evidence. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `fork_mode` | any | recommended | Not applicable | development | Spawn/fork strategy classification supplied by the caller. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `multi_agent_version` | any | recommended | Not applicable | development | Multi-agent implementation version selected for this operation. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `app.version`
 
@@ -23297,6 +23327,7 @@ Records the managed proxy decision for a destination/request; a decision does no
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.network_proxy.policy_decision` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -23308,34 +23339,34 @@ This is an observation of the named occurrence, not a certificate that a later o
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client/network_policy_audit.rs#L54
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/network-proxy/src/network_policy.rs#L284
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `client.address` | string | recommended | stable | Client address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `execution.id` | any | recommended | development | Execution context identifier. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `http.request.method` | enum | recommended | stable | HTTP request method. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `network.policy.decision` | any | recommended | development | Allow/deny decision. |
-| `network.policy.override` | any | recommended | development | Whether an override affected the decision. |
-| `network.policy.reason` | any | recommended | development | Policy reason. |
-| `network.policy.scope` | any | recommended | development | Policy scope. |
-| `network.policy.source` | any | recommended | development | Policy source. |
-| `network.transport.protocol` | any | recommended | development | Network protocol classification. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `server.address` | string | recommended | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
-| `server.port` | int | recommended | stable | Server port number. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `client.address` | string | recommended | Not applicable | stable | Client address - domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `execution.id` | any | recommended | Not applicable | development | Execution context identifier. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `http.request.method` | enum | recommended | Not applicable | stable | HTTP request method. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `network.policy.decision` | any | recommended | Not applicable | development | Allow/deny decision. |
+| `network.policy.override` | any | recommended | Not applicable | development | Whether an override affected the decision. |
+| `network.policy.reason` | any | recommended | Not applicable | development | Policy reason. |
+| `network.policy.scope` | any | recommended | Not applicable | development | Policy scope. |
+| `network.policy.source` | any | recommended | Not applicable | development | Policy source. |
+| `network.transport.protocol` | any | recommended | Not applicable | development | Network protocol classification. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `server.address` | string | recommended | Not applicable | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
+| `server.port` | int | recommended | Not applicable | stable | Server port number. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -23843,6 +23874,7 @@ Records a blob upload attempt after which no further retry will be made.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_failed` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -23853,20 +23885,20 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/files.rs#L327
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `attempt` | any | recommended | development | Attempt recorded by the native producer; see the versioned source evidence. |
-| `azure_client_request_id` | any | recommended | development | Azure client request correlation identifier. |
-| `azure_error_code` | any | recommended | development | Azure error classification. |
-| `azure_request_id` | any | recommended | development | Azure server request correlation identifier. |
-| `cloudflare_ray_id` | any | recommended | development | Cloudflare request correlation identifier. |
-| `delay_ms` | any | recommended | development | Delay before retry, in milliseconds. |
-| `elapsed_ms` | any | recommended | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `file_id` | any | recommended | development | Uploaded file identifier. |
-| `file_size_bytes` | any | recommended | development | File size in bytes. |
-| `host` | any | recommended | development | Host recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `attempt` | any | recommended | Not applicable | development | Attempt recorded by the native producer; see the versioned source evidence. |
+| `azure_client_request_id` | any | recommended | Not applicable | development | Azure client request correlation identifier. |
+| `azure_error_code` | any | recommended | Not applicable | development | Azure error classification. |
+| `azure_request_id` | any | recommended | Not applicable | development | Azure server request correlation identifier. |
+| `cloudflare_ray_id` | any | recommended | Not applicable | development | Cloudflare request correlation identifier. |
+| `delay_ms` | any | recommended | Not applicable | development | Delay before retry, in milliseconds. |
+| `elapsed_ms` | any | recommended | Not applicable | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `file_id` | any | recommended | Not applicable | development | Uploaded file identifier. |
+| `file_size_bytes` | any | recommended | Not applicable | development | File size in bytes. |
+| `host` | any | recommended | Not applicable | development | Host recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `attempt`
 
@@ -24181,6 +24213,7 @@ Records a successful blob upload after earlier failed attempts.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_recovered` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -24191,19 +24224,19 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/files.rs#L265
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `attempt` | any | recommended | development | Attempt recorded by the native producer; see the versioned source evidence. |
-| `azure_client_request_id` | any | recommended | development | Azure client request correlation identifier. |
-| `azure_error_code` | any | recommended | development | Azure error classification. |
-| `azure_request_id` | any | recommended | development | Azure server request correlation identifier. |
-| `cloudflare_ray_id` | any | recommended | development | Cloudflare request correlation identifier. |
-| `delay_ms` | any | recommended | development | Delay before retry, in milliseconds. |
-| `elapsed_ms` | any | recommended | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
-| `file_id` | any | recommended | development | Uploaded file identifier. |
-| `file_size_bytes` | any | recommended | development | File size in bytes. |
-| `host` | any | recommended | development | Host recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `attempt` | any | recommended | Not applicable | development | Attempt recorded by the native producer; see the versioned source evidence. |
+| `azure_client_request_id` | any | recommended | Not applicable | development | Azure client request correlation identifier. |
+| `azure_error_code` | any | recommended | Not applicable | development | Azure error classification. |
+| `azure_request_id` | any | recommended | Not applicable | development | Azure server request correlation identifier. |
+| `cloudflare_ray_id` | any | recommended | Not applicable | development | Cloudflare request correlation identifier. |
+| `delay_ms` | any | recommended | Not applicable | development | Delay before retry, in milliseconds. |
+| `elapsed_ms` | any | recommended | Not applicable | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
+| `file_id` | any | recommended | Not applicable | development | Uploaded file identifier. |
+| `file_size_bytes` | any | recommended | Not applicable | development | File size in bytes. |
+| `host` | any | recommended | Not applicable | development | Host recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `attempt`
 
@@ -24495,6 +24528,7 @@ Records a failed blob upload attempt that will be retried.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.openai_file_blob_upload_retry` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -24505,20 +24539,20 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/files.rs#L325
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `attempt` | any | recommended | development | Attempt recorded by the native producer; see the versioned source evidence. |
-| `azure_client_request_id` | any | recommended | development | Azure client request correlation identifier. |
-| `azure_error_code` | any | recommended | development | Azure error classification. |
-| `azure_request_id` | any | recommended | development | Azure server request correlation identifier. |
-| `cloudflare_ray_id` | any | recommended | development | Cloudflare request correlation identifier. |
-| `delay_ms` | any | recommended | development | Delay before retry, in milliseconds. |
-| `elapsed_ms` | any | recommended | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `file_id` | any | recommended | development | Uploaded file identifier. |
-| `file_size_bytes` | any | recommended | development | File size in bytes. |
-| `host` | any | recommended | development | Host recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `attempt` | any | recommended | Not applicable | development | Attempt recorded by the native producer; see the versioned source evidence. |
+| `azure_client_request_id` | any | recommended | Not applicable | development | Azure client request correlation identifier. |
+| `azure_error_code` | any | recommended | Not applicable | development | Azure error classification. |
+| `azure_request_id` | any | recommended | Not applicable | development | Azure server request correlation identifier. |
+| `cloudflare_ray_id` | any | recommended | Not applicable | development | Cloudflare request correlation identifier. |
+| `delay_ms` | any | recommended | Not applicable | development | Delay before retry, in milliseconds. |
+| `elapsed_ms` | any | recommended | Not applicable | development | Elapsed ms recorded by the native producer; see the versioned source evidence. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `file_id` | any | recommended | Not applicable | development | Uploaded file identifier. |
+| `file_size_bytes` | any | recommended | Not applicable | development | File size in bytes. |
+| `host` | any | recommended | Not applicable | development | Host recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `attempt`
 
@@ -24833,6 +24867,7 @@ Marks dispatch of a plugin/connector installation prompt.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.plugin_install_elicitation_sent` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -24843,21 +24878,21 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L465
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `plugin_install.tool_id` | any | recommended | development | Installation tool id. |
-| `plugin_install.tool_name` | any | recommended | development | Installation tool name. |
-| `plugin_install.tool_type` | any | recommended | development | Installation tool type. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `plugin_install.tool_id` | any | recommended | Not applicable | development | Installation tool id. |
+| `plugin_install.tool_name` | any | recommended | Not applicable | development | Installation tool name. |
+| `plugin_install.tool_type` | any | recommended | Not applicable | development | Installation tool type. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -25077,6 +25112,7 @@ Records the outcome of a plugin/connector installation suggestion.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.plugin_install_suggestion` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -25087,24 +25123,24 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L498
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `plugin_install.completed` | any | recommended | development | Installation completed. |
-| `plugin_install.response_action` | any | recommended | development | Installation response action. |
-| `plugin_install.tool_id` | any | recommended | development | Installation tool id. |
-| `plugin_install.tool_name` | any | recommended | development | Installation tool name. |
-| `plugin_install.tool_type` | any | recommended | development | Installation tool type. |
-| `plugin_install.user_confirmed` | any | recommended | development | Installation user confirmed. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `plugin_install.completed` | any | recommended | Not applicable | development | Installation completed. |
+| `plugin_install.response_action` | any | recommended | Not applicable | development | Installation response action. |
+| `plugin_install.tool_id` | any | recommended | Not applicable | development | Installation tool id. |
+| `plugin_install.tool_name` | any | recommended | Not applicable | development | Installation tool name. |
+| `plugin_install.tool_type` | any | recommended | Not applicable | development | Installation tool type. |
+| `plugin_install.user_confirmed` | any | recommended | Not applicable | development | Installation user confirmed. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -25393,6 +25429,7 @@ Records an outgoing client retry and its reason/timing.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.retry` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -25403,12 +25440,12 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-client/src/retry.rs#L72
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `retry.attempt` | any | recommended | development | Attempt number for the recorded retry. |
-| `retry.delay_ms` | int | recommended | development | Delay selected before retrying, in milliseconds. |
-| `retry.layer` | any | recommended | development | Client layer that owns the retry. |
-| `retry.operation` | any | recommended | development | Operation being retried. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `retry.attempt` | any | recommended | Not applicable | development | Attempt number for the recorded retry. |
+| `retry.delay_ms` | int | recommended | Not applicable | development | Delay selected before retrying, in milliseconds. |
+| `retry.layer` | any | recommended | Not applicable | development | Client layer that owns the retry. |
+| `retry.operation` | any | recommended | Not applicable | development | Operation being retried. |
 
 #### Attribute details: `retry.attempt`
 
@@ -25521,6 +25558,7 @@ Records initial and escalated execution outcomes and durations.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.sandbox_outcome` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -25532,23 +25570,23 @@ This is an observation of the named occurrence, not a certificate that a later o
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1235
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1244
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `escalated_duration_ms` | any | recommended | development | Escalated attempt elapsed milliseconds, if any. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `initial_duration_ms` | any | recommended | development | Initial execution elapsed milliseconds. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `escalated_duration_ms` | any | recommended | Not applicable | development | Escalated attempt elapsed milliseconds, if any. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `initial_duration_ms` | any | recommended | Not applicable | development | Initial execution elapsed milliseconds. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -25825,6 +25863,7 @@ Records detected explicit/implicit skill use, without skill contents or filesyst
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.skill_invocation` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -25835,21 +25874,21 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/skill_invocation.rs#L41
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `skill.invocation_type` | any | recommended | development | Explicit or implicit invocation detection. |
-| `skill.name` | any | recommended | development | Skill name recorded by the native producer; see the versioned source evidence. |
-| `skill.plugin_id` | any | recommended | development | Owning plugin identifier, if any. |
-| `skill.scope` | any | recommended | development | User/repository/system/admin scope. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.id` | string | recommended | development | Unique identifier of the user.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `skill.invocation_type` | any | recommended | Not applicable | development | Explicit or implicit invocation detection. |
+| `skill.name` | any | recommended | Not applicable | development | Skill name recorded by the native producer; see the versioned source evidence. |
+| `skill.plugin_id` | any | recommended | Not applicable | development | Owning plugin identifier, if any. |
+| `skill.scope` | any | recommended | Not applicable | development | User/repository/system/admin scope. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.id` | string | recommended | Not applicable | development | Unique identifier of the user.  |
 
 #### Attribute details: `app.version`
 
@@ -26107,6 +26146,7 @@ Records streaming-event handling, stream errors and completion usage metadata.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.sse_event` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -26122,30 +26162,30 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1119
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1132
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `cache_write_token_count` | any | recommended | development | Cache-write input usage. |
-| `cached_token_count` | any | recommended | development | Cached-input usage. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `error.message` | string | opt_in | development; deprecated | A message providing more detail about an error in human-readable form. |
-| `event.kind` | string | recommended | development | Underlying stream event kind. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `input_token_count` | string | recommended | development | Input usage reported on completion. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `model_reasoning_effort` | string | recommended | development | Inference reasoning-effort setting. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `output_token_count` | string | recommended | development | Output usage reported on completion. |
-| `reasoning_token_count` | any | recommended | development | Reasoning-token usage. |
-| `service_tier` | string | recommended | development | Service tier used/reported for inference. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `tool_token_count` | string | recommended | development | Despite the name, the emitter assigns usage.total_tokens here: total usage, not tool-only tokens. |
-| `ttft_ms` | any | recommended | development | Ttft ms recorded by the native producer; see the versioned source evidence. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `cache_write_token_count` | any | recommended | Not applicable | development | Cache-write input usage. |
+| `cached_token_count` | any | recommended | Not applicable | development | Cached-input usage. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `error.message` | string | opt_in | Not applicable | development; deprecated | A message providing more detail about an error in human-readable form. |
+| `event.kind` | string | recommended | Not applicable | development | Underlying stream event kind. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `input_token_count` | string | recommended | Not applicable | development | Input usage reported on completion. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `model_reasoning_effort` | string | recommended | Not applicable | development | Inference reasoning-effort setting. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `output_token_count` | string | recommended | Not applicable | development | Output usage reported on completion. |
+| `reasoning_token_count` | any | recommended | Not applicable | development | Reasoning-token usage. |
+| `service_tier` | string | recommended | Not applicable | development | Service tier used/reported for inference. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `tool_token_count` | string | recommended | Not applicable | development | Despite the name, the emitter assigns usage.total_tokens here: total usage, not tool-only tokens. |
+| `ttft_ms` | any | recommended | Not applicable | development | Ttft ms recorded by the native producer; see the versioned source evidence. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -26532,6 +26572,7 @@ Records a coarse startup phase, its outcome and duration.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.startup_phase` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -26542,21 +26583,21 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L368
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `startup.phase` | any | recommended | development | Coarse startup phase. |
-| `startup.status` | any | recommended | development | Phase result classification. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `startup.phase` | any | recommended | Not applicable | development | Coarse startup phase. |
+| `startup.status` | any | recommended | Not applicable | development | Phase result classification. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -26776,6 +26817,7 @@ Records internal tool-call diagnostics.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.tool_call` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -26786,18 +26828,18 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L450
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `dispatch_duration_ms` | any | recommended | development | Measured dispatch portion of tool-call latency, in milliseconds. |
-| `execution_started` | boolean | recommended | development | Whether the call recorded the start of execution, rather than stopping before execution. |
-| `handler_duration_ms` | any | recommended | development | Measured handler portion of tool-call latency, in milliseconds. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_source` | any | recommended | development | Tool source recorded by the native producer; see the versioned source evidence. |
-| `total_duration_ms` | string | recommended | development | Total duration ms recorded by the native producer; see the versioned source evidence. |
-| `trace_id` | string | recommended | development | Current trace identifier, or an empty value when no valid trace context exists. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `dispatch_duration_ms` | any | recommended | Not applicable | development | Measured dispatch portion of tool-call latency, in milliseconds. |
+| `execution_started` | boolean | recommended | Not applicable | development | Whether the call recorded the start of execution, rather than stopping before execution. |
+| `handler_duration_ms` | any | recommended | Not applicable | development | Measured handler portion of tool-call latency, in milliseconds. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_source` | any | recommended | Not applicable | development | Tool source recorded by the native producer; see the versioned source evidence. |
+| `total_duration_ms` | string | recommended | Not applicable | development | Total duration ms recorded by the native producer; see the versioned source evidence. |
+| `trace_id` | string | recommended | Not applicable | development | Current trace identifier, or an empty value when no valid trace context exists. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -27014,6 +27056,7 @@ Marks receipt of a tool call before its result is ready.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.tool_call_received` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -27024,16 +27067,16 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/call_trace.rs#L45
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `runtime_tool_call_id` | any | recommended | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
-| `tool_source` | any | recommended | development | Tool source recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `cell.id` | any | recommended | Not applicable | development | Code Mode execution-cell identifier. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `runtime_tool_call_id` | any | recommended | Not applicable | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | Not applicable | development | Tool namespace. |
+| `tool_source` | any | recommended | Not applicable | development | Tool source recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -27256,6 +27299,7 @@ Records a tool approval/denial and whether the decision came from configuration 
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.tool_decision` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -27267,23 +27311,23 @@ This is an observation of the named occurrence, not a certificate that a later o
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1204
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1213
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `decision` | any | recommended | development | Decision recorded by the native producer; see the versioned source evidence. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `source` | any | recommended | development | Source recorded by the native producer; see the versioned source evidence. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `decision` | any | recommended | Not applicable | development | Decision recorded by the native producer; see the versioned source evidence. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `source` | any | recommended | Not applicable | development | Source recorded by the native producer; see the versioned source evidence. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | Not applicable | development | Tool namespace. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -27559,6 +27603,7 @@ Records tool execution outcome; detailed logs contain arguments/output preview, 
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.tool_result` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -27569,36 +27614,36 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/tool_result.rs#L54
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `agent_name` | string | recommended | development | Potentially user-selected agent label/path; detailed-log field. |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `arguments` | string | opt_in | development | Raw serialized tool arguments in detailed logs. |
-| `arguments_length` | int | recommended | development | Serialized argument byte length. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `mcp_server` | string | recommended | development | MCP server name (detailed log). |
-| `mcp_server_origin` | string | recommended | development | MCP server provenance. |
-| `mcp_tool` | any | recommended | development | Mcp tool recorded by the native producer; see the versioned source evidence. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `output` | any | opt_in | development | Output recorded by the native producer; see the versioned source evidence. |
-| `output_length` | int | recommended | development | Original tool-output byte length. |
-| `output_line_count` | int | recommended | development | Original output line count. |
-| `output_truncated` | boolean | recommended | development | Whether the producer shortened output. |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
-| `tool_origin` | boolean | recommended | development | Built-in versus MCP origin classification. |
-| `tool_result_seq` | any | recommended | development | Process-wide result-recording sequence; resets on restart. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `agent_name` | string | recommended | Not applicable | development | Potentially user-selected agent label/path; detailed-log field. |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `arguments` | string | opt_in | Not applicable | development | Raw serialized tool arguments in detailed logs. |
+| `arguments_length` | int | recommended | Not applicable | development | Serialized argument byte length. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `mcp_server` | string | recommended | Not applicable | development | MCP server name (detailed log). |
+| `mcp_server_origin` | string | recommended | Not applicable | development | MCP server provenance. |
+| `mcp_tool` | any | recommended | Not applicable | development | Mcp tool recorded by the native producer; see the versioned source evidence. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `output` | any | opt_in | Not applicable | development | Output recorded by the native producer; see the versioned source evidence. |
+| `output_length` | int | recommended | Not applicable | development | Original tool-output byte length. |
+| `output_line_count` | int | recommended | Not applicable | development | Original output line count. |
+| `output_truncated` | boolean | recommended | Not applicable | development | Whether the producer shortened output. |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | Not applicable | development | Tool namespace. |
+| `tool_origin` | boolean | recommended | Not applicable | development | Built-in versus MCP origin classification. |
+| `tool_result_seq` | any | recommended | Not applicable | development | Process-wide result-recording sequence; resets on restart. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `agent_name`
 
@@ -28024,6 +28069,7 @@ Marks availability of a tool result for the caller.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.tool_result_ready` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -28034,14 +28080,14 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/call_trace.rs#L68
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
-| `tool_source` | any | recommended | development | Tool source recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `tool_name` | any | recommended | Not applicable | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | Not applicable | development | Tool namespace. |
+| `tool_source` | any | recommended | Not applicable | development | Tool source recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -28218,6 +28264,7 @@ Records a turn cost estimate, interruption status and execution settings.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.turn_cost` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -28228,23 +28275,23 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L442
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `speed` | string | recommended | development | Speed recorded by the native producer; see the versioned source evidence. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `turn.interrupted` | any | recommended | development | Whether the turn was interrupted. |
-| `usage.estimated_usd` | any | recommended | development | Estimated turn cost as USD text; not an invoice. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `speed` | string | recommended | Not applicable | development | Speed recorded by the native producer; see the versioned source evidence. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `turn.interrupted` | any | recommended | Not applicable | development | Whether the turn was interrupted. |
+| `usage.estimated_usd` | any | recommended | Not applicable | development | Estimated turn cost as USD text; not an invoice. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -28489,6 +28536,7 @@ Records time to first token for a turn.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.turn_ttft` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -28499,19 +28547,19 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L384
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -28685,6 +28733,7 @@ Marks a unified-execution process-start request before execution is confirmed.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.unified_exec.process_start_requested` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -28695,10 +28744,10 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/process_manager.rs#L1360
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
-| `unified_exec_process_id` | any | recommended | development | Identifier used by the unified-execution process manager. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | Not applicable | development | Executor process identifier in this event’s process namespace. |
+| `unified_exec_process_id` | any | recommended | Not applicable | development | Identifier used by the unified-execution process manager. |
 
 #### Attribute details: `process.id`
 
@@ -28783,6 +28832,7 @@ Records prompt length and image counts; raw prompt text is separately controlled
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.user_prompt` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -28794,23 +28844,23 @@ This is an observation of the named occurrence, not a certificate that a later o
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1179
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L1185
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `image_input_count` | int | recommended | development | Remote/embedded image inputs counted by the prompt emitter. |
-| `local_image_input_count` | int | recommended | development | Local image inputs counted by the prompt emitter. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `prompt` | string | opt_in | development | User prompt text or the producer redaction marker. |
-| `prompt_length` | string | recommended | development | Length of the submitted prompt before content redaction. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `text_input_count` | int | recommended | development | Number of text inputs in the submitted prompt; not a word or token count. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `image_input_count` | int | recommended | Not applicable | development | Remote/embedded image inputs counted by the prompt emitter. |
+| `local_image_input_count` | int | recommended | Not applicable | development | Local image inputs counted by the prompt emitter. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `prompt` | string | opt_in | Not applicable | development | User prompt text or the producer redaction marker. |
+| `prompt_length` | string | recommended | Not applicable | development | Length of the submitted prompt before content redaction. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `text_input_count` | int | recommended | Not applicable | development | Number of text inputs in the submitted prompt; not a word or token count. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -29007,6 +29057,7 @@ Records WebSocket connection setup/reuse and authentication diagnostics.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.websocket_connect` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -29017,41 +29068,41 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L841
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth.agent_id` | string | recommended | development | Agent identity attribution. |
-| `auth.cf_ray` | any | recommended | development | Cloudflare correlation ID. |
-| `auth.connection_reused` | any | recommended | development | Whether a connection was reused. |
-| `auth.env_codex_api_key_enabled` | any | recommended | development | Whether the Codex API-key environment path is enabled. |
-| `auth.env_codex_api_key_present` | any | recommended | development | Presence of the CODEX_API_KEY environment variable. |
-| `auth.env_openai_api_key_present` | any | recommended | development | Presence of the OPENAI_API_KEY environment variable. |
-| `auth.env_provider_key_name` | string | recommended | development | Configured provider environment-variable name, not its value. |
-| `auth.env_provider_key_present` | any | recommended | development | Whether that provider key variable exists. |
-| `auth.env_refresh_token_url_override_present` | any | recommended | development | Whether a refresh URL override is configured. |
-| `auth.error` | any | recommended | development | Authentication error classification. |
-| `auth.error_code` | any | recommended | development | Authentication error code. |
-| `auth.header_attached` | any | recommended | development | Whether an authentication header was attached; not the header secret. |
-| `auth.header_name` | any | recommended | development | Header name only. |
-| `auth.recovery_mode` | any | recommended | development | Authentication recovery strategy. |
-| `auth.recovery_phase` | any | recommended | development | Recovery phase. |
-| `auth.request_id` | any | recommended | development | Server request correlation ID. |
-| `auth.retry_after_unauthorized` | any | recommended | development | Whether this follows an unauthorized-response recovery. |
-| `auth.task_id` | string | recommended | development | Task identity attribution. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `endpoint` | any | recommended | development | Endpoint classification recorded by the caller. |
-| `error.message` | string | opt_in | development; deprecated | A message providing more detail about an error in human-readable form. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `http.response.status_code` | int | recommended | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth.agent_id` | string | recommended | Not applicable | development | Agent identity attribution. |
+| `auth.cf_ray` | any | recommended | Not applicable | development | Cloudflare correlation ID. |
+| `auth.connection_reused` | any | recommended | Not applicable | development | Whether a connection was reused. |
+| `auth.env_codex_api_key_enabled` | any | recommended | Not applicable | development | Whether the Codex API-key environment path is enabled. |
+| `auth.env_codex_api_key_present` | any | recommended | Not applicable | development | Presence of the CODEX_API_KEY environment variable. |
+| `auth.env_openai_api_key_present` | any | recommended | Not applicable | development | Presence of the OPENAI_API_KEY environment variable. |
+| `auth.env_provider_key_name` | string | recommended | Not applicable | development | Configured provider environment-variable name, not its value. |
+| `auth.env_provider_key_present` | any | recommended | Not applicable | development | Whether that provider key variable exists. |
+| `auth.env_refresh_token_url_override_present` | any | recommended | Not applicable | development | Whether a refresh URL override is configured. |
+| `auth.error` | any | recommended | Not applicable | development | Authentication error classification. |
+| `auth.error_code` | any | recommended | Not applicable | development | Authentication error code. |
+| `auth.header_attached` | any | recommended | Not applicable | development | Whether an authentication header was attached; not the header secret. |
+| `auth.header_name` | any | recommended | Not applicable | development | Header name only. |
+| `auth.recovery_mode` | any | recommended | Not applicable | development | Authentication recovery strategy. |
+| `auth.recovery_phase` | any | recommended | Not applicable | development | Recovery phase. |
+| `auth.request_id` | any | recommended | Not applicable | development | Server request correlation ID. |
+| `auth.retry_after_unauthorized` | any | recommended | Not applicable | development | Whether this follows an unauthorized-response recovery. |
+| `auth.task_id` | string | recommended | Not applicable | development | Task identity attribution. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `endpoint` | any | recommended | Not applicable | development | Endpoint classification recorded by the caller. |
+| `error.message` | string | opt_in | Not applicable | development; deprecated | A message providing more detail about an error in human-readable form. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `http.response.status_code` | int | recommended | Not applicable | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -29653,6 +29704,7 @@ Records one request carried over WebSocket.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `codex.websocket_request` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -29663,30 +29715,30 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/session_telemetry.rs#L892
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app.version` | string | recommended | development | Version of the runtime that emitted the record. |
-| `auth.agent_id` | string | recommended | development | Agent identity attribution. |
-| `auth.connection_reused` | any | recommended | development | Whether a connection was reused. |
-| `auth.env_codex_api_key_enabled` | any | recommended | development | Whether the Codex API-key environment path is enabled. |
-| `auth.env_codex_api_key_present` | any | recommended | development | Presence of the CODEX_API_KEY environment variable. |
-| `auth.env_openai_api_key_present` | any | recommended | development | Presence of the OPENAI_API_KEY environment variable. |
-| `auth.env_provider_key_name` | string | recommended | development | Configured provider environment-variable name, not its value. |
-| `auth.env_provider_key_present` | any | recommended | development | Whether that provider key variable exists. |
-| `auth.env_refresh_token_url_override_present` | any | recommended | development | Whether a refresh URL override is configured. |
-| `auth.task_id` | string | recommended | development | Task identity attribution. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `duration_ms` | any | recommended | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
-| `error.message` | string | opt_in | development; deprecated | A message providing more detail about an error in human-readable form. |
-| `event.timestamp` | string | recommended | development | Time at which the producer recorded the event. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `terminal.type` | string | recommended | development | Terminal or non-interactive host classification. |
-| `user.account_id` | string | recommended | development | Tagged Anthropic account identifier, when available. |
-| `user.email` | string | recommended | development | User email address.  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app.version` | string | recommended | Not applicable | development | Version of the runtime that emitted the record. |
+| `auth.agent_id` | string | recommended | Not applicable | development | Agent identity attribution. |
+| `auth.connection_reused` | any | recommended | Not applicable | development | Whether a connection was reused. |
+| `auth.env_codex_api_key_enabled` | any | recommended | Not applicable | development | Whether the Codex API-key environment path is enabled. |
+| `auth.env_codex_api_key_present` | any | recommended | Not applicable | development | Presence of the CODEX_API_KEY environment variable. |
+| `auth.env_openai_api_key_present` | any | recommended | Not applicable | development | Presence of the OPENAI_API_KEY environment variable. |
+| `auth.env_provider_key_name` | string | recommended | Not applicable | development | Configured provider environment-variable name, not its value. |
+| `auth.env_provider_key_present` | any | recommended | Not applicable | development | Whether that provider key variable exists. |
+| `auth.env_refresh_token_url_override_present` | any | recommended | Not applicable | development | Whether a refresh URL override is configured. |
+| `auth.task_id` | string | recommended | Not applicable | development | Task identity attribution. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `duration_ms` | any | recommended | Not applicable | development | Elapsed duration in milliseconds; some producers serialize the number as text. |
+| `error.message` | string | opt_in | Not applicable | development; deprecated | A message providing more detail about an error in human-readable form. |
+| `event.timestamp` | string | recommended | Not applicable | development | Time at which the producer recorded the event. |
+| `model` | any | recommended | Not applicable | development | Model identifier recorded by the producer. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `terminal.type` | string | recommended | Not applicable | development | Terminal or non-interactive host classification. |
+| `user.account_id` | string | recommended | Not applicable | development | Tagged Anthropic account identifier, when available. |
+| `user.email` | string | recommended | Not applicable | development | User email address.  |
 
 #### Attribute details: `app.version`
 
@@ -30051,6 +30103,7 @@ Records diagnostics about the MCP binding/tool catalog.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `mcp.binding_catalog` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -30061,14 +30114,14 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/catalog_telemetry.rs#L63
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_source` | any | recommended | development | Provenance of the materialized MCP catalog. |
-| `plugin_id` | any | recommended | development | Plugin id recorded by the native producer; see the versioned source evidence. |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `server_kind` | any | recommended | development | Classification of the MCP server supplying the catalog. |
-| `tool_count` | any | recommended | development | Number of tool definitions in the observed catalog. |
-| `tool_definition_json_bytes` | any | recommended | development | Sum of serialized JSON byte sizes for tool definitions; not the definitions themselves. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_source` | any | recommended | Not applicable | development | Provenance of the materialized MCP catalog. |
+| `plugin_id` | any | recommended | Not applicable | development | Plugin id recorded by the native producer; see the versioned source evidence. |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `server_kind` | any | recommended | Not applicable | development | Classification of the MCP server supplying the catalog. |
+| `tool_count` | any | recommended | Not applicable | development | Number of tool definitions in the observed catalog. |
+| `tool_definition_json_bytes` | any | recommended | Not applicable | development | Sum of serialized JSON byte sizes for tool definitions; not the definitions themselves. |
 
 #### Attribute details: `catalog_source`
 
@@ -30245,6 +30298,7 @@ Records readiness of MCP startup/tool discovery.
 | --- | --- |
 | Kind | `event` |
 | Stability | development |
+| Signal collection | recommended |
 | name | `mcp.startup_readiness` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -30255,15 +30309,15 @@ This is an observation of the named occurrence, not a certificate that a later o
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/tool_catalog.rs#L110
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cache_eligible` | any | recommended | development | A still-starting MCP client has an accepted cached catalog available. |
-| `explicitly_required` | any | recommended | development | This MCP server or its selected plugin was explicitly requested at the startup gate. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `required` | any | recommended | development | This server belongs to the connection set’s required-server list. |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
-| `startup_pending` | any | recommended | development | MCP client startup has not yet completed. |
-| `startup_readiness` | string | recommended | development | Readiness policy being observed; this emitter records catalog readiness. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cache_eligible` | any | recommended | Not applicable | development | A still-starting MCP client has an accepted cached catalog available. |
+| `explicitly_required` | any | recommended | Not applicable | development | This MCP server or its selected plugin was explicitly requested at the startup gate. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `required` | any | recommended | Not applicable | development | This server belongs to the connection set’s required-server list. |
+| `server_name` | any | recommended | Not applicable | development | Server name recorded by the native producer; see the versioned source evidence. |
+| `startup_pending` | any | recommended | Not applicable | development | MCP client startup has not yet completed. |
+| `startup_readiness` | string | recommended | Not applicable | development | Readiness policy being observed; this emitter records catalog readiness. |
 
 #### Attribute details: `cache_eligible`
 
@@ -30448,6 +30502,7 @@ Counts/accumulates agents md edit observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.agents_md.edit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -30462,9 +30517,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/runti
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `filename` | string | recommended | development | Native filename field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `filename` | string | recommended | Not applicable | development | Native filename field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `filename`
 
@@ -30506,6 +30561,7 @@ Counts/accumulates api request observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.api_request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -30520,10 +30576,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `status`
 
@@ -30604,6 +30660,7 @@ Elapsed-time distribution for api request.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.api_request.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -30618,10 +30675,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `status`
 
@@ -30702,6 +30759,7 @@ Distribution of app server codex home size bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.app_server.codex_home.size_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -30716,10 +30774,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/codex
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `compression_enabled` | string | recommended | development | Native compression enabled field emitted by the pinned Codex runtime. |
-| `directory` | string | recommended | development | Native directory field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `compression_enabled` | string | recommended | Not applicable | development | Native compression enabled field emitted by the pinned Codex runtime. |
+| `directory` | string | recommended | Not applicable | development | Native directory field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `compression_enabled`
 
@@ -30768,6 +30826,7 @@ Counts/accumulates approval requested observations; interpret each dimension usi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.approval.requested` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -30782,10 +30841,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/sandb
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `approved` | string | recommended | development | Native approved field emitted by the pinned Codex runtime. |
-| `tool` | any | recommended | development | Tool recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `approved` | string | recommended | Not applicable | development | Native approved field emitted by the pinned Codex runtime. |
+| `tool` | any | recommended | Not applicable | development | Tool recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `approved`
 
@@ -30850,6 +30909,7 @@ Distribution of apps installed connector count measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.installed.connector_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -30864,9 +30924,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `path` | any | recommended | development | Path recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `path` | any | recommended | Not applicable | development | Path recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `path`
 
@@ -30924,6 +30984,7 @@ Elapsed-time distribution for apps installed.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.installed.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -30939,14 +31000,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `force_refresh` | string | recommended | development | Native force refresh field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `path` | any | recommended | development | Path recorded by the native producer; see the versioned source evidence. |
-| `refresh` | string | recommended | development | Native refresh field emitted by the pinned Codex runtime. |
-| `reload` | string | recommended | development | Native reload field emitted by the pinned Codex runtime. |
-| `retained_previous_snapshot` | string | recommended | development | Native retained previous snapshot field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `force_refresh` | string | recommended | Not applicable | development | Native force refresh field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `path` | any | recommended | Not applicable | development | Path recorded by the native producer; see the versioned source evidence. |
+| `refresh` | string | recommended | Not applicable | development | Native refresh field emitted by the pinned Codex runtime. |
+| `reload` | string | recommended | Not applicable | development | Native reload field emitted by the pinned Codex runtime. |
+| `retained_previous_snapshot` | string | recommended | Not applicable | development | Native retained previous snapshot field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `force_refresh`
 
@@ -31064,6 +31125,7 @@ Distribution of apps installed response bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.installed.response_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -31078,9 +31140,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `path` | any | recommended | development | Path recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `path` | any | recommended | Not applicable | development | Path recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `path`
 
@@ -31138,6 +31200,7 @@ Distribution of apps installed tool count measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.installed.tool_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -31152,9 +31215,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `path` | any | recommended | development | Path recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `path` | any | recommended | Not applicable | development | Path recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `path`
 
@@ -31212,6 +31275,7 @@ Elapsed-time distribution for apps read.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.read.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -31226,9 +31290,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `include_tools` | string | recommended | development | Native include tools field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `include_tools` | string | recommended | Not applicable | development | Native include tools field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `include_tools`
 
@@ -31270,6 +31334,7 @@ Elapsed-time distribution for apps refresh.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.refresh.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -31317,6 +31382,7 @@ Elapsed-time distribution for apps snapshot age ms.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.apps.snapshot.age_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -31331,10 +31397,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/reque
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `observation` | string | recommended | development | Native observation field emitted by the pinned Codex runtime. |
-| `path` | any | recommended | development | Path recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `observation` | string | recommended | Not applicable | development | Native observation field emitted by the pinned Codex runtime. |
+| `path` | any | recommended | Not applicable | development | Path recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `observation`
 
@@ -31399,6 +31465,7 @@ Distribution of artifact operation expected output count measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.artifact.operation.expected_output_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -31413,13 +31480,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/event
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `artifact_type` | string | recommended | development | Native artifact type field emitted by the pinned Codex runtime. |
-| `execution_backend` | string | recommended | development | Native execution backend field emitted by the pinned Codex runtime. |
-| `operation_kind` | string | recommended | development | Native operation kind field emitted by the pinned Codex runtime. |
-| `output_format` | string | recommended | development | Native output format field emitted by the pinned Codex runtime. |
-| `skill` | any | recommended | development | Native skill field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `artifact_type` | string | recommended | Not applicable | development | Native artifact type field emitted by the pinned Codex runtime. |
+| `execution_backend` | string | recommended | Not applicable | development | Native execution backend field emitted by the pinned Codex runtime. |
+| `operation_kind` | string | recommended | Not applicable | development | Native operation kind field emitted by the pinned Codex runtime. |
+| `output_format` | string | recommended | Not applicable | development | Native output format field emitted by the pinned Codex runtime. |
+| `skill` | any | recommended | Not applicable | development | Native skill field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `artifact_type`
 
@@ -31505,6 +31572,7 @@ Counts/accumulates artifact operation started observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.artifact.operation.started` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -31519,13 +31587,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/event
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `artifact_type` | string | recommended | development | Native artifact type field emitted by the pinned Codex runtime. |
-| `execution_backend` | string | recommended | development | Native execution backend field emitted by the pinned Codex runtime. |
-| `operation_kind` | string | recommended | development | Native operation kind field emitted by the pinned Codex runtime. |
-| `output_format` | string | recommended | development | Native output format field emitted by the pinned Codex runtime. |
-| `skill` | any | recommended | development | Native skill field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `artifact_type` | string | recommended | Not applicable | development | Native artifact type field emitted by the pinned Codex runtime. |
+| `execution_backend` | string | recommended | Not applicable | development | Native execution backend field emitted by the pinned Codex runtime. |
+| `operation_kind` | string | recommended | Not applicable | development | Native operation kind field emitted by the pinned Codex runtime. |
+| `output_format` | string | recommended | Not applicable | development | Native output format field emitted by the pinned Codex runtime. |
+| `skill` | any | recommended | Not applicable | development | Native skill field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `artifact_type`
 
@@ -31611,6 +31679,7 @@ Elapsed-time distribution for auth storage.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.auth_storage.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -31625,19 +31694,19 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/auth_storag
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `actual_store` | string | recommended | development | Native actual store field emitted by the pinned Codex runtime. |
-| `credential_kind` | string | recommended | development | Native credential kind field emitted by the pinned Codex runtime. |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
-| `operation` | any | recommended | development | Operation recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `secure_error` | string | recommended | development | Native secure error field emitted by the pinned Codex runtime. |
-| `secure_outcome` | string | recommended | development | Native secure outcome field emitted by the pinned Codex runtime. |
-| `selected_store` | string | recommended | development | Native selected store field emitted by the pinned Codex runtime. |
-| `storage_phase` | string | recommended | development | Native storage phase field emitted by the pinned Codex runtime. |
-| `store_mode` | string | recommended | development | Native store mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `actual_store` | string | recommended | Not applicable | development | Native actual store field emitted by the pinned Codex runtime. |
+| `credential_kind` | string | recommended | Not applicable | development | Native credential kind field emitted by the pinned Codex runtime. |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| `operation` | any | recommended | Not applicable | development | Operation recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `secure_error` | string | recommended | Not applicable | development | Native secure error field emitted by the pinned Codex runtime. |
+| `secure_outcome` | string | recommended | Not applicable | development | Native secure outcome field emitted by the pinned Codex runtime. |
+| `selected_store` | string | recommended | Not applicable | development | Native selected store field emitted by the pinned Codex runtime. |
+| `storage_phase` | string | recommended | Not applicable | development | Native storage phase field emitted by the pinned Codex runtime. |
+| `store_mode` | string | recommended | Not applicable | development | Native store mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `actual_store`
 
@@ -31798,6 +31867,7 @@ Credential-store operation outcomes; uses categories rather than credential cont
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.auth_storage.operation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -31812,19 +31882,19 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/auth_storag
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `actual_store` | string | recommended | development | Native actual store field emitted by the pinned Codex runtime. |
-| `credential_kind` | string | recommended | development | Native credential kind field emitted by the pinned Codex runtime. |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
-| `operation` | any | recommended | development | Operation recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `secure_error` | string | recommended | development | Native secure error field emitted by the pinned Codex runtime. |
-| `secure_outcome` | string | recommended | development | Native secure outcome field emitted by the pinned Codex runtime. |
-| `selected_store` | string | recommended | development | Native selected store field emitted by the pinned Codex runtime. |
-| `storage_phase` | string | recommended | development | Native storage phase field emitted by the pinned Codex runtime. |
-| `store_mode` | string | recommended | development | Native store mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `actual_store` | string | recommended | Not applicable | development | Native actual store field emitted by the pinned Codex runtime. |
+| `credential_kind` | string | recommended | Not applicable | development | Native credential kind field emitted by the pinned Codex runtime. |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| `operation` | any | recommended | Not applicable | development | Operation recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `secure_error` | string | recommended | Not applicable | development | Native secure error field emitted by the pinned Codex runtime. |
+| `secure_outcome` | string | recommended | Not applicable | development | Native secure outcome field emitted by the pinned Codex runtime. |
+| `selected_store` | string | recommended | Not applicable | development | Native selected store field emitted by the pinned Codex runtime. |
+| `storage_phase` | string | recommended | Not applicable | development | Native storage phase field emitted by the pinned Codex runtime. |
+| `store_mode` | string | recommended | Not applicable | development | Native store mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `actual_store`
 
@@ -31985,6 +32055,7 @@ Credential refresh persistence outcomes.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.auth_storage.refresh_persist` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -31999,19 +32070,19 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/auth_storag
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `actual_store` | string | recommended | development | Native actual store field emitted by the pinned Codex runtime. |
-| `credential_kind` | string | recommended | development | Native credential kind field emitted by the pinned Codex runtime. |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
-| `operation` | any | recommended | development | Operation recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `secure_error` | string | recommended | development | Native secure error field emitted by the pinned Codex runtime. |
-| `secure_outcome` | string | recommended | development | Native secure outcome field emitted by the pinned Codex runtime. |
-| `selected_store` | string | recommended | development | Native selected store field emitted by the pinned Codex runtime. |
-| `storage_phase` | string | recommended | development | Native storage phase field emitted by the pinned Codex runtime. |
-| `store_mode` | string | recommended | development | Native store mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `actual_store` | string | recommended | Not applicable | development | Native actual store field emitted by the pinned Codex runtime. |
+| `credential_kind` | string | recommended | Not applicable | development | Native credential kind field emitted by the pinned Codex runtime. |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| `operation` | any | recommended | Not applicable | development | Operation recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `secure_error` | string | recommended | Not applicable | development | Native secure error field emitted by the pinned Codex runtime. |
+| `secure_outcome` | string | recommended | Not applicable | development | Native secure outcome field emitted by the pinned Codex runtime. |
+| `selected_store` | string | recommended | Not applicable | development | Native selected store field emitted by the pinned Codex runtime. |
+| `storage_phase` | string | recommended | Not applicable | development | Native storage phase field emitted by the pinned Codex runtime. |
+| `store_mode` | string | recommended | Not applicable | development | Native store mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `actual_store`
 
@@ -32172,6 +32243,7 @@ Elapsed-time distribution for auth storage refresh persist.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.auth_storage.refresh_persist.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -32186,19 +32258,19 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/auth_storag
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `actual_store` | string | recommended | development | Native actual store field emitted by the pinned Codex runtime. |
-| `credential_kind` | string | recommended | development | Native credential kind field emitted by the pinned Codex runtime. |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
-| `operation` | any | recommended | development | Operation recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `secure_error` | string | recommended | development | Native secure error field emitted by the pinned Codex runtime. |
-| `secure_outcome` | string | recommended | development | Native secure outcome field emitted by the pinned Codex runtime. |
-| `selected_store` | string | recommended | development | Native selected store field emitted by the pinned Codex runtime. |
-| `storage_phase` | string | recommended | development | Native storage phase field emitted by the pinned Codex runtime. |
-| `store_mode` | string | recommended | development | Native store mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `actual_store` | string | recommended | Not applicable | development | Native actual store field emitted by the pinned Codex runtime. |
+| `credential_kind` | string | recommended | Not applicable | development | Native credential kind field emitted by the pinned Codex runtime. |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| `operation` | any | recommended | Not applicable | development | Operation recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `secure_error` | string | recommended | Not applicable | development | Native secure error field emitted by the pinned Codex runtime. |
+| `secure_outcome` | string | recommended | Not applicable | development | Native secure outcome field emitted by the pinned Codex runtime. |
+| `selected_store` | string | recommended | Not applicable | development | Native selected store field emitted by the pinned Codex runtime. |
+| `storage_phase` | string | recommended | Not applicable | development | Native storage phase field emitted by the pinned Codex runtime. |
+| `store_mode` | string | recommended | Not applicable | development | Native store mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `actual_store`
 
@@ -32359,6 +32431,7 @@ Elapsed-time distribution for cloud config bundle fetch.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.cloud_config_bundle.fetch.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -32406,6 +32479,7 @@ Counts/accumulates cloud config bundle fetch attempt observations; interpret eac
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.cloud_config_bundle.fetch_attempt` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -32420,12 +32494,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/cloud-config/src/met
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `attempt` | any | recommended | development | Attempt recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `status_code` | any | recommended | development | HTTP status representation; Claude Code can emit the string undefined when no status exists. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `attempt` | any | recommended | Not applicable | development | Attempt recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `status_code` | any | recommended | Not applicable | development | HTTP status representation; Claude Code can emit the string undefined when no status exists. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `attempt`
 
@@ -32553,6 +32627,7 @@ Counts/accumulates cloud config bundle fetch final observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.cloud_config_bundle.fetch_final` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -32567,14 +32642,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/cloud-config/src/met
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `attempt_count` | string | recommended | development | Native attempt count field emitted by the pinned Codex runtime. |
-| `bundle_shape` | string | recommended | development | Native bundle shape field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `status_code` | any | recommended | development | HTTP status representation; Claude Code can emit the string undefined when no status exists. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `attempt_count` | string | recommended | Not applicable | development | Native attempt count field emitted by the pinned Codex runtime. |
+| `bundle_shape` | string | recommended | Not applicable | development | Native bundle shape field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `status_code` | any | recommended | Not applicable | development | HTTP status representation; Claude Code can emit the string undefined when no status exists. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `attempt_count`
 
@@ -32716,6 +32791,7 @@ Counts/accumulates cloud config bundle load observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.cloud_config_bundle.load` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -32730,11 +32806,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/cloud-config/src/met
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `bundle_shape` | string | recommended | development | Native bundle shape field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `bundle_shape` | string | recommended | Not applicable | development | Native bundle shape field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `bundle_shape`
 
@@ -32823,6 +32899,7 @@ Counts/accumulates compaction model fallback observations; interpret each dimens
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.compaction.model_fallback` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -32837,11 +32914,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/compact_mod
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `implementation` | any | recommended | development | Implementation recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `implementation` | any | recommended | Not applicable | development | Implementation recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `implementation`
 
@@ -32945,6 +33022,7 @@ Thread turn count recorded at thread completion.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.conversation.turn.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -32991,6 +33069,7 @@ Counts/accumulates daemon start observations; interpret each dimension using the
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.daemon.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33005,10 +33084,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/daemon_telem
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `initiation_source` | string | recommended | development | Native initiation source field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `initiation_source` | string | recommended | Not applicable | development | Native initiation source field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `initiation_source`
 
@@ -33073,6 +33152,7 @@ Counts/accumulates daemon update observations; interpret each dimension using th
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.daemon.update` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33088,11 +33168,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/startup_orch
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `initiation_source` | string | recommended | development | Native initiation source field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `update_target` | string | recommended | development | Native update target field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `initiation_source` | string | recommended | Not applicable | development | Native initiation source field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `update_target` | string | recommended | Not applicable | development | Native update target field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `initiation_source`
 
@@ -33174,6 +33254,7 @@ Counts/accumulates db backfill observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.db.backfill` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33189,9 +33270,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/metadata
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -33257,6 +33338,7 @@ Elapsed-time distribution for db backfill.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.db.backfill.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -33303,6 +33385,7 @@ Counts/accumulates db error observations; interpret each dimension using the sou
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.db.error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33317,9 +33400,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/metadata
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `stage`
 
@@ -33377,6 +33460,7 @@ Counts/accumulates external agent config detect observations; interpret each dim
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.external_agent_config.detect` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33391,10 +33475,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/external-agent-migra
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `migration_type` | string | recommended | development | Native migration type field emitted by the pinned Codex runtime. |
-| `skills_count` | string | recommended | development | Native skills count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `migration_type` | string | recommended | Not applicable | development | Native migration type field emitted by the pinned Codex runtime. |
+| `skills_count` | string | recommended | Not applicable | development | Native skills count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `migration_type`
 
@@ -33444,6 +33528,7 @@ Counts/accumulates external agent config import observations; interpret each dim
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.external_agent_config.import` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33458,10 +33543,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/external-agent-migra
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `migration_type` | string | recommended | development | Native migration type field emitted by the pinned Codex runtime. |
-| `skills_count` | string | recommended | development | Native skills count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `migration_type` | string | recommended | Not applicable | development | Native migration type field emitted by the pinned Codex runtime. |
+| `skills_count` | string | recommended | Not applicable | development | Native skills count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `migration_type`
 
@@ -33511,6 +33596,7 @@ Records feature settings that differ from defaults, tagged with feature and valu
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.feature.state` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33525,10 +33611,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/config/metr
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `feature` | string | recommended | development | Feature recorded by the native producer; see the versioned source evidence. |
-| `value` | string | recommended | development | Native value field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `feature` | string | recommended | Not applicable | development | Feature recorded by the native producer; see the versioned source evidence. |
+| `value` | string | recommended | Not applicable | development | Native value field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `feature`
 
@@ -33577,6 +33663,7 @@ Counts/accumulates goal blocked observations; interpret each dimension using the
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.blocked` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33624,6 +33711,7 @@ Counts/accumulates goal budget limited observations; interpret each dimension us
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.budget_limited` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33671,6 +33759,7 @@ Counts/accumulates goal completed observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.completed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33718,6 +33807,7 @@ Counts/accumulates goal created observations; interpret each dimension using the
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.created` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33764,6 +33854,7 @@ Accumulated goal work time in seconds at a recorded terminal condition.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.duration_s` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -33810,6 +33901,7 @@ Counts/accumulates goal resumed observations; interpret each dimension using the
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.resumed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33856,6 +33948,7 @@ Tokens attributed to a goal when its status transitions to a recorded terminal c
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.token_count` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -33902,6 +33995,7 @@ Counts/accumulates goal usage limited observations; interpret each dimension usi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.goal.usage_limited` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -33949,6 +34043,7 @@ Distribution of guardian context request tokens measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.context.request_tokens` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -33964,10 +34059,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/guardian/re
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `target` | any | recommended | development | Target recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `target` | any | recommended | Not applicable | development | Target recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `component`
 
@@ -34041,6 +34136,7 @@ Distribution of guardian context section cost measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.context.section_cost` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -34056,11 +34152,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/guardian/in
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `measurement` | string | recommended | development | Native measurement field emitted by the pinned Codex runtime. |
-| `section` | string | recommended | development | Native section field emitted by the pinned Codex runtime. |
-| `target` | any | recommended | development | Target recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `measurement` | string | recommended | Not applicable | development | Native measurement field emitted by the pinned Codex runtime. |
+| `section` | string | recommended | Not applicable | development | Native section field emitted by the pinned Codex runtime. |
+| `target` | any | recommended | Not applicable | development | Target recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `measurement`
 
@@ -34142,6 +34238,7 @@ Elapsed-time distribution for guardian decision.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.decision.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -34188,6 +34285,7 @@ Counts/accumulates guardian denial limit reached observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.denial_limit_reached` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34234,6 +34332,7 @@ Counts/accumulates guardian review observations; interpret each dimension using 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34280,6 +34379,7 @@ Elapsed-time distribution for guardian review.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -34326,6 +34426,7 @@ Distribution of guardian review token usage measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -34372,6 +34473,7 @@ Counts/accumulates guardian review truncation observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review.truncation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34386,10 +34488,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/guardian/in
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `disposition` | any | recommended | development | Disposition recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `disposition` | any | recommended | Not applicable | development | Disposition recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `component`
 
@@ -34454,6 +34556,7 @@ Distribution of guardian review truncation bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review.truncation.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -34468,11 +34571,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/guardian/in
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `disposition` | any | recommended | development | Disposition recorded by the native producer; see the versioned source evidence. |
-| `measurement` | string | recommended | development | Native measurement field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `disposition` | any | recommended | Not applicable | development | Disposition recorded by the native producer; see the versioned source evidence. |
+| `measurement` | string | recommended | Not applicable | development | Native measurement field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `component`
 
@@ -34544,6 +34647,7 @@ Elapsed-time distribution for guardian review ttft.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian.review.ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -34590,6 +34694,7 @@ Counts/accumulates guardian v2 classification observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34604,11 +34709,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `context_mode` | any | recommended | development | Native context mode field emitted by the pinned Codex runtime. |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `context_mode` | any | recommended | Not applicable | development | Native context mode field emitted by the pinned Codex runtime. |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `context_mode`
 
@@ -34712,6 +34817,7 @@ Elapsed-time distribution for guardian v2 classification.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -34726,11 +34832,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `context_mode` | any | recommended | development | Native context mode field emitted by the pinned Codex runtime. |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `context_mode` | any | recommended | Not applicable | development | Native context mode field emitted by the pinned Codex runtime. |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `context_mode`
 
@@ -34834,6 +34940,7 @@ Counts/accumulates guardian v2 classification risk observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification.risk` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34848,9 +34955,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `risk_level` | any | recommended | development | Automatic-review risk class. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `risk_level` | any | recommended | Not applicable | development | Automatic-review risk class. |
 
 #### Attribute details: `risk_level`
 
@@ -34908,6 +35015,7 @@ Distribution of guardian v2 classification token usage measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -34922,9 +35030,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `token_type` | string | recommended | development | Native token type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `token_type` | string | recommended | Not applicable | development | Native token type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `token_type`
 
@@ -34966,6 +35074,7 @@ Counts/accumulates guardian v2 classification truncation observations; interpret
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification.truncation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -34980,10 +35089,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `disposition` | any | recommended | development | Disposition recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `disposition` | any | recommended | Not applicable | development | Disposition recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `component`
 
@@ -35048,6 +35157,7 @@ Distribution of guardian v2 classification truncation bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.classification.truncation.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -35062,11 +35172,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `disposition` | any | recommended | development | Disposition recorded by the native producer; see the versioned source evidence. |
-| `measurement` | string | recommended | development | Native measurement field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `disposition` | any | recommended | Not applicable | development | Disposition recorded by the native producer; see the versioned source evidence. |
+| `measurement` | string | recommended | Not applicable | development | Native measurement field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `component`
 
@@ -35138,6 +35248,7 @@ Elapsed-time distribution for guardian v2 connection.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.connection.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -35152,11 +35263,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `endpoint` | any | recommended | development | Endpoint classification recorded by the caller. |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `endpoint` | any | recommended | Not applicable | development | Endpoint classification recorded by the caller. |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `endpoint`
 
@@ -35260,6 +35371,7 @@ Elapsed-time distribution for guardian v2 connection lease.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.connection.lease.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -35274,10 +35386,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
+| `transport` | string | recommended | Not applicable | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `stage`
 
@@ -35342,6 +35454,7 @@ Counts/accumulates guardian v2 decisions comparison observations; interpret each
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.decisions_comparison` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35356,10 +35469,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -35440,6 +35553,7 @@ Counts/accumulates guardian v2 decisions comparison comparison observations; int
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.decisions_comparison.comparison` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35455,11 +35569,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `comparison` | string | recommended | development | Native comparison field emitted by the pinned Codex runtime. |
-| `decisions` | string | recommended | development | Native decisions field emitted by the pinned Codex runtime. |
-| `responses` | string | recommended | development | Native responses field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `comparison` | string | recommended | Not applicable | development | Native comparison field emitted by the pinned Codex runtime. |
+| `decisions` | string | recommended | Not applicable | development | Native decisions field emitted by the pinned Codex runtime. |
+| `responses` | string | recommended | Not applicable | development | Native responses field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `comparison`
 
@@ -35525,6 +35639,7 @@ Elapsed-time distribution for guardian v2 decisions comparison.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.decisions_comparison.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -35539,10 +35654,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `backend` | any | recommended | development | Backend recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `backend` | any | recommended | Not applicable | development | Backend recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `backend`
 
@@ -35623,6 +35738,7 @@ Counts/accumulates guardian v2 decisions comparison setup failure observations; 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.decisions_comparison.setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35637,9 +35753,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `reason`
 
@@ -35697,6 +35813,7 @@ Counts/accumulates guardian v2 fast decision observations; interpret each dimens
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.fast_decision` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35711,10 +35828,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `decision` | any | recommended | development | Decision recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `decision` | any | recommended | Not applicable | development | Decision recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `decision`
 
@@ -35795,6 +35912,7 @@ Counts/accumulates guardian v2 review fallback observations; interpret each dime
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.review_fallback` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35809,9 +35927,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `fallback_reason`
 
@@ -35853,6 +35971,7 @@ Distribution of guardian v2 tool call lag measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.guardian_v2.tool_call_lag` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -35899,6 +36018,7 @@ Counts/accumulates hooks run observations; interpret each dimension using the so
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.hooks.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -35945,6 +36065,7 @@ Elapsed-time distribution for hooks run.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.hooks.run.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -35991,6 +36112,7 @@ Distribution of mcp binding catalog raw definition json bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.binding_catalog.raw_definition_json_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -36005,9 +36127,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connec
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
 
 #### Attribute details: `product_sku`
 
@@ -36065,6 +36187,7 @@ Counts/accumulates mcp call observations; interpret each dimension using the sou
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36111,6 +36234,7 @@ Elapsed-time distribution for mcp call.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.call.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36157,6 +36281,7 @@ MCP error classification counts, separate from the general call outcome.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.call.error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36203,6 +36328,7 @@ Counts/accumulates mcp executor discovery observations; interpret each dimension
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.executor_discovery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36217,9 +36343,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -36277,6 +36403,7 @@ Counts/accumulates mcp executor discovery server observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.executor_discovery.server` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36291,10 +36418,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `server_name` | any | recommended | Not applicable | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -36375,6 +36502,7 @@ Counts/accumulates mcp protocol discovery observations; interpret each dimension
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.protocol_discovery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36389,11 +36517,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_c
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `server_kind` | any | recommended | development | Classification of the MCP server supplying the catalog. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `server_kind` | any | recommended | Not applicable | development | Classification of the MCP server supplying the catalog. |
 
 #### Attribute details: `mode`
 
@@ -36497,6 +36625,7 @@ Elapsed-time distribution for mcp protocol discovery.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.protocol_discovery.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36511,12 +36640,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_c
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.mcp.protocol_discovery` | string | recommended | development | Native codex mcp protocol discovery field emitted by the pinned Codex runtime. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `server_kind` | any | recommended | development | Classification of the MCP server supplying the catalog. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.mcp.protocol_discovery` | string | recommended | Not applicable | development | Native codex mcp protocol discovery field emitted by the pinned Codex runtime. |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `server_kind` | any | recommended | Not applicable | development | Classification of the MCP server supplying the catalog. |
 
 #### Attribute details: `codex.mcp.protocol_discovery`
 
@@ -36627,6 +36756,7 @@ Elapsed-time distribution for mcp tools cache publish.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.tools.cache_publish.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36674,6 +36804,7 @@ Elapsed-time distribution for mcp tools cache write.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.tools.cache_write.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36721,6 +36852,7 @@ Elapsed-time distribution for mcp tools fetch uncached.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.tools.fetch_uncached.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36768,6 +36900,7 @@ Elapsed-time distribution for mcp tools list.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.mcp.tools.list.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -36782,9 +36915,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_c
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cache` | string | recommended | development | Native cache field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cache` | string | recommended | Not applicable | development | Native cache field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `cache`
 
@@ -36827,6 +36960,7 @@ Counts/accumulates memories tool call observations; interpret each dimension usi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memories.tool.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36841,13 +36975,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/memories/src/met
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `operation` | any | recommended | development | Operation recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `tool` | any | recommended | development | Tool recorded by the native producer; see the versioned source evidence. |
-| `truncated` | any | recommended | development | Truncated recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `operation` | any | recommended | Not applicable | development | Operation recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `tool` | any | recommended | Not applicable | development | Tool recorded by the native producer; see the versioned source evidence. |
+| `truncated` | any | recommended | Not applicable | development | Truncated recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `operation`
 
@@ -36981,6 +37115,7 @@ Counts/accumulates memories usage observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memories.usage` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -36995,12 +37130,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/memory_usag
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `memory_version` | string | recommended | development | Native memory version field emitted by the pinned Codex runtime. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `tool` | any | recommended | development | Tool recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `memory_version` | string | recommended | Not applicable | development | Native memory version field emitted by the pinned Codex runtime. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `tool` | any | recommended | Not applicable | development | Tool recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `kind`
 
@@ -37111,6 +37246,7 @@ Counts/accumulates memory phase1 observations; interpret each dimension using th
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase1` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37125,9 +37261,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/p
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -37185,6 +37321,7 @@ Elapsed-time distribution for memory phase1.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase1.e2e_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -37231,6 +37368,7 @@ Counts/accumulates memory phase1 output observations; interpret each dimension u
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase1.output` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37245,9 +37383,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/m
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `memory_version` | string | recommended | development | Native memory version field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `memory_version` | string | recommended | Not applicable | development | Native memory version field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `memory_version`
 
@@ -37290,6 +37428,7 @@ Distribution of memory phase1 token usage measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase1.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -37304,10 +37443,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/m
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `memory_version` | string | recommended | development | Native memory version field emitted by the pinned Codex runtime. |
-| `token_type` | string | recommended | development | Native token type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `memory_version` | string | recommended | Not applicable | development | Native memory version field emitted by the pinned Codex runtime. |
+| `token_type` | string | recommended | Not applicable | development | Native token type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `memory_version`
 
@@ -37357,6 +37496,7 @@ Counts/accumulates memory phase2 observations; interpret each dimension using th
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase2` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37375,9 +37515,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/p
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -37467,6 +37607,7 @@ Elapsed-time distribution for memory phase2.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase2.e2e_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -37513,6 +37654,7 @@ Counts/accumulates memory phase2 input observations; interpret each dimension us
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase2.input` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37559,6 +37701,7 @@ Distribution of memory phase2 token usage measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.phase2.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -37578,9 +37721,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/p
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `token_type` | string | recommended | development | Native token type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `token_type` | string | recommended | Not applicable | development | Native token type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `token_type`
 
@@ -37662,6 +37805,7 @@ Counts/accumulates memory startup observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.startup` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37676,9 +37820,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/memories/write/src/s
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -37736,6 +37880,7 @@ Distribution of memory storage bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.memory.storage_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -37782,6 +37927,7 @@ Counts/accumulates multi agent nickname pool reset observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.nickname_pool_reset` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37828,6 +37974,7 @@ Counts/accumulates multi agent result delivery observations; interpret each dime
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.result_delivery` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37842,9 +37989,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agent/contr
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -37902,6 +38049,7 @@ Counts/accumulates multi agent resume observations; interpret each dimension usi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.resume` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37948,6 +38096,7 @@ Counts/accumulates multi agent spawn observations; interpret each dimension usin
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.spawn` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -37963,10 +38112,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/handl
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `role` | string | recommended | development | Native role field emitted by the pinned Codex runtime. |
-| `version` | any | recommended | development | Version recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `role` | string | recommended | Not applicable | development | Native role field emitted by the pinned Codex runtime. |
+| `version` | any | recommended | Not applicable | development | Version recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `role`
 
@@ -38040,6 +38189,7 @@ Counts/accumulates multi agent spawn failure observations; interpret each dimens
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.spawn.failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38054,11 +38204,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `detail` | any | recommended | development | Detail recorded by the native producer; see the versioned source evidence. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `detail` | any | recommended | Not applicable | development | Detail recorded by the native producer; see the versioned source evidence. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `detail`
 
@@ -38162,6 +38312,7 @@ Elapsed-time distribution for multi agent spawn phase.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.spawn.phase.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38176,10 +38327,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `history_mode` | string | recommended | development | Native history mode field emitted by the pinned Codex runtime. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `history_mode` | string | recommended | Not applicable | development | Native history mode field emitted by the pinned Codex runtime. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `history_mode`
 
@@ -38244,6 +38395,7 @@ Elapsed-time distribution for multi agent wait.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.multi_agent.wait.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38258,9 +38410,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/handl
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -38318,6 +38470,7 @@ Counts/accumulates plugins install elicitation sent observations; interpret each
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.install_elicitation.sent` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38332,9 +38485,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `tool_type` | string | recommended | development | Native tool type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `tool_type` | string | recommended | Not applicable | development | Native tool type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `tool_type`
 
@@ -38376,6 +38529,7 @@ Counts/accumulates plugins install suggestion observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.install_suggestion` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38390,11 +38544,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `completed` | any | recommended | development | Completed recorded by the native producer; see the versioned source evidence. |
-| `response_action` | string | recommended | development | Native response action field emitted by the pinned Codex runtime. |
-| `tool_type` | string | recommended | development | Native tool type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `completed` | any | recommended | Not applicable | development | Completed recorded by the native producer; see the versioned source evidence. |
+| `response_action` | string | recommended | Not applicable | development | Native response action field emitted by the pinned Codex runtime. |
+| `tool_type` | string | recommended | Not applicable | development | Native tool type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `completed`
 
@@ -38466,6 +38620,7 @@ Counts/accumulates plugins loaded cache event observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.loaded_cache.event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38480,9 +38635,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/loa
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `event` | string | recommended | development | Native event field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `event` | string | recommended | Not applicable | development | Native event field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `event`
 
@@ -38524,6 +38679,7 @@ Elapsed-time distribution for plugins loaded cache load.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.loaded_cache.load.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38570,6 +38726,7 @@ Counts/accumulates plugins loaded cache request observations; interpret each dim
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.loaded_cache.request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38584,9 +38741,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/loa
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -38644,6 +38801,7 @@ Elapsed-time distribution for plugins loaded cache wait.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.loaded_cache.wait.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38690,6 +38848,7 @@ Counts/accumulates plugins startup sync observations; interpret each dimension u
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.startup_sync` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38704,10 +38863,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/sta
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `transport` | string | recommended | Not applicable | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -38773,6 +38932,7 @@ Counts/accumulates plugins startup sync final observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.plugins.startup_sync.final` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38787,10 +38947,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/sta
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `transport` | string | recommended | Not applicable | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -38856,6 +39016,7 @@ Counts/accumulates process start observations; interpret each dimension using th
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.process.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -38902,6 +39063,7 @@ Elapsed-time distribution for remote models fetch update.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.remote_models.fetch_update.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38949,6 +39111,7 @@ Elapsed-time distribution for remote models load cache.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.remote_models.load_cache.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -38996,6 +39159,7 @@ Elapsed-time distribution for responses api engine iapi tbt.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_engine_iapi_tbt.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39042,6 +39206,7 @@ Elapsed-time distribution for responses api engine iapi ttft.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_engine_iapi_ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39088,6 +39253,7 @@ Elapsed-time distribution for responses api engine service tbt.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_engine_service_tbt.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39134,6 +39300,7 @@ Elapsed-time distribution for responses api engine service ttft.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_engine_service_ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39180,6 +39347,7 @@ Elapsed-time distribution for responses api inference time.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_inference_time.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39226,6 +39394,7 @@ Elapsed-time distribution for responses api overhead.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.responses_api_overhead.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -39272,6 +39441,7 @@ Counts/accumulates rollout persistence append observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.persistence.append` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -39287,10 +39457,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/persiste
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `sample_rate` | string | recommended | development | Native sample rate field emitted by the pinned Codex runtime. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `sample_rate` | string | recommended | Not applicable | development | Native sample rate field emitted by the pinned Codex runtime. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `sample_rate`
 
@@ -39364,6 +39534,7 @@ Distribution of rollout persistence bytes removed measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.persistence.bytes_removed` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -39378,12 +39549,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/persiste
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `decision` | any | recommended | development | Decision recorded by the native producer; see the versioned source evidence. |
-| `encoding` | string | recommended | development | Native encoding field emitted by the pinned Codex runtime. |
-| `rollout_item_type` | string | recommended | development | Native rollout item type field emitted by the pinned Codex runtime. |
-| `sample_rate` | string | recommended | development | Native sample rate field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `decision` | any | recommended | Not applicable | development | Decision recorded by the native producer; see the versioned source evidence. |
+| `encoding` | string | recommended | Not applicable | development | Native encoding field emitted by the pinned Codex runtime. |
+| `rollout_item_type` | string | recommended | Not applicable | development | Native rollout item type field emitted by the pinned Codex runtime. |
+| `sample_rate` | string | recommended | Not applicable | development | Native sample rate field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `decision`
 
@@ -39462,6 +39633,7 @@ Distribution of rollout persistence item bytes v2 measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.persistence.item_bytes_v2` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -39476,13 +39648,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/persiste
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `decision` | any | recommended | development | Decision recorded by the native producer; see the versioned source evidence. |
-| `encoding` | string | recommended | development | Native encoding field emitted by the pinned Codex runtime. |
-| `rollout_item_type` | string | recommended | development | Native rollout item type field emitted by the pinned Codex runtime. |
-| `sample_rate` | string | recommended | development | Native sample rate field emitted by the pinned Codex runtime. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `decision` | any | recommended | Not applicable | development | Decision recorded by the native producer; see the versioned source evidence. |
+| `encoding` | string | recommended | Not applicable | development | Native encoding field emitted by the pinned Codex runtime. |
+| `rollout_item_type` | string | recommended | Not applicable | development | Native rollout item type field emitted by the pinned Codex runtime. |
+| `sample_rate` | string | recommended | Not applicable | development | Native sample rate field emitted by the pinned Codex runtime. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `decision`
 
@@ -39584,6 +39756,7 @@ Counts/accumulates rollout persistence measurement error observations; interpret
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.persistence.measurement_error` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -39600,10 +39773,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/persiste
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `rollout_item_type` | string | recommended | development | Native rollout item type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `rollout_item_type` | string | recommended | Not applicable | development | Native rollout item type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `phase`
 
@@ -39686,6 +39859,7 @@ Distribution of rollout persistence turn bytes v2 measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.persistence.turn_bytes_v2` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -39700,12 +39874,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/persiste
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `encoding` | string | recommended | development | Native encoding field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `sample_rate` | string | recommended | development | Native sample rate field emitted by the pinned Codex runtime. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `encoding` | string | recommended | Not applicable | development | Native encoding field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `sample_rate` | string | recommended | Not applicable | development | Native sample rate field emitted by the pinned Codex runtime. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `encoding`
 
@@ -39800,6 +39974,7 @@ Distribution of rollout size bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout.size_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -39846,6 +40021,7 @@ Counts/accumulates rollout compression file observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.file` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -39860,10 +40036,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -39944,6 +40120,7 @@ Distribution of rollout compression file compressed bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.file.compressed_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -39958,10 +40135,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40042,6 +40219,7 @@ Compressed bytes divided by source bytes, multiplied by 10,000 (basis points); z
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.file.compression_ratio` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -40056,10 +40234,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40140,6 +40318,7 @@ Elapsed-time distribution for rollout compression file.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.file.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -40154,10 +40333,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40239,6 +40418,7 @@ Distribution of rollout compression file source bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.file.source_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -40253,10 +40433,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40337,6 +40517,7 @@ Counts/accumulates rollout compression materialize observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.materialize` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -40351,9 +40532,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40411,6 +40592,7 @@ Elapsed-time distribution for rollout compression materialize.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.materialize.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -40425,9 +40607,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -40486,6 +40668,7 @@ Counts/accumulates rollout compression read observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.read` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -40500,14 +40683,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `format` | string | recommended | development | Native format field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `read_progress` | string | recommended | development | Native read progress field emitted by the pinned Codex runtime. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `format` | string | recommended | Not applicable | development | Native format field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `read_progress` | string | recommended | Not applicable | development | Native read progress field emitted by the pinned Codex runtime. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error_kind`
 
@@ -40648,6 +40831,7 @@ Elapsed-time distribution for rollout compression read io.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.read.io_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -40662,15 +40846,15 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.rollout_compression.read` | string | recommended | development | Native codex rollout compression read field emitted by the pinned Codex runtime. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `format` | string | recommended | development | Native format field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `read_progress` | string | recommended | development | Native read progress field emitted by the pinned Codex runtime. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.rollout_compression.read` | string | recommended | Not applicable | development | Native codex rollout compression read field emitted by the pinned Codex runtime. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `format` | string | recommended | Not applicable | development | Native format field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `read_progress` | string | recommended | Not applicable | development | Native read progress field emitted by the pinned Codex runtime. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `codex.rollout_compression.read`
 
@@ -40818,6 +41002,7 @@ Counts/accumulates rollout compression run observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -40833,14 +41018,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cleanup_errors` | string | recommended | development | Native cleanup errors field emitted by the pinned Codex runtime. |
-| `completion_reason` | string | recommended | development | Native completion reason field emitted by the pinned Codex runtime. |
-| `file_errors` | string | recommended | development | Native file errors field emitted by the pinned Codex runtime. |
-| `scan_errors` | string | recommended | development | Native scan errors field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cleanup_errors` | string | recommended | Not applicable | development | Native cleanup errors field emitted by the pinned Codex runtime. |
+| `completion_reason` | string | recommended | Not applicable | development | Native completion reason field emitted by the pinned Codex runtime. |
+| `file_errors` | string | recommended | Not applicable | development | Native file errors field emitted by the pinned Codex runtime. |
+| `scan_errors` | string | recommended | Not applicable | development | Native scan errors field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `cleanup_errors`
 
@@ -40958,6 +41143,7 @@ Elapsed-time distribution for rollout compression run.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.run.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -40972,10 +41158,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -41057,6 +41243,7 @@ Counts/accumulates rollout compression scan observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.scan` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -41071,13 +41258,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error_kind`
 
@@ -41227,6 +41414,7 @@ Counts/accumulates rollout compression temp cleanup observations; interpret each
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_compression.temp_cleanup` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -41241,10 +41429,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rollout/src/compress
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -41325,6 +41513,7 @@ Counts/accumulates rollout migration run observations; interpret each dimension 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_migration.run` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -41340,17 +41529,17 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -41535,6 +41724,7 @@ Elapsed-time distribution for rollout migration run.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_migration.run.duration_ms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -41549,12 +41739,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/loc
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `mode`
 
@@ -41665,6 +41855,7 @@ Distribution of rollout migration run io bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_migration.run.io_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -41679,12 +41870,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/loc
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `mode`
 
@@ -41795,6 +41986,7 @@ Counts/accumulates rollout migration thread observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.rollout_migration.thread` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -41809,13 +42001,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/loc
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `failure_reason`
 
@@ -41949,6 +42141,7 @@ Counts/accumulates sandbox integrity check observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sandbox_integrity.check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -41963,15 +42156,15 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/sand
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `checker` | string | recommended | development | Native checker field emitted by the pinned Codex runtime. |
-| `dependency` | string | recommended | development | Native dependency field emitted by the pinned Codex runtime. |
-| `error_kind` | any | recommended | development | Error kind recorded by the native producer; see the versioned source evidence. |
-| `multiple_hard_links` | string | recommended | development | Native multiple hard links field emitted by the pinned Codex runtime. |
-| `multiple_write_roots` | string | recommended | development | Native multiple write roots field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `target_resolution_changed` | string | recommended | development | Native target resolution changed field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `checker` | string | recommended | Not applicable | development | Native checker field emitted by the pinned Codex runtime. |
+| `dependency` | string | recommended | Not applicable | development | Native dependency field emitted by the pinned Codex runtime. |
+| `error_kind` | any | recommended | Not applicable | development | Error kind recorded by the native producer; see the versioned source evidence. |
+| `multiple_hard_links` | string | recommended | Not applicable | development | Native multiple hard links field emitted by the pinned Codex runtime. |
+| `multiple_write_roots` | string | recommended | Not applicable | development | Native multiple write roots field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `target_resolution_changed` | string | recommended | Not applicable | development | Native target resolution changed field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `checker`
 
@@ -42087,6 +42280,7 @@ Elapsed-time distribution for sandbox integrity.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sandbox_integrity.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -42133,6 +42327,7 @@ Elapsed-time distribution for sandbox integrity preparation ms.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sandbox_integrity.preparation_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -42147,9 +42342,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/sand
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -42207,6 +42402,7 @@ Counts/accumulates shell snapshot observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.shell_snapshot` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -42222,12 +42418,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/shell_snaps
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.shell_snapshot.duration_ms` | string | recommended | development | Native codex shell snapshot duration ms field emitted by the pinned Codex runtime. |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `version` | any | recommended | development | Version recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.shell_snapshot.duration_ms` | string | recommended | Not applicable | development | Native codex shell snapshot duration ms field emitted by the pinned Codex runtime. |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `version` | any | recommended | Not applicable | development | Version recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `codex.shell_snapshot.duration_ms`
 
@@ -42344,6 +42540,7 @@ Counts/accumulates shell snapshot command observations; interpret each dimension
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.shell_snapshot.command` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -42359,11 +42556,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/runti
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `state` | enum | recommended | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
-| `version` | any | recommended | development | Version recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `state` | enum | recommended | Not applicable | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
+| `version` | any | recommended | Not applicable | development | Version recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -42468,6 +42665,7 @@ Elapsed-time distribution for shell snapshot.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.shell_snapshot.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -42483,11 +42681,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/shell_snaps
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `failure_reason` | any | recommended | development | Failure reason recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `version` | any | recommended | development | Version recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `failure_reason` | any | recommended | Not applicable | development | Failure reason recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `version` | any | recommended | Not applicable | development | Version recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `failure_reason`
 
@@ -42599,6 +42797,7 @@ Elapsed-time distribution for shell snapshot.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.shell_snapshot.wait_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -42614,12 +42813,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/runti
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.shell_snapshot.command` | string | recommended | development | Native codex shell snapshot command field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `state` | enum | recommended | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
-| `version` | any | recommended | development | Version recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.shell_snapshot.command` | string | recommended | Not applicable | development | Native codex shell snapshot command field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `state` | enum | recommended | Not applicable | development; deprecated | Deprecated, use `db.client.connection.state` instead. |
+| `version` | any | recommended | Not applicable | development | Version recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `codex.shell_snapshot.command`
 
@@ -42732,6 +42931,7 @@ Counts/accumulates skill injected observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skill.injected` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -42748,14 +42948,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/skills.rs#L
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `invoke_type` | string | recommended | development | Native invoke type field emitted by the pinned Codex runtime. |
-| `model_slug` | string | recommended | development | Native model slug field emitted by the pinned Codex runtime. |
-| `plugin_id` | any | recommended | development | Plugin id recorded by the native producer; see the versioned source evidence. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `skill` | any | recommended | development | Native skill field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `invoke_type` | string | recommended | Not applicable | development | Native invoke type field emitted by the pinned Codex runtime. |
+| `model_slug` | string | recommended | Not applicable | development | Native model slug field emitted by the pinned Codex runtime. |
+| `plugin_id` | any | recommended | Not applicable | development | Plugin id recorded by the native producer; see the versioned source evidence. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `skill` | any | recommended | Not applicable | development | Native skill field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `invoke_type`
 
@@ -42922,6 +43122,7 @@ Elapsed-time distribution for skill turn.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skill.turn.duration_seconds` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -42936,12 +43137,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/telem
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `model_slug` | string | recommended | development | Native model slug field emitted by the pinned Codex runtime. |
-| `plugin_id` | any | recommended | development | Plugin id recorded by the native producer; see the versioned source evidence. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `model_slug` | string | recommended | Not applicable | development | Native model slug field emitted by the pinned Codex runtime. |
+| `plugin_id` | any | recommended | Not applicable | development | Plugin id recorded by the native producer; see the versioned source evidence. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `model_slug`
 
@@ -43052,6 +43253,7 @@ Counts/accumulates skills shadow selection observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -43067,17 +43269,17 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
-| `trigger` | any | recommended | development | Trigger recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
+| `trigger` | any | recommended | Not applicable | development | Trigger recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43262,6 +43464,7 @@ Distribution of skills shadow selection catalog entries measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.catalog_entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -43276,13 +43479,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43384,6 +43587,7 @@ Elapsed-time distribution for skills shadow selection.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -43398,13 +43602,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43506,6 +43710,7 @@ Counts/accumulates skills shadow selection invocation observations; interpret ea
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.invocation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -43520,12 +43725,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `hit` | any | recommended | development | Hit recorded by the native producer; see the versioned source evidence. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `rank` | string | recommended | development | Native rank field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `hit` | any | recommended | Not applicable | development | Hit recorded by the native producer; see the versioned source evidence. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `rank` | string | recommended | Not applicable | development | Native rank field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `hit`
 
@@ -43620,6 +43825,7 @@ Distribution of skills shadow selection query terms measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.query_terms` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -43634,13 +43840,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43742,6 +43948,7 @@ Distribution of skills shadow selection reduction bps measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.reduction_bps` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -43756,13 +43963,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43864,6 +44071,7 @@ Distribution of skills shadow selection selected entries measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.skills.shadow_selection.selected_entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -43878,13 +44086,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shado
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `candidate_set_truncated`
 
@@ -43986,6 +44194,7 @@ Counts/accumulates sqlite corruption count observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.corruption.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44000,9 +44209,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `db`
 
@@ -44045,6 +44254,7 @@ Counts/accumulates sqlite fallback count observations; interpret each dimension 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.fallback.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44059,10 +44269,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `caller` | any | recommended | development | Caller recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `caller` | any | recommended | Not applicable | development | Caller recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `caller`
 
@@ -44144,6 +44354,7 @@ Counts/accumulates sqlite init count observations; interpret each dimension usin
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.init.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44158,12 +44369,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `db`
 
@@ -44275,6 +44486,7 @@ Elapsed-time distribution for sqlite init.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.init.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -44289,12 +44501,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `db`
 
@@ -44406,6 +44618,7 @@ Counts/accumulates sqlite logs queue dropped observations; interpret each dimens
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.queue.dropped` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44420,9 +44633,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `reason`
 
@@ -44481,6 +44694,7 @@ Distribution of sqlite logs write bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.write.bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -44495,10 +44709,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error`
 
@@ -44579,6 +44793,7 @@ Counts/accumulates sqlite logs write count observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.write.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44593,10 +44808,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error`
 
@@ -44677,6 +44892,7 @@ Elapsed-time distribution for sqlite logs write.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.write.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -44691,10 +44907,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error`
 
@@ -44775,6 +44991,7 @@ Distribution of sqlite logs write entries measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.write.entries` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -44789,10 +45006,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error`
 
@@ -44873,6 +45090,7 @@ Distribution of sqlite logs write max entry bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.logs.write.max_entry_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -44887,10 +45105,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `error`
 
@@ -44971,6 +45189,7 @@ Counts/accumulates sqlite reclamation count observations; interpret each dimensi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.reclamation.count` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -44985,11 +45204,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `db`
 
@@ -45077,6 +45296,7 @@ Elapsed-time distribution for sqlite reclamation.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.reclamation.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -45091,12 +45311,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.sqlite.reclamation.count` | string | recommended | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.sqlite.reclamation.count` | string | recommended | Not applicable | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `codex.sqlite.reclamation.count`
 
@@ -45191,6 +45411,7 @@ Distribution of sqlite reclamation pages measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sqlite.reclamation.pages` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -45205,13 +45426,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/state/src/telemetry.
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.sqlite.reclamation.count` | string | recommended | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
-| `codex.sqlite.reclamation.duration_ms` | string | recommended | development | Native codex sqlite reclamation duration ms field emitted by the pinned Codex runtime. |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `error` | any | recommended | development | Producer error detail, category or redaction marker. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.sqlite.reclamation.count` | string | recommended | Not applicable | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
+| `codex.sqlite.reclamation.duration_ms` | string | recommended | Not applicable | development | Native codex sqlite reclamation duration ms field emitted by the pinned Codex runtime. |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `error` | any | recommended | Not applicable | development | Producer error detail, category or redaction marker. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `codex.sqlite.reclamation.count`
 
@@ -45313,6 +45534,7 @@ Counts/accumulates sse event observations; interpret each dimension using the so
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sse_event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -45328,10 +45550,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `kind`
 
@@ -45421,6 +45643,7 @@ Elapsed-time distribution for sse event.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.sse_event.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -45436,10 +45659,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `kind`
 
@@ -45529,6 +45752,7 @@ Elapsed-time distribution for startup phase.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.startup.phase.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -45543,10 +45767,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `phase`
 
@@ -45627,6 +45851,7 @@ Age of prewarm work when the first actual turn resolves it.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.startup_prewarm.age_at_first_turn_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -45643,9 +45868,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/sta
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `status`
 
@@ -45719,6 +45944,7 @@ Elapsed-time distribution for startup prewarm.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.startup_prewarm.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -45735,10 +45961,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/sta
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `input` | string | opt_in | development | Native input field emitted by the pinned Codex runtime. |
-| `status` | any | recommended | development | Status recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `input` | string | opt_in | Not applicable | development | Native input field emitted by the pinned Codex runtime. |
+| `status` | any | recommended | Not applicable | development | Status recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `input`
 
@@ -45829,6 +46055,7 @@ Counts/accumulates startup prewarm websocket check observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.startup_prewarm.websocket_check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -45843,10 +46070,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/sta
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `input` | string | opt_in | development | Native input field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `input` | string | opt_in | Not applicable | development | Native input field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `input`
 
@@ -45921,6 +46148,7 @@ Counts/accumulates status line observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.status_line` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -45967,6 +46195,7 @@ Counts/accumulates task compact observations; interpret each dimension using the
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.task.compact` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -45981,10 +46210,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.r
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `manual` | string | recommended | development | Native manual field emitted by the pinned Codex runtime. |
-| `type` | string | recommended | development | Type recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `manual` | string | recommended | Not applicable | development | Native manual field emitted by the pinned Codex runtime. |
+| `type` | string | recommended | Not applicable | development | Type recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `manual`
 
@@ -46033,6 +46262,7 @@ Counts/accumulates task review observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.task.review` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46079,6 +46309,7 @@ Counts/accumulates task user shell observations; interpret each dimension using 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.task.user_shell` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46125,6 +46356,7 @@ Counts/accumulates thread fork observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.fork` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46140,9 +46372,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/app/event_di
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `source` | any | recommended | development | Source recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `source` | any | recommended | Not applicable | development | Source recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `source`
 
@@ -46208,6 +46440,7 @@ Counts/accumulates thread rename observations; interpret each dimension using th
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.rename` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46261,6 +46494,7 @@ Distribution of skill-description characters removed by the rendering budget.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.skills.description_truncated_chars` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46275,9 +46509,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/rende
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_surface` | string | recommended | development | Native catalog surface field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_surface` | string | recommended | Not applicable | development | Native catalog surface field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_surface`
 
@@ -46320,6 +46554,7 @@ Distribution of enabled skills considered for catalog rendering.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.skills.enabled_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46334,9 +46569,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/rende
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_surface` | string | recommended | development | Native catalog surface field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_surface` | string | recommended | Not applicable | development | Native catalog surface field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_surface`
 
@@ -46379,6 +46614,7 @@ Distribution of skills retained in rendered catalogs.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.skills.kept_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46393,9 +46629,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/rende
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_surface` | string | recommended | development | Native catalog surface field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_surface` | string | recommended | Not applicable | development | Native catalog surface field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_surface`
 
@@ -46438,6 +46674,7 @@ Records 1 when the rendered skill list omitted entries, otherwise 0.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.skills.truncated` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46452,9 +46689,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/rende
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_surface` | string | recommended | development | Native catalog surface field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_surface` | string | recommended | Not applicable | development | Native catalog surface field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_surface`
 
@@ -46497,6 +46734,7 @@ Counts/accumulates thread started observations; interpret each dimension using t
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.started` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46511,10 +46749,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/ses
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `is_git` | string | recommended | development | Native is git field emitted by the pinned Codex runtime. |
-| `is_worktree` | boolean | recommended | development | Is worktree recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `is_git` | string | recommended | Not applicable | development | Native is git field emitted by the pinned Codex runtime. |
+| `is_worktree` | boolean | recommended | Not applicable | development | Is worktree recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `is_git`
 
@@ -46561,6 +46799,7 @@ Rendered tool-catalog fragment size; snapshot/delta is distinguished by tags.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.tools.fragment_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46575,10 +46814,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/context/wor
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `kind`
 
@@ -46659,6 +46898,7 @@ Count of namespaces in rendered tool catalogs.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread.tools.namespaces_total` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -46673,10 +46913,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/context/wor
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `kind`
 
@@ -46757,6 +46997,7 @@ Counts/accumulates thread history sqlite projection observations; interpret each
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread_history.sqlite_projection` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46771,9 +47012,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/loc
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -46831,6 +47072,7 @@ Counts/accumulates thread history sqlite projection anomaly observations; interp
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.thread_history.sqlite_projection.anomaly` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46845,9 +47087,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/loc
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `kind`
 
@@ -46905,6 +47147,7 @@ Counts/accumulates tool call observations; interpret each dimension using the so
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tool.call` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -46919,11 +47162,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `tool` | any | recommended | development | Tool recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `tool` | any | recommended | Not applicable | development | Tool recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `product_sku`
 
@@ -47027,6 +47270,7 @@ Elapsed-time distribution for tool call.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tool.call.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -47041,11 +47285,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
-| `tool` | any | recommended | development | Tool recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| `tool` | any | recommended | Not applicable | development | Tool recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `product_sku`
 
@@ -47149,6 +47393,7 @@ Counts/accumulates tool unified exec observations; interpret each dimension usin
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tool.unified_exec` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47163,9 +47408,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/handl
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `tty` | string | recommended | development | Native tty field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `tty` | string | recommended | Not applicable | development | Native tty field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `tty`
 
@@ -47207,6 +47452,7 @@ Distribution of tool metadata shed bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tool_metadata.shed_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -47221,9 +47467,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/metad
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `stage` | any | recommended | development | Stage recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `stage` | any | recommended | Not applicable | development | Stage recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `stage`
 
@@ -47281,6 +47527,7 @@ Counts incremental tool-catalog changes; initial snapshots are excluded.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tools.incremental_updates` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47295,9 +47542,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/context/wor
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `action` | any | recommended | development | Action recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `action` | any | recommended | Not applicable | development | Action recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `action`
 
@@ -47355,6 +47602,7 @@ Distribution of finalized tool registrations, grouped by exposure and tool mode.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tools.registered` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -47369,10 +47617,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/route
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `exposure` | string | recommended | development | Native exposure field emitted by the pinned Codex runtime. |
-| `tool_mode` | string | recommended | development | Native tool mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `exposure` | string | recommended | Not applicable | development | Native exposure field emitted by the pinned Codex runtime. |
+| `tool_mode` | string | recommended | Not applicable | development | Native tool mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `exposure`
 
@@ -47421,6 +47669,7 @@ Counts/accumulates transport fallback to http observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.transport.fallback_to_http` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47435,9 +47684,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/client.rs#L
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `from_wire_api` | string | recommended | development | Native from wire api field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `from_wire_api` | string | recommended | Not applicable | development | Native from wire api field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `from_wire_api`
 
@@ -47479,6 +47728,7 @@ Counts/accumulates tui fullscreen transcript observations; interpret each dimens
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tui.fullscreen_transcript` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47493,9 +47743,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/lib.rs#L1945
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `enabled` | any | recommended | development | Enabled recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `enabled` | any | recommended | Not applicable | development | Enabled recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `enabled`
 
@@ -47553,6 +47803,7 @@ Counts/accumulates tui start observations; interpret each dimension using the so
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.tui.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47599,6 +47850,7 @@ Adds the estimated turn cost in millionths of USD; contains turn/conversation co
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.cost_microusd` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47613,13 +47865,13 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `speed` | string | recommended | development | Speed recorded by the native producer; see the versioned source evidence. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `turn.interrupted` | any | recommended | development | Whether the turn was interrupted. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `speed` | string | recommended | Not applicable | development | Speed recorded by the native producer; see the versioned source evidence. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `turn.interrupted` | any | recommended | Not applicable | development | Whether the turn was interrupted. |
 
 #### Attribute details: `conversation.id`
 
@@ -47753,6 +48005,7 @@ Elapsed end-to-end turn time.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.e2e_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -47799,6 +48052,7 @@ Counts/accumulates turn memory observations; interpret each dimension using the 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.memory` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47813,12 +48067,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.r
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `config_use_memories` | string | recommended | development | Native config use memories field emitted by the pinned Codex runtime. |
-| `feature_enabled` | string | recommended | development | Native feature enabled field emitted by the pinned Codex runtime. |
-| `has_citations` | string | recommended | development | Native has citations field emitted by the pinned Codex runtime. |
-| `read_allowed` | string | recommended | development | Native read allowed field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `config_use_memories` | string | recommended | Not applicable | development | Native config use memories field emitted by the pinned Codex runtime. |
+| `feature_enabled` | string | recommended | Not applicable | development | Native feature enabled field emitted by the pinned Codex runtime. |
+| `has_citations` | string | recommended | Not applicable | development | Native has citations field emitted by the pinned Codex runtime. |
+| `read_allowed` | string | recommended | Not applicable | development | Native read allowed field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `config_use_memories`
 
@@ -47881,6 +48135,7 @@ Counts/accumulates turn network proxy observations; interpret each dimension usi
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.network_proxy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -47895,9 +48150,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.r
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `active` | string | recommended | development | Native active field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `active` | string | recommended | Not applicable | development | Native active field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `active`
 
@@ -47939,6 +48194,7 @@ Distribution of per-turn usage by token_type; not a cumulative billing counter.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.token_usage` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -47953,9 +48209,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/state/turn_
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `token_type` | string | recommended | development | Native token type field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `token_type` | string | recommended | Not applicable | development | Native token type field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `token_type`
 
@@ -47997,6 +48253,7 @@ Distribution of how many tools were called during a turn.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.tool.call` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -48043,6 +48300,7 @@ Time to the first model output item, which need not be a visible text token.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.ttfm.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -48089,6 +48347,7 @@ Time to the first token in a turn.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.ttft.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -48135,6 +48394,7 @@ Counts/accumulates turn unified exec running processes observations; interpret e
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.turn.unified_exec.running_processes` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48181,6 +48441,7 @@ Counts/accumulates unified exec stdin review size check observations; interpret 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.unified_exec.stdin_review.size_check` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48195,10 +48456,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exe
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `input_kind` | string | recommended | development | Native input kind field emitted by the pinned Codex runtime. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `input_kind` | string | recommended | Not applicable | development | Native input kind field emitted by the pinned Codex runtime. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `input_kind`
 
@@ -48263,6 +48524,7 @@ Counts/accumulates voice session connected observations; interpret each dimensio
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.voice.session.connected` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48309,6 +48571,7 @@ Elapsed-time distribution for voice session.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.voice.session.duration` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -48323,9 +48586,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/chatwidget/r
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -48383,6 +48646,7 @@ Counts/accumulates voice session ended observations; interpret each dimension us
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.voice.session.ended` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48429,6 +48693,7 @@ Counts/accumulates voice session failure observations; interpret each dimension 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.voice.session.failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48443,10 +48708,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/chatwidget/r
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cause` | any | recommended | development | Cause recorded by the native producer; see the versioned source evidence. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | any | recommended | Not applicable | development | Cause recorded by the native producer; see the versioned source evidence. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `cause`
 
@@ -48527,6 +48792,7 @@ Counts/accumulates voice session start observations; interpret each dimension us
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.voice.session.start` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48573,6 +48839,7 @@ Distribution of web search results payload bytes measurements.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.web_search.results.payload_bytes` |
 | instrument | `histogram` |
 | unit | Empty on the native instrument |
@@ -48619,6 +48886,7 @@ Counts/accumulates websocket continuation observations; interpret each dimension
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.websocket.continuation` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48633,14 +48901,14 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/client.rs#L
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `after_prewarm` | string | recommended | development | Native after prewarm field emitted by the pinned Codex runtime. |
-| `current_item_type` | string | recommended | development | Native current item type field emitted by the pinned Codex runtime. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `previous_item_type` | string | recommended | development | Native previous item type field emitted by the pinned Codex runtime. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `after_prewarm` | string | recommended | Not applicable | development | Native after prewarm field emitted by the pinned Codex runtime. |
+| `current_item_type` | string | recommended | Not applicable | development | Native current item type field emitted by the pinned Codex runtime. |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `previous_item_type` | string | recommended | Not applicable | development | Native previous item type field emitted by the pinned Codex runtime. |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `after_prewarm`
 
@@ -48765,6 +49033,7 @@ Counts/accumulates websocket event observations; interpret each dimension using 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.websocket.event` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48779,10 +49048,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `kind`
 
@@ -48863,6 +49132,7 @@ Elapsed-time distribution for websocket event.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.websocket.event.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -48877,10 +49147,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `kind` | any | recommended | development | Kind recorded by the native producer; see the versioned source evidence. |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `kind` | any | recommended | Not applicable | development | Kind recorded by the native producer; see the versioned source evidence. |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `kind`
 
@@ -48961,6 +49231,7 @@ Counts/accumulates websocket request observations; interpret each dimension usin
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.websocket.request` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -48975,9 +49246,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `success`
 
@@ -49035,6 +49306,7 @@ Elapsed-time distribution for websocket request.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.websocket.request.duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -49049,9 +49321,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/events/sess
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `success` | any | recommended | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `success` | any | recommended | Not applicable | development | Whether the operation succeeded; emitted as a Boolean or Boolean text depending on the signal. |
 
 #### Attribute details: `success`
 
@@ -49109,6 +49381,7 @@ Counts/accumulates windows mxc available observations; interpret each dimension 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_mxc.available` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49123,9 +49396,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/sandboxing/src/windo
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `available` | string | recommended | development | Native available field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `available` | string | recommended | Not applicable | development | Native available field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `available`
 
@@ -49167,6 +49440,7 @@ Counts/accumulates windows sandbox createprocessasuserw failed observations; int
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.createprocessasuserw_failed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49181,12 +49455,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/exec.rs#L59
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error_code` | any | recommended | development | Error code recorded by the native producer; see the versioned source evidence. |
-| `exe` | string | recommended | development | Native exe field emitted by the pinned Codex runtime. |
-| `level` | string | recommended | development | Level recorded by the native producer; see the versioned source evidence. |
-| `path_kind` | string | recommended | development | Native path kind field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error_code` | any | recommended | Not applicable | development | Error code recorded by the native producer; see the versioned source evidence. |
+| `exe` | string | recommended | Not applicable | development | Native exe field emitted by the pinned Codex runtime. |
+| `level` | string | recommended | Not applicable | development | Level recorded by the native producer; see the versioned source evidence. |
+| `path_kind` | string | recommended | Not applicable | development | Native path kind field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `error_code`
 
@@ -49265,6 +49539,7 @@ Counts/accumulates windows sandbox elevated prompt accept observations; interpre
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_prompt_accept` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49311,6 +49586,7 @@ Counts/accumulates windows sandbox elevated prompt quit observations; interpret 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_prompt_quit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49357,6 +49633,7 @@ Counts/accumulates windows sandbox elevated prompt shown observations; interpret
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_prompt_shown` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49403,6 +49680,7 @@ Counts/accumulates windows sandbox elevated prompt use legacy observations; inte
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_prompt_use_legacy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49449,6 +49727,7 @@ Counts/accumulates windows sandbox elevated setup canceled observations; interpr
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_setup_canceled` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49463,11 +49742,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `code` | string | recommended | development | Native code field emitted by the pinned Codex runtime. |
-| `message` | string | opt_in | development | Native message field emitted by the pinned Codex runtime. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `code` | string | recommended | Not applicable | development | Native code field emitted by the pinned Codex runtime. |
+| `message` | string | opt_in | Not applicable | development | Native message field emitted by the pinned Codex runtime. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `code`
 
@@ -49550,6 +49829,7 @@ Elapsed-time distribution for windows sandbox elevated setup.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_setup_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -49565,9 +49845,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/app/event_di
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -49633,6 +49913,7 @@ Counts/accumulates windows sandbox elevated setup failure observations; interpre
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.elevated_setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49647,11 +49928,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `code` | string | recommended | development | Native code field emitted by the pinned Codex runtime. |
-| `message` | string | opt_in | development | Native message field emitted by the pinned Codex runtime. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `code` | string | recommended | Not applicable | development | Native code field emitted by the pinned Codex runtime. |
+| `message` | string | opt_in | Not applicable | development | Native message field emitted by the pinned Codex runtime. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `code`
 
@@ -49734,6 +50015,7 @@ Counts/accumulates windows sandbox fallback prompt quit observations; interpret 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.fallback_prompt_quit` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49780,6 +50062,7 @@ Counts/accumulates windows sandbox fallback prompt shown observations; interpret
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.fallback_prompt_shown` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49826,6 +50109,7 @@ Counts/accumulates windows sandbox fallback retry elevated observations; interpr
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.fallback_retry_elevated` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49872,6 +50156,7 @@ Counts/accumulates windows sandbox fallback use legacy observations; interpret e
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.fallback_use_legacy` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49918,6 +50203,7 @@ Counts/accumulates windows sandbox legacy setup preflight failed observations; i
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.legacy_setup_preflight_failed` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -49932,9 +50218,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `originator`
 
@@ -49992,6 +50278,7 @@ Counts/accumulates windows sandbox runner result observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.runner_result` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50006,11 +50293,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/windows-sandbox-rs/s
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `runtime` | string | recommended | development | Native runtime field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | Not applicable | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `phase` | any | recommended | Not applicable | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `runtime` | string | recommended | Not applicable | development | Native runtime field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `outcome`
 
@@ -50098,6 +50385,7 @@ Counts/accumulates windows sandbox service stopped observations; interpret each 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.service_stopped` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50112,12 +50400,12 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/windows-sandbox-rs/s
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `last_reported_hresult` | string | recommended | development | Native last reported hresult field emitted by the pinned Codex runtime. |
-| `last_reported_reason` | string | recommended | development | Native last reported reason field emitted by the pinned Codex runtime. |
-| `service_exit_code` | string | recommended | development | Native service exit code field emitted by the pinned Codex runtime. |
-| `win32_exit_code` | string | recommended | development | Native win32 exit code field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `last_reported_hresult` | string | recommended | Not applicable | development | Native last reported hresult field emitted by the pinned Codex runtime. |
+| `last_reported_reason` | string | recommended | Not applicable | development | Native last reported reason field emitted by the pinned Codex runtime. |
+| `service_exit_code` | string | recommended | Not applicable | development | Native service exit code field emitted by the pinned Codex runtime. |
+| `win32_exit_code` | string | recommended | Not applicable | development | Native win32 exit code field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `last_reported_hresult`
 
@@ -50180,6 +50468,7 @@ Elapsed-time distribution for windows sandbox setup.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.setup_duration_ms` |
 | instrument | `histogram` |
 | unit | `ms` |
@@ -50195,11 +50484,11 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `mode`
 
@@ -50313,6 +50602,7 @@ Counts/accumulates windows sandbox setup elevated sandbox command observations; 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.setup_elevated_sandbox_command` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50359,6 +50649,7 @@ Counts/accumulates windows sandbox setup failure observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50373,10 +50664,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `mode`
 
@@ -50457,6 +50748,7 @@ Counts/accumulates windows sandbox setup success observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.setup_success` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50471,10 +50763,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_san
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mode` | any | recommended | Not applicable | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `mode`
 
@@ -50555,6 +50847,7 @@ Counts/accumulates windows sandbox wfp setup failure observations; interpret eac
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.wfp_setup_failure` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50569,10 +50862,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/windows-sandbox-rs/s
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `message` | string | opt_in | development | Native message field emitted by the pinned Codex runtime. |
-| `target_account` | string | recommended | development | Native target account field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `message` | string | opt_in | Not applicable | development | Native message field emitted by the pinned Codex runtime. |
+| `target_account` | string | recommended | Not applicable | development | Native target account field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `message`
 
@@ -50631,6 +50924,7 @@ Counts/accumulates windows sandbox wfp setup success observations; interpret eac
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_sandbox.wfp_setup_success` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50645,10 +50939,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/windows-sandbox-rs/s
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `installed_filter_count` | string | recommended | development | Native installed filter count field emitted by the pinned Codex runtime. |
-| `target_account` | string | recommended | development | Native target account field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `installed_filter_count` | string | recommended | Not applicable | development | Native installed filter count field emitted by the pinned Codex runtime. |
+| `target_account` | string | recommended | Not applicable | development | Native target account field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `installed_filter_count`
 
@@ -50697,6 +50991,7 @@ Counts/accumulates windows system config namespace squatting probe observations;
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `codex.windows_system_config.namespace_squatting_probe` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50711,9 +51006,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/windows_sys
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -50771,6 +51066,7 @@ Caller-side executor RPC attempts, including admission and transport failures.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_client_requests_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50785,9 +51081,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/clie
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -50846,6 +51142,7 @@ Current connections active.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_connections_active` |
 | instrument | `gauge` |
 | unit | Empty on the native instrument |
@@ -50860,9 +51157,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `transport` | string | recommended | Not applicable | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `transport`
 
@@ -50905,6 +51202,7 @@ Counts/accumulates exec server connections total observations; interpret each di
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_connections_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -50919,9 +51217,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `transport` | string | recommended | Not applicable | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `transport`
 
@@ -50963,6 +51261,7 @@ Elapsed-time distribution for exec server process.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_process_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -50977,9 +51276,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51037,6 +51336,7 @@ Current processes active.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_processes_active` |
 | instrument | `gauge` |
 | unit | Empty on the native instrument |
@@ -51084,6 +51384,7 @@ Counts/accumulates exec server processes finished total observations; interpret 
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_processes_finished_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -51098,9 +51399,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51158,6 +51459,7 @@ Counts/accumulates exec server remote reconnects total observations; interpret e
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_remote_reconnects_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -51172,9 +51474,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | any | recommended | Not applicable | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `reason`
 
@@ -51232,6 +51534,7 @@ Elapsed-time distribution for exec server remote registration.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_remote_registration_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -51246,9 +51549,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51307,6 +51610,7 @@ Counts/accumulates exec server remote registration total observations; interpret
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_remote_registration_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -51321,9 +51625,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51382,6 +51686,7 @@ Elapsed-time distribution for exec server remote rendezvous connect.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_remote_rendezvous_connect_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -51396,9 +51701,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51457,6 +51762,7 @@ Counts/accumulates exec server remote rendezvous connect total observations; int
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_remote_rendezvous_connect_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -51471,9 +51777,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -51532,6 +51838,7 @@ Elapsed-time distribution for exec server request.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_request_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -51546,10 +51853,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -51630,6 +51937,7 @@ Elapsed-time distribution for exec server request queue.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_request_queue_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -51644,9 +51952,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -51704,6 +52012,7 @@ Elapsed-time distribution for exec server request total.
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_request_total_duration_seconds` |
 | instrument | `histogram` |
 | unit | `s` |
@@ -51718,10 +52027,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -51802,6 +52111,7 @@ Counts/accumulates exec server requests total observations; interpret each dimen
 | --- | --- |
 | Kind | `metric` |
 | Stability | development |
+| Signal collection | recommended |
 | metric_name | `exec_server_requests_total` |
 | instrument | `counter` |
 | unit | Empty on the native instrument |
@@ -51816,10 +52126,10 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/tele
 
 Metric API and unit construction: https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/otel/src/metrics/client.rs#L117
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | Not applicable | development | Method recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | Not applicable | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -51903,6 +52213,7 @@ add collaboration tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -51948,6 +52259,7 @@ add core tool sources.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -51993,6 +52305,7 @@ add core utility tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52038,6 +52351,7 @@ add mcp resource tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52083,6 +52397,7 @@ add shell tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52128,6 +52443,7 @@ agents md discover.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52173,6 +52489,7 @@ agents md load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52183,9 +52500,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/agents_md.rs#L124
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `max_total` | any | recommended | development | Native max total field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `max_total` | any | recommended | false | development | Native max total field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `max_total`
 
@@ -52246,6 +52563,7 @@ agents md refresh.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52291,6 +52609,7 @@ app server request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `server` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52301,17 +52620,17 @@ Span kind: server explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/app_server_tracing.rs#L100
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app_server.api_version` | string | recommended | development | Native app server api version field emitted by the pinned Codex runtime. |
-| `app_server.client_name` | any | recommended | development | Native app server client name field emitted by the pinned Codex runtime. |
-| `app_server.client_version` | any | recommended | development | Native app server client version field emitted by the pinned Codex runtime. |
-| `app_server.connection_id` | string | recommended | development | Native app server connection id field emitted by the pinned Codex runtime. |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
-| `rpc.request_id` | string | recommended | development | Native rpc request id field emitted by the pinned Codex runtime. |
-| `rpc.system` | enum | recommended | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
-| `rpc.transport` | any | recommended | development | Native rpc transport field emitted by the pinned Codex runtime. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app_server.api_version` | string | recommended | false | development | Native app server api version field emitted by the pinned Codex runtime. |
+| `app_server.client_name` | any | recommended | false | development | Native app server client name field emitted by the pinned Codex runtime. |
+| `app_server.client_version` | any | recommended | false | development | Native app server client version field emitted by the pinned Codex runtime. |
+| `app_server.connection_id` | string | recommended | false | development | Native app server connection id field emitted by the pinned Codex runtime. |
+| `rpc.method` | string | recommended | false | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| `rpc.request_id` | string | recommended | false | development | Native rpc request id field emitted by the pinned Codex runtime. |
+| `rpc.system` | enum | recommended | false | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
+| `rpc.transport` | any | recommended | false | development | Native rpc transport field emitted by the pinned Codex runtime. |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `app_server.api_version`
 
@@ -52462,6 +52781,7 @@ app server serialized request queue.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52472,9 +52792,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_serialization.rs#L228
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `key` | any | recommended | development | Key recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `key` | any | recommended | false | development | Key recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `key`
 
@@ -52535,6 +52855,7 @@ app server thread start attach listener.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52545,9 +52866,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1598
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `thread_start.experimental_raw_events` | any | recommended | development | Native thread start experimental raw events field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `thread_start.experimental_raw_events` | any | recommended | false | development | Native thread start experimental raw events field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `thread_start.experimental_raw_events`
 
@@ -52609,6 +52930,7 @@ app server thread start config snapshot.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52656,6 +52978,7 @@ app server thread start create thread.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52666,9 +52989,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/thread_processor.rs#L1530
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `thread_start.dynamic_tool_count` | any | recommended | development | Native thread start dynamic tool count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `thread_start.dynamic_tool_count` | any | recommended | false | development | Native thread start dynamic tool count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `thread_start.dynamic_tool_count`
 
@@ -52730,6 +53053,7 @@ app server thread start notify started.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52777,6 +53101,7 @@ app server thread start resolve status.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52824,6 +53149,7 @@ app server thread start send response.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52871,6 +53197,7 @@ app server thread start upsert thread.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52918,6 +53245,7 @@ Development/test-client operation: app server test client command.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -52928,9 +53256,9 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server-test-client/src/lib.rs#L1201
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `app_server_test_client.command` | any | recommended | development | Native app server test client command field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `app_server_test_client.command` | any | recommended | false | development | Native app server test client command field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `app_server_test_client.command`
 
@@ -52991,6 +53319,7 @@ Development/test-client operation: app server test client request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53001,11 +53330,11 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server-test-client/src/lib.rs#L1896
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
-| `rpc.request_id` | string | recommended | development | Native rpc request id field emitted by the pinned Codex runtime. |
-| `rpc.system` | enum | recommended | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `rpc.method` | string | recommended | false | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| `rpc.request_id` | string | recommended | false | development | Native rpc request id field emitted by the pinned Codex runtime. |
+| `rpc.system` | enum | recommended | false | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
 
 #### Attribute details: `rpc.method`
 
@@ -53074,6 +53403,7 @@ append dynamic tool runtimes.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53084,9 +53414,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1594
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `dynamic_tool_count` | int | recommended | development | Native dynamic tool count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `dynamic_tool_count` | int | recommended | false | development | Native dynamic tool count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `dynamic_tool_count`
 
@@ -53129,6 +53459,7 @@ append items.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53140,9 +53471,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/live_thread.rs#L215
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/thread-store/src/local/live_writer.rs#L138
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `item_count` | int | recommended | development | Native item count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `item_count` | int | recommended | false | development | Native item count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `item_count`
 
@@ -53193,6 +53524,7 @@ append mcp tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53238,6 +53570,7 @@ append source tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53283,6 +53616,7 @@ append tool search executor.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53328,6 +53662,7 @@ apply rollout reconstruction.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53338,10 +53673,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L1802
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `rollout_item_count` | int | recommended | development | Native rollout item count field emitted by the pinned Codex runtime. |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `rollout_item_count` | int | recommended | false | development | Native rollout item count field emitted by the pinned Codex runtime. |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `rollout_item_count`
 
@@ -53407,6 +53742,7 @@ auth.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53452,6 +53788,7 @@ build core tool registry.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53497,6 +53834,7 @@ build extension turn input items.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53507,9 +53845,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1239
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `user_input_count` | int | recommended | development | Native user input count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `user_input_count` | int | recommended | false | development | Native user input count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `user_input_count`
 
@@ -53552,6 +53890,7 @@ build model visible specs.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53597,6 +53936,7 @@ build prompt.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53642,6 +53982,7 @@ build skill outcome.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53687,6 +54028,7 @@ build skills and plugins.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53732,6 +54074,7 @@ build tool call.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53777,6 +54120,7 @@ build tool router.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53822,6 +54166,7 @@ built tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53832,11 +54177,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1884
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `apps_enabled` | any | recommended | development | Native apps enabled field emitted by the pinned Codex runtime. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `apps_enabled` | any | recommended | false | development | Native apps enabled field emitted by the pinned Codex runtime. |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `apps_enabled`
 
@@ -53943,6 +54288,7 @@ built tools load discoverable tools.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -53988,6 +54334,7 @@ cached directory connectors for tool suggest with auth.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54033,6 +54380,7 @@ capability roots discover v1.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54044,9 +54392,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/sandboxed_file_system.rs#L68
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/capability_discovery.rs#L43
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `root_count` | int | recommended | development | Native root count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `root_count` | int | recommended | false | development | Native root count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `root_count`
 
@@ -54097,6 +54445,7 @@ capability roots discovery cache resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54107,9 +54456,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/capability_discovery_cache.rs#L60
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `root_count` | int | recommended | development | Native root count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `root_count` | int | recommended | false | development | Native root count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `root_count`
 
@@ -54152,6 +54501,7 @@ capability roots resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54197,6 +54547,7 @@ capability roots snapshot for step.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54207,9 +54558,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp.rs#L421
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `root_count` | int | recommended | development | Native root count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `root_count` | int | recommended | false | development | Native root count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `root_count`
 
@@ -54252,6 +54603,7 @@ capture binding with metadata.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54297,6 +54649,7 @@ code mode broker invoke tool.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54307,13 +54660,13 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/delegate.rs#L305
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `runtime_tool_call_id` | any | recommended | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `runtime_tool_call_id` | any | recommended | false | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
+| `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | false | development | Tool namespace. |
 
 #### Attribute details: `cell.id`
 
@@ -54466,6 +54819,7 @@ code mode grpc callback.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54476,12 +54830,12 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode/src/grpc_session/callbacks.rs#L112
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `execution.id` | any | recommended | development | Execution context identifier. |
-| `invocation.id` | string | recommended | development | Native invocation id field emitted by the pinned Codex runtime. |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `execution.id` | any | recommended | false | development | Execution context identifier. |
+| `invocation.id` | string | recommended | false | development | Native invocation id field emitted by the pinned Codex runtime. |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
 
 #### Attribute details: `cell.id`
 
@@ -54580,6 +54934,7 @@ code mode grpc execute.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54590,10 +54945,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode/src/grpc_session/operations.rs#L79
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `execution.id` | any | recommended | development | Execution context identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `execution.id` | any | recommended | false | development | Execution context identifier. |
 
 #### Attribute details: `call_id`
 
@@ -54678,6 +55033,7 @@ code mode grpc open binding.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54723,6 +55079,7 @@ code mode grpc open session.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54768,6 +55125,7 @@ code mode grpc subscribe to tool calls.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54778,9 +55136,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode/src/grpc_session/mod.rs#L188
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
 
 #### Attribute details: `session.id`
 
@@ -54825,6 +55183,7 @@ code mode handler execute.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54835,13 +55194,13 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/execute_handler.rs#L196
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -54986,6 +55345,7 @@ code mode handler wait.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -54996,13 +55356,13 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/code_mode/wait_handler.rs#L80
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -55147,6 +55507,7 @@ code mode runtime invoke tool.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55157,12 +55518,12 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-runtime/src/service.rs#L256
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `runtime_tool_call_id` | any | recommended | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `runtime_tool_call_id` | any | recommended | false | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
+| `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
+| `tool_namespace` | any | recommended | false | development | Tool namespace. |
 
 #### Attribute details: `cell.id`
 
@@ -55292,6 +55653,7 @@ code mode host grpc close session.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55302,9 +55664,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/grpc/mod.rs#L69
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
 
 #### Attribute details: `session.id`
 
@@ -55350,6 +55712,7 @@ code mode host grpc execute.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55360,11 +55723,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/grpc/mod.rs#L386
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `execution.id` | any | recommended | development | Execution context identifier. |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `execution.id` | any | recommended | false | development | Execution context identifier. |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
 
 #### Attribute details: `call_id`
 
@@ -55456,6 +55819,7 @@ code mode host grpc open session.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55501,6 +55865,7 @@ code mode host grpc wait.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55511,11 +55876,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/grpc/mod.rs#L213
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
-| `wait.id` | string | recommended | development | Native wait id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cell.id` | any | recommended | false | development | Code Mode execution-cell identifier. |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
+| `wait.id` | string | recommended | false | development | Native wait id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `cell.id`
 
@@ -55591,6 +55956,7 @@ code mode host request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55601,11 +55967,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/code-mode-host/src/lib.rs#L352
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `request.id` | string | recommended | development | Native request id field emitted by the pinned Codex runtime. |
-| `request.kind` | string | recommended | development | Native request kind field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `request.id` | string | recommended | false | development | Native request id field emitted by the pinned Codex runtime. |
+| `request.kind` | string | recommended | false | development | Native request kind field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `call_id`
 
@@ -55673,6 +56039,7 @@ code mode host run main.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55720,6 +56087,7 @@ code mode host startup.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55767,6 +56135,7 @@ codex compaction.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55778,11 +56147,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/compact.rs#L37
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1528
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.turn.phase` | string | recommended | development | Native codex turn phase field emitted by the pinned Codex runtime. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.turn.phase` | string | recommended | false | development | Native codex turn phase field emitted by the pinned Codex runtime. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.turn.phase`
 
@@ -55883,6 +56252,7 @@ codex exec.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55893,10 +56263,10 @@ Span kind: internal explicitly recorded by the source. Preserve a recorded statu
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec/src/lib.rs#L246
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `thread.id` | int | recommended | development | Current "managed" thread ID (as opposed to OS thread ID).  |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `thread.id`
 
@@ -55967,6 +56337,7 @@ codex exec server http request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -55977,13 +56348,13 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client/route_aware_http_client.rs#L182
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `error.type` | enum | recommended | stable | Describes a class of error the operation ended with.  |
-| `http.request.method` | enum | recommended | stable | HTTP request method. |
-| `http.response.status_code` | int | recommended | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
-| `server.address` | string | recommended | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
-| `server.port` | int | recommended | stable | Server port number. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `error.type` | enum | recommended | false | stable | Describes a class of error the operation ended with.  |
+| `http.request.method` | enum | recommended | false | stable | HTTP request method. |
+| `http.response.status_code` | int | recommended | false | stable | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). |
+| `server.address` | string | recommended | false | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
+| `server.port` | int | recommended | false | stable | Server port number. |
 
 #### Attribute details: `error.type`
 
@@ -56095,6 +56466,7 @@ codex exec server.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56142,6 +56514,7 @@ codex exec server process.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56153,10 +56526,10 @@ Span kind: internal explicitly recorded by the source. Preserve a recorded statu
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/telemetry.rs#L269
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/local_process.rs#L1054
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | false | development | Executor process identifier in this event’s process namespace. |
+| `result` | any | recommended | false | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `process.id`
 
@@ -56239,6 +56612,7 @@ codex exec server process capture shell snapshot.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56249,9 +56623,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/shell_snapshot.rs#L337
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | false | development | Executor process identifier in this event’s process namespace. |
 
 #### Attribute details: `process.id`
 
@@ -56312,6 +56686,7 @@ codex exec server process prepare sandbox.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56322,9 +56697,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_sandbox.rs#L85
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | false | development | Executor process identifier in this event’s process namespace. |
 
 #### Attribute details: `process.id`
 
@@ -56385,6 +56760,7 @@ codex exec server process prepare shell snapshot.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56395,10 +56771,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/shell_snapshot.rs#L95
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
-| `snapshot_requested` | boolean | recommended | development | Native snapshot requested field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | false | development | Executor process identifier in this event’s process namespace. |
+| `snapshot_requested` | boolean | recommended | false | development | Native snapshot requested field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `process.id`
 
@@ -56464,6 +56840,7 @@ codex exec server process start.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56474,9 +56851,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client.rs#L1090
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `process.id` | any | recommended | false | development | Executor process identifier in this event’s process namespace. |
 
 #### Attribute details: `process.id`
 
@@ -56537,6 +56914,7 @@ codex exec server remote connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56582,6 +56960,7 @@ codex exec server remote environment registry connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56592,9 +56971,9 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/remote.rs#L224
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `environment_id` | any | recommended | development | Environment id recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `environment_id` | any | recommended | false | development | Environment id recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `environment_id`
 
@@ -56657,6 +57036,7 @@ codex exec server remote environment registry validate harness key.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56667,10 +57047,10 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/remote.rs#L326
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `environment_id` | any | recommended | development | Environment id recorded by the native producer; see the versioned source evidence. |
-| `executor_registration_id` | string | recommended | development | Native executor registration id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `environment_id` | any | recommended | false | development | Environment id recorded by the native producer; see the versioned source evidence. |
+| `executor_registration_id` | string | recommended | false | development | Native executor registration id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `environment_id`
 
@@ -56740,6 +57120,7 @@ codex exec server remote harness connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56788,6 +57169,7 @@ codex exec server remote initialize rpc.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56836,6 +57218,7 @@ codex exec server remote noise connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56881,6 +57264,7 @@ codex exec server remote noise handshake.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56929,6 +57313,7 @@ codex exec server remote noise websocket connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -56939,10 +57324,10 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/client_transport.rs#L618
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `environment_id` | any | recommended | development | Environment id recorded by the native producer; see the versioned source evidence. |
-| `executor_registration_id` | string | recommended | development | Native executor registration id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `environment_id` | any | recommended | false | development | Environment id recorded by the native producer; see the versioned source evidence. |
+| `executor_registration_id` | string | recommended | false | development | Native executor registration id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `environment_id`
 
@@ -57012,6 +57397,7 @@ codex exec server remote register.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57023,9 +57409,9 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/remote.rs#L125
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/remote/direct.rs#L68
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `result` | any | recommended | false | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `result`
 
@@ -57090,6 +57476,7 @@ codex exec server remote rendezvous connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57100,10 +57487,10 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/remote.rs#L802
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `request_id` | string | recommended | development | Server-assigned request identifier. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | string | recommended | false | development | Server-assigned request identifier. |
+| `result` | any | recommended | false | development | Result recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `request_id`
 
@@ -57165,6 +57552,7 @@ codex exec server request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57177,9 +57565,9 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/clie
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/rpc.rs#L543
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/rpc.rs#L595
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | false | development | Method recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `method`
 
@@ -57262,6 +57650,7 @@ codex exec server request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `server` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57272,12 +57661,12 @@ Span kind: server explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/connection.rs#L72
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `method` | any | recommended | development | Method recorded by the native producer; see the versioned source evidence. |
-| `result` | any | recommended | development | Result recorded by the native producer; see the versioned source evidence. |
-| `rpc.dispatch_offset_ns` | any | recommended | development | Native rpc dispatch offset ns field emitted by the pinned Codex runtime. |
-| `rpc.response_enqueue_offset_ns` | any | recommended | development | Native rpc response enqueue offset ns field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `method` | any | recommended | false | development | Method recorded by the native producer; see the versioned source evidence. |
+| `result` | any | recommended | false | development | Result recorded by the native producer; see the versioned source evidence. |
+| `rpc.dispatch_offset_ns` | any | recommended | false | development | Native rpc dispatch offset ns field emitted by the pinned Codex runtime. |
+| `rpc.response_enqueue_offset_ns` | any | recommended | false | development | Native rpc response enqueue offset ns field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `method`
 
@@ -57395,6 +57784,7 @@ codex hooks command.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57405,16 +57795,16 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/hooks/src/engine/command_runner.rs#L199
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `hook.command_outcome` | any | recommended | development | Native hook command outcome field emitted by the pinned Codex runtime. |
-| `hook.display_order` | any | recommended | development | Native hook display order field emitted by the pinned Codex runtime. |
-| `hook.event_name` | any | recommended | development | Native hook event name field emitted by the pinned Codex runtime. |
-| `hook.execution_mode` | any | recommended | development | Native hook execution mode field emitted by the pinned Codex runtime. |
-| `hook.handler_type` | any | recommended | development | Native hook handler type field emitted by the pinned Codex runtime. |
-| `hook.scope` | any | recommended | development | Native hook scope field emitted by the pinned Codex runtime. |
-| `hook.source` | any | recommended | development | Native hook source field emitted by the pinned Codex runtime. |
-| `hook.timeout_sec` | any | recommended | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `hook.command_outcome` | any | recommended | false | development | Native hook command outcome field emitted by the pinned Codex runtime. |
+| `hook.display_order` | any | recommended | false | development | Native hook display order field emitted by the pinned Codex runtime. |
+| `hook.event_name` | any | recommended | false | development | Native hook event name field emitted by the pinned Codex runtime. |
+| `hook.execution_mode` | any | recommended | false | development | Native hook execution mode field emitted by the pinned Codex runtime. |
+| `hook.handler_type` | any | recommended | false | development | Native hook handler type field emitted by the pinned Codex runtime. |
+| `hook.scope` | any | recommended | false | development | Native hook scope field emitted by the pinned Codex runtime. |
+| `hook.source` | any | recommended | false | development | Native hook source field emitted by the pinned Codex runtime. |
+| `hook.timeout_sec` | any | recommended | false | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `hook.command_outcome`
 
@@ -57628,6 +58018,7 @@ codex hooks mcp tool.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57638,11 +58029,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/hooks/src/engine/mcp_runner.rs#L18
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `hook.server` | any | recommended | development | Native hook server field emitted by the pinned Codex runtime. |
-| `hook.timeout_sec` | any | recommended | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
-| `hook.tool` | any | recommended | development | Native hook tool field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `hook.server` | any | recommended | false | development | Native hook server field emitted by the pinned Codex runtime. |
+| `hook.timeout_sec` | any | recommended | false | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
+| `hook.tool` | any | recommended | false | development | Native hook tool field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `hook.server`
 
@@ -57749,6 +58140,7 @@ codex process spawn.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57794,6 +58186,7 @@ codex sampling.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57804,11 +58197,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2653
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.turn.phase` | string | recommended | development | Native codex turn phase field emitted by the pinned Codex runtime. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.turn.phase` | string | recommended | false | development | Native codex turn phase field emitted by the pinned Codex runtime. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.turn.phase`
 
@@ -57899,6 +58292,7 @@ codex tool blocking.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -57909,11 +58303,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L3282
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.turn.phase` | string | recommended | development | Native codex turn phase field emitted by the pinned Codex runtime. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.turn.phase` | string | recommended | false | development | Native codex turn phase field emitted by the pinned Codex runtime. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.turn.phase`
 
@@ -58004,6 +58398,7 @@ codex turn input.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58015,9 +58410,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn_input.rs#L224
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn_input.rs#L292
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
 
 #### Attribute details: `conversation.id`
 
@@ -58086,6 +58481,7 @@ collect explicit skill mentions.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58096,10 +58492,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/selection.rs#L13
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_entry_count` | int | recommended | development | Native catalog entry count field emitted by the pinned Codex runtime. |
-| `input_count` | int | recommended | development | Native input count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_entry_count` | int | recommended | false | development | Native catalog entry count field emitted by the pinned Codex runtime. |
+| `input_count` | int | recommended | false | development | Native input count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_entry_count`
 
@@ -58147,6 +58543,7 @@ connectors plugin declarations load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58192,6 +58589,7 @@ decide request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58202,9 +58600,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/async_scorer/approval.rs#L52
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `approval_id` | any | recommended | development | Native approval id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `approval_id` | any | recommended | false | development | Native approval id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `approval_id`
 
@@ -58265,6 +58663,7 @@ dispatch tool call with code mode result.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58276,12 +58675,12 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/router.rs#L312
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L192
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `aborted` | any | recommended | development | Aborted recorded by the native producer; see the versioned source evidence. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `thread.id` | int | recommended | development | Current "managed" thread ID (as opposed to OS thread ID).  |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `aborted` | any | recommended | false | development | Aborted recorded by the native producer; see the versioned source evidence. |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
 
 #### Attribute details: `aborted`
 
@@ -58400,6 +58799,7 @@ dispatch tool call with state.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58445,6 +58845,7 @@ drain in flight.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58490,6 +58891,7 @@ encode image.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58500,9 +58902,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/tui/src/clipboard_paste.rs#L101
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `byte_length` | any | recommended | development | Native byte length field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `byte_length` | any | recommended | false | development | Native byte length field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `byte_length`
 
@@ -58555,6 +58957,7 @@ endpoint session execute with.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58565,10 +58968,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/session.rs#L74
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
 
 #### Attribute details: `api.path`
 
@@ -58638,6 +59041,7 @@ endpoint session stream encoded json with.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58648,10 +59052,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/session.rs#L116
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
 
 #### Attribute details: `api.path`
 
@@ -58721,6 +59125,7 @@ environments resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58731,11 +59136,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/environment_selection.rs#L795
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `configuration_pending` | boolean | recommended | development | Native configuration pending field emitted by the pinned Codex runtime. |
-| `environment_id` | any | recommended | development | Environment id recorded by the native producer; see the versioned source evidence. |
-| `remote` | any | recommended | development | Remote recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `configuration_pending` | boolean | recommended | false | development | Native configuration pending field emitted by the pinned Codex runtime. |
+| `environment_id` | any | recommended | false | development | Environment id recorded by the native producer; see the versioned source evidence. |
+| `remote` | any | recommended | false | development | Remote recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `configuration_pending`
 
@@ -58824,6 +59229,7 @@ environments snapshot.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58834,10 +59240,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/environment_selection.rs#L936
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `environment_count` | int | recommended | development | Native environment count field emitted by the pinned Codex runtime. |
-| `non_blocking` | any | recommended | development | Native non blocking field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `environment_count` | int | recommended | false | development | Native environment count field emitted by the pinned Codex runtime. |
+| `non_blocking` | any | recommended | false | development | Native non blocking field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `environment_count`
 
@@ -58903,6 +59309,7 @@ environments wait until ready.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58913,9 +59320,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/environment_selection.rs#L254
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `environment_id` | any | recommended | development | Environment id recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `environment_id` | any | recommended | false | development | Environment id recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `environment_id`
 
@@ -58976,6 +59383,7 @@ exec server environment force info.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -58986,9 +59394,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/environment.rs#L1014
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `remote` | any | recommended | development | Remote recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `remote` | any | recommended | false | development | Remote recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `remote`
 
@@ -59049,6 +59457,7 @@ exec server environment info.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59059,9 +59468,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/environment.rs#L946
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `remote` | any | recommended | development | Remote recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `remote` | any | recommended | false | development | Remote recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `remote`
 
@@ -59122,6 +59531,7 @@ exec server environment refresh connection.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59132,9 +59542,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/environment.rs#L998
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `remote` | any | recommended | development | Remote recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `remote` | any | recommended | false | development | Remote recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `remote`
 
@@ -59195,6 +59605,7 @@ exec server environment wait until ready.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59205,9 +59616,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/environment.rs#L1143
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `remote` | any | recommended | development | Remote recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `remote` | any | recommended | false | development | Remote recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `remote`
 
@@ -59268,6 +59679,7 @@ extension tool executors.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59313,6 +59725,7 @@ fetch recommended plugin install metadata.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59358,6 +59771,7 @@ fetch recommended plugins.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59403,6 +59817,7 @@ finalize tool router.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59448,6 +59863,7 @@ fs get metadata.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59458,9 +59874,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/local_file_system.rs#L197
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `sandboxed` | any | recommended | development | Native sandboxed field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `sandboxed` | any | recommended | false | development | Native sandboxed field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `sandboxed`
 
@@ -59521,6 +59937,7 @@ fs read file.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59531,9 +59948,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/local_file_system.rs#L150
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `sandboxed` | any | recommended | development | Native sandboxed field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `sandboxed` | any | recommended | false | development | Native sandboxed field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `sandboxed`
 
@@ -59594,6 +60011,7 @@ fs sandbox execute.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59639,6 +60057,7 @@ fs sandbox prepare.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59649,9 +60068,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/fs_sandbox.rs#L96
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `permission_entries` | any | recommended | development | Native permission entries field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `permission_entries` | any | recommended | false | development | Native permission entries field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `permission_entries`
 
@@ -59704,6 +60123,7 @@ fs sandbox request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59749,6 +60169,7 @@ get default model.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59760,11 +60181,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/models-manager/src/manager.rs#L221
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/models-manager/src/manager.rs#L795
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `allow_provider_model_fallback` | any | recommended | development | Native allow provider model fallback field emitted by the pinned Codex runtime. |
-| `model.provided` | boolean | recommended | development | Native model provided field emitted by the pinned Codex runtime. |
-| `refresh_strategy` | string | recommended | development | Native refresh strategy field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `allow_provider_model_fallback` | any | recommended | false | development | Native allow provider model fallback field emitted by the pinned Codex runtime. |
+| `model.provided` | boolean | recommended | false | development | Native model provided field emitted by the pinned Codex runtime. |
+| `refresh_strategy` | string | recommended | false | development | Native refresh strategy field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `allow_provider_model_fallback`
 
@@ -59847,6 +60268,7 @@ get image.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59892,6 +60314,7 @@ get model info.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -59903,9 +60326,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/models-manager/src/manager.rs#L242
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/models-manager/src/manager.rs#L461
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
 
 #### Attribute details: `model`
 
@@ -59974,6 +60397,7 @@ get or build.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60019,6 +60443,7 @@ guardian background scoring.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60029,14 +60454,14 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/async_scorer/classification.rs#L114
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `context_mode` | any | recommended | development | Native context mode field emitted by the pinned Codex runtime. |
-| `retained_conversation` | boolean | recommended | development | Native retained conversation field emitted by the pinned Codex runtime. |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
-| `tool_call_index` | any | recommended | development | Native tool call index field emitted by the pinned Codex runtime. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `context_mode` | any | recommended | false | development | Native context mode field emitted by the pinned Codex runtime. |
+| `retained_conversation` | boolean | recommended | false | development | Native retained conversation field emitted by the pinned Codex runtime. |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
+| `tool_call_index` | any | recommended | false | development | Native tool call index field emitted by the pinned Codex runtime. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -60194,6 +60619,7 @@ guardian review.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60204,11 +60630,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-reviewer/src/review.rs#L81
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `review_id` | any | recommended | development | Native review id field emitted by the pinned Codex runtime. |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
-| `tool_call_id` | any | recommended | development | Native tool call id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `review_id` | any | recommended | false | development | Native review id field emitted by the pinned Codex runtime. |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
+| `tool_call_id` | any | recommended | false | development | Native tool call id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `review_id`
 
@@ -60315,6 +60741,7 @@ guardian scoring observation.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60325,13 +60752,13 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/guardian-v2/src/async_scorer/observation.rs#L41
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
-| `tool_call_index` | any | recommended | development | Native tool call index field emitted by the pinned Codex runtime. |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
+| `tool_call_index` | any | recommended | false | development | Native tool call index field emitted by the pinned Codex runtime. |
+| `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `call_id`
 
@@ -60476,6 +60903,7 @@ handle output item done.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60521,6 +60949,7 @@ handle responses.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60531,17 +60960,17 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2715
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.request.reasoning_effort` | string | recommended | development | Native codex request reasoning effort field emitted by the pinned Codex runtime. |
-| `codex.usage.reasoning_output_tokens` | any | recommended | development | Native codex usage reasoning output tokens field emitted by the pinned Codex runtime. |
-| `codex.usage.total_tokens` | any | recommended | development | Native codex usage total tokens field emitted by the pinned Codex runtime. |
-| `from` | any | recommended | development | Native from field emitted by the pinned Codex runtime. |
-| `gen_ai.usage.cache_read.input_tokens` | int | recommended | development | The number of input tokens served from a provider-managed cache. |
-| `gen_ai.usage.cache_write.input_tokens` | int | recommended | development | The number of input tokens written to a provider-managed cache. |
-| `gen_ai.usage.input_tokens` | int | recommended | development | The number of tokens used in the GenAI input (prompt). |
-| `gen_ai.usage.output_tokens` | int | recommended | development | The number of tokens used in the GenAI response (completion). |
-| `tool_name` | any | recommended | development | Native tool identifier; content policy may replace user-controlled names. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.request.reasoning_effort` | string | recommended | false | development | Native codex request reasoning effort field emitted by the pinned Codex runtime. |
+| `codex.usage.reasoning_output_tokens` | any | recommended | false | development | Native codex usage reasoning output tokens field emitted by the pinned Codex runtime. |
+| `codex.usage.total_tokens` | any | recommended | false | development | Native codex usage total tokens field emitted by the pinned Codex runtime. |
+| `from` | any | recommended | false | development | Native from field emitted by the pinned Codex runtime. |
+| `gen_ai.usage.cache_read.input_tokens` | int | recommended | false | development | The number of input tokens served from a provider-managed cache. |
+| `gen_ai.usage.cache_write.input_tokens` | int | recommended | false | development | The number of input tokens written to a provider-managed cache. |
+| `gen_ai.usage.input_tokens` | int | recommended | false | development | The number of tokens used in the GenAI input (prompt). |
+| `gen_ai.usage.output_tokens` | int | recommended | false | development | The number of tokens used in the GenAI response (completion). |
+| `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
 
 #### Attribute details: `codex.request.reasoning_effort`
 
@@ -60713,6 +61142,7 @@ handle tool call.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60758,6 +61188,7 @@ handle tool call with source.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60803,6 +61234,7 @@ hosted model tool specs.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60848,6 +61280,7 @@ initialize.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60893,6 +61326,7 @@ instructions load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60903,9 +61337,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-home/src/instructions/mod.rs#L40
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `provider` | any | recommended | development | Provider recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `provider` | any | recommended | false | development | Provider recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `provider`
 
@@ -60966,6 +61400,7 @@ list models.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -60976,9 +61411,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/models-manager/src/manager.rs#L136
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `refresh_strategy` | string | recommended | development | Native refresh strategy field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `refresh_strategy` | string | recommended | false | development | Native refresh strategy field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `refresh_strategy`
 
@@ -61023,6 +61458,7 @@ list skills.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61068,6 +61504,7 @@ list tool suggest discoverable plugins.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61113,6 +61550,7 @@ list tool suggest discoverable tools with auth.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61158,6 +61596,7 @@ list tools for client uncached.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61168,9 +61607,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_client.rs#L667
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `server_name`
 
@@ -61231,6 +61670,7 @@ list tools for server.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61241,11 +61681,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/tool_catalog.rs#L217
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `has_cached_tools` | any | recommended | development | Native has cached tools field emitted by the pinned Codex runtime. |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
-| `startup_complete` | any | recommended | development | Native startup complete field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `has_cached_tools` | any | recommended | false | development | Native has cached tools field emitted by the pinned Codex runtime. |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
+| `startup_complete` | any | recommended | false | development | Native startup complete field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `has_cached_tools`
 
@@ -61352,6 +61792,7 @@ list tools with connector ids.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61397,6 +61838,7 @@ list tools with errors.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61407,9 +61849,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/tool_catalog.rs#L194
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mcp_server_count` | any | recommended | development | Mcp server count recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mcp_server_count` | any | recommended | false | development | Mcp server count recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `mcp_server_count`
 
@@ -61470,6 +61912,7 @@ load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61515,6 +61958,7 @@ load cached codex apps server info.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61560,6 +62004,7 @@ load cached connector runtime for identity.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61605,6 +62050,7 @@ load plugins from layer stack.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61650,6 +62096,7 @@ load skill prompts.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61660,9 +62107,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/host_prompt.rs#L64
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `selected_skill_count` | int | recommended | development | Native selected skill count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `selected_skill_count` | int | recommended | false | development | Native selected skill count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `selected_skill_count`
 
@@ -61705,6 +62152,7 @@ load with cli overrides.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61750,6 +62198,7 @@ make rmcp client.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61760,9 +62209,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_client.rs#L1173
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `server_name`
 
@@ -61823,6 +62272,7 @@ mcp http request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61833,9 +62283,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rmcp-client/src/trace_context.rs#L83
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `mcp.method` | any | recommended | development | Native mcp method field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `mcp.method` | any | recommended | false | development | Native mcp method field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `mcp.method`
 
@@ -61896,6 +62346,7 @@ mcp plugin metadata load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61941,6 +62392,7 @@ mcp plugin servers load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -61986,6 +62438,7 @@ mcp runtime refresh.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62031,6 +62484,7 @@ mcp runtime refresh if dirty.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62076,6 +62530,7 @@ mcp runtime refresh wait.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62121,6 +62576,7 @@ mcp runtime resolve for step.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62131,9 +62587,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mcp.rs#L362
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `turn.id`
 
@@ -62194,6 +62650,7 @@ mcp runtime config project for step.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62239,6 +62696,7 @@ mcp tools call.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `client` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62249,26 +62707,26 @@ Span kind: client explicitly recorded by the source. Preserve a recorded status.
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/mcp_tool_call.rs#L669
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.mcp.error.code` | any | recommended | development | Native codex mcp error code field emitted by the pinned Codex runtime. |
-| `codex.mcp.server_user_flow.triggered` | any | recommended | development | Native codex mcp server user flow triggered field emitted by the pinned Codex runtime. |
-| `codex.mcp.target.id` | any | recommended | development | Native codex mcp target id field emitted by the pinned Codex runtime. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `error.type` | enum | recommended | stable | Describes a class of error the operation ended with.  |
-| `mcp.connector.id` | any | recommended | development | Native mcp connector id field emitted by the pinned Codex runtime. |
-| `mcp.connector.name` | any | recommended | development | Native mcp connector name field emitted by the pinned Codex runtime. |
-| `mcp.server.name` | any | recommended | development | Native mcp server name field emitted by the pinned Codex runtime. |
-| `mcp.server.origin` | any | recommended | development | Native mcp server origin field emitted by the pinned Codex runtime. |
-| `mcp.transport` | any | recommended | development | Native mcp transport field emitted by the pinned Codex runtime. |
-| `rpc.method` | string | recommended | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
-| `rpc.system` | enum | recommended | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
-| `server.address` | string | recommended | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
-| `server.port` | int | recommended | stable | Server port number. |
-| `session.id` | string | recommended | development | A unique ID to identify a session. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
-| `tool.name` | any | recommended | development | Native tool name field emitted by the pinned Codex runtime. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.mcp.error.code` | any | recommended | false | development | Native codex mcp error code field emitted by the pinned Codex runtime. |
+| `codex.mcp.server_user_flow.triggered` | any | recommended | false | development | Native codex mcp server user flow triggered field emitted by the pinned Codex runtime. |
+| `codex.mcp.target.id` | any | recommended | false | development | Native codex mcp target id field emitted by the pinned Codex runtime. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `error.type` | enum | recommended | false | stable | Describes a class of error the operation ended with.  |
+| `mcp.connector.id` | any | recommended | false | development | Native mcp connector id field emitted by the pinned Codex runtime. |
+| `mcp.connector.name` | any | recommended | false | development | Native mcp connector name field emitted by the pinned Codex runtime. |
+| `mcp.server.name` | any | recommended | false | development | Native mcp server name field emitted by the pinned Codex runtime. |
+| `mcp.server.origin` | any | recommended | false | development | Native mcp server origin field emitted by the pinned Codex runtime. |
+| `mcp.transport` | any | recommended | false | development | Native mcp transport field emitted by the pinned Codex runtime. |
+| `rpc.method` | string | recommended | false | release_candidate | The fully-qualified logical name of the method from the RPC interface perspective. |
+| `rpc.system` | enum | recommended | false | development; deprecated | Deprecated, use `rpc.system.name` attribute instead. |
+| `server.address` | string | recommended | false | stable | Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name. |
+| `server.port` | int | recommended | false | stable | Server port number. |
+| `session.id` | string | recommended | false | development | A unique ID to identify a session. |
+| `tool.call_id` | any | recommended | false | development | Executor tool-call correlation ID. |
+| `tool.name` | any | recommended | false | development | Native tool name field emitted by the pinned Codex runtime. |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.mcp.error.code`
 
@@ -62645,6 +63103,7 @@ merge connector selection.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62655,9 +63114,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L1618
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `connector_count` | int | recommended | development | Native connector count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `connector_count` | int | recommended | false | development | Native connector count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `connector_count`
 
@@ -62700,6 +63159,7 @@ merge into namespaces.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62710,9 +63170,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/spec_plan.rs#L1102
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `tool_spec_count` | int | recommended | development | Native tool spec count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `tool_spec_count` | int | recommended | false | development | Native tool spec count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `tool_spec_count`
 
@@ -62755,6 +63215,7 @@ model client stream responses api.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62765,14 +63226,14 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/client.rs#L1743
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
-| `turn.has_metadata_header` | any | recommended | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
-| `wire_api` | string | recommended | development | Native wire api field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
+| `turn.has_metadata_header` | any | recommended | false | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
+| `wire_api` | string | recommended | false | development | Native wire api field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `api.path`
 
@@ -62894,6 +63355,7 @@ model client stream responses websocket.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -62904,14 +63366,14 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/client.rs#L1946
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
-| `turn.has_metadata_header` | any | recommended | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
-| `websocket.warmup` | any | recommended | development | Native websocket warmup field emitted by the pinned Codex runtime. |
-| `wire_api` | string | recommended | development | Native wire api field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
+| `turn.has_metadata_header` | any | recommended | false | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
+| `websocket.warmup` | any | recommended | false | development | Native websocket warmup field emitted by the pinned Codex runtime. |
+| `wire_api` | string | recommended | false | development | Native wire api field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `api.path`
 
@@ -63047,6 +63509,7 @@ model client websocket connection.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63057,13 +63520,13 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/client.rs#L1643
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `provider` | any | recommended | development | Provider recorded by the native producer; see the versioned source evidence. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
-| `turn.has_metadata_header` | any | recommended | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
-| `wire_api` | string | recommended | development | Native wire api field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `provider` | any | recommended | false | development | Provider recorded by the native producer; see the versioned source evidence. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
+| `turn.has_metadata_header` | any | recommended | false | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
+| `wire_api` | string | recommended | false | development | Native wire api field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `api.path`
 
@@ -63184,6 +63647,7 @@ new.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63195,10 +63659,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/handlers/tool_search.rs#L149
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_client.rs#L456
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `search_info_count` | int | recommended | development | Native search info count field emitted by the pinned Codex runtime. |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `search_info_count` | int | recommended | false | development | Native search info count field emitted by the pinned Codex runtime. |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `search_info_count`
 
@@ -63271,6 +63735,7 @@ noise relay stream.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63281,9 +63746,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/noise_relay/harness.rs#L104
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `noise_side` | string | recommended | development | Native noise side field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `noise_side` | string | recommended | false | development | Native noise side field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `noise_side`
 
@@ -63328,6 +63793,7 @@ paste image as png.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63373,6 +63839,7 @@ persist rollout items.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63383,9 +63850,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L4709
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `item_count` | int | recommended | development | Native item count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `item_count` | int | recommended | false | development | Native item count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `item_count`
 
@@ -63428,6 +63895,7 @@ plugin reconcile.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63438,9 +63906,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/app-server/src/request_processors/plugins/reconcile.rs#L14
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | any | recommended | false | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `reason`
 
@@ -63501,6 +63969,7 @@ plugins executor package resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63546,6 +64015,7 @@ plugins for config.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63556,9 +64026,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/manager.rs#L812
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `plugins_enabled` | any | recommended | development | Native plugins enabled field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `plugins_enabled` | any | recommended | false | development | Native plugins enabled field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `plugins_enabled`
 
@@ -63620,6 +64090,7 @@ prepare call for tool.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63665,6 +64136,7 @@ prepare tool recommendations.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63710,6 +64182,7 @@ read main prompt.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63720,9 +64193,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/extension.rs#L589
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `skill` | any | recommended | development | Native skill field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `skill` | any | recommended | false | development | Native skill field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `skill`
 
@@ -63783,6 +64256,7 @@ read plugin detail for marketplace plugin.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63828,6 +64302,7 @@ realtime call create.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63838,10 +64313,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/realtime_call.rs#L81
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
 
 #### Attribute details: `api.path`
 
@@ -63911,6 +64386,7 @@ realtime conversation running state.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -63956,6 +64432,7 @@ receiving.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64001,6 +64478,7 @@ receiving stream.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64046,6 +64524,7 @@ recommended plugin candidates for config.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64091,6 +64570,7 @@ recommended plugins mode for config.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64101,10 +64581,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/manager.rs#L1905
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `plugins_enabled` | any | recommended | development | Native plugins enabled field emitted by the pinned Codex runtime. |
-| `remote_plugin_enabled` | any | recommended | development | Native remote plugin enabled field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `plugins_enabled` | any | recommended | false | development | Native plugins enabled field emitted by the pinned Codex runtime. |
+| `remote_plugin_enabled` | any | recommended | false | development | Native remote plugin enabled field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `plugins_enabled`
 
@@ -64188,6 +64668,7 @@ record context updates and set reference context item.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64233,6 +64714,7 @@ record conversation items.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64243,9 +64725,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L3609
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `item_count` | int | recommended | development | Native item count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `item_count` | int | recommended | false | development | Native item count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `item_count`
 
@@ -64288,6 +64770,7 @@ refresh transaction.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64298,10 +64781,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/rmcp-client/src/oauth/refresh_transaction.rs#L95
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `refresh_reason` | string | recommended | development | Native refresh reason field emitted by the pinned Codex runtime. |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `refresh_reason` | string | recommended | false | development | Native refresh reason field emitted by the pinned Codex runtime. |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `refresh_reason`
 
@@ -64369,6 +64852,7 @@ regular task prepare run turn.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64414,6 +64898,7 @@ render available skills.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64424,9 +64909,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/render.rs#L518
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_entry_count` | int | recommended | development | Native catalog entry count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_entry_count` | int | recommended | false | development | Native catalog entry count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_entry_count`
 
@@ -64469,6 +64954,7 @@ resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64514,6 +65000,7 @@ responses stream.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64524,12 +65011,12 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/responses.rs#L99
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
-| `turn.has_state` | boolean | recommended | development | Native turn has state field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
+| `turn.has_state` | boolean | recommended | false | development | Native turn has state field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `api.path`
 
@@ -64611,6 +65098,7 @@ responses stream request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64621,11 +65109,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/responses.rs#L60
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `http.method` | string | recommended | development; deprecated | Deprecated, use `http.request.method` instead. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `http.method` | string | recommended | false | development; deprecated | Deprecated, use `http.request.method` instead. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `api.path`
 
@@ -64702,6 +65190,7 @@ responses websocket connect.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64712,10 +65201,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/responses_websocket/connector.rs#L18
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `api.path`
 
@@ -64783,6 +65272,7 @@ responses websocket stream request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64793,10 +65283,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-api/src/endpoint/responses_websocket.rs#L236
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `transport` | string | recommended | development | Transport recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `api.path` | any | recommended | false | development | Native api path field emitted by the pinned Codex runtime. |
+| `transport` | string | recommended | false | development | Transport recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `api.path`
 
@@ -64864,6 +65354,7 @@ resume running thread.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64909,6 +65400,7 @@ resume thread from history.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64954,6 +65446,7 @@ resume thread with history.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -64999,6 +65492,7 @@ run auto compact.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65009,10 +65503,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1502
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `phase` | any | recommended | development | Phase recorded by the native producer; see the versioned source evidence. |
-| `reason` | any | recommended | development | Reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `phase` | any | recommended | false | development | Phase recorded by the native producer; see the versioned source evidence. |
+| `reason` | any | recommended | false | development | Reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `phase`
 
@@ -65096,6 +65590,7 @@ run hooks and record inputs.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65141,6 +65636,7 @@ run legacy after agent hook.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65186,6 +65682,7 @@ run multiplexed environment.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65196,9 +65693,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/relay.rs#L509
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `noise_side` | string | recommended | development | Native noise side field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `noise_side` | string | recommended | false | development | Native noise side field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `noise_side`
 
@@ -65243,6 +65740,7 @@ run pending session start hooks.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65288,6 +65786,7 @@ run pre sampling compact.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65333,6 +65832,7 @@ run sampling request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65343,11 +65843,11 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1699
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `cwd` | string | recommended | development | Cwd recorded by the native producer; see the versioned source evidence. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `cwd` | string | recommended | false | development | Cwd recorded by the native producer; see the versioned source evidence. |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `cwd`
 
@@ -65438,6 +65938,7 @@ run session end hooks.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65483,6 +65984,7 @@ run turn collect post sampling state.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65528,6 +66030,7 @@ run turn.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65573,6 +66076,7 @@ run turn prepare sampling request input.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65618,6 +66122,7 @@ run turn stop hooks.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65663,6 +66168,7 @@ search remote plugins.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65673,10 +66179,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core-plugins/src/remote/search.rs#L32
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `plugin.limit` | any | recommended | development | Native plugin limit field emitted by the pinned Codex runtime. |
-| `plugin.scope` | any | recommended | development | Plugin scope recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `plugin.limit` | any | recommended | false | development | Native plugin limit field emitted by the pinned Codex runtime. |
+| `plugin.scope` | any | recommended | false | development | Plugin scope recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `plugin.limit`
 
@@ -65760,6 +66266,7 @@ send raw response items.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65770,9 +66277,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L4390
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `item_count` | int | recommended | development | Native item count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `item_count` | int | recommended | false | development | Native item count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `item_count`
 
@@ -65815,6 +66322,7 @@ session flush rollout.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65860,6 +66368,7 @@ session init auth mcp.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65907,6 +66416,7 @@ session init.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65952,6 +66462,7 @@ session init mcp manager init.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -65999,6 +66510,7 @@ session init network proxy.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66009,9 +66521,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1591
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session_init.managed_network_requirements_enabled` | any | recommended | development | Native session init managed network requirements enabled field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session_init.managed_network_requirements_enabled` | any | recommended | false | development | Native session init managed network requirements enabled field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `session_init.managed_network_requirements_enabled`
 
@@ -66073,6 +66585,7 @@ session init plugin skill warmup.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66120,6 +66633,7 @@ session init required mcp wait.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66130,9 +66644,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/connection_manager/required.rs#L45
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session_init.required_mcp_server_count` | int | recommended | development | Native session init required mcp server count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session_init.required_mcp_server_count` | int | recommended | false | development | Native session init required mcp server count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `session_init.required_mcp_server_count`
 
@@ -66176,6 +66690,7 @@ session init state db.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66186,9 +66701,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1161
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session_init.ephemeral` | any | recommended | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session_init.ephemeral` | any | recommended | false | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `session_init.ephemeral`
 
@@ -66250,6 +66765,7 @@ session init thread name lookup.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66297,6 +66813,7 @@ session init thread persistence.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66307,9 +66824,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/session.rs#L1145
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `session_init.ephemeral` | any | recommended | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `session_init.ephemeral` | any | recommended | false | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `session_init.ephemeral`
 
@@ -66371,6 +66888,7 @@ session loop.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66381,9 +66899,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/mod.rs#L1025
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `thread_id`
 
@@ -66444,6 +66962,7 @@ session task run.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66489,6 +67008,7 @@ set previous turn settings.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66534,6 +67054,7 @@ shell snapshot.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66544,9 +67065,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/shell_snapshot.rs#L190
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `thread_id` | any | recommended | false | development | Native thread id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `thread_id`
 
@@ -66607,6 +67128,7 @@ skills cloud refresh cloud catalog.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66652,6 +67174,7 @@ skills environment load.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66662,9 +67185,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/loader/environment.rs#L107
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `skill_count` | any | recommended | development | Native skill count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `skill_count` | any | recommended | false | development | Native skill count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `skill_count`
 
@@ -66717,6 +67240,7 @@ skills executor catalog root.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66762,6 +67286,7 @@ skills executor refresh executor catalog.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66772,9 +67297,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/state.rs#L120
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `root_count` | int | recommended | development | Native root count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `root_count` | int | recommended | false | development | Native root count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `root_count`
 
@@ -66817,6 +67342,7 @@ skills shadow selection rank.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66827,9 +67353,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/ext/skills/src/shadow_selection_experiment/mod.rs#L206
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `catalog_entries` | int | recommended | development | Native catalog entries field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_entries` | int | recommended | false | development | Native catalog entries field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `catalog_entries`
 
@@ -66872,6 +67398,7 @@ skills for config.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66919,6 +67446,7 @@ start server task.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -66929,9 +67457,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/codex-mcp/src/rmcp_client.rs#L922
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `server_name` | any | recommended | development | Server name recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `server_name` | any | recommended | false | development | Server name recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `server_name`
 
@@ -66992,6 +67520,7 @@ startup prewarm.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67002,10 +67531,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/startup_prewarm.rs#L275
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `prewarm.input` | string | recommended | development | Native prewarm input field emitted by the pinned Codex runtime. |
-| `thread.id` | int | recommended | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `prewarm.input` | string | recommended | false | development | Native prewarm input field emitted by the pinned Codex runtime. |
+| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
 
 #### Attribute details: `prewarm.input`
 
@@ -67058,6 +67587,7 @@ startup prewarm resolve.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67103,6 +67633,7 @@ step context capture.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67148,6 +67679,7 @@ stored thread to initial history.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67193,6 +67725,7 @@ stream request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67238,6 +67771,7 @@ submission dispatch.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67249,10 +67783,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/handlers.rs#L790
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/handlers.rs#L797
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.op` | any | recommended | development | Native codex op field emitted by the pinned Codex runtime. |
-| `submission.id` | string | recommended | development | Native submission id field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.op` | any | recommended | false | development | Native codex op field emitted by the pinned Codex runtime. |
+| `submission.id` | string | recommended | false | development | Native submission id field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `codex.op`
 
@@ -67329,6 +67863,7 @@ thread spawn.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67376,6 +67911,7 @@ track turn resolved config analytics.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67386,9 +67922,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L1299
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `input_count` | int | recommended | development | Native input count field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `input_count` | int | recommended | false | development | Native input count field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `input_count`
 
@@ -67431,6 +67967,7 @@ try run sampling request.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67441,10 +67978,10 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn.rs#L2611
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `turn_id` | any | recommended | development | Turn identifier. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
 
 #### Attribute details: `model`
 
@@ -67528,6 +68065,7 @@ turn.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67538,19 +68076,19 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.rs#L355
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `codex.turn.reasoning_effort` | string | recommended | development | Native codex turn reasoning effort field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.cache_write_input_tokens` | any | recommended | development | Native codex turn token usage cache write input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.cached_input_tokens` | any | recommended | development | Native codex turn token usage cached input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.input_tokens` | any | recommended | development | Native codex turn token usage input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.non_cached_input_tokens` | any | recommended | development | Native codex turn token usage non cached input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.output_tokens` | any | recommended | development | Native codex turn token usage output tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.reasoning_output_tokens` | any | recommended | development | Native codex turn token usage reasoning output tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.total_tokens` | any | recommended | development | Native codex turn token usage total tokens field emitted by the pinned Codex runtime. |
-| `model` | any | recommended | development | Model identifier recorded by the producer. |
-| `thread.id` | int | recommended | development | Current "managed" thread ID (as opposed to OS thread ID).  |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `codex.turn.reasoning_effort` | string | recommended | false | development | Native codex turn reasoning effort field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.cache_write_input_tokens` | any | recommended | false | development | Native codex turn token usage cache write input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.cached_input_tokens` | any | recommended | false | development | Native codex turn token usage cached input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.input_tokens` | any | recommended | false | development | Native codex turn token usage input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.non_cached_input_tokens` | any | recommended | false | development | Native codex turn token usage non cached input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.output_tokens` | any | recommended | false | development | Native codex turn token usage output tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.reasoning_output_tokens` | any | recommended | false | development | Native codex turn token usage reasoning output tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.total_tokens` | any | recommended | false | development | Native codex turn token usage total tokens field emitted by the pinned Codex runtime. |
+| `model` | any | recommended | false | development | Model identifier recorded by the producer. |
+| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.turn.reasoning_effort`
 
@@ -67752,6 +68290,7 @@ turn context build.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67762,9 +68301,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/turn_context.rs#L1241
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `build_mode` | string | recommended | development | Native build mode field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `build_mode` | string | recommended | false | development | Native build mode field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `build_mode`
 
@@ -67809,6 +68348,7 @@ turn context make.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67854,6 +68394,7 @@ turn diff display roots.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67899,6 +68440,7 @@ unified exec collect output.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -67909,12 +68451,12 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/process_manager.rs#L1588
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `exit_signaled` | any | recommended | development | Native exit signaled field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `output_closed` | any | recommended | development | Native output closed field emitted by the pinned Codex runtime. |
-| `stop_reason` | any | recommended | development | Stop reason recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `exit_signaled` | any | recommended | false | development | Native exit signaled field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `output_closed` | any | recommended | false | development | Native output closed field emitted by the pinned Codex runtime. |
+| `stop_reason` | any | recommended | false | development | Stop reason recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `exit_signaled`
 
@@ -68012,6 +68554,7 @@ unified exec exec command.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -68023,14 +68566,14 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/oneshot.rs#L28
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/process_manager.rs#L493
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `mode` | any | recommended | development | Mode recorded by the native producer; see the versioned source evidence. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
-| `unified_exec_process_id` | any | recommended | development | Identifier used by the unified-execution process manager. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `mode` | any | recommended | false | development | Mode recorded by the native producer; see the versioned source evidence. |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
+| `unified_exec_process_id` | any | recommended | false | development | Identifier used by the unified-execution process manager. |
 
 #### Attribute details: `call_id`
 
@@ -68211,6 +68754,7 @@ unified exec open session.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -68221,9 +68765,9 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/process_manager.rs#L1457
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
 
 #### Attribute details: `outcome`
 
@@ -68276,6 +68820,7 @@ unified exec write stdin.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -68286,15 +68831,15 @@ Span kind: internal by the tracing OpenTelemetry default. Preserve a recorded st
 
 https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/unified_exec/process_manager.rs#L865
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `interaction` | boolean | recommended | development | Native interaction field emitted by the pinned Codex runtime. |
-| `original_exec_call_id` | any | recommended | development | Native original exec call id field emitted by the pinned Codex runtime. |
-| `outcome` | any | recommended | development | Outcome recorded by the native producer; see the versioned source evidence. |
-| `turn_id` | any | recommended | development | Turn identifier. |
-| `unified_exec_process_id` | any | recommended | development | Identifier used by the unified-execution process manager. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
+| `conversation.id` | any | recommended | false | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `interaction` | boolean | recommended | false | development | Native interaction field emitted by the pinned Codex runtime. |
+| `original_exec_call_id` | any | recommended | false | development | Native original exec call id field emitted by the pinned Codex runtime. |
+| `outcome` | any | recommended | false | development | Outcome recorded by the native producer; see the versioned source evidence. |
+| `turn_id` | any | recommended | false | development | Turn identifier. |
+| `unified_exec_process_id` | any | recommended | false | development | Identifier used by the unified-execution process manager. |
 
 #### Attribute details: `call_id`
 
@@ -68459,6 +69004,7 @@ upload.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -68504,6 +69050,7 @@ world state build.
 | --- | --- |
 | Kind | `span` |
 | Stability | development |
+| Signal collection | recommended |
 | span_kind | `internal` |
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
@@ -68555,360 +69102,360 @@ Native Codex 0.163.0 fields absent from the pinned upstream and existing vendor 
 | Registry schema | https://qyl.at/schemas/14.1.0 |
 | Source | `registry/vendor/openai-codex.yaml` |
 
-| Attribute | Type | Requirement / role | Stability | Meaning |
-| --- | --- | --- | --- | --- |
-| `active` | string | recommended | development | Native active field emitted by the pinned Codex runtime. |
-| `actual_store` | string | recommended | development | Native actual store field emitted by the pinned Codex runtime. |
-| `after_prewarm` | string | recommended | development | Native after prewarm field emitted by the pinned Codex runtime. |
-| `agent.type` | any | recommended | development | Main agent or eligible spawned subagent. |
-| `agent_name` | string | recommended | development | Potentially user-selected agent label/path; detailed-log field. |
-| `allow_provider_model_fallback` | any | recommended | development | Native allow provider model fallback field emitted by the pinned Codex runtime. |
-| `api.path` | any | recommended | development | Native api path field emitted by the pinned Codex runtime. |
-| `app_server.api_version` | string | recommended | development | Native app server api version field emitted by the pinned Codex runtime. |
-| `app_server.client_name` | any | recommended | development | Native app server client name field emitted by the pinned Codex runtime. |
-| `app_server.client_version` | any | recommended | development | Native app server client version field emitted by the pinned Codex runtime. |
-| `app_server.connection_id` | string | recommended | development | Native app server connection id field emitted by the pinned Codex runtime. |
-| `app_server_test_client.command` | any | recommended | development | Native app server test client command field emitted by the pinned Codex runtime. |
-| `approval_id` | any | recommended | development | Native approval id field emitted by the pinned Codex runtime. |
-| `approval_policy` | string | recommended | development | Effective approval policy. |
-| `approved` | string | recommended | development | Native approved field emitted by the pinned Codex runtime. |
-| `apps_enabled` | any | recommended | development | Native apps enabled field emitted by the pinned Codex runtime. |
-| `arguments` | string | recommended | development | Raw serialized tool arguments in detailed logs. |
-| `arguments_length` | int | recommended | development | Serialized argument byte length. |
-| `artifact_type` | string | recommended | development | Native artifact type field emitted by the pinned Codex runtime. |
-| `attempt_count` | string | recommended | development | Native attempt count field emitted by the pinned Codex runtime. |
-| `auth.agent_id` | string | recommended | development | Agent identity attribution. |
-| `auth.cf_ray` | any | recommended | development | Cloudflare correlation ID. |
-| `auth.connection_reused` | any | recommended | development | Whether a connection was reused. |
-| `auth.env_codex_api_key_enabled` | any | recommended | development | Whether the Codex API-key environment path is enabled. |
-| `auth.env_codex_api_key_present` | any | recommended | development | Presence of the CODEX_API_KEY environment variable. |
-| `auth.env_openai_api_key_present` | any | recommended | development | Presence of the OPENAI_API_KEY environment variable. |
-| `auth.env_provider_key_name` | string | recommended | development | Configured provider environment-variable name, not its value. |
-| `auth.env_provider_key_present` | any | recommended | development | Whether that provider key variable exists. |
-| `auth.env_refresh_token_url_override_present` | any | recommended | development | Whether a refresh URL override is configured. |
-| `auth.error` | any | recommended | development | Authentication error classification. |
-| `auth.error_code` | any | recommended | development | Authentication error code. |
-| `auth.header_attached` | any | recommended | development | Whether an authentication header was attached; not the header secret. |
-| `auth.header_name` | any | recommended | development | Header name only. |
-| `auth.mode` | any | recommended | development | Recovery authentication mode. |
-| `auth.outcome` | any | recommended | development | Recovery outcome. |
-| `auth.recovery_mode` | any | recommended | development | Authentication recovery strategy. |
-| `auth.recovery_phase` | any | recommended | development | Recovery phase. |
-| `auth.recovery_reason` | any | recommended | development | Reason recovery was attempted. |
-| `auth.request_id` | any | recommended | development | Server request correlation ID. |
-| `auth.retry_after_unauthorized` | any | recommended | development | Whether this follows an unauthorized-response recovery. |
-| `auth.state_changed` | any | recommended | development | Whether authentication state changed during recovery. |
-| `auth.step` | any | recommended | development | Recovery step. |
-| `auth.task_id` | string | recommended | development | Task identity attribution. |
-| `auth_mode` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `auto_compact_token_limit` | any | recommended | development | Automatic-compaction threshold. |
-| `available` | string | recommended | development | Native available field emitted by the pinned Codex runtime. |
-| `azure_client_request_id` | any | recommended | development | Azure client request correlation identifier. |
-| `azure_error_code` | any | recommended | development | Azure error classification. |
-| `azure_request_id` | any | recommended | development | Azure server request correlation identifier. |
-| `build_mode` | string | recommended | development | Native build mode field emitted by the pinned Codex runtime. |
-| `bundle_shape` | string | recommended | development | Native bundle shape field emitted by the pinned Codex runtime. |
-| `byte_length` | any | recommended | development | Native byte length field emitted by the pinned Codex runtime. |
-| `cache` | string | recommended | development | Native cache field emitted by the pinned Codex runtime. |
-| `cache_eligible` | any | recommended | development | A still-starting MCP client has an accepted cached catalog available. |
-| `cache_write_token_count` | any | recommended | development | Cache-write input usage. |
-| `cached_token_count` | any | recommended | development | Cached-input usage. |
-| `call_id` | any | recommended | development | Call identifier; its role depends on this emitter. |
-| `candidate_set_truncated` | string | recommended | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
-| `catalog_entries` | int | recommended | development | Native catalog entries field emitted by the pinned Codex runtime. |
-| `catalog_entry_count` | int | recommended | development | Native catalog entry count field emitted by the pinned Codex runtime. |
-| `catalog_source` | any | recommended | development | Provenance of the materialized MCP catalog. |
-| `catalog_surface` | string | recommended | development | Native catalog surface field emitted by the pinned Codex runtime. |
-| `cell.id` | any | recommended | development | Code Mode execution-cell identifier. |
-| `cell_id` | string | recommended | development | Code Mode execution-cell identifier in this emitter’s native spelling. |
-| `checker` | string | recommended | development | Native checker field emitted by the pinned Codex runtime. |
-| `cleanup_errors` | string | recommended | development | Native cleanup errors field emitted by the pinned Codex runtime. |
-| `cloudflare_ray_id` | any | recommended | development | Cloudflare request correlation identifier. |
-| `code` | string | recommended | development | Native code field emitted by the pinned Codex runtime. |
-| `code_mode_host_duration_ns` | any | recommended | development | Code Mode host elapsed nanoseconds. |
-| `codex.mcp.error.code` | any | recommended | development | Native codex mcp error code field emitted by the pinned Codex runtime. |
-| `codex.mcp.protocol_discovery` | string | recommended | development | Native codex mcp protocol discovery field emitted by the pinned Codex runtime. |
-| `codex.mcp.server_user_flow.triggered` | any | recommended | development | Native codex mcp server user flow triggered field emitted by the pinned Codex runtime. |
-| `codex.mcp.target.id` | any | recommended | development | Native codex mcp target id field emitted by the pinned Codex runtime. |
-| `codex.op` | any | recommended | development | Native codex op field emitted by the pinned Codex runtime. |
-| `codex.request.reasoning_effort` | string | recommended | development | Native codex request reasoning effort field emitted by the pinned Codex runtime. |
-| `codex.rollout_compression.read` | string | recommended | development | Native codex rollout compression read field emitted by the pinned Codex runtime. |
-| `codex.shell_snapshot.command` | string | recommended | development | Native codex shell snapshot command field emitted by the pinned Codex runtime. |
-| `codex.shell_snapshot.duration_ms` | string | recommended | development | Native codex shell snapshot duration ms field emitted by the pinned Codex runtime. |
-| `codex.sqlite.reclamation.count` | string | recommended | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
-| `codex.sqlite.reclamation.duration_ms` | string | recommended | development | Native codex sqlite reclamation duration ms field emitted by the pinned Codex runtime. |
-| `codex.turn.phase` | string | recommended | development | Native codex turn phase field emitted by the pinned Codex runtime. |
-| `codex.turn.reasoning_effort` | string | recommended | development | Native codex turn reasoning effort field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.cache_write_input_tokens` | any | recommended | development | Native codex turn token usage cache write input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.cached_input_tokens` | any | recommended | development | Native codex turn token usage cached input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.input_tokens` | any | recommended | development | Native codex turn token usage input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.non_cached_input_tokens` | any | recommended | development | Native codex turn token usage non cached input tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.output_tokens` | any | recommended | development | Native codex turn token usage output tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.reasoning_output_tokens` | any | recommended | development | Native codex turn token usage reasoning output tokens field emitted by the pinned Codex runtime. |
-| `codex.turn.token_usage.total_tokens` | any | recommended | development | Native codex turn token usage total tokens field emitted by the pinned Codex runtime. |
-| `codex.usage.reasoning_output_tokens` | any | recommended | development | Native codex usage reasoning output tokens field emitted by the pinned Codex runtime. |
-| `codex.usage.total_tokens` | any | recommended | development | Native codex usage total tokens field emitted by the pinned Codex runtime. |
-| `communication_id` | any | recommended | development | Identifier joining the send and receive observations of an inter-agent communication. |
-| `comparison` | string | recommended | development | Native comparison field emitted by the pinned Codex runtime. |
-| `completed_at_ms` | any | recommended | development | Completion timestamp in milliseconds. |
-| `completion_reason` | string | recommended | development | Native completion reason field emitted by the pinned Codex runtime. |
-| `component` | string | recommended | development | Native component field emitted by the pinned Codex runtime. |
-| `compression_enabled` | string | recommended | development | Native compression enabled field emitted by the pinned Codex runtime. |
-| `config_use_memories` | string | recommended | development | Native config use memories field emitted by the pinned Codex runtime. |
-| `configuration_pending` | boolean | recommended | development | Native configuration pending field emitted by the pinned Codex runtime. |
-| `connector_count` | int | recommended | development | Native connector count field emitted by the pinned Codex runtime. |
-| `context_mode` | any | recommended | development | Native context mode field emitted by the pinned Codex runtime. |
-| `context_window` | any | recommended | development | Configured/reported context window size. |
-| `conversation.id` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `conversation_id` | string | recommended | development | Conversation ID in this emitter’s native spelling. |
-| `credential_kind` | string | recommended | development | Native credential kind field emitted by the pinned Codex runtime. |
-| `current_item_type` | string | recommended | development | Native current item type field emitted by the pinned Codex runtime. |
-| `db` | string | recommended | development | Native db field emitted by the pinned Codex runtime. |
-| `decisions` | string | recommended | development | Native decisions field emitted by the pinned Codex runtime. |
-| `delay_ms` | any | recommended | development | Delay before retry, in milliseconds. |
-| `dependency` | string | recommended | development | Native dependency field emitted by the pinned Codex runtime. |
-| `directory` | string | recommended | development | Native directory field emitted by the pinned Codex runtime. |
-| `dispatch_duration_ms` | any | recommended | development | Measured dispatch portion of tool-call latency, in milliseconds. |
-| `dynamic_tool_count` | int | recommended | development | Native dynamic tool count field emitted by the pinned Codex runtime. |
-| `encoding` | string | recommended | development | Native encoding field emitted by the pinned Codex runtime. |
-| `endpoint` | any | recommended | development | Endpoint classification recorded by the caller. |
-| `env` | string | recommended | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
-| `environment_count` | int | recommended | development | Native environment count field emitted by the pinned Codex runtime. |
-| `escalated_duration_ms` | any | recommended | development | Escalated attempt elapsed milliseconds, if any. |
-| `event` | string | recommended | development | Native event field emitted by the pinned Codex runtime. |
-| `event.kind` | string | recommended | development | Underlying stream event kind. |
-| `exe` | string | recommended | development | Native exe field emitted by the pinned Codex runtime. |
-| `execution.id` | any | recommended | development | Execution context identifier. |
-| `execution_backend` | string | recommended | development | Native execution backend field emitted by the pinned Codex runtime. |
-| `execution_started` | boolean | recommended | development | Whether the call recorded the start of execution, rather than stopping before execution. |
-| `executor.environment_id` | any | recommended | development | Environment identity retained from authenticated executor registration. |
-| `executor.registration_id` | any | recommended | development | Executor registration identity retained at launch. |
-| `executor_registration_id` | string | recommended | development | Native executor registration id field emitted by the pinned Codex runtime. |
-| `exit_signaled` | any | recommended | development | Native exit signaled field emitted by the pinned Codex runtime. |
-| `explicitly_required` | any | recommended | development | This MCP server or its selected plugin was explicitly requested at the startup gate. |
-| `exposure` | string | recommended | development | Native exposure field emitted by the pinned Codex runtime. |
-| `fallback_reason` | string | recommended | development | Native fallback reason field emitted by the pinned Codex runtime. |
-| `feature_enabled` | string | recommended | development | Native feature enabled field emitted by the pinned Codex runtime. |
-| `file_errors` | string | recommended | development | Native file errors field emitted by the pinned Codex runtime. |
-| `file_id` | any | recommended | development | Uploaded file identifier. |
-| `file_size_bytes` | any | recommended | development | File size in bytes. |
-| `filename` | string | recommended | development | Native filename field emitted by the pinned Codex runtime. |
-| `force_refresh` | string | recommended | development | Native force refresh field emitted by the pinned Codex runtime. |
-| `fork_mode` | any | recommended | development | Spawn/fork strategy classification supplied by the caller. |
-| `format` | string | recommended | development | Native format field emitted by the pinned Codex runtime. |
-| `from` | any | recommended | development | Native from field emitted by the pinned Codex runtime. |
-| `from_wire_api` | string | recommended | development | Native from wire api field emitted by the pinned Codex runtime. |
-| `handler_duration_ms` | any | recommended | development | Measured handler portion of tool-call latency, in milliseconds. |
-| `has_cached_tools` | any | recommended | development | Native has cached tools field emitted by the pinned Codex runtime. |
-| `has_citations` | string | recommended | development | Native has citations field emitted by the pinned Codex runtime. |
-| `history_mode` | string | recommended | development | Native history mode field emitted by the pinned Codex runtime. |
-| `hook.command_outcome` | any | recommended | development | Native hook command outcome field emitted by the pinned Codex runtime. |
-| `hook.display_order` | any | recommended | development | Native hook display order field emitted by the pinned Codex runtime. |
-| `hook.event_name` | any | recommended | development | Native hook event name field emitted by the pinned Codex runtime. |
-| `hook.execution_mode` | any | recommended | development | Native hook execution mode field emitted by the pinned Codex runtime. |
-| `hook.handler_type` | any | recommended | development | Native hook handler type field emitted by the pinned Codex runtime. |
-| `hook.scope` | any | recommended | development | Native hook scope field emitted by the pinned Codex runtime. |
-| `hook.server` | any | recommended | development | Native hook server field emitted by the pinned Codex runtime. |
-| `hook.source` | any | recommended | development | Native hook source field emitted by the pinned Codex runtime. |
-| `hook.timeout_sec` | any | recommended | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
-| `hook.tool` | any | recommended | development | Native hook tool field emitted by the pinned Codex runtime. |
-| `image_input_count` | int | recommended | development | Remote/embedded image inputs counted by the prompt emitter. |
-| `include_tools` | string | recommended | development | Native include tools field emitted by the pinned Codex runtime. |
-| `initial_duration_ms` | any | recommended | development | Initial execution elapsed milliseconds. |
-| `initiating.agent.path` | any | recommended | development | Initiating agent path. |
-| `initiation_source` | string | recommended | development | Native initiation source field emitted by the pinned Codex runtime. |
-| `input` | string | recommended | development | Native input field emitted by the pinned Codex runtime. |
-| `input_count` | int | recommended | development | Native input count field emitted by the pinned Codex runtime. |
-| `input_kind` | string | recommended | development | Native input kind field emitted by the pinned Codex runtime. |
-| `input_token_count` | string | recommended | development | Input usage reported on completion. |
-| `installed_filter_count` | string | recommended | development | Native installed filter count field emitted by the pinned Codex runtime. |
-| `interaction` | boolean | recommended | development | Native interaction field emitted by the pinned Codex runtime. |
-| `invocation.id` | string | recommended | development | Native invocation id field emitted by the pinned Codex runtime. |
-| `invoke_type` | string | recommended | development | Native invoke type field emitted by the pinned Codex runtime. |
-| `is_git` | string | recommended | development | Native is git field emitted by the pinned Codex runtime. |
-| `item.id` | string | recommended | development | Conversation item identifier. |
-| `item_count` | int | recommended | development | Native item count field emitted by the pinned Codex runtime. |
-| `last_reported_hresult` | string | recommended | development | Native last reported hresult field emitted by the pinned Codex runtime. |
-| `last_reported_reason` | string | recommended | development | Native last reported reason field emitted by the pinned Codex runtime. |
-| `launch.span_id` | any | recommended | development | W3C span ID of that launch request. |
-| `launch.trace_id` | any | recommended | development | W3C trace ID of the outgoing process-start request. |
-| `local_image_input_count` | int | recommended | development | Local image inputs counted by the prompt emitter. |
-| `manual` | string | recommended | development | Native manual field emitted by the pinned Codex runtime. |
-| `max_total` | any | recommended | development | Native max total field emitted by the pinned Codex runtime. |
-| `mcp.connector.id` | any | recommended | development | Native mcp connector id field emitted by the pinned Codex runtime. |
-| `mcp.connector.name` | any | recommended | development | Native mcp connector name field emitted by the pinned Codex runtime. |
-| `mcp.method` | any | recommended | development | Native mcp method field emitted by the pinned Codex runtime. |
-| `mcp.server.name` | any | recommended | development | Native mcp server name field emitted by the pinned Codex runtime. |
-| `mcp.server.origin` | any | recommended | development | Native mcp server origin field emitted by the pinned Codex runtime. |
-| `mcp.transport` | any | recommended | development | Native mcp transport field emitted by the pinned Codex runtime. |
-| `mcp_server` | string | recommended | development | MCP server name (detailed log). |
-| `mcp_server_origin` | string | recommended | development | MCP server provenance. |
-| `mcp_servers` | any | recommended | development | Joined configured MCP server names (detailed log). |
-| `measurement` | string | recommended | development | Native measurement field emitted by the pinned Codex runtime. |
-| `memory_version` | string | recommended | development | Native memory version field emitted by the pinned Codex runtime. |
-| `message` | string | recommended | development | Native message field emitted by the pinned Codex runtime. |
-| `migration_type` | string | recommended | development | Native migration type field emitted by the pinned Codex runtime. |
-| `model.provided` | boolean | recommended | development | Native model provided field emitted by the pinned Codex runtime. |
-| `model_reasoning_effort` | string | recommended | development | Inference reasoning-effort setting. |
-| `model_slug` | string | recommended | development | Native model slug field emitted by the pinned Codex runtime. |
-| `multi_agent_version` | any | recommended | development | Multi-agent implementation version selected for this operation. |
-| `multiple_hard_links` | string | recommended | development | Native multiple hard links field emitted by the pinned Codex runtime. |
-| `multiple_write_roots` | string | recommended | development | Native multiple write roots field emitted by the pinned Codex runtime. |
-| `network.policy.decision` | any | recommended | development | Allow/deny decision. |
-| `network.policy.override` | any | recommended | development | Whether an override affected the decision. |
-| `network.policy.reason` | any | recommended | development | Policy reason. |
-| `network.policy.scope` | any | recommended | development | Policy scope. |
-| `network.policy.source` | any | recommended | development | Policy source. |
-| `network.transport.protocol` | any | recommended | development | Network protocol classification. |
-| `noise_side` | string | recommended | development | Native noise side field emitted by the pinned Codex runtime. |
-| `non_blocking` | any | recommended | development | Native non blocking field emitted by the pinned Codex runtime. |
-| `observation` | string | recommended | development | Native observation field emitted by the pinned Codex runtime. |
-| `operation_kind` | string | recommended | development | Native operation kind field emitted by the pinned Codex runtime. |
-| `original_exec_call_id` | any | recommended | development | Native original exec call id field emitted by the pinned Codex runtime. |
-| `originator` | any | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `os` | string | recommended | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
-| `os_version` | string | recommended | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
-| `output_closed` | any | recommended | development | Native output closed field emitted by the pinned Codex runtime. |
-| `output_format` | string | recommended | development | Native output format field emitted by the pinned Codex runtime. |
-| `output_length` | int | recommended | development | Original tool-output byte length. |
-| `output_line_count` | int | recommended | development | Original output line count. |
-| `output_token_count` | string | recommended | development | Output usage reported on completion. |
-| `parent.conversation.id` | string | recommended | development | Parent conversation for a spawned agent. |
-| `parent.turn.id` | string | recommended | development | Parent turn attribution. |
-| `path_kind` | string | recommended | development | Native path kind field emitted by the pinned Codex runtime. |
-| `permission_entries` | any | recommended | development | Native permission entries field emitted by the pinned Codex runtime. |
-| `plugin.limit` | any | recommended | development | Native plugin limit field emitted by the pinned Codex runtime. |
-| `plugin_install.completed` | any | recommended | development | Installation completed. |
-| `plugin_install.response_action` | any | recommended | development | Installation response action. |
-| `plugin_install.tool_id` | any | recommended | development | Installation tool id. |
-| `plugin_install.tool_name` | any | recommended | development | Installation tool name. |
-| `plugin_install.tool_type` | any | recommended | development | Installation tool type. |
-| `plugin_install.user_confirmed` | any | recommended | development | Installation user confirmed. |
-| `plugins_enabled` | any | recommended | development | Native plugins enabled field emitted by the pinned Codex runtime. |
-| `previous_item_type` | string | recommended | development | Native previous item type field emitted by the pinned Codex runtime. |
-| `prewarm.input` | string | recommended | development | Native prewarm input field emitted by the pinned Codex runtime. |
-| `process.exit_code` | any | recommended | development | Exited process status code. |
-| `process.id` | any | recommended | development | Executor process identifier in this event’s process namespace. |
-| `process.termination_requested` | any | recommended | development | Whether a termination request was recorded. |
-| `product_sku` | any | recommended | development | Bounded product attribution; not a model name or a tool name. |
-| `provider_name` | string | recommended | development | Configured model provider label. |
-| `query_script` | string | recommended | development | Native query script field emitted by the pinned Codex runtime. |
-| `query_truncated` | string | recommended | development | Native query truncated field emitted by the pinned Codex runtime. |
-| `rank` | string | recommended | development | Native rank field emitted by the pinned Codex runtime. |
-| `rationale` | any | recommended | development | Review explanation text, opt-in and bounded. |
-| `rationale_length` | int | recommended | development | Untruncated rationale byte length. |
-| `rationale_truncated` | boolean | recommended | development | Whether the rationale exceeded the telemetry cap. |
-| `read_allowed` | string | recommended | development | Native read allowed field emitted by the pinned Codex runtime. |
-| `read_progress` | string | recommended | development | Native read progress field emitted by the pinned Codex runtime. |
-| `reader_to_caller_ns` | any | recommended | development | Elapsed response-read completion to caller handoff time, in nanoseconds. |
-| `reasoning_effort` | any | recommended | development | Reasoning-effort setting. |
-| `reasoning_summary` | string | recommended | development | Reasoning-summary mode. |
-| `reasoning_token_count` | any | recommended | development | Reasoning-token usage. |
-| `receiver_thread_id` | string | recommended | development | Thread receiving the inter-agent message. |
-| `refresh` | string | recommended | development | Native refresh field emitted by the pinned Codex runtime. |
-| `refresh_reason` | string | recommended | development | Native refresh reason field emitted by the pinned Codex runtime. |
-| `refresh_strategy` | string | recommended | development | Native refresh strategy field emitted by the pinned Codex runtime. |
-| `reload` | string | recommended | development | Native reload field emitted by the pinned Codex runtime. |
-| `remote_plugin_enabled` | any | recommended | development | Native remote plugin enabled field emitted by the pinned Codex runtime. |
-| `request.id` | string | recommended | development | Native request id field emitted by the pinned Codex runtime. |
-| `request.kind` | string | recommended | development | Native request kind field emitted by the pinned Codex runtime. |
-| `required` | any | recommended | development | This server belongs to the connection set’s required-server list. |
-| `response_action` | string | recommended | development | Native response action field emitted by the pinned Codex runtime. |
-| `response_truncated` | boolean | recommended | development | Whether the answer exceeded the telemetry cap. |
-| `responses` | string | recommended | development | Native responses field emitted by the pinned Codex runtime. |
-| `retained_conversation` | boolean | recommended | development | Native retained conversation field emitted by the pinned Codex runtime. |
-| `retained_previous_snapshot` | string | recommended | development | Native retained previous snapshot field emitted by the pinned Codex runtime. |
-| `retry.attempt` | any | recommended | development | Attempt number for the recorded retry. |
-| `retry.delay_ms` | int | recommended | development | Delay selected before retrying, in milliseconds. |
-| `retry.layer` | any | recommended | development | Client layer that owns the retry. |
-| `retry.operation` | any | recommended | development | Operation being retried. |
-| `review.id` | string | recommended | development | Automatic-review identifier. |
-| `review_id` | any | recommended | development | Native review id field emitted by the pinned Codex runtime. |
-| `risk_level` | any | recommended | development | Automatic-review risk class. |
-| `role` | string | recommended | development | Native role field emitted by the pinned Codex runtime. |
-| `rollout_item_count` | int | recommended | development | Native rollout item count field emitted by the pinned Codex runtime. |
-| `rollout_item_type` | string | recommended | development | Native rollout item type field emitted by the pinned Codex runtime. |
-| `root.turn.id` | string | recommended | development | Root turn attribution. |
-| `root_count` | int | recommended | development | Native root count field emitted by the pinned Codex runtime. |
-| `rpc.dispatch_offset_ns` | any | recommended | development | Native rpc dispatch offset ns field emitted by the pinned Codex runtime. |
-| `rpc.request_id` | string | recommended | development | Native rpc request id field emitted by the pinned Codex runtime. |
-| `rpc.response_enqueue_offset_ns` | any | recommended | development | Native rpc response enqueue offset ns field emitted by the pinned Codex runtime. |
-| `rpc.transport` | any | recommended | development | Native rpc transport field emitted by the pinned Codex runtime. |
-| `runtime` | string | recommended | development | Native runtime field emitted by the pinned Codex runtime. |
-| `runtime_tool_call_id` | any | recommended | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
-| `sample_rate` | string | recommended | development | Native sample rate field emitted by the pinned Codex runtime. |
-| `sandbox.type` | any | recommended | development | Sandbox implementation/classification. |
-| `sandbox_policy` | string | recommended | development | Effective sandbox policy. |
-| `sandboxed` | any | recommended | development | Native sandboxed field emitted by the pinned Codex runtime. |
-| `scan_errors` | string | recommended | development | Native scan errors field emitted by the pinned Codex runtime. |
-| `scope` | string | recommended | development | Native scope field emitted by the pinned Codex runtime. |
-| `search_info_count` | int | recommended | development | Native search info count field emitted by the pinned Codex runtime. |
-| `section` | string | recommended | development | Native section field emitted by the pinned Codex runtime. |
-| `secure_error` | string | recommended | development | Native secure error field emitted by the pinned Codex runtime. |
-| `secure_outcome` | string | recommended | development | Native secure outcome field emitted by the pinned Codex runtime. |
-| `selected_skill_count` | int | recommended | development | Native selected skill count field emitted by the pinned Codex runtime. |
-| `selected_store` | string | recommended | development | Native selected store field emitted by the pinned Codex runtime. |
-| `sender_thread_id` | string | recommended | development | Thread sending the inter-agent message. |
-| `server_kind` | any | recommended | development | Classification of the MCP server supplying the catalog. |
-| `service_exit_code` | string | recommended | development | Native service exit code field emitted by the pinned Codex runtime. |
-| `service_tier` | string | recommended | development | Service tier used/reported for inference. |
-| `session_init.ephemeral` | any | recommended | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
-| `session_init.managed_network_requirements_enabled` | any | recommended | development | Native session init managed network requirements enabled field emitted by the pinned Codex runtime. |
-| `session_init.required_mcp_server_count` | int | recommended | development | Native session init required mcp server count field emitted by the pinned Codex runtime. |
-| `skill` | any | recommended | development | Native skill field emitted by the pinned Codex runtime. |
-| `skill.invocation_type` | any | recommended | development | Explicit or implicit invocation detection. |
-| `skill.plugin_id` | any | recommended | development | Owning plugin identifier, if any. |
-| `skill.scope` | any | recommended | development | User/repository/system/admin scope. |
-| `skill_count` | any | recommended | development | Native skill count field emitted by the pinned Codex runtime. |
-| `skills_count` | string | recommended | development | Native skills count field emitted by the pinned Codex runtime. |
-| `slug` | string | recommended | development | Shared macro field; placement and availability depend on the log or trace route. |
-| `snapshot_requested` | boolean | recommended | development | Native snapshot requested field emitted by the pinned Codex runtime. |
-| `started_at_ms` | any | recommended | development | Start timestamp in milliseconds. |
-| `startup.phase` | any | recommended | development | Coarse startup phase. |
-| `startup.status` | any | recommended | development | Phase result classification. |
-| `startup_complete` | any | recommended | development | Native startup complete field emitted by the pinned Codex runtime. |
-| `startup_pending` | any | recommended | development | MCP client startup has not yet completed. |
-| `startup_readiness` | string | recommended | development | Readiness policy being observed; this emitter records catalog readiness. |
-| `storage_phase` | string | recommended | development | Native storage phase field emitted by the pinned Codex runtime. |
-| `store_mode` | string | recommended | development | Native store mode field emitted by the pinned Codex runtime. |
-| `submission.id` | string | recommended | development | Native submission id field emitted by the pinned Codex runtime. |
-| `target_account` | string | recommended | development | Native target account field emitted by the pinned Codex runtime. |
-| `target_resolution_changed` | string | recommended | development | Native target resolution changed field emitted by the pinned Codex runtime. |
-| `text_input_count` | int | recommended | development | Number of text inputs in the submitted prompt; not a word or token count. |
-| `thread_id` | any | recommended | development | Native thread id field emitted by the pinned Codex runtime. |
-| `thread_start.dynamic_tool_count` | any | recommended | development | Native thread start dynamic tool count field emitted by the pinned Codex runtime. |
-| `thread_start.experimental_raw_events` | any | recommended | development | Native thread start experimental raw events field emitted by the pinned Codex runtime. |
-| `token_type` | string | recommended | development | Native token type field emitted by the pinned Codex runtime. |
-| `tool.call_id` | any | recommended | development | Executor tool-call correlation ID. |
-| `tool.name` | any | recommended | development | Native tool name field emitted by the pinned Codex runtime. |
-| `tool_call_id` | any | recommended | development | Native tool call id field emitted by the pinned Codex runtime. |
-| `tool_call_index` | any | recommended | development | Native tool call index field emitted by the pinned Codex runtime. |
-| `tool_count` | any | recommended | development | Number of tool definitions in the observed catalog. |
-| `tool_definition_json_bytes` | any | recommended | development | Sum of serialized JSON byte sizes for tool definitions; not the definitions themselves. |
-| `tool_mode` | string | recommended | development | Native tool mode field emitted by the pinned Codex runtime. |
-| `tool_namespace` | any | recommended | development | Tool namespace. |
-| `tool_origin` | boolean | recommended | development | Built-in versus MCP origin classification. |
-| `tool_result_seq` | any | recommended | development | Process-wide result-recording sequence; resets on restart. |
-| `tool_spec_count` | int | recommended | development | Native tool spec count field emitted by the pinned Codex runtime. |
-| `tool_token_count` | string | recommended | development | Despite the name, the emitter assigns usage.total_tokens here: total usage, not tool-only tokens. |
-| `tool_type` | string | recommended | development | Native tool type field emitted by the pinned Codex runtime. |
-| `trace_id` | string | recommended | development | Current trace identifier, or an empty value when no valid trace context exists. |
-| `tty` | string | recommended | development | Native tty field emitted by the pinned Codex runtime. |
-| `turn.has_metadata_header` | any | recommended | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
-| `turn.has_state` | boolean | recommended | development | Native turn has state field emitted by the pinned Codex runtime. |
-| `turn.id` | any | recommended | development | Turn correlation ID. |
-| `turn.interrupted` | any | recommended | development | Whether the turn was interrupted. |
-| `turn_id` | any | recommended | development | Turn identifier. |
-| `unified_exec_process_id` | any | recommended | development | Identifier used by the unified-execution process manager. |
-| `update_target` | string | recommended | development | Native update target field emitted by the pinned Codex runtime. |
-| `usage.estimated_usd` | any | recommended | development | Estimated turn cost as USD text; not an invoice. |
-| `user_authorization` | any | recommended | development | Automatic-review authorization assessment. |
-| `user_input_count` | int | recommended | development | Native user input count field emitted by the pinned Codex runtime. |
-| `value` | string | recommended | development | Native value field emitted by the pinned Codex runtime. |
-| `wait.id` | string | recommended | development | Native wait id field emitted by the pinned Codex runtime. |
-| `websocket.warmup` | any | recommended | development | Native websocket warmup field emitted by the pinned Codex runtime. |
-| `win32_exit_code` | string | recommended | development | Native win32 exit code field emitted by the pinned Codex runtime. |
-| `wire_api` | string | recommended | development | Native wire api field emitted by the pinned Codex runtime. |
+| Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `active` | string | recommended | Not applicable | development | Native active field emitted by the pinned Codex runtime. |
+| `actual_store` | string | recommended | Not applicable | development | Native actual store field emitted by the pinned Codex runtime. |
+| `after_prewarm` | string | recommended | Not applicable | development | Native after prewarm field emitted by the pinned Codex runtime. |
+| `agent.type` | any | recommended | Not applicable | development | Main agent or eligible spawned subagent. |
+| `agent_name` | string | recommended | Not applicable | development | Potentially user-selected agent label/path; detailed-log field. |
+| `allow_provider_model_fallback` | any | recommended | Not applicable | development | Native allow provider model fallback field emitted by the pinned Codex runtime. |
+| `api.path` | any | recommended | Not applicable | development | Native api path field emitted by the pinned Codex runtime. |
+| `app_server.api_version` | string | recommended | Not applicable | development | Native app server api version field emitted by the pinned Codex runtime. |
+| `app_server.client_name` | any | recommended | Not applicable | development | Native app server client name field emitted by the pinned Codex runtime. |
+| `app_server.client_version` | any | recommended | Not applicable | development | Native app server client version field emitted by the pinned Codex runtime. |
+| `app_server.connection_id` | string | recommended | Not applicable | development | Native app server connection id field emitted by the pinned Codex runtime. |
+| `app_server_test_client.command` | any | recommended | Not applicable | development | Native app server test client command field emitted by the pinned Codex runtime. |
+| `approval_id` | any | recommended | Not applicable | development | Native approval id field emitted by the pinned Codex runtime. |
+| `approval_policy` | string | recommended | Not applicable | development | Effective approval policy. |
+| `approved` | string | recommended | Not applicable | development | Native approved field emitted by the pinned Codex runtime. |
+| `apps_enabled` | any | recommended | Not applicable | development | Native apps enabled field emitted by the pinned Codex runtime. |
+| `arguments` | string | recommended | Not applicable | development | Raw serialized tool arguments in detailed logs. |
+| `arguments_length` | int | recommended | Not applicable | development | Serialized argument byte length. |
+| `artifact_type` | string | recommended | Not applicable | development | Native artifact type field emitted by the pinned Codex runtime. |
+| `attempt_count` | string | recommended | Not applicable | development | Native attempt count field emitted by the pinned Codex runtime. |
+| `auth.agent_id` | string | recommended | Not applicable | development | Agent identity attribution. |
+| `auth.cf_ray` | any | recommended | Not applicable | development | Cloudflare correlation ID. |
+| `auth.connection_reused` | any | recommended | Not applicable | development | Whether a connection was reused. |
+| `auth.env_codex_api_key_enabled` | any | recommended | Not applicable | development | Whether the Codex API-key environment path is enabled. |
+| `auth.env_codex_api_key_present` | any | recommended | Not applicable | development | Presence of the CODEX_API_KEY environment variable. |
+| `auth.env_openai_api_key_present` | any | recommended | Not applicable | development | Presence of the OPENAI_API_KEY environment variable. |
+| `auth.env_provider_key_name` | string | recommended | Not applicable | development | Configured provider environment-variable name, not its value. |
+| `auth.env_provider_key_present` | any | recommended | Not applicable | development | Whether that provider key variable exists. |
+| `auth.env_refresh_token_url_override_present` | any | recommended | Not applicable | development | Whether a refresh URL override is configured. |
+| `auth.error` | any | recommended | Not applicable | development | Authentication error classification. |
+| `auth.error_code` | any | recommended | Not applicable | development | Authentication error code. |
+| `auth.header_attached` | any | recommended | Not applicable | development | Whether an authentication header was attached; not the header secret. |
+| `auth.header_name` | any | recommended | Not applicable | development | Header name only. |
+| `auth.mode` | any | recommended | Not applicable | development | Recovery authentication mode. |
+| `auth.outcome` | any | recommended | Not applicable | development | Recovery outcome. |
+| `auth.recovery_mode` | any | recommended | Not applicable | development | Authentication recovery strategy. |
+| `auth.recovery_phase` | any | recommended | Not applicable | development | Recovery phase. |
+| `auth.recovery_reason` | any | recommended | Not applicable | development | Reason recovery was attempted. |
+| `auth.request_id` | any | recommended | Not applicable | development | Server request correlation ID. |
+| `auth.retry_after_unauthorized` | any | recommended | Not applicable | development | Whether this follows an unauthorized-response recovery. |
+| `auth.state_changed` | any | recommended | Not applicable | development | Whether authentication state changed during recovery. |
+| `auth.step` | any | recommended | Not applicable | development | Recovery step. |
+| `auth.task_id` | string | recommended | Not applicable | development | Task identity attribution. |
+| `auth_mode` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `auto_compact_token_limit` | any | recommended | Not applicable | development | Automatic-compaction threshold. |
+| `available` | string | recommended | Not applicable | development | Native available field emitted by the pinned Codex runtime. |
+| `azure_client_request_id` | any | recommended | Not applicable | development | Azure client request correlation identifier. |
+| `azure_error_code` | any | recommended | Not applicable | development | Azure error classification. |
+| `azure_request_id` | any | recommended | Not applicable | development | Azure server request correlation identifier. |
+| `build_mode` | string | recommended | Not applicable | development | Native build mode field emitted by the pinned Codex runtime. |
+| `bundle_shape` | string | recommended | Not applicable | development | Native bundle shape field emitted by the pinned Codex runtime. |
+| `byte_length` | any | recommended | Not applicable | development | Native byte length field emitted by the pinned Codex runtime. |
+| `cache` | string | recommended | Not applicable | development | Native cache field emitted by the pinned Codex runtime. |
+| `cache_eligible` | any | recommended | Not applicable | development | A still-starting MCP client has an accepted cached catalog available. |
+| `cache_write_token_count` | any | recommended | Not applicable | development | Cache-write input usage. |
+| `cached_token_count` | any | recommended | Not applicable | development | Cached-input usage. |
+| `call_id` | any | recommended | Not applicable | development | Call identifier; its role depends on this emitter. |
+| `candidate_set_truncated` | string | recommended | Not applicable | development | Native candidate set truncated field emitted by the pinned Codex runtime. |
+| `catalog_entries` | int | recommended | Not applicable | development | Native catalog entries field emitted by the pinned Codex runtime. |
+| `catalog_entry_count` | int | recommended | Not applicable | development | Native catalog entry count field emitted by the pinned Codex runtime. |
+| `catalog_source` | any | recommended | Not applicable | development | Provenance of the materialized MCP catalog. |
+| `catalog_surface` | string | recommended | Not applicable | development | Native catalog surface field emitted by the pinned Codex runtime. |
+| `cell.id` | any | recommended | Not applicable | development | Code Mode execution-cell identifier. |
+| `cell_id` | string | recommended | Not applicable | development | Code Mode execution-cell identifier in this emitter’s native spelling. |
+| `checker` | string | recommended | Not applicable | development | Native checker field emitted by the pinned Codex runtime. |
+| `cleanup_errors` | string | recommended | Not applicable | development | Native cleanup errors field emitted by the pinned Codex runtime. |
+| `cloudflare_ray_id` | any | recommended | Not applicable | development | Cloudflare request correlation identifier. |
+| `code` | string | recommended | Not applicable | development | Native code field emitted by the pinned Codex runtime. |
+| `code_mode_host_duration_ns` | any | recommended | Not applicable | development | Code Mode host elapsed nanoseconds. |
+| `codex.mcp.error.code` | any | recommended | Not applicable | development | Native codex mcp error code field emitted by the pinned Codex runtime. |
+| `codex.mcp.protocol_discovery` | string | recommended | Not applicable | development | Native codex mcp protocol discovery field emitted by the pinned Codex runtime. |
+| `codex.mcp.server_user_flow.triggered` | any | recommended | Not applicable | development | Native codex mcp server user flow triggered field emitted by the pinned Codex runtime. |
+| `codex.mcp.target.id` | any | recommended | Not applicable | development | Native codex mcp target id field emitted by the pinned Codex runtime. |
+| `codex.op` | any | recommended | Not applicable | development | Native codex op field emitted by the pinned Codex runtime. |
+| `codex.request.reasoning_effort` | string | recommended | Not applicable | development | Native codex request reasoning effort field emitted by the pinned Codex runtime. |
+| `codex.rollout_compression.read` | string | recommended | Not applicable | development | Native codex rollout compression read field emitted by the pinned Codex runtime. |
+| `codex.shell_snapshot.command` | string | recommended | Not applicable | development | Native codex shell snapshot command field emitted by the pinned Codex runtime. |
+| `codex.shell_snapshot.duration_ms` | string | recommended | Not applicable | development | Native codex shell snapshot duration ms field emitted by the pinned Codex runtime. |
+| `codex.sqlite.reclamation.count` | string | recommended | Not applicable | development | Native codex sqlite reclamation count field emitted by the pinned Codex runtime. |
+| `codex.sqlite.reclamation.duration_ms` | string | recommended | Not applicable | development | Native codex sqlite reclamation duration ms field emitted by the pinned Codex runtime. |
+| `codex.turn.phase` | string | recommended | Not applicable | development | Native codex turn phase field emitted by the pinned Codex runtime. |
+| `codex.turn.reasoning_effort` | string | recommended | Not applicable | development | Native codex turn reasoning effort field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.cache_write_input_tokens` | any | recommended | Not applicable | development | Native codex turn token usage cache write input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.cached_input_tokens` | any | recommended | Not applicable | development | Native codex turn token usage cached input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.input_tokens` | any | recommended | Not applicable | development | Native codex turn token usage input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.non_cached_input_tokens` | any | recommended | Not applicable | development | Native codex turn token usage non cached input tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.output_tokens` | any | recommended | Not applicable | development | Native codex turn token usage output tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.reasoning_output_tokens` | any | recommended | Not applicable | development | Native codex turn token usage reasoning output tokens field emitted by the pinned Codex runtime. |
+| `codex.turn.token_usage.total_tokens` | any | recommended | Not applicable | development | Native codex turn token usage total tokens field emitted by the pinned Codex runtime. |
+| `codex.usage.reasoning_output_tokens` | any | recommended | Not applicable | development | Native codex usage reasoning output tokens field emitted by the pinned Codex runtime. |
+| `codex.usage.total_tokens` | any | recommended | Not applicable | development | Native codex usage total tokens field emitted by the pinned Codex runtime. |
+| `communication_id` | any | recommended | Not applicable | development | Identifier joining the send and receive observations of an inter-agent communication. |
+| `comparison` | string | recommended | Not applicable | development | Native comparison field emitted by the pinned Codex runtime. |
+| `completed_at_ms` | any | recommended | Not applicable | development | Completion timestamp in milliseconds. |
+| `completion_reason` | string | recommended | Not applicable | development | Native completion reason field emitted by the pinned Codex runtime. |
+| `component` | string | recommended | Not applicable | development | Native component field emitted by the pinned Codex runtime. |
+| `compression_enabled` | string | recommended | Not applicable | development | Native compression enabled field emitted by the pinned Codex runtime. |
+| `config_use_memories` | string | recommended | Not applicable | development | Native config use memories field emitted by the pinned Codex runtime. |
+| `configuration_pending` | boolean | recommended | Not applicable | development | Native configuration pending field emitted by the pinned Codex runtime. |
+| `connector_count` | int | recommended | Not applicable | development | Native connector count field emitted by the pinned Codex runtime. |
+| `context_mode` | any | recommended | Not applicable | development | Native context mode field emitted by the pinned Codex runtime. |
+| `context_window` | any | recommended | Not applicable | development | Configured/reported context window size. |
+| `conversation.id` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `conversation_id` | string | recommended | Not applicable | development | Conversation ID in this emitter’s native spelling. |
+| `credential_kind` | string | recommended | Not applicable | development | Native credential kind field emitted by the pinned Codex runtime. |
+| `current_item_type` | string | recommended | Not applicable | development | Native current item type field emitted by the pinned Codex runtime. |
+| `db` | string | recommended | Not applicable | development | Native db field emitted by the pinned Codex runtime. |
+| `decisions` | string | recommended | Not applicable | development | Native decisions field emitted by the pinned Codex runtime. |
+| `delay_ms` | any | recommended | Not applicable | development | Delay before retry, in milliseconds. |
+| `dependency` | string | recommended | Not applicable | development | Native dependency field emitted by the pinned Codex runtime. |
+| `directory` | string | recommended | Not applicable | development | Native directory field emitted by the pinned Codex runtime. |
+| `dispatch_duration_ms` | any | recommended | Not applicable | development | Measured dispatch portion of tool-call latency, in milliseconds. |
+| `dynamic_tool_count` | int | recommended | Not applicable | development | Native dynamic tool count field emitted by the pinned Codex runtime. |
+| `encoding` | string | recommended | Not applicable | development | Native encoding field emitted by the pinned Codex runtime. |
+| `endpoint` | any | recommended | Not applicable | development | Endpoint classification recorded by the caller. |
+| `env` | string | recommended | Not applicable | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
+| `environment_count` | int | recommended | Not applicable | development | Native environment count field emitted by the pinned Codex runtime. |
+| `escalated_duration_ms` | any | recommended | Not applicable | development | Escalated attempt elapsed milliseconds, if any. |
+| `event` | string | recommended | Not applicable | development | Native event field emitted by the pinned Codex runtime. |
+| `event.kind` | string | recommended | Not applicable | development | Underlying stream event kind. |
+| `exe` | string | recommended | Not applicable | development | Native exe field emitted by the pinned Codex runtime. |
+| `execution.id` | any | recommended | Not applicable | development | Execution context identifier. |
+| `execution_backend` | string | recommended | Not applicable | development | Native execution backend field emitted by the pinned Codex runtime. |
+| `execution_started` | boolean | recommended | Not applicable | development | Whether the call recorded the start of execution, rather than stopping before execution. |
+| `executor.environment_id` | any | recommended | Not applicable | development | Environment identity retained from authenticated executor registration. |
+| `executor.registration_id` | any | recommended | Not applicable | development | Executor registration identity retained at launch. |
+| `executor_registration_id` | string | recommended | Not applicable | development | Native executor registration id field emitted by the pinned Codex runtime. |
+| `exit_signaled` | any | recommended | Not applicable | development | Native exit signaled field emitted by the pinned Codex runtime. |
+| `explicitly_required` | any | recommended | Not applicable | development | This MCP server or its selected plugin was explicitly requested at the startup gate. |
+| `exposure` | string | recommended | Not applicable | development | Native exposure field emitted by the pinned Codex runtime. |
+| `fallback_reason` | string | recommended | Not applicable | development | Native fallback reason field emitted by the pinned Codex runtime. |
+| `feature_enabled` | string | recommended | Not applicable | development | Native feature enabled field emitted by the pinned Codex runtime. |
+| `file_errors` | string | recommended | Not applicable | development | Native file errors field emitted by the pinned Codex runtime. |
+| `file_id` | any | recommended | Not applicable | development | Uploaded file identifier. |
+| `file_size_bytes` | any | recommended | Not applicable | development | File size in bytes. |
+| `filename` | string | recommended | Not applicable | development | Native filename field emitted by the pinned Codex runtime. |
+| `force_refresh` | string | recommended | Not applicable | development | Native force refresh field emitted by the pinned Codex runtime. |
+| `fork_mode` | any | recommended | Not applicable | development | Spawn/fork strategy classification supplied by the caller. |
+| `format` | string | recommended | Not applicable | development | Native format field emitted by the pinned Codex runtime. |
+| `from` | any | recommended | Not applicable | development | Native from field emitted by the pinned Codex runtime. |
+| `from_wire_api` | string | recommended | Not applicable | development | Native from wire api field emitted by the pinned Codex runtime. |
+| `handler_duration_ms` | any | recommended | Not applicable | development | Measured handler portion of tool-call latency, in milliseconds. |
+| `has_cached_tools` | any | recommended | Not applicable | development | Native has cached tools field emitted by the pinned Codex runtime. |
+| `has_citations` | string | recommended | Not applicable | development | Native has citations field emitted by the pinned Codex runtime. |
+| `history_mode` | string | recommended | Not applicable | development | Native history mode field emitted by the pinned Codex runtime. |
+| `hook.command_outcome` | any | recommended | Not applicable | development | Native hook command outcome field emitted by the pinned Codex runtime. |
+| `hook.display_order` | any | recommended | Not applicable | development | Native hook display order field emitted by the pinned Codex runtime. |
+| `hook.event_name` | any | recommended | Not applicable | development | Native hook event name field emitted by the pinned Codex runtime. |
+| `hook.execution_mode` | any | recommended | Not applicable | development | Native hook execution mode field emitted by the pinned Codex runtime. |
+| `hook.handler_type` | any | recommended | Not applicable | development | Native hook handler type field emitted by the pinned Codex runtime. |
+| `hook.scope` | any | recommended | Not applicable | development | Native hook scope field emitted by the pinned Codex runtime. |
+| `hook.server` | any | recommended | Not applicable | development | Native hook server field emitted by the pinned Codex runtime. |
+| `hook.source` | any | recommended | Not applicable | development | Native hook source field emitted by the pinned Codex runtime. |
+| `hook.timeout_sec` | any | recommended | Not applicable | development | Native hook timeout sec field emitted by the pinned Codex runtime. |
+| `hook.tool` | any | recommended | Not applicable | development | Native hook tool field emitted by the pinned Codex runtime. |
+| `image_input_count` | int | recommended | Not applicable | development | Remote/embedded image inputs counted by the prompt emitter. |
+| `include_tools` | string | recommended | Not applicable | development | Native include tools field emitted by the pinned Codex runtime. |
+| `initial_duration_ms` | any | recommended | Not applicable | development | Initial execution elapsed milliseconds. |
+| `initiating.agent.path` | any | recommended | Not applicable | development | Initiating agent path. |
+| `initiation_source` | string | recommended | Not applicable | development | Native initiation source field emitted by the pinned Codex runtime. |
+| `input` | string | recommended | Not applicable | development | Native input field emitted by the pinned Codex runtime. |
+| `input_count` | int | recommended | Not applicable | development | Native input count field emitted by the pinned Codex runtime. |
+| `input_kind` | string | recommended | Not applicable | development | Native input kind field emitted by the pinned Codex runtime. |
+| `input_token_count` | string | recommended | Not applicable | development | Input usage reported on completion. |
+| `installed_filter_count` | string | recommended | Not applicable | development | Native installed filter count field emitted by the pinned Codex runtime. |
+| `interaction` | boolean | recommended | Not applicable | development | Native interaction field emitted by the pinned Codex runtime. |
+| `invocation.id` | string | recommended | Not applicable | development | Native invocation id field emitted by the pinned Codex runtime. |
+| `invoke_type` | string | recommended | Not applicable | development | Native invoke type field emitted by the pinned Codex runtime. |
+| `is_git` | string | recommended | Not applicable | development | Native is git field emitted by the pinned Codex runtime. |
+| `item.id` | string | recommended | Not applicable | development | Conversation item identifier. |
+| `item_count` | int | recommended | Not applicable | development | Native item count field emitted by the pinned Codex runtime. |
+| `last_reported_hresult` | string | recommended | Not applicable | development | Native last reported hresult field emitted by the pinned Codex runtime. |
+| `last_reported_reason` | string | recommended | Not applicable | development | Native last reported reason field emitted by the pinned Codex runtime. |
+| `launch.span_id` | any | recommended | Not applicable | development | W3C span ID of that launch request. |
+| `launch.trace_id` | any | recommended | Not applicable | development | W3C trace ID of the outgoing process-start request. |
+| `local_image_input_count` | int | recommended | Not applicable | development | Local image inputs counted by the prompt emitter. |
+| `manual` | string | recommended | Not applicable | development | Native manual field emitted by the pinned Codex runtime. |
+| `max_total` | any | recommended | Not applicable | development | Native max total field emitted by the pinned Codex runtime. |
+| `mcp.connector.id` | any | recommended | Not applicable | development | Native mcp connector id field emitted by the pinned Codex runtime. |
+| `mcp.connector.name` | any | recommended | Not applicable | development | Native mcp connector name field emitted by the pinned Codex runtime. |
+| `mcp.method` | any | recommended | Not applicable | development | Native mcp method field emitted by the pinned Codex runtime. |
+| `mcp.server.name` | any | recommended | Not applicable | development | Native mcp server name field emitted by the pinned Codex runtime. |
+| `mcp.server.origin` | any | recommended | Not applicable | development | Native mcp server origin field emitted by the pinned Codex runtime. |
+| `mcp.transport` | any | recommended | Not applicable | development | Native mcp transport field emitted by the pinned Codex runtime. |
+| `mcp_server` | string | recommended | Not applicable | development | MCP server name (detailed log). |
+| `mcp_server_origin` | string | recommended | Not applicable | development | MCP server provenance. |
+| `mcp_servers` | any | recommended | Not applicable | development | Joined configured MCP server names (detailed log). |
+| `measurement` | string | recommended | Not applicable | development | Native measurement field emitted by the pinned Codex runtime. |
+| `memory_version` | string | recommended | Not applicable | development | Native memory version field emitted by the pinned Codex runtime. |
+| `message` | string | recommended | Not applicable | development | Native message field emitted by the pinned Codex runtime. |
+| `migration_type` | string | recommended | Not applicable | development | Native migration type field emitted by the pinned Codex runtime. |
+| `model.provided` | boolean | recommended | Not applicable | development | Native model provided field emitted by the pinned Codex runtime. |
+| `model_reasoning_effort` | string | recommended | Not applicable | development | Inference reasoning-effort setting. |
+| `model_slug` | string | recommended | Not applicable | development | Native model slug field emitted by the pinned Codex runtime. |
+| `multi_agent_version` | any | recommended | Not applicable | development | Multi-agent implementation version selected for this operation. |
+| `multiple_hard_links` | string | recommended | Not applicable | development | Native multiple hard links field emitted by the pinned Codex runtime. |
+| `multiple_write_roots` | string | recommended | Not applicable | development | Native multiple write roots field emitted by the pinned Codex runtime. |
+| `network.policy.decision` | any | recommended | Not applicable | development | Allow/deny decision. |
+| `network.policy.override` | any | recommended | Not applicable | development | Whether an override affected the decision. |
+| `network.policy.reason` | any | recommended | Not applicable | development | Policy reason. |
+| `network.policy.scope` | any | recommended | Not applicable | development | Policy scope. |
+| `network.policy.source` | any | recommended | Not applicable | development | Policy source. |
+| `network.transport.protocol` | any | recommended | Not applicable | development | Network protocol classification. |
+| `noise_side` | string | recommended | Not applicable | development | Native noise side field emitted by the pinned Codex runtime. |
+| `non_blocking` | any | recommended | Not applicable | development | Native non blocking field emitted by the pinned Codex runtime. |
+| `observation` | string | recommended | Not applicable | development | Native observation field emitted by the pinned Codex runtime. |
+| `operation_kind` | string | recommended | Not applicable | development | Native operation kind field emitted by the pinned Codex runtime. |
+| `original_exec_call_id` | any | recommended | Not applicable | development | Native original exec call id field emitted by the pinned Codex runtime. |
+| `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `os` | string | recommended | Not applicable | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
+| `os_version` | string | recommended | Not applicable | development | Native resource field; the detailed-log, trace and metrics builders have different resource sets. |
+| `output_closed` | any | recommended | Not applicable | development | Native output closed field emitted by the pinned Codex runtime. |
+| `output_format` | string | recommended | Not applicable | development | Native output format field emitted by the pinned Codex runtime. |
+| `output_length` | int | recommended | Not applicable | development | Original tool-output byte length. |
+| `output_line_count` | int | recommended | Not applicable | development | Original output line count. |
+| `output_token_count` | string | recommended | Not applicable | development | Output usage reported on completion. |
+| `parent.conversation.id` | string | recommended | Not applicable | development | Parent conversation for a spawned agent. |
+| `parent.turn.id` | string | recommended | Not applicable | development | Parent turn attribution. |
+| `path_kind` | string | recommended | Not applicable | development | Native path kind field emitted by the pinned Codex runtime. |
+| `permission_entries` | any | recommended | Not applicable | development | Native permission entries field emitted by the pinned Codex runtime. |
+| `plugin.limit` | any | recommended | Not applicable | development | Native plugin limit field emitted by the pinned Codex runtime. |
+| `plugin_install.completed` | any | recommended | Not applicable | development | Installation completed. |
+| `plugin_install.response_action` | any | recommended | Not applicable | development | Installation response action. |
+| `plugin_install.tool_id` | any | recommended | Not applicable | development | Installation tool id. |
+| `plugin_install.tool_name` | any | recommended | Not applicable | development | Installation tool name. |
+| `plugin_install.tool_type` | any | recommended | Not applicable | development | Installation tool type. |
+| `plugin_install.user_confirmed` | any | recommended | Not applicable | development | Installation user confirmed. |
+| `plugins_enabled` | any | recommended | Not applicable | development | Native plugins enabled field emitted by the pinned Codex runtime. |
+| `previous_item_type` | string | recommended | Not applicable | development | Native previous item type field emitted by the pinned Codex runtime. |
+| `prewarm.input` | string | recommended | Not applicable | development | Native prewarm input field emitted by the pinned Codex runtime. |
+| `process.exit_code` | any | recommended | Not applicable | development | Exited process status code. |
+| `process.id` | any | recommended | Not applicable | development | Executor process identifier in this event’s process namespace. |
+| `process.termination_requested` | any | recommended | Not applicable | development | Whether a termination request was recorded. |
+| `product_sku` | any | recommended | Not applicable | development | Bounded product attribution; not a model name or a tool name. |
+| `provider_name` | string | recommended | Not applicable | development | Configured model provider label. |
+| `query_script` | string | recommended | Not applicable | development | Native query script field emitted by the pinned Codex runtime. |
+| `query_truncated` | string | recommended | Not applicable | development | Native query truncated field emitted by the pinned Codex runtime. |
+| `rank` | string | recommended | Not applicable | development | Native rank field emitted by the pinned Codex runtime. |
+| `rationale` | any | recommended | Not applicable | development | Review explanation text, opt-in and bounded. |
+| `rationale_length` | int | recommended | Not applicable | development | Untruncated rationale byte length. |
+| `rationale_truncated` | boolean | recommended | Not applicable | development | Whether the rationale exceeded the telemetry cap. |
+| `read_allowed` | string | recommended | Not applicable | development | Native read allowed field emitted by the pinned Codex runtime. |
+| `read_progress` | string | recommended | Not applicable | development | Native read progress field emitted by the pinned Codex runtime. |
+| `reader_to_caller_ns` | any | recommended | Not applicable | development | Elapsed response-read completion to caller handoff time, in nanoseconds. |
+| `reasoning_effort` | any | recommended | Not applicable | development | Reasoning-effort setting. |
+| `reasoning_summary` | string | recommended | Not applicable | development | Reasoning-summary mode. |
+| `reasoning_token_count` | any | recommended | Not applicable | development | Reasoning-token usage. |
+| `receiver_thread_id` | string | recommended | Not applicable | development | Thread receiving the inter-agent message. |
+| `refresh` | string | recommended | Not applicable | development | Native refresh field emitted by the pinned Codex runtime. |
+| `refresh_reason` | string | recommended | Not applicable | development | Native refresh reason field emitted by the pinned Codex runtime. |
+| `refresh_strategy` | string | recommended | Not applicable | development | Native refresh strategy field emitted by the pinned Codex runtime. |
+| `reload` | string | recommended | Not applicable | development | Native reload field emitted by the pinned Codex runtime. |
+| `remote_plugin_enabled` | any | recommended | Not applicable | development | Native remote plugin enabled field emitted by the pinned Codex runtime. |
+| `request.id` | string | recommended | Not applicable | development | Native request id field emitted by the pinned Codex runtime. |
+| `request.kind` | string | recommended | Not applicable | development | Native request kind field emitted by the pinned Codex runtime. |
+| `required` | any | recommended | Not applicable | development | This server belongs to the connection set’s required-server list. |
+| `response_action` | string | recommended | Not applicable | development | Native response action field emitted by the pinned Codex runtime. |
+| `response_truncated` | boolean | recommended | Not applicable | development | Whether the answer exceeded the telemetry cap. |
+| `responses` | string | recommended | Not applicable | development | Native responses field emitted by the pinned Codex runtime. |
+| `retained_conversation` | boolean | recommended | Not applicable | development | Native retained conversation field emitted by the pinned Codex runtime. |
+| `retained_previous_snapshot` | string | recommended | Not applicable | development | Native retained previous snapshot field emitted by the pinned Codex runtime. |
+| `retry.attempt` | any | recommended | Not applicable | development | Attempt number for the recorded retry. |
+| `retry.delay_ms` | int | recommended | Not applicable | development | Delay selected before retrying, in milliseconds. |
+| `retry.layer` | any | recommended | Not applicable | development | Client layer that owns the retry. |
+| `retry.operation` | any | recommended | Not applicable | development | Operation being retried. |
+| `review.id` | string | recommended | Not applicable | development | Automatic-review identifier. |
+| `review_id` | any | recommended | Not applicable | development | Native review id field emitted by the pinned Codex runtime. |
+| `risk_level` | any | recommended | Not applicable | development | Automatic-review risk class. |
+| `role` | string | recommended | Not applicable | development | Native role field emitted by the pinned Codex runtime. |
+| `rollout_item_count` | int | recommended | Not applicable | development | Native rollout item count field emitted by the pinned Codex runtime. |
+| `rollout_item_type` | string | recommended | Not applicable | development | Native rollout item type field emitted by the pinned Codex runtime. |
+| `root.turn.id` | string | recommended | Not applicable | development | Root turn attribution. |
+| `root_count` | int | recommended | Not applicable | development | Native root count field emitted by the pinned Codex runtime. |
+| `rpc.dispatch_offset_ns` | any | recommended | Not applicable | development | Native rpc dispatch offset ns field emitted by the pinned Codex runtime. |
+| `rpc.request_id` | string | recommended | Not applicable | development | Native rpc request id field emitted by the pinned Codex runtime. |
+| `rpc.response_enqueue_offset_ns` | any | recommended | Not applicable | development | Native rpc response enqueue offset ns field emitted by the pinned Codex runtime. |
+| `rpc.transport` | any | recommended | Not applicable | development | Native rpc transport field emitted by the pinned Codex runtime. |
+| `runtime` | string | recommended | Not applicable | development | Native runtime field emitted by the pinned Codex runtime. |
+| `runtime_tool_call_id` | any | recommended | Not applicable | development | Identifier assigned to the nested runtime tool call, distinct from the outer call. |
+| `sample_rate` | string | recommended | Not applicable | development | Native sample rate field emitted by the pinned Codex runtime. |
+| `sandbox.type` | any | recommended | Not applicable | development | Sandbox implementation/classification. |
+| `sandbox_policy` | string | recommended | Not applicable | development | Effective sandbox policy. |
+| `sandboxed` | any | recommended | Not applicable | development | Native sandboxed field emitted by the pinned Codex runtime. |
+| `scan_errors` | string | recommended | Not applicable | development | Native scan errors field emitted by the pinned Codex runtime. |
+| `scope` | string | recommended | Not applicable | development | Native scope field emitted by the pinned Codex runtime. |
+| `search_info_count` | int | recommended | Not applicable | development | Native search info count field emitted by the pinned Codex runtime. |
+| `section` | string | recommended | Not applicable | development | Native section field emitted by the pinned Codex runtime. |
+| `secure_error` | string | recommended | Not applicable | development | Native secure error field emitted by the pinned Codex runtime. |
+| `secure_outcome` | string | recommended | Not applicable | development | Native secure outcome field emitted by the pinned Codex runtime. |
+| `selected_skill_count` | int | recommended | Not applicable | development | Native selected skill count field emitted by the pinned Codex runtime. |
+| `selected_store` | string | recommended | Not applicable | development | Native selected store field emitted by the pinned Codex runtime. |
+| `sender_thread_id` | string | recommended | Not applicable | development | Thread sending the inter-agent message. |
+| `server_kind` | any | recommended | Not applicable | development | Classification of the MCP server supplying the catalog. |
+| `service_exit_code` | string | recommended | Not applicable | development | Native service exit code field emitted by the pinned Codex runtime. |
+| `service_tier` | string | recommended | Not applicable | development | Service tier used/reported for inference. |
+| `session_init.ephemeral` | any | recommended | Not applicable | development | Native session init ephemeral field emitted by the pinned Codex runtime. |
+| `session_init.managed_network_requirements_enabled` | any | recommended | Not applicable | development | Native session init managed network requirements enabled field emitted by the pinned Codex runtime. |
+| `session_init.required_mcp_server_count` | int | recommended | Not applicable | development | Native session init required mcp server count field emitted by the pinned Codex runtime. |
+| `skill` | any | recommended | Not applicable | development | Native skill field emitted by the pinned Codex runtime. |
+| `skill.invocation_type` | any | recommended | Not applicable | development | Explicit or implicit invocation detection. |
+| `skill.plugin_id` | any | recommended | Not applicable | development | Owning plugin identifier, if any. |
+| `skill.scope` | any | recommended | Not applicable | development | User/repository/system/admin scope. |
+| `skill_count` | any | recommended | Not applicable | development | Native skill count field emitted by the pinned Codex runtime. |
+| `skills_count` | string | recommended | Not applicable | development | Native skills count field emitted by the pinned Codex runtime. |
+| `slug` | string | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
+| `snapshot_requested` | boolean | recommended | Not applicable | development | Native snapshot requested field emitted by the pinned Codex runtime. |
+| `started_at_ms` | any | recommended | Not applicable | development | Start timestamp in milliseconds. |
+| `startup.phase` | any | recommended | Not applicable | development | Coarse startup phase. |
+| `startup.status` | any | recommended | Not applicable | development | Phase result classification. |
+| `startup_complete` | any | recommended | Not applicable | development | Native startup complete field emitted by the pinned Codex runtime. |
+| `startup_pending` | any | recommended | Not applicable | development | MCP client startup has not yet completed. |
+| `startup_readiness` | string | recommended | Not applicable | development | Readiness policy being observed; this emitter records catalog readiness. |
+| `storage_phase` | string | recommended | Not applicable | development | Native storage phase field emitted by the pinned Codex runtime. |
+| `store_mode` | string | recommended | Not applicable | development | Native store mode field emitted by the pinned Codex runtime. |
+| `submission.id` | string | recommended | Not applicable | development | Native submission id field emitted by the pinned Codex runtime. |
+| `target_account` | string | recommended | Not applicable | development | Native target account field emitted by the pinned Codex runtime. |
+| `target_resolution_changed` | string | recommended | Not applicable | development | Native target resolution changed field emitted by the pinned Codex runtime. |
+| `text_input_count` | int | recommended | Not applicable | development | Number of text inputs in the submitted prompt; not a word or token count. |
+| `thread_id` | any | recommended | Not applicable | development | Native thread id field emitted by the pinned Codex runtime. |
+| `thread_start.dynamic_tool_count` | any | recommended | Not applicable | development | Native thread start dynamic tool count field emitted by the pinned Codex runtime. |
+| `thread_start.experimental_raw_events` | any | recommended | Not applicable | development | Native thread start experimental raw events field emitted by the pinned Codex runtime. |
+| `token_type` | string | recommended | Not applicable | development | Native token type field emitted by the pinned Codex runtime. |
+| `tool.call_id` | any | recommended | Not applicable | development | Executor tool-call correlation ID. |
+| `tool.name` | any | recommended | Not applicable | development | Native tool name field emitted by the pinned Codex runtime. |
+| `tool_call_id` | any | recommended | Not applicable | development | Native tool call id field emitted by the pinned Codex runtime. |
+| `tool_call_index` | any | recommended | Not applicable | development | Native tool call index field emitted by the pinned Codex runtime. |
+| `tool_count` | any | recommended | Not applicable | development | Number of tool definitions in the observed catalog. |
+| `tool_definition_json_bytes` | any | recommended | Not applicable | development | Sum of serialized JSON byte sizes for tool definitions; not the definitions themselves. |
+| `tool_mode` | string | recommended | Not applicable | development | Native tool mode field emitted by the pinned Codex runtime. |
+| `tool_namespace` | any | recommended | Not applicable | development | Tool namespace. |
+| `tool_origin` | boolean | recommended | Not applicable | development | Built-in versus MCP origin classification. |
+| `tool_result_seq` | any | recommended | Not applicable | development | Process-wide result-recording sequence; resets on restart. |
+| `tool_spec_count` | int | recommended | Not applicable | development | Native tool spec count field emitted by the pinned Codex runtime. |
+| `tool_token_count` | string | recommended | Not applicable | development | Despite the name, the emitter assigns usage.total_tokens here: total usage, not tool-only tokens. |
+| `tool_type` | string | recommended | Not applicable | development | Native tool type field emitted by the pinned Codex runtime. |
+| `trace_id` | string | recommended | Not applicable | development | Current trace identifier, or an empty value when no valid trace context exists. |
+| `tty` | string | recommended | Not applicable | development | Native tty field emitted by the pinned Codex runtime. |
+| `turn.has_metadata_header` | any | recommended | Not applicable | development | Native turn has metadata header field emitted by the pinned Codex runtime. |
+| `turn.has_state` | boolean | recommended | Not applicable | development | Native turn has state field emitted by the pinned Codex runtime. |
+| `turn.id` | any | recommended | Not applicable | development | Turn correlation ID. |
+| `turn.interrupted` | any | recommended | Not applicable | development | Whether the turn was interrupted. |
+| `turn_id` | any | recommended | Not applicable | development | Turn identifier. |
+| `unified_exec_process_id` | any | recommended | Not applicable | development | Identifier used by the unified-execution process manager. |
+| `update_target` | string | recommended | Not applicable | development | Native update target field emitted by the pinned Codex runtime. |
+| `usage.estimated_usd` | any | recommended | Not applicable | development | Estimated turn cost as USD text; not an invoice. |
+| `user_authorization` | any | recommended | Not applicable | development | Automatic-review authorization assessment. |
+| `user_input_count` | int | recommended | Not applicable | development | Native user input count field emitted by the pinned Codex runtime. |
+| `value` | string | recommended | Not applicable | development | Native value field emitted by the pinned Codex runtime. |
+| `wait.id` | string | recommended | Not applicable | development | Native wait id field emitted by the pinned Codex runtime. |
+| `websocket.warmup` | any | recommended | Not applicable | development | Native websocket warmup field emitted by the pinned Codex runtime. |
+| `win32_exit_code` | string | recommended | Not applicable | development | Native win32 exit code field emitted by the pinned Codex runtime. |
+| `wire_api` | string | recommended | Not applicable | development | Native wire api field emitted by the pinned Codex runtime. |
 
 #### Attribute details: `active`
 

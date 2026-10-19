@@ -1,0 +1,9 @@
+file_format: definition_manifest/2.0
+name: fidelity
+description: Generator semantics fixture.
+schema_url: https://fidelity.example/local/1
+stability: development
+dependencies:
+  - name: external
+    schema_url: https://fidelity.example/external/1
+    registry_path: tests/fixtures/semantic-fidelity/dependency

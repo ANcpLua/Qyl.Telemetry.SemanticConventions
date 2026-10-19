@@ -26,6 +26,7 @@ public static class CicdIncubatingEntityDefinitions
             brief: "A pipeline is a series of automated steps that helps software teams deliver code.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("cicd.pipeline.name", "string", false) });
 
@@ -38,7 +39,8 @@ public static class CicdIncubatingEntityDefinitions
             brief: "A pipeline run is a singular execution of a given pipeline's tasks.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cicd.pipeline.run.url.full", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cicd.pipeline.run.url.full", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("cicd.pipeline.run.id", "string", false) });
 
     /// <summary>
@@ -52,6 +54,7 @@ public static class CicdIncubatingEntityDefinitions
             brief: "A CI/CD worker is a component of the CI/CD system that performs work (eg. running pipeline tasks or performing sync). A single pipeline run may be distributed across multiple workers. Any OpenTelemetry signal associated with a worker should be associated to the worker that performed the corresponding work. For example, when a pipeline run involves several workers, its task run spans may reference the different `cicd.worker` resources corresponding to the workers that executed each task run. The pipeline run's parent span may instead reference the CI/CD controller as the `cicd.worker` resource.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.ReleaseCandidate,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cicd.worker.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cicd.worker.url.full", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If available", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cicd.worker.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cicd.worker.url.full", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If available", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("cicd.worker.id", "string", false) });
 }

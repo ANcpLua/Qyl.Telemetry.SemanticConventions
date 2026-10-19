@@ -4,7 +4,7 @@ namespace Qyl.Telemetry.SemanticConventions;
 /// A semantic-convention entity as a first-class object: its type name, stability, brief,
 /// structured deprecation, identifying attributes without requirement levels, and descriptive
 /// attribute references. This is the resolved entity definition, distinct from the
-/// name-only <see cref="EntityRef"/> that a metric or span carries in its association list.
+/// provenance-bearing <see cref="EntityRef"/> in a signal's association expression.
 /// </summary>
 [JetBrains.Annotations.PublicAPI]
 public sealed class EntityDefinition
@@ -23,13 +23,15 @@ public sealed class EntityDefinition
     /// <param name="deprecation">Structured deprecation; <see cref="Deprecation.None"/> when current.</param>
     /// <param name="attributes">The attributes that describe this entity.</param>
     /// <param name="identity">The attributes that identify this entity, without requirement levels.</param>
+    /// <param name="requirementLevel">Whether this signal is recommended or opt-in.</param>
     public EntityDefinition(
         string name,
         string brief,
         Stability stability,
         Deprecation deprecation,
         IReadOnlyList<AttributeRef> attributes,
-        IReadOnlyList<EntityIdentityAttributeRef>? identity)
+        IReadOnlyList<EntityIdentityAttributeRef>? identity,
+        SignalRequirementLevel requirementLevel = SignalRequirementLevel.Recommended)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Brief = brief ?? throw new ArgumentNullException(nameof(brief));
@@ -37,10 +39,14 @@ public sealed class EntityDefinition
         Deprecation = deprecation ?? throw new ArgumentNullException(nameof(deprecation));
         Attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
         Identity = identity ?? Array.Empty<EntityIdentityAttributeRef>();
+        RequirementLevel = requirementLevel;
     }
 
     /// <summary>The entity type name (e.g. <c>host</c>, <c>process</c>).</summary>
     public string Name { get; }
+
+    /// <summary>The collection requirement for this signal, independent of attribute requirements.</summary>
+    public SignalRequirementLevel RequirementLevel { get; }
 
     /// <summary>Human-readable brief.</summary>
     public string Brief { get; }

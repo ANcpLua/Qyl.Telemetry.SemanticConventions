@@ -14,12 +14,6 @@ namespace Qyl.Telemetry.SemanticConventions.Attributes.Messaging;
 public static class MessagingAttributes
 {
     /// <summary>
-    /// Deprecated, use <c>messaging.client.id</c> instead.
-    /// </summary>
-    [global::System.Obsolete("Replaced by messaging.client.id.", false)]
-    public const string ClientId = "messaging.client_id";
-
-    /// <summary>
     /// Deprecated, no replacement at this time.
     /// </summary>
     [global::System.Obsolete("Removed, no replacement.", false)]

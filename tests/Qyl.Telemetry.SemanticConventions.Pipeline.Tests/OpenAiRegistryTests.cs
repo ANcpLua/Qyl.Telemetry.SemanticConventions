@@ -86,9 +86,13 @@ public sealed class OpenAiRegistryTests
     {
         var span = QylIncubatingSpanDefinitions.QylAgentOperationInternal;
         var observation = QylIncubatingEventDefinitions.QylAgentOperationStateChanged;
-        Assert.AreSequenceEqual(["qyl.agent.operation"], span.Entities.Select(static e => e.Type).ToArray());
+        var spanEntity = Assert.IsInstanceOfType<EntityRef>(Assert.ContainsSingle(span.EntityAssociations));
+        Assert.AreEqual("qyl.agent.operation", spanEntity.Type);
+        Assert.AreEqual(SchemaUrl.Qyl, spanEntity.Provenance.SchemaUrl);
         Assert.AreSequenceEqual(["agent {qyl.agent.operation.name}"], span.SpanName);
-        Assert.AreSequenceEqual(["qyl.agent.operation"], observation.Entities.Select(static e => e.Type).ToArray());
+        var eventEntity = Assert.IsInstanceOfType<EntityRef>(Assert.ContainsSingle(observation.EntityAssociations));
+        Assert.AreEqual("qyl.agent.operation", eventEntity.Type);
+        Assert.AreEqual(SchemaUrl.Qyl, eventEntity.Provenance.SchemaUrl);
         Assert.AreEqual(AttributePhase.End, span.Attributes.Single(static a => a.Name == "qyl.agent.operation.state").Phase);
         Assert.AreEqual(AttributePhase.Start, observation.Attributes.Single(static a => a.Name == "qyl.agent.operation.state").Phase);
     }

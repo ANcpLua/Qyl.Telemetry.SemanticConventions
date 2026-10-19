@@ -30,8 +30,9 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Garbage collection duration.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.gc.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.gc.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Heap space available size.
@@ -46,8 +47,9 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Heap space available size.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Committed size of a heap space.
@@ -62,8 +64,9 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Committed size of a heap space.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total heap memory size pre-allocated for a heap space.
@@ -78,8 +81,9 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Total heap memory size pre-allocated for a heap space.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Heap Memory size allocated.
@@ -94,8 +98,9 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Heap Memory size allocated.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.heap.space.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Gauge of the active resources that are currently keeping the event loop alive.
@@ -110,6 +115,7 @@ public static class V8jsIncubatingMetricDefinitions
             brief: "Gauge of the active resources that are currently keeping the event loop alive.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.resource.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("v8js.resource.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

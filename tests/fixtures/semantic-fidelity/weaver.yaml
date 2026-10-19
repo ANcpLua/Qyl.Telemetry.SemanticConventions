@@ -1,0 +1,16 @@
+whitespace_control:
+  trim_blocks: true
+  lstrip_blocks: true
+  keep_trailing_newline: true
+jq_modules: [jq/symbols.jq, jq/fidelity.jq]
+templates:
+  - {template: metrics.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Metrics.cs, application_mode: single}
+  - {template: spans.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Spans.cs, application_mode: single}
+  - {template: events.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Events.cs, application_mode: single}
+  - {template: entities.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Entities.cs, application_mode: single}
+  - {template: attributes.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Attributes.cs, application_mode: single}
+  - {template: activities.cs.j2, filter: 'with_attribute_symbols | fidelity_context | .namespace = "Qyl.Telemetry.SemanticConventions.Incubating.Activities"', file_name: Activities.cs, application_mode: single}
+  - {template: views.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Views.cs, application_mode: single}
+  - {template: starters.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: Starters.cs, application_mode: single}
+  - {template: span_names.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: SpanNames.cs, application_mode: single}
+  - {template: analyzer_typed_surface.cs.j2, filter: "with_attribute_symbols | fidelity_context", file_name: TypedSurface.cs, application_mode: single}

@@ -26,6 +26,7 @@ public static class OpenshiftIncubatingEntityDefinitions
             brief: "An OpenShift [ClusterResourceQuota](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/schedule_and_quota_apis/clusterresourcequota-quota-openshift-io-v1#clusterresourcequota-quota-openshift-io-v1) object.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("openshift.clusterquota.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("openshift.clusterquota.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("openshift.clusterquota.uid", "string", false) });
 }

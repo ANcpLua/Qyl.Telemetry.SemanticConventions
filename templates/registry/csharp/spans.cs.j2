@@ -49,8 +49,9 @@ public static class {{ ctx.type_root }}SpanDefinitions
 {{ pad }}        brief: "{{ lib.escape_attribute(brief) }}",
 {{ pad }}        stability: {{ lib.stability_expr(s.stability | default("development", true)) }},
 {{ pad }}        deprecation: {{ lib.deprecation_expr(s.deprecated) }},
+{{ pad }}        requirementLevel: {{ lib.signal_requirement_expr(s.requirement_level | default("recommended", true)) }},
 {{ pad }}        attributes: {{ lib.attribute_array_expr(s.attributes | default([], true), params.policy) }},
 {{ pad }}        spanName: {% if rule and (rule.templates | length) > 0 %}new string[] { {% for t in rule.templates %}{% if not loop.first %}, {% endif %}{{ lib.cs_string(t) }}{% endfor %} }{% else %}global::System.Array.Empty<string>(){% endif %},
-{{ pad }}        entities: {{ lib.entity_array_expr(s.entity_associations | default([], true)) }});
+{{ pad }}        entityAssociations: {{ lib.entity_array_expr(s.entity_associations | default([], true), s.provenance.source | default(ctx.qyl_schema_url, true)) }});
 {% endfor %}
 }

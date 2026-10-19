@@ -19,5 +19,5 @@ public static class OrganizationIdAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-zG1oPZJc.js; JavaScript UTF-16 offset 5246. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string OrganizationId = "organization_id";
+    public const string OrganizationIdNative = "organization_id";
 }

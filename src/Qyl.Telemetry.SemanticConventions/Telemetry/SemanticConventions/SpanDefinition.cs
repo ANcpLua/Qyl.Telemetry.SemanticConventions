@@ -30,7 +30,8 @@ public sealed class SpanDefinition<TKind>
     /// <param name="deprecation">Structured deprecation; <see cref="Deprecation.None"/> when current.</param>
     /// <param name="attributes">Attributes this span carries, with requirement levels.</param>
     /// <param name="spanName">The span-name chain (registry annotation <c>qyl.span_name</c>); empty when the registry states no rule qyl encodes.</param>
-    /// <param name="entities">Entities this span is associated with.</param>
+    /// <param name="entityAssociations">Entity association expressions; the list is an implicit one-of.</param>
+    /// <param name="requirementLevel">Whether this signal is recommended or opt-in.</param>
     public SpanDefinition(
         string id,
         string type,
@@ -39,7 +40,8 @@ public sealed class SpanDefinition<TKind>
         Deprecation deprecation,
         IReadOnlyList<AttributeRef> attributes,
         IReadOnlyList<string> spanName,
-        IReadOnlyList<EntityRef>? entities)
+        IReadOnlyList<EntityAssociation>? entityAssociations,
+        SignalRequirementLevel requirementLevel = SignalRequirementLevel.Recommended)
     {
         Id = id ?? throw new ArgumentNullException(nameof(id));
         Type = type ?? throw new ArgumentNullException(nameof(type));
@@ -48,7 +50,8 @@ public sealed class SpanDefinition<TKind>
         Stability = stability;
         Deprecation = deprecation ?? throw new ArgumentNullException(nameof(deprecation));
         Attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
-        Entities = entities ?? Array.Empty<EntityRef>();
+        EntityAssociations = entityAssociations ?? Array.Empty<EntityAssociation>();
+        RequirementLevel = requirementLevel;
     }
 
     /// <summary>The span refinement id (e.g. <c>http.client</c>, <c>db.postgresql.client</c>).</summary>
@@ -81,8 +84,11 @@ public sealed class SpanDefinition<TKind>
     /// <summary>Attributes this span carries, with requirement levels.</summary>
     public IReadOnlyList<AttributeRef> Attributes { get; }
 
-    /// <summary>Entities this span is associated with.</summary>
-    public IReadOnlyList<EntityRef> Entities { get; }
+    /// <summary>Entity association expressions. At least one list entry must be satisfied.</summary>
+    public IReadOnlyList<EntityAssociation> EntityAssociations { get; }
+
+    /// <summary>The collection requirement for this signal, independent of attribute requirements.</summary>
+    public SignalRequirementLevel RequirementLevel { get; }
 
     /// <inheritdoc/>
     public override string ToString() => Id;

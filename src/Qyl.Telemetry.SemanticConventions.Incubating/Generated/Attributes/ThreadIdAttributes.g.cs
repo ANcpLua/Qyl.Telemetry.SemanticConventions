@@ -35,5 +35,5 @@ public static class ThreadIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string ThreadId = "thread_id";
+    public const string ThreadIdNative = "thread_id";
 }

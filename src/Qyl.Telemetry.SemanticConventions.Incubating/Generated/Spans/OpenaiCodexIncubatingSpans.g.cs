@@ -34,9 +34,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "add collaboration tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "add_collaboration_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// add core tool sources.
@@ -55,9 +56,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "add core tool sources.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "add_core_tool_sources" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// add core utility tools.
@@ -76,9 +78,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "add core utility tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "add_core_utility_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// add mcp resource tools.
@@ -97,9 +100,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "add mcp resource tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "add_mcp_resource_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// add shell tools.
@@ -118,9 +122,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "add shell tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "add_shell_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// agents md discover.
@@ -139,9 +144,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "agents md discover.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "agents_md.discover" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// agents md load.
@@ -160,9 +166,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "agents md load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("max_total", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("max_total", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "agents_md.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// agents md refresh.
@@ -181,9 +188,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "agents md refresh.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "agents_md.refresh" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server request.
@@ -202,9 +210,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("app_server.api_version", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("app_server.client_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("app_server.client_version", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("app_server.connection_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.transport", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("app_server.api_version", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("app_server.client_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("app_server.client_version", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("app_server.connection_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.transport", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server serialized request queue.
@@ -223,9 +232,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server serialized request queue.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("key", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("key", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "app_server.serialized_request_queue" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start attach listener.
@@ -244,9 +254,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start attach listener.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_start.experimental_raw_events", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_start.experimental_raw_events", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "app_server.thread_start.attach_listener" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start config snapshot.
@@ -265,9 +276,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start config snapshot.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "app_server.thread_start.config_snapshot" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start create thread.
@@ -286,9 +298,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start create thread.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_start.dynamic_tool_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_start.dynamic_tool_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "app_server.thread_start.create_thread" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start notify started.
@@ -307,9 +320,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start notify started.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "app_server.thread_start.notify_started" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start resolve status.
@@ -328,9 +342,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start resolve status.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "app_server.thread_start.resolve_status" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start send response.
@@ -349,9 +364,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start send response.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "app_server.thread_start.send_response" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// app server thread start upsert thread.
@@ -370,9 +386,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "app server thread start upsert thread.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "app_server.thread_start.upsert_thread" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// Development/test-client operation: app server test client command.
@@ -391,9 +408,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "Development/test-client operation: app server test client command.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("app_server_test_client.command", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("app_server_test_client.command", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// Development/test-client operation: app server test client request.
@@ -412,9 +430,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "Development/test-client operation: app server test client request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// append dynamic tool runtimes.
@@ -433,9 +452,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "append dynamic tool runtimes.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dynamic_tool_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("dynamic_tool_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "append_dynamic_tool_runtimes" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// append items.
@@ -455,9 +475,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "append items.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "append_items" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// append mcp tools.
@@ -476,9 +497,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "append mcp tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "append_mcp_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// append source tools.
@@ -497,9 +519,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "append source tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "append_source_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// append tool search executor.
@@ -518,9 +541,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "append tool search executor.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "append_tool_search_executor" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// apply rollout reconstruction.
@@ -539,9 +563,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "apply rollout reconstruction.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("rollout_item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("rollout_item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "apply_rollout_reconstruction" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// auth.
@@ -560,9 +585,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "auth.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "auth" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build core tool registry.
@@ -581,9 +607,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build core tool registry.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_core_tool_registry" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build extension turn input items.
@@ -602,9 +629,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build extension turn input items.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("user_input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("user_input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "build_extension_turn_input_items" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build model visible specs.
@@ -623,9 +651,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build model visible specs.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_model_visible_specs" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build prompt.
@@ -644,9 +673,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build prompt.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_prompt" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build skill outcome.
@@ -665,9 +695,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build skill outcome.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_skill_outcome" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build skills and plugins.
@@ -686,9 +717,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build skills and plugins.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_skills_and_plugins" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build tool call.
@@ -707,9 +739,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build tool call.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_tool_call" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// build tool router.
@@ -728,9 +761,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "build tool router.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "build_tool_router" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// built tools.
@@ -749,9 +783,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "built tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("apps_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("apps_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "built_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// built tools load discoverable tools.
@@ -770,9 +805,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "built tools load discoverable tools.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "built_tools.load_discoverable_tools" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// cached directory connectors for tool suggest with auth.
@@ -791,9 +827,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "cached directory connectors for tool suggest with auth.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "cached_directory_connectors_for_tool_suggest_with_auth" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// capability roots discover v1.
@@ -813,9 +850,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "capability roots discover v1.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "capability_roots.discover_v1" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// capability roots discovery cache resolve.
@@ -834,9 +872,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "capability roots discovery cache resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "capability_roots.discovery_cache.resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// capability roots resolve.
@@ -855,9 +894,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "capability roots resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "capability_roots.resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// capability roots snapshot for step.
@@ -876,9 +916,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "capability roots snapshot for step.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "capability_roots.snapshot_for_step" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// capture binding with metadata.
@@ -897,9 +938,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "capture binding with metadata.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "capture_binding_with_metadata" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode broker invoke tool.
@@ -918,9 +960,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode broker invoke tool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("runtime_tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_namespace", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("runtime_tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_namespace", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode.broker.invoke_tool" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode grpc callback.
@@ -939,9 +982,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode grpc callback.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("invocation.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("invocation.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) },
             spanName: new string[] { "code_mode.grpc.callback" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode grpc execute.
@@ -960,9 +1004,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode grpc execute.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode.grpc.execute" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode grpc open binding.
@@ -981,9 +1026,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode grpc open binding.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "code_mode.grpc.open_binding" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode grpc open session.
@@ -1002,9 +1048,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode grpc open session.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "code_mode.grpc.open_session" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode grpc subscribe to tool calls.
@@ -1023,9 +1070,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode grpc subscribe to tool calls.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) },
             spanName: new string[] { "code_mode.grpc.subscribe_to_tool_calls" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode handler execute.
@@ -1044,9 +1092,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode handler execute.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode.handler.execute" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode handler wait.
@@ -1065,9 +1114,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode handler wait.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode.handler.wait" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode runtime invoke tool.
@@ -1086,9 +1136,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode runtime invoke tool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("runtime_tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_namespace", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("runtime_tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_namespace", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode.runtime.invoke_tool" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host grpc close session.
@@ -1107,9 +1158,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host grpc close session.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) },
             spanName: new string[] { "code_mode_host.grpc.close_session" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host grpc execute.
@@ -1128,9 +1180,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host grpc execute.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("execution.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false) },
             spanName: new string[] { "code_mode_host.grpc.execute" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host grpc open session.
@@ -1149,9 +1202,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host grpc open session.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "code_mode_host.grpc.open_session" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host grpc wait.
@@ -1170,9 +1224,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host grpc wait.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("wait.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cell.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("wait.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode_host.grpc.wait" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host request.
@@ -1191,9 +1246,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("request.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("request.kind", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("request.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("request.kind", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "code_mode_host.request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host run main.
@@ -1212,9 +1268,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host run main.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "code_mode_host.run_main" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// code mode host startup.
@@ -1233,9 +1290,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "code mode host startup.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "code_mode_host.startup" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex compaction.
@@ -1255,9 +1313,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex compaction.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.compaction" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec.
@@ -1276,9 +1335,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "codex.exec" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server http request.
@@ -1297,9 +1357,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server http request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("http.request.method", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.response.status_code", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("http.request.method", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.response.status_code", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.http_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server.
@@ -1318,9 +1379,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server process.
@@ -1340,9 +1402,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server process.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "codex.exec_server.process" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server process capture shell snapshot.
@@ -1361,9 +1424,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server process capture shell snapshot.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.process_capture_shell_snapshot" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server process prepare sandbox.
@@ -1382,9 +1446,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server process prepare sandbox.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.process_prepare_sandbox" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server process prepare shell snapshot.
@@ -1403,9 +1468,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server process prepare shell snapshot.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("snapshot_requested", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("snapshot_requested", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.process_prepare_shell_snapshot" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server process start.
@@ -1424,9 +1490,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server process start.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.process_start" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote connect.
@@ -1445,9 +1512,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server.remote.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote environment registry connect.
@@ -1466,9 +1534,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote environment registry connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.remote.environment_registry.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote environment registry validate harness key.
@@ -1487,9 +1556,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote environment registry validate harness key.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("executor_registration_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("executor_registration_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.remote.environment_registry.validate_harness_key" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote harness connect.
@@ -1508,9 +1578,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote harness connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server.remote.harness.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote initialize rpc.
@@ -1529,9 +1600,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote initialize rpc.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server.remote.initialize_rpc" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote noise connect.
@@ -1550,9 +1622,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote noise connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server.remote.noise.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote noise handshake.
@@ -1571,9 +1644,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote noise handshake.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.exec_server.remote.noise.handshake" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote noise websocket connect.
@@ -1592,9 +1666,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote noise websocket connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("executor_registration_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("executor_registration_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.exec_server.remote.noise.websocket_connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote register.
@@ -1614,9 +1689,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote register.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "codex.exec_server.remote.register" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server remote rendezvous connect.
@@ -1635,9 +1711,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server remote rendezvous connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "codex.exec_server.remote.rendezvous.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server request.
@@ -1658,9 +1735,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex exec server request.
@@ -1679,9 +1757,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex exec server request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("rpc.dispatch_offset_ns", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("rpc.response_enqueue_offset_ns", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("result", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("rpc.dispatch_offset_ns", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("rpc.response_enqueue_offset_ns", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex hooks command.
@@ -1700,9 +1779,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex hooks command.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("hook.command_outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("hook.display_order", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.event_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.execution_mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.handler_type", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.scope", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.source", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.timeout_sec", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("hook.command_outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("hook.display_order", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.event_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.execution_mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.handler_type", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.scope", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.source", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.timeout_sec", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.hooks.command" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex hooks mcp tool.
@@ -1721,9 +1801,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex hooks mcp tool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("hook.server", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.timeout_sec", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("hook.tool", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("hook.server", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.timeout_sec", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("hook.tool", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.hooks.mcp_tool" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex process spawn.
@@ -1742,9 +1823,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex process spawn.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "codex.process.spawn" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex sampling.
@@ -1763,9 +1845,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex sampling.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.sampling" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex tool blocking.
@@ -1784,9 +1867,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex tool blocking.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.phase", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.tool_blocking" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// codex turn input.
@@ -1806,9 +1890,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "codex turn input.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "codex.turn_input" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// collect explicit skill mentions.
@@ -1827,9 +1912,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "collect explicit skill mentions.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entry_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entry_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "collect_explicit_skill_mentions" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// connectors plugin declarations load.
@@ -1848,9 +1934,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "connectors plugin declarations load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "connectors.plugin.declarations.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// decide request.
@@ -1869,9 +1956,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "decide request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("approval_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("approval_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "decide_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// dispatch tool call with code mode result.
@@ -1891,9 +1979,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "dispatch tool call with code mode result.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aborted", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aborted", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// dispatch tool call with state.
@@ -1912,9 +2001,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "dispatch tool call with state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "dispatch_tool_call_with_state" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// drain in flight.
@@ -1933,9 +2023,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "drain in flight.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "drain_in_flight" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// encode image.
@@ -1954,9 +2045,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "encode image.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("byte_length", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("byte_length", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "encode_image" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// endpoint session execute with.
@@ -1975,9 +2067,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "endpoint session execute with.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "endpoint_session.execute_with" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// endpoint session stream encoded json with.
@@ -1996,9 +2089,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "endpoint session stream encoded json with.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "endpoint_session.stream_encoded_json_with" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// environments resolve.
@@ -2017,9 +2111,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "environments resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("configuration_pending", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("configuration_pending", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "environments.resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// environments snapshot.
@@ -2038,9 +2133,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "environments snapshot.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("non_blocking", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("non_blocking", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "environments.snapshot" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// environments wait until ready.
@@ -2059,9 +2155,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "environments wait until ready.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("environment_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "environments.wait_until_ready" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// exec server environment force info.
@@ -2080,9 +2177,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "exec server environment force info.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "exec_server.environment.force_info" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// exec server environment info.
@@ -2101,9 +2199,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "exec server environment info.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "exec_server.environment.info" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// exec server environment refresh connection.
@@ -2122,9 +2221,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "exec server environment refresh connection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "exec_server.environment.refresh_connection" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// exec server environment wait until ready.
@@ -2143,9 +2243,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "exec server environment wait until ready.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("remote", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "exec_server.environment.wait_until_ready" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// extension tool executors.
@@ -2164,9 +2265,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "extension tool executors.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "extension_tool_executors" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fetch recommended plugin install metadata.
@@ -2185,9 +2287,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fetch recommended plugin install metadata.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "fetch_recommended_plugin_install_metadata" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fetch recommended plugins.
@@ -2206,9 +2309,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fetch recommended plugins.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "fetch_recommended_plugins" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// finalize tool router.
@@ -2227,9 +2331,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "finalize tool router.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "finalize_tool_router" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fs get metadata.
@@ -2248,9 +2353,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fs get metadata.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("sandboxed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("sandboxed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "fs.get_metadata" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fs read file.
@@ -2269,9 +2375,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fs read file.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("sandboxed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("sandboxed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "fs.read_file" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fs sandbox execute.
@@ -2290,9 +2397,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fs sandbox execute.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "fs.sandbox_execute" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fs sandbox prepare.
@@ -2311,9 +2419,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fs sandbox prepare.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("permission_entries", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("permission_entries", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "fs.sandbox_prepare" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// fs sandbox request.
@@ -2332,9 +2441,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "fs sandbox request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "fs.sandbox_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// get default model.
@@ -2354,9 +2464,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "get default model.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("allow_provider_model_fallback", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("model.provided", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("refresh_strategy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("allow_provider_model_fallback", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("model.provided", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("refresh_strategy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "get_default_model" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// get image.
@@ -2375,9 +2486,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "get image.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "get_image" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// get model info.
@@ -2397,9 +2509,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "get model info.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "get_model_info" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// get or build.
@@ -2418,9 +2531,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "get or build.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "get_or_build" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// guardian background scoring.
@@ -2439,9 +2553,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "guardian background scoring.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("context_mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("retained_conversation", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_call_index", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("context_mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("retained_conversation", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_call_index", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "guardian_background_scoring" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// guardian review.
@@ -2460,9 +2575,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "guardian review.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("review_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("review_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "guardian_review" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// guardian scoring observation.
@@ -2481,9 +2597,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "guardian scoring observation.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool_call_index", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool_call_index", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "guardian_scoring_observation" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// handle output item done.
@@ -2502,9 +2619,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "handle output item done.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "handle_output_item_done" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// handle responses.
@@ -2523,9 +2641,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "handle responses.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.request.reasoning_effort", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("codex.usage.reasoning_output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.usage.total_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("from", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("gen_ai.usage.cache_read.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("gen_ai.usage.cache_write.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("gen_ai.usage.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("gen_ai.usage.output_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.request.reasoning_effort", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("codex.usage.reasoning_output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.usage.total_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("from", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("gen_ai.usage.cache_read.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("gen_ai.usage.cache_write.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("gen_ai.usage.input_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("gen_ai.usage.output_tokens", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("tool_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// handle tool call.
@@ -2544,9 +2663,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "handle tool call.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "handle_tool_call" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// handle tool call with source.
@@ -2565,9 +2685,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "handle tool call with source.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "handle_tool_call_with_source" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// hosted model tool specs.
@@ -2586,9 +2707,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "hosted model tool specs.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "hosted_model_tool_specs" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// initialize.
@@ -2607,9 +2729,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "initialize.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "initialize" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// instructions load.
@@ -2628,9 +2751,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "instructions load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("provider", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("provider", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "instructions.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list models.
@@ -2649,9 +2773,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list models.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("refresh_strategy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("refresh_strategy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "list_models" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list skills.
@@ -2670,9 +2795,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list skills.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "list_skills" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tool suggest discoverable plugins.
@@ -2691,9 +2817,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tool suggest discoverable plugins.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "list_tool_suggest_discoverable_plugins" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tool suggest discoverable tools with auth.
@@ -2712,9 +2839,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tool suggest discoverable tools with auth.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "list_tool_suggest_discoverable_tools_with_auth" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tools for client uncached.
@@ -2733,9 +2861,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tools for client uncached.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "list_tools_for_client_uncached" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tools for server.
@@ -2754,9 +2883,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tools for server.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("has_cached_tools", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("startup_complete", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("has_cached_tools", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("startup_complete", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "list_tools_for_server" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tools with connector ids.
@@ -2775,9 +2905,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tools with connector ids.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "list_tools_with_connector_ids" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// list tools with errors.
@@ -2796,9 +2927,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "list tools with errors.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("mcp_server_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("mcp_server_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "list_tools_with_errors" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load.
@@ -2817,9 +2949,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load cached codex apps server info.
@@ -2838,9 +2971,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load cached codex apps server info.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "load_cached_codex_apps_server_info" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load cached connector runtime for identity.
@@ -2859,9 +2993,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load cached connector runtime for identity.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "load_cached_connector_runtime_for_identity" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load plugins from layer stack.
@@ -2880,9 +3015,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load plugins from layer stack.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "load_plugins_from_layer_stack" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load skill prompts.
@@ -2901,9 +3037,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load skill prompts.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("selected_skill_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("selected_skill_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "load_skill_prompts" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// load with cli overrides.
@@ -2922,9 +3059,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "load with cli overrides.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "load_with_cli_overrides" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// make rmcp client.
@@ -2943,9 +3081,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "make rmcp client.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "make_rmcp_client" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp http request.
@@ -2964,9 +3103,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp http request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("mcp.method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("mcp.method", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "mcp.http.request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp plugin metadata load.
@@ -2985,9 +3125,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp plugin metadata load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.plugin.metadata.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp plugin servers load.
@@ -3006,9 +3147,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp plugin servers load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.plugin.servers.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp runtime refresh.
@@ -3027,9 +3169,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp runtime refresh.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.runtime.refresh" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp runtime refresh if dirty.
@@ -3048,9 +3191,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp runtime refresh if dirty.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.runtime.refresh_if_dirty" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp runtime refresh wait.
@@ -3069,9 +3213,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp runtime refresh wait.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.runtime.refresh_wait" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp runtime resolve for step.
@@ -3090,9 +3235,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp runtime resolve for step.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "mcp.runtime.resolve_for_step" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp runtime config project for step.
@@ -3111,9 +3257,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp runtime config project for step.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "mcp.runtime_config.project_for_step" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// mcp tools call.
@@ -3132,9 +3279,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "mcp tools call.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.mcp.error.code", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.mcp.server_user_flow.triggered", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.mcp.target.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("mcp.connector.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("mcp.connector.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("mcp.server.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("mcp.server.origin", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("mcp.transport", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("tool.call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("tool.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.mcp.error.code", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.mcp.server_user_flow.triggered", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.mcp.target.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("mcp.connector.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("mcp.connector.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("mcp.server.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("mcp.server.origin", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("mcp.transport", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("rpc.system", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("session.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("tool.call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("tool.name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "mcp.tools.call" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// merge connector selection.
@@ -3153,9 +3301,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "merge connector selection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("connector_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("connector_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "merge_connector_selection" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// merge into namespaces.
@@ -3174,9 +3323,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "merge into namespaces.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("tool_spec_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("tool_spec_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "merge_into_namespaces" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// model client stream responses api.
@@ -3195,9 +3345,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "model client stream responses api.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "model_client.stream_responses_api" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// model client stream responses websocket.
@@ -3216,9 +3367,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "model client stream responses websocket.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("websocket.warmup", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("websocket.warmup", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "model_client.stream_responses_websocket" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// model client websocket connection.
@@ -3237,9 +3389,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "model client websocket connection.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("provider", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("provider", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.has_metadata_header", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("wire_api", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "model_client.websocket_connection" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// new.
@@ -3259,9 +3412,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "new.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("search_info_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("search_info_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "new" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// noise relay stream.
@@ -3280,9 +3434,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "noise relay stream.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("noise_side", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("noise_side", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "noise_relay.stream" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// paste image as png.
@@ -3301,9 +3456,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "paste image as png.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "paste_image_as_png" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// persist rollout items.
@@ -3322,9 +3478,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "persist rollout items.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "persist_rollout_items" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// plugin reconcile.
@@ -3343,9 +3500,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "plugin reconcile.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "plugin_reconcile" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// plugins executor package resolve.
@@ -3364,9 +3522,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "plugins executor package resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "plugins.executor.package.resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// plugins for config.
@@ -3385,9 +3544,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "plugins for config.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugins_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugins_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "plugins_for_config" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// prepare call for tool.
@@ -3406,9 +3566,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "prepare call for tool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "prepare_call_for_tool" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// prepare tool recommendations.
@@ -3427,9 +3588,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "prepare tool recommendations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "prepare_tool_recommendations" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// read main prompt.
@@ -3448,9 +3610,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "read main prompt.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("skill", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("skill", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "read_main_prompt" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// read plugin detail for marketplace plugin.
@@ -3469,9 +3632,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "read plugin detail for marketplace plugin.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "read_plugin_detail_for_marketplace_plugin" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// realtime call create.
@@ -3490,9 +3654,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "realtime call create.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "realtime_call.create" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// realtime conversation running state.
@@ -3511,9 +3676,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "realtime conversation running state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "realtime_conversation.running_state" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// receiving.
@@ -3532,9 +3698,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "receiving.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "receiving" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// receiving stream.
@@ -3553,9 +3720,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "receiving stream.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "receiving_stream" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// recommended plugin candidates for config.
@@ -3574,9 +3742,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "recommended plugin candidates for config.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "recommended_plugin_candidates_for_config" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// recommended plugins mode for config.
@@ -3595,9 +3764,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "recommended plugins mode for config.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugins_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("remote_plugin_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugins_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("remote_plugin_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "recommended_plugins_mode_for_config" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// record context updates and set reference context item.
@@ -3616,9 +3786,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "record context updates and set reference context item.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "record_context_updates_and_set_reference_context_item" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// record conversation items.
@@ -3637,9 +3808,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "record conversation items.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "record_conversation_items" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// refresh transaction.
@@ -3658,9 +3830,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "refresh transaction.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("refresh_reason", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("refresh_reason", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "refresh_transaction" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// regular task prepare run turn.
@@ -3679,9 +3852,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "regular task prepare run turn.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "regular_task.prepare_run_turn" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// render available skills.
@@ -3700,9 +3874,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "render available skills.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entry_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entry_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "render_available_skills" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// resolve.
@@ -3721,9 +3896,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// responses stream.
@@ -3742,9 +3918,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "responses stream.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.has_state", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.has_state", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "responses.stream" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// responses stream request.
@@ -3763,9 +3940,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "responses stream request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("http.method", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "responses.stream_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// responses websocket connect.
@@ -3784,9 +3962,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "responses websocket connect.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "responses_websocket.connect" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// responses websocket stream request.
@@ -3805,9 +3984,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "responses websocket stream request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("api.path", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "responses_websocket.stream_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// resume running thread.
@@ -3826,9 +4006,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "resume running thread.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "resume_running_thread" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// resume thread from history.
@@ -3847,9 +4028,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "resume thread from history.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "resume_thread_from_history" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// resume thread with history.
@@ -3868,9 +4050,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "resume thread with history.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "resume_thread_with_history" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run auto compact.
@@ -3889,9 +4072,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run auto compact.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("phase", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("phase", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "run_auto_compact" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run hooks and record inputs.
@@ -3910,9 +4094,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run hooks and record inputs.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_hooks_and_record_inputs" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run legacy after agent hook.
@@ -3931,9 +4116,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run legacy after agent hook.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_legacy_after_agent_hook" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run multiplexed environment.
@@ -3952,9 +4138,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run multiplexed environment.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("noise_side", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("noise_side", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "run_multiplexed_environment" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run pending session start hooks.
@@ -3973,9 +4160,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run pending session start hooks.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_pending_session_start_hooks" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run pre sampling compact.
@@ -3994,9 +4182,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run pre sampling compact.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_pre_sampling_compact" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run sampling request.
@@ -4015,9 +4204,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run sampling request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cwd", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cwd", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "run_sampling_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run session end hooks.
@@ -4036,9 +4226,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run session end hooks.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_session_end_hooks" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run turn collect post sampling state.
@@ -4057,9 +4248,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run turn collect post sampling state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_turn.collect_post_sampling_state" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run turn.
@@ -4078,9 +4270,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run turn.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_turn" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run turn prepare sampling request input.
@@ -4099,9 +4292,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run turn prepare sampling request input.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_turn.prepare_sampling_request_input" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// run turn stop hooks.
@@ -4120,9 +4314,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "run turn stop hooks.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "run_turn_stop_hooks" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// search remote plugins.
@@ -4141,9 +4336,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "search remote plugins.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugin.limit", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("plugin.scope", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("plugin.limit", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("plugin.scope", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "search_remote_plugins" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// send raw response items.
@@ -4162,9 +4358,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "send raw response items.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("item_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "send_raw_response_items" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session flush rollout.
@@ -4183,9 +4380,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session flush rollout.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session.flush_rollout" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init auth mcp.
@@ -4204,9 +4402,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init auth mcp.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_init.auth_mcp" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init.
@@ -4225,9 +4424,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_init" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init mcp manager init.
@@ -4246,9 +4446,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init mcp manager init.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_init.mcp_manager_init" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init network proxy.
@@ -4267,9 +4468,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init network proxy.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.managed_network_requirements_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.managed_network_requirements_enabled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "session_init.network_proxy" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init plugin skill warmup.
@@ -4288,9 +4490,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init plugin skill warmup.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_init.plugin_skill_warmup" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init required mcp wait.
@@ -4309,9 +4512,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init required mcp wait.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.required_mcp_server_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.required_mcp_server_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "session_init.required_mcp_wait" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init state db.
@@ -4330,9 +4534,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init state db.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.ephemeral", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.ephemeral", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "session_init.state_db" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init thread name lookup.
@@ -4351,9 +4556,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init thread name lookup.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_init.thread_name_lookup" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session init thread persistence.
@@ -4372,9 +4578,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session init thread persistence.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.ephemeral", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("session_init.ephemeral", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "session_init.thread_persistence" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session loop.
@@ -4393,9 +4600,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session loop.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "session_loop" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// session task run.
@@ -4414,9 +4622,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "session task run.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "session_task.run" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// set previous turn settings.
@@ -4435,9 +4644,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "set previous turn settings.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "set_previous_turn_settings" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// shell snapshot.
@@ -4456,9 +4666,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "shell snapshot.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("thread_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "shell_snapshot" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills cloud refresh cloud catalog.
@@ -4477,9 +4688,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills cloud refresh cloud catalog.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "skills.cloud.refresh_cloud_catalog" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills environment load.
@@ -4498,9 +4710,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills environment load.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("skill_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("skill_count", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "skills.environment.load" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills executor catalog root.
@@ -4519,9 +4732,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills executor catalog root.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "skills.executor.catalog_root" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills executor refresh executor catalog.
@@ -4540,9 +4754,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills executor refresh executor catalog.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("root_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "skills.executor.refresh_executor_catalog" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills shadow selection rank.
@@ -4561,9 +4776,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills shadow selection rank.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entries", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("catalog_entries", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "skills.shadow_selection.rank" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// skills for config.
@@ -4582,9 +4798,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "skills for config.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "skills_for_config" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// start server task.
@@ -4603,9 +4820,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "start server task.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server_name", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "start_server_task" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// startup prewarm.
@@ -4624,9 +4842,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "startup prewarm.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("prewarm.input", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("prewarm.input", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "startup_prewarm" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// startup prewarm resolve.
@@ -4645,9 +4864,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "startup prewarm resolve.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "startup_prewarm.resolve" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// step context capture.
@@ -4666,9 +4886,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "step context capture.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "step_context.capture" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// stored thread to initial history.
@@ -4687,9 +4908,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "stored thread to initial history.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "stored_thread_to_initial_history" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// stream request.
@@ -4708,9 +4930,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "stream request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "stream_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// submission dispatch.
@@ -4730,9 +4953,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "submission dispatch.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.op", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("submission.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.op", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("submission.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// thread spawn.
@@ -4751,9 +4975,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "thread spawn.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "thread_spawn" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// track turn resolved config analytics.
@@ -4772,9 +4997,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "track turn resolved config analytics.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("input_count", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "track_turn_resolved_config_analytics" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// try run sampling request.
@@ -4793,9 +5019,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "try run sampling request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "try_run_sampling_request" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// turn.
@@ -4814,9 +5041,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "turn.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.reasoning_effort", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("codex.turn.token_usage.cache_write_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.cached_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.non_cached_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.reasoning_output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("codex.turn.token_usage.total_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("codex.turn.reasoning_effort", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("codex.turn.token_usage.cache_write_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.cached_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.non_cached_input_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.reasoning_output_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("codex.turn.token_usage.total_tokens", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("model", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("thread.id", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("turn.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: global::System.Array.Empty<string>(),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// turn context build.
@@ -4835,9 +5063,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "turn context build.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("build_mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("build_mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "turn_context.build" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// turn context make.
@@ -4856,9 +5085,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "turn context make.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "turn_context.make" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// turn diff display roots.
@@ -4877,9 +5107,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "turn diff display roots.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "turn_diff_display_roots" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// unified exec collect output.
@@ -4898,9 +5129,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "unified exec collect output.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("exit_signaled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("output_closed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("stop_reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("exit_signaled", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("output_closed", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("stop_reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "unified_exec.collect_output" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// unified exec exec command.
@@ -4920,9 +5152,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "unified exec exec command.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("unified_exec_process_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("mode", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("unified_exec_process_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "unified_exec.exec_command" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// unified exec open session.
@@ -4941,9 +5174,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "unified exec open session.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) },
             spanName: new string[] { "unified_exec.open_session" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// unified exec write stdin.
@@ -4962,9 +5196,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "unified exec write stdin.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("interaction", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("original_exec_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("unified_exec_process_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("conversation.id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("interaction", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("original_exec_call_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("outcome", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("turn_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("unified_exec_process_id", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             spanName: new string[] { "unified_exec.write_stdin" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// upload.
@@ -4983,9 +5218,10 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "upload.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "upload" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 
     /// <summary>
     /// world state build.
@@ -5004,7 +5240,8 @@ public static class OpenaiCodexIncubatingSpanDefinitions
             brief: "world state build.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             spanName: new string[] { "world_state.build" },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 }

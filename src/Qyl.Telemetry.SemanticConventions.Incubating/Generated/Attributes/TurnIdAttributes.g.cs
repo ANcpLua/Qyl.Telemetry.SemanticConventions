@@ -33,5 +33,5 @@ public static class TurnIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string TurnId = "turn_id";
+    public const string TurnIdNative = "turn_id";
 }

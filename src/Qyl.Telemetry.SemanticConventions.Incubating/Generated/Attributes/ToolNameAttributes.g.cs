@@ -19,5 +19,5 @@ public static class ToolNameAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:819. https://code.claude.com/docs/en/monitoring-usage:971. Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 9985. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string ToolName = "tool_name";
+    public const string ToolNameNative = "tool_name";
 }

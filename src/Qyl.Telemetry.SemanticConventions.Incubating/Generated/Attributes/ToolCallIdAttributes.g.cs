@@ -23,5 +23,5 @@ public static class ToolCallIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string ToolCallId = "tool_call_id";
+    public const string ToolCallIdNative = "tool_call_id";
 }

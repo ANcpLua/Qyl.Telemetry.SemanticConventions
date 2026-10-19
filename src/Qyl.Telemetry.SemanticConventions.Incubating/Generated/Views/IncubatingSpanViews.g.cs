@@ -44,10 +44,26 @@ public static class IncubatingSpanViews
 /// </remarks>
 public readonly struct GenAiExecuteToolSpan
 {
-    /// <summary>Wraps <paramref name="record"/>; <see cref="IncubatingSpanViews.GenAiExecuteTool"/> selects the records that match.</summary>
+    /// <summary>Projects a matching record; rejects missing or incorrectly typed required attributes.</summary>
     /// <param name="record">The span.</param>
     public GenAiExecuteToolSpan(global::Qyl.Telemetry.SemanticConventions.SpanRecord record)
-        => Record = record ?? throw new global::System.ArgumentNullException(nameof(record));
+    {
+        if (record is null) throw new global::System.ArgumentNullException(nameof(record));
+        if (!Matches(record)) throw new global::System.ArgumentException("The record does not match gen_ai.execute_tool.internal.", nameof(record));
+        Record = record;
+    }
+
+    /// <summary>Returns a view when the record matches; otherwise returns false and a null view.</summary>
+    public static bool TryCreate(global::Qyl.Telemetry.SemanticConventions.SpanRecord? record, out GenAiExecuteToolSpan? view)
+    {
+        if (record is null || !Matches(record))
+        {
+            view = null;
+            return false;
+        }
+        view = new GenAiExecuteToolSpan(record);
+        return true;
+    }
 
     /// <summary>
     /// The attribute keys this view reads, all of them persisted.
@@ -78,7 +94,7 @@ public readonly struct GenAiExecuteToolSpan
     /// <summary>
     /// <c>gen_ai.tool.name</c>: Name of the tool utilized by the agent.
     /// </summary>
-    public string ToolName => Record.GetString("gen_ai.tool.name") ?? string.Empty;
+    public string ToolName => (Record.GetString("gen_ai.tool.name") ?? throw new global::System.InvalidOperationException("Required attribute 'gen_ai.tool.name' is missing or has an invalid type."));
 
     /// <summary>
     /// <c>gen_ai.tool.type</c>: Type of the tool utilized by the agent
@@ -91,7 +107,7 @@ public readonly struct GenAiExecuteToolSpan
     public static bool Matches(global::Qyl.Telemetry.SemanticConventions.SpanRecord span)
         => span is not null
            && span.Kind == global::Qyl.Telemetry.SemanticConventions.SpanKind.Internal
-           && span.Attributes.ContainsKey("gen_ai.tool.name")
+           && span.GetString("gen_ai.tool.name") is not null
            && string.Equals(span.GetString("gen_ai.operation.name"), "execute_tool", global::System.StringComparison.Ordinal)
            ;
 }
@@ -105,10 +121,26 @@ public readonly struct GenAiExecuteToolSpan
 /// </remarks>
 public readonly struct GenAiInvokeAgentSpan
 {
-    /// <summary>Wraps <paramref name="record"/>; <see cref="IncubatingSpanViews.GenAiInvokeAgent"/> selects the records that match.</summary>
+    /// <summary>Projects a matching record; rejects missing or incorrectly typed required attributes.</summary>
     /// <param name="record">The span.</param>
     public GenAiInvokeAgentSpan(global::Qyl.Telemetry.SemanticConventions.SpanRecord record)
-        => Record = record ?? throw new global::System.ArgumentNullException(nameof(record));
+    {
+        if (record is null) throw new global::System.ArgumentNullException(nameof(record));
+        if (!Matches(record)) throw new global::System.ArgumentException("The record does not match gen_ai.invoke_agent.internal.", nameof(record));
+        Record = record;
+    }
+
+    /// <summary>Returns a view when the record matches; otherwise returns false and a null view.</summary>
+    public static bool TryCreate(global::Qyl.Telemetry.SemanticConventions.SpanRecord? record, out GenAiInvokeAgentSpan? view)
+    {
+        if (record is null || !Matches(record))
+        {
+            view = null;
+            return false;
+        }
+        view = new GenAiInvokeAgentSpan(record);
+        return true;
+    }
 
     /// <summary>
     /// The attribute keys this view reads, all of them persisted.
@@ -220,10 +252,26 @@ public readonly struct GenAiInvokeAgentSpan
 /// </remarks>
 public readonly struct MessagingProcessConsumerSpan
 {
-    /// <summary>Wraps <paramref name="record"/>; <see cref="IncubatingSpanViews.MessagingProcessConsumer"/> selects the records that match.</summary>
+    /// <summary>Projects a matching record; rejects missing or incorrectly typed required attributes.</summary>
     /// <param name="record">The span.</param>
     public MessagingProcessConsumerSpan(global::Qyl.Telemetry.SemanticConventions.SpanRecord record)
-        => Record = record ?? throw new global::System.ArgumentNullException(nameof(record));
+    {
+        if (record is null) throw new global::System.ArgumentNullException(nameof(record));
+        if (!Matches(record)) throw new global::System.ArgumentException("The record does not match messaging.process.consumer.", nameof(record));
+        Record = record;
+    }
+
+    /// <summary>Returns a view when the record matches; otherwise returns false and a null view.</summary>
+    public static bool TryCreate(global::Qyl.Telemetry.SemanticConventions.SpanRecord? record, out MessagingProcessConsumerSpan? view)
+    {
+        if (record is null || !Matches(record))
+        {
+            view = null;
+            return false;
+        }
+        view = new MessagingProcessConsumerSpan(record);
+        return true;
+    }
 
     /// <summary>
     /// The attribute keys this view reads, all of them persisted.
@@ -279,12 +327,12 @@ public readonly struct MessagingProcessConsumerSpan
     /// <summary>
     /// <c>messaging.operation.name</c>: The system-specific name of the messaging operation.
     /// </summary>
-    public string OperationName => Record.GetString("messaging.operation.name") ?? string.Empty;
+    public string OperationName => (Record.GetString("messaging.operation.name") ?? throw new global::System.InvalidOperationException("Required attribute 'messaging.operation.name' is missing or has an invalid type."));
 
     /// <summary>
     /// <c>messaging.system</c>: The messaging system as identified by the client instrumentation.
     /// </summary>
-    public global::Qyl.Telemetry.SemanticConventions.Incubating.Activities.MessagingSystem System => global::Qyl.Telemetry.SemanticConventions.Incubating.Activities.MessagingSystem.Custom(Record.GetString("messaging.system") ?? string.Empty);
+    public global::Qyl.Telemetry.SemanticConventions.Incubating.Activities.MessagingSystem System => global::Qyl.Telemetry.SemanticConventions.Incubating.Activities.MessagingSystem.Custom((Record.GetString("messaging.system") ?? throw new global::System.InvalidOperationException("Required attribute 'messaging.system' is missing or has an invalid type.")));
 
     /// <summary>
     /// <c>server.address</c>: Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX domain socket name.
@@ -302,8 +350,8 @@ public readonly struct MessagingProcessConsumerSpan
     public static bool Matches(global::Qyl.Telemetry.SemanticConventions.SpanRecord span)
         => span is not null
            && span.Kind == global::Qyl.Telemetry.SemanticConventions.SpanKind.Consumer
-           && span.Attributes.ContainsKey("messaging.operation.name")
-           && span.Attributes.ContainsKey("messaging.system")
+           && span.GetString("messaging.operation.name") is not null
+           && span.GetString("messaging.system") is not null
            && string.Equals(span.GetString("messaging.operation.type"), "process", global::System.StringComparison.Ordinal)
            ;
 }

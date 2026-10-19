@@ -36,6 +36,7 @@ public static class ExecServerConnectionsTotalIncubatingMetricDefinitions
             brief: "Counts/accumulates exec server connections total observations; interpret each dimension using the source.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("transport", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

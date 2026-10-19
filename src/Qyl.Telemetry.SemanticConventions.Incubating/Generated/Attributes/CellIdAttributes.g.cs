@@ -23,5 +23,5 @@ public static class CellIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string CellId = "cell_id";
+    public const string CellIdNative = "cell_id";
 }

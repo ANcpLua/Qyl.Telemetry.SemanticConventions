@@ -29,6 +29,7 @@ public static class DeviceRegistryUnavailableProbeCodeIncubatingEventDefinitions
             brief: "Device registry unavailable probe code event.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("unavailable_probe_code", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("unavailable_probe_reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("unavailable_probe_code", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("unavailable_probe_reason", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 }

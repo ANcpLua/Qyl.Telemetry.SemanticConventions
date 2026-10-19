@@ -29,6 +29,7 @@ public static class CcdSimulatorManualGestureIncubatingEventDefinitions
             brief: "Ccd simulator manual gesture event.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("device_platform", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gesture_type", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("origin", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("device_platform", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gesture_type", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("origin", "any", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 }

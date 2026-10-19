@@ -32,10 +32,26 @@ public static class SpanViews
 /// </remarks>
 public readonly struct DbClientSpan
 {
-    /// <summary>Wraps <paramref name="record"/>; <see cref="SpanViews.DbClient"/> selects the records that match.</summary>
+    /// <summary>Projects a matching record; rejects missing or incorrectly typed required attributes.</summary>
     /// <param name="record">The span.</param>
     public DbClientSpan(global::Qyl.Telemetry.SemanticConventions.SpanRecord record)
-        => Record = record ?? throw new global::System.ArgumentNullException(nameof(record));
+    {
+        if (record is null) throw new global::System.ArgumentNullException(nameof(record));
+        if (!Matches(record)) throw new global::System.ArgumentException("The record does not match db.client.", nameof(record));
+        Record = record;
+    }
+
+    /// <summary>Returns a view when the record matches; otherwise returns false and a null view.</summary>
+    public static bool TryCreate(global::Qyl.Telemetry.SemanticConventions.SpanRecord? record, out DbClientSpan? view)
+    {
+        if (record is null || !Matches(record))
+        {
+            view = null;
+            return false;
+        }
+        view = new DbClientSpan(record);
+        return true;
+    }
 
     /// <summary>
     /// The attribute keys this view reads, all of them persisted.
@@ -101,7 +117,7 @@ public readonly struct DbClientSpan
     /// <summary>
     /// <c>db.system.name</c>: The database management system (DBMS) product as identified by the client instrumentation.
     /// </summary>
-    public global::Qyl.Telemetry.SemanticConventions.Activities.DbSystemName System => global::Qyl.Telemetry.SemanticConventions.Activities.DbSystemName.Custom(Record.GetString("db.system.name") ?? string.Empty);
+    public global::Qyl.Telemetry.SemanticConventions.Activities.DbSystemName System => global::Qyl.Telemetry.SemanticConventions.Activities.DbSystemName.Custom((Record.GetString("db.system.name") ?? throw new global::System.InvalidOperationException("Required attribute 'db.system.name' is missing or has an invalid type.")));
 
     /// <summary>
     /// <c>error.type</c>: Describes a class of error the operation ended with.
@@ -134,6 +150,6 @@ public readonly struct DbClientSpan
     public static bool Matches(global::Qyl.Telemetry.SemanticConventions.SpanRecord span)
         => span is not null
            && span.Kind == global::Qyl.Telemetry.SemanticConventions.SpanKind.Client
-           && span.Attributes.ContainsKey("db.system.name")
+           && span.GetString("db.system.name") is not null
            ;
 }

@@ -23,8 +23,21 @@ public static class ErrorMessageIncubatingActivityExtensions
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4342350. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public static global::System.Diagnostics.Activity SetErrorMessage(
+    public static global::System.Diagnostics.Activity SetErrorMessageNative__101_114_114_111_114_77_101_115_115_97_103_101(
         this global::System.Diagnostics.Activity activity,
         object value)
         => activity.SetTag("errorMessage", value);
+
+    /// <summary>
+    /// Error message recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 43413. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 816073. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 819719. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// <para/>
+    /// May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetErrorMessageNative__101_114_114_111_114_95_109_101_115_115_97_103_101(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("error_message", value);
 }

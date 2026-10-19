@@ -28,6 +28,7 @@ public static class ProcessMetricDefinitions
             brief: "Deprecated, use `process.unix.file_descriptor.count` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("process.unix.file_descriptor.count"),
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("process") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("process", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 }

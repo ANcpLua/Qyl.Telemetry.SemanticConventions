@@ -19,5 +19,5 @@ public static class MessageUuidAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 333871. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 756049. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 756770. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string MessageUuid = "message_uuid";
+    public const string MessageUuidNative = "message_uuid";
 }

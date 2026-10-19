@@ -33,7 +33,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -52,7 +53,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -71,7 +73,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -90,7 +93,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -109,7 +113,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -128,7 +133,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -147,7 +153,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -166,7 +173,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -185,8 +193,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.hugepage.size", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.hugepage.size", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The current observed total usage of the resource across all projects.
@@ -204,8 +213,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.hugepage.size", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.hugepage.size", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The enforced hard limit of the resource across all projects.
@@ -223,7 +233,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -242,7 +253,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -261,7 +273,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -280,7 +293,8 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -299,8 +313,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.resourcequota.resource_name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.resourcequota.resource_name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The current observed total usage of the resource across all projects.
@@ -318,8 +333,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.resourcequota.resource_name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.resourcequota.resource_name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The enforced hard limit of the resource across all projects.
@@ -340,8 +356,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The current observed total usage of the resource across all projects.
@@ -362,8 +379,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The enforced hard limit of the resource across all projects.
@@ -384,8 +402,9 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The enforced hard limit of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The current observed total usage of the resource across all projects.
@@ -406,6 +425,7 @@ public static class OpenshiftIncubatingMetricDefinitions
             brief: "The current observed total usage of the resource across all projects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("openshift.clusterquota") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("openshift.clusterquota", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("k8s.storageclass.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "The `k8s.storageclass.name` should be required when a resource quota is defined for a specific storage class.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

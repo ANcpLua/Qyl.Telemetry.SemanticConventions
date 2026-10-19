@@ -85,6 +85,27 @@ public static class ProcessIncubatingActivityExtensions
         => activity.SetTag("process.exit.time", value);
 
     /// <summary>
+    /// Exited process status code.
+    /// </summary>
+    /// <remarks>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L34
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L36
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L39
+    /// <para/>
+    /// https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec-server/src/process_telemetry.rs#L48
+    /// <para/>
+    /// The source union does not establish a single primitive wire type. Preserve the received type; do not convert numeric text, booleans or structured values by guessing.
+    /// <para/>
+    /// Event-specific meaning and capture conditions are documented on each signal reference.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetProcessExitCodeNative(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("process.exit_code", value);
+
+    /// <summary>
     /// The PID of the process's group leader. This is also the process group ID (PGID) of the process.
     /// </summary>
     public static global::System.Diagnostics.Activity SetProcessGroupLeaderPid(

@@ -107,31 +107,54 @@ public sealed class SpanRecord
     /// <param name="key">The attribute key.</param>
     /// <returns>The value.</returns>
     public long? GetInt64(string key) =>
-        Attributes.TryGetValue(key, out var value)
-            ? value switch
-            {
-                long l => l,
-                int i => i,
-                short s => s,
-                byte b => b,
-                _ => null,
-            }
-            : null;
+        Attributes.TryGetValue(key, out var value) ? ReadInt64(value) : null;
 
     /// <summary>The attribute as a double, or <see langword="null"/> when absent or not a number.</summary>
     /// <param name="key">The attribute key.</param>
     /// <returns>The value.</returns>
     public double? GetDouble(string key) =>
-        Attributes.TryGetValue(key, out var value)
-            ? value switch
-            {
-                double d => d,
-                float f => f,
-                long l => l,
-                int i => i,
-                _ => null,
-            }
-            : null;
+        Attributes.TryGetValue(key, out var value) ? ReadDouble(value) : null;
+
+    private static long? ReadInt64(object? value) => value switch
+    {
+        long number => number,
+        int number => number,
+        short number => number,
+        byte number => number,
+        _ => null
+    };
+
+    private static double? ReadDouble(object? value) => value switch
+    {
+        double number => number,
+        float number => number,
+        long number => number,
+        int number => number,
+        _ => null
+    };
+
+    /// <summary>The attribute as integers, or null if absent or any element has an unsupported type.</summary>
+    public IReadOnlyList<long>? GetInt64s(string key) => GetValues(key, ReadInt64);
+
+    /// <summary>The attribute as numbers, or null if absent or any element has an unsupported type.</summary>
+    public IReadOnlyList<double>? GetDoubles(string key) => GetValues(key, ReadDouble);
+
+    /// <summary>The attribute as booleans, or null if absent or any element is not a boolean.</summary>
+    public IReadOnlyList<bool>? GetBooleans(string key) => GetValues<bool>(key, static value => value is bool boolean ? boolean : null);
+
+    private List<T>? GetValues<T>(string key, Func<object?, T?> read) where T : struct
+    {
+        if (!Attributes.TryGetValue(key, out var value) || value is string || value is not System.Collections.IEnumerable items)
+            return null;
+
+        var values = new List<T>();
+        foreach (var item in items)
+        {
+            if (read(item) is not { } typed) return null;
+            values.Add(typed);
+        }
+        return values;
+    }
 
     /// <summary>The attribute as a boolean, or <see langword="null"/> when absent or not a boolean.</summary>
     /// <param name="key">The attribute key.</param>

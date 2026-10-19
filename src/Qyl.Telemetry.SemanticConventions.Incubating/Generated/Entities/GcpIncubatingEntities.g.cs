@@ -26,7 +26,8 @@ public static class GcpIncubatingEntityDefinitions
             brief: "Attributes denoting data from an Application in AppHub. See [AppHub overview](https://cloud.google.com/app-hub/docs/overview).",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.application.container", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.application.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.application.location", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.application.container", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.application.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.application.location", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 
     /// <summary>
@@ -38,7 +39,8 @@ public static class GcpIncubatingEntityDefinitions
             brief: "Attributes denoting data from a Service in AppHub. See [AppHub overview](https://cloud.google.com/app-hub/docs/overview).",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.service.criticality_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.service.environment_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.service.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.service.criticality_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.service.environment_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.service.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 
     /// <summary>
@@ -50,7 +52,8 @@ public static class GcpIncubatingEntityDefinitions
             brief: "Attributes denoting data from a Workload in AppHub. See [AppHub overview](https://cloud.google.com/app-hub/docs/overview).",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.workload.criticality_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.workload.environment_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.apphub.workload.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.apphub.workload.criticality_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.workload.environment_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.apphub.workload.id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 
     /// <summary>
@@ -62,7 +65,8 @@ public static class GcpIncubatingEntityDefinitions
             brief: "Resource used by Google Cloud Run.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.cloud_run.job.execution", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.cloud_run.job.task_index", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.cloud_run.job.execution", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.cloud_run.job.task_index", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 
     /// <summary>
@@ -74,7 +78,8 @@ public static class GcpIncubatingEntityDefinitions
             brief: "Resources used by Google Compute Engine (GCE).",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.gce.instance.hostname", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.gce.instance.labels", "template", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("gcp.gce.instance.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("gcp.gce.instance.hostname", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.gce.instance.labels", "template", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("gcp.gce.instance.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef>());
 
     /// <summary>
@@ -86,6 +91,7 @@ public static class GcpIncubatingEntityDefinitions
             brief: "A GCE instance group manager.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("gcp.gce.instance_group_manager.name", "string", false), new("gcp.gce.instance_group_manager.region", "string", false), new("gcp.gce.instance_group_manager.zone", "string", false) });
 }

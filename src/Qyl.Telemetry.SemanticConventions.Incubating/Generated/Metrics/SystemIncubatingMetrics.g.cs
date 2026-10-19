@@ -27,8 +27,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Operating frequency of the logical CPU in Hertz.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Reports the number of logical (virtual) processor cores created by the operating system to manage multitasking.
@@ -43,7 +44,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Reports the number of logical (virtual) processor cores created by the operating system to manage multitasking.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -59,7 +61,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Reports the number of actual physical processor cores on the hardware.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -72,8 +75,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Seconds each logical CPU spent on each mode.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// For each logical CPU, the utilization is calculated as the change in cumulative CPU time (cpu.time) over a measurement interval, divided by the elapsed time.
@@ -85,8 +89,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "For each logical CPU, the utilization is calculated as the change in cumulative CPU time (cpu.time) over a measurement interval, divided by the elapsed time.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("cpu.logical_number", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cpu.mode", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Disk bytes transferred.
@@ -98,8 +103,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Disk bytes transferred.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Time disk spent activated.
@@ -119,8 +125,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Time disk spent activated.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The total storage capacity of the disk.
@@ -132,8 +139,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The total storage capacity of the disk.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of disk reads/writes merged into single physical disk access operations.
@@ -145,8 +153,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of disk reads/writes merged into single physical disk access operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Sum of the time each operation took to complete.
@@ -164,8 +173,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Sum of the time each operation took to complete.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Disk operations count.
@@ -177,8 +187,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Disk operations count.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("disk.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The total storage capacity of the filesystem.
@@ -190,8 +201,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The total storage capacity of the filesystem.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Filesystem lock counts.
@@ -203,8 +215,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Filesystem lock counts.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("file.lock.mechanism", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("file.lock.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("file.lock.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("file.lock.mechanism", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("file.lock.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("file.lock.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Reports a filesystem's space usage across different states.
@@ -220,8 +233,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Reports a filesystem's space usage across different states.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Fraction of filesystem bytes used.
@@ -233,8 +247,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Fraction of filesystem bytes used.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mode", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.mountpoint", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.filesystem.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total virtual memory available in the system.
@@ -246,7 +261,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Total virtual memory available in the system.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -266,7 +282,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "An estimate of how much memory is available for starting new applications, without causing swapping.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -279,7 +296,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Total number of hugepages available.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -292,7 +310,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "System hugepage size in bytes.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -310,7 +329,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Number of reserved hugepages.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -328,7 +348,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Number of surplus hugepages.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -341,8 +362,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Number of hugepages in use by state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.hugepages.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.hugepages.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Percentage of hugepages in use by state.
@@ -354,8 +376,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Percentage of hugepages in use by state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.hugepages.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.hugepages.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Shared memory used (mostly by tmpfs).
@@ -371,7 +394,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Shared memory used (mostly by tmpfs).",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -389,8 +413,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Reports the memory used by the Linux kernel for managing caches of frequently used objects.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.slab.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.linux.slab.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Reports memory in use by state.
@@ -402,8 +427,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Reports memory in use by state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Percentage of memory bytes in use.
@@ -415,8 +441,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Percentage of memory bytes in use.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.memory.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of connections.
@@ -428,8 +455,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of connections.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.connection.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.transport", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.connection.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.transport", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Count of network errors detected.
@@ -448,8 +476,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Count of network errors detected.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of bytes transmitted and received.
@@ -461,8 +490,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of bytes transmitted and received.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of packets transferred.
@@ -474,8 +504,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of packets transferred.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Count of packets that are dropped or discarded even though there was no error.
@@ -494,8 +525,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Count of packets that are dropped or discarded even though there was no error.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("network.interface.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.io.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of page faults.
@@ -507,8 +539,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of page faults.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// The number of paging operations.
@@ -520,8 +553,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The number of paging operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.direction", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// UNIX swap or windows pagefile usage.
@@ -533,8 +567,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "UNIX swap or windows pagefile usage.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.paging.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.paging.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Swap (UNIX) or pagefile (windows) utilization.
@@ -546,8 +581,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Swap (UNIX) or pagefile (windows) utilization.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("system.paging.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.device", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("system.paging.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total number of processes in each state.
@@ -559,8 +595,9 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Total number of processes in each state.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("process.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total number of processes created over uptime of the host.
@@ -572,7 +609,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "Total number of processes created over uptime of the host.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -590,7 +628,8 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The maximum number of concurrent processes/tasks allowed by the operating system.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 
     /// <summary>
@@ -607,6 +646,7 @@ public static class SystemIncubatingMetricDefinitions
             brief: "The time the system has been running.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("host") },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("host", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>());
 }

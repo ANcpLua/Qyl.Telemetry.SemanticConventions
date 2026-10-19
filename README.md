@@ -280,10 +280,31 @@ The typed setter of an enum attribute takes the struct. Resource-only attributes
 (`service.name`, `deployment.environment.name`, `host.*`: referenced by entities and by no span,
 event or metric) get no `Activity` setter.
 
+One shared Weaver JQ symbol map distinguishes wire keys before filtering by stability or
+generating constants, setters and value sets. For example, `error.type` uses `SetErrorType`,
+while native `error_type` uses `SetErrorTypeNative`. A collision with the `Native` suffix gets
+a deterministic code-point suffix. The emitted wire names remain unchanged. Analyzer lookup
+uses the declaring type and complete parameter signature. TypeScript enum constants use the
+same collision-aware attribute naming as their attribute constants.
+
 Span rows are keyed by the registry's span refinement id and grouped by type, so a
 specialization (`db.postgresql.client`, the gen_ai skill spans) is a row of its own with
 `Type` naming its base; each row carries its `SpanName` chain, and each `AttributeRef` its
-condition text, `Phase` and `IsPersisted`.
+condition text, `Phase`, `SamplingRelevant` and `IsPersisted`. A reference's `qyl.phase` overrides
+the global phase policy for metadata, starter parameters and analyzer parameter maps.
+Sampling relevance is independent of that availability decision.
+
+Metric, span, event and entity definitions expose a separate `SignalRequirementLevel`:
+`Recommended` by default, or `OptIn`. This describes collection of the signal, independently
+of whether an attribute is required on it. Metrics, spans and events carry `EntityAssociations`:
+an outer implicit one-of list of `EntityRef`, `EntityAssociation.OneOf` and
+`EntityAssociation.AllOf` expressions. Every reference includes its defining registry's
+schema URL and any source path provided by Weaver; nested alternatives are not flattened.
+
+Typed views validate required values as well as span kind and fixed discriminators.
+`TryCreate` returns false with a null view for an unsuccessful projection; direct construction
+rejects a nonmatching record. Required getters never substitute an empty string or zero for
+malformed telemetry. Optional getters return null when a value cannot be projected.
 
 The starters (ADR D2) exist for the span groups no library qyl subscribes to already emits:
 `db.client` on `Qyl.Spans`; `messaging.process.consumer`, `gen_ai.invoke_agent.internal`,

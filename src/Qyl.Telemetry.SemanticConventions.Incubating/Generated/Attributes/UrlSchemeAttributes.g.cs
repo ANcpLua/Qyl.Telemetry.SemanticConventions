@@ -19,5 +19,5 @@ public static class UrlSchemeAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DDab7kkB.js; JavaScript UTF-16 offset 13086. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string UrlScheme = "url_scheme";
+    public const string UrlSchemeNative = "url_scheme";
 }

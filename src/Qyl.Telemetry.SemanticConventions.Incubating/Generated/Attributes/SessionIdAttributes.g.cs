@@ -19,7 +19,7 @@ public static class SessionIdAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-D7Sj9EoB.js; JavaScript UTF-16 offset 45526. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string SessionId = "sessionId";
+    public const string SessionIdNative__115_101_115_115_105_111_110_73_100 = "sessionId";
 
     /// <summary>
     /// Session identifier in the desktop or browser producer spelling.
@@ -27,5 +27,5 @@ public static class SessionIdAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-1iyMx3P_.js; JavaScript UTF-16 offset 10139. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-1iyMx3P_.js; JavaScript UTF-16 offset 10962. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-1iyMx3P_.js; JavaScript UTF-16 offset 11244. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string SessionIdNative = "session_id";
+    public const string SessionIdNative__115_101_115_115_105_111_110_95_105_100 = "session_id";
 }

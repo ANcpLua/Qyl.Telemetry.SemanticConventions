@@ -23,7 +23,7 @@ public static class ErrorTypeIncubatingActivityExtensions
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:823. Claude Code 2.1.302 embedded module at binary offset 220845554; JavaScript UTF-16 offset 2892980. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DDab7kkB.js; JavaScript UTF-16 offset 8975. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public static global::System.Diagnostics.Activity SetErrorType(
+    public static global::System.Diagnostics.Activity SetErrorTypeNative(
         this global::System.Diagnostics.Activity activity,
         object value)
         => activity.SetTag("error_type", value);

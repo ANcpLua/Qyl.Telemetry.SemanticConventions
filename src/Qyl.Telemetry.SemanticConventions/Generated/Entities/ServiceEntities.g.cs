@@ -26,7 +26,8 @@ public static class ServiceEntityDefinitions
             brief: "A logical unit of an application or system that performs a specific function.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("service.criticality", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("service.version", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("service.criticality", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("service.version", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("service.name", "string", false) });
 
     /// <summary>
@@ -38,6 +39,7 @@ public static class ServiceEntityDefinitions
             brief: "A unique instance of a logical service.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("service.instance.id", "string", false) });
 
@@ -50,6 +52,7 @@ public static class ServiceEntityDefinitions
             brief: "Groups related services that compose a system or application under a common namespace.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
             attributes: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRef>(),
             identity: new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { new("service.namespace", "string", false) });
 }

@@ -39,7 +39,7 @@ public static class FeatureFlagActivityExtensions
     /// Deprecated, use <c>feature_flag.provider.name</c> instead.
     /// </summary>
     [global::System.Obsolete("Replaced by feature_flag.provider.name.", false)]
-    public static global::System.Diagnostics.Activity SetFeatureFlagProviderName(
+    public static global::System.Diagnostics.Activity SetFeatureFlagProviderNameNative(
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("feature_flag.provider_name", value);

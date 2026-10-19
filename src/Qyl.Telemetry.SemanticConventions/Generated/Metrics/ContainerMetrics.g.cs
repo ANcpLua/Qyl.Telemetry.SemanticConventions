@@ -32,6 +32,7 @@ public static class ContainerMetricDefinitions
             brief: "Deprecated, use `container.paging.faults` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("container.paging.faults"),
-            entities: new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { new("container") },
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { new global::Qyl.Telemetry.SemanticConventions.EntityRef("container", new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance("https://opentelemetry.io/schemas/1.44.0", null)) },
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("system.paging.fault.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

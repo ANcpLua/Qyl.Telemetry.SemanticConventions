@@ -28,8 +28,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.create_time` instead. Note: the unit also changed from `ms` to `s`.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Uncategorized("Replaced by `db.client.connection.create_time` with unit `s`."),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.idle.max</c> instead.
@@ -42,8 +43,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.idle.max` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.idle.max"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.idle.min</c> instead.
@@ -56,8 +58,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.idle.min` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.idle.min"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.max</c> instead.
@@ -70,8 +73,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.max` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.max"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.pending_requests</c> instead.
@@ -84,8 +88,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.pending_requests` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.pending_requests"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.timeouts</c> instead.
@@ -98,8 +103,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.timeouts` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.timeouts"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.count</c> instead.
@@ -112,8 +118,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.count` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("db.client.connection.count"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.client.connections.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.client.connections.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.use_time</c> instead. Note: the unit also changed from <c>ms</c> to <c>s</c>.
@@ -126,8 +133,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.use_time` instead. Note: the unit also changed from `ms` to `s`.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Uncategorized("Replaced by `db.client.connection.use_time` with unit `s`."),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>db.client.connection.wait_time</c> instead. Note: the unit also changed from <c>ms</c> to <c>s</c>.
@@ -140,8 +148,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `db.client.connection.wait_time` instead. Note: the unit also changed from `ms` to `s`.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Uncategorized("Replaced by `db.client.connection.wait_time` with unit `s`."),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.client.connections.pool.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>azure.cosmosdb.client.active_instance.count</c> instead.
@@ -154,8 +163,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `azure.cosmosdb.client.active_instance.count` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("azure.cosmosdb.client.active_instance.count"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If using a port other than the default port for this DBMS and if `server.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If using a port other than the default port for this DBMS and if `server.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Deprecated, use <c>azure.cosmosdb.client.operation.request_charge</c> instead.
@@ -168,8 +178,9 @@ public static class DbMetricDefinitions
             brief: "Deprecated, use `azure.cosmosdb.client.operation.request_charge` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("azure.cosmosdb.client.operation.request_charge"),
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.collection.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.cosmosdb.consistency_level", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, true, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.cosmosdb.regions_contacted", "string[]", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, "If available", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.cosmosdb.sub_status_code", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, true, "when response was received and contained sub-code.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.namespace", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.operation.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if there is a single operation name that describes the database call. The operation name MAY be parsed from the query text, in which case it SHOULD be the single operation name found in the query.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.collection.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.cosmosdb.consistency_level", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, true, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.cosmosdb.regions_contacted", "string[]", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, "If available", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.cosmosdb.sub_status_code", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, true, "when response was received and contained sub-code.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.namespace", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.operation.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if there is a single operation name that describes the database call. The operation name MAY be parsed from the query text, in which case it SHOULD be the single operation name found in the query.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Duration of database client operations.
@@ -184,6 +195,7 @@ public static class DbMetricDefinitions
             brief: "Duration of database client operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Stable,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.collection.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if a database call is performed on a single collection.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.namespace", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.operation.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if there is a single operation name that describes the database call.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.query.summary", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "if available through instrumentation hooks or if the instrumentation supports generating a query summary.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.query.text", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("db.response.status_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If the operation failed and status code is available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("db.stored_procedure.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If operation applies to a specific stored procedure.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("db.system.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If and only if the operation failed.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true), new("network.peer.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If applicable for this database system.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("network.peer.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If and only if `network.peer.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If using a port other than the default port for this DBMS and if `server.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("db.collection.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if a database call is performed on a single collection.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.namespace", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.operation.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If readily available and if there is a single operation name that describes the database call.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.query.summary", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "if available through instrumentation hooks or if the instrumentation supports generating a query summary.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.query.text", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.OptIn, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("db.response.status_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If the operation failed and status code is available.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("db.stored_procedure.name", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If operation applies to a specific stored procedure.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("db.system.name", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If and only if the operation failed.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false), new("network.peer.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If applicable for this database system.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("network.peer.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, "If and only if `network.peer.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server.address", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("server.port", "int", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "If using a port other than the default port for this DBMS and if `server.address` is set.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

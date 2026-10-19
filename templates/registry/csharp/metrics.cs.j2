@@ -46,7 +46,8 @@ public static class {{ ctx.type_root }}MetricDefinitions
 {{ pad }}        brief: "{{ lib.escape_attribute(brief) }}",
 {{ pad }}        stability: {{ lib.stability_expr(m.stability | default("development", true)) }},
 {{ pad }}        deprecation: {{ lib.deprecation_expr(m.deprecated) }},
-{{ pad }}        entities: {{ lib.entity_array_expr(m.entity_associations | default([], true)) }},
+{{ pad }}        requirementLevel: {{ lib.signal_requirement_expr(m.requirement_level | default("recommended", true)) }},
+{{ pad }}        entityAssociations: {{ lib.entity_array_expr(m.entity_associations | default([], true), m.provenance.source | default(ctx.qyl_schema_url, true)) }},
 {{ pad }}        attributes: {{ lib.attribute_array_expr(m.attributes | default([], true), params.policy) }});
 {% endfor %}
 }

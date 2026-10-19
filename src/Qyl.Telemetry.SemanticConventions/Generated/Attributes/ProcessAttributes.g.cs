@@ -14,12 +14,6 @@ namespace Qyl.Telemetry.SemanticConventions.Attributes.Process;
 public static class ProcessAttributes
 {
     /// <summary>
-    /// "Deprecated, use <c>process.context_switch.type</c> instead."
-    /// </summary>
-    [global::System.Obsolete("Replaced by process.context_switch.type.", false)]
-    public const string ContextSwitchType = "process.context_switch_type";
-
-    /// <summary>
     /// Deprecated, use <c>cpu.mode</c> instead.
     /// </summary>
     [global::System.Obsolete("Replaced by cpu.mode.", false)]

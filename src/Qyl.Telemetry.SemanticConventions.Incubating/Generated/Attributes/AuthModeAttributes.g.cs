@@ -31,5 +31,5 @@ public static class AuthModeAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string AuthMode = "auth_mode";
+    public const string AuthModeNative = "auth_mode";
 }

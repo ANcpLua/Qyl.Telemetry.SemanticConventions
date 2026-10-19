@@ -1,0 +1,76 @@
+file_format: definition/2
+attributes:
+  - {key: fidelity.id, type: string, brief: Identity., stability: development, examples: [local-1]}
+  - {key: fidelity.count, type: int, brief: Count., stability: development}
+  - {key: fidelity.ratio, type: double, brief: Ratio., stability: development}
+  - key: fidelity.mode
+    type:
+      members:
+        - {id: zero, value: 0, brief: Zero., stability: development}
+        - {id: one, value: 1, brief: One., stability: development}
+    brief: Numeric mode.
+    stability: development
+  - {key: fidelity.start, type: string, brief: Available at start., stability: development, examples: [input]}
+  - {key: fidelity.finish, type: string, brief: Available at end., stability: development, examples: [output]}
+  - key: fidelity.state.value
+    type:
+      members:
+        - {id: ready, value: ready, brief: Ready., stability: development}
+    brief: Canonical state.
+    stability: development
+  - key: fidelity.state_value
+    type:
+      members:
+        - {id: ready, value: waiting, brief: Native state., stability: development}
+    brief: Distinct native state.
+    stability: development
+  - {key: fidelity.state.value.native, type: string, brief: Collides with a Native suffix., stability: development, examples: [native]}
+entities:
+  - type: fidelity.operation
+    brief: Local operation.
+    stability: development
+    requirement_level: opt_in
+    identity: [ref: fidelity.id]
+  - type: fidelity.alternate
+    brief: Alternate local operation.
+    stability: development
+    identity: [ref: fidelity.id]
+spans:
+  - type: fidelity.operation.internal
+    name: {note: The constant operation.}
+    kind: internal
+    brief: Operation with reference metadata.
+    stability: development
+    requirement_level: opt_in
+    attributes:
+      - {ref: fidelity.id, requirement_level: required}
+      - {ref: fidelity.count, requirement_level: required}
+      - {ref: fidelity.ratio, requirement_level: required}
+      - {ref: fidelity.mode, requirement_level: required}
+      - ref: fidelity.start
+        requirement_level: recommended
+        sampling_relevant: true
+        annotations: {qyl: {phase: start}}
+      - ref: fidelity.finish
+        requirement_level: recommended
+        annotations: {qyl: {phase: end}}
+    entity_associations: &associations
+      - all_of:
+          - fidelity.operation
+          - one_of: [external.service, fidelity.alternate]
+metrics:
+  - name: fidelity.operations
+    instrument: counter
+    unit: "{operation}"
+    brief: Operation count.
+    stability: development
+    requirement_level: opt_in
+    attributes: [ref: fidelity.id]
+    entity_associations: *associations
+events:
+  - name: fidelity.completed
+    brief: Completion.
+    stability: development
+    requirement_level: opt_in
+    attributes: [ref: fidelity.id]
+    entity_associations: *associations

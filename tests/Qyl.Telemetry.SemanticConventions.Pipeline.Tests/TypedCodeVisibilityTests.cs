@@ -10,6 +10,49 @@ namespace Qyl.Telemetry.SemanticConventions.Pipeline.Tests;
 [TestClass]
 public sealed class TypedCodeVisibilityTests(TestContext testContext)
 {
+    [TestMethod]
+    public async Task Native_error_type_is_not_analyzed_as_the_upstream_enum()
+    {
+        var diagnostics = await AnalyzerRun.DiagnosticsAsync(new Qyl0013IncorrectAttributeTypeAnalyzer(), "QYL0013", """
+            using System.Diagnostics;
+            using Qyl.Telemetry.SemanticConventions.Activities;
+            using Qyl.Telemetry.SemanticConventions.Incubating.Activities;
+            public static class Instrumentation
+            {
+                public static void Stamp(Activity activity)
+                {
+                    activity.SetErrorTypeNative(42);
+                    activity.SetErrorType(ErrorType.Custom("Failure"));
+                }
+            }
+            """, cancellationToken: testContext.CancellationToken);
+        Assert.IsEmpty(diagnostics);
+    }
+
+    [TestMethod]
+    [DataRow("UnrelatedActivityExtensions")]
+    [DataRow("ErrorActivityExtensions")]
+    public async Task Same_named_methods_require_the_declaring_type_and_parameter_signature(string declaringType)
+    {
+        var source = $$"""
+            using System.Diagnostics;
+            namespace Qyl.Telemetry.SemanticConventions.Activities
+            {
+                public static class {{declaringType}}
+                {
+                    public static Activity SetErrorType(this Activity activity, int value) => activity;
+                }
+            }
+            public static class Instrumentation
+            {
+                public static void Stamp(Activity activity) =>
+                    Qyl.Telemetry.SemanticConventions.Activities.{{declaringType}}.SetErrorType(activity, 42);
+            }
+            """;
+        var diagnostics = await AnalyzerRun.DiagnosticsAsync(new Qyl0013IncorrectAttributeTypeAnalyzer(), "QYL0013", source,
+            cancellationToken: testContext.CancellationToken);
+        Assert.IsEmpty(diagnostics);
+    }
 
     [TestMethod]
     public async Task Qyl0012_sees_a_custom_value_through_a_typed_setter()

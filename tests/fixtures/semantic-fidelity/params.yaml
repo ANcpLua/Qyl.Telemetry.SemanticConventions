@@ -1,0 +1,23 @@
+params:
+  weaver_version: 0.28.0
+  core_ref: fixture
+  genai_commit: fixture
+  policy:
+    phase_end: [fidelity.start]
+    not_persisted: []
+    not_persisted_prefixes: []
+    token_exempt: []
+    vendor_keys: []
+    denied_key_tokens: []
+    captured_fields:
+      http_roots: []
+      rpc_roots: []
+      http_name_characters: ''
+      rpc_name_characters: ''
+    spans:
+      fidelity.operation.internal:
+        starter: true
+        domain: app
+        fixed: {}
+        templates: [operation]
+        substitutions: {}

@@ -19,5 +19,5 @@ public static class AgentTypeAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:1281. Claude Code 2.1.302 embedded module at binary offset 228907747; JavaScript UTF-16 offset 140757. Claude Code 2.1.302 embedded module at binary offset 218829013; JavaScript UTF-16 offset 25583. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string AgentType = "agent_type";
+    public const string AgentTypeNative = "agent_type";
 }

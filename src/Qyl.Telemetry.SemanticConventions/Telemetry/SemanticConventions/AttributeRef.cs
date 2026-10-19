@@ -16,6 +16,7 @@ public sealed class AttributeRef
     /// <param name="condition">The registry's condition text for the requirement level, or <see langword="null"/> when it states none.</param>
     /// <param name="phase">When the attribute's value becomes known.</param>
     /// <param name="isPersisted">Whether the qyl collector persists the attribute (<see cref="RegistryPolicy.IsPersisted"/>).</param>
+    /// <param name="samplingRelevant">Whether the span attribute is especially relevant to sampling, independently of value availability.</param>
     public AttributeRef(
         string name,
         string type,
@@ -23,7 +24,8 @@ public sealed class AttributeRef
         bool isDeprecated,
         string? condition,
         AttributePhase phase,
-        bool isPersisted)
+        bool isPersisted,
+        bool samplingRelevant = false)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Type = type ?? throw new ArgumentNullException(nameof(type));
@@ -32,6 +34,7 @@ public sealed class AttributeRef
         Condition = condition;
         Phase = phase;
         IsPersisted = isPersisted;
+        SamplingRelevant = samplingRelevant;
     }
 
     /// <summary>The attribute key (e.g. <c>disk.io.direction</c>).</summary>
@@ -54,6 +57,9 @@ public sealed class AttributeRef
 
     /// <summary>Whether the qyl collector persists the attribute.</summary>
     public bool IsPersisted { get; }
+
+    /// <summary>Whether the attribute is especially relevant to span sampling. Defaults to false.</summary>
+    public bool SamplingRelevant { get; }
 
     /// <inheritdoc/>
     public override string ToString() => Name;

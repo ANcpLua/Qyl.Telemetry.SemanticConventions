@@ -23,5 +23,5 @@ public static class McpServerOriginAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string McpServerOrigin = "mcp_server_origin";
+    public const string McpServerOriginNative = "mcp_server_origin";
 }

@@ -23,5 +23,5 @@ public static class ConversationIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string ConversationId = "conversation_id";
+    public const string ConversationIdNative = "conversation_id";
 }

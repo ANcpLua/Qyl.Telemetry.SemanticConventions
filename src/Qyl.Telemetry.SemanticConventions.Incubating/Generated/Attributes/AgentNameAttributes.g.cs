@@ -23,5 +23,5 @@ public static class AgentNameAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string AgentName = "agent_name";
+    public const string AgentNameNative = "agent_name";
 }

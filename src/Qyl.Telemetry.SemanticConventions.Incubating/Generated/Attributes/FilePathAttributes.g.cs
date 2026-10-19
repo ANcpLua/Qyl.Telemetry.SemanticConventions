@@ -19,5 +19,5 @@ public static class FilePathAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:276. https://code.claude.com/docs/en/monitoring-usage#span-attributes. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string FilePath = "file_path";
+    public const string FilePathNative = "file_path";
 }

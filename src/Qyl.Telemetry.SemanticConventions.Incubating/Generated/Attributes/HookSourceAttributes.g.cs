@@ -19,5 +19,5 @@ public static class HookSourceAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:1177. https://code.claude.com/docs/en/monitoring-usage:1199. https://code.claude.com/docs/en/monitoring-usage:1229. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string HookSource = "hook_source";
+    public const string HookSourceNative = "hook_source";
 }

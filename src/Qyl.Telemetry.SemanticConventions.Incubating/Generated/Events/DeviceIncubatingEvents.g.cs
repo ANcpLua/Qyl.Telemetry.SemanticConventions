@@ -31,6 +31,7 @@ public static class DeviceIncubatingEventDefinitions
             brief: "This event represents an occurrence of a lifecycle transition on Android or iOS platform.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("android.app.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if `os.name` is `android`", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("ios.app.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if `os.name` is `ios`", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("android.app.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if `os.name` is `android`", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("ios.app.state", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if `os.name` is `ios`", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 }

@@ -30,8 +30,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The authentication duration for a request.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of times a scheme is challenged.
@@ -46,8 +47,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of times a scheme is challenged.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of times an authenticated user attempts to access a resource they are not permitted to access.
@@ -62,8 +64,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of times an authenticated user attempts to access a resource they are not permitted to access.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of times a principal is signed in with a scheme.
@@ -78,8 +81,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of times a principal is signed in with a scheme.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of times a principal is signed out with a scheme.
@@ -94,8 +98,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of times a principal is signed out with a scheme.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a scheme is specified during authentication.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of authorization attempts.
@@ -110,8 +115,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of authorization attempts.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authorization.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a policy is specified.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.authorization.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.user.is_authenticated", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authorization.policy", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if a policy is specified.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.authorization.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.user.is_authenticated", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The duration of authenticate attempts. The authenticate metrics is recorded by sign in methods such as PasswordSignInAsync and TwoFactorSignInAsync.
@@ -126,8 +132,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The duration of authenticate attempts. The authenticate metrics is recorded by sign in methods such as PasswordSignInAsync and TwoFactorSignInAsync.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.sign_in.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.sign_in.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.sign_in.is_persistent", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.sign_in.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.sign_in.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.sign_in.is_persistent", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of check password attempts. Checks that the account is in a state that can log in and that the password is valid using the UserManager.CheckPasswordAsync method.
@@ -142,8 +149,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of check password attempts. Checks that the account is in a state that can log in and that the password is valid using the UserManager.CheckPasswordAsync method.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.sign_in.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.sign_in.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of calls to sign in user principals.
@@ -158,8 +166,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of calls to sign in user principals.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.sign_in.is_persistent", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.sign_in.is_persistent", "boolean", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of calls to sign out user principals.
@@ -174,8 +183,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of calls to sign out user principals.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of two factor clients forgotten.
@@ -190,8 +200,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of two factor clients forgotten.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of two factor clients remembered.
@@ -206,8 +217,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of two factor clients remembered.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.authentication.scheme", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The number of check password attempts. Only checks whether the password is valid and not whether the user account is in a state that can log in.
@@ -222,8 +234,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The number of check password attempts. Only checks whether the password is valid and not whether the user account is in a state that can log in.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.password_check_result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.password_check_result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The duration of user creation operations.
@@ -238,8 +251,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The duration of user creation operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The duration of user deletion operations.
@@ -254,8 +268,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The duration of user deletion operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of token generations.
@@ -270,8 +285,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of token generations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.token_purpose", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.token_purpose", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The duration of user update operations.
@@ -286,8 +302,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The duration of user update operations.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user.update_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.error_code", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if an error was set on a failed identity result.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.result", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user.update_type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// The total number of token verification attempts.
@@ -302,8 +319,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "The total number of token verification attempts.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.token_purpose", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.token_verified", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.identity.token_purpose", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.token_verified", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if no exception was thrown.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, false, false), new("aspnetcore.identity.user_type", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Required, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("error.type", "enum", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if and only if an error has occurred.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.End, true, false) });
 
     /// <summary>
     /// Total number of bytes allocated by the memory pool. Allocation occurs when a memory rental request exceeds the available pooled memory.
@@ -318,8 +336,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "Total number of bytes allocated by the memory pool. Allocation occurs when a memory rental request exceeds the available pooled memory.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total number of bytes evicted from the memory pool. Eviction occurs when idle pooled memory is reclaimed.
@@ -334,8 +353,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "Total number of bytes evicted from the memory pool. Eviction occurs when idle pooled memory is reclaimed.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Number of bytes currently pooled and available for reuse.
@@ -350,8 +370,9 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "Number of bytes currently pooled and available for reuse.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 
     /// <summary>
     /// Total number of bytes rented from the memory pool.
@@ -366,6 +387,7 @@ public static class AspnetcoreIncubatingMetricDefinitions
             brief: "Total number of bytes rented from the memory pool.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.None,
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) });
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>(),
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("aspnetcore.memory_pool.owner", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.ConditionallyRequired, false, "if owner is specified when the memory pool is created.", global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) });
 }

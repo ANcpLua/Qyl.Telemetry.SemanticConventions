@@ -10,6 +10,9 @@ comment_formats:
     trim: true
 default_comment_format: csharp
 
+jq_modules:
+  - jq/symbols.jq
+
 # No pin has a default here. The three schema URLs are registry facts and reach the templates
 # through the filters below ($schema_urls); the Weaver version, the core tag, the core commit
 # and the genai commit reach them as -D parameters that scripts/generate.sh reads out of
@@ -28,7 +31,8 @@ templates:
   # `dependencies[...]` are folded in first (top-level wins).
   - template: attributes.cs.j2
     filter: >
-      . as $registry
+      with_attribute_symbols
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -133,52 +137,39 @@ templates:
   # stability tier. The two packages are disjoint: the stable one carries the stable and
   # deprecated rows, the incubating one carries only what is left, under {Root}Incubating*
   # type names, so a consumer may import both namespaces without an ambiguous-call error.
-  # Resolve setter-name collisions across all roots within each tier before grouping.
+  # Resolve symbols across all roots and both tiers before filtering or grouping.
   # Resource-only attributes (referenced by entities and by no span, event or metric:
   # service.name, deployment.environment.name, host.*) get no Activity setter.
   - template: activities.cs.j2
     filter: >
-      . as $registry
+      with_attribute_symbols
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
       | ([($registry.dependencies | keys)[] | select(. != $core)] | first) as $genai
       | {qyl_schema_url: $qyl, core_schema_url: $core, genai_schema_url: $genai} as $schema_urls
       | $registry
-      | def pascal($s): $s | gsub("[_\\-]"; ".") | split(".")
-                     | map(select(length > 0) | (.[0:1] | ascii_upcase) + .[1:]) | join("");
-      def dedupe(f): group_by(f) | map(sort_by([(if .deprecated then 1 else 0 end), f]) | .[0]);
-      ([$registry, $registry.dependencies[]]) as $sources
-      | ([$sources[] | (.registry.entities[]?, .refinements.entities[]?)
-          | ((.identity // [])[], (.description // [])[]) | .key] | unique) as $entity_keys
-      | ([$sources[] | (.registry.spans[]?, .registry.events[]?, .registry.metrics[]?,
-                         .refinements.spans[]?, .refinements.events[]?, .refinements.metrics[]?)
-          | (.attributes // [])[] | .key]
-         | unique | map({key: ., value: true}) | from_entries) as $signal_keys
-      | ($entity_keys | map(select($signal_keys[.] | not)) | map({key: ., value: true})
-         | from_entries) as $no_setter
       | ([.registry.attributes[]]) as $top
       | ($top | map({key: .key, value: true}) | from_entries) as $seen
       | ([.dependencies[].registry.attributes[]] | map(select($seen[.key] | not))) as $extra
-      | (($top + $extra) | map(select($no_setter[.key] | not)) | sort_by(.key)) as $all
+      | (($top + $extra) | map(select(.cs_has_setter)) | sort_by(.key)) as $all
       | [ ($all
             | map(select((.stability == "stable" or (.deprecated != null)) | not))
-            | dedupe(pascal(.key))
             | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "incubating", root: $root, pascal_root: $p, type_root: ($p + "Incubating"),
-               attributes: (. | dedupe(pascal(.key)) | sort_by(.key)),
+               attributes: (. | sort_by(.key)),
                namespace: ("Qyl.Telemetry.SemanticConventions.Incubating.Activities"),
                out_dir: "src/Qyl.Telemetry.SemanticConventions.Incubating/Generated"}),
           ($all
             | map(select(.stability == "stable" or (.deprecated != null)))
-            | dedupe(pascal(.key))
             | group_by(.key | split(".")[0] | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) | .[]
             | (.[0].key | split(".")[0]) as $root
             | ($root | split("_") | map((.[0:1] | ascii_upcase) + .[1:]) | join("")) as $p
             | {tier: "stable", root: $root, pascal_root: $p, type_root: $p,
-               attributes: (. | dedupe(pascal(.key)) | sort_by(.key)),
+               attributes: (. | sort_by(.key)),
                namespace: ("Qyl.Telemetry.SemanticConventions.Activities"),
                out_dir: "src/Qyl.Telemetry.SemanticConventions/Generated"}) ]
       | map(. + $schema_urls)
@@ -272,7 +263,8 @@ templates:
   # qyl.instrumentation.domain values the starters may stamp.
   - template: starters.cs.j2
     filter: >
-      . as $registry
+      with_attribute_symbols
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -296,7 +288,8 @@ templates:
   # Typed views over SpanRecord for the starter span types, next to the starters (ADR D8).
   - template: views.cs.j2
     filter: >
-      . as $registry
+      with_attribute_symbols
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -522,20 +515,18 @@ templates:
   # starter parameters and the denied-key tokens.
   - template: analyzer_typed_surface.cs.j2
     filter: >
-      . as $registry
+      with_attribute_symbols
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
       | ([($registry.dependencies | keys)[] | select(. != $core)] | first) as $genai
       | {qyl_schema_url: $qyl, core_schema_url: $core, genai_schema_url: $genai} as $schema_urls
       | $registry
-      | def pascal($s): $s | gsub("[_\\-]"; ".") | split(".")
-                     | map(select(length > 0) | (.[0:1] | ascii_upcase) + .[1:]) | join("");
-      def dedupe(f): group_by(f) | map(sort_by([(if .deprecated then 1 else 0 end), f]) | .[0]);
-      ([.registry.attributes[]]) as $top
+      | ([.registry.attributes[]]) as $top
       | ($top | map({key: .key, value: true}) | from_entries) as $seen
       | ([.dependencies[].registry.attributes[]] | map(select($seen[.key] | not))) as $extra
-      | {attributes: (($top + $extra) | dedupe(pascal(.key)) | sort_by(.key)),
+      | {attributes: (($top + $extra) | map(select(.cs_has_setter)) | sort_by(.key)),
          spans: ([.refinements.spans[]
                   | select(((.type | startswith("gen_ai.")) | not) or (.id | startswith("gen_ai.")))]
                  | sort_by(.id))}

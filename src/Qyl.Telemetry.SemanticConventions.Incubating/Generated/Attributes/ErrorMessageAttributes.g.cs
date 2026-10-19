@@ -19,7 +19,7 @@ public static class ErrorMessageAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 4342350. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string ErrorMessage = "errorMessage";
+    public const string ErrorMessageNative__101_114_114_111_114_77_101_115_115_97_103_101 = "errorMessage";
 
     /// <summary>
     /// Error message recorded by the native producer; see the versioned source evidence.
@@ -29,5 +29,5 @@ public static class ErrorMessageAttributes
     /// <para/>
     /// May contain sensitive user content, commands or diagnostic details and may be unbounded. qyl-derived capture must be opt-in, apply redaction and a configured size limit, and keep this value off metric dimensions. Native producer capture gates remain authoritative.
     /// </remarks>
-    public const string ErrorMessageNative = "error_message";
+    public const string ErrorMessageNative__101_114_114_111_114_95_109_101_115_115_97_103_101 = "error_message";
 }

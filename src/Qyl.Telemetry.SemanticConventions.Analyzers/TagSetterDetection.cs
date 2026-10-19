@@ -250,10 +250,13 @@ internal static class TagSetterDetection
 
     private static bool TryGetTypedSetter(IInvocationOperation invocation, [NotNullWhen(true)] out SemconvTypedSetter? setter)
     {
-        var method = invocation.TargetMethod;
-        if (method is { IsExtensionMethod: true, ContainingType: { } type }
+        var method = (invocation.TargetMethod.ReducedFrom ?? invocation.TargetMethod).OriginalDefinition;
+        if (method is { IsExtensionMethod: true, Arity: 0, ContainingType: { } type }
             && IsActivitiesNamespace(type.ContainingNamespace)
-            && SemconvTypedSurface.Setters.TryGetValue(method.Name, out setter))
+            && SemconvTypedSurface.Setters.TryGetValue((
+                type.ToDisplayString(),
+                method.Name,
+                string.Join(",", method.Parameters.Select(static parameter => parameter.Type.ToDisplayString(SetterTypeFormat)))), out setter))
         {
             return true;
         }
@@ -261,6 +264,10 @@ internal static class TagSetterDetection
         setter = null;
         return false;
     }
+
+    private static readonly SymbolDisplayFormat SetterTypeFormat = new(
+        typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces,
+        genericsOptions: SymbolDisplayGenericsOptions.IncludeTypeParameters);
 
     private static bool IsActivitiesNamespace(INamespaceSymbol? ns)
     {

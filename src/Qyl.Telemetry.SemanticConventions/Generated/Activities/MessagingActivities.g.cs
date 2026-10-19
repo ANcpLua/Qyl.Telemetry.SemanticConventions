@@ -21,7 +21,7 @@ public static class MessagingActivityExtensions
     /// Deprecated, use <c>messaging.client.id</c> instead.
     /// </summary>
     [global::System.Obsolete("Replaced by messaging.client.id.", false)]
-    public static global::System.Diagnostics.Activity SetMessagingClientId(
+    public static global::System.Diagnostics.Activity SetMessagingClientIdNative(
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("messaging.client_id", value);

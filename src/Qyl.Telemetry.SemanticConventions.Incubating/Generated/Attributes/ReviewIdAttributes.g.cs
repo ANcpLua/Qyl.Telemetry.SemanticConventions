@@ -23,5 +23,5 @@ public static class ReviewIdAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string ReviewId = "review_id";
+    public const string ReviewIdNative = "review_id";
 }

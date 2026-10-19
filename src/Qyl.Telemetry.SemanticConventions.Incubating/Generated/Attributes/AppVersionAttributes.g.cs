@@ -19,5 +19,5 @@ public static class AppVersionAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-muI2IV6k.js; JavaScript UTF-16 offset 6799700. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string AppVersion = "app_version";
+    public const string AppVersionNative = "app_version";
 }

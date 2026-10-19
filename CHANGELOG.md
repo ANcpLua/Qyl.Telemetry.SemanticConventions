@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- Preserve nested entity association expressions and defining-registry provenance on metrics, spans and events. Carry signal collection requirements and independent span-attribute sampling relevance.
+- Use one deterministic C# wire-key symbol map for constants, typed setters, value sets and analyzer metadata. Resolve setters by declaring type and parameter signature; preserve colliding TypeScript enum constants.
+- Reject malformed required values during typed span projection, expose failed projection through `TryCreate`, and use reference-specific value availability consistently for starter parameters and analyzer metadata.
 - Add the pinned OpenAI Codex runtime registry, complete OpenAI evidence catalogs and a development qyl agent lifecycle profile. Preserve native keys, units, log routes, dynamic span names and distinct client/server contracts.
 - Generate both detailed Markdown references directly with Weaver 0.28.0 `.j2` templates, including resolved upstream core and GenAI definitions. Remove the Python Markdown exporter and check source-census coverage in the normal gate.
 - Preserve entity identity without requirement levels, entity associations on spans and events, and reference-specific attribute phases in generated C# contracts. Retain both native spellings when TypeScript identifiers collide.

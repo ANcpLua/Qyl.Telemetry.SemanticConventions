@@ -27,4 +27,15 @@ public static class WillRetryIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         bool value)
         => activity.SetTag("willRetry", value);
+
+    /// <summary>
+    /// Will retry recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 885465. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-DK8QSLgC.js; JavaScript UTF-16 offset 170999. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetWillRetryNative(
+        this global::System.Diagnostics.Activity activity,
+        object value)
+        => activity.SetTag("will_retry", value);
 }

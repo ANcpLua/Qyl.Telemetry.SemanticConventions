@@ -21,21 +21,24 @@ public sealed class EventDefinition
     /// <param name="stability">The stability tier.</param>
     /// <param name="deprecation">Structured deprecation; <see cref="Deprecation.None"/> when current.</param>
     /// <param name="attributes">Attributes this event carries, with requirement levels.</param>
-    /// <param name="entities">Entities this event is associated with.</param>
+    /// <param name="entityAssociations">Entity association expressions; the list is an implicit one-of.</param>
+    /// <param name="requirementLevel">Whether this signal is recommended or opt-in.</param>
     public EventDefinition(
         string name,
         string brief,
         Stability stability,
         Deprecation deprecation,
         IReadOnlyList<AttributeRef> attributes,
-        IReadOnlyList<EntityRef>? entities)
+        IReadOnlyList<EntityAssociation>? entityAssociations,
+        SignalRequirementLevel requirementLevel = SignalRequirementLevel.Recommended)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
         Brief = brief ?? throw new ArgumentNullException(nameof(brief));
         Stability = stability;
         Deprecation = deprecation ?? throw new ArgumentNullException(nameof(deprecation));
         Attributes = attributes ?? throw new ArgumentNullException(nameof(attributes));
-        Entities = entities ?? Array.Empty<EntityRef>();
+        EntityAssociations = entityAssociations ?? Array.Empty<EntityAssociation>();
+        RequirementLevel = requirementLevel;
     }
 
     /// <summary>The event name (e.g. <c>app.crash</c>).</summary>
@@ -53,8 +56,11 @@ public sealed class EventDefinition
     /// <summary>Attributes this event carries, with requirement levels.</summary>
     public IReadOnlyList<AttributeRef> Attributes { get; }
 
-    /// <summary>Entities this event is associated with.</summary>
-    public IReadOnlyList<EntityRef> Entities { get; }
+    /// <summary>Entity association expressions. At least one list entry must be satisfied.</summary>
+    public IReadOnlyList<EntityAssociation> EntityAssociations { get; }
+
+    /// <summary>The collection requirement for this signal, independent of attribute requirements.</summary>
+    public SignalRequirementLevel RequirementLevel { get; }
 
     /// <inheritdoc/>
     public override string ToString() => Name;

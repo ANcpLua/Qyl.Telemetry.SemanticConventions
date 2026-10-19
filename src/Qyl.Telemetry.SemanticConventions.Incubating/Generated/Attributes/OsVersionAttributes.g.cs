@@ -23,5 +23,5 @@ public static class OsVersionAttributes
     /// <para/>
     /// Event-specific meaning and capture conditions are documented on each signal reference.
     /// </remarks>
-    public const string OsVersion = "os_version";
+    public const string OsVersionNative = "os_version";
 }

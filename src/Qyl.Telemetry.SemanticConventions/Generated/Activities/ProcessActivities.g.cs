@@ -21,9 +21,9 @@ public static class ProcessActivityExtensions
     /// "Deprecated, use <c>process.context_switch.type</c> instead."
     /// </summary>
     [global::System.Obsolete("Replaced by process.context_switch.type.", false)]
-    public static global::System.Diagnostics.Activity SetProcessContextSwitchType(
+    public static global::System.Diagnostics.Activity SetProcessContextSwitchTypeNative(
         this global::System.Diagnostics.Activity activity,
-        ProcessContextSwitchType value)
+        ProcessContextSwitchTypeNative value)
         => activity.SetTag("process.context_switch_type", value.Value);
 
     /// <summary>
@@ -62,7 +62,7 @@ public static class ProcessActivityExtensions
 /// <see cref="Custom"/> for a value the registry does not list. A string does not convert to it.
 /// </remarks>
 [global::System.Obsolete("Replaced by process.context_switch.type.", false)]
-public readonly struct ProcessContextSwitchType : global::System.IEquatable<ProcessContextSwitchType>
+public readonly struct ProcessContextSwitchTypeNative : global::System.IEquatable<ProcessContextSwitchTypeNative>
 {
     /// <summary>
     /// The attribute key, <c>process.context_switch_type</c>.
@@ -71,22 +71,22 @@ public readonly struct ProcessContextSwitchType : global::System.IEquatable<Proc
 
     private readonly string? _value;
 
-    private ProcessContextSwitchType(string value) => _value = value;
+    private ProcessContextSwitchTypeNative(string value) => _value = value;
 
     /// <summary>
     /// voluntary.
     /// </summary>
-    public static ProcessContextSwitchType Voluntary { get; } = new("voluntary");
+    public static ProcessContextSwitchTypeNative Voluntary { get; } = new("voluntary");
 
     /// <summary>
     /// involuntary.
     /// </summary>
-    public static ProcessContextSwitchType Involuntary { get; } = new("involuntary");
+    public static ProcessContextSwitchTypeNative Involuntary { get; } = new("involuntary");
 
     /// <summary>
     /// A value the registry does not list. A value a member carries is that member (QYL0121).
     /// </summary>
-    public static ProcessContextSwitchType Custom(string value) => new(value ?? throw new global::System.ArgumentNullException(nameof(value)));
+    public static ProcessContextSwitchTypeNative Custom(string value) => new(value ?? throw new global::System.ArgumentNullException(nameof(value)));
 
     /// <summary>
     /// The attribute value.
@@ -94,10 +94,10 @@ public readonly struct ProcessContextSwitchType : global::System.IEquatable<Proc
     public string Value => _value ?? string.Empty;
 
     /// <inheritdoc/>
-    public bool Equals(ProcessContextSwitchType other) => string.Equals(Value, other.Value, global::System.StringComparison.Ordinal);
+    public bool Equals(ProcessContextSwitchTypeNative other) => string.Equals(Value, other.Value, global::System.StringComparison.Ordinal);
 
     /// <inheritdoc/>
-    public override bool Equals(object? obj) => obj is ProcessContextSwitchType other && Equals(other);
+    public override bool Equals(object? obj) => obj is ProcessContextSwitchTypeNative other && Equals(other);
 
     /// <inheritdoc/>
     public override int GetHashCode() => global::System.StringComparer.Ordinal.GetHashCode(Value);
@@ -108,12 +108,12 @@ public readonly struct ProcessContextSwitchType : global::System.IEquatable<Proc
     /// <summary>
     /// Whether two values are equal.
     /// </summary>
-    public static bool operator ==(ProcessContextSwitchType left, ProcessContextSwitchType right) => left.Equals(right);
+    public static bool operator ==(ProcessContextSwitchTypeNative left, ProcessContextSwitchTypeNative right) => left.Equals(right);
 
     /// <summary>
     /// Whether two values differ.
     /// </summary>
-    public static bool operator !=(ProcessContextSwitchType left, ProcessContextSwitchType right) => !left.Equals(right);
+    public static bool operator !=(ProcessContextSwitchTypeNative left, ProcessContextSwitchTypeNative right) => !left.Equals(right);
 }
 
 /// <summary>

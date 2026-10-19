@@ -1,0 +1,5 @@
+file_format: definition_manifest/2.0
+name: external
+description: Dependency provenance fixture.
+schema_url: https://fidelity.example/external/1
+stability: development

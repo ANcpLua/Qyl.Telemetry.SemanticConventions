@@ -31,4 +31,15 @@ public static class McpServerIncubatingActivityExtensions
         this global::System.Diagnostics.Activity activity,
         string value)
         => activity.SetTag("mcp_server", value);
+
+    /// <summary>
+    /// Mcp server name recorded by the native producer; see the versioned source evidence.
+    /// </summary>
+    /// <remarks>
+    /// https://code.claude.com/docs/en/monitoring-usage#metric-details.
+    /// </remarks>
+    public static global::System.Diagnostics.Activity SetMcpServerNameNative(
+        this global::System.Diagnostics.Activity activity,
+        string value)
+        => activity.SetTag("mcp_server.name", value);
 }

@@ -19,5 +19,5 @@ public static class RequestIdAttributes
     /// <remarks>
     /// https://code.claude.com/docs/en/monitoring-usage:803. https://code.claude.com/docs/en/monitoring-usage:859. https://code.claude.com/docs/en/monitoring-usage:883.
     /// </remarks>
-    public const string RequestId = "request_id";
+    public const string RequestIdNative = "request_id";
 }

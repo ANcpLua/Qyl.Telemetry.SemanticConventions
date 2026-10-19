@@ -19,5 +19,5 @@ public static class TurnInterruptedAttributes
     /// <remarks>
     /// Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 874359. Claude Desktop 2.42304.0 app.asar:.vite/build/index.chunk-CFJssAFf.js; JavaScript UTF-16 offset 1498028. Native wire representations vary or are supplied dynamically; preserve the received value rather than inventing a conversion.
     /// </remarks>
-    public const string TurnInterrupted = "turn_interrupted";
+    public const string TurnInterruptedNative = "turn_interrupted";
 }

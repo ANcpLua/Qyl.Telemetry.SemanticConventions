@@ -26,12 +26,6 @@ public static class FeatureFlagAttributes
     public const string EvaluationReason = "feature_flag.evaluation.reason";
 
     /// <summary>
-    /// Deprecated, use <c>feature_flag.provider.name</c> instead.
-    /// </summary>
-    [global::System.Obsolete("Replaced by feature_flag.provider.name.", false)]
-    public const string ProviderName = "feature_flag.provider_name";
-
-    /// <summary>
     /// Deprecated, use <c>feature_flag.result.variant</c> instead.
     /// </summary>
     [global::System.Obsolete("Replaced by feature_flag.result.variant.", false)]

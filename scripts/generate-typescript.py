@@ -181,7 +181,7 @@ def generate(snapshot, catalog, policy):
             if isinstance(a['type'], dict):
                 for member in a['type'].get('members', []):
                     if not member.get('annotations', {}).get('code_generation', {}).get('exclude', False) and (tier == 'incubating' or member.get('stability', a.get('stability')) == 'stable' or member.get('deprecated')):
-                        add(symbol(a['key']) + '_VALUE_' + symbol(member['id']), member['value'])
+                        add(names[a['key']] + '_VALUE_' + symbol(member['id']), member['value'])
         for m in metrics:
             if include(m):
                 key = 'METRIC_' + symbol(m['name'])

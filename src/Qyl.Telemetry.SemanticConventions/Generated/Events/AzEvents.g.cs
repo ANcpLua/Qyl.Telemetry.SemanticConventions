@@ -27,6 +27,7 @@ public static class AzEventDefinitions
             brief: "Deprecated. Use `azure.resource.log` instead.",
             stability: global::Qyl.Telemetry.SemanticConventions.Stability.Development,
             deprecation: global::Qyl.Telemetry.SemanticConventions.Deprecation.Renamed("azure.resource.log"),
-            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("az.service_request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true), new("cloud.resource_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true) },
-            entities: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>());
+            requirementLevel: global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.Recommended,
+            attributes: new global::Qyl.Telemetry.SemanticConventions.AttributeRef[] { new("az.service_request_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, true, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false), new("cloud.resource_id", "string", global::Qyl.Telemetry.SemanticConventions.RequirementLevel.Recommended, false, null, global::Qyl.Telemetry.SemanticConventions.AttributePhase.Start, true, false) },
+            entityAssociations: global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>());
 }

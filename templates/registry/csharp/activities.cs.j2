@@ -48,14 +48,14 @@ public static class {{ ctx.type_root }}ActivityExtensions
 {% endif %}
 {% set is_template = (a.type is string) and a.type[0:9] == "template[" %}
 {% set is_enum = a.type is mapping and a.type.members is defined %}
-{{ pad }}public static global::System.Diagnostics.Activity Set{{ lib.pascal(a.key) }}(
+{{ pad }}public static global::System.Diagnostics.Activity Set{{ a.cs_symbol }}(
 {{ pad }}    this global::System.Diagnostics.Activity activity,
 {% if is_template %}
 {{ pad }}    string segment,
 {{ pad }}    {{ lib.parameter_type(a.type) }} value)
 {{ pad }}    => activity.SetTag($"{{ a.key }}.{segment}", value);
 {% elif is_enum %}
-{{ pad }}    {{ lib.pascal(a.key) }} value)
+{{ pad }}    {{ a.cs_symbol }} value)
 {{ pad }}    => activity.SetTag("{{ a.key }}", value.Value);
 {% else %}
 {{ pad }}    {{ lib.parameter_type(a.type) }} value)
@@ -91,7 +91,7 @@ public static class {{ ctx.type_root }}ActivityExtensions
 {% set g.groups = g.groups + [{"member": g.current, "order": g.order}] %}
 {% endif %}
 {% set g.vals = g.groups | sort(attribute="order") | map(attribute="member") | list %}
-{% set name = lib.pascal(a.key) %}
+{% set name = a.cs_symbol %}
 {% set numeric = lib.parameter_type(a.type) == "long" %}
 {% set cs_type = "long" if numeric else "string" %}
 {% set brief = lib.trim_end_newlines(a.brief | default("", true)) %}

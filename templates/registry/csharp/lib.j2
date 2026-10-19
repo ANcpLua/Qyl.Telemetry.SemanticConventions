@@ -502,7 +502,7 @@ global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.AttributeRe
 {%- for a in attributes -%}
 {%- if not loop.first -%}{%- set s.out = s.out ~ ", " -%}{%- endif -%}
 {%- set condition = requirement_level_condition(a.requirement_level) -%}
-{%- set s.out = s.out ~ 'new("' ~ escape_attribute(a.key) ~ '", "' ~ attribute_type_name(a.type) ~ '", ' ~ requirement_level_expr(a.requirement_level) ~ ", " ~ ("true" if a.deprecated else "false") ~ ", " ~ (('"' ~ escape_attribute(condition) ~ '"') if (condition | length) > 0 else "null") ~ ", " ~ reference_phase_expr(a, policy) ~ ", " ~ persisted(a.key, policy) ~ ")" -%}
+{%- set s.out = s.out ~ 'new("' ~ escape_attribute(a.key) ~ '", "' ~ attribute_type_name(a.type) ~ '", ' ~ requirement_level_expr(a.requirement_level) ~ ", " ~ ("true" if a.deprecated else "false") ~ ", " ~ (('"' ~ escape_attribute(condition) ~ '"') if (condition | length) > 0 else "null") ~ ", " ~ reference_phase_expr(a, policy) ~ ", " ~ persisted(a.key, policy) ~ ", " ~ ("true" if a.sampling_relevant | default(false) else "false") ~ ")" -%}
 {%- endfor -%}
 {{ s.out ~ " }" }}
 {%- endif -%}
@@ -528,14 +528,29 @@ new global::Qyl.Telemetry.SemanticConventions.EntityIdentityAttributeRef[] { {% 
 {%- endif -%}
 {%- endmacro -%}
 
-{%- macro entity_array_expr(entities) -%}
-{%- if (entities | length) == 0 -%}
-global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>()
+{%- macro signal_requirement_expr(level) -%}
+global::Qyl.Telemetry.SemanticConventions.SignalRequirementLevel.{{ "OptIn" if level == "opt_in" else "Recommended" }}
+{%- endmacro -%}
+
+{%- macro entity_association_expr(entity, registry_schema_url) -%}
+{%- if entity.one_of is defined -%}
+new global::Qyl.Telemetry.SemanticConventions.EntityAssociation.OneOf({{ entity_array_expr(entity.one_of, registry_schema_url) }})
+{%- elif entity.all_of is defined -%}
+new global::Qyl.Telemetry.SemanticConventions.EntityAssociation.AllOf({{ entity_array_expr(entity.all_of, registry_schema_url) }})
 {%- else -%}
-{%- set s = namespace(out = "new global::Qyl.Telemetry.SemanticConventions.EntityRef[] { ") -%}
+{%- set provenance = entity.provenance | default({}, true) -%}
+new global::Qyl.Telemetry.SemanticConventions.EntityRef({{ cs_string(entity.type) }}, new global::Qyl.Telemetry.SemanticConventions.RegistryProvenance({{ cs_string(provenance.source | default(registry_schema_url, true)) }}, {{ cs_string(provenance.path) if provenance.path else "null" }}))
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro entity_array_expr(entities, registry_schema_url) -%}
+{%- if (entities | length) == 0 -%}
+global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityAssociation>()
+{%- else -%}
+{%- set s = namespace(out = "new global::Qyl.Telemetry.SemanticConventions.EntityAssociation[] { ") -%}
 {%- for e in entities -%}
 {%- if not loop.first -%}{%- set s.out = s.out ~ ", " -%}{%- endif -%}
-{%- set s.out = s.out ~ 'new("' ~ escape_attribute(e.type if e is mapping else e) ~ '")' -%}
+{%- set s.out = s.out ~ entity_association_expr(e, registry_schema_url) -%}
 {%- endfor -%}
 {{ s.out ~ " }" }}
 {%- endif -%}
@@ -593,7 +608,17 @@ global::System.Array.Empty<global::Qyl.Telemetry.SemanticConventions.EntityRef>(
 {#- The value-set struct of an enum attribute, fully qualified: the stable package holds the
     stable and deprecated attributes' structs, the incubating package the rest. -#}
 {%- macro struct_type(a) -%}
-global::Qyl.Telemetry.SemanticConventions.{{ "" if (a.stability == "stable" or a.deprecated) else "Incubating." }}Activities.{{ pascal(a.key) }}
+global::{{ a.cs_namespace }}.{{ a.cs_symbol }}
+{%- endmacro -%}
+
+{%- macro setter_parameter_types(a) -%}
+System.Diagnostics.Activity,{% if (a.type is string) and a.type[0:9] == "template[" %}System.String,{% endif %}
+{%- if a.type is mapping and a.type.members is defined -%}
+{{ a.cs_namespace }}.{{ a.cs_symbol }}
+{%- else -%}
+{%- set types = {"string": "System.String", "long": "System.Int64", "double": "System.Double", "bool": "System.Boolean", "object": "System.Object", "string[]": "System.String[]", "long[]": "System.Int64[]", "double[]": "System.Double[]", "bool[]": "System.Boolean[]"} -%}
+{{ types[parameter_type(a.type)] }}
+{%- endif -%}
 {%- endmacro -%}
 
 {#- An attribute's starter parameter type: the value-set struct for an enum, else the setter type;
@@ -633,16 +658,27 @@ global::Qyl.Telemetry.SemanticConventions.{{ "" if (a.stability == "stable" or a
 {%- endmacro -%}
 
 {#- The keys of the attributes a span starter takes as parameters, comma-joined: every attribute
-    of the row except OptIn, `qyl.phase: end`, the group's fixed ones, template and deprecated
+    of the row except OptIn, reference-aware `qyl.phase: end`, the group's fixed ones, template and deprecated
     attributes. starters.cs.j2 and the analyzers' typed-surface table both read it. -#}
 {%- macro starter_keys(s, rule, policy) -%}
 {%- set k = namespace(keys = []) -%}
 {%- for a in s.attributes -%}
 {%- set level = requirement_level_name(a.requirement_level) -%}
 {%- set is_template = (a.type is string) and a.type[0:9] == "template[" -%}
-{%- if not (level == "OptIn" or a.key in policy.phase_end or a.key in rule.fixed or is_template or a.deprecated) -%}
+{%- if not (level == "OptIn" or reference_phase_expr(a, policy) == "global::Qyl.Telemetry.SemanticConventions.AttributePhase.End" or a.key in rule.fixed or is_template or a.deprecated) -%}
 {%- set k.keys = k.keys + [a.key] -%}
 {%- endif -%}
 {%- endfor -%}
 {{ k.keys | join(",") }}
+{%- endmacro -%}
+
+{#- The typed read used both to validate a required value and to project it. -#}
+{%- macro view_read(a, record) -%}
+{%- set getters = {"string": "GetString", "long": "GetInt64", "double": "GetDouble", "bool": "GetBoolean", "string[]": "GetStrings", "long[]": "GetInt64s", "double[]": "GetDoubles", "bool[]": "GetBooleans"} -%}
+{%- set t = parameter_type(a.type) -%}
+{%- if t in getters -%}
+{{ record }}.{{ getters[t] }}({{ cs_string(a.key) }})
+{%- else -%}
+({{ record }}.Attributes.TryGetValue({{ cs_string(a.key) }}, out var {{ a.cs_symbol }}Value) ? {{ a.cs_symbol }}Value : null)
+{%- endif -%}
 {%- endmacro -%}
