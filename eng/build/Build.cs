@@ -1,7 +1,6 @@
 // Copyright (c) Alexander Nachtmann
 // SPDX-License-Identifier: Apache-2.0
 
-using System.Collections;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using DotCov;
@@ -20,7 +19,7 @@ namespace Qyl.Telemetry.SemanticConventions.Build;
 ///   targets. The packages' generated surface is committed and guarded by
 ///   scripts/check-generated.sh, so nothing here regenerates it.
 /// </summary>
-internal sealed partial class Build : FalloutBuild, ICoverageReport
+internal sealed class Build : FalloutBuild, ICoverageReport
 {
     public static int Main() => Execute<Build>(x => x.Compile);
 
@@ -105,52 +104,6 @@ internal sealed partial class Build : FalloutBuild, ICoverageReport
                     $"dotnet test exited with code {exception.ExitCode}; coverage was not evaluated.", exception);
             }
         });
-
-    [Parameter("VerifyRelease: the released version to verify on nuget.org and npm", Name = "PublishedVersion")]
-    readonly string? _publishedVersion = null;  // Fallout injects it
-
-    static readonly string[] NuGetPackageIds =
-    [
-        "Qyl.Telemetry.SemanticConventions",
-        "Qyl.Telemetry.SemanticConventions.Analyzers",
-        "Qyl.Telemetry.SemanticConventions.Incubating",
-    ];
-
-    /// <summary>
-    ///   release.sh's detached verification, rerunnable by hand after a patch release: wait until
-    ///   nuget.org and npm serve the version (ReleaseIndex, up to 45 minutes), then the release
-    ///   smoke against the registries, eng/release/verify-packages.sh (a clean NuGet consumer of all
-    ///   three packages) and eng/release/verify-typescript.sh. The expected registry fingerprint is
-    ///   read from the release tag, not the working tree, which may hold the next version.
-    /// </summary>
-    [JetBrains.Annotations.UsedImplicitly]
-    Target VerifyRelease => target => target
-        .Description("Wait until nuget.org and npm serve --published-version, then smoke the registry packages.")
-        .Requires(() => _publishedVersion)
-        .Executes(() =>
-        {
-            var version = _publishedVersion!;
-            ReleaseIndex.Wait(
-                ReleaseIndex.StatusFile(RootDirectory, version),
-                TimeSpan.FromMinutes(45),
-                [.. NuGetPackageIds.Select(id => ReleaseIndex.NuGet(id, version)), ReleaseIndex.Npm("@ancplua/qyl-semantic-conventions", version)]);
-
-            var tagged = ProcessTasks.StartProcess("git", $"show v{version}:typescript/src/index.ts", RootDirectory, logOutput: false)
-                .AssertZeroExitCode().Output.Select(line => line.Text);
-            var digest = tagged.Select(line => RegistryDigest().Match(line)).FirstOrDefault(match => match.Success)?.Groups[1].Value
-                ?? throw new InvalidOperationException($"v{version}:typescript/src/index.ts declares no REGISTRY_SNAPSHOT_SHA256");
-            var environment = Environment.GetEnvironmentVariables().Cast<DictionaryEntry>()
-                .ToDictionary(entry => (string)entry.Key, entry => (string?)entry.Value ?? string.Empty, StringComparer.Ordinal);
-            environment["QYL_EXPECTED_REGISTRY_SHA256"] = digest;
-
-            ProcessTasks.StartProcess("bash", $"eng/release/verify-packages.sh {version} https://api.nuget.org/v3/index.json", RootDirectory, environment)
-                .AssertZeroExitCode();
-            ProcessTasks.StartProcess("bash", $"eng/release/verify-typescript.sh {version}", RootDirectory, environment)
-                .AssertZeroExitCode();
-        });
-
-    [GeneratedRegex("REGISTRY_SNAPSHOT_SHA256 = \"([0-9a-f]{64})\"")]
-    private static partial Regex RegistryDigest();
 
     /// <summary>
     ///   Regenerate the analyzer index, per-rule pages, migration catalog, SARIF, and

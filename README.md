@@ -253,9 +253,7 @@ dotnet run --project tests/Qyl.Telemetry.SemanticConventions.Pipeline.Tests/ --c
 
 The test project is a Microsoft.Testing.Platform project: `mise run check` runs it with
 `dotnet run --project`, and `global.json` selects the native runner, so `dotnet test` drives it
-too. `./release.sh <version>` packs, pushes and then runs
-[`eng/release/verify-packages.sh`](eng/release/verify-packages.sh), which proves the published
-packages install and work together in a clean `net10.0` consumer.
+too.
 
 ## The generated surface
 
@@ -464,7 +462,7 @@ sample and the expected table in `scripts/check-live-check-policies.sh`.
 
 ## Releasing
 
-Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to the same version, add the `CHANGELOG.md` entry, run `scripts/generate.sh` (it rejects a `schema_url` that differs from `VersionPrefix`) and make sure `qyl.at/schemas/<version>` is served. Then run `./release.sh <version> --dry-run` and `./release.sh <version>`. The script checks exactly three named NuGet packages and one npm tarball, publishes all four with the keys registered in Vitals, tags the commit and creates the GitHub release. Its detached verifier waits for indexing, runs isolated public consumers and refreshes the published-version snapshot; `./release.sh --wait <version>` reports that result. `eng/release/verify-packages.sh` and `eng/release/verify-typescript.sh` check the published artifacts.
+Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to `https://qyl.at/schemas/<version>` and `typescript/package.json` to the same version, add the `CHANGELOG.md` entry, run `scripts/generate.sh` and commit. Then run `./release.sh <version>`: it packs the three NuGet packages and the npm tarball, publishes them with the keys registered in Vitals, tags `v<version>` and creates the GitHub release. `--dry-run` packs and runs npm's publish dry run only.
 
 ## License
 
