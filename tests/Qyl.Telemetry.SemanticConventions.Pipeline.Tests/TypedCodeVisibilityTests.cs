@@ -55,6 +55,22 @@ public sealed class TypedCodeVisibilityTests(TestContext testContext)
     }
 
     [TestMethod]
+    public async Task Qyl0001_TypedGraphqlDocumentSetter_IsReported()
+    {
+        var diagnostics = await AnalyzerRun.DiagnosticsAsync(new GraphqlDocumentOptInAnalyzer(), "QYL0001", """
+            using System.Diagnostics;
+            using Qyl.Telemetry.SemanticConventions.Incubating.Activities;
+
+            public static class Instrumentation
+            {
+                public static void Stamp(Activity activity, string document) =>
+                    activity.SetGraphqlDocument(document);
+            }
+            """, cancellationToken: testContext.CancellationToken);
+        Assert.ContainsSingle(diagnostics);
+    }
+
+    [TestMethod]
     public async Task Qyl0012_sees_a_custom_value_through_a_typed_setter()
     {
         var diagnostics = await AnalyzerRun.DiagnosticsAsync(new Qyl0012InvalidAttributeValueAnalyzer(), "QYL0012", """
