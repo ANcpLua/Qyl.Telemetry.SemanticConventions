@@ -60,7 +60,8 @@ public sealed class PreferSemconvConstantAnalyzer : DiagnosticAnalyzer
             {
                 if (member is not IFieldSymbol { IsConst: true } field
                     || field.Type.SpecialType != SpecialType.System_String
-                    || field.DeclaredAccessibility != Accessibility.Public)
+                    || field.DeclaredAccessibility != Accessibility.Public
+                    || field.HasAttribute("System.ObsoleteAttribute"))
                 {
                     continue;
                 }

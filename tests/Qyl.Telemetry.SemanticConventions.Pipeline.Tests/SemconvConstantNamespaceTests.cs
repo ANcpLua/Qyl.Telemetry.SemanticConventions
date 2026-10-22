@@ -39,6 +39,20 @@ public sealed class SemconvConstantNamespaceTests(TestContext testContext)
     }
 
     [TestMethod]
+    public async Task Qyl0004_ObsoletePackageConstant_IsNeverSuggested()
+    {
+        var diagnostics = await AnalyzerRun.DiagnosticsAsync(new PreferSemconvConstantAnalyzer(), "QYL0004", """
+            using System.Diagnostics;
+            internal static class Consumer
+            {
+                internal static void Write(Activity activity) => activity.SetTag("db.system", "postgresql");
+            }
+            """, cancellationToken: testContext.CancellationToken);
+
+        Assert.IsEmpty(diagnostics);
+    }
+
+    [TestMethod]
     public async Task Actual_package_constants_apply_to_telemetry_keys_and_leave_protocol_fields_alone()
     {
         var diagnostics = await AnalyzerRun.CompileSource(Compile.Source("""
