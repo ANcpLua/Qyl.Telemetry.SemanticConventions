@@ -31,4 +31,4 @@ for strict, default and migration-only use.
 - Which deprecated key maps to which live one:
   [migration catalog](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/blob/main/docs/migration-catalog.md)
 - Changes per version:
-  [CHANGELOG](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/blob/main/CHANGELOG.md)
+  [GitHub releases](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/releases)

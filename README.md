@@ -184,8 +184,8 @@ uv run scripts/check-pin-freshness.py   # 0 = every pin current, 10 = a pin is b
 ```
 
 Moving a pin is a deliberate change: edit `registry/manifest.yaml`, re-run
-`scripts/generate.sh`, review the regenerated surface, and record the delta in
-[`CHANGELOG.md`](CHANGELOG.md).
+`scripts/generate.sh`, review the regenerated surface, and name the delta in the commit message;
+the [GitHub releases](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/releases) list each version's changes.
 
 ## How generation works
 
@@ -470,7 +470,7 @@ sample and the expected table in `scripts/check-live-check-policies.sh`.
 
 ## Releasing
 
-Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to `https://qyl.at/schemas/<version>`, add the `CHANGELOG.md` entry, run `scripts/generate.sh` (it writes the same version into `typescript/package.json`) and commit. Then run `./release.sh <version>`: it packs the three NuGet packages and the npm tarball, publishes them with the keys registered in Vitals, tags `v<version>` and creates the GitHub release. `--dry-run` packs and runs npm's publish dry run only.
+Bump `VersionPrefix` in `Directory.Build.props`, set the `registry/manifest.yaml` `schema_url` to `https://qyl.at/schemas/<version>`, run `scripts/generate.sh` (it writes the same version into `typescript/package.json`) and commit. Then run `./release.sh <version>`: it packs the three NuGet packages and the npm tarball, publishes them with the keys registered in Vitals, tags `v<version>` and creates the GitHub release, whose notes are the commit subjects since the previous tag. `--dry-run` packs and runs npm's publish dry run only.
 
 ## License
 

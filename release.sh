@@ -6,7 +6,7 @@
 #   ./release.sh <x.y.z> --dry-run  pack, and run npm's publish --dry-run; nothing is pushed or tagged
 #
 # Directory.Build.props VersionPrefix, typescript/package.json, registry/manifest.yaml schema_url
-# (https://qyl.at/schemas/<x.y.z>) and a CHANGELOG.md "## [x.y.z]" entry must already agree on HEAD,
+# (https://qyl.at/schemas/<x.y.z>) must already agree on HEAD,
 # with scripts/generate.sh run and committed.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -38,7 +38,23 @@ npm_version=$(node -p "require('./typescript/package.json').version")
 [[ $prefix == "$version" ]] || die "Directory.Build.props VersionPrefix is $prefix, not $version"
 [[ $npm_version == "$version" ]] || die "typescript/package.json version is $npm_version, not $version"
 [[ $schema == "$version" ]] || die "registry/manifest.yaml schema_url names $schema, not $version"
-grep -q "^## \[$version\]" CHANGELOG.md || die "CHANGELOG.md has no '## [$version]' entry"
+
+# The commit subjects since the previous v* tag, grouped by conventional prefix; release commits are left out.
+release_notes() {
+  local previous range subjects group heading lines
+  previous=$(git describe --tags --abbrev=0 --match 'v*' "$1^" 2>/dev/null || true)
+  range=${previous:+$previous..}$1
+  subjects=$(git log --no-merges --format='%s' "$range" | grep -v '^release: ' || true)
+  [[ -n $previous ]] && printf 'Changes since %s.\n' "$previous"
+  for group in 'feat:Features' 'fix:Fixes' 'perf:Performance' 'refactor:Refactoring' 'build:Build' 'test:Tests' 'docs:Documentation' 'chore:Maintenance' 'generate:Generation'; do
+    heading=${group#*:}
+    lines=$(grep -E "^${group%%:*}(\([^)]*\))?!?: " <<<"$subjects" | sed -E 's/^[a-z]+(\([^)]*\))?!?: /- /' || true)
+    [[ -n $lines ]] && printf '\n## %s\n\n%s\n' "$heading" "$lines"
+  done
+  lines=$(grep -vE '^(feat|fix|perf|refactor|build|test|docs|chore|generate)(\([^)]*\))?!?: ' <<<"$subjects" | sed 's/^/- /' || true)
+  [[ -n $lines ]] && printf '\n## Other\n\n%s\n' "$lines"
+  return 0
+}
 
 slnx=$(find . -maxdepth 1 -type f \( -name '*.slnx' -o -name '*.sln' \) -print -quit | sed 's#^\./##')
 [[ -n $slnx ]] || die "no .slnx or .sln at the repo root"
@@ -64,7 +80,7 @@ NPM_CONFIG_TOKEN=$(<"$NPM_TOKEN_FILE") python3 eng/release/publish-npm.py bun pu
   die "npm publication failed; if a token or OTP is requested, renew the credential and rerun"
 
 notes=$(mktemp); trap 'rm -f "$notes"' EXIT
-awk -v v="$version" 'index($0, "## [" v "]") == 1 {on=1; next} on && /^## \[/ {exit} on' CHANGELOG.md >"$notes"
+release_notes HEAD >"$notes"
 git tag -a "v$version" -m "v$version"
 git push -q origin "v$version"
 gh release create "v$version" --title "v$version" --notes-file "$notes" "$OUT"/Qyl.Telemetry.SemanticConventions*."$version".nupkg "$TGZ"

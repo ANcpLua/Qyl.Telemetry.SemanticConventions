@@ -301,8 +301,8 @@ def main() -> int:
     report.append("")
     report.append(
         "One or more pins are behind upstream. Bumping is a deliberate change: re-run "
-        "`scripts/generate.sh`, review the regenerated surface, and record the delta in "
-        "`CHANGELOG.md`."
+        "`scripts/generate.sh`, review the regenerated surface, and name the delta in "
+        "the commit message."
         if stale
         else "Every pin matches upstream."
     )

@@ -58,4 +58,4 @@ Required attributes come from the selected signal definition, rather than this c
 - The registry, its policies and how generation works:
   [repository README](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions#readme)
 - Changes per version:
-  [CHANGELOG](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/blob/main/CHANGELOG.md)
+  [GitHub releases](https://github.com/ANcpLua/Qyl.Telemetry.SemanticConventions/releases)
