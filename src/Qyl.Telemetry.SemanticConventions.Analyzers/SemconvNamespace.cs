@@ -58,7 +58,8 @@ internal static class SemconvNamespace
 
     /// <summary>
     /// Pairs every nested <c>*Values</c> type of <paramref name="attributesType"/> with
-    /// the sibling <c>Attribute*</c> const that names its attribute, and yields each
+    /// the sibling const that names its attribute (<c>AttributeX</c> upstream, <c>X</c> in the qyl
+    /// packages), and yields each
     /// constant string field of the paired type together with that attribute name.
     /// </summary>
     public static IEnumerable<(string AttributeName, IFieldSymbol ValueField)> EnumerateAttributeValueConstants(
@@ -88,7 +89,8 @@ internal static class SemconvNamespace
             }
 
             var prefix = nested.Name.Substring(0, nested.Name.Length - "Values".Length);
-            if (!attrConstNameToValue.TryGetValue("Attribute" + prefix, out var attributeName))
+            if (!attrConstNameToValue.TryGetValue("Attribute" + prefix, out var attributeName)
+                && !attrConstNameToValue.TryGetValue(prefix, out attributeName))
             {
                 continue;
             }

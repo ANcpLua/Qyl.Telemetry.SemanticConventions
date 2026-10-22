@@ -200,6 +200,22 @@ public sealed class SupplementalSemconvMigrationAnalyzerTests(TestContext testCo
         Assert.AreEqual("db.operation.parameter.index", diagnostic.Properties["ReplacementName"]);
     }
 
+    [TestMethod]
+    public async Task Qyl0007_ObsoleteValueOfQylPackage_WinsOverCatalogFallback()
+    {
+        const string source = """
+            using System.Diagnostics;
+            public static class Instrumentation
+            {
+                public static void Stamp(Activity activity) => activity.SetTag("cpu.mode", "kernel");
+            }
+            """;
+        var live = await AnalyzerRun.DiagnosticsAsync(new DeprecatedSemconvValueAnalyzer(), "QYL0007", source, cancellationToken: testContext.CancellationToken);
+        var catalog = await AnalyzerRun.DiagnosticsAsync(new SupplementalSemconvMigrationAnalyzer(), "QYL0009", source, cancellationToken: testContext.CancellationToken);
+        Assert.ContainsSingle(live);
+        Assert.IsEmpty(catalog);
+    }
+
     private static Microsoft.CodeAnalysis.CSharp.CSharpCompilation CompileTelemetry(Compile source) =>
         AnalyzerRun.CompileSource(source.WithReference<System.Diagnostics.Activity>()
             .WithReference<System.Diagnostics.Metrics.Meter>()
