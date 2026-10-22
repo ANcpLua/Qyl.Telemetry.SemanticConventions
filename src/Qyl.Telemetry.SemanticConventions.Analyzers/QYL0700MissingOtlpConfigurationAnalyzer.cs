@@ -53,7 +53,7 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
 
         if (invocation.Expression is not MemberAccessExpressionSyntax memberAccess
             || !OtlpExporterMethods.Contains(memberAccess.Name.Identifier.Text)
-            || HasExplicitEndpointConfiguration(invocation)
+            || HasExplicitEndpointConfiguration(invocation, context.SemanticModel, context.CancellationToken)
             || HasEnvironmentVariableSet(invocation)) {
             return;
         }
@@ -61,12 +61,15 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
         context.ReportDiagnostic(Diagnostic.Create(Rule, invocation.GetLocation()));
     }
 
-    private static bool HasExplicitEndpointConfiguration(InvocationExpressionSyntax invocation) {
+    private static bool HasExplicitEndpointConfiguration(
+        InvocationExpressionSyntax invocation,
+        SemanticModel semanticModel,
+        CancellationToken cancellationToken) {
         var arguments = invocation.ArgumentList.Arguments;
 
-        // UseOtlpExporter(OtlpExportProtocol.Grpc, new Uri("...")) pattern
-        if (arguments is [_, { Expression: ObjectCreationExpressionSyntax objCreation }, ..]
-            && objCreation.Type.ToString().ContainsOrdinal("Uri")) {
+        // UseOtlpExporter(OtlpExportProtocol.Grpc, new Uri("...")) or a target-typed new("...")
+        if (arguments is [_, { Expression: BaseObjectCreationExpressionSyntax uriCreation }, ..]
+            && semanticModel.GetTypeInfo(uriCreation, cancellationToken).Type is { Name: "Uri", ContainingNamespace.Name: "System" }) {
             return true;
         }
 
@@ -81,7 +84,7 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
                 return true;
             }
 
-            if (arg.Expression is ObjectCreationExpressionSyntax creation
+            if (arg.Expression is BaseObjectCreationExpressionSyntax creation
                 && creation.Initializer?.Expressions.Any(static e =>
                     e is AssignmentExpressionSyntax assignment
                     && assignment.Left.ToString().EqualsIgnoreCase("Endpoint")) == true) {
@@ -113,12 +116,12 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
     }
 
     private static bool HasEnvironmentVariableSet(InvocationExpressionSyntax invocation) {
-        if (invocation.Ancestors().OfType<MethodDeclarationSyntax>().FirstOrDefault() is not { } containingMethod) {
+        if (GetEnclosingScope(invocation) is not { } scope) {
             return false;
         }
 
-        // Only check invocations that appear before this one in the method
-        foreach (var inv in containingMethod.DescendantNodes().OfType<InvocationExpressionSyntax>().TakeWhile(inv => inv != invocation)) {
+        // Only check invocations that appear before this one in the member or the top-level statements
+        foreach (var inv in scope.DescendantNodes().OfType<InvocationExpressionSyntax>().TakeWhile(inv => inv != invocation)) {
             if (inv.GetMethodName() is "SetEnvironmentVariable" or "Add"
                 && inv.ArgumentList.Arguments is [{ Expression: LiteralExpressionSyntax literal }, ..]
                 && literal.Token.ValueText.ContainsIgnoreCase("OTEL_EXPORTER_OTLP_ENDPOINT")) {
@@ -128,4 +131,13 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
 
         return false;
     }
+
+    private static SyntaxNode? GetEnclosingScope(SyntaxNode node) =>
+        node.Ancestors().FirstOrDefault(static ancestor => ancestor is BaseMethodDeclarationSyntax
+            or AccessorDeclarationSyntax
+            or LocalFunctionStatementSyntax
+            or GlobalStatementSyntax) switch {
+            GlobalStatementSyntax global => global.Parent,
+            var scope => scope
+        };
 }
