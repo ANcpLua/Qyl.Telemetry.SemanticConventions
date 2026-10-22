@@ -286,8 +286,6 @@ cp LICENSE typescript/LICENSE
 
 python3 scripts/generate-live-check.py .build/registry.json "${params_file}" registry/.weaver.toml
 
-"${script_dir}/generate-reference.sh"
-
 echo "Regenerated from registry/ with Weaver ${actual_weaver_version}"
 echo "  core:  ${core_ref} (${core_commit})"
 echo "  genai: ${genai_commit}"

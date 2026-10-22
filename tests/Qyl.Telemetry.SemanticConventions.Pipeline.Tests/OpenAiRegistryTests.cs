@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using System.Text.RegularExpressions;
+using System.Text.Json;
 using ANcpLua.Roslyn.Utilities.Testing.MSBuild;
 using Qyl.Telemetry.SemanticConventions.Incubating.Entities;
 using Qyl.Telemetry.SemanticConventions.Incubating.Activities;
@@ -17,6 +17,7 @@ public sealed class OpenAiRegistryTests
     private const string StartupPrewarm = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexStartupPrewarmInternal);
     private const string Turn = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexTurnInternal);
     private const string ThreadIdWireKey = "thread.id";
+    private static readonly string[] SignalKinds = ["spans", "events", "metrics"];
 
     [TestMethod]
     [DataRow("codex.turn.cost_microusd", "counter", null)]
@@ -143,16 +144,28 @@ public sealed class OpenAiRegistryTests
     }
 
     [TestMethod]
-    public void CodexReference_ThreadIdRows_CarryConversationThreadMeaningAndLiteralName()
+    public void CodexRegistry_ThreadIdWireKey_IsReferencedByTheFourConversationSpans()
     {
-        var root = RepositoryRoot.LocateFrom(AppContext.BaseDirectory, "Qyl.Telemetry.SemanticConventions.slnx");
-        var reference = File.ReadAllText(Path.Combine(root, "docs", "reference", "OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md"));
+        var signals = CodexThreadIdReferences().Select(static reference => reference.Signal).ToArray();
 
-        var spanRows = Regex.Matches(reference, @"^\| `thread\.id` \| string \| recommended \| false \| development \| ID of the Codex conversation thread \(UUID\)", RegexOptions.Multiline);
+        Assert.AreSequenceEqual(
+            ["openai_codex.codex.exec.internal", "openai_codex.dispatch_tool_call_with_code_mode_result.internal", "openai_codex.startup_prewarm.internal", "openai_codex.turn.internal"],
+            signals,
+            SequenceOrder.InAnyOrder);
+    }
 
-        Assert.HasCount(4, spanRows);
-        Assert.DoesNotContain("| `thread.id` | int |", reference);
-        Assert.Contains("Wire key `thread.id`; registry id `openai_codex.thread.id`.", reference);
+    [TestMethod]
+    [DataRow("openai_codex.codex.exec.internal")]
+    [DataRow("openai_codex.dispatch_tool_call_with_code_mode_result.internal")]
+    [DataRow("openai_codex.startup_prewarm.internal")]
+    [DataRow("openai_codex.turn.internal")]
+    public void CodexRegistry_ThreadIdReference_IsTheConversationThreadString(string span)
+    {
+        var reference = Assert.ContainsSingle(CodexThreadIdReferences().Where(candidate => candidate.Signal == span));
+
+        Assert.AreEqual(
+            new ThreadIdReference(span, "openai_codex.thread.id", "string", "recommended", false, "development", "ID of the Codex conversation thread (UUID)"),
+            reference);
     }
 
     [TestMethod]
@@ -166,4 +179,34 @@ public sealed class OpenAiRegistryTests
         Assert.IsNotNull(setter);
         Assert.AreSequenceEqual([typeof(Activity), typeof(long)], setter.GetParameters().Select(static p => p.ParameterType).ToArray());
     }
+
+    private sealed record ThreadIdReference(string Signal, string Key, string Type, string RequirementLevel, bool SamplingRelevant, string Stability, string Brief);
+
+    private static ThreadIdReference[] CodexThreadIdReferences()
+    {
+        var root = RepositoryRoot.LocateFrom(AppContext.BaseDirectory, "Qyl.Telemetry.SemanticConventions.slnx");
+        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, ".build", "registry.json")));
+        var refinements = document.RootElement.GetProperty("refinements");
+        return [.. SignalKinds
+            .SelectMany(kind => refinements.GetProperty(kind).EnumerateArray())
+            .Where(static signal => signal.GetProperty("provenance").GetProperty("path").GetString() == "registry/vendor/openai-codex.yaml")
+            .SelectMany(static signal => signal.TryGetProperty("attributes", out var attributes)
+                ? attributes.EnumerateArray().Where(static attribute => WireKey(attribute) == ThreadIdWireKey).Select(attribute => new ThreadIdReference(
+                    signal.GetProperty("id").GetString()!,
+                    attribute.GetProperty("key").GetString()!,
+                    attribute.GetProperty("type").ToString(),
+                    attribute.GetProperty("requirement_level").ToString(),
+                    attribute.TryGetProperty("sampling_relevant", out var samplingRelevant) && samplingRelevant.GetBoolean(),
+                    attribute.GetProperty("stability").GetString()!,
+                    attribute.GetProperty("brief").GetString()!))
+                : [])];
+    }
+
+    private static string? WireKey(JsonElement attribute) =>
+        attribute.TryGetProperty("annotations", out var annotations)
+        && annotations.TryGetProperty("qyl", out var qyl)
+        && qyl.TryGetProperty("openai", out var openai)
+        && openai.TryGetProperty("literal_name", out var literalName)
+            ? literalName.GetString()
+            : attribute.GetProperty("key").GetString();
 }

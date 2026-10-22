@@ -17,9 +17,8 @@ class GenerationTransportTests(unittest.TestCase):
             root = Path(directory) / 'generation with spaces'
             scripts = root / 'scripts'
             shutil.copytree(ROOT / 'scripts', scripts, ignore=shutil.ignore_patterns('__pycache__'))
-            for name in ('fetch-core.sh', 'generate-reference.sh'):
-                (scripts / name).write_text('#!/usr/bin/env bash\nexit 0\n')
-                (scripts / name).chmod(0o755)
+            (scripts / 'fetch-core.sh').write_text('#!/usr/bin/env bash\nexit 0\n')
+            (scripts / 'fetch-core.sh').chmod(0o755)
             (root / '.build').mkdir()
             (root / '.build/core-ref.txt').write_text('v1.0.0\n')
             (root / '.build/core-commit.txt').write_text('core-commit\n')

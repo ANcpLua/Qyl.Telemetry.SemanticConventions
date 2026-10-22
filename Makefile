@@ -6,7 +6,7 @@ SLN := Qyl.Telemetry.SemanticConventions.slnx
 DOCS_GENERATOR := tools/Qyl.Telemetry.SemanticConventions.Analyzers.DocsGenerator
 PIPELINE_TESTS := tests/Qyl.Telemetry.SemanticConventions.Pipeline.Tests
 
-.PHONY: weaver core generate reference check-generated build docs docs-check typescript policies pins test check help
+.PHONY: weaver core generate check-generated build docs docs-check typescript policies pins test check help
 
 help: ## List the targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
@@ -16,11 +16,8 @@ weaver: generate check-generated build docs typescript policies test ## All Weav
 core: ## Materialise the filtered upstream core registry the qyl manifest depends on
 	./scripts/fetch-core.sh
 
-generate: ## Regenerate C#, TypeScript and the detailed Markdown references from registry/
+generate: ## Regenerate C# and TypeScript from registry/
 	./scripts/generate.sh
-
-reference: core ## Render the complete semantic references with Weaver's .j2 templates
-	./scripts/generate-reference.sh
 
 check-generated: ## Fail if regenerating from registry/ differs from what is committed
 	./scripts/check-generated.sh

@@ -116,13 +116,10 @@ The [Anthropic coverage notes](docs/anthropic-telemetry.md) distinguish Claude C
 Desktop, the Claude API/SDK and Chrome instrumentation, including beta and dynamic paths.
 The [browser extension audit](docs/browser-extension-telemetry.md) also covers ChatGPT
 1.26.1005.11759, separating its inactive tracing hooks from its Statsig product analytics.
-The [OpenAI reference](docs/reference/OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md)
-covers the pinned Codex runtime, ChatGPT desktop, public cloud schemas and Chrome audit.
-The [complete registry reference](docs/reference/qyl-semantic-conventions.md) includes qyl,
-vendor and resolved upstream definitions at every stability. Both are rendered directly by
-Weaver 0.28.0 from `templates/registry/markdown/*.j2`; run
-`mise exec -- scripts/generate-reference.sh` to regenerate them. The qyl agent-observability
-profile defines development adapter obligations; the catalog does not assert deployed ingestion.
+The OpenAI evidence for the pinned Codex runtime, ChatGPT desktop and public cloud schemas
+lives in [`docs/evidence`](docs/evidence); `scripts/check-openai-census.mjs` checks its source
+census against the resolved registry in the gate. The qyl agent-observability profile defines
+development adapter obligations; the catalog does not assert deployed ingestion.
 Operation IDs belong on span/event attributes. The ordinary lifecycle signals do not associate
 an operation entity with the OpenTelemetry resource: that would require a new resource identity
 for each operation. The standalone entity vocabulary does not impose that resource layout.
