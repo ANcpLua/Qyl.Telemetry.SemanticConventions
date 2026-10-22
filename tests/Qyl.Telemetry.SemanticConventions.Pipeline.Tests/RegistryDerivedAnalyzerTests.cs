@@ -55,6 +55,18 @@ public sealed class RegistryDerivedAnalyzerTests(TestContext testContext)
     }
 
     [TestMethod]
+    public async Task Qyl0013_NullableValueOfRegistryType_IsAccepted()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("""
+                int? port = 443;
+                long? size = 512L;
+                SetTag("server.port", port);
+                SetTag("http.request.body.size", size);
+                """))).WithAnalyzers([new Qyl0013IncorrectAttributeTypeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        Assert.IsEmpty(diagnostics);
+    }
+
+    [TestMethod]
     public async Task Qyl0012_enforces_qyl_owned_enum_tokens()
     {
         var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("""

@@ -35,7 +35,7 @@ internal sealed class Qyl0013IncorrectAttributeTypeAnalyzer : AlAnalyzer
         }
 
         var value = valueArgument.Value.UnwrapAllConversions();
-        if (value.Type is null || IsTypeMatch(value.Type, expectedKind))
+        if (value.Type is null || IsTypeMatch(value.Type.GetUnderlyingNullableTypeOrSelf(), expectedKind))
         {
             return;
         }
