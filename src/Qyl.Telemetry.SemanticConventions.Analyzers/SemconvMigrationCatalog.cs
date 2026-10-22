@@ -70,7 +70,8 @@ internal static class SemconvMigrationCatalog
     /// mid-state symbol from a multi-version rename like
     /// <c>http.host → net.host.name → server.address</c>.
     ///
-    /// Returns the terminal entry's single replacement name. If <paramref name="oldName"/>
+    /// Returns the terminal entry's single replacement name. A name matched by a wildcard entry
+    /// keeps the segment the wildcard covered. If <paramref name="oldName"/>
     /// has no exact-replacement entry, returns <paramref name="oldName"/> unchanged.
     /// If a cycle is detected (catalog bug) or the chain length exceeds
     /// <c>MaxResolutionDepth</c>, returns the last safe replacement found.
@@ -89,12 +90,12 @@ internal static class SemconvMigrationCatalog
 
         for (var step = 0; step < maxResolutionDepth; step++)
         {
-            if (!EntriesByOldName.TryGetValue(current, out var entry) || !entry.HasExactReplacement)
+            if (!TryGetMigrationByName(current, out var entry) || !entry.HasExactReplacement)
             {
                 return current;
             }
 
-            var next = entry.ReplacementNames[0];
+            var next = ExpandWildcardReplacement(current, entry);
             if (string.IsNullOrEmpty(next) || !visited.Add(next))
             {
                 // Cycle or empty replacement; bail out at the last known-good name.
@@ -310,6 +311,20 @@ internal static class SemconvMigrationCatalog
         var suffix = wildcard.Substring(starIndex + 1);
         return oldName.StartsWith(prefix, StringComparison.Ordinal)
             && oldName.EndsWith(suffix, StringComparison.Ordinal);
+    }
+
+    private static string ExpandWildcardReplacement(string name, SemconvMigrationCatalogEntry entry)
+    {
+        var replacement = entry.ReplacementNames[0];
+        var oldStar = entry.OldName.IndexOf('*');
+        var replacementStar = replacement.IndexOf('*');
+        if (oldStar < 0 || replacementStar < 0)
+        {
+            return replacement;
+        }
+
+        var covered = name.Substring(oldStar, name.Length - (entry.OldName.Length - 1));
+        return replacement.Substring(0, replacementStar) + covered + replacement.Substring(replacementStar + 1);
     }
 
     private static void Require(string value, string propertyName, SemconvMigrationCatalogEntry entry)

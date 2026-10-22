@@ -183,7 +183,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             return;
         }
 
-        ReportCatalogDiagnostic(context, entry, metricNameSyntax, isProductionEmission: true);
+        ReportCatalogDiagnostic(context, entry, metricName, metricNameSyntax, isProductionEmission: true);
     }
 
     private static void AnalyzeActivityOrEventName(
@@ -205,7 +205,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             && spanEntry.Kind == SemconvMigrationItemKind.SpanName
             && SemconvMigrationCatalog.IsSupplementalDiagnosticEntry(spanEntry))
         {
-            ReportCatalogDiagnostic(context, spanEntry, spanNameSyntax, isProductionEmission: true);
+            ReportCatalogDiagnostic(context, spanEntry, spanName, spanNameSyntax, isProductionEmission: true);
         }
 
         if (invocation.TargetMethod.Name == "AddEvent"
@@ -222,7 +222,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             && eventEntry.Kind == SemconvMigrationItemKind.EventName
             && SemconvMigrationCatalog.IsSupplementalDiagnosticEntry(eventEntry))
         {
-            ReportCatalogDiagnostic(context, eventEntry, eventNameSyntax, isProductionEmission: true);
+            ReportCatalogDiagnostic(context, eventEntry, eventName, eventNameSyntax, isProductionEmission: true);
         }
     }
 
@@ -271,7 +271,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             return;
         }
 
-        ReportCatalogDiagnostic(context, entry, syntax, isProductionEmission);
+        ReportCatalogDiagnostic(context, entry, name, syntax, isProductionEmission);
     }
 
     private static void ReportValueIfCatalogOnly(
@@ -289,19 +289,20 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             return;
         }
 
-        ReportCatalogDiagnostic(context, entry, syntax, isProductionEmission);
+        ReportCatalogDiagnostic(context, entry, entry.OldName, syntax, isProductionEmission);
     }
 
     private static void ReportCatalogDiagnostic(
         OperationAnalysisContext context,
         SemconvMigrationCatalogEntry entry,
+        string name,
         SyntaxNode syntax,
         bool isProductionEmission)
     {
         var descriptor = entry.HasExactReplacement && isProductionEmission
             ? DiagnosticDescriptors.SupplementalExactSemconvMigration
             : DiagnosticDescriptors.SupplementalManualSemconvMigration;
-        var replacement = GetTerminalReplacement(entry);
+        var replacement = GetTerminalReplacement(entry, name);
         var evidence = string.IsNullOrEmpty(entry.ChangelogEvidence)
             ? entry.MigrationKind.ToString()
             : entry.ChangelogEvidence;
@@ -326,7 +327,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             args));
     }
 
-    private static string GetTerminalReplacement(SemconvMigrationCatalogEntry entry)
+    private static string GetTerminalReplacement(SemconvMigrationCatalogEntry entry, string name)
     {
         if (!entry.HasExactReplacement)
         {
@@ -335,7 +336,7 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
 
         return entry.Kind == SemconvMigrationItemKind.AttributeValue
             ? entry.ReplacementNames[0]
-            : SemconvMigrationCatalog.ResolveTerminalReplacement(entry.OldName);
+            : SemconvMigrationCatalog.ResolveTerminalReplacement(name);
     }
 
     private static ImmutableHashSet<string> BuildLiveObsoleteAttributeNames(Compilation compilation)

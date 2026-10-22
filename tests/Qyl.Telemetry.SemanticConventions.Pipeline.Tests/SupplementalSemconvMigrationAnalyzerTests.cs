@@ -192,6 +192,14 @@ public sealed class SupplementalSemconvMigrationAnalyzerTests(TestContext testCo
         Assert.AreEqual("gen_ai.provider.name", diagnostics[0].Properties["ReplacementValue"]);
     }
 
+    [TestMethod]
+    public async Task Qyl0009_WildcardPrefixKey_ReplacesPrefixOfConcreteKey()
+    {
+        var diagnostics = await CompileTelemetry(Compile.Source(Fixture("activity.SetTag(\"db.elasticsearch.path_parts.index\", \"orders\");"))).WithAnalyzers([new SupplementalSemconvMigrationAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        var diagnostic = Assert.ContainsSingle(diagnostics);
+        Assert.AreEqual("db.operation.parameter.index", diagnostic.Properties["ReplacementName"]);
+    }
+
     private static Microsoft.CodeAnalysis.CSharp.CSharpCompilation CompileTelemetry(Compile source) =>
         AnalyzerRun.CompileSource(source.WithReference<System.Diagnostics.Activity>()
             .WithReference<System.Diagnostics.Metrics.Meter>()
