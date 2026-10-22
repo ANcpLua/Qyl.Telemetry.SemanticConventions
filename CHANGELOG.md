@@ -1,5 +1,16 @@
 # Changelog
 
+## [15.0.5] - 2026-10-22
+
+- Recognize `IEnumerable<T>` in QYL0013 by its special type instead of its namespace spelling, so a lookalike `IEnumerable<T>` declared outside `System` is reported as a type mismatch.
+- Report QYL0700 when an OTLP exporter is added without an endpoint.
+- Report the catalog migration in QYL0009 when the obsolete constant for a key is not public.
+- Use the current constant in the QYL0003 code fix when an obsolete alias holds the replacement key, and the public constant when a private constant holds it.
+- Share one OTLP configuration name table, one argument lookup, one literal replacement and one walk over the `*Attributes` constants across the analyzers and code fixes, and simplify the analyzer value types, collection construction, sub-sequence search and generated-regex options without changing behavior.
+- Stop generating the two Markdown references (`docs/reference/qyl-semantic-conventions.md` and the OpenAI telemetry reference) and their `coverage.json`, with their templates, script and check. `scripts/check-openai-census.mjs` replaces the check and reads the resolved registry snapshot and the evidence catalogs directly, keeping every census, native field and evidence-field assertion.
+- Delete the Anthropic and browser extension Markdown notes; the vendor registries carry their sources, and AGENTS.md keeps the vendor registry spelling rule.
+- List the root files as solution items and name the test-code skill for the pipeline test project in AGENTS.md.
+
 ## [15.0.4] - 2026-10-22
 
 - Describe the OpenAI Codex conversation thread id as `openai_codex.thread.id`, a string UUID sent under the wire key `thread.id`, on `codex.exec`, `dispatch_tool_call_with_code_mode_result`, `startup_prewarm` and `turn`. The core `thread.id` stays an integer, with its setter, constant and catalogs unchanged.
