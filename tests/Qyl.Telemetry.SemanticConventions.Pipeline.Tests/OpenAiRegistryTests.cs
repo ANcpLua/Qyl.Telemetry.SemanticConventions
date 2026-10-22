@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+using ANcpLua.Roslyn.Utilities.Testing.MSBuild;
 using Qyl.Telemetry.SemanticConventions.Incubating.Entities;
 using Qyl.Telemetry.SemanticConventions.Incubating.Activities;
 using Qyl.Telemetry.SemanticConventions.Incubating.Events;
@@ -9,6 +12,12 @@ namespace Qyl.Telemetry.SemanticConventions.Pipeline.Tests;
 [TestClass]
 public sealed class OpenAiRegistryTests
 {
+    private const string CodexExec = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexCodexExecInternal);
+    private const string DispatchToolCallWithCodeModeResult = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexDispatchToolCallWithCodeModeResultInternal);
+    private const string StartupPrewarm = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexStartupPrewarmInternal);
+    private const string Turn = nameof(OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexTurnInternal);
+    private const string ThreadIdWireKey = "thread.id";
+
     [TestMethod]
     [DataRow("codex.turn.cost_microusd", "counter", null)]
     [DataRow("codex.api_request.duration_ms", "histogram", "ms")]
@@ -115,5 +124,46 @@ public sealed class OpenAiRegistryTests
         Assert.AreEqual("any", payload.Type);
         Assert.IsFalse(QylIncubatingMetricDefinitions.QylAgentOperationDuration.Attributes
             .Any(static a => a.Name == "qyl.agent.record.payload"));
+    }
+
+    [TestMethod]
+    [DataRow(CodexExec, AttributePhase.End)]
+    [DataRow(DispatchToolCallWithCodeModeResult, AttributePhase.Start)]
+    [DataRow(StartupPrewarm, AttributePhase.Start)]
+    [DataRow(Turn, AttributePhase.Start)]
+    public void CodexSpanContract_ThreadIdReference_IsConversationThreadString(string definition, AttributePhase phase)
+    {
+        var span = (SpanDefinition<Internal>)typeof(OpenaiCodexIncubatingSpanDefinitions).GetField(definition)!.GetValue(null)!;
+
+        var threadId = Assert.ContainsSingle(span.Attributes.Where(static a => a.Name == ThreadIdWireKey));
+
+        Assert.AreEqual("string", threadId.Type);
+        Assert.AreEqual(RequirementLevel.Recommended, threadId.RequirementLevel);
+        Assert.AreEqual(phase, threadId.Phase);
+    }
+
+    [TestMethod]
+    public void CodexReference_ThreadIdRows_CarryConversationThreadMeaningAndLiteralName()
+    {
+        var root = RepositoryRoot.LocateFrom(AppContext.BaseDirectory, "Qyl.Telemetry.SemanticConventions.slnx");
+        var reference = File.ReadAllText(Path.Combine(root, "docs", "reference", "OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md"));
+
+        var spanRows = Regex.Matches(reference, @"^\| `thread\.id` \| string \| recommended \| false \| development \| ID of the Codex conversation thread \(UUID\)", RegexOptions.Multiline);
+
+        Assert.HasCount(4, spanRows);
+        Assert.DoesNotContain("| `thread.id` | int |", reference);
+        Assert.Contains("Wire key `thread.id`; registry id `openai_codex.thread.id`.", reference);
+    }
+
+    [TestMethod]
+    public void CoreThreadId_RegistryDefinition_StaysIntegerWithLongSetter()
+    {
+        Assert.IsTrue(RegistryCatalog.TryGetAttribute(ThreadIdWireKey, out var attribute));
+
+        var setter = typeof(ThreadIncubatingActivityExtensions).GetMethod(nameof(ThreadIncubatingActivityExtensions.SetThreadId));
+
+        Assert.AreEqual(RegistryAttributeValueKind.Integer, attribute.ValueKind);
+        Assert.IsNotNull(setter);
+        Assert.AreSequenceEqual([typeof(Activity), typeof(long)], setter.GetParameters().Select(static p => p.ParameterType).ToArray());
     }
 }

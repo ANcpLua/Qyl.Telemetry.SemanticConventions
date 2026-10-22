@@ -1,3 +1,8 @@
+{#- The key an attribute travels under: its qyl.openai.literal_name, else its registry id. -#}
+{% macro wire_name(a) -%}
+{{ a.annotations.qyl.openai.literal_name if a.annotations is defined and a.annotations.qyl is defined and a.annotations.qyl.openai is defined and a.annotations.qyl.openai.literal_name is defined else a.name }}
+{%- endmacro %}
+
 {% macro cell(value) -%}
 {{ value | string | replace("\n", " ") | replace("|", "\\|") }}
 {%- endmacro %}
@@ -65,13 +70,17 @@ Entity associations (the outer list is an implicit `one_of`): `{{ g.entity_assoc
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
 | --- | --- | --- | --- | --- | --- |
 {% for a in g.attributes %}
-| `{{ cell(a.name) }}` | {{ cell(type_name(a.type)) }} | {{ cell(requirement(a)) }}{% if a.role | default("") == "descriptive" %}; descriptive{% endif %} | {% if g.type == "span" %}{{ a.sampling_relevant | default(false) }}{% else %}Not applicable{% endif %} | {{ a.stability | default("development") }}{% if a.deprecated is defined %}; deprecated{% endif %} | {{ cell(a.brief | default("")) }}{% if a.doc_details is defined and not a.doc_details and a.note is defined %} {{ cell(a.note) }}{% endif %} |
+| `{{ cell(wire_name(a)) }}` | {{ cell(type_name(a.type)) }} | {{ cell(requirement(a)) }}{% if a.role | default("") == "descriptive" %}; descriptive{% endif %} | {% if g.type == "span" %}{{ a.sampling_relevant | default(false) }}{% else %}Not applicable{% endif %} | {{ a.stability | default("development") }}{% if a.deprecated is defined %}; deprecated{% endif %} | {{ cell(a.brief | default("")) }}{% if a.doc_details is defined and not a.doc_details and a.note is defined %} {{ cell(a.note) }}{% endif %} |
 {% endfor %}
 
 {% for a in g.attributes %}
 {% if (a.doc_details is not defined or a.doc_details) and (a.note is defined or a.examples is defined or a.type is mapping or a.deprecated is defined or a.annotations is defined) %}
-{{ level }}# Attribute details: `{{ a.name }}`
+{{ level }}# Attribute details: `{{ wire_name(a) }}`
 
+{% if wire_name(a) != a.name %}
+Wire key `{{ wire_name(a) }}`; registry id `{{ a.name }}`.
+
+{% endif %}
 {% if a.note is defined %}
 {{ a.note }}
 

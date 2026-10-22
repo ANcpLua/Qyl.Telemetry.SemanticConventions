@@ -38,3 +38,28 @@ def with_attribute_symbols:
   }}) | from_entries) as $symbols
   | walk(if type == "object" and (.key? | type) == "string" and $symbols[.key] != null
          then . + $symbols[.key] else . end);
+
+# An attribute definition that carries `qyl.openai.literal_name` is written and read under that
+# wire name, not under its registry id: openai_codex.thread.id arrives as thread.id. Every
+# reference to it takes the wire name, whatever annotations the reference itself declares. Where
+# the wire name is another definition's key, that definition keeps the key in every per-key
+# catalog and the literal-name definition moves to `context_dependent_attributes`: the type
+# under such a key depends on the signal that carries it.
+def with_wire_keys:
+  ([.registry.attributes[], .dependencies[].registry.attributes[]]) as $definitions
+  | ($definitions
+     | map(select((.annotations.qyl.openai.literal_name? | type) == "string"))
+     | map({key: .key, value: .annotations.qyl.openai.literal_name}) | from_entries) as $wire
+  | ($definitions | map(select($wire[.key] == null) | {key: .key, value: true}) | from_entries) as $owned
+  | def shadowed: $wire[.key] != null and $owned[$wire[.key]] == true;
+  ([.registry.attributes[] | select(shadowed) | . + {registry_id: .key, key: $wire[.key]}]) as $context_dependent
+  | .registry.attributes |= map(select(shadowed | not))
+  | walk(if type == "object" and (.key? | type) == "string" and $wire[.key] != null
+         then . + {registry_id: .key, key: $wire[.key]}
+         elif type == "object" and (.attributes? | type) == "array"
+              and any(.attributes[]; (.key? | type) == "string" and $wire[.key] != null)
+         then .attributes |= (map(if $wire[.key] != null then . + {registry_id: .key, key: $wire[.key]} else . end)
+                              | sort_by(.key))
+         else . end)
+  | .context_dependent_attributes = $context_dependent;
+

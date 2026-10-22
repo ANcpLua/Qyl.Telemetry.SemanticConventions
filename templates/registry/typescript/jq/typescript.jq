@@ -6,6 +6,31 @@
 # characters one underscore, none leading or trailing.
 def ts_symbol: ascii_upcase | gsub("[^A-Z0-9]+"; "_") | gsub("^_|_$"; "");
 
+# The csharp target's with_wire_keys (templates/registry/csharp/jq/symbols.jq), so both packages
+# key an attribute the same way. An attribute definition that carries `qyl.openai.literal_name` is written and read under that
+# wire name, not under its registry id: openai_codex.thread.id arrives as thread.id. Every
+# reference to it takes the wire name, whatever annotations the reference itself declares. Where
+# the wire name is another definition's key, that definition keeps the key in every per-key
+# catalog and the literal-name definition moves to `context_dependent_attributes`: the type
+# under such a key depends on the signal that carries it.
+def with_wire_keys:
+  ([.registry.attributes[], .dependencies[].registry.attributes[]]) as $definitions
+  | ($definitions
+     | map(select((.annotations.qyl.openai.literal_name? | type) == "string"))
+     | map({key: .key, value: .annotations.qyl.openai.literal_name}) | from_entries) as $wire
+  | ($definitions | map(select($wire[.key] == null) | {key: .key, value: true}) | from_entries) as $owned
+  | def shadowed: $wire[.key] != null and $owned[$wire[.key]] == true;
+  ([.registry.attributes[] | select(shadowed) | . + {registry_id: .key, key: $wire[.key]}]) as $context_dependent
+  | .registry.attributes |= map(select(shadowed | not))
+  | walk(if type == "object" and (.key? | type) == "string" and $wire[.key] != null
+         then . + {registry_id: .key, key: $wire[.key]}
+         elif type == "object" and (.attributes? | type) == "array"
+              and any(.attributes[]; (.key? | type) == "string" and $wire[.key] != null)
+         then .attributes |= (map(if $wire[.key] != null then . + {registry_id: .key, key: $wire[.key]} else . end)
+                              | sort_by(.key))
+         else . end)
+  | .context_dependent_attributes = $context_dependent;
+
 # The rows of one kind by $key: the first dependency that defines a key, then the qyl registry's
 # own rows over it, sorted by key.
 def ts_rows($kind; $key):

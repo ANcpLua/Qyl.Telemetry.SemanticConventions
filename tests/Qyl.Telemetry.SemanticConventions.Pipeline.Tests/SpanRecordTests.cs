@@ -1,8 +1,13 @@
+using Qyl.Telemetry.SemanticConventions.Incubating.Spans;
+
 namespace Qyl.Telemetry.SemanticConventions.Pipeline.Tests;
 
 [TestClass]
 public sealed class SpanRecordTests
 {
+    private const string ThreadIdWireKey = "thread.id";
+    private const string CodexConversationThread = "0199a213-81c0-7800-8aa1-bbab2a035a53";
+
     [TestMethod]
     [DataRow((byte)7, 7L)]
     [DataRow((short)-12, -12L)]
@@ -77,8 +82,32 @@ public sealed class SpanRecordTests
         Assert.AreEqual(TimeSpan.FromTicks(2), span.Duration);
     }
 
-    private static SpanRecord Record(object? value) => new("4bf92f3577b34da6a3ce929d0e0e4736", "00f067aa0ba902b7", "operation")
+    [TestMethod]
+    public void ThreadId_UuidUnderCodexContract_ReadsBackAsExactText()
     {
-        Attributes = new Dictionary<string, object?> { ["value"] = value },
+        var reference = OpenaiCodexIncubatingSpanDefinitions.OpenaiCodexTurnInternal.Attributes.Single(static a => a.Name == ThreadIdWireKey);
+        var span = Record(ThreadIdWireKey, CodexConversationThread);
+
+        Assert.AreEqual("string", reference.Type);
+        Assert.AreEqual(CodexConversationThread, span.GetString(reference.Name));
+        Assert.IsNull(span.GetInt64(reference.Name));
+    }
+
+    [TestMethod]
+    public void ThreadId_NumberUnderCoreContract_StaysNumeric()
+    {
+        Assert.IsTrue(RegistryCatalog.TryGetAttribute(ThreadIdWireKey, out var definition));
+        var span = Record(ThreadIdWireKey, 42L);
+
+        Assert.AreEqual(RegistryAttributeValueKind.Integer, definition.ValueKind);
+        Assert.AreEqual(42L, span.GetInt64(definition.Name));
+        Assert.IsNull(span.GetString(definition.Name));
+    }
+
+    private static SpanRecord Record(object? value) => Record("value", value);
+
+    private static SpanRecord Record(string key, object? value) => new("4bf92f3577b34da6a3ce929d0e0e4736", "00f067aa0ba902b7", "operation")
+    {
+        Attributes = new Dictionary<string, object?> { [key] = value },
     };
 }

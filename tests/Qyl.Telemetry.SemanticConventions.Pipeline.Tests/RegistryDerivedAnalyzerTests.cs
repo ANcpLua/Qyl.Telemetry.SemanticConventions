@@ -67,6 +67,21 @@ public sealed class RegistryDerivedAnalyzerTests(TestContext testContext)
     }
 
     [TestMethod]
+    public async Task Qyl0013_ConversationThreadUuidUnderThreadId_IsAccepted()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("SetTag(\"thread.id\", \"0199a213-81c0-7800-8aa1-bbab2a035a53\");"))).WithAnalyzers([new Qyl0013IncorrectAttributeTypeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        Assert.IsEmpty(diagnostics);
+    }
+
+    [TestMethod]
+    public async Task Qyl0013_BooleanUnderThreadId_IsReported()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("SetTag(\"thread.id\", true);"))).WithAnalyzers([new Qyl0013IncorrectAttributeTypeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        Assert.ContainsSingle(diagnostics);
+        Assert.Contains("integer", diagnostics[0].GetMessage(CultureInfo.InvariantCulture));
+    }
+
+    [TestMethod]
     public async Task Qyl0012_enforces_qyl_owned_enum_tokens()
     {
         var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("""

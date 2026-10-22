@@ -5505,6 +5505,7 @@ internal static class SemconvTypedSurface
             ["OpenMs"] = "open_ms",
             ["OpenSeconds"] = "open_seconds",
             ["Openai"] = "openai",
+            ["OpenaiCodex"] = "openai_codex",
             ["OpenedBy"] = "opened_by",
             ["OpenedVia"] = "opened_via",
             ["Openshift"] = "openshift",

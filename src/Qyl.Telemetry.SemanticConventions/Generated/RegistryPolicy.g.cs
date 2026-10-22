@@ -2457,6 +2457,7 @@ public static class RegistryPolicy
         "thinking_forced",
         "third_party",
         "third_party_gpu_modules_allowed",
+        "thread.id",
         "thread_id",
         "thread_start.dynamic_tool_count",
         "thread_start.experimental_raw_events",

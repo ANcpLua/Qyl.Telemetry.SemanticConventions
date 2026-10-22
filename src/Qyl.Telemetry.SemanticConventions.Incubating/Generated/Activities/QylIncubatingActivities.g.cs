@@ -6190,6 +6190,11 @@ public readonly struct QylAttributeNamespace : global::System.IEquatable<QylAttr
     public static QylAttributeNamespace Openai { get; } = new("openai");
 
     /// <summary>
+    /// The <c>openai_codex</c> attribute namespace.
+    /// </summary>
+    public static QylAttributeNamespace OpenaiCodex { get; } = new("openai_codex");
+
+    /// <summary>
     /// The <c>opened_by</c> attribute namespace.
     /// </summary>
     public static QylAttributeNamespace OpenedBy { get; } = new("opened_by");

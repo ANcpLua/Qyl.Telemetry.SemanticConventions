@@ -3661,6 +3661,29 @@ groups:
       Event-specific meaning and capture conditions are documented on each signal reference.
     examples:
     - example
+  - id: openai_codex.thread.id
+    type: string
+    stability: development
+    brief: ID of the Codex conversation thread (UUID)
+    note: |-
+      https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec/src/lib.rs#L246
+
+      https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L192
+
+      https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/startup_prewarm.rs#L275
+
+      https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.rs#L355
+
+      Codex sends this value under the wire key `thread.id`, which the core registry defines as the
+      integer managed thread id. On the Codex spans that reference it, the key carries the Codex
+      conversation thread UUID as a string. This is the deep vendor key; its normalized
+      counterpart is `gen_ai.conversation.id`.
+    examples:
+    - 0199a213-81c0-7800-8aa1-bbab2a035a53
+    annotations:
+      qyl:
+        openai:
+          literal_name: thread.id
   - id: operation_kind
     type: string
     stability: development
@@ -21103,13 +21126,15 @@ groups:
 
     https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec/src/lib.rs#L246
   attributes:
-  - ref: thread.id
+  - ref: openai_codex.thread.id
     requirement_level: recommended
     note: Declared empty at span creation and populated only by a later record call;
       absent until recorded.
     annotations:
       qyl:
         phase: end
+        openai:
+          literal_name: thread.id
   - ref: turn.id
     requirement_level: recommended
     note: Declared empty at span creation and populated only by a later record call;
@@ -21949,7 +21974,7 @@ groups:
   - ref: call_id
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
-  - ref: thread.id
+  - ref: openai_codex.thread.id
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
   - ref: tool_name
@@ -24313,7 +24338,7 @@ groups:
   - ref: prewarm.input
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
-  - ref: thread.id
+  - ref: openai_codex.thread.id
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
   annotations:
@@ -24506,7 +24531,7 @@ groups:
   - ref: model
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
-  - ref: thread.id
+  - ref: openai_codex.thread.id
     requirement_level: recommended
     note: Recorded by the native tracing span when supplied by the source.
   - ref: turn.id

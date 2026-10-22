@@ -72,6 +72,19 @@ internal static class SemconvRegistryFacts
 {% endfor %}
         };
 
+    // Wire keys that more than one registry definition uses: a definition whose
+    // qyl.openai.literal_name is another definition's key. AttributeKinds keeps the definition
+    // that owns the key; these are the other definitions' kinds, valid on the signals that
+    // reference them. The type under such a key depends on the signal, which a per-key check
+    // cannot see, so it accepts any of them.
+    private static readonly Dictionary<string, RegistryAttributeValueKind[]> ContextDependentKinds =
+        new(StringComparer.Ordinal)
+        {
+{% for a in ctx.context_dependent_attributes %}
+            [{{ lib.cs_string(a.key) }}] = new[] { {% for kind in a.kinds %}{% if not loop.first %}, {% endif %}RegistryAttributeValueKind.{{ kind }}{% endfor %} },
+{% endfor %}
+        };
+
     private static readonly (string Prefix, RegistryAttributeValueKind Kind)[] TemplateKinds =
     {
 {% for a in ctx.attributes | sort(attribute="key", reverse=true) %}
@@ -155,6 +168,13 @@ internal static class SemconvRegistryFacts
 
         return false;
     }
+
+    /// <summary>
+    /// The kinds other registry definitions give a wire key that the definition owning the key
+    /// shares with them, or an empty list when no other definition uses the key.
+    /// </summary>
+    internal static IReadOnlyList<RegistryAttributeValueKind> GetContextDependentKinds(string key) =>
+        ContextDependentKinds.TryGetValue(key, out var kinds) ? kinds : Array.Empty<RegistryAttributeValueKind>();
 
     internal static bool IsGenAiSpanDiscriminator(string key) => GenAiSpanDiscriminatorKeys.Contains(key);
 

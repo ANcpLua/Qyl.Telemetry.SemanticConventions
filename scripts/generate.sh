@@ -163,8 +163,9 @@ for span_id, entry in spans.items():
     if entry.get("starter") and not entry.get("domain"):
         raise SystemExit(f"error: qyl.policy.spans: starter {span_id} names no domain")
 
-# Vendor keys are exempt from the token rule only: a vendor spells its own tags.
-vendor_keys = sorted({attribute["id"]
+# Vendor keys are exempt from the token rule only: a vendor spells its own tags. A key is the
+# wire key, the attribute's qyl.openai.literal_name where it declares one.
+vendor_keys = sorted({qyl(attribute).get("openai", {}).get("literal_name", attribute["id"])
                       for path in glob.glob("registry/vendor/*.yaml")
                       for g in (yaml.safe_load(open(path)) or {}).get("groups") or []
                       for attribute in g.get("attributes") or [] if "id" in attribute})

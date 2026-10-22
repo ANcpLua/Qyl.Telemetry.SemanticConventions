@@ -202,5 +202,29 @@
         }
       ]
     }
+  },
+  {
+    "span": {
+      "name": "codex.exec",
+      "kind": "internal",
+      "attributes": [
+        {
+          "name": "thread.id",
+          "value": "0199a213-81c0-7800-8aa1-bbab2a035a53"
+        }
+      ]
+    }
+  },
+  {
+    "span": {
+      "name": "qyl.live_check.thread_id_text",
+      "kind": "internal",
+      "attributes": [
+        {
+          "name": "thread.id",
+          "value": "worker-1"
+        }
+      ]
+    }
   }
 ]

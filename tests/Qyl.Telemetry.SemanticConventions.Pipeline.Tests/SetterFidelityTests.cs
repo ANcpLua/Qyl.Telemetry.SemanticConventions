@@ -38,7 +38,7 @@ public sealed class SetterFidelityTests
         using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(root, ".build", "registry.json")));
         var sources = new[] { document.RootElement }.Concat(document.RootElement.GetProperty("dependencies").EnumerateObject().Select(static d => d.Value)).ToArray();
         var attributes = sources.SelectMany(static s => Rows(s.GetProperty("registry"), "attributes"))
-            .Select(static a => a.GetProperty("key").GetString()!).ToHashSet(StringComparer.Ordinal);
+            .Select(WireKey).ToHashSet(StringComparer.Ordinal);
         var entityKeys = new HashSet<string>(StringComparer.Ordinal);
         var signalKeys = new HashSet<string>(StringComparer.Ordinal);
         foreach (var source in sources)
@@ -51,12 +51,20 @@ public sealed class SetterFidelityTests
             foreach (var kind in new[] { "spans", "events", "metrics" })
             foreach (var signal in Rows(groups, kind))
             foreach (var attribute in Rows(signal, "attributes"))
-                signalKeys.Add(attribute.GetProperty("key").GetString()!);
+                signalKeys.Add(WireKey(attribute));
         }
         attributes.ExceptWith(entityKeys.Except(signalKeys));
         Assert.IsTrue(attributes.SetEquals(actual), "Missing: " + string.Join(", ", attributes.Except(actual)) + "; extra: " + string.Join(", ", actual.Except(attributes)));
         Assert.HasCount(methods.Length, SemconvTypedSurface.Setters);
     }
+
+    private static string WireKey(JsonElement attribute) =>
+        attribute.TryGetProperty("annotations", out var annotations)
+        && annotations.TryGetProperty("qyl", out var qyl)
+        && qyl.TryGetProperty("openai", out var openai)
+        && openai.TryGetProperty("literal_name", out var literalName)
+            ? literalName.GetString()!
+            : attribute.GetProperty("key").GetString()!;
 
     private static IEnumerable<JsonElement> Rows(JsonElement owner, string property)
     {

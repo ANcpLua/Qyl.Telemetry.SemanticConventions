@@ -23,8 +23,9 @@ import rego.v1
 #       deprecated_obsoleted     improvement  the collector drops the key and counts it
 #                                             (AttributeMapping.IsObsoleted).
 #       deprecated_uncategorized violation    no replacement and no rule. Weaver's default.
-#   (c) type_coercible           improvement  the value parses as the declared type, so the
-#                                             collector coerces it.
+#   (c) type_coercible           improvement  the value parses as the declared type. The
+#                                             collector stores it with the type it arrived in;
+#                                             a reader that needs the declared type converts it.
 #       type_not_coercible       violation    it does not. Weaver's default level.
 #       enum_type_invalid        violation    an enum sample that is neither string nor int.
 #                                             Weaver's default level.
@@ -205,15 +206,30 @@ deny contains make_advice("deprecated_uncategorized", "violation", context, mess
 # Weaver's TypeAdvisor raises `type_mismatch` on an attribute sample in two shapes. Both are
 # reproduced; the second is where the qyl rule differs.
 
-# The declared type, with `template[...]` unwrapped to the type it templates.
-declared_type := input.registry_attribute.type if {
-	is_string(input.registry_attribute.type)
-	not startswith(input.registry_attribute.type, "template[")
+# A wire key can belong to more than one registry definition. openai_codex.thread.id travels as
+# thread.id, the key of the core integer managed thread id, and carries the Codex conversation
+# thread UUID as a string. Its signal references name the wire key in `qyl.openai.literal_name`.
+# When the live-check matchers tied the sample to a signal (`input.registry_group`) whose
+# reference carries the sample's key that way, the reference's type is the declared one; else the
+# definition that owns the key (`input.registry_attribute`) declares it.
+wire_reference_type := reference.type if {
+	some reference in input.registry_group.attributes
+	reference.annotations.qyl.openai.literal_name == input.sample.attribute.name
 }
 
-declared_type := trim_suffix(trim_prefix(input.registry_attribute.type, "template["), "]") if {
-	is_string(input.registry_attribute.type)
-	startswith(input.registry_attribute.type, "template[")
+registry_type := wire_reference_type
+
+registry_type := input.registry_attribute.type if not wire_reference_type
+
+# The declared type, with `template[...]` unwrapped to the type it templates.
+declared_type := registry_type if {
+	is_string(registry_type)
+	not startswith(registry_type, "template[")
+}
+
+declared_type := trim_suffix(trim_prefix(registry_type, "template["), "]") if {
+	is_string(registry_type)
+	startswith(registry_type, "template[")
 }
 
 # PrimitiveOrArrayTypeSpec::is_compatible: `any` matches anything in either direction, and an
@@ -241,7 +257,7 @@ type_mismatch if {
 	not compatible_type(input.sample.attribute.type, declared_type)
 }
 
-# The value parses as the declared type, so the collector coerces it and nothing is lost.
+# The value parses as the declared type, so a reader converting it loses nothing.
 parses_as_declared if {
 	declared_type == "int"
 	regex.match(`^\s*[-+]?[0-9]+\s*$`, sprintf("%v", [input.sample.attribute.value]))
@@ -257,7 +273,7 @@ parses_as_declared if {
 	lower(sprintf("%v", [input.sample.attribute.value])) in {"true", "false"}
 }
 
-# Every scalar has a string form, so a scalar observed where a string is declared coerces.
+# Every scalar has a string form, so a scalar observed where a string is declared converts.
 parses_as_declared if {
 	declared_type == "string"
 	input.sample.attribute.type in {"int", "double", "boolean"}
@@ -286,7 +302,7 @@ deny contains make_advice("type_coercible", "improvement", context, message) if 
 	parses_as_declared
 	context := object.union(type_context, {"expected": declared_type})
 	message := sprintf(
-		"Attribute '%s' has type '%s'. Type should be '%s'. The value '%v' parses as '%s', so the collector coerces it.",
+		"Attribute '%s' has type '%s'. Type should be '%s'. The value '%v' parses as '%s'; the collector stores it with the type it arrived in.",
 		[input.sample.attribute.name, input.sample.attribute.type, declared_type, input.sample.attribute.value, declared_type],
 	)
 }

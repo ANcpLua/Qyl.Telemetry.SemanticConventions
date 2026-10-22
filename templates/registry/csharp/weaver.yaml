@@ -32,7 +32,8 @@ templates:
   # `dependencies[...]` are folded in first (top-level wins).
   - template: attributes.cs.j2
     filter: >
-      with_attribute_symbols
+      with_wire_keys
+      | with_attribute_symbols
       | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
@@ -68,7 +69,8 @@ templates:
   # The pinned core schema URL, in the stable package only.
   - template: schema_url.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -82,7 +84,8 @@ templates:
   # The persistence rule of registry/qyl/policy.yaml (params.policy), in the stable package.
   - template: registry_policy.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -95,7 +98,8 @@ templates:
   # their ActivitySource and Meter from these and may not read the incubating tier.
   - template: names.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -112,7 +116,8 @@ templates:
   # The qyl-owned instruments, in the incubating tier.
   - template: metric_attributes.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -143,7 +148,8 @@ templates:
   # service.name, deployment.environment.name, host.*) get no Activity setter.
   - template: activities.cs.j2
     filter: >
-      with_attribute_symbols
+      with_wire_keys
+      | with_attribute_symbols
       | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
@@ -180,7 +186,8 @@ templates:
   # MetricDefinition<TInstrument> rows, per stability tier; disjoint the same way.
   - template: metrics.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -223,7 +230,8 @@ templates:
   # refinements (openai.*, anthropic.*, azure.ai.*, aws.bedrock.*) stay out on purpose.
   - template: spans.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -264,7 +272,8 @@ templates:
   # qyl.instrumentation.domain values the starters may stamp.
   - template: starters.cs.j2
     filter: >
-      with_attribute_symbols
+      with_wire_keys
+      | with_attribute_symbols
       | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
@@ -289,7 +298,8 @@ templates:
   # Typed views over SpanRecord for the starter span types, next to the starters (ADR D8).
   - template: views.cs.j2
     filter: >
-      with_attribute_symbols
+      with_wire_keys
+      | with_attribute_symbols
       | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
@@ -314,7 +324,8 @@ templates:
 
   - template: span_names.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -331,7 +342,8 @@ templates:
   # EventDefinition rows, per stability tier; disjoint the same way.
   - template: events.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -370,7 +382,8 @@ templates:
   # EntityDefinition rows, per stability tier; disjoint the same way.
   - template: entities.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -418,7 +431,8 @@ templates:
   # discriminator.
   - template: registry_facts.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -496,6 +510,8 @@ templates:
       | (($baserules + $refrules)
           | sort_by([(if .constraint_key == null then 1 else 0 end), .id])) as $rules
       | {attributes: [$all[] | {key: .key, stability: .stability, deprecated: .deprecated} + kindof(.type) + {values: enumvals}],
+         context_dependent_attributes: ([$registry.context_dependent_attributes[] | {key: .key} + kindof(.type)]
+                                        | group_by(.key) | map({key: .[0].key, kinds: (map(.kind) | unique)})),
          metrics: ([$allm[] | {name: .name, instrument: .instrument, unit: .unit, stability: .stability, deprecated: .deprecated}] | sort_by(.name)),
          genai_token_histograms: ([$allm[] | select(genai)
                                    | select(.instrument == "histogram" and .unit == "{token}")
@@ -515,7 +531,8 @@ templates:
   # starter parameters and the denied-key tokens.
   - template: analyzer_typed_surface.cs.j2
     filter: >
-      with_attribute_symbols
+      with_wire_keys
+      | with_attribute_symbols
       | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
@@ -539,7 +556,8 @@ templates:
   # shipping a table that points at nothing.
   - template: attribute_mapping.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -576,7 +594,8 @@ templates:
   # build reads them. Directory.Build.props imports it.
   - template: pins.props.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core
@@ -591,7 +610,8 @@ templates:
   # OpenTelemetryDeprecatedSemconvCatalog.cs against it; this replaces verify_deprecated_catalog.py.
   - template: deprecations.cs.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | ($registry.schema_url) as $qyl
       | ([($registry.dependencies | keys)[]
            | select((($registry.dependency_graph[.]) | length) == 0)] | first) as $core

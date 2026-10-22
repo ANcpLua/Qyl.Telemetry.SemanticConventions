@@ -4,6 +4,11 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 /// QYL0013: Detects telemetry attributes whose statically known value type contradicts
 /// the type in the complete pinned semantic-convention registry.
 /// </summary>
+/// <remarks>
+/// A wire key that several registry definitions share, such as <c>thread.id</c> (the core integer
+/// managed thread id and the Codex conversation thread UUID), takes its type from the signal that
+/// carries it. A tag write does not name its signal, so any of those types is accepted.
+/// </remarks>
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 internal sealed class Qyl0013IncorrectAttributeTypeAnalyzer : AlAnalyzer
 {
@@ -35,7 +40,14 @@ internal sealed class Qyl0013IncorrectAttributeTypeAnalyzer : AlAnalyzer
         }
 
         var value = valueArgument.Value.UnwrapAllConversions();
-        if (value.Type is null || IsTypeMatch(value.Type.GetUnderlyingNullableTypeOrSelf(), expectedKind))
+        if (value.Type is null)
+        {
+            return;
+        }
+
+        var valueType = value.Type.GetUnderlyingNullableTypeOrSelf();
+        if (IsTypeMatch(valueType, expectedKind)
+            || SemconvRegistryFacts.GetContextDependentKinds(attributeName).Any(kind => IsTypeMatch(valueType, kind)))
         {
             return;
         }

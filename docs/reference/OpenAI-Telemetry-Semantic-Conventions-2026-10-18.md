@@ -56293,20 +56293,25 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec/src/lib.rs#L246
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
 | --- | --- | --- | --- | --- | --- |
-| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `thread.id` | string | recommended | false | development | ID of the Codex conversation thread (UUID) |
 | `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `thread.id`
 
+Wire key `thread.id`; registry id `openai_codex.thread.id`.
+
 Declared empty at span creation and populated only by a later record call; absent until recorded.
 
-Examples: `42`.
+Examples: `["0199a213-81c0-7800-8aa1-bbab2a035a53"]`.
 
 Attribute annotations:
 
 ```json
 {
   "qyl": {
+    "openai": {
+      "literal_name": "thread.id"
+    },
     "phase": "end"
   }
 }
@@ -58715,7 +58720,7 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/paral
 | --- | --- | --- | --- | --- | --- |
 | `aborted` | any | recommended | false | development | Aborted recorded by the native producer; see the versioned source evidence. |
 | `call_id` | any | recommended | false | development | Call identifier; its role depends on this emitter. |
-| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `thread.id` | string | recommended | false | development | ID of the Codex conversation thread (UUID) |
 | `tool_name` | any | recommended | false | development | Native tool identifier; content policy may replace user-controlled names. |
 
 #### Attribute details: `aborted`
@@ -58764,9 +58769,23 @@ Attribute annotations:
 
 #### Attribute details: `thread.id`
 
+Wire key `thread.id`; registry id `openai_codex.thread.id`.
+
 Recorded by the native tracing span when supplied by the source.
 
-Examples: `42`.
+Examples: `["0199a213-81c0-7800-8aa1-bbab2a035a53"]`.
+
+Attribute annotations:
+
+```json
+{
+  "qyl": {
+    "openai": {
+      "literal_name": "thread.id"
+    }
+  }
+}
+```
 
 #### Attribute details: `tool_name`
 
@@ -67634,20 +67653,34 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/sta
 
 | Attribute | Type | Requirement / role | Sampling relevant | Stability | Meaning |
 | --- | --- | --- | --- | --- | --- |
+| `thread.id` | string | recommended | false | development | ID of the Codex conversation thread (UUID) |
 | `prewarm.input` | string | recommended | false | development | Native prewarm input field emitted by the pinned Codex runtime. |
-| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+
+#### Attribute details: `thread.id`
+
+Wire key `thread.id`; registry id `openai_codex.thread.id`.
+
+Recorded by the native tracing span when supplied by the source.
+
+Examples: `["0199a213-81c0-7800-8aa1-bbab2a035a53"]`.
+
+Attribute annotations:
+
+```json
+{
+  "qyl": {
+    "openai": {
+      "literal_name": "thread.id"
+    }
+  }
+}
+```
 
 #### Attribute details: `prewarm.input`
 
 Recorded by the native tracing span when supplied by the source.
 
 Examples: `["example"]`.
-
-#### Attribute details: `thread.id`
-
-Recorded by the native tracing span when supplied by the source.
-
-Examples: `42`.
 
 #### Source and contract annotations
 
@@ -68193,7 +68226,7 @@ https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.r
 | `codex.turn.token_usage.reasoning_output_tokens` | any | recommended | false | development | Native codex turn token usage reasoning output tokens field emitted by the pinned Codex runtime. |
 | `codex.turn.token_usage.total_tokens` | any | recommended | false | development | Native codex turn token usage total tokens field emitted by the pinned Codex runtime. |
 | `model` | any | recommended | false | development | Model identifier recorded by the producer. |
-| `thread.id` | int | recommended | false | development | Current "managed" thread ID (as opposed to OS thread ID).  |
+| `thread.id` | string | recommended | false | development | ID of the Codex conversation thread (UUID) |
 | `turn.id` | any | recommended | false | development | Turn correlation ID. |
 
 #### Attribute details: `codex.turn.reasoning_effort`
@@ -68324,9 +68357,23 @@ Attribute annotations:
 
 #### Attribute details: `thread.id`
 
+Wire key `thread.id`; registry id `openai_codex.thread.id`.
+
 Recorded by the native tracing span when supplied by the source.
 
-Examples: `42`.
+Examples: `["0199a213-81c0-7800-8aa1-bbab2a035a53"]`.
+
+Attribute annotations:
+
+```json
+{
+  "qyl": {
+    "openai": {
+      "literal_name": "thread.id"
+    }
+  }
+}
+```
 
 #### Attribute details: `turn.id`
 
@@ -69420,6 +69467,7 @@ Native Codex 0.163.0 fields absent from the pinned upstream and existing vendor 
 | `noise_side` | string | recommended | Not applicable | development | Native noise side field emitted by the pinned Codex runtime. |
 | `non_blocking` | any | recommended | Not applicable | development | Native non blocking field emitted by the pinned Codex runtime. |
 | `observation` | string | recommended | Not applicable | development | Native observation field emitted by the pinned Codex runtime. |
+| `thread.id` | string | recommended | Not applicable | development | ID of the Codex conversation thread (UUID) |
 | `operation_kind` | string | recommended | Not applicable | development | Native operation kind field emitted by the pinned Codex runtime. |
 | `original_exec_call_id` | any | recommended | Not applicable | development | Native original exec call id field emitted by the pinned Codex runtime. |
 | `originator` | any | recommended | Not applicable | development | Shared macro field; placement and availability depend on the log or trace route. |
@@ -73744,6 +73792,37 @@ The type follows the observed tracing expression or string-valued metric-tag bou
 Event-specific meaning and capture conditions are documented on each signal reference.
 
 Examples: `["example"]`.
+
+#### Attribute details: `thread.id`
+
+Wire key `thread.id`; registry id `openai_codex.thread.id`.
+
+https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/exec/src/lib.rs#L246
+
+https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tools/parallel.rs#L192
+
+https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/session/startup_prewarm.rs#L275
+
+https://github.com/openai/codex/blob/rust-v0.163.0/codex-rs/core/src/tasks/mod.rs#L355
+
+Codex sends this value under the wire key `thread.id`, which the core registry defines as the
+integer managed thread id. On the Codex spans that reference it, the key carries the Codex
+conversation thread UUID as a string. This is the deep vendor key; its normalized
+counterpart is `gen_ai.conversation.id`.
+
+Examples: `["0199a213-81c0-7800-8aa1-bbab2a035a53"]`.
+
+Attribute annotations:
+
+```json
+{
+  "qyl": {
+    "openai": {
+      "literal_name": "thread.id"
+    }
+  }
+}
+```
 
 #### Attribute details: `operation_kind`
 

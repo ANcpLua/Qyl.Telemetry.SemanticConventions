@@ -15,7 +15,8 @@ templates:
   # every row.
   - template: constants.ts.j2
     filter: >
-      . as $registry
+      with_wire_keys
+      | . as $registry
       | [ {module: "index", tier: "stable"}, {module: "incubating", tier: "incubating"}
           | .tier as $tier
           | . + {exports: ($registry | ts_exports($tier; $params.registry_snapshot_sha256))}
@@ -25,7 +26,7 @@ templates:
 
   # ./catalog: findAttribute and findMetric over the C# RegistryCatalog's rows.
   - template: catalog.ts.j2
-    filter: ts_catalog as $catalog | [ts_files("catalog") | . + $catalog]
+    filter: with_wire_keys | ts_catalog as $catalog | [ts_files("catalog") | . + $catalog]
     application_mode: each
     file_name: "typescript/{{ ctx.file }}"
 

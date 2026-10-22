@@ -132,6 +132,16 @@ EXPECTED = {
         ("az.client_request_id", ["not_stable:improvement"]),
         ("db.elasticsearch.schema_url", ["not_stable:improvement"]),
     ],
+    # thread.id is a context-dependent wire key. The matchers tie a codex.exec sample to the Codex
+    # span, whose reference (openai_codex.thread.id, qyl.openai.literal_name thread.id) declares a
+    # string, so the conversation thread UUID is no type error. A span no matcher ties to a
+    # signal falls back to the core definition, the integer managed thread id, so text fails.
+    "codex.exec": [
+        ("thread.id", ["not_stable:improvement"]),
+    ],
+    "qyl.live_check.thread_id_text": [
+        ("thread.id", ["not_stable:improvement", "type_not_coercible:violation"]),
+    ],
     # Undeclared keys retain the upstream name and namespace checks.
     "qyl.live_check.name_rules": [
         ("NotANamespacedKey", [

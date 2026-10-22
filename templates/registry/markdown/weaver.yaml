@@ -24,19 +24,20 @@ templates:
     file_name: OpenAI-Telemetry-Semantic-Conventions-2026-10-18.md
   - template: coverage.json.j2
     filter: >
+      def wire_name: .annotations.qyl.openai.literal_name? // .name;
       .groups as $groups
       | {events: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_event") | .name] | unique,
          metrics: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_metric") | .metric_name] | unique,
          spans: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span") | .annotations.qyl.openai.literal_name] | unique,
          span_definitions: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span") | .id] | unique,
          groups: [$groups[].id] | unique,
-         attributes: [$groups[].attributes[]?.name] | unique,
+         attributes: [$groups[].attributes[]? | wire_name] | unique,
          event_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_event")
-           | {key: .name, value: [.attributes[]?.name] | unique}] | from_entries,
+           | {key: .name, value: [.attributes[]? | wire_name] | unique}] | from_entries,
          metric_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_metric")
-           | {key: .metric_name, value: [.attributes[]?.name] | unique}] | from_entries,
+           | {key: .metric_name, value: [.attributes[]? | wire_name] | unique}] | from_entries,
          span_attributes: [$groups[] | select(.annotations.qyl.openai.record_kind == "native_span")]
            | group_by(.annotations.qyl.openai.literal_name)
-           | map({key: .[0].annotations.qyl.openai.literal_name, value: [.[].attributes[]?.name] | unique}) | from_entries}
+           | map({key: .[0].annotations.qyl.openai.literal_name, value: [.[].attributes[]? | wire_name] | unique}) | from_entries}
     application_mode: single
     file_name: coverage.json
