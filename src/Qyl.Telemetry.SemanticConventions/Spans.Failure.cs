@@ -62,5 +62,9 @@ public static partial class Spans
     }
 
     private static string Bound(string description) =>
-        description.Length <= MaxStatusDescriptionLength ? description : description.Substring(0, MaxStatusDescriptionLength);
+        description.Length <= MaxStatusDescriptionLength
+            ? description
+            : description.Substring(0, char.IsHighSurrogate(description[MaxStatusDescriptionLength - 1])
+                ? MaxStatusDescriptionLength - 1
+                : MaxStatusDescriptionLength);
 }
