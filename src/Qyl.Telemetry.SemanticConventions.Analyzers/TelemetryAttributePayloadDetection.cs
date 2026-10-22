@@ -78,9 +78,11 @@ internal sealed class TelemetryPayloadFlowScope(ImmutableArray<IOperation> opera
 
 internal static class TelemetryAttributePayloadDetection
 {
-    private static readonly ImmutableHashSet<string> BaggageMethodNames = ImmutableHashSet.Create(
+    private static readonly ImmutableHashSet<string> BaggageMethodNames =
+    [
         "SetBaggage",
-        "AddBaggage");
+        "AddBaggage",
+    ];
 
     /// <summary>
     /// Registers the four payload-producing operation actions (invocation, object creation,
@@ -545,7 +547,7 @@ internal static class TelemetryAttributePayloadDetection
     private static Action<TelemetryAttributePayloadLiteral> WithSink(
         Action<TelemetryAttributePayloadLiteral> report,
         TelemetryPayloadSink sink) =>
-        payload => report(payload.WithSink(sink));
+        payload => report(payload with { Sink = sink });
 
     private static bool TryGetIndexerKey(
         IOperation operation,
@@ -578,6 +580,8 @@ internal static class TelemetryAttributePayloadDetection
         int logicalParameterOrdinal,
         [NotNullWhen(true)] out IArgumentOperation? argument)
     {
+        // Extension methods expose the receiver as parameter 0. Prefer Roslyn's
+        // parameter binding so named/reordered arguments still resolve correctly.
         var parameterOrdinal = extensionMethod ? logicalParameterOrdinal + 1 : logicalParameterOrdinal;
         foreach (var candidate in arguments)
         {
@@ -842,41 +846,23 @@ internal static class TelemetryAttributePayloadDetection
         type?.Name is "ILogger";
 }
 
-internal readonly struct TelemetryAttributePayloadLiteral(
-        string key,
-        SyntaxNode keySyntax,
-        bool keyIsBareLiteral,
-        string? value,
-        SyntaxNode? valueSyntax,
-        bool valueIsBareLiteral,
-        TelemetryPayloadSink sink = TelemetryPayloadSink.None)
+/// <summary>A key/value payload literal and the telemetry surface it reaches.</summary>
+/// <param name="Key">The constant attribute key.</param>
+/// <param name="KeySyntax">The syntax of the key.</param>
+/// <param name="KeyIsBareLiteral">Whether the key is written as a string literal.</param>
+/// <param name="Value">The constant string value, when the payload has one.</param>
+/// <param name="ValueSyntax">The syntax of the constant value, when the payload has one.</param>
+/// <param name="ValueIsBareLiteral">Whether the value is written as a literal.</param>
+/// <param name="Sink">Where the payload ends up; <see cref="TelemetryPayloadSink.None"/> when it provably goes nowhere.</param>
+internal readonly record struct TelemetryAttributePayloadLiteral(
+    string Key,
+    SyntaxNode KeySyntax,
+    bool KeyIsBareLiteral,
+    string? Value,
+    SyntaxNode? ValueSyntax,
+    bool ValueIsBareLiteral,
+    TelemetryPayloadSink Sink = TelemetryPayloadSink.None)
 {
-
-    public string Key { get; } = key;
-
-    public SyntaxNode KeySyntax { get; } = keySyntax;
-
-    public bool KeyIsBareLiteral { get; } = keyIsBareLiteral;
-
-    public string? Value { get; } = value;
-
-    public SyntaxNode? ValueSyntax { get; } = valueSyntax;
-
-    public bool ValueIsBareLiteral { get; } = valueIsBareLiteral;
-
-    /// <summary>Where the payload ends up; <see cref="TelemetryPayloadSink.None"/> when it provably goes nowhere.</summary>
-    public TelemetryPayloadSink Sink { get; } = sink;
-
     /// <summary>True when the payload reaches a telemetry sink rather than an unattached collection.</summary>
     public bool IsProductionEmission => Sink != TelemetryPayloadSink.None;
-
-    public TelemetryAttributePayloadLiteral WithSink(TelemetryPayloadSink sink) =>
-        new(
-            Key,
-            KeySyntax,
-            KeyIsBareLiteral,
-            Value,
-            ValueSyntax,
-            ValueIsBareLiteral,
-            sink);
 }

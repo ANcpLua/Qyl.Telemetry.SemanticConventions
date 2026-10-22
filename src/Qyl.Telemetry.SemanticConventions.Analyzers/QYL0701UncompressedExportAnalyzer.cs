@@ -34,13 +34,6 @@ internal sealed class Qyl0701UncompressedExportAnalyzer : AlAnalyzer {
         DiagnosticCategories.OpenTelemetry,
         DiagnosticSeverity.Warning);
 
-    /// <summary>Method names that configure OTLP exporters.</summary>
-    private static readonly HashSet<string> OtlpExporterMethods = [
-        "AddOtlpExporter",
-        "UseOtlpExporter",
-        "WithOtlpExporter"
-    ];
-
     /// <summary>Type names for OTLP exporter options.</summary>
     private static readonly string[] OtlpOptionsTypeNames = [
         "OpenTelemetry.Exporter.OtlpExporterOptions",
@@ -78,7 +71,7 @@ internal sealed class Qyl0701UncompressedExportAnalyzer : AlAnalyzer {
         INamedTypeSymbol? httpProtobufType) {
         var invocation = (InvocationExpressionSyntax)context.Node;
 
-        if (invocation.GetMethodName() is not { } methodName || !OtlpExporterMethods.Contains(methodName)) {
+        if (invocation.GetMethodName() is not { } methodName || !OtlpConfigurationNames.ExporterMethods.Contains(methodName)) {
             return;
         }
 

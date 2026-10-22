@@ -23,40 +23,28 @@ internal enum SemconvMigrationKind
     DeprecatedButGenerated,
 }
 
-internal readonly struct SemconvMigrationCatalogEntry(
-        string oldName,
-        SemconvMigrationItemKind kind,
-        string signal,
-        string domain,
-        string version,
-        ImmutableArray<string> replacementNames,
-        SemconvMigrationKind migrationKind,
-        string changelogEvidence) : IEquatable<SemconvMigrationCatalogEntry>
+/// <summary>One migration of the catalog, compared by value including its replacement names.</summary>
+/// <param name="OldName">The deprecated name, or a prefix ending in <c>*</c>.</param>
+/// <param name="Kind">What the old name names.</param>
+/// <param name="Signal">The signal the old name belongs to.</param>
+/// <param name="Domain">The semantic-convention domain of the old name.</param>
+/// <param name="Version">
+/// Semantic-conventions version the deprecation landed in (without the
+/// leading 'v'), or empty when the upstream model carries no version.
+/// </param>
+/// <param name="ReplacementNames">The names that replace the old name.</param>
+/// <param name="MigrationKind">How the old name migrates.</param>
+/// <param name="ChangelogEvidence">Human-readable summary surfaced in docs and diagnostic messages.</param>
+internal readonly record struct SemconvMigrationCatalogEntry(
+    string OldName,
+    SemconvMigrationItemKind Kind,
+    string Signal,
+    string Domain,
+    string Version,
+    ImmutableArray<string> ReplacementNames,
+    SemconvMigrationKind MigrationKind,
+    string ChangelogEvidence)
 {
-
-    public string OldName { get; } = oldName;
-
-    public SemconvMigrationItemKind Kind { get; } = kind;
-
-    public string Signal { get; } = signal;
-
-    public string Domain { get; } = domain;
-
-    /// <summary>
-    /// Semantic-conventions version the deprecation landed in (without the
-    /// leading 'v'), or empty when the upstream model carries no version.
-    /// </summary>
-    public string Version { get; } = version;
-
-    public ImmutableArray<string> ReplacementNames { get; } = replacementNames;
-
-    public SemconvMigrationKind MigrationKind { get; } = migrationKind;
-
-    /// <summary>
-    /// Human-readable summary surfaced in docs and diagnostic messages.
-    /// </summary>
-    public string ChangelogEvidence { get; } = changelogEvidence;
-
     public bool HasExactReplacement =>
         MigrationKind is SemconvMigrationKind.ExactRename or SemconvMigrationKind.ExactValueRename or SemconvMigrationKind.DeprecatedButGenerated
         && ReplacementNames.Length == 1
@@ -68,8 +56,6 @@ internal readonly struct SemconvMigrationCatalogEntry(
         && ChangelogEvidence == other.ChangelogEvidence
         && ReplacementNames.IsDefault == other.ReplacementNames.IsDefault
         && (ReplacementNames.IsDefault || ReplacementNames.SequenceEqual(other.ReplacementNames));
-
-    public override bool Equals(object? obj) => obj is SemconvMigrationCatalogEntry other && Equals(other);
 
     public override int GetHashCode()
     {
@@ -88,8 +74,4 @@ internal readonly struct SemconvMigrationCatalogEntry(
             return hash;
         }
     }
-
-    public static bool operator ==(SemconvMigrationCatalogEntry left, SemconvMigrationCatalogEntry right) => left.Equals(right);
-    public static bool operator !=(SemconvMigrationCatalogEntry left, SemconvMigrationCatalogEntry right) => !left.Equals(right);
-
 }

@@ -243,15 +243,7 @@ internal static class SemconvMigrationCatalog
             evidence = "Covered by generated [Obsolete] metadata when the consumer references OpenTelemetry.SemanticConventions. " + evidence;
         }
 
-        return new SemconvMigrationCatalogEntry(
-            entry.OldName,
-            entry.Kind,
-            entry.Signal,
-            entry.Domain,
-            version,
-            entry.ReplacementNames,
-            migrationKind,
-            evidence);
+        return entry with { Version = version, MigrationKind = migrationKind, ChangelogEvidence = evidence };
     }
 
     private static bool IsGeneratedMetadataEntry(SemconvMigrationCatalogEntry entry) =>
@@ -276,7 +268,7 @@ internal static class SemconvMigrationCatalog
 
         foreach (var entry in entries)
         {
-            if (entry.OldName.IndexOf('*') >= 0)
+            if (entry.OldName.ContainsOrdinal("*"))
             {
                 continue;
             }
@@ -297,7 +289,7 @@ internal static class SemconvMigrationCatalog
 
         foreach (var entry in entries)
         {
-            if (entry.OldName.IndexOf('*') >= 0)
+            if (entry.OldName.ContainsOrdinal("*"))
             {
                 builder.Add(entry);
             }

@@ -182,7 +182,7 @@
         <value>OTLP exporter configured without explicit endpoint. Set OTEL_EXPORTER_OTLP_ENDPOINT environment variable or pass endpoint in code.</value>
     </data>
     <data name="QYL0700AnalyzerDescription" xml:space="preserve">
-        <value>When using UseOtlpExporter() or AddOtlpExporter() without an explicit endpoint configuration, telemetry will be sent to the default localhost endpoint (localhost:4317 for gRPC, localhost:4318 for HTTP) or fail to export if no collector is running. Configure OTEL_EXPORTER_OTLP_ENDPOINT environment variable or pass the endpoint explicitly in options to ensure reliable telemetry export.</value>
+        <value>When using UseOtlpExporter(), AddOtlpExporter() or WithOtlpExporter() without an explicit endpoint configuration, telemetry will be sent to the default localhost endpoint (localhost:4317 for gRPC, localhost:4318 for HTTP) or fail to export if no collector is running. Configure OTEL_EXPORTER_OTLP_ENDPOINT environment variable or pass the endpoint explicitly in options to ensure reliable telemetry export.</value>
     </data>
     <!-- AL0090: Uncompressed export -->
     <data name="QYL0701AnalyzerTitle" xml:space="preserve">

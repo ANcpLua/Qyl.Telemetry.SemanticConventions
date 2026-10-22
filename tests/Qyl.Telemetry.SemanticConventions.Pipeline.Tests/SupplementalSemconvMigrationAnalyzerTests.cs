@@ -193,6 +193,23 @@ public sealed class SupplementalSemconvMigrationAnalyzerTests(TestContext testCo
     }
 
     [TestMethod]
+    public async Task Qyl0009_NonPublicObsoleteConstant_ReportsCatalogMigration()
+    {
+        var diagnostics = await CompileTelemetry(Compile.Source(Fixture("activity.SetTag(\"gen_ai.system\", \"openai\");")).WithSource("""
+                namespace OpenTelemetry.SemanticConventions.Attributes.GenAi
+                {
+                    public static class GenAiAttributes
+                    {
+                        [System.Obsolete("Replaced by gen_ai.provider.name.")]
+                        internal const string AttributeGenAiSystem = "gen_ai.system";
+                    }
+                }
+                """)).WithAnalyzers([new SupplementalSemconvMigrationAnalyzer(), new LiteralMatchesDeprecatedSemconvAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        var diagnostic = Assert.ContainsSingle(diagnostics);
+        Assert.AreEqual("QYL0009", diagnostic.Id);
+    }
+
+    [TestMethod]
     public async Task Qyl0009_WildcardPrefixKey_ReplacesPrefixOfConcreteKey()
     {
         var diagnostics = await CompileTelemetry(Compile.Source(Fixture("activity.SetTag(\"db.elasticsearch.path_parts.index\", \"orders\");"))).WithAnalyzers([new SupplementalSemconvMigrationAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);

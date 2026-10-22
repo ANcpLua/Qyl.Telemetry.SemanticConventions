@@ -61,16 +61,8 @@ internal static class DocsGenerator
         var fixableIds = DescriptorCatalog.GetFixableDiagnosticIds();
         var idToClass = DescriptorCatalog.BuildIdToClassMap();
 
-        if (!File.Exists(outputPath))
-        {
-            Console.Error.WriteLine($"Missing generated docs: {outputPath}");
+        if (!IsCurrent(repoRoot, outputPath, IndexDocsRenderer.Render(descriptors, fixableIds, idToClass), "index page"))
             return 1;
-        }
-        if (!string.Equals(File.ReadAllText(outputPath), IndexDocsRenderer.Render(descriptors, fixableIds, idToClass), StringComparison.Ordinal))
-        {
-            Console.Error.WriteLine($"Index docs are stale: {Path.GetRelativePath(repoRoot, outputPath)}");
-            return 1;
-        }
 
         var rulesDir = RepoLayout.RulesDir(repoRoot);
         var expectedRuleFiles = new HashSet<string>(StringComparer.Ordinal);
@@ -85,16 +77,8 @@ internal static class DocsGenerator
             var rulePath = RepoLayout.RulePath(repoRoot, d.Id, symbolic);
             expectedRuleFiles.Add(Path.GetFileName(rulePath));
 
-            if (!File.Exists(rulePath))
-            {
-                Console.Error.WriteLine($"Missing per-rule page: {Path.GetRelativePath(repoRoot, rulePath)}");
+            if (!IsCurrent(repoRoot, rulePath, RulePageRenderer.Render(d, className, fixableIds), "per-rule page"))
                 return 1;
-            }
-            if (!string.Equals(File.ReadAllText(rulePath), RulePageRenderer.Render(d, className, fixableIds), StringComparison.Ordinal))
-            {
-                Console.Error.WriteLine($"Per-rule page is stale: {Path.GetRelativePath(repoRoot, rulePath)}");
-                return 1;
-            }
 
             // HelpLinkUri drift: descriptor's URL must equal what the generator would emit now.
             var expectedUri = RuleDocs.HelpLink(d.Id, symbolic);
@@ -119,41 +103,17 @@ internal static class DocsGenerator
         }
 
         var catalogPath = RepoLayout.MigrationCatalogPath(repoRoot);
-        if (!File.Exists(catalogPath))
-        {
-            Console.Error.WriteLine($"Missing migration catalog: {Path.GetRelativePath(repoRoot, catalogPath)}");
+        if (!IsCurrent(repoRoot, catalogPath, MigrationCatalogRenderer.Render(stats), "migration catalog"))
             return 1;
-        }
-        if (!string.Equals(File.ReadAllText(catalogPath), MigrationCatalogRenderer.Render(stats), StringComparison.Ordinal))
-        {
-            Console.Error.WriteLine($"Migration catalog is stale: {Path.GetRelativePath(repoRoot, catalogPath)}");
-            return 1;
-        }
 
         var sarifPath = RepoLayout.SarifPath(repoRoot);
-        if (!File.Exists(sarifPath))
-        {
-            Console.Error.WriteLine($"Missing SARIF manifest: {Path.GetRelativePath(repoRoot, sarifPath)}");
+        if (!IsCurrent(repoRoot, sarifPath, SarifRenderer.Render(descriptors, idToClass), "SARIF manifest"))
             return 1;
-        }
-        if (!string.Equals(File.ReadAllText(sarifPath), SarifRenderer.Render(descriptors, idToClass), StringComparison.Ordinal))
-        {
-            Console.Error.WriteLine($"SARIF manifest is stale: {Path.GetRelativePath(repoRoot, sarifPath)}");
-            return 1;
-        }
 
         foreach (var (path, expected) in EditorconfigRenderer.EnumerateProfiles(repoRoot, descriptors))
         {
-            if (!File.Exists(path))
-            {
-                Console.Error.WriteLine($"Missing editorconfig profile: {Path.GetRelativePath(repoRoot, path)}");
+            if (!IsCurrent(repoRoot, path, expected, "editorconfig profile"))
                 return 1;
-            }
-            if (!string.Equals(File.ReadAllText(path), expected, StringComparison.Ordinal))
-            {
-                Console.Error.WriteLine($"Editorconfig profile is stale: {Path.GetRelativePath(repoRoot, path)}");
-                return 1;
-            }
         }
 
         // RS2008 covers rows; this additionally locks their documentation links.
@@ -178,6 +138,27 @@ internal static class DocsGenerator
         Console.WriteLine(@"Shipped.md Notes column is up to date.");
         Console.WriteLine(@"HelpLinkUri values match per-rule page URLs.");
         return 0;
+    }
+
+    /// <summary>
+    ///   Whether the generated <paramref name="artifact"/> at <paramref name="path"/> exists and
+    ///   equals <paramref name="expected"/>; writes <c>Missing {artifact}</c> or
+    ///   <c>{artifact} is stale</c> with the repository-relative path otherwise.
+    /// </summary>
+    private static bool IsCurrent(string repoRoot, string path, string expected, string artifact)
+    {
+        var relativePath = Path.GetRelativePath(repoRoot, path);
+        if (!File.Exists(path))
+        {
+            Console.Error.WriteLine($"Missing {artifact}: {relativePath}");
+            return false;
+        }
+        if (!string.Equals(File.ReadAllText(path), expected, StringComparison.Ordinal))
+        {
+            Console.Error.WriteLine($"{char.ToUpperInvariant(artifact[0])}{artifact[1..]} is stale: {relativePath}");
+            return false;
+        }
+        return true;
     }
 
     /// <summary>

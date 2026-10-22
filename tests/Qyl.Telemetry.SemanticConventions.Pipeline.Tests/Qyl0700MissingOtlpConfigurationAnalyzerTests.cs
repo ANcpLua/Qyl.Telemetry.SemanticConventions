@@ -66,6 +66,25 @@ public sealed class Qyl0700MissingOtlpConfigurationAnalyzerTests(TestContext tes
         Assert.AreEqual("QYL0700", diagnostic.Id);
     }
 
+    [TestMethod]
+    public async Task Qyl0700_WithOtlpExporterWithoutEndpoint_IsReported()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source("""
+            public sealed class Builder { }
+            public static class OtlpExtensions
+            {
+                public static Builder WithOtlpExporter(this Builder builder) => builder;
+            }
+            public static class Startup
+            {
+                public static void Configure(Builder builder) => builder.WithOtlpExporter();
+            }
+            """))
+            .WithAnalyzers([new Qyl0700MissingOtlpConfigurationAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        var diagnostic = Assert.ContainsSingle(diagnostics);
+        Assert.AreEqual("QYL0700", diagnostic.Id);
+    }
+
     private const string ExporterDeclarations = """
         public sealed class Builder { }
         public static class OtlpExtensions

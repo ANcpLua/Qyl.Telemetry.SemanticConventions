@@ -82,6 +82,24 @@ public sealed class RegistryDerivedAnalyzerTests(TestContext testContext)
     }
 
     [TestMethod]
+    public async Task Qyl0013_LookalikeEnumerableOutsideSystem_IsReported()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SourceFixture.InMethod(
+            "SetTag(\"gen_ai.response.finish_reasons\", new FinishReasons());",
+            declarations: """
+                namespace Lookalike.System.Collections.Generic
+                {
+                    public interface IEnumerable<T> { }
+                }
+
+                public sealed class FinishReasons : Lookalike.System.Collections.Generic.IEnumerable<string> { }
+                """,
+            members: "private void SetTag(string key, object? value) { }"))).WithAnalyzers([new Qyl0013IncorrectAttributeTypeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        var diagnostic = Assert.ContainsSingle(diagnostics);
+        Assert.AreEqual("QYL0013", diagnostic.Id);
+    }
+
+    [TestMethod]
     public async Task Qyl0012_enforces_qyl_owned_enum_tokens()
     {
         var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SinkSource("""

@@ -22,8 +22,8 @@ internal static class TagSetterDetection
     /// because consumers use Activity, Span, TagList, custom builders, and OTel-extension wrappers
     /// interchangeably. Only the framework's own non-telemetry types are excluded.
     /// </summary>
-    private static readonly ImmutableHashSet<string> TagSetterMethodNames = ImmutableHashSet.Create(
-        "SetTag", "AddTag", "SetAttribute", "AddAttribute");
+    private static readonly ImmutableHashSet<string> TagSetterMethodNames =
+        ["SetTag", "AddTag", "SetAttribute", "AddAttribute"];
 
     /// <summary>Whether <paramref name="invocation"/> is a raw <c>SetTag</c>-style call.</summary>
     public static bool IsTagSetterInvocation(IInvocationOperation invocation) =>
@@ -47,14 +47,22 @@ internal static class TagSetterDetection
         IInvocationOperation invocation,
         [NotNullWhen(true)] out IArgumentOperation? argument)
     {
-        return TryGetTagSetterArgument(invocation, logicalParameterOrdinal: 0, out argument);
+        return TelemetryAttributePayloadDetection.TryGetArgumentByOrdinal(
+            invocation.Arguments,
+            invocation.TargetMethod.IsExtensionMethod,
+            logicalParameterOrdinal: 0,
+            out argument);
     }
 
     public static bool TryGetTagSetterValueArgument(
         IInvocationOperation invocation,
         [NotNullWhen(true)] out IArgumentOperation? argument)
     {
-        return TryGetTagSetterArgument(invocation, logicalParameterOrdinal: 1, out argument);
+        return TelemetryAttributePayloadDetection.TryGetArgumentByOrdinal(
+            invocation.Arguments,
+            invocation.TargetMethod.IsExtensionMethod,
+            logicalParameterOrdinal: 1,
+            out argument);
     }
 
     /// <summary>
@@ -289,49 +297,10 @@ internal static class TagSetterDetection
 
     private static bool IsNullLiteral(this IOperation operation) =>
         operation.ConstantValue is { HasValue: true, Value: null };
-
-    private static bool TryGetTagSetterArgument(
-        IInvocationOperation invocation,
-        int logicalParameterOrdinal,
-        [NotNullWhen(true)] out IArgumentOperation? argument)
-    {
-        // Extension methods expose the receiver as parameter 0. Prefer Roslyn's
-        // parameter binding so named/reordered arguments still resolve correctly.
-        var parameterOrdinal = invocation.TargetMethod.IsExtensionMethod
-            ? logicalParameterOrdinal + 1
-            : logicalParameterOrdinal;
-
-        foreach (var candidate in invocation.Arguments)
-        {
-            if (candidate.Parameter?.Ordinal == parameterOrdinal)
-            {
-                argument = candidate;
-                return true;
-            }
-        }
-
-        var fallbackIndex = invocation.Arguments.Length > parameterOrdinal
-            ? parameterOrdinal
-            : logicalParameterOrdinal;
-
-        if (invocation.Arguments.Length > fallbackIndex)
-        {
-            argument = invocation.Arguments[fallbackIndex];
-            return true;
-        }
-
-        argument = null;
-        return false;
-    }
 }
 
 /// <summary>An attribute write with its key, its constant value when it has one, and where it is.</summary>
-internal readonly struct TagSetterCall(string key, string? value, Location keyLocation)
-{
-
-    public string Key { get; } = key;
-    public string? Value { get; } = value;
-
-    /// <summary>The syntax location of the write (suitable for diagnostic reports).</summary>
-    public Location KeyLocation { get; } = keyLocation;
-}
+/// <param name="Key">The attribute key.</param>
+/// <param name="Value">The constant value, when the write has one.</param>
+/// <param name="KeyLocation">The syntax location of the write (suitable for diagnostic reports).</param>
+internal readonly record struct TagSetterCall(string Key, string? Value, Location KeyLocation);

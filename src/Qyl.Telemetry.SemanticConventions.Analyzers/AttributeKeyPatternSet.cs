@@ -77,33 +77,8 @@ internal sealed class AttributeKeyPatternSet
         return segments.ToImmutable();
     }
 
-    private static bool ContainsRun(ImmutableArray<string> segments, ImmutableArray<string> pattern)
-    {
-        if (pattern.Length > segments.Length)
-        {
-            return false;
-        }
-
-        for (var start = 0; start <= segments.Length - pattern.Length; start++)
-        {
-            var matched = true;
-            for (var offset = 0; offset < pattern.Length; offset++)
-            {
-                if (!string.Equals(segments[start + offset], pattern[offset], StringComparison.Ordinal))
-                {
-                    matched = false;
-                    break;
-                }
-            }
-
-            if (matched)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    private static bool ContainsRun(ImmutableArray<string> segments, ImmutableArray<string> pattern) =>
+        segments.AsSpan().IndexOf(pattern.AsSpan()) >= 0;
 
     /// <summary>
     /// <c>apiKey</c> breaks before <c>K</c> (lower to upper); <c>HTTPToken</c> breaks before

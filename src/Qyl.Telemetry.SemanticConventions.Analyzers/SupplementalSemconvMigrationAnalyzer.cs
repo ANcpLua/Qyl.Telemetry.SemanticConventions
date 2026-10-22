@@ -18,14 +18,16 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
     private const string DomainProperty = "Domain";
     private const string ChangelogVersionProperty = "ChangelogVersion";
 
-    private static readonly ImmutableHashSet<string> MetricInstrumentMethodNames = ImmutableHashSet.Create(
+    private static readonly ImmutableHashSet<string> MetricInstrumentMethodNames =
+    [
         "CreateCounter",
         "CreateHistogram",
         "CreateGauge",
         "CreateObservableCounter",
         "CreateObservableGauge",
         "CreateObservableUpDownCounter",
-        "CreateUpDownCounter");
+        "CreateUpDownCounter",
+    ];
 
     /// <inheritdoc/>
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =
@@ -339,46 +341,17 @@ public sealed class SupplementalSemconvMigrationAnalyzer : DiagnosticAnalyzer
             : SemconvMigrationCatalog.ResolveTerminalReplacement(name);
     }
 
-    private static ImmutableHashSet<string> BuildLiveObsoleteAttributeNames(Compilation compilation)
-    {
-        var builder = ImmutableHashSet.CreateBuilder<string>(StringComparer.Ordinal);
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
-        {
-            foreach (var member in type.GetMembers())
-            {
-                if (member is IFieldSymbol
-                    {
-                        IsConst: true,
-                        Type.SpecialType: SpecialType.System_String,
-                        ConstantValue: string value,
-                    } field
-                    && !string.IsNullOrEmpty(value)
-                    && field.HasAttribute("System.ObsoleteAttribute"))
-                {
-                    builder.Add(value);
-                }
-            }
-        }
+    private static ImmutableHashSet<string> BuildLiveObsoleteAttributeNames(Compilation compilation) =>
+        SemconvNamespace.EnumerateAttributeKeyConstants(compilation)
+            .Where(static constant => constant.Obsolete is not null)
+            .Select(static constant => constant.Value)
+            .ToImmutableHashSet(StringComparer.Ordinal);
 
-        return builder.ToImmutable();
-    }
-
-    private static ImmutableHashSet<string> BuildLiveObsoleteAttributeValues(Compilation compilation)
-    {
-        var builder = ImmutableHashSet.CreateBuilder<string>(StringComparer.Ordinal);
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
-        {
-            foreach (var (attributeName, valueField) in SemconvNamespace.EnumerateAttributeValueConstants(type))
-            {
-                if (valueField.HasAttribute("System.ObsoleteAttribute"))
-                {
-                    builder.Add(attributeName + "=" + (string)valueField.ConstantValue!);
-                }
-            }
-        }
-
-        return builder.ToImmutable();
-    }
+    private static ImmutableHashSet<string> BuildLiveObsoleteAttributeValues(Compilation compilation) =>
+        SemconvNamespace.EnumerateAttributeValueConstants(compilation)
+            .Where(static constant => constant.Obsolete is not null)
+            .Select(static constant => constant.AttributeName + "=" + constant.Value)
+            .ToImmutableHashSet(StringComparer.Ordinal);
 
     private static bool IsCatalogSource(IOperation operation)
     {

@@ -42,14 +42,8 @@ internal static class DescriptorCatalog
 
         // (2) Per-analyzer SupportedDiagnostics for QYL00XX-named analyzers that define
         //     their descriptor locally (no entry in DiagnosticDescriptors.cs).
-        foreach (var type in typeof(DiagnosticDescriptors).Assembly.GetTypes())
+        foreach (var (_, analyzer) in Instantiate<DiagnosticAnalyzer>())
         {
-            if (type.IsAbstract || !typeof(DiagnosticAnalyzer).IsAssignableFrom(type))
-                continue;
-
-            var analyzer = (DiagnosticAnalyzer?)Activator.CreateInstance(type);
-            if (analyzer is null) continue;
-
             foreach (var d in analyzer.SupportedDiagnostics)
             {
                 if (seen.Add(d.Id))
@@ -71,14 +65,8 @@ internal static class DescriptorCatalog
     public static HashSet<string> GetFixableDiagnosticIds()
     {
         var ids = new HashSet<string>(StringComparer.Ordinal);
-        foreach (var type in typeof(DiagnosticDescriptors).Assembly.GetTypes())
+        foreach (var (_, provider) in Instantiate<CodeFixProvider>())
         {
-            if (type.IsAbstract || !typeof(CodeFixProvider).IsAssignableFrom(type))
-                continue;
-
-            var provider = (CodeFixProvider?)Activator.CreateInstance(type);
-            if (provider is null) continue;
-
             foreach (var id in provider.FixableDiagnosticIds)
             {
                 if (id.StartsWith("QYL", StringComparison.Ordinal))
@@ -97,17 +85,10 @@ internal static class DescriptorCatalog
     public static Dictionary<string, string> BuildIdToClassMap()
     {
         var map = new Dictionary<string, string>(StringComparer.Ordinal);
-        foreach (var type in typeof(DiagnosticDescriptors).Assembly.GetTypes())
+        foreach (var (type, analyzer) in Instantiate<DiagnosticAnalyzer>())
         {
-            if (type.IsAbstract) continue;
-            if (!typeof(DiagnosticAnalyzer).IsAssignableFrom(type)) continue;
-            {
-                if (Activator.CreateInstance(type) is DiagnosticAnalyzer a)
-                {
-                    foreach (var d in a.SupportedDiagnostics)
-                        map[d.Id] = type.Name;
-                }
-            }
+            foreach (var d in analyzer.SupportedDiagnostics)
+                map[d.Id] = type.Name;
         }
         return map;
     }
@@ -123,25 +104,27 @@ internal static class DescriptorCatalog
         var analyzers = new Dictionary<string, string>(StringComparer.Ordinal);
         var codeFixes = new Dictionary<string, string>(StringComparer.Ordinal);
 
-        foreach (var type in typeof(DiagnosticDescriptors).Assembly.GetTypes())
+        foreach (var (type, analyzer) in Instantiate<DiagnosticAnalyzer>())
         {
-            if (type.IsAbstract) continue;
-
-            if (typeof(DiagnosticAnalyzer).IsAssignableFrom(type))
-            {
-                if (Activator.CreateInstance(type) is DiagnosticAnalyzer { SupportedDiagnostics.Length: > 0 } a)
-                    analyzers[type.Name] = a.SupportedDiagnostics
-                        .OrderBy(d => d.Id, StringComparer.Ordinal).First().Id;
-            }
-            else if (typeof(CodeFixProvider).IsAssignableFrom(type))
-            {
-                {
-                    if (Activator.CreateInstance(type) is CodeFixProvider { FixableDiagnosticIds.Length: > 0 } p)
-                        codeFixes[type.Name] = p.FixableDiagnosticIds
-                            .OrderBy(s => s, StringComparer.Ordinal).First();
-                }
-            }
+            if (analyzer.SupportedDiagnostics.Length > 0)
+                analyzers[type.Name] = analyzer.SupportedDiagnostics
+                    .OrderBy(d => d.Id, StringComparer.Ordinal).First().Id;
+        }
+        foreach (var (type, provider) in Instantiate<CodeFixProvider>())
+        {
+            if (provider.FixableDiagnosticIds.Length > 0)
+                codeFixes[type.Name] = provider.FixableDiagnosticIds
+                    .OrderBy(s => s, StringComparer.Ordinal).First();
         }
         return (analyzers, codeFixes);
     }
+
+    /// <summary>
+    ///   Every concrete type in the analyzer assembly assignable to <typeparamref name="T"/>,
+    ///   instantiated once through its parameterless constructor.
+    /// </summary>
+    private static IEnumerable<(Type Type, T Instance)> Instantiate<T>() where T : class =>
+        typeof(DiagnosticDescriptors).Assembly.GetTypes()
+            .Where(static type => !type.IsAbstract && typeof(T).IsAssignableFrom(type))
+            .Select(static type => (type, (T)Activator.CreateInstance(type)!));
 }

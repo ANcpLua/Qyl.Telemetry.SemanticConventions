@@ -12,7 +12,7 @@
 
 ## Description
 
-When using UseOtlpExporter() or AddOtlpExporter() without an explicit endpoint configuration, telemetry will be sent to the default localhost endpoint (localhost:4317 for gRPC, localhost:4318 for HTTP) or fail to export if no collector is running. Configure OTEL_EXPORTER_OTLP_ENDPOINT environment variable or pass the endpoint explicitly in options to ensure reliable telemetry export.
+When using UseOtlpExporter(), AddOtlpExporter() or WithOtlpExporter() without an explicit endpoint configuration, telemetry will be sent to the default localhost endpoint (localhost:4317 for gRPC, localhost:4318 for HTTP) or fail to export if no collector is running. Configure OTEL_EXPORTER_OTLP_ENDPOINT environment variable or pass the endpoint explicitly in options to ensure reliable telemetry export.
 
 ## See also
 

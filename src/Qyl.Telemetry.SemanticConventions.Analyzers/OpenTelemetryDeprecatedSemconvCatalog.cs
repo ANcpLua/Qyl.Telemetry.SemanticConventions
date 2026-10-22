@@ -265,9 +265,9 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
 
         foreach (var attr in DeprecatedAttributeValues) {
             foreach (var value in attr.Value) {
-                var replacement = SemconvCodeFixHelpers.TryExtractExactReplacement(value.Value, out var extractedReplacement)
-                    ? ImmutableArray.Create(extractedReplacement)
-                    : ImmutableArray<string>.Empty;
+                ImmutableArray<string> replacement = SemconvCodeFixHelpers.TryExtractExactReplacement(value.Value, out var extractedReplacement)
+                    ? [extractedReplacement]
+                    : [];
 
                 var migrationKind = replacement.Length == 1
                     ? SemconvMigrationKind.ExactValueRename
@@ -276,14 +276,14 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
                         : SemconvMigrationKind.ManualReview;
 
                 builder.Add(new SemconvMigrationCatalogEntry(
-                    oldName: BuildAttributeValueKey(attr.Key, value.Key),
-                    kind: SemconvMigrationItemKind.AttributeValue,
-                    signal: "any",
-                    domain: InferDomain(attr.Key),
-                    version: "",
-                    replacementNames: replacement,
-                    migrationKind: migrationKind,
-                    changelogEvidence: value.Value));
+                    OldName: BuildAttributeValueKey(attr.Key, value.Key),
+                    Kind: SemconvMigrationItemKind.AttributeValue,
+                    Signal: "any",
+                    Domain: InferDomain(attr.Key),
+                    Version: "",
+                    ReplacementNames: replacement,
+                    MigrationKind: migrationKind,
+                    ChangelogEvidence: value.Value));
             }
         }
 
@@ -293,14 +293,14 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
                 : SemconvMigrationKind.ContextSensitive;
 
             builder.Add(new SemconvMigrationCatalogEntry(
-                oldName: item.Key,
-                kind: InferItemKind(item.Key),
-                signal: InferSignal(item.Key),
-                domain: InferDomain(item.Key),
-                version: "",
-                replacementNames: ImmutableArray<string>.Empty,
-                migrationKind: migrationKind,
-                changelogEvidence: item.Value));
+                OldName: item.Key,
+                Kind: InferItemKind(item.Key),
+                Signal: InferSignal(item.Key),
+                Domain: InferDomain(item.Key),
+                Version: "",
+                ReplacementNames: [],
+                MigrationKind: migrationKind,
+                ChangelogEvidence: item.Value));
         }
 
         AddChangelogEntries(builder);
@@ -349,7 +349,7 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
             "event",
             "rpc",
             "1.40.0",
-            ImmutableArray<string>.Empty,
+            [],
             SemconvMigrationKind.RemovedNoReplacement,
             "The rpc.message event and its message.* attributes were deprecated without a direct replacement."));
     }
@@ -364,7 +364,7 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
             "metric",
             "rpc",
             "1.40.0",
-            ImmutableArray<string>.Empty,
+            [],
             SemconvMigrationKind.RemovedNoReplacement,
             evidence));
     }
@@ -378,20 +378,19 @@ internal static class OpenTelemetryDeprecatedSemconvCatalog {
         var hasReplacement = !string.IsNullOrEmpty(replacement);
 
         return new SemconvMigrationCatalogEntry(
-            oldName: oldName,
-            kind: SemconvMigrationItemKind.AttributeKey,
-            signal: InferSignal(oldName),
-            domain: InferDomain(oldName),
-            version: version,
-            replacementNames: hasReplacement ? [replacement] : ImmutableArray<string>.Empty,
-            migrationKind: migrationKind,
-            changelogEvidence: evidence);
+            OldName: oldName,
+            Kind: SemconvMigrationItemKind.AttributeKey,
+            Signal: InferSignal(oldName),
+            Domain: InferDomain(oldName),
+            Version: version,
+            ReplacementNames: hasReplacement ? [replacement] : [],
+            MigrationKind: migrationKind,
+            ChangelogEvidence: evidence);
     }
 
     private static bool IsNoReplacement(string guidance) =>
-        guidance.IndexOf("no replacement", StringComparison.OrdinalIgnoreCase) >= 0
-        || guidance.IndexOf("Removed", StringComparison.OrdinalIgnoreCase) >= 0
-            && guidance.IndexOf("replacement", StringComparison.OrdinalIgnoreCase) < 0;
+        guidance.ContainsIgnoreCase("no replacement")
+        || guidance.ContainsIgnoreCase("Removed") && !guidance.ContainsIgnoreCase("replacement");
 
     private static SemconvMigrationItemKind InferItemKind(string name) {
         if (name.StartsWith("event.", StringComparison.Ordinal)) {

@@ -57,12 +57,49 @@ internal static class SemconvNamespace
             .Where(type => IsAttributesType(type, allowNonAttributesTiers));
 
     /// <summary>
+    /// Every public, non-empty <c>const string</c> attribute key of every type
+    /// <see cref="EnumerateAttributesTypes"/> yields, with its <c>[Obsolete]</c> attribute when it has
+    /// one. The deprecation analyzers and the code fix read the referenced package through this one
+    /// walk, so they agree on what it says.
+    /// </summary>
+    public static IEnumerable<(INamedTypeSymbol Type, IFieldSymbol Field, string Value, AttributeData? Obsolete)> EnumerateAttributeKeyConstants(
+        Compilation compilation,
+        bool allowNonAttributesTiers = false)
+    {
+        foreach (var type in EnumerateAttributesTypes(compilation, allowNonAttributesTiers))
+        {
+            foreach (var member in type.GetMembers())
+            {
+                if (member is IFieldSymbol
+                    {
+                        IsConst: true,
+                        DeclaredAccessibility: Accessibility.Public,
+                        Type.SpecialType: SpecialType.System_String,
+                        ConstantValue: string value,
+                    } field
+                    && value.Length > 0)
+                {
+                    yield return (type, field, value, field.GetAttribute("System.ObsoleteAttribute"));
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Every <c>const string</c> value of every type <see cref="EnumerateAttributesTypes"/> yields,
+    /// with the attribute it belongs to and its <c>[Obsolete]</c> attribute when it has one.
+    /// </summary>
+    public static IEnumerable<(string AttributeName, IFieldSymbol ValueField, string Value, AttributeData? Obsolete)> EnumerateAttributeValueConstants(
+        Compilation compilation) =>
+        EnumerateAttributesTypes(compilation).SelectMany(EnumerateAttributeValueConstants);
+
+    /// <summary>
     /// Pairs every nested <c>*Values</c> type of <paramref name="attributesType"/> with
     /// the sibling const that names its attribute (<c>AttributeX</c> upstream, <c>X</c> in the qyl
     /// packages), and yields each
     /// constant string field of the paired type together with that attribute name.
     /// </summary>
-    public static IEnumerable<(string AttributeName, IFieldSymbol ValueField)> EnumerateAttributeValueConstants(
+    private static IEnumerable<(string AttributeName, IFieldSymbol ValueField, string Value, AttributeData? Obsolete)> EnumerateAttributeValueConstants(
         INamedTypeSymbol attributesType)
     {
         Dictionary<string, string>? attrConstNameToValue = null;
@@ -97,9 +134,9 @@ internal static class SemconvNamespace
 
             foreach (var nestedMember in nested.GetMembers())
             {
-                if (nestedMember is IFieldSymbol { IsConst: true, Type.SpecialType: SpecialType.System_String, ConstantValue: string } valueField)
+                if (nestedMember is IFieldSymbol { IsConst: true, Type.SpecialType: SpecialType.System_String, ConstantValue: string value } valueField)
                 {
-                    yield return (attributeName, valueField);
+                    yield return (attributeName, valueField, value, valueField.GetAttribute("System.ObsoleteAttribute"));
                 }
             }
         }
@@ -118,7 +155,7 @@ internal static class SemconvNamespace
 
     private static bool IsWithinRoot(string value, string root) =>
         value == root || value.StartsWith(root + ".", StringComparison.Ordinal)
-        || value.IndexOf("." + root + ".", StringComparison.Ordinal) >= 0
+        || value.ContainsOrdinal("." + root + ".")
         || value.EndsWith("." + root, StringComparison.Ordinal);
 
     /// <summary>

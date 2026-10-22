@@ -43,9 +43,7 @@ public sealed class SupplementalSemconvMigrationCodeFixProvider : CodeFixProvide
                 continue;
             }
 
-            var literal = root.FindNode(diagnostic.Location.SourceSpan, getInnermostNodeForTie: true)
-                .FirstAncestorOrSelf<LiteralExpressionSyntax>();
-            if (literal is null || !literal.IsKind(SyntaxKind.StringLiteralExpression))
+            if (SemconvCodeFixHelpers.FindStringLiteral(root, diagnostic) is not { } literal)
             {
                 continue;
             }
@@ -53,7 +51,7 @@ public sealed class SupplementalSemconvMigrationCodeFixProvider : CodeFixProvide
             context.RegisterCodeFix(
                 CodeAction.Create(
                     $"Replace with \"{replacement}\"",
-                    ct => ReplaceLiteralAsync(document, literal, replacement!, ct),
+                    ct => SemconvCodeFixHelpers.ReplaceLiteralAsync(document, literal, replacement!, ct),
                     nameof(SupplementalSemconvMigrationCodeFixProvider)),
                 diagnostic);
         }
@@ -69,21 +67,5 @@ public sealed class SupplementalSemconvMigrationCodeFixProvider : CodeFixProvide
         }
 
         return migrationKind is nameof(SemconvMigrationKind.ExactRename) or nameof(SemconvMigrationKind.ExactValueRename) or nameof(SemconvMigrationKind.DeprecatedButGenerated);
-    }
-
-    private static async Task<Document> ReplaceLiteralAsync(
-        Document document,
-        LiteralExpressionSyntax literal,
-        string replacement,
-        CancellationToken cancellationToken)
-    {
-        var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-        if (root is null)
-        {
-            return document;
-        }
-
-        var replacementLiteral = SemconvCodeFixHelpers.CreateReplacementLiteral(literal, replacement);
-        return document.WithSyntaxRoot(root.ReplaceNode(literal, replacementLiteral));
     }
 }

@@ -47,21 +47,11 @@ public sealed class DeprecatedSemconvValueAnalyzer : DiagnosticAnalyzer
     private static Dictionary<(string AttrName, string Value), string> BuildValueDeprecationMap(Compilation compilation)
     {
         var map = new Dictionary<(string, string), string>();
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
+        foreach (var (attributeName, _, value, obsolete) in SemconvNamespace.EnumerateAttributeValueConstants(compilation))
         {
-            foreach (var (attributeName, valueField) in SemconvNamespace.EnumerateAttributeValueConstants(type))
+            if (obsolete is not null && !map.ContainsKey((attributeName, value)))
             {
-                var obsolete = valueField.GetAttribute("System.ObsoleteAttribute");
-                if (obsolete is null)
-                {
-                    continue;
-                }
-
-                var key = (attributeName, (string)valueField.ConstantValue!);
-                if (!map.ContainsKey(key))
-                {
-                    map[key] = SemconvCodeFixHelpers.GetObsoleteMessage(obsolete);
-                }
+                map[(attributeName, value)] = SemconvCodeFixHelpers.GetObsoleteMessage(obsolete);
             }
         }
 

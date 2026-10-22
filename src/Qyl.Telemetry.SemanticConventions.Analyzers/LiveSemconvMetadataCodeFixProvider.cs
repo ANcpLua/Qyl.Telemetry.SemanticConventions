@@ -139,9 +139,7 @@ public sealed class LiveSemconvMetadataCodeFixProvider : CodeFixProvider
             return;
         }
 
-        var literal = root.FindNode(diagnostic.Location.SourceSpan, getInnermostNodeForTie: true)
-            .FirstAncestorOrSelf<LiteralExpressionSyntax>();
-        if (literal is null || !literal.IsKind(SyntaxKind.StringLiteralExpression))
+        if (SemconvCodeFixHelpers.FindStringLiteral(root, diagnostic) is not { } literal)
         {
             return;
         }
@@ -149,45 +147,20 @@ public sealed class LiveSemconvMetadataCodeFixProvider : CodeFixProvider
         context.RegisterCodeFix(
             CodeAction.Create(
                 $"Replace with \"{replacement}\"",
-                ct => ReplaceLiteralAsync(document, literal, replacement, ct),
+                ct => SemconvCodeFixHelpers.ReplaceLiteralAsync(document, literal, replacement, ct),
                 nameof(LiveSemconvMetadataCodeFixProvider) + ".Literal"),
             diagnostic);
-    }
-
-    private static async Task<Document> ReplaceLiteralAsync(
-        Document document,
-        LiteralExpressionSyntax literal,
-        string replacement,
-        CancellationToken cancellationToken)
-    {
-        var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-        if (root is null)
-        {
-            return document;
-        }
-
-        var replacementLiteral = SemconvCodeFixHelpers.CreateReplacementLiteral(literal, replacement);
-        return document.WithSyntaxRoot(root.ReplaceNode(literal, replacementLiteral));
     }
 
     private static IFieldSymbol? FindReplacementField(
         Compilation compilation,
         string replacement)
     {
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
+        foreach (var (_, field, value, obsolete) in SemconvNamespace.EnumerateAttributeKeyConstants(compilation))
         {
-            foreach (var member in type.GetMembers())
+            if (obsolete is null && string.Equals(value, replacement, StringComparison.Ordinal))
             {
-                if (member is IFieldSymbol
-                    {
-                        IsConst: true,
-                        Type.SpecialType: SpecialType.System_String,
-                        ConstantValue: string value,
-                    } field
-                    && string.Equals(value, replacement, StringComparison.Ordinal))
-                {
-                    return field;
-                }
+                return field;
             }
         }
 

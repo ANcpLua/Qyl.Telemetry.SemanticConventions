@@ -45,30 +45,11 @@ public sealed class LiteralMatchesDeprecatedSemconvAnalyzer : DiagnosticAnalyzer
     private static Dictionary<string, string> BuildDeprecationMap(Compilation compilation)
     {
         var map = new Dictionary<string, string>(StringComparer.Ordinal);
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
+        foreach (var (_, _, value, obsolete) in SemconvNamespace.EnumerateAttributeKeyConstants(compilation))
         {
-            foreach (var member in type.GetMembers())
+            if (obsolete is not null && !map.ContainsKey(value))
             {
-                if (member is not IFieldSymbol { IsConst: true } field
-                    || field.Type.SpecialType != SpecialType.System_String
-                    || field.DeclaredAccessibility != Accessibility.Public
-                    || field.ConstantValue is not string value
-                    || string.IsNullOrEmpty(value))
-                {
-                    continue;
-                }
-
-                var obsolete = field.GetAttribute("System.ObsoleteAttribute");
-                if (obsolete is null)
-                {
-                    continue;
-                }
-
-                var message = SemconvCodeFixHelpers.GetObsoleteMessage(obsolete);
-                if (!map.ContainsKey(value))
-                {
-                    map[value] = message;
-                }
+                map[value] = SemconvCodeFixHelpers.GetObsoleteMessage(obsolete);
             }
         }
 

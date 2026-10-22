@@ -48,34 +48,16 @@ public sealed class PreferSemconvConstantAnalyzer : DiagnosticAnalyzer
     {
         var catalog = new Dictionary<string, string>(StringComparer.Ordinal);
 
-        // Walk every assembly-defined namespace. Collect public const string fields
+        // Walk every assembly-defined namespace. Collect public, non-obsolete const string fields
         // from any "*Attributes" type whose namespace is or descends from
         // OpenTelemetry.SemanticConventions. This works for upstream's flat layout
         // (OpenTelemetry.SemanticConventions.HttpAttributes), qyl's nested layout
         // (Qyl.Telemetry.SemanticConventions.Attributes.Http.HttpAttributes),
         // and any other consumer that shares the SemanticConventions namespace root.
-        foreach (var type in SemconvNamespace.EnumerateAttributesTypes(compilation))
+        foreach (var (type, field, value, obsolete) in SemconvNamespace.EnumerateAttributeKeyConstants(compilation))
         {
-            foreach (var member in type.GetMembers())
+            if (obsolete is null && !catalog.ContainsKey(value))
             {
-                if (member is not IFieldSymbol { IsConst: true } field
-                    || field.Type.SpecialType != SpecialType.System_String
-                    || field.DeclaredAccessibility != Accessibility.Public
-                    || field.HasAttribute("System.ObsoleteAttribute"))
-                {
-                    continue;
-                }
-
-                if (field.ConstantValue is not string value || string.IsNullOrEmpty(value))
-                {
-                    continue;
-                }
-
-                if (catalog.ContainsKey(value))
-                {
-                    continue;
-                }
-
                 catalog.Add(value, $"{type.Name}.{field.Name}");
             }
         }

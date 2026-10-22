@@ -33,15 +33,12 @@ internal sealed class Qyl0600InsecureEndpointAnalyzer : AlAnalyzer {
     ];
 
     private static readonly string[] EndpointPropertyNames = [
-        "Endpoint",
+        .. OtlpConfigurationNames.EndpointProperties,
         "BaseAddress",
         "Url",
         "Uri",
         "Address",
         "Host",
-        "CollectorEndpoint",
-        "OtlpEndpoint",
-        "ExporterEndpoint",
         "ServiceUrl",
         "ApiUrl",
         "ServerUrl"

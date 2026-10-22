@@ -123,14 +123,7 @@ internal sealed class Qyl0013IncorrectAttributeTypeAnalyzer : AlAnalyzer
         INamedTypeSymbol type,
         [NotNullWhen(true)] out ITypeSymbol? element)
     {
-        if (type is
-            {
-                Name: "IEnumerable",
-                Arity: 1,
-                ContainingNamespace.Name: "Generic",
-                ContainingNamespace.ContainingNamespace.Name: "Collections",
-                ContainingNamespace.ContainingNamespace.ContainingNamespace.Name: "System",
-            })
+        if (type.OriginalDefinition.SpecialType == SpecialType.System_Collections_Generic_IEnumerable_T)
         {
             element = type.TypeArguments[0];
             return true;

@@ -6,7 +6,7 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 /// </summary>
 /// <remarks>
 ///     <para>
-///         When using UseOtlpExporter() or AddOtlpExporter() without an explicit endpoint,
+///         When using UseOtlpExporter(), AddOtlpExporter() or WithOtlpExporter() without an explicit endpoint,
 ///         telemetry will be sent to the default localhost endpoint or fail to export
 ///         if no collector is running locally.
 ///     </para>
@@ -15,6 +15,7 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 ///         <list type="bullet">
 ///             <item>UseOtlpExporter</item>
 ///             <item>AddOtlpExporter</item>
+///             <item>WithOtlpExporter</item>
 ///         </list>
 ///     </para>
 ///     <para>
@@ -30,11 +31,6 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
     /// <summary>The diagnostic identifier for QYL0700.</summary>
     private const string DiagnosticId = "QYL0700";
-
-    private static readonly string[] OtlpExporterMethods = [
-        "UseOtlpExporter",
-        "AddOtlpExporter"
-    ];
 
     private static readonly DiagnosticDescriptor Rule = CreateRule(
         DiagnosticId,
@@ -52,7 +48,7 @@ internal sealed class Qyl0700MissingOtlpConfigurationAnalyzer : AlAnalyzer {
         var invocation = (InvocationExpressionSyntax)context.Node;
 
         if (invocation.Expression is not MemberAccessExpressionSyntax memberAccess
-            || !OtlpExporterMethods.Contains(memberAccess.Name.Identifier.Text)
+            || !OtlpConfigurationNames.ExporterMethods.Contains(memberAccess.Name.Identifier.Text)
             || HasExplicitEndpointConfiguration(invocation, context.SemanticModel, context.CancellationToken)
             || HasEnvironmentVariableSet(invocation)) {
             return;

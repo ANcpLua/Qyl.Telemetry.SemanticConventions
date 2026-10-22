@@ -24,10 +24,6 @@ internal sealed class Qyl0301NonOtlpCollectorEndpointAnalyzer : AlAnalyzer {
         "otlp"
     ];
 
-    private static readonly string[] EndpointPropertyNames = [
-        "Endpoint", "CollectorEndpoint", "OtlpEndpoint", "ExporterEndpoint"
-    ];
-
     /// <summary>The diagnostic identifier for QYL0301.</summary>
     private const string DiagnosticId = "QYL0301";
 
@@ -47,7 +43,7 @@ internal sealed class Qyl0301NonOtlpCollectorEndpointAnalyzer : AlAnalyzer {
         var assignment = (ISimpleAssignmentOperation)context.Operation;
 
         if (assignment.Target is not IMemberReferenceOperation { Member.Name: var propertyName } ||
-            !EndpointPropertyNames.Contains(propertyName, StringComparer.OrdinalIgnoreCase) ||
+            !OtlpConfigurationNames.EndpointProperties.Contains(propertyName, StringComparer.OrdinalIgnoreCase) ||
             assignment.Value.ConstantValue is not { HasValue: true, Value: string endpoint } ||
             IsOtlpEndpoint(endpoint)) {
             return;

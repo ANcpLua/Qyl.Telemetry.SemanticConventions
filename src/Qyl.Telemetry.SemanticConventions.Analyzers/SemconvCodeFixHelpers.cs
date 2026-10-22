@@ -47,25 +47,17 @@ internal static class SemconvCodeFixHelpers
         return IsExactReplacementCandidate(replacement);
     }
 
-    private static bool TryExtractQuotedUseReplacement(string guidance, [NotNullWhen(true)] out string? replacement)
-    {
-        const string quotedPrefix = "Use '";
-        if (guidance.StartsWith(quotedPrefix, StringComparison.Ordinal))
-        {
-            var start = quotedPrefix.Length;
-            var end = guidance.IndexOf('\'', start);
-            if (end > start)
-            {
-                replacement = guidance.Substring(start, end - start);
-                return true;
-            }
-        }
+    private static bool TryExtractQuotedUseReplacement(string guidance, [NotNullWhen(true)] out string? replacement) =>
+        TryExtractDelimited(guidance, '\'', out replacement) || TryExtractDelimited(guidance, '`', out replacement);
 
-        const string backtickPrefix = "Use `";
-        if (guidance.StartsWith(backtickPrefix, StringComparison.Ordinal))
+    /// <summary>The text between <paramref name="delimiter"/>s right after <c>Use </c>, as in <c>Use 'x'</c>.</summary>
+    private static bool TryExtractDelimited(string guidance, char delimiter, [NotNullWhen(true)] out string? replacement)
+    {
+        var prefix = "Use " + delimiter;
+        if (guidance.StartsWith(prefix, StringComparison.Ordinal))
         {
-            var start = backtickPrefix.Length;
-            var end = guidance.IndexOf('`', start);
+            var start = prefix.Length;
+            var end = guidance.IndexOf(delimiter, start);
             if (end > start)
             {
                 replacement = guidance.Substring(start, end - start);
@@ -75,6 +67,30 @@ internal static class SemconvCodeFixHelpers
 
         replacement = null;
         return false;
+    }
+
+    /// <summary>The string literal <paramref name="diagnostic"/> points at, or <see langword="null"/> when it points at anything else.</summary>
+    public static LiteralExpressionSyntax? FindStringLiteral(SyntaxNode root, Diagnostic diagnostic) =>
+        root.FindNode(diagnostic.Location.SourceSpan, getInnermostNodeForTie: true)
+            .FirstAncestorOrSelf<LiteralExpressionSyntax>() is { } literal
+        && literal.IsKind(SyntaxKind.StringLiteralExpression)
+            ? literal
+            : null;
+
+    /// <summary>Replaces <paramref name="literal"/> in <paramref name="document"/> with a string literal of <paramref name="replacement"/>.</summary>
+    public static async Task<Document> ReplaceLiteralAsync(
+        Document document,
+        LiteralExpressionSyntax literal,
+        string replacement,
+        CancellationToken cancellationToken)
+    {
+        var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
+        if (root is null)
+        {
+            return document;
+        }
+
+        return document.WithSyntaxRoot(root.ReplaceNode(literal, CreateReplacementLiteral(literal, replacement)));
     }
 
     public static LiteralExpressionSyntax CreateReplacementLiteral(

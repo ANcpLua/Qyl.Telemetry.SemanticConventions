@@ -29,6 +29,6 @@ internal static partial class SymbolicNaming
         return m.Success ? $"QYL{m.Groups[1].Value}{m.Groups[2].Value}" : className;
     }
 
-    [GeneratedRegex(@"^Qyl(\d{4})(.*)$", RegexOptions.Compiled)]
+    [GeneratedRegex(@"^Qyl(\d{4})(.*)$")]
     private static partial Regex FileBasenamePrefixRegex();
 }

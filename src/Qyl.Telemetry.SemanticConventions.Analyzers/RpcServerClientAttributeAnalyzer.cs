@@ -19,11 +19,11 @@ namespace Qyl.Telemetry.SemanticConventions.Analyzers;
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public sealed class RpcServerClientAttributeAnalyzer : DiagnosticAnalyzer
 {
-    private static readonly ImmutableHashSet<string> RpcContextKeys = ImmutableHashSet.Create(
-        "rpc.system.name", "rpc.system", "rpc.service", "rpc.method", "rpc.grpc.status_code");
+    private static readonly ImmutableHashSet<string> RpcContextKeys =
+        ["rpc.system.name", "rpc.system", "rpc.service", "rpc.method", "rpc.grpc.status_code"];
 
-    private static readonly ImmutableHashSet<string> ForbiddenClientKeys = ImmutableHashSet.Create(
-        "client.address", "client.port");
+    private static readonly ImmutableHashSet<string> ForbiddenClientKeys =
+        ["client.address", "client.port"];
 
     /// <inheritdoc />
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } =

@@ -132,15 +132,15 @@ public sealed class SpanRecord
     };
 
     /// <summary>The attribute as integers, or null if absent or any element has an unsupported type.</summary>
-    public IReadOnlyList<long>? GetInt64s(string key) => GetValues(key, ReadInt64);
+    public IReadOnlyList<long>? GetInt64s(string key) => GetValues(key, static value => ReadInt64(value) is { } number ? (true, number) : default);
 
     /// <summary>The attribute as numbers, or null if absent or any element has an unsupported type.</summary>
-    public IReadOnlyList<double>? GetDoubles(string key) => GetValues(key, ReadDouble);
+    public IReadOnlyList<double>? GetDoubles(string key) => GetValues(key, static value => ReadDouble(value) is { } number ? (true, number) : default);
 
     /// <summary>The attribute as booleans, or null if absent or any element is not a boolean.</summary>
-    public IReadOnlyList<bool>? GetBooleans(string key) => GetValues<bool>(key, static value => value is bool boolean ? boolean : null);
+    public IReadOnlyList<bool>? GetBooleans(string key) => GetValues(key, static value => value is bool boolean ? (true, boolean) : default);
 
-    private List<T>? GetValues<T>(string key, Func<object?, T?> read) where T : struct
+    private List<T>? GetValues<T>(string key, Func<object?, (bool Ok, T Value)> read)
     {
         if (!Attributes.TryGetValue(key, out var value) || value is string || value is not System.Collections.IEnumerable items)
             return null;
@@ -148,7 +148,8 @@ public sealed class SpanRecord
         var values = new List<T>();
         foreach (var item in items)
         {
-            if (read(item) is not { } typed) return null;
+            var (ok, typed) = read(item);
+            if (!ok) return null;
             values.Add(typed);
         }
         return values;
@@ -162,26 +163,7 @@ public sealed class SpanRecord
     /// <summary>The attribute as a list of strings, or <see langword="null"/> when absent or not a list of strings.</summary>
     /// <param name="key">The attribute key.</param>
     /// <returns>The value.</returns>
-    public IReadOnlyList<string>? GetStrings(string key)
-    {
-        if (!Attributes.TryGetValue(key, out var value) || value is string || value is not System.Collections.IEnumerable items)
-        {
-            return null;
-        }
-
-        var list = new List<string>();
-        foreach (var item in items)
-        {
-            if (item is not string text)
-            {
-                return null;
-            }
-
-            list.Add(text);
-        }
-
-        return list;
-    }
+    public IReadOnlyList<string>? GetStrings(string key) => GetValues(key, static value => value is string text ? (true, text) : default);
 
     /// <inheritdoc/>
     public override string ToString() => Name;
