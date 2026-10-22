@@ -82,6 +82,15 @@ public sealed class Qyl0601SensitiveDataInAttributeAnalyzerTests(TestContext tes
         Assert.Contains("http.request.header.authorization", diagnostics[0].GetMessage(CultureInfo.InvariantCulture));
     }
 
+    [TestMethod]
+    public async Task Qyl0601_SensitiveKeyOnGaugeRecord_IsReported()
+    {
+        var diagnostics = await CompileTelemetry(Compile.Source(Fixture("meter.CreateGauge<int>(\"queue.depth\").Record(1, new KeyValuePair<string, object?>(\"password\", secret));"))).WithAnalyzers([new Qyl0601SensitiveDataInAttributeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        var diagnostic = Assert.ContainsSingle(diagnostics);
+        Assert.AreEqual("QYL0601", diagnostic.Id);
+        Assert.Contains("password", diagnostic.GetMessage(CultureInfo.InvariantCulture));
+    }
+
     private static Microsoft.CodeAnalysis.CSharp.CSharpCompilation CompileTelemetry(Compile source) =>
         AnalyzerRun.CompileSource(source.WithReference<System.Diagnostics.Activity>().WithReference<System.Diagnostics.Metrics.Meter>());
 

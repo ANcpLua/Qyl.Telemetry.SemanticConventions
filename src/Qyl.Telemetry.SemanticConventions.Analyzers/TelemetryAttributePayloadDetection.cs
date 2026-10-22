@@ -831,7 +831,7 @@ internal static class TelemetryAttributePayloadDetection
         && IsLoggerLike(invocation.TargetMethod.ContainingType);
 
     private static bool IsMetricInstrument(ITypeSymbol? type) =>
-        type is INamedTypeSymbol { Arity: 1, Name: "Counter" or "Histogram" or "UpDownCounter" }
+        type is INamedTypeSymbol { Arity: 1, Name: "Counter" or "Gauge" or "Histogram" or "UpDownCounter" }
         && type.ContainingNamespace.ToDisplayString() == "System.Diagnostics.Metrics";
 
     private static bool IsMetricMeasurementCreation(ITypeSymbol? type) =>
