@@ -1,5 +1,22 @@
 # Changelog
 
+## [15.0.4] - 2026-10-22
+
+- Describe the OpenAI Codex conversation thread id as `openai_codex.thread.id`, a string UUID sent under the wire key `thread.id`, on `codex.exec`, `dispatch_tool_call_with_code_mode_result`, `startup_prewarm` and `turn`. The core `thread.id` stays an integer, with its setter, constant and catalogs unchanged.
+- Accept both a string and an integer for `thread.id` in QYL0013. Live checks take the declared type from the span a sample matches, so a Codex UUID under `thread.id` raises no type error, while text under `thread.id` on any other span still does. The live-check advice no longer claims the collector coerces a value to the registry type.
+- Rewrite a key under a deprecated wildcard prefix to its concrete successor in QYL0009 and its code fix: `db.elasticsearch.path_parts.index` becomes `db.operation.parameter.index`.
+- Report deprecated values of the qyl packages as QYL0007 with the live `[Obsolete]` message, instead of the QYL0009 catalog fallback.
+- Analyze `Gauge<T>.Record` tags as a metric measurement, so QYL0601 and QYL0202 apply as on `Counter<T>.Add`.
+- Accept a nullable value of the registry type in QYL0013, such as an `int?` for `server.port`.
+- Keep surrogate pairs whole when `RecordFailure` bounds the status description, so it never ends in a lone high surrogate.
+- Never suggest an `[Obsolete]` constant in QYL0004.
+- Stop treating `XmlElement.SetAttribute` and other `System` methods outside `System.Diagnostics` as telemetry tag writes in QYL0601, QYL0004, QYL0005, QYL0009 and QYL0013.
+- Accept an OTLP endpoint set in top-level statements, a constructor, an accessor or a local function, or passed as a target-typed `new(...)` Uri, in QYL0700.
+- Report `graphql.document` written through the typed `SetGraphqlDocument` setter in QYL0001.
+- Read `short` and `byte` attributes through `SpanRecord.GetDouble` and `GetDoubles`, as `GetInt64` already does.
+- Recognize RPC spans written with `rpc.system.name` in QYL0002, next to `rpc.method` and the deprecated `rpc.system`.
+- Order versions numerically in the migration catalog's coverage table, so 1.40.0 sorts above 1.9.0.
+
 ## [15.0.3] - 2026-10-19
 
 - Keep registry enum attributes whose key contains a denied token. Their values are registry members, not free text, so `RegistryPolicy.TokenExemptKeys` now lists `cicd.pipeline.result`, `cicd.pipeline.task.run.result` and the other 17: the ASP.NET Core authentication, authorization, diagnostics, identity and rate-limiting results, `aspnetcore.identity.token_purpose`, `aspnetcore.identity.token_verified`, `faas.document.operation`, `feature_flag.result.reason`, `gen_ai.token.modality`, `message.type`, `messaging.rocketmq.message.type`, `otel.span.sampling_result`, `rpc.message.type` and `test.case.result.status`. Free-text keys such as `gen_ai.tool.call.result` and `feature_flag.result.value` stay denied.
