@@ -114,7 +114,7 @@ internal static class MigrationCatalogRenderer
         sb.AppendLine("| -- | -- | --: | --: | --: | --: | --: | --: |");
         foreach (var g in stats.Entries
             .GroupBy(e => (e.Version, e.Domain))
-            .OrderByDescending(g => VersionSortKey(g.Key.Version), StringComparer.Ordinal)
+            .OrderByDescending(g => g.Key.Version, SemconvMigrationCatalog.VersionComparer)
             .ThenBy(g => g.Key.Domain, StringComparer.Ordinal))
         {
             var rows = g.ToArray();
@@ -162,10 +162,6 @@ internal static class MigrationCatalogRenderer
             sb.AppendLine($"| `{e.OldName}` | {e.Signal} | {e.Domain} | {e.MigrationKind} | {replacement} | {MarkdownFormatting.Escape(e.ChangelogEvidence)} |");
         }
     }
-
-
-    private static string VersionSortKey(string version) =>
-        version is "unknown" ? "0.0.0" : version;
 }
 
 /// <summary>

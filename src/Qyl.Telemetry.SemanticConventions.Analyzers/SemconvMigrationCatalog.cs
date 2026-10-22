@@ -262,6 +262,13 @@ internal static class SemconvMigrationCatalog
     private static string VersionOrKnownUnknown(string version) =>
         string.IsNullOrWhiteSpace(version) ? "unknown" : version;
 
+    /// <summary>Orders catalog versions numerically, so 1.9.0 precedes 1.40.0; <c>unknown</c> sorts first.</summary>
+    public static IComparer<string> VersionComparer { get; } =
+        Comparer<string>.Create(static (left, right) => ParseVersion(left).CompareTo(ParseVersion(right)));
+
+    private static Version ParseVersion(string version) =>
+        Version.TryParse(version, out var parsed) ? parsed : new Version(0, 0, 0);
+
     private static ImmutableDictionary<string, SemconvMigrationCatalogEntry> BuildEntriesByOldName(
         ImmutableArray<SemconvMigrationCatalogEntry> entries)
     {

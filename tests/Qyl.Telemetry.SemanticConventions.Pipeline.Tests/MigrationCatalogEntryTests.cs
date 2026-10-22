@@ -21,6 +21,16 @@ public sealed class MigrationCatalogEntryTests
     }
 
     [TestMethod]
+    public void CatalogVersionOrder_TwoDigitMinor_SortsNumerically()
+    {
+        string[] versions = ["1.40.0", "unknown", "1.9.0", "1.13.0"];
+
+        var ordered = versions.Order(SemconvMigrationCatalog.VersionComparer).ToArray();
+
+        Assert.AreSequenceEqual(["unknown", "1.9.0", "1.13.0", "1.40.0"], ordered);
+    }
+
+    [TestMethod]
     public void Conflicting_replacements_for_the_same_catalog_key_are_rejected()
     {
         var entries = ImmutableDictionary<string, SemconvMigrationCatalogEntry>.Empty
