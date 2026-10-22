@@ -28,6 +28,16 @@ public sealed class SpanRecordTests
     }
 
     [TestMethod]
+    [DataRow((byte)7, 7.0)]
+    [DataRow((short)-12, -12.0)]
+    public void GetDouble_IntegerAcceptedByGetInt64_ProjectsToDouble(object value, double expected)
+    {
+        var span = Record(value);
+        Assert.IsNotNull(span.GetInt64("value"));
+        Assert.AreEqual(expected, span.GetDouble("value"));
+    }
+
+    [TestMethod]
     public void Typed_getters_reject_strings_that_only_look_like_numbers_or_booleans()
     {
         var span = Record("42");

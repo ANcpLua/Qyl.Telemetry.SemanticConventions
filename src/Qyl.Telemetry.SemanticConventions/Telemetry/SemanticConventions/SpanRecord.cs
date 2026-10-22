@@ -128,9 +128,7 @@ public sealed class SpanRecord
     {
         double number => number,
         float number => number,
-        long number => number,
-        int number => number,
-        _ => null
+        _ => ReadInt64(value)
     };
 
     /// <summary>The attribute as integers, or null if absent or any element has an unsupported type.</summary>
