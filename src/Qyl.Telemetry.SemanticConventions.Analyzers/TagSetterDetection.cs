@@ -18,17 +18,29 @@ internal static class TagSetterDetection
 
     /// <summary>
     /// Method names treated as a raw "set this telemetry tag" callsite. Matched by simple
-    /// name against <see cref="IInvocationOperation.TargetMethod"/>; we do not pin the
-    /// receiver type because consumers use Activity, Span, TagList, custom builders,
-    /// and OTel-extension wrappers interchangeably.
+    /// name against <see cref="IInvocationOperation.TargetMethod"/>; the receiver type stays open
+    /// because consumers use Activity, Span, TagList, custom builders, and OTel-extension wrappers
+    /// interchangeably. Only the framework's own non-telemetry types are excluded.
     /// </summary>
     private static readonly ImmutableHashSet<string> TagSetterMethodNames = ImmutableHashSet.Create(
         "SetTag", "AddTag", "SetAttribute", "AddAttribute");
 
     /// <summary>Whether <paramref name="invocation"/> is a raw <c>SetTag</c>-style call.</summary>
-    public static bool IsTagSetterInvocation(IInvocationOperation invocation)
+    public static bool IsTagSetterInvocation(IInvocationOperation invocation) =>
+        TagSetterMethodNames.Contains(invocation.TargetMethod.Name)
+        && !IsDeclaredInNonTelemetryFrameworkNamespace(invocation.TargetMethod);
+
+    /// <summary>
+    /// The <c>System</c> namespace tree outside <c>System.Diagnostics</c> declares no telemetry tag
+    /// setter; its same-named methods write something else, such as
+    /// <c>System.Xml.XmlElement.SetAttribute</c> writing an XML attribute.
+    /// </summary>
+    private static bool IsDeclaredInNonTelemetryFrameworkNamespace(IMethodSymbol method)
     {
-        return TagSetterMethodNames.Contains(invocation.TargetMethod.Name);
+        var ns = method.ContainingNamespace.ToDisplayString();
+        return (ns == "System" || ns.StartsWith("System.", StringComparison.Ordinal))
+            && ns != "System.Diagnostics"
+            && !ns.StartsWith("System.Diagnostics.", StringComparison.Ordinal);
     }
 
     public static bool TryGetTagSetterKeyArgument(

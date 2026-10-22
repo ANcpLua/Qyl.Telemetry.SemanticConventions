@@ -91,6 +91,17 @@ public sealed class Qyl0601SensitiveDataInAttributeAnalyzerTests(TestContext tes
         Assert.Contains("password", diagnostic.GetMessage(CultureInfo.InvariantCulture));
     }
 
+    [TestMethod]
+    public async Task Qyl0601_XmlElementSetAttribute_IsSilent()
+    {
+        var diagnostics = await AnalyzerRun.CompileSource(Compile.Source(SourceFixture.InMethod(
+                "element.SetAttribute(\"password\", secret);",
+                declarations: "using System.Xml;",
+                parameters: "XmlElement element, string secret")).WithReference<System.Xml.XmlElement>())
+            .WithAnalyzers([new Qyl0601SensitiveDataInAttributeAnalyzer()]).GetAnalyzerDiagnosticsAsync(testContext.CancellationToken);
+        Assert.IsEmpty(diagnostics);
+    }
+
     private static Microsoft.CodeAnalysis.CSharp.CSharpCompilation CompileTelemetry(Compile source) =>
         AnalyzerRun.CompileSource(source.WithReference<System.Diagnostics.Activity>().WithReference<System.Diagnostics.Metrics.Meter>());
 
